@@ -9,6 +9,6 @@ requires-python = ">=3.10"
 dependencies = [
     "rdflib>=7.0.0",         # für RDF-Triples
     "pandas>=2.2.0",         # Einlesen von CSV/Excel
-    "requests>=2.31.0",      # Senden an Fuseki Server
-    "sparqlwrapper>=2.0.0"   # SPARQL in python
+    "requests>=2.31.0",      # Senden an Fuseki Server   # SPARQL in python
+    "sparqlwrapper>=2.0.0",
 ]
