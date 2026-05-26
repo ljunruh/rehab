@@ -1,2 +1,2 @@
-# Wie starte ich den Server? 
-Punkt 1 so und so, test, test.
+# Wie starte ich das Projekt?
+Gehe in knowledge_graph/src und führe `uv sync` aus. 
