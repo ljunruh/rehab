@@ -1,0 +1,22 @@
+# --- Python-Spezifisch ---
+.venv/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# --- Umgebungsvariablen & Geheimnisse (Sensible Daten) ---
+.env
+.env.local
+*.env
+
+# --- Betriebssystem-Müll ---
+.DS_Store
+Thumbs.db
+
+# --- IDEs / Editoren ---
+.vscode/
+.idea/
