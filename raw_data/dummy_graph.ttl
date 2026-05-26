@@ -1,0 +1,15 @@
+@prefix id: <http://reha-app.org/id/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix v: <http://reha-app.org/vocab#> .
+
+id:dummy_uebung_1 a v:Activity ;
+    rdfs:label "Dummy Übung A"@de ;
+    v:involvesBodyPart id:rechter_arm .
+
+id:schulter_einschraenkung a v:Injury ;
+    rdfs:label "Schulter‑Einschränkung"@de ;
+    v:affectsBodyPart id:rechter_arm .
+
+id:rechter_arm a v:BodyPart ;
+    rdfs:label "Rechter Arm"@de .
+
