@@ -11,5 +11,5 @@ Das Projekt ist in drei Hauptarbeitsgruppen aufgeteilt, die sich in den jeweilig
 *   **`api/`**: Technische Umsetzung des Backbones, API-Anbindung an die Wissensbasis, Datenspeicherung und App-Integration.
 
 Weitere Ordner:
-*   **`docs/`**: Technische Architekturspezifikationen und Softwaredokumentation. Bitte lest euch vor Projektstart zwingend die **[GitLab Workflow & Zusammenarbeit Leitlinien](docs/workflow.md)** durch!
+*   **`docs/`**: Technische Architekturspezifikationen und Softwaredokumentation. Bitte lest euch vor Projektstart zwingend die **[Github Workflow & Zusammenarbeit Leitlinien](docs/workflow.md)** durch!
 
