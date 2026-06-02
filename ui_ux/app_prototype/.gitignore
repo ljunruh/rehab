@@ -24,6 +24,9 @@ build_web/
 .idea/
 *.iml
 *.iws
+# Lokale Run-Verzeichnisse der IDE
+run/
+.run/
 
 # AUSNAHME: Falls du gemeinsame Run-Configurations im Team teilen möchtest,
 # kannst du die obere Zeile (.idea/) löschen und stattdessen das hier nutzen:
