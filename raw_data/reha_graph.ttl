@@ -1,0 +1,19 @@
+@prefix id: <http://reha-app.org/id/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix v: <http://reha-app.org/vocab#> .
+
+id:m01 a v:Activity ;
+    rdfs:label "Deep squat"@de ;
+    v:involvesBodyPart id:bp_heel,
+        id:bp_knee,
+        id:bp_trunk .
+
+id:bp_heel a v:BodyPart ;
+    rdfs:label "Heel"@de .
+
+id:bp_knee a v:BodyPart ;
+    rdfs:label "Knee"@de .
+
+id:bp_trunk a v:BodyPart ;
+    rdfs:label "Trunk"@de .
+
