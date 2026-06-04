@@ -1,18 +1,12 @@
-{
-  "activity_id": "m01",
-  "activity_name": "Deep squat",
-  "body_parts": [
-    {
-      "id": "bp_knee",
-      "name": "Knee"
-    },
-    {
-      "id": "bp_trunk",
-      "name": "Trunk"
-    },
-    {
-      "id": "bp_heel",
-      "name": "Heel"
-    }
-  ]
-}
+[
+  {
+    "activity_id": "m01",
+    "activity_name": "Deep Squat",
+    "difficulty": "beginner",
+    "contraindications": ["KneeIssue", "LowerBackIssue"],
+    "body_parts": [
+      { "id": "bp_knee", "name": "Knee" },
+      { "id": "bp_trunk", "name": "Trunk" }
+    ]
+  }
+]

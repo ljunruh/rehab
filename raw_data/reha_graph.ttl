@@ -1,15 +1,15 @@
 @prefix id: <http://reha-app.org/id/> .
+@prefix pt: <http://purl.org/PhysicalTherapy#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix v: <http://reha-app.org/vocab#> .
 
 id:m01 a v:Activity ;
-    rdfs:label "Deep squat"@de ;
-    v:involvesBodyPart id:bp_heel,
-        id:bp_knee,
+    rdfs:label "Deep Squat"@de ;
+    pt:hasContraindication pt:KneeIssue,
+        pt:LowerBackIssue ;
+    pt:hasDifficultyLevel pt:Beginner ;
+    v:involvesBodyPart id:bp_knee,
         id:bp_trunk .
-
-id:bp_heel a v:BodyPart ;
-    rdfs:label "Heel"@de .
 
 id:bp_knee a v:BodyPart ;
     rdfs:label "Knee"@de .
