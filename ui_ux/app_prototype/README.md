@@ -31,6 +31,7 @@ samples, guidance on mobile development, and a full API reference.
     * Für UI und API-Calls notwendig.
     * Download: https://flutter.dev/docs/get-started/install
     * Falls Flutter das falsche JDK verwendet: `flutter config --jdk-dir <PFAD_ZUM_JDK>`
+    * Abhängigkeiten installieren: `flutter pub get`
 * **Android Studio**
     * Wird für Android-Emulatoren benötigt.
     * Starten über: `android-studio/bin/studio.sh`
@@ -138,10 +139,29 @@ angepasst werden.
 Falls die Datei noch nicht existiert: `flutter build appbundle`. Dadurch wird sie automatisch erzeugt.
 Alternativ kann sie manuell angelegt werden.
 
+<strong>App-Icons generieren</strong><br>
+Die App benötigt Launcher Icons. Diese werden automatisch aus einem Basisbild generiert:
+
+1. Stelle sicher, dass `flutter_launcher_icons.yaml` im Projektverzeichnis existiert
+2. Stelle sicher, dass ein Icon in `assets/icon/icon.png` (mind. 512x512px) vorhanden ist
+3. Icons generieren:
+   ```bash
+   dart run flutter_launcher_icons:main
+   ```
+
 <strong>Anwendung starten</strong>
-1. Android Emulator starten
-2. Emulator als Zielplattform auswählen
-3. `main.dart` ausführen
+1. Android Emulator starten:
+   ```bash
+   flutter emulators --launch <GERÄTE_ID>
+   ```
+2. Dependencies installieren (falls noch nicht gemacht):
+   ```bash
+   flutter pub get
+   ```
+3. App starten:
+   ```bash
+   flutter run
+   ```
 
 ### iOS ⚠️ **TODO**
 1. iOS-Plattform auswählen
