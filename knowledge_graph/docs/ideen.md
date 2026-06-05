@@ -55,3 +55,4 @@ vielleicht müssen wir die userdaten von dem rest koppeln wegen performance
 + Tag der Verletzung ggf auch OP
 + BMI, Demografie und Lebensstil gewichten Übungen anders
 + Skill Score von Gemini
++ MET Score
