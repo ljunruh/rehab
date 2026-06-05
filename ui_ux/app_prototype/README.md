@@ -99,7 +99,7 @@ Danach IntelliJ gegebenenfalls neu starten.
 #### Apache Jena Fuseki starten
 Lokalen Fuseki-Server starten:
 ```bash
-<PREFIX_PATH>/apache-jena-fuseki-6.1.0/fuseki-server/fuseki-server --file=../../raw_data/dummy_graph.ttl /rehab_dummy
+<PREFIX_PATH>/apache-jena-fuseki-6.1.0/fuseki-server --file=../../raw_data/dummy_graph.ttl /rehab_dummy
 ```
 * Server läuft auf: `http://localhost:3030`
 * Über das Webinterface können SPARQL-Queries gegen die Ontologie ausgeführt werden.
