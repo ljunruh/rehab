@@ -1,0 +1,75 @@
+# -------------------------------------------------------------------------
+# Flutter & Dart
+# -------------------------------------------------------------------------
+# Die folgenden Verzeichnisse enthalten generierte Dateien von Flutter.
+.dart_tool/
+.flutter-plugins
+.flutter-plugins-dependencies
+.packages
+.pub-cache/
+.pub/
+build/
+
+# Falls du das Web-Release nutzt, wird dieses Verzeichnis generiert
+build_web/
+
+# Von Flutter automatisch generierte Dateien für Web/Desktop-Plattformen
+# (falls du diese nicht aktiv bearbeitest)
+.plugin_symlinks/
+
+# -------------------------------------------------------------------------
+# IntelliJ IDEA / Android Studio (JetBrains)
+# -------------------------------------------------------------------------
+# Ignoriere die meisten IDE-spezifischen Einstellungen
+.idea/
+*.iml
+*.iws
+# Lokale Run-Verzeichnisse der IDE
+run/
+.run/
+
+# AUSNAHME: Falls du gemeinsame Run-Configurations im Team teilen möchtest,
+# kannst du die obere Zeile (.idea/) löschen und stattdessen das hier nutzen:
+# .idea/modules.xml
+# .idea/jarRepositories.xml
+# .idea/compiler.xml
+# .idea/libraries/
+# !.idea/runConfigurations/
+
+# -------------------------------------------------------------------------
+# Android-spezifisch
+# -------------------------------------------------------------------------
+android/**/generated/
+android/app/src/main/res/drawable-*/
+android/app/src/main/res/mipmap-*/
+android/.gradle/
+android/local.properties
+android/project.xcworkspace
+android/flutter_windowmart.iml
+
+# -------------------------------------------------------------------------
+# iOS/macOS-spezifisch (CocoaPods & Xcode)
+# -------------------------------------------------------------------------
+ios/.generated/
+ios/Flutter/Generated.xcconfig
+ios/Flutter/flutter_export_environment.sh
+ios/Flutter/Flutter.podspec
+ios/Pods/
+ios/.symlinks/
+XcodeWorkspace/.xcworkspace
+
+# macOS-Systemdateien
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# -------------------------------------------------------------------------
+# Geheimnisse & Umgebungsvariablen (WICHTIG!)
+# -------------------------------------------------------------------------
+# Hier gehören alle Dateien hin, die API-Keys oder Passwörter enthalten.
+.env
+.env.*
+*.secret
+*.keystore
+*.jks
+!/android/app/debug.keystore # Der Standard-Debug-Key darf meistens ins Git
