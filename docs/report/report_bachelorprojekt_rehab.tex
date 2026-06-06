@@ -1,0 +1,34 @@
+\documentclass{article}
+\usepackage{graphicx} % Required for inserting images
+\usepackage{microtype}
+\usepackage[ngerman]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{csquotes}
+
+\usepackage[backend = biber, style=apa,]{biblatex}
+\addbibresource{./extra/literatur.bib}
+\setcounter{secnumdepth}{0} 
+
+\begin{document}
+
+\input{titlepage}
+\newpage
+\pagenumbering{Roman}
+\tableofcontents
+\newpage
+
+\pagenumbering{arabic}
+
+%Kapitel
+\include{kapitel/kapitel_1.tex}
+
+\include{kapitel/kapitel_2.tex}
+
+\include{kapitel/kapitel_3.tex}
+
+\include{kapitel/kapitel_4.tex}
+
+%Literaturverzeichnis
+\printbibliography[heading=bibintoc]
+
+\end{document}
