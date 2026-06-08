@@ -56,3 +56,18 @@ vielleicht müssen wir die userdaten von dem rest koppeln wegen performance
 + BMI, Demografie und Lebensstil gewichten Übungen anders
 + Skill Score von Gemini
 + MET Score
+
+
+
+### Nach der Stunde
++ Kompetenzfragen aufstellen
++ DOLCE oder BFO Ontology benutzen
++ Aufteilung in Module 
++ OntOlogy Pitfall Scanner
++ Werden alle Competency Questions beantwortet
+
+### Design nach best Practices
++ Übungen werden eingeteilt in Unterklassen (kraft, mobilisation/dehnung, koodrination/beweglichkeit, entspannung)
++ Übungen können auch mehreren Unterklassen angehören
++ Ein User hat bezüglich einer Übung einen VAS Schmerz Wert
++ 
