@@ -24814,6 +24814,120 @@
         <Datatype IRI="#MET"/>
         <Datatype abbreviatedIRI="xsd:decimal"/>
     </DatatypeDefinition>
+
+    <!-- =================================================================
+         Position subclasses for rehab starting positions
+         (added to align with JSON import vocabulary)
+         ================================================================= -->
+    <Declaration>
+        <Class IRI="#SideLaying"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Floor"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#AnyPosition"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#WallStanding"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#StandingOnCushion"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#ChairSitting"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#SittingOrFloor"/>
+    </Declaration>
+
+    <SubClassOf>
+        <Class IRI="#SideLaying"/>
+        <Class IRI="#Laying"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#WallStanding"/>
+        <Class IRI="#Standing"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#StandingOnCushion"/>
+        <Class IRI="#Standing"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#ChairSitting"/>
+        <Class IRI="#Sitting"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Floor"/>
+        <Class IRI="#Position"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#AnyPosition"/>
+        <Class IRI="#Position"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#SittingOrFloor"/>
+        <Class IRI="#Position"/>
+    </SubClassOf>
+
+    <!-- Deutsche Labels für bestehende Position-Klassen -->
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Standing</IRI>
+        <Literal>Stehend</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Sitting</IRI>
+        <Literal>Sitzen</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Laying</IRI>
+        <Literal>Rückenlage</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Kneeling</IRI>
+        <Literal>Kniestand</Literal>
+    </AnnotationAssertion>
+
+    <!-- Deutsche Labels für die neuen Position-Subklassen -->
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#SideLaying</IRI>
+        <Literal>Seitlage</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Floor</IRI>
+        <Literal>Boden</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#AnyPosition</IRI>
+        <Literal>Beliebig</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#WallStanding</IRI>
+        <Literal>Stehend an der Wand</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#StandingOnCushion</IRI>
+        <Literal>Stehend auf Kissen</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#ChairSitting</IRI>
+        <Literal>Sitzen auf Stuhl</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#SittingOrFloor</IRI>
+        <Literal>Sitzen oder Boden</Literal>
+    </AnnotationAssertion>
 </Ontology>
 
 

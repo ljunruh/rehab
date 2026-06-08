@@ -296,6 +296,12 @@ wheels = [
 ]
 
 [[package]]
+name = "owlready2"
+version = "0.50"
+source = { registry = "https://pypi.org/simple" }
+sdist = { url = "https://files.pythonhosted.org/packages/a4/67/6fb3a628889d97f8a3d3c64d4597f0637db61a1856c835fe7c65d8e89658/owlready2-0.50.tar.gz", hash = "sha256:7be74c53a35497df138c8223dddcf65510def9b38494ae1fac4aa2a61c4677eb", size = 27328931, upload-time = "2026-02-05T10:42:01.733Z" }
+
+[[package]]
 name = "pandas"
 version = "2.3.3"
 source = { registry = "https://pypi.org/simple" }
@@ -475,6 +481,7 @@ name = "reha-knowledge-graph"
 version = "0.1.0"
 source = { virtual = "." }
 dependencies = [
+    { name = "owlready2" },
     { name = "pandas", version = "2.3.3", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version < '3.11'" },
     { name = "pandas", version = "3.0.3", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version >= '3.11'" },
     { name = "rdflib" },
@@ -484,6 +491,7 @@ dependencies = [
 
 [package.metadata]
 requires-dist = [
+    { name = "owlready2", specifier = ">=0.46" },
     { name = "pandas", specifier = ">=2.2.0" },
     { name = "rdflib", specifier = ">=7.0.0" },
     { name = "requests", specifier = ">=2.31.0" },

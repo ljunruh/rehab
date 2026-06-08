@@ -2,7 +2,7 @@ from rdflib import Namespace
 
 BASE_URI = "http://reha-app.org/"
 
-VOCAB = Namespace(BASE_URI + "vocab#")
+# Instanz-URIs (z.B. http://reha-app.org/id/kraft_01)
 ID = Namespace(BASE_URI + "id/")
 
 # Ontologie-Namespace (PhysicalTherapy.owx)

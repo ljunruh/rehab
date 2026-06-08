@@ -5,10 +5,10 @@ description = "Erstellung und Fütterung des Reha-Knowledge-Graphs"
 readme = "README.md"
 requires-python = ">=3.10"
 
-# Abhängigkeiten
 dependencies = [
-    "rdflib>=7.0.0",         # für RDF-Triples
-    "pandas>=2.2.0",         # Einlesen von CSV/Excel
-    "requests>=2.31.0",      # Senden an Fuseki Server   # SPARQL in python
+    "rdflib>=7.0.0",
+    "pandas>=2.2.0",
+    "requests>=2.31.0",
     "sparqlwrapper>=2.0.0",
+    "owlready2>=0.46",
 ]
