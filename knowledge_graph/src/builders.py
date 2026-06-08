@@ -69,23 +69,25 @@ def link_contraindication(graph, activity_uri, condition_id: str):
     graph.add((activity_uri, PT.hasContraindication, condition_uri))
     print(f"    [Contraindication] → {condition_id}")
 
-    # ----------------------------
-# Kategorie Builder
+# ----------------------------
+# Category Builder
 # ----------------------------
 
 CATEGORY_MAP = {
-    "Kraft":         VOCAB.Kraft,
-    "Mobilisation":  VOCAB.Mobilisation,
-    "Koordination":  VOCAB.Koordination,
-    "Entspannung":   VOCAB.Entspannung,
+    "Kraft": VOCAB.Kraft,
+    "Mobilisation": VOCAB.Mobilisation,
+    "Koordination": VOCAB.Koordination,
+    "Entspannung": VOCAB.Entspannung,
 }
+
 
 def link_category(graph, activity_uri, category: str):
     """
     Verknüpft eine Aktivität mit einer Therapiekategorie.
-    category: 'Kraft' | 'Mobilisation' | 'Koordination' | 'Entspannung'
+    category: Kraft | Mobilisation | Koordination | Entspannung
     """
     cat_uri = CATEGORY_MAP.get(category)
+
     if cat_uri:
         graph.add((activity_uri, VOCAB.hasCategory, cat_uri))
         print(f"    [Kategorie] → {category}")
@@ -95,10 +97,11 @@ def link_category(graph, activity_uri, category: str):
 
 def link_starting_position(graph, activity_uri, position: str):
     """
-    Speichert die Ausgangsstellung als Literal.
+    Speichert die Ausgangsstellung einer Übung als Literal.
     """
     graph.add((
         activity_uri,
         VOCAB.hasStartingPosition,
         Literal(position, lang="de")
     ))
+    print(f"    [Ausgangsstellung] → {position}")
