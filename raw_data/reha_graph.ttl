@@ -3,17 +3,242 @@
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix v: <http://reha-app.org/vocab#> .
 
-id:m01 a v:Activity ;
-    rdfs:label "Deep Squat"@de ;
-    pt:hasContraindication pt:KneeIssue,
-        pt:LowerBackIssue ;
+id:entsp_01 a v:Activity ;
+    rdfs:label "Progressive Muskelentspannung"@de ;
     pt:hasDifficultyLevel pt:Beginner ;
+    v:hasCategory v:Entspannung ;
+    v:hasStartingPosition "Rückenlage"@de ;
+    v:involvesBodyPart id:bp_core .
+
+id:entsp_02 a v:Activity ;
+    rdfs:label "Atemübung (4-7-8 Technik)"@de ;
+    pt:hasDifficultyLevel pt:Beginner ;
+    v:hasCategory v:Entspannung ;
+    v:hasStartingPosition "Beliebig"@de .
+
+id:entsp_03 a v:Activity ;
+    rdfs:label "Kindpose (Child's Pose)"@de ;
+    pt:hasContraindication pt:HipIssue,
+        pt:KneeIssue ;
+    pt:hasDifficultyLevel pt:Beginner ;
+    v:hasCategory v:Entspannung ;
+    v:hasStartingPosition "Boden"@de ;
+    v:involvesBodyPart id:bp_hip,
+        id:bp_lowerback .
+
+id:entsp_04 a v:Activity ;
+    rdfs:label "Faszienrolle Rücken/Wade"@de ;
+    pt:hasContraindication pt:SpineIssue ;
+    pt:hasDifficultyLevel pt:Beginner ;
+    v:hasCategory v:Entspannung ;
+    v:hasStartingPosition "Boden"@de ;
+    v:involvesBodyPart id:bp_calves,
+        id:bp_lowerback .
+
+id:entsp_05 a v:Activity ;
+    rdfs:label "Schulter-Nacken-Entspannung"@de ;
+    pt:hasContraindication pt:NeckIssue,
+        pt:ShoulderIssue ;
+    pt:hasDifficultyLevel pt:Beginner ;
+    v:hasCategory v:Entspannung ;
+    v:hasStartingPosition "Sitzen"@de ;
+    v:involvesBodyPart id:bp_neck,
+        id:bp_shoulder .
+
+id:koord_01 a v:Activity ;
+    rdfs:label "Einbeinstand"@de ;
+    pt:hasContraindication pt:AnkleIssue,
+        pt:BalanceIssue ;
+    pt:hasDifficultyLevel pt:Beginner ;
+    v:hasCategory v:Koordination ;
+    v:hasStartingPosition "Stehend"@de ;
+    v:involvesBodyPart id:bp_ankles,
+        id:bp_knee .
+
+id:koord_02 a v:Activity ;
+    rdfs:label "Gewichtsverlagerung seitlich"@de ;
+    pt:hasContraindication pt:BalanceIssue ;
+    pt:hasDifficultyLevel pt:Beginner ;
+    v:hasCategory v:Koordination ;
+    v:hasStartingPosition "Stehend"@de ;
+    v:involvesBodyPart id:bp_core,
+        id:bp_hip .
+
+id:koord_03 a v:Activity ;
+    rdfs:label "Gleichgewicht auf instabilem Untergrund"@de ;
+    pt:hasContraindication pt:AnkleIssue,
+        pt:BalanceIssue ;
+    pt:hasDifficultyLevel pt:Intermediate ;
+    v:hasCategory v:Koordination ;
+    v:hasStartingPosition "Stehend auf Kissen"@de ;
+    v:involvesBodyPart id:bp_ankles,
+        id:bp_core .
+
+id:koord_04 a v:Activity ;
+    rdfs:label "Ferse-Zehen-Gang"@de ;
+    pt:hasContraindication pt:AnkleIssue,
+        pt:BalanceIssue ;
+    pt:hasDifficultyLevel pt:Beginner ;
+    v:hasCategory v:Koordination ;
+    v:hasStartingPosition "Stehend"@de ;
+    v:involvesBodyPart id:bp_ankles,
+        id:bp_calves .
+
+id:koord_05 a v:Activity ;
+    rdfs:label "Armkreisen mit Gewichtsverlagerung"@de ;
+    pt:hasContraindication pt:ShoulderIssue ;
+    pt:hasDifficultyLevel pt:Beginner ;
+    v:hasCategory v:Koordination ;
+    v:hasStartingPosition "Stehend"@de ;
+    v:involvesBodyPart id:bp_core,
+        id:bp_shoulder .
+
+id:koord_06 a v:Activity ;
+    rdfs:label "Sitzen-Stehen-Übung (Sit-to-Stand)"@de ;
+    pt:hasContraindication pt:KneeIssue ;
+    pt:hasDifficultyLevel pt:Beginner ;
+    v:hasCategory v:Koordination ;
+    v:hasStartingPosition "Sitzen auf Stuhl"@de ;
+    v:involvesBodyPart id:bp_core,
+        id:bp_knee,
+        id:bp_thigh .
+
+id:kraft_01 a v:Activity ;
+    rdfs:label "Wandsitzen (Wall Sit)"@de ;
+    pt:hasContraindication pt:KneeIssue ;
+    pt:hasDifficultyLevel pt:Beginner ;
+    v:hasCategory v:Kraft ;
+    v:hasStartingPosition "Stehend"@de ;
     v:involvesBodyPart id:bp_knee,
-        id:bp_trunk .
+        id:bp_thigh .
+
+id:kraft_02 a v:Activity ;
+    rdfs:label "Brücke (Bridging)"@de ;
+    pt:hasContraindication pt:LowerBackIssue ;
+    pt:hasDifficultyLevel pt:Beginner ;
+    v:hasCategory v:Kraft ;
+    v:hasStartingPosition "Rückenlage"@de ;
+    v:involvesBodyPart id:bp_glutes,
+        id:bp_lowerback .
+
+id:kraft_03 a v:Activity ;
+    rdfs:label "Muschel (Clamshell)"@de ;
+    pt:hasContraindication pt:HipIssue ;
+    pt:hasDifficultyLevel pt:Beginner ;
+    v:hasCategory v:Kraft ;
+    v:hasStartingPosition "Seitlage"@de ;
+    v:involvesBodyPart id:bp_glutes,
+        id:bp_hip .
+
+id:kraft_04 a v:Activity ;
+    rdfs:label "Scapula-Retraktion"@de ;
+    pt:hasContraindication pt:ShoulderIssue ;
+    pt:hasDifficultyLevel pt:Beginner ;
+    v:hasCategory v:Kraft ;
+    v:hasStartingPosition "Sitzen"@de ;
+    v:involvesBodyPart id:bp_shoulder,
+        id:bp_upperback .
+
+id:kraft_05 a v:Activity ;
+    rdfs:label "Theraband-Außenrotation"@de ;
+    pt:hasContraindication pt:ShoulderIssue ;
+    pt:hasDifficultyLevel pt:Beginner ;
+    v:hasCategory v:Kraft ;
+    v:hasStartingPosition "Stehend"@de ;
+    v:involvesBodyPart id:bp_shoulder .
+
+id:kraft_06 a v:Activity ;
+    rdfs:label "Dead Bug"@de ;
+    pt:hasContraindication pt:LowerBackIssue ;
+    pt:hasDifficultyLevel pt:Intermediate ;
+    v:hasCategory v:Kraft ;
+    v:hasStartingPosition "Rückenlage"@de ;
+    v:involvesBodyPart id:bp_core .
+
+id:mobil_01 a v:Activity ;
+    rdfs:label "Kniegelenk-Mobilisation"@de ;
+    pt:hasContraindication pt:KneeIssue ;
+    pt:hasDifficultyLevel pt:Beginner ;
+    v:hasCategory v:Mobilisation ;
+    v:hasStartingPosition "Rückenlage"@de ;
+    v:involvesBodyPart id:bp_knee .
+
+id:mobil_02 a v:Activity ;
+    rdfs:label "Hüftbeuger-Dehnung (Iliopsoas)"@de ;
+    pt:hasContraindication pt:HipIssue,
+        pt:KneeIssue ;
+    pt:hasDifficultyLevel pt:Beginner ;
+    v:hasCategory v:Mobilisation ;
+    v:hasStartingPosition "Kniestand"@de ;
+    v:involvesBodyPart id:bp_hip .
+
+id:mobil_03 a v:Activity ;
+    rdfs:label "Wadendehnung"@de ;
+    pt:hasContraindication pt:AnkleIssue ;
+    pt:hasDifficultyLevel pt:Beginner ;
+    v:hasCategory v:Mobilisation ;
+    v:hasStartingPosition "Stehend an der Wand"@de ;
+    v:involvesBodyPart id:bp_calves .
+
+id:mobil_04 a v:Activity ;
+    rdfs:label "Brustwirbelsäulen-Rotation"@de ;
+    pt:hasContraindication pt:SpineIssue ;
+    pt:hasDifficultyLevel pt:Beginner ;
+    v:hasCategory v:Mobilisation ;
+    v:hasStartingPosition "Sitzen"@de ;
+    v:involvesBodyPart id:bp_spine,
+        id:bp_upperback .
+
+id:mobil_05 a v:Activity ;
+    rdfs:label "Nackendehnungen"@de ;
+    pt:hasContraindication pt:NeckIssue ;
+    pt:hasDifficultyLevel pt:Beginner ;
+    v:hasCategory v:Mobilisation ;
+    v:hasStartingPosition "Sitzen"@de ;
+    v:involvesBodyPart id:bp_neck .
+
+id:mobil_06 a v:Activity ;
+    rdfs:label "Pigeon Pose (vereinfacht)"@de ;
+    pt:hasContraindication pt:HipIssue,
+        pt:KneeIssue ;
+    pt:hasDifficultyLevel pt:Beginner ;
+    v:hasCategory v:Mobilisation ;
+    v:hasStartingPosition "Sitzen oder Boden"@de ;
+    v:involvesBodyPart id:bp_hip .
+
+id:bp_spine a v:BodyPart ;
+    rdfs:label "Wirbelsäule"@de .
+
+id:bp_glutes a v:BodyPart ;
+    rdfs:label "Gesäß"@de .
+
+id:bp_neck a v:BodyPart ;
+    rdfs:label "Nacken"@de .
+
+id:bp_thigh a v:BodyPart ;
+    rdfs:label "Oberschenkel"@de .
+
+id:bp_upperback a v:BodyPart ;
+    rdfs:label "Oberer Rücken"@de .
+
+id:bp_ankles a v:BodyPart ;
+    rdfs:label "Sprunggelenk"@de .
+
+id:bp_calves a v:BodyPart ;
+    rdfs:label "Wade"@de .
+
+id:bp_lowerback a v:BodyPart ;
+    rdfs:label "Rücken"@de .
 
 id:bp_knee a v:BodyPart ;
-    rdfs:label "Knee"@de .
+    rdfs:label "Knie"@de .
 
-id:bp_trunk a v:BodyPart ;
-    rdfs:label "Trunk"@de .
+id:bp_shoulder a v:BodyPart ;
+    rdfs:label "Schulter"@de .
+
+id:bp_hip a v:BodyPart ;
+    rdfs:label "Hüfte"@de .
+
+id:bp_core a v:BodyPart ;
+    rdfs:label "Rumpf"@de .
 

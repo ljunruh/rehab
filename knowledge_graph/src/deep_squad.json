@@ -1,12 +1,268 @@
 [
   {
-    "activity_id": "m01",
-    "activity_name": "Deep Squat",
+    "activity_id": "kraft_01",
+    "activity_name": "Wandsitzen (Wall Sit)",
+    "category": "Kraft",
     "difficulty": "beginner",
-    "contraindications": ["KneeIssue", "LowerBackIssue"],
+    "starting_position": "Stehend",
     "body_parts": [
-      { "id": "bp_knee", "name": "Knee" },
-      { "id": "bp_trunk", "name": "Trunk" }
-    ]
+      { "id": "bp_knee", "name": "Knie" },
+      { "id": "bp_thigh", "name": "Oberschenkel" }
+    ],
+    "contraindications": ["KneeIssue"]
+  },
+  {
+    "activity_id": "kraft_02",
+    "activity_name": "Brücke (Bridging)",
+    "category": "Kraft",
+    "difficulty": "beginner",
+    "starting_position": "Rückenlage",
+    "body_parts": [
+      { "id": "bp_glutes", "name": "Gesäß" },
+      { "id": "bp_lowerback", "name": "Rücken" }
+    ],
+    "contraindications": ["LowerBackIssue"]
+  },
+  {
+    "activity_id": "kraft_03",
+    "activity_name": "Muschel (Clamshell)",
+    "category": "Kraft",
+    "difficulty": "beginner",
+    "starting_position": "Seitlage",
+    "body_parts": [
+      { "id": "bp_hip", "name": "Hüfte" },
+      { "id": "bp_glutes", "name": "Gesäß" }
+    ],
+    "contraindications": ["HipIssue"]
+  },
+  {
+    "activity_id": "kraft_04",
+    "activity_name": "Scapula-Retraktion",
+    "category": "Kraft",
+    "difficulty": "beginner",
+    "starting_position": "Sitzen",
+    "body_parts": [
+      { "id": "bp_shoulder", "name": "Schulter" },
+      { "id": "bp_upperback", "name": "Oberer Rücken" }
+    ],
+    "contraindications": ["ShoulderIssue"]
+  },
+  {
+    "activity_id": "kraft_05",
+    "activity_name": "Theraband-Außenrotation",
+    "category": "Kraft",
+    "difficulty": "beginner",
+    "starting_position": "Stehend",
+    "body_parts": [
+      { "id": "bp_shoulder", "name": "Schulter" }
+    ],
+    "contraindications": ["ShoulderIssue"]
+  },
+  {
+    "activity_id": "kraft_06",
+    "activity_name": "Dead Bug",
+    "category": "Kraft",
+    "difficulty": "intermediate",
+    "starting_position": "Rückenlage",
+    "body_parts": [
+      { "id": "bp_core", "name": "Rumpf" }
+    ],
+    "contraindications": ["LowerBackIssue"]
+  },
+  {
+    "activity_id": "mobil_01",
+    "activity_name": "Kniegelenk-Mobilisation",
+    "category": "Mobilisation",
+    "difficulty": "beginner",
+    "starting_position": "Rückenlage",
+    "body_parts": [
+      { "id": "bp_knee", "name": "Knie" }
+    ],
+    "contraindications": ["KneeIssue"]
+  },
+  {
+    "activity_id": "mobil_02",
+    "activity_name": "Hüftbeuger-Dehnung (Iliopsoas)",
+    "category": "Mobilisation",
+    "difficulty": "beginner",
+    "starting_position": "Kniestand",
+    "body_parts": [
+      { "id": "bp_hip", "name": "Hüfte" }
+    ],
+    "contraindications": ["KneeIssue", "HipIssue"]
+  },
+  {
+    "activity_id": "mobil_03",
+    "activity_name": "Wadendehnung",
+    "category": "Mobilisation",
+    "difficulty": "beginner",
+    "starting_position": "Stehend an der Wand",
+    "body_parts": [
+      { "id": "bp_calves", "name": "Wade" }
+    ],
+    "contraindications": ["AnkleIssue"]
+  },
+  {
+    "activity_id": "mobil_04",
+    "activity_name": "Brustwirbelsäulen-Rotation",
+    "category": "Mobilisation",
+    "difficulty": "beginner",
+    "starting_position": "Sitzen",
+    "body_parts": [
+      { "id": "bp_spine", "name": "Wirbelsäule" },
+      { "id": "bp_upperback", "name": "Oberer Rücken" }
+    ],
+    "contraindications": ["SpineIssue"]
+  },
+  {
+    "activity_id": "mobil_05",
+    "activity_name": "Nackendehnungen",
+    "category": "Mobilisation",
+    "difficulty": "beginner",
+    "starting_position": "Sitzen",
+    "body_parts": [
+      { "id": "bp_neck", "name": "Nacken" }
+    ],
+    "contraindications": ["NeckIssue"]
+  },
+  {
+    "activity_id": "mobil_06",
+    "activity_name": "Pigeon Pose (vereinfacht)",
+    "category": "Mobilisation",
+    "difficulty": "beginner",
+    "starting_position": "Sitzen oder Boden",
+    "body_parts": [
+      { "id": "bp_hip", "name": "Hüfte" }
+    ],
+    "contraindications": ["HipIssue", "KneeIssue"]
+  },
+  {
+    "activity_id": "koord_01",
+    "activity_name": "Einbeinstand",
+    "category": "Koordination",
+    "difficulty": "beginner",
+    "starting_position": "Stehend",
+    "body_parts": [
+      { "id": "bp_ankles", "name": "Sprunggelenk" },
+      { "id": "bp_knee", "name": "Knie" }
+    ],
+    "contraindications": ["BalanceIssue", "AnkleIssue"]
+  },
+  {
+    "activity_id": "koord_02",
+    "activity_name": "Gewichtsverlagerung seitlich",
+    "category": "Koordination",
+    "difficulty": "beginner",
+    "starting_position": "Stehend",
+    "body_parts": [
+      { "id": "bp_hip", "name": "Hüfte" },
+      { "id": "bp_core", "name": "Rumpf" }
+    ],
+    "contraindications": ["BalanceIssue"]
+  },
+  {
+    "activity_id": "koord_03",
+    "activity_name": "Gleichgewicht auf instabilem Untergrund",
+    "category": "Koordination",
+    "difficulty": "intermediate",
+    "starting_position": "Stehend auf Kissen",
+    "body_parts": [
+      { "id": "bp_ankles", "name": "Sprunggelenk" },
+      { "id": "bp_core", "name": "Rumpf" }
+    ],
+    "contraindications": ["BalanceIssue", "AnkleIssue"]
+  },
+  {
+    "activity_id": "koord_04",
+    "activity_name": "Ferse-Zehen-Gang",
+    "category": "Koordination",
+    "difficulty": "beginner",
+    "starting_position": "Stehend",
+    "body_parts": [
+      { "id": "bp_ankles", "name": "Sprunggelenk" },
+      { "id": "bp_calves", "name": "Wade" }
+    ],
+    "contraindications": ["BalanceIssue", "AnkleIssue"]
+  },
+  {
+    "activity_id": "koord_05",
+    "activity_name": "Armkreisen mit Gewichtsverlagerung",
+    "category": "Koordination",
+    "difficulty": "beginner",
+    "starting_position": "Stehend",
+    "body_parts": [
+      { "id": "bp_shoulder", "name": "Schulter" },
+      { "id": "bp_core", "name": "Rumpf" }
+    ],
+    "contraindications": ["ShoulderIssue"]
+  },
+  {
+    "activity_id": "koord_06",
+    "activity_name": "Sitzen-Stehen-Übung (Sit-to-Stand)",
+    "category": "Koordination",
+    "difficulty": "beginner",
+    "starting_position": "Sitzen auf Stuhl",
+    "body_parts": [
+      { "id": "bp_knee", "name": "Knie" },
+      { "id": "bp_thigh", "name": "Oberschenkel" },
+      { "id": "bp_core", "name": "Rumpf" }
+    ],
+    "contraindications": ["KneeIssue"]
+  },
+  {
+    "activity_id": "entsp_01",
+    "activity_name": "Progressive Muskelentspannung",
+    "category": "Entspannung",
+    "difficulty": "beginner",
+    "starting_position": "Rückenlage",
+    "body_parts": [
+      { "id": "bp_core", "name": "Rumpf" }
+    ],
+    "contraindications": []
+  },
+  {
+    "activity_id": "entsp_02",
+    "activity_name": "Atemübung (4-7-8 Technik)",
+    "category": "Entspannung",
+    "difficulty": "beginner",
+    "starting_position": "Beliebig",
+    "body_parts": [],
+    "contraindications": []
+  },
+  {
+    "activity_id": "entsp_03",
+    "activity_name": "Kindpose (Child's Pose)",
+    "category": "Entspannung",
+    "difficulty": "beginner",
+    "starting_position": "Boden",
+    "body_parts": [
+      { "id": "bp_lowerback", "name": "Rücken" },
+      { "id": "bp_hip", "name": "Hüfte" }
+    ],
+    "contraindications": ["KneeIssue", "HipIssue"]
+  },
+  {
+    "activity_id": "entsp_04",
+    "activity_name": "Faszienrolle Rücken/Wade",
+    "category": "Entspannung",
+    "difficulty": "beginner",
+    "starting_position": "Boden",
+    "body_parts": [
+      { "id": "bp_lowerback", "name": "Rücken" },
+      { "id": "bp_calves", "name": "Wade" }
+    ],
+    "contraindications": ["SpineIssue"]
+  },
+  {
+    "activity_id": "entsp_05",
+    "activity_name": "Schulter-Nacken-Entspannung",
+    "category": "Entspannung",
+    "difficulty": "beginner",
+    "starting_position": "Sitzen",
+    "body_parts": [
+      { "id": "bp_shoulder", "name": "Schulter" },
+      { "id": "bp_neck", "name": "Nacken" }
+    ],
+    "contraindications": ["ShoulderIssue", "NeckIssue"]
   }
 ]
