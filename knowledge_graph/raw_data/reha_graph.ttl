@@ -3,7 +3,6 @@
 @prefix pt: <http://purl.org/PhysicalTherapy#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix v: <http://reha-app.org/vocab#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 <http://anonymous> a owl:Ontology .
@@ -155,11 +154,6 @@ pt:ConditionAnswer a owl:Class ;
     rdfs:label "ConditionAnswer"^^xsd:string ;
     rdfs:comment "Diagnose oder bestehende Kondition des Patienten"^^xsd:string ;
     rdfs:subClassOf pt:Answer .
-
-pt:CoordinationMobility a owl:Class ;
-    rdfs:label "Koordination/Beweglichkeit"^^xsd:string ;
-    rdfs:comment "Übungen zur Schulung der Koordination und kontrollierten Bewegung"^^xsd:string ;
-    rdfs:subClassOf pt:Exercise .
 
 pt:DancingAerobic a pt:SportActivity,
         owl:NamedIndividual ;
@@ -331,9 +325,6 @@ pt:KneeJoint a owl:Class ;
     rdfs:comment "Kniegelenk"^^xsd:string ;
     rdfs:subClassOf pt:Joint .
 
-pt:Kneeling a owl:Class ;
-    rdfs:subClassOf pt:Position .
-
 pt:Lacrosse a pt:SportActivity,
         owl:NamedIndividual ;
     rdfs:label "Lacrosse"^^xsd:string ;
@@ -346,16 +337,8 @@ pt:LateralDeltoids a owl:Class ;
 pt:Lats a owl:Class ;
     rdfs:subClassOf pt:Muscle .
 
-pt:Laying a owl:Class ;
-    rdfs:subClassOf pt:Position .
-
 pt:LegRaise a owl:Class ;
     rdfs:subClassOf pt:Strength .
-
-pt:MobilisationStretching a owl:Class ;
-    rdfs:label "Mobilisation/Dehnung"^^xsd:string ;
-    rdfs:comment "Übungen zur Verbesserung der Beweglichkeit und Dehnfähigkeit"^^xsd:string ;
-    rdfs:subClassOf pt:Exercise .
 
 pt:MountainClimber a owl:Class ;
     rdfs:subClassOf pt:Strength .
@@ -478,14 +461,6 @@ pt:ShovelingSnow a pt:SportActivity,
     pt:Calorie 428.0 ;
     pt:MET 6.0 .
 
-pt:Sitting a pt:SportActivity,
-        owl:Class,
-        owl:NamedIndividual ;
-    rdfs:label "Sitting"^^xsd:string ;
-    pt:Calorie 71.0 ;
-    pt:MET 1.0 ;
-    rdfs:subClassOf pt:Position .
-
 pt:SkateborardingContest a pt:SportActivity,
         owl:NamedIndividual ;
     rdfs:label "SkateboardingContest"^^xsd:string ;
@@ -545,9 +520,6 @@ pt:SpineJoint a owl:Class ;
     rdfs:comment "Wirbelsäulen-Bereich (thoracal/lumbal)"^^xsd:string ;
     rdfs:subClassOf pt:Joint .
 
-pt:Standing a owl:Class ;
-    rdfs:subClassOf pt:Position .
-
 pt:StationaryCycling100Watts a pt:SportActivity,
         owl:NamedIndividual ;
     rdfs:label "StationaryCycling100Watts"^^xsd:string ;
@@ -559,11 +531,6 @@ pt:StationaryCycling50Watts a pt:SportActivity,
     rdfs:label "StationaryCycling50Watts"^^xsd:string ;
     pt:Calorie 214.0 ;
     pt:MET 3.0 .
-
-pt:StrengthExercise a owl:Class ;
-    rdfs:label "Kraft"^^xsd:string ;
-    rdfs:comment "Krafttraining – Übungen zur Steigerung der Muskelkraft"^^xsd:string ;
-    rdfs:subClassOf pt:Exercise .
 
 pt:Stretching a pt:SportActivity,
         owl:Class,
@@ -902,210 +869,214 @@ pt:test a owl:NamedIndividual .
 
 pt:trainsMuscle a owl:ObjectProperty .
 
-id:entsp_01 a v:Activity ;
+id:entsp_01 a pt:Exercise,
+        pt:Laying,
+        pt:Relaxation ;
     rdfs:label "Progressive Muskelentspannung"@de ;
-    pt:hasDifficultyLevel pt:Beginner ;
-    v:hasCategory v:Entspannung ;
-    v:hasStartingPosition "Rückenlage"@de ;
-    v:involvesBodyPart id:bp_core .
+    pt:engagedBodyPart pt:Core ;
+    pt:hasDifficultyLevel pt:Beginner .
 
-id:entsp_02 a v:Activity ;
+id:entsp_02 a pt:AnyPosition,
+        pt:Exercise,
+        pt:Relaxation ;
     rdfs:label "Atemübung (4-7-8 Technik)"@de ;
-    pt:hasDifficultyLevel pt:Beginner ;
-    v:hasCategory v:Entspannung ;
-    v:hasStartingPosition "Beliebig"@de .
+    pt:hasDifficultyLevel pt:Beginner .
 
-id:entsp_03 a v:Activity ;
+id:entsp_03 a pt:Exercise,
+        pt:Floor,
+        pt:Relaxation ;
     rdfs:label "Kindpose (Child's Pose)"@de ;
+    pt:engagedBodyPart pt:Hip,
+        pt:LowerBack ;
     pt:hasContraindication pt:HipIssue,
         pt:KneeIssue ;
-    pt:hasDifficultyLevel pt:Beginner ;
-    v:hasCategory v:Entspannung ;
-    v:hasStartingPosition "Boden"@de ;
-    v:involvesBodyPart id:bp_hip,
-        id:bp_lowerback .
+    pt:hasDifficultyLevel pt:Beginner .
 
-id:entsp_04 a v:Activity ;
+id:entsp_04 a pt:Exercise,
+        pt:Floor,
+        pt:Relaxation ;
     rdfs:label "Faszienrolle Rücken/Wade"@de ;
+    pt:engagedBodyPart pt:Calves,
+        pt:LowerBack ;
     pt:hasContraindication pt:SpineIssue ;
-    pt:hasDifficultyLevel pt:Beginner ;
-    v:hasCategory v:Entspannung ;
-    v:hasStartingPosition "Boden"@de ;
-    v:involvesBodyPart id:bp_calves,
-        id:bp_lowerback .
+    pt:hasDifficultyLevel pt:Beginner .
 
-id:entsp_05 a v:Activity ;
+id:entsp_05 a pt:Exercise,
+        pt:Relaxation,
+        pt:Sitting ;
     rdfs:label "Schulter-Nacken-Entspannung"@de ;
+    pt:engagedBodyPart pt:Neck,
+        pt:Shoulders ;
     pt:hasContraindication pt:NeckIssue,
         pt:ShoulderIssue ;
-    pt:hasDifficultyLevel pt:Beginner ;
-    v:hasCategory v:Entspannung ;
-    v:hasStartingPosition "Sitzen"@de ;
-    v:involvesBodyPart id:bp_neck,
-        id:bp_shoulder .
+    pt:hasDifficultyLevel pt:Beginner .
 
-id:koord_01 a v:Activity ;
+id:koord_01 a pt:CoordinationMobility,
+        pt:Exercise,
+        pt:Standing ;
     rdfs:label "Einbeinstand"@de ;
+    pt:engagedBodyPart pt:Ankles,
+        pt:Knees ;
     pt:hasContraindication pt:AnkleIssue,
         pt:BalanceIssue ;
-    pt:hasDifficultyLevel pt:Beginner ;
-    v:hasCategory v:Koordination ;
-    v:hasStartingPosition "Stehend"@de ;
-    v:involvesBodyPart id:bp_ankles,
-        id:bp_knee .
+    pt:hasDifficultyLevel pt:Beginner .
 
-id:koord_02 a v:Activity ;
+id:koord_02 a pt:CoordinationMobility,
+        pt:Exercise,
+        pt:Standing ;
     rdfs:label "Gewichtsverlagerung seitlich"@de ;
+    pt:engagedBodyPart pt:Core,
+        pt:Hip ;
     pt:hasContraindication pt:BalanceIssue ;
-    pt:hasDifficultyLevel pt:Beginner ;
-    v:hasCategory v:Koordination ;
-    v:hasStartingPosition "Stehend"@de ;
-    v:involvesBodyPart id:bp_core,
-        id:bp_hip .
+    pt:hasDifficultyLevel pt:Beginner .
 
-id:koord_03 a v:Activity ;
+id:koord_03 a pt:CoordinationMobility,
+        pt:Exercise,
+        pt:StandingOnCushion ;
     rdfs:label "Gleichgewicht auf instabilem Untergrund"@de ;
+    pt:engagedBodyPart pt:Ankles,
+        pt:Core ;
     pt:hasContraindication pt:AnkleIssue,
         pt:BalanceIssue ;
-    pt:hasDifficultyLevel pt:Intermediate ;
-    v:hasCategory v:Koordination ;
-    v:hasStartingPosition "Stehend auf Kissen"@de ;
-    v:involvesBodyPart id:bp_ankles,
-        id:bp_core .
+    pt:hasDifficultyLevel pt:Intermediate .
 
-id:koord_04 a v:Activity ;
+id:koord_04 a pt:CoordinationMobility,
+        pt:Exercise,
+        pt:Standing ;
     rdfs:label "Ferse-Zehen-Gang"@de ;
+    pt:engagedBodyPart pt:Ankles,
+        pt:Calves ;
     pt:hasContraindication pt:AnkleIssue,
         pt:BalanceIssue ;
-    pt:hasDifficultyLevel pt:Beginner ;
-    v:hasCategory v:Koordination ;
-    v:hasStartingPosition "Stehend"@de ;
-    v:involvesBodyPart id:bp_ankles,
-        id:bp_calves .
+    pt:hasDifficultyLevel pt:Beginner .
 
-id:koord_05 a v:Activity ;
+id:koord_05 a pt:CoordinationMobility,
+        pt:Exercise,
+        pt:Standing ;
     rdfs:label "Armkreisen mit Gewichtsverlagerung"@de ;
+    pt:engagedBodyPart pt:Core,
+        pt:Shoulders ;
     pt:hasContraindication pt:ShoulderIssue ;
-    pt:hasDifficultyLevel pt:Beginner ;
-    v:hasCategory v:Koordination ;
-    v:hasStartingPosition "Stehend"@de ;
-    v:involvesBodyPart id:bp_core,
-        id:bp_shoulder .
+    pt:hasDifficultyLevel pt:Beginner .
 
-id:koord_06 a v:Activity ;
+id:koord_06 a pt:ChairSitting,
+        pt:CoordinationMobility,
+        pt:Exercise ;
     rdfs:label "Sitzen-Stehen-Übung (Sit-to-Stand)"@de ;
+    pt:engagedBodyPart pt:Core,
+        pt:Knees,
+        pt:Thighs ;
     pt:hasContraindication pt:KneeIssue ;
-    pt:hasDifficultyLevel pt:Beginner ;
-    v:hasCategory v:Koordination ;
-    v:hasStartingPosition "Sitzen auf Stuhl"@de ;
-    v:involvesBodyPart id:bp_core,
-        id:bp_knee,
-        id:bp_thigh .
+    pt:hasDifficultyLevel pt:Beginner .
 
-id:kraft_01 a v:Activity ;
+id:kraft_01 a pt:Exercise,
+        pt:Standing,
+        pt:StrengthExercise ;
     rdfs:label "Wandsitzen (Wall Sit)"@de ;
+    pt:engagedBodyPart pt:Knees,
+        pt:Thighs ;
     pt:hasContraindication pt:KneeIssue ;
-    pt:hasDifficultyLevel pt:Beginner ;
-    v:hasCategory v:Kraft ;
-    v:hasStartingPosition "Stehend"@de ;
-    v:involvesBodyPart id:bp_knee,
-        id:bp_thigh .
+    pt:hasDifficultyLevel pt:Beginner .
 
-id:kraft_02 a v:Activity ;
+id:kraft_02 a pt:Exercise,
+        pt:Laying,
+        pt:StrengthExercise ;
     rdfs:label "Brücke (Bridging)"@de ;
+    pt:engagedBodyPart pt:Glutes,
+        pt:LowerBack ;
     pt:hasContraindication pt:LowerBackIssue ;
-    pt:hasDifficultyLevel pt:Beginner ;
-    v:hasCategory v:Kraft ;
-    v:hasStartingPosition "Rückenlage"@de ;
-    v:involvesBodyPart id:bp_glutes,
-        id:bp_lowerback .
+    pt:hasDifficultyLevel pt:Beginner .
 
-id:kraft_03 a v:Activity ;
+id:kraft_03 a pt:Exercise,
+        pt:SideLaying,
+        pt:StrengthExercise ;
     rdfs:label "Muschel (Clamshell)"@de ;
+    pt:engagedBodyPart pt:Glutes,
+        pt:Hip ;
     pt:hasContraindication pt:HipIssue ;
-    pt:hasDifficultyLevel pt:Beginner ;
-    v:hasCategory v:Kraft ;
-    v:hasStartingPosition "Seitlage"@de ;
-    v:involvesBodyPart id:bp_glutes,
-        id:bp_hip .
+    pt:hasDifficultyLevel pt:Beginner .
 
-id:kraft_04 a v:Activity ;
+id:kraft_04 a pt:Exercise,
+        pt:Sitting,
+        pt:StrengthExercise ;
     rdfs:label "Scapula-Retraktion"@de ;
+    pt:engagedBodyPart pt:Shoulders,
+        pt:UpperBack ;
     pt:hasContraindication pt:ShoulderIssue ;
-    pt:hasDifficultyLevel pt:Beginner ;
-    v:hasCategory v:Kraft ;
-    v:hasStartingPosition "Sitzen"@de ;
-    v:involvesBodyPart id:bp_shoulder,
-        id:bp_upperback .
+    pt:hasDifficultyLevel pt:Beginner .
 
-id:kraft_05 a v:Activity ;
+id:kraft_05 a pt:Exercise,
+        pt:Standing,
+        pt:StrengthExercise ;
     rdfs:label "Theraband-Außenrotation"@de ;
+    pt:engagedBodyPart pt:Shoulders ;
     pt:hasContraindication pt:ShoulderIssue ;
-    pt:hasDifficultyLevel pt:Beginner ;
-    v:hasCategory v:Kraft ;
-    v:hasStartingPosition "Stehend"@de ;
-    v:involvesBodyPart id:bp_shoulder .
+    pt:hasDifficultyLevel pt:Beginner .
 
-id:kraft_06 a v:Activity ;
+id:kraft_06 a pt:Exercise,
+        pt:Laying,
+        pt:StrengthExercise ;
     rdfs:label "Dead Bug"@de ;
+    pt:engagedBodyPart pt:Core ;
     pt:hasContraindication pt:LowerBackIssue ;
-    pt:hasDifficultyLevel pt:Intermediate ;
-    v:hasCategory v:Kraft ;
-    v:hasStartingPosition "Rückenlage"@de ;
-    v:involvesBodyPart id:bp_core .
+    pt:hasDifficultyLevel pt:Intermediate .
 
-id:mobil_01 a v:Activity ;
+id:mobil_01 a pt:Exercise,
+        pt:Laying,
+        pt:MobilisationStretching ;
     rdfs:label "Kniegelenk-Mobilisation"@de ;
+    pt:engagedBodyPart pt:Knees ;
     pt:hasContraindication pt:KneeIssue ;
-    pt:hasDifficultyLevel pt:Beginner ;
-    v:hasCategory v:Mobilisation ;
-    v:hasStartingPosition "Rückenlage"@de ;
-    v:involvesBodyPart id:bp_knee .
+    pt:hasDifficultyLevel pt:Beginner .
 
-id:mobil_02 a v:Activity ;
+id:mobil_02 a pt:Exercise,
+        pt:Kneeling,
+        pt:MobilisationStretching ;
     rdfs:label "Hüftbeuger-Dehnung (Iliopsoas)"@de ;
+    pt:engagedBodyPart pt:Hip ;
     pt:hasContraindication pt:HipIssue,
         pt:KneeIssue ;
-    pt:hasDifficultyLevel pt:Beginner ;
-    v:hasCategory v:Mobilisation ;
-    v:hasStartingPosition "Kniestand"@de ;
-    v:involvesBodyPart id:bp_hip .
+    pt:hasDifficultyLevel pt:Beginner .
 
-id:mobil_03 a v:Activity ;
+id:mobil_03 a pt:Exercise,
+        pt:MobilisationStretching,
+        pt:WallStanding ;
     rdfs:label "Wadendehnung"@de ;
+    pt:engagedBodyPart pt:Calves ;
     pt:hasContraindication pt:AnkleIssue ;
-    pt:hasDifficultyLevel pt:Beginner ;
-    v:hasCategory v:Mobilisation ;
-    v:hasStartingPosition "Stehend an der Wand"@de ;
-    v:involvesBodyPart id:bp_calves .
+    pt:hasDifficultyLevel pt:Beginner .
 
-id:mobil_04 a v:Activity ;
+id:mobil_04 a pt:Exercise,
+        pt:MobilisationStretching,
+        pt:Sitting ;
     rdfs:label "Brustwirbelsäulen-Rotation"@de ;
+    pt:engagedBodyPart pt:Spine,
+        pt:UpperBack ;
     pt:hasContraindication pt:SpineIssue ;
-    pt:hasDifficultyLevel pt:Beginner ;
-    v:hasCategory v:Mobilisation ;
-    v:hasStartingPosition "Sitzen"@de ;
-    v:involvesBodyPart id:bp_spine,
-        id:bp_upperback .
+    pt:hasDifficultyLevel pt:Beginner .
 
-id:mobil_05 a v:Activity ;
+id:mobil_05 a pt:Exercise,
+        pt:MobilisationStretching,
+        pt:Sitting ;
     rdfs:label "Nackendehnungen"@de ;
+    pt:engagedBodyPart pt:Neck ;
     pt:hasContraindication pt:NeckIssue ;
-    pt:hasDifficultyLevel pt:Beginner ;
-    v:hasCategory v:Mobilisation ;
-    v:hasStartingPosition "Sitzen"@de ;
-    v:involvesBodyPart id:bp_neck .
+    pt:hasDifficultyLevel pt:Beginner .
 
-id:mobil_06 a v:Activity ;
+id:mobil_06 a pt:Exercise,
+        pt:MobilisationStretching,
+        pt:SittingOrFloor ;
     rdfs:label "Pigeon Pose (vereinfacht)"@de ;
+    pt:engagedBodyPart pt:Hip ;
     pt:hasContraindication pt:HipIssue,
         pt:KneeIssue ;
-    pt:hasDifficultyLevel pt:Beginner ;
-    v:hasCategory v:Mobilisation ;
-    v:hasStartingPosition "Sitzen oder Boden"@de ;
-    v:involvesBodyPart id:bp_hip .
+    pt:hasDifficultyLevel pt:Beginner .
 
 rdfs:label a owl:AnnotationProperty .
+
+pt:AnyPosition a owl:Class ;
+    rdfs:label "Beliebig"^^xsd:string ;
+    rdfs:subClassOf pt:Position .
 
 pt:Calorie a owl:DatatypeProperty ;
     rdfs:label "Calorie"^^xsd:string ;
@@ -1117,11 +1088,19 @@ pt:Calorie a owl:DatatypeProperty ;
 pt:Cardio a owl:Class ;
     rdfs:subClassOf pt:Exercise .
 
+pt:ChairSitting a owl:Class ;
+    rdfs:label "Sitzen auf Stuhl"^^xsd:string ;
+    rdfs:subClassOf pt:Sitting .
+
 pt:HikingHills a pt:SportActivity,
         owl:NamedIndividual ;
     rdfs:label "HikingHills"^^xsd:string ;
     pt:Calorie 536.0 ;
     pt:MET 7.5 .
+
+pt:Kneeling a owl:Class ;
+    rdfs:label "Kniestand"^^xsd:string ;
+    rdfs:subClassOf pt:Position .
 
 pt:MET a owl:DatatypeProperty ;
     rdfs:label "MET"^^xsd:string ;
@@ -1154,6 +1133,14 @@ pt:PlayingPiano a pt:SportActivity,
     pt:Calorie 178.0 ;
     pt:MET 2.5 .
 
+pt:SideLaying a owl:Class ;
+    rdfs:label "Seitlage"^^xsd:string ;
+    rdfs:subClassOf pt:Laying .
+
+pt:SittingOrFloor a owl:Class ;
+    rdfs:label "Sitzen oder Boden"^^xsd:string ;
+    rdfs:subClassOf pt:Position .
+
 pt:Skateboarding a pt:SportActivity,
         owl:NamedIndividual ;
     rdfs:label "Skateboarding"^^xsd:string ;
@@ -1174,6 +1161,10 @@ pt:SkillsetAnswer a owl:Class ;
 pt:Squats a owl:Class ;
     rdfs:subClassOf pt:Strength .
 
+pt:StandingOnCushion a owl:Class ;
+    rdfs:label "Stehend auf Kissen"^^xsd:string ;
+    rdfs:subClassOf pt:Standing .
+
 pt:Surfing a pt:SportActivity,
         owl:NamedIndividual ;
     rdfs:label "Surfing"^^xsd:string ;
@@ -1182,6 +1173,10 @@ pt:Surfing a pt:SportActivity,
 
 pt:TomSpradau a owl:NamedIndividual ;
     rdfs:label "TomSpradau"^^xsd:string .
+
+pt:WallStanding a owl:Class ;
+    rdfs:label "Stehend an der Wand"^^xsd:string ;
+    rdfs:subClassOf pt:Standing .
 
 pt:Yoga a pt:SportActivity,
         owl:Class,
@@ -1271,13 +1266,14 @@ pt:performedBy a owl:ObjectProperty ;
     rdfs:domain pt:Session ;
     rdfs:range pt:Patient .
 
-id:bp_spine a v:BodyPart ;
-    rdfs:label "Wirbelsäule"@de .
-
 pt:CompetencyQuestion a owl:Class ;
     rdfs:label "CompetencyQuestion"^^xsd:string ;
     rdfs:comment "Klinische Fragestellung, auf die eine Answer eine Antwort liefert (CQ+Answer-Pattern)"^^xsd:string ;
     rdfs:subClassOf owl:Thing .
+
+pt:Floor a owl:Class ;
+    rdfs:label "Boden"^^xsd:string ;
+    rdfs:subClassOf pt:Position .
 
 pt:Horizontally a pt:Direction,
         owl:NamedIndividual ;
@@ -1287,18 +1283,6 @@ pt:Injury a owl:Class ;
     rdfs:label "Injury"^^xsd:string ;
     rdfs:comment "Konkrete Verletzung des Patienten (Spezialisierung von Condition)"^^xsd:string ;
     rdfs:subClassOf pt:Condition .
-
-id:bp_glutes a v:BodyPart ;
-    rdfs:label "Gesäß"@de .
-
-id:bp_neck a v:BodyPart ;
-    rdfs:label "Nacken"@de .
-
-id:bp_thigh a v:BodyPart ;
-    rdfs:label "Oberschenkel"@de .
-
-id:bp_upperback a v:BodyPart ;
-    rdfs:label "Oberer Rücken"@de .
 
 pt:User0001 a pt:Patient,
         owl:NamedIndividual ;
@@ -1323,15 +1307,6 @@ pt:includesAsana a owl:ObjectProperty ;
     rdfs:comment "Which Asana was practised in the session"^^xsd:string ;
     rdfs:domain pt:Session ;
     rdfs:range pt:Asana .
-
-id:bp_ankles a v:BodyPart ;
-    rdfs:label "Sprunggelenk"@de .
-
-id:bp_calves a v:BodyPart ;
-    rdfs:label "Wade"@de .
-
-id:bp_lowerback a v:BodyPart ;
-    rdfs:label "Rücken"@de .
 
 pt:AirplaneInstruction a owl:NamedIndividual ;
     rdfs:label "AirplaneInstruction"^^xsd:string .
@@ -2189,9 +2164,6 @@ pt:ParadiseBird_WristIssue a pt:Contraindication,
     pt:isContraindicationFor pt:ParadiseBird ;
     pt:severity pt:LowRisk .
 
-pt:Position a owl:Class ;
-    rdfs:subClassOf pt:ExerciseProperties .
-
 pt:PyramidInstruction a owl:NamedIndividual ;
     rdfs:label "PyramidInstruction"^^xsd:string .
 
@@ -2995,12 +2967,6 @@ pt:Wheel_WristIssue a pt:Contraindication,
     pt:isContraindicationFor pt:Wheel ;
     pt:severity pt:HighRisk .
 
-id:bp_knee a v:BodyPart ;
-    rdfs:label "Knie"@de .
-
-id:bp_shoulder a v:BodyPart ;
-    rdfs:label "Schulter"@de .
-
 pt:Dancer_Torso a pt:LimbAlignment,
         owl:NamedIndividual ;
     rdfs:label "Dancer_Torso"^^xsd:string ;
@@ -3032,6 +2998,10 @@ pt:KingDancer_Right_Leg a pt:LimbAlignment,
     pt:hasDirection pt:Back,
         pt:Up ;
     pt:limb pt:RightLeg .
+
+pt:Laying a owl:Class ;
+    rdfs:label "Rückenlage"^^xsd:string ;
+    rdfs:subClassOf pt:Position .
 
 pt:MovementExplorationAnswer a owl:Class ;
     rdfs:label "MovementExplorationAnswer"^^xsd:string ;
@@ -3131,6 +3101,15 @@ pt:SideAngle_Right_Leg a pt:LimbAlignment,
         pt:Down ;
     pt:limb pt:RightLeg .
 
+pt:Sitting a pt:SportActivity,
+        owl:Class,
+        owl:NamedIndividual ;
+    rdfs:label "Sitting"^^xsd:string,
+        "Sitzen"^^xsd:string ;
+    pt:Calorie 71.0 ;
+    pt:MET 1.0 ;
+    rdfs:subClassOf pt:Position .
+
 pt:SpineIssue a pt:Condition,
         owl:NamedIndividual ;
     rdfs:label "SpineIssue"^^xsd:string ;
@@ -3185,29 +3164,38 @@ pt:Triangle_Right_Leg a pt:LimbAlignment,
         pt:Right ;
     pt:limb pt:RightLeg .
 
-id:bp_hip a v:BodyPart ;
-    rdfs:label "Hüfte"@de .
-
 pt:CenterSplitsInstruction a owl:NamedIndividual ;
     rdfs:label "CenterSplitsInstruction"^^xsd:string ;
     pt:forCondition pt:BalanceIssue ;
     pt:severity pt:MediumRisk .
+
+pt:CoordinationMobility a owl:Class ;
+    rdfs:label "Koordination/Beweglichkeit"^^xsd:string ;
+    rdfs:comment "Übungen zur Schulung der Koordination und kontrollierten Bewegung"^^xsd:string ;
+    rdfs:subClassOf pt:Exercise .
 
 pt:Limb a owl:Class ;
     rdfs:label "Limb"^^xsd:string ;
     rdfs:comment "Limb class"^^xsd:string ;
     rdfs:subClassOf pt:BodyPart .
 
+pt:MobilisationStretching a owl:Class ;
+    rdfs:label "Mobilisation/Dehnung"^^xsd:string ;
+    rdfs:comment "Übungen zur Verbesserung der Beweglichkeit und Dehnfähigkeit"^^xsd:string ;
+    rdfs:subClassOf pt:Exercise .
+
 pt:Session a owl:Class ;
     rdfs:label "Session"^^xsd:string ;
     rdfs:comment "Class for a yoga session of an user"^^xsd:string .
 
+pt:StrengthExercise a owl:Class ;
+    rdfs:label "Kraft"^^xsd:string ;
+    rdfs:comment "Krafttraining – Übungen zur Steigerung der Muskelkraft"^^xsd:string ;
+    rdfs:subClassOf pt:Exercise .
+
 pt:Wrists a pt:BodyPart,
         owl:NamedIndividual ;
     rdfs:label "Wrists"^^xsd:string .
-
-id:bp_core a v:BodyPart ;
-    rdfs:label "Rumpf"@de .
 
 pt:DemographicsAnswer a owl:Class ;
     rdfs:label "DemographicsAnswer"^^xsd:string ;
@@ -3216,6 +3204,9 @@ pt:DemographicsAnswer a owl:Class ;
 
 pt:ExerciseProperties a owl:Class ;
     rdfs:subClassOf owl:Thing .
+
+pt:Position a owl:Class ;
+    rdfs:subClassOf pt:ExerciseProperties .
 
 pt:WristIssue a pt:Condition,
         owl:NamedIndividual ;
@@ -3232,6 +3223,10 @@ pt:Biceps a pt:BodyPart,
         pt:KingDancer,
         pt:ParadiseBird ;
     rdfs:subClassOf pt:Muscle .
+
+pt:Standing a owl:Class ;
+    rdfs:label "Stehend"^^xsd:string ;
+    rdfs:subClassOf pt:Position .
 
 pt:PhysiotherapyRecord a owl:Class ;
     rdfs:label "PhysiotherapyRecord"^^xsd:string ;
@@ -3295,9 +3290,6 @@ pt:affectsBodyPart a owl:ObjectProperty ;
     rdfs:domain pt:Condition ;
     rdfs:range pt:BodyPart .
 
-pt:Exercise a owl:Class ;
-    rdfs:subClassOf owl:Thing .
-
 pt:Left a pt:Direction,
         owl:NamedIndividual ;
     rdfs:label "Left"^^xsd:string .
@@ -3319,6 +3311,28 @@ pt:TrainingsEffect a owl:Class ;
     rdfs:comment "Class for benfits of Asana poses."^^xsd:string ;
     rdfs:subClassOf pt:ExerciseProperties .
 
+pt:AnkleIssue a pt:Condition,
+        owl:NamedIndividual ;
+    rdfs:label "AnkleIssue"^^xsd:string ;
+    pt:affectsBodyPart pt:Ankles ;
+    rdfs:comment "Instability, past injury, or pain in the ankle joints"^^xsd:string .
+
+pt:Spine a pt:BodyPart,
+        owl:NamedIndividual ;
+    rdfs:label "Spine"^^xsd:string,
+        "Wirbelsäule"@de .
+
+pt:Advanced a pt:TrainingsLevel,
+        owl:NamedIndividual .
+
+pt:Muscle a owl:Class ;
+    rdfs:subClassOf pt:BodyPart .
+
+pt:Thighs a pt:BodyPart,
+        owl:NamedIndividual ;
+    rdfs:label "Thighs"^^xsd:string,
+        "Oberschenkel"@de .
+
 pt:Relaxation a pt:TrainingsEffect,
         owl:Class,
         owl:NamedIndividual ;
@@ -3334,26 +3348,6 @@ pt:Relaxation a pt:TrainingsEffect,
         pt:Tree ;
     rdfs:comment "Übungen zur körperlichen und geistigen Entspannung"^^xsd:string ;
     rdfs:subClassOf pt:Exercise .
-
-pt:Spine a pt:BodyPart,
-        owl:NamedIndividual ;
-    rdfs:label "Spine"^^xsd:string .
-
-pt:AnkleIssue a pt:Condition,
-        owl:NamedIndividual ;
-    rdfs:label "AnkleIssue"^^xsd:string ;
-    pt:affectsBodyPart pt:Ankles ;
-    rdfs:comment "Instability, past injury, or pain in the ankle joints"^^xsd:string .
-
-pt:Thighs a pt:BodyPart,
-        owl:NamedIndividual ;
-    rdfs:label "Thighs"^^xsd:string .
-
-pt:Advanced a pt:TrainingsLevel,
-        owl:NamedIndividual .
-
-pt:Muscle a owl:Class ;
-    rdfs:subClassOf pt:BodyPart .
 
 pt:Intermediate a pt:TrainingsLevel,
         owl:NamedIndividual .
@@ -3408,21 +3402,6 @@ pt:Forward a pt:Direction,
         owl:NamedIndividual ;
     rdfs:label "Forward"^^xsd:string .
 
-pt:UpperBack a pt:BodyPart,
-        owl:NamedIndividual ;
-    rdfs:label "UpperBack"^^xsd:string ;
-    pt:isEngagedBy pt:Cactus,
-        pt:Eagle,
-        pt:Gate,
-        pt:HighLunge,
-        pt:KingDancer,
-        pt:Pyramid,
-        pt:RaisedHands,
-        pt:SideAngle,
-        pt:StandingBackbend,
-        pt:StandingFirefly,
-        pt:StandingForwardBend .
-
 pt:hasBreathingGuidance a owl:ObjectProperty ;
     rdfs:label "hasBreathingGuidance"^^xsd:string ;
     rdfs:comment "Breathing guidance while performing an asana"^^xsd:string .
@@ -3456,31 +3435,28 @@ pt:Psoas a pt:BodyPart,
         pt:Warrior2,
         pt:Wheel .
 
+pt:UpperBack a pt:BodyPart,
+        owl:NamedIndividual ;
+    rdfs:label "UpperBack"^^xsd:string,
+        "Oberer Rücken"@de ;
+    pt:isEngagedBy pt:Cactus,
+        pt:Eagle,
+        pt:Gate,
+        pt:HighLunge,
+        pt:KingDancer,
+        pt:Pyramid,
+        pt:RaisedHands,
+        pt:SideAngle,
+        pt:StandingBackbend,
+        pt:StandingFirefly,
+        pt:StandingForwardBend .
+
 pt:KneeIssue a pt:Condition,
         owl:NamedIndividual ;
     rdfs:label "KneeIssue"^^xsd:string ;
     pt:affectsBodyPart pt:Knees ;
     pt:isContraindicationFor pt:User0001 ;
     rdfs:comment "Any injury, instability, or strain involving the knee joint"^^xsd:string .
-
-pt:LowerBack a pt:BodyPart,
-        owl:Class,
-        owl:NamedIndividual ;
-    rdfs:label "LowerBack"^^xsd:string ;
-    pt:isEngagedBy pt:Dancer,
-        pt:Goddess,
-        pt:HighLunge,
-        pt:Pyramid,
-        pt:RaisedHands,
-        pt:SideAngle,
-        pt:StandingBackbend,
-        pt:StandingForwardBend,
-        pt:StandingSplit,
-        pt:Triangle,
-        pt:Warrior1,
-        pt:Warrior2,
-        pt:Wheel ;
-    rdfs:subClassOf pt:Muscle .
 
 pt:Upright a pt:Direction,
         owl:NamedIndividual ;
@@ -3521,6 +3497,29 @@ pt:BodyPart a owl:Class ;
     rdfs:label "BodyPart"^^xsd:string ;
     rdfs:comment "Represents a body part involved in yoga poses"^^xsd:string .
 
+pt:Exercise a owl:Class ;
+    rdfs:subClassOf owl:Thing .
+
+pt:LowerBack a pt:BodyPart,
+        owl:Class,
+        owl:NamedIndividual ;
+    rdfs:label "LowerBack"^^xsd:string,
+        "Rücken"@de ;
+    pt:isEngagedBy pt:Dancer,
+        pt:Goddess,
+        pt:HighLunge,
+        pt:Pyramid,
+        pt:RaisedHands,
+        pt:SideAngle,
+        pt:StandingBackbend,
+        pt:StandingForwardBend,
+        pt:StandingSplit,
+        pt:Triangle,
+        pt:Warrior1,
+        pt:Warrior2,
+        pt:Wheel ;
+    rdfs:subClassOf pt:Muscle .
+
 pt:Cactus a pt:Asana,
         owl:NamedIndividual ;
     rdfs:label "Cactus"^^xsd:string ;
@@ -3554,19 +3553,6 @@ pt:Cactus a pt:Asana,
     rdfs:comment "Tadasana Cactus Arms"^^xsd:string ;
     rdfs:isDefinedBy "Often used as a preparatory pose for deeper backbends."^^xsd:string .
 
-pt:Neck a pt:BodyPart,
-        owl:NamedIndividual ;
-    rdfs:label "Neck"^^xsd:string ;
-    pt:isEngagedBy pt:Gate,
-        pt:RaisedHands,
-        pt:StandingBackbend,
-        pt:StandingCompass,
-        pt:StandingFirefly,
-        pt:StandingForwardBend,
-        pt:Triangle,
-        pt:Warrior1,
-        pt:Wheel .
-
 pt:hasFocusOn a owl:ObjectProperty ;
     rdfs:label "hasFocusOn"^^xsd:string ;
     rdfs:comment "Focus training effect of specific asana"^^xsd:string ;
@@ -3583,6 +3569,20 @@ pt:BalanceIssue a pt:Condition,
     pt:affectsBodyPart pt:Ankles,
         pt:Core ;
     rdfs:comment "Difficulty maintaining equilibrium due to vestibular or muscular factors"^^xsd:string .
+
+pt:Neck a pt:BodyPart,
+        owl:NamedIndividual ;
+    rdfs:label "Neck"^^xsd:string,
+        "Nacken"@de ;
+    pt:isEngagedBy pt:Gate,
+        pt:RaisedHands,
+        pt:StandingBackbend,
+        pt:StandingCompass,
+        pt:StandingFirefly,
+        pt:StandingForwardBend,
+        pt:Triangle,
+        pt:Warrior1,
+        pt:Wheel .
 
 pt:Asana a owl:Class ;
     rdfs:label "Asana"^^xsd:string ;
@@ -3677,28 +3677,6 @@ pt:Backward a pt:Direction,
         owl:NamedIndividual ;
     rdfs:label "Backward"^^xsd:string .
 
-pt:Calves a pt:BodyPart,
-        owl:Class,
-        owl:NamedIndividual ;
-    rdfs:label "Calves"^^xsd:string ;
-    pt:isEngagedBy pt:ParadiseBird,
-        pt:StandingForwardBend,
-        pt:Tree ;
-    rdfs:subClassOf pt:Muscle .
-
-pt:Knees a pt:BodyPart,
-        owl:NamedIndividual ;
-    rdfs:label "Knees"^^xsd:string ;
-    pt:isEngagedBy pt:Chair,
-        pt:Eagle,
-        pt:Flamingo,
-        pt:Goddess,
-        pt:HighLunge,
-        pt:SideAngle,
-        pt:Tree,
-        pt:Warrior1,
-        pt:Warrior2 .
-
 pt:StandingSplit a pt:Asana,
         owl:NamedIndividual ;
     rdfs:label "StandingSplit"^^xsd:string ;
@@ -3776,16 +3754,6 @@ pt:CenterSplits a pt:Asana,
     rdfs:comment "Samakonasana"^^xsd:string ;
     rdfs:isDefinedBy "It requires flexibility and is ideal for advanced practitioners."^^xsd:string .
 
-pt:Ankles a pt:BodyPart,
-        owl:NamedIndividual ;
-    rdfs:label "Ankles"^^xsd:string ;
-    pt:isEngagedBy pt:Eagle,
-        pt:Flamingo,
-        pt:Gate,
-        pt:Mountain,
-        pt:StandingCompass,
-        pt:StandingFirefly .
-
 pt:Posture a pt:TrainingsEffect,
         owl:NamedIndividual ;
     rdfs:label "Posture"^^xsd:string ;
@@ -3815,6 +3783,16 @@ pt:Posture a pt:TrainingsEffect,
         pt:Warrior2,
         pt:Wheel .
 
+pt:Calves a pt:BodyPart,
+        owl:Class,
+        owl:NamedIndividual ;
+    rdfs:label "Calves"^^xsd:string,
+        "Wade"@de ;
+    pt:isEngagedBy pt:ParadiseBird,
+        pt:StandingForwardBend,
+        pt:Tree ;
+    rdfs:subClassOf pt:Muscle .
+
 pt:Back a pt:BodyPart,
         owl:NamedIndividual ;
     rdfs:label "Back"^^xsd:string ;
@@ -3823,6 +3801,20 @@ pt:Back a pt:BodyPart,
         pt:Mountain,
         pt:StandingBackbend,
         pt:StandingCompass,
+        pt:Warrior1,
+        pt:Warrior2 .
+
+pt:Knees a pt:BodyPart,
+        owl:NamedIndividual ;
+    rdfs:label "Knees"^^xsd:string,
+        "Knie"@de ;
+    pt:isEngagedBy pt:Chair,
+        pt:Eagle,
+        pt:Flamingo,
+        pt:Goddess,
+        pt:HighLunge,
+        pt:SideAngle,
+        pt:Tree,
         pt:Warrior1,
         pt:Warrior2 .
 
@@ -3944,6 +3936,17 @@ pt:StandingLegRaise a pt:Asana,
         pt:Quadriceps ;
     rdfs:comment "Utthita Eka Padasana"^^xsd:string ;
     rdfs:isDefinedBy "A standing pose that requires stability and control as one leg is lifted high to front."^^xsd:string .
+
+pt:Ankles a pt:BodyPart,
+        owl:NamedIndividual ;
+    rdfs:label "Ankles"^^xsd:string,
+        "Sprunggelenk"@de ;
+    pt:isEngagedBy pt:Eagle,
+        pt:Flamingo,
+        pt:Gate,
+        pt:Mountain,
+        pt:StandingCompass,
+        pt:StandingFirefly .
 
 pt:Flamingo a pt:Asana,
         owl:NamedIndividual ;
@@ -5099,7 +5102,8 @@ pt:Dancer a pt:Asana,
 pt:Glutes a pt:BodyPart,
         owl:Class,
         owl:NamedIndividual ;
-    rdfs:label "Glutes"^^xsd:string ;
+    rdfs:label "Glutes"^^xsd:string,
+        "Gesäß"@de ;
     pt:isEngagedBy pt:Airplane,
         pt:Chair,
         pt:Crab,
@@ -5124,7 +5128,8 @@ pt:Glutes a pt:BodyPart,
 
 pt:Core a pt:BodyPart,
         owl:NamedIndividual ;
-    rdfs:label "Core"^^xsd:string ;
+    rdfs:label "Core"^^xsd:string,
+        "Rumpf"@de ;
     pt:isEngagedBy pt:Airplane,
         pt:CenterSplits,
         pt:Crab,
@@ -5159,27 +5164,6 @@ pt:Arms a pt:BodyPart,
         pt:StandingSideBend,
         pt:StandingSplit,
         pt:Tree,
-        pt:Triangle,
-        pt:Warrior1,
-        pt:Warrior2,
-        pt:Wheel .
-
-pt:Shoulders a pt:BodyPart,
-        owl:NamedIndividual ;
-    rdfs:label "Shoulders"^^xsd:string ;
-    pt:isEngagedBy pt:Cactus,
-        pt:Chair,
-        pt:Crab,
-        pt:Eagle,
-        pt:Flamingo,
-        pt:HighLunge,
-        pt:KingDancer,
-        pt:Mountain,
-        pt:Pyramid,
-        pt:RaisedHands,
-        pt:SideAngle,
-        pt:StandingCompass,
-        pt:StandingSideBend,
         pt:Triangle,
         pt:Warrior1,
         pt:Warrior2,
@@ -5236,6 +5220,28 @@ pt:Quadriceps a pt:BodyPart,
         pt:Warrior2,
         pt:Wheel ;
     rdfs:subClassOf pt:Muscle .
+
+pt:Shoulders a pt:BodyPart,
+        owl:NamedIndividual ;
+    rdfs:label "Shoulders"^^xsd:string,
+        "Schulter"@de ;
+    pt:isEngagedBy pt:Cactus,
+        pt:Chair,
+        pt:Crab,
+        pt:Eagle,
+        pt:Flamingo,
+        pt:HighLunge,
+        pt:KingDancer,
+        pt:Mountain,
+        pt:Pyramid,
+        pt:RaisedHands,
+        pt:SideAngle,
+        pt:StandingCompass,
+        pt:StandingSideBend,
+        pt:Triangle,
+        pt:Warrior1,
+        pt:Warrior2,
+        pt:Wheel .
 
 pt:Flexibility a pt:TrainingsEffect,
         owl:NamedIndividual ;
@@ -5371,7 +5377,8 @@ pt:SportActivity a owl:Class ;
 
 pt:Hip a pt:BodyPart,
         owl:NamedIndividual ;
-    rdfs:label "Hip"^^xsd:string ;
+    rdfs:label "Hip"^^xsd:string,
+        "Hüfte"@de ;
     pt:isEngagedBy pt:Airplane,
         pt:CenterSplits,
         pt:Chair,

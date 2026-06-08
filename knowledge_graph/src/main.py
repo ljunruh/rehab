@@ -1,230 +1,231 @@
-import os
-import json
+"""
+Importiert JSON-Übungsdaten in den Reha Knowledge Graph.
+
+Ablauf:
+  1. JSON laden
+  2. Ontologie (PhysicalTherapy.owx) via owlready2 laden
+  3. Validierung: alle JSON-Werte müssen Termen der Ontologie entsprechen
+  4. Items in den RDF-Graphen überführen
+  5. Als Turtle-Datei serialisieren
+
+Pfade (Ontologie, Output) sind CWD-unabhängig via __file__ aufgelöst.
+"""
 import argparse
+import json
+import sys
+from pathlib import Path
+
 import rdflib
+from rdflib.namespace import RDF
+
 import owlready2
 
-from src.vocab import VOCAB, ID, PT
+from src.vocab import ID, PT
 from src.builders import (
     add_activity,
     add_body_part,
     link_activity_body_part,
     link_difficulty,
     link_contraindication,
-    link_category,
-    link_starting_position,
 )
-
-OUTPUT_DIR = "raw_data"
-OUTPUT_FILE = "reha_graph.ttl"
-ONTOLOGY_PATH = "ontology/PhysicalTherapy.owx"
+from src.validators import ValidationError, validate_dataset
 
 
-def load_ontology(graph: rdflib.Graph, ontology_path: str):
+# ---------------------------------------------------------------------------
+# Pfade (CWD-unabhängig)
+# ---------------------------------------------------------------------------
+
+BASE_DIR = Path(__file__).resolve().parent.parent  # knowledge_graph/
+ONTOLOGY_PATH = BASE_DIR / "ontology" / "PhysicalTherapy.owx"
+OUTPUT_DIR = BASE_DIR / "raw_data"
+OUTPUT_FILE = OUTPUT_DIR / "reha_graph.ttl"
+
+
+# ---------------------------------------------------------------------------
+# Ontologie-Lader
+# ---------------------------------------------------------------------------
+
+def load_ontology(graph: rdflib.Graph, ontology_path: Path) -> owlready2.World:
     """
     Lädt die PhysicalTherapy-Ontologie im OWL/XML-Format mit owlready2
-    und fügt sie anschließend dem rdflib-Graphen hinzu.
+    und fügt ihre Triples dem rdflib-Graphen hinzu.
 
-    Hinweis:
-    rdflib.parse(..., format="xml") erwartet RDF/XML.
-    Die Datei PhysicalTherapy.owx liegt jedoch als OWL/XML vor.
-    Deshalb wird owlready2 verwendet.
+    Gibt die geladene World zurück, damit der Validator sie nutzen kann.
     """
-    if not os.path.exists(ontology_path):
-        print(f"Warnung: Ontologie nicht gefunden unter: {ontology_path}")
-        return
+    if not ontology_path.exists():
+        raise FileNotFoundError(f"Ontologie nicht gefunden: {ontology_path}")
 
-    print(f"Lade Ontologie von {ontology_path}...")
+    print(f"Lade Ontologie von {ontology_path}…")
 
-    ontology_file_uri = f"file://{os.path.abspath(ontology_path)}"
-
+    ontology_file_uri = ontology_path.resolve().as_uri()
     world = owlready2.World()
     world.get_ontology(ontology_file_uri).load()
 
-    ontology_graph = world.as_rdflib_graph()
-
-    for triple in ontology_graph:
+    for triple in world.as_rdflib_graph():
         graph.add(triple)
 
     print(f"Ontologie geladen. Graph enthält aktuell {len(graph)} Triples.")
+    return world
 
 
-def process_item(graph: rdflib.Graph, item_data: dict):
+# ---------------------------------------------------------------------------
+# JSON → RDF
+# ---------------------------------------------------------------------------
+
+def process_item(graph: rdflib.Graph, item_data: dict) -> None:
     """
     Verarbeitet ein einzelnes Übungs-Dictionary und fügt es in den Graphen ein.
 
-    Unterstützte JSON-Felder:
-    - activity_id
-    - activity_name
-    - category
-    - difficulty
-    - starting_position
-    - body_parts
-    - contraindications
+    Erwartete JSON-Felder (alle ontology-konform):
+      - activity_id
+      - activity_name
+      - category      (pt:Exercise-Subklasse, z.B. "StrengthExercise")
+      - difficulty    ("beginner" | "intermediate" | "advanced")
+      - starting_position (pt:Position-Subklasse, z.B. "Standing")
+      - body_parts[]  (Liste von {"id": "<pt:BodyPart-Instanz>", "name": "..."})
+      - contraindications[] (Liste von pt:Condition-Instanzen, z.B. "KneeIssue")
     """
-
-    # ----------------------------
-    # Pflichtfelder prüfen
-    # ----------------------------
-    if "activity_id" not in item_data:
-        print("[WARNUNG] Eintrag ohne activity_id übersprungen.")
+    activity_id = item_data.get("activity_id")
+    activity_name = item_data.get("activity_name")
+    if not activity_id or not activity_name:
+        print(f"[WARNUNG] Eintrag ohne activity_id/activity_name übersprungen: {item_data}")
         return
 
-    if "activity_name" not in item_data:
-        print(f"[WARNUNG] Eintrag '{item_data['activity_id']}' ohne activity_name übersprungen.")
-        return
+    # ----- Aktivität (rdf:type pt:Exercise + Klassen-Subklasse) -----
+    activity_uri = ID[activity_id]
+    add_activity(
+        graph,
+        activity_uri,
+        activity_name,
+        item_data["category"],
+    )
 
-    # ----------------------------
-    # Activity anlegen
-    # ----------------------------
-    activity_uri = ID[item_data["activity_id"]]
-    add_activity(graph, activity_uri, item_data["activity_name"])
+    # ----- Ausgangsstellung (rdf:type pt:<Position>) -----
+    position = item_data.get("starting_position")
+    if position:
+        graph.add((activity_uri, RDF.type, PT[position]))
 
-    # ----------------------------
-    # Kategorie
-    # ----------------------------
-    category = item_data.get("category")
-    if category:
-        link_category(graph, activity_uri, category)
-
-    # ----------------------------
-    # Ausgangsstellung
-    # ----------------------------
-    starting_position = item_data.get("starting_position")
-    if starting_position:
-        link_starting_position(graph, activity_uri, starting_position)
-
-    # ----------------------------
-    # Körperteile
-    # ----------------------------
+    # ----- Körperteile -----
     for bp in item_data.get("body_parts", []):
-        if "id" not in bp or "name" not in bp:
-            print(f"    [WARNUNG] Ungültiger body_part in {item_data['activity_id']}: {bp}")
+        bp_id = bp.get("id")
+        bp_name = bp.get("name")
+        if not bp_id or not bp_name:
+            print(f"    [WARNUNG] Ungültiger body_part in {activity_id}: {bp}")
             continue
-
-        bp_uri = ID[bp["id"]]
-        add_body_part(graph, bp_uri, bp["name"])
+        bp_uri = PT[bp_id]
+        add_body_part(graph, bp_uri, bp_name)
         link_activity_body_part(graph, activity_uri, bp_uri)
 
-    # ----------------------------
-    # Schwierigkeitsgrad
-    # ----------------------------
+    # ----- Schwierigkeitsgrad -----
     difficulty = item_data.get("difficulty")
     if difficulty:
         link_difficulty(graph, activity_uri, difficulty)
 
-    # ----------------------------
-    # Kontraindikationen
-    # ----------------------------
+    # ----- Kontraindikationen -----
     for condition_id in item_data.get("contraindications", []):
         link_contraindication(graph, activity_uri, condition_id)
 
-    category = item_data.get("category")      # ← neu
-    if category:
-        link_category(graph, activity_uri, category)
+    print(f"[OK] '{activity_name}' zum Graphen hinzugefügt.")
 
-    position = item_data.get("starting_position")   # ← neu
-    if position:
-        link_starting_position(graph, activity_uri, position)
 
-    print(f"[OK] '{item_data['activity_name']}' zum Graphen hinzugefügt.")
-
+# ---------------------------------------------------------------------------
+# JSON-Loader
+# ---------------------------------------------------------------------------
 
 def load_json(import_file: str):
     """
     Lädt die JSON-Datei mit Übungsdaten.
-    Erwartet entweder:
-    - ein einzelnes JSON-Objekt {...}
-    - oder eine Liste von Objekten [...]
+    Erwartet entweder ein einzelnes Objekt {...} oder eine Liste von Objekten [...].
     """
     try:
         with open(import_file, "r", encoding="utf-8") as f:
             return json.load(f)
     except FileNotFoundError:
-        print(f"Fehler: Datei '{import_file}' nicht gefunden.")
+        print(f"Fehler: Datei '{import_file}' nicht gefunden.", file=sys.stderr)
         return None
     except json.JSONDecodeError as e:
-        print(f"Fehler: Datei '{import_file}' ist kein gültiges JSON.")
-        print(f"JSON-Fehler: {e}")
+        print(f"Fehler: Datei '{import_file}' ist kein gültiges JSON: {e}", file=sys.stderr)
         return None
 
 
-def build_graph(data):
+# ---------------------------------------------------------------------------
+# Graph-Orchestrierung
+# ---------------------------------------------------------------------------
+
+def build_graph(data, ontology_path: Path) -> rdflib.Graph | None:
     """
     Erstellt den RDF-Graphen:
-    - Namespaces binden
-    - Ontologie laden
-    - JSON-Daten in RDF-Triples überführen
+      - Namespaces binden
+      - Ontologie laden
+      - Validierung gegen die Ontologie
+      - JSON-Daten in RDF-Triples überführen
     """
     g = rdflib.Graph()
-
-    # Namespaces
-    g.bind("v", VOCAB)
     g.bind("id", ID)
     g.bind("pt", PT)
 
     # Ontologie laden
-    load_ontology(g, ONTOLOGY_PATH)
+    world = load_ontology(g, ontology_path)
+
+    # Validierung VOR dem Schreiben – strict fail
+    try:
+        validate_dataset(data, world)
+    except ValidationError as e:
+        print(f"\n{e}", file=sys.stderr)
+        return None
 
     # Daten verarbeiten
     if isinstance(data, list):
         for item in data:
             process_item(g, item)
-
     elif isinstance(data, dict):
         process_item(g, data)
-
     else:
-        print("Fehler: JSON muss ein Objekt ({...}) oder ein Array ([...]) sein.")
+        print("Fehler: JSON muss ein Objekt ({...}) oder ein Array ([...]) sein.", file=sys.stderr)
         return None
 
     return g
 
 
-def save_graph(graph: rdflib.Graph):
-    """
-    Speichert den Graphen als Turtle-Datei.
-    """
-    os.makedirs(OUTPUT_DIR, exist_ok=True)
-
-    output_path = os.path.join(OUTPUT_DIR, OUTPUT_FILE)
-    graph.serialize(destination=output_path, format="turtle")
-
+def save_graph(graph: rdflib.Graph) -> None:
+    """Speichert den Graphen als Turtle-Datei (CWD-unabhängig)."""
+    OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
+    graph.serialize(destination=str(OUTPUT_FILE), format="turtle")
     print(f"\n[Fertig] Graph enthält {len(graph)} Triples.")
-    print(f"Gespeichert unter: {output_path}")
+    print(f"Gespeichert unter: {OUTPUT_FILE}")
 
 
-def main():
+# ---------------------------------------------------------------------------
+# CLI
+# ---------------------------------------------------------------------------
+
+def main() -> int:
     parser = argparse.ArgumentParser(
         description="Importiert JSON-Daten in den Reha Knowledge Graph."
     )
-
     parser.add_argument(
         "--import",
         dest="import_file",
         required=True,
-        help="Pfad zur JSON-Datei mit den Übungsdaten."
+        help="Pfad zur JSON-Datei mit den Übungsdaten.",
     )
-
     args = parser.parse_args()
 
-    print("Starte Import in den Reha Knowledge Graph...\n")
+    print("Starte Import in den Reha Knowledge Graph…\n")
 
-    # JSON laden
     data = load_json(args.import_file)
     if data is None:
-        return
+        return 1
 
     print(f"Verarbeite Daten aus: {args.import_file}\n")
 
-    # Graph bauen
-    graph = build_graph(data)
+    graph = build_graph(data, ONTOLOGY_PATH)
     if graph is None:
-        return
+        return 1
 
-    # Graph speichern
     save_graph(graph)
+    return 0
 
 
 if __name__ == "__main__":
-    main()
+    sys.exit(main())
