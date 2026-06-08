@@ -9,7 +9,9 @@ from src.builders import (
     add_body_part,
     link_activity_body_part,
     link_difficulty,
-    link_contraindication
+    link_contraindication,
+    link_category,           # ← neu
+    link_starting_position   # ← neu
 )
 
 OUTPUT_DIR = "../raw_data"
@@ -32,8 +34,15 @@ def process_scraped_item(graph: rdflib.Graph, item_data: dict):
     for condition_id in item_data.get("contraindications", []):
         link_contraindication(graph, activity_uri, condition_id)
 
-    print(f"[OK] '{item_data['activity_name']}' zum Graphen hinzugefügt.")
+    category = item_data.get("category")      # ← neu
+    if category:
+        link_category(graph, activity_uri, category)
 
+    position = item_data.get("starting_position")   # ← neu
+    if position:
+        link_starting_position(graph, activity_uri, position)
+
+    print(f"[OK] '{item_data['activity_name']}' zum Graphen hinzugefügt.")
 
 def main():
     parser = argparse.ArgumentParser()
