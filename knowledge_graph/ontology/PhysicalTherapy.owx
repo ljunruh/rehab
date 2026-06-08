@@ -174,12 +174,6 @@
         <Class IRI="#Triceps"/>
     </Declaration>
     <Declaration>
-        <Class IRI="#User"/>
-    </Declaration>
-    <Declaration>
-        <Class IRI="#UserProperties"/>
-    </Declaration>
-    <Declaration>
         <Class IRI="#Yoga"/>
     </Declaration>
     <Declaration>
@@ -270,6 +264,60 @@
         <ObjectProperty IRI="#trainsMuscle"/>
     </Declaration>
     <Declaration>
+        <ObjectProperty IRI="#answersQuestion"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#examinesJoint"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#fulfillsPurpose"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasAnswer"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasCondition"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasInjury"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasMovementType"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasRecord"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasRecoveryGoal"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#isAnsweredBy"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#isAnswerOf"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#isExaminedBy"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#isFulfilledBy"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#isInjuryOf"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#isRehabilitatedBy"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#isRecoveryGoalOf"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#isRecordOf"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#rehabilitates"/>
+    </Declaration>
+    <Declaration>
         <DataProperty IRI="#Calorie"/>
     </Declaration>
     <Declaration>
@@ -289,6 +337,39 @@
     </Declaration>
     <Declaration>
         <DataProperty IRI="#severityScore"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#hasAge"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#hasBMI"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#hasGender"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#hasHeight"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#hasLifestyle"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#hasMETScore"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#hasRiskFactor"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#hasVASvalue"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#hasWeight"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#painOnMotion"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#rangeOfMotion"/>
     </Declaration>
     <Declaration>
         <NamedIndividual IRI="#Advanced"/>
@@ -1704,6 +1785,90 @@
         <NamedIndividual IRI="#Bicycling20+Mph"/>
     </Declaration>
     <Declaration>
+        <Class IRI="#AnkleJoint"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Answer"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#CompetencyQuestion"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#ConditionAnswer"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#CoordinationMobility"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#DemographicsAnswer"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Elbow"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Goal"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#HipJoint"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Injury"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#InjuryAnswer"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Joint"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#KneeJoint"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#MobilisationStretching"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#MovementExplorationAnswer"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#MovementType"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#NeckJoint"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#PainLevelAnswer"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Patient"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#PatientProperties"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#PhysiotherapyRecord"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#RecoveryGoalAnswer"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Relaxation"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#ShoulderJoint"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#SkillsetAnswer"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#SpineJoint"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#StrengthExercise"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#WristJoint"/>
+    </Declaration>
+    <Declaration>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
     </Declaration>
     <Declaration>
@@ -1722,7 +1887,7 @@
     </SubClassOf>
     <SubClassOf>
         <Class IRI="#AgeGroup"/>
-        <Class IRI="#UserProperties"/>
+        <Class IRI="#PatientProperties"/>
     </SubClassOf>
     <SubClassOf>
         <Class IRI="#Asana"/>
@@ -1750,7 +1915,7 @@
     </SubClassOf>
     <SubClassOf>
         <Class IRI="#Condition"/>
-        <Class IRI="#UserProperties"/>
+        <Class IRI="#PatientProperties"/>
     </SubClassOf>
     <SubClassOf>
         <Class IRI="#Contraindication"/>
@@ -1838,7 +2003,7 @@
     </SubClassOf>
     <SubClassOf>
         <Class IRI="#Pain"/>
-        <Class IRI="#UserProperties"/>
+        <Class IRI="#PatientProperties"/>
     </SubClassOf>
     <SubClassOf>
         <Class IRI="#Plank"/>
@@ -1902,7 +2067,7 @@
     </SubClassOf>
     <SubClassOf>
         <Class IRI="#TrainingsLevel"/>
-        <Class IRI="#UserProperties"/>
+        <Class IRI="#PatientProperties"/>
     </SubClassOf>
     <SubClassOf>
         <Class IRI="#Trapezius"/>
@@ -1913,12 +2078,116 @@
         <Class IRI="#Muscle"/>
     </SubClassOf>
     <SubClassOf>
-        <Class IRI="#UserProperties"/>
+        <Class IRI="#PatientProperties"/>
         <Class abbreviatedIRI="owl:Thing"/>
     </SubClassOf>
     <SubClassOf>
         <Class IRI="#Yoga"/>
         <Class IRI="#Exercise"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#AnkleJoint"/>
+        <Class IRI="#Joint"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Answer"/>
+        <Class abbreviatedIRI="owl:Thing"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#CompetencyQuestion"/>
+        <Class abbreviatedIRI="owl:Thing"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#ConditionAnswer"/>
+        <Class IRI="#Answer"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#CoordinationMobility"/>
+        <Class IRI="#Exercise"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#DemographicsAnswer"/>
+        <Class IRI="#Answer"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Elbow"/>
+        <Class IRI="#Joint"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Goal"/>
+        <Class IRI="#PatientProperties"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#HipJoint"/>
+        <Class IRI="#Joint"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Injury"/>
+        <Class IRI="#Condition"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#InjuryAnswer"/>
+        <Class IRI="#Answer"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Joint"/>
+        <Class IRI="#BodyPart"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#KneeJoint"/>
+        <Class IRI="#Joint"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#MobilisationStretching"/>
+        <Class IRI="#Exercise"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#MovementExplorationAnswer"/>
+        <Class IRI="#Answer"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#MovementType"/>
+        <Class IRI="#ExerciseProperties"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#NeckJoint"/>
+        <Class IRI="#Joint"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#PainLevelAnswer"/>
+        <Class IRI="#Answer"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#PhysiotherapyRecord"/>
+        <Class abbreviatedIRI="owl:Thing"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#RecoveryGoalAnswer"/>
+        <Class IRI="#Answer"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Relaxation"/>
+        <Class IRI="#Exercise"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#ShoulderJoint"/>
+        <Class IRI="#Joint"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#SkillsetAnswer"/>
+        <Class IRI="#Answer"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#SpineJoint"/>
+        <Class IRI="#Joint"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#StrengthExercise"/>
+        <Class IRI="#Exercise"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#WristJoint"/>
+        <Class IRI="#Joint"/>
     </SubClassOf>
     <ClassAssertion>
         <Class IRI="#TrainingsLevel"/>
@@ -3493,7 +3762,7 @@
         <NamedIndividual IRI="#Upright"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="#User"/>
+        <Class IRI="#Patient"/>
         <NamedIndividual IRI="#User0001"/>
     </ClassAssertion>
     <ClassAssertion>
@@ -20343,6 +20612,10 @@
         <ObjectProperty IRI="#severity"/>
         <ObjectProperty IRI="#hasContraindication"/>
     </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#hasInjury"/>
+        <ObjectProperty IRI="#hasCondition"/>
+    </SubObjectPropertyOf>
     <InverseObjectProperties>
         <ObjectProperty IRI="#engagedBodyPart"/>
         <ObjectProperty IRI="#isEngagedBy"/>
@@ -20359,13 +20632,45 @@
         <ObjectProperty IRI="#improves"/>
         <ObjectProperty IRI="#isImprovedBy"/>
     </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="#answersQuestion"/>
+        <ObjectProperty IRI="#isAnsweredBy"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="#examinesJoint"/>
+        <ObjectProperty IRI="#isExaminedBy"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="#fulfillsPurpose"/>
+        <ObjectProperty IRI="#isFulfilledBy"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="#hasAnswer"/>
+        <ObjectProperty IRI="#isAnswerOf"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="#hasInjury"/>
+        <ObjectProperty IRI="#isInjuryOf"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="#hasRecord"/>
+        <ObjectProperty IRI="#isRecordOf"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="#hasRecoveryGoal"/>
+        <ObjectProperty IRI="#isRecoveryGoalOf"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="#rehabilitates"/>
+        <ObjectProperty IRI="#isRehabilitatedBy"/>
+    </InverseObjectProperties>
     <ObjectPropertyDomain>
         <ObjectProperty IRI="#affectsBodyPart"/>
         <Class IRI="#Condition"/>
     </ObjectPropertyDomain>
     <ObjectPropertyDomain>
         <ObjectProperty IRI="#avoidsAsana"/>
-        <Class IRI="#User"/>
+        <Class IRI="#Patient"/>
     </ObjectPropertyDomain>
     <ObjectPropertyDomain>
         <ObjectProperty IRI="#engagedBodyPart"/>
@@ -20397,7 +20702,7 @@
     </ObjectPropertyDomain>
     <ObjectPropertyDomain>
         <ObjectProperty IRI="#hasName"/>
-        <Class IRI="#User"/>
+        <Class IRI="#Patient"/>
     </ObjectPropertyDomain>
     <ObjectPropertyDomain>
         <ObjectProperty IRI="#hasTrainingsGoal"/>
@@ -20405,7 +20710,7 @@
     </ObjectPropertyDomain>
     <ObjectPropertyDomain>
         <ObjectProperty IRI="#hasTrainingsLevel"/>
-        <Class IRI="#User"/>
+        <Class IRI="#Patient"/>
     </ObjectPropertyDomain>
     <ObjectPropertyDomain>
         <ObjectProperty IRI="#improves"/>
@@ -20441,15 +20746,15 @@
     </ObjectPropertyDomain>
     <ObjectPropertyDomain>
         <ObjectProperty IRI="#practicesActivity"/>
-        <Class IRI="#User"/>
+        <Class IRI="#Patient"/>
     </ObjectPropertyDomain>
     <ObjectPropertyDomain>
         <ObjectProperty IRI="#prefersBodyArea"/>
-        <Class IRI="#User"/>
+        <Class IRI="#Patient"/>
     </ObjectPropertyDomain>
     <ObjectPropertyDomain>
         <ObjectProperty IRI="#prefersEffect"/>
-        <Class IRI="#User"/>
+        <Class IRI="#Patient"/>
     </ObjectPropertyDomain>
     <ObjectPropertyDomain>
         <ObjectProperty IRI="#severity"/>
@@ -20462,6 +20767,78 @@
     <ObjectPropertyDomain>
         <ObjectProperty IRI="#stretches"/>
         <Class IRI="#Asana"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#answersQuestion"/>
+        <Class IRI="#Answer"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#examinesJoint"/>
+        <Class IRI="#MovementExplorationAnswer"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#fulfillsPurpose"/>
+        <Class IRI="#Exercise"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#hasAnswer"/>
+        <Class IRI="#PhysiotherapyRecord"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#hasCondition"/>
+        <Class IRI="#PhysiotherapyRecord"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#hasInjury"/>
+        <Class IRI="#PhysiotherapyRecord"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#hasMovementType"/>
+        <Class IRI="#MovementExplorationAnswer"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#hasRecord"/>
+        <Class IRI="#Patient"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#hasRecoveryGoal"/>
+        <Class IRI="#PhysiotherapyRecord"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#isAnsweredBy"/>
+        <Class IRI="#CompetencyQuestion"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#isAnswerOf"/>
+        <Class IRI="#PhysiotherapyRecord"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#isExaminedBy"/>
+        <Class IRI="#Joint"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#isFulfilledBy"/>
+        <Class IRI="#Goal"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#isInjuryOf"/>
+        <Class IRI="#Injury"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#isRehabilitatedBy"/>
+        <Class IRI="#Exercise"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#isRecoveryGoalOf"/>
+        <Class IRI="#Goal"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#isRecordOf"/>
+        <Class IRI="#PhysiotherapyRecord"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#rehabilitates"/>
+        <Class IRI="#Exercise"/>
     </ObjectPropertyDomain>
     <ObjectPropertyRange>
         <ObjectProperty IRI="#affectsBodyPart"/>
@@ -20529,7 +20906,7 @@
     </ObjectPropertyRange>
     <ObjectPropertyRange>
         <ObjectProperty IRI="#performedBy"/>
-        <Class IRI="#User"/>
+        <Class IRI="#Patient"/>
     </ObjectPropertyRange>
     <ObjectPropertyRange>
         <ObjectProperty IRI="#practicesActivity"/>
@@ -20555,6 +20932,78 @@
         <ObjectProperty IRI="#stretches"/>
         <Class IRI="#BodyPart"/>
     </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#answersQuestion"/>
+        <Class IRI="#CompetencyQuestion"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#examinesJoint"/>
+        <Class IRI="#Joint"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#fulfillsPurpose"/>
+        <Class IRI="#Goal"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#hasAnswer"/>
+        <Class IRI="#Answer"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#hasCondition"/>
+        <Class IRI="#Condition"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#hasInjury"/>
+        <Class IRI="#Injury"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#hasMovementType"/>
+        <Class IRI="#MovementType"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#hasRecord"/>
+        <Class IRI="#PhysiotherapyRecord"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#hasRecoveryGoal"/>
+        <Class IRI="#Goal"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#isAnsweredBy"/>
+        <Class IRI="#Answer"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#isAnswerOf"/>
+        <Class IRI="#Answer"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#isExaminedBy"/>
+        <Class IRI="#MovementExplorationAnswer"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#isFulfilledBy"/>
+        <Class IRI="#Exercise"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#isInjuryOf"/>
+        <Class IRI="#PhysiotherapyRecord"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#isRehabilitatedBy"/>
+        <Class IRI="#BodyPart"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#isRecoveryGoalOf"/>
+        <Class IRI="#PhysiotherapyRecord"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#isRecordOf"/>
+        <Class IRI="#Patient"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#rehabilitates"/>
+        <Class IRI="#BodyPart"/>
+    </ObjectPropertyRange>
     <DataPropertyDomain>
         <DataProperty IRI="#Calorie"/>
         <Class IRI="#SportActivity"/>
@@ -20577,11 +21026,55 @@
     </DataPropertyDomain>
     <DataPropertyDomain>
         <DataProperty IRI="#fitnessLevelScore"/>
-        <Class IRI="#User"/>
+        <Class IRI="#Patient"/>
     </DataPropertyDomain>
     <DataPropertyDomain>
         <DataProperty IRI="#severityScore"/>
         <Class IRI="#SeverityLevel"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#hasAge"/>
+        <Class IRI="#DemographicsAnswer"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#hasBMI"/>
+        <Class IRI="#DemographicsAnswer"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#hasGender"/>
+        <Class IRI="#DemographicsAnswer"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#hasHeight"/>
+        <Class IRI="#DemographicsAnswer"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#hasLifestyle"/>
+        <Class IRI="#DemographicsAnswer"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#hasMETScore"/>
+        <Class IRI="#SkillsetAnswer"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#hasRiskFactor"/>
+        <Class IRI="#DemographicsAnswer"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#hasVASvalue"/>
+        <Class IRI="#PainLevelAnswer"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#hasWeight"/>
+        <Class IRI="#DemographicsAnswer"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#painOnMotion"/>
+        <Class IRI="#MovementExplorationAnswer"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#rangeOfMotion"/>
+        <Class IRI="#MovementExplorationAnswer"/>
     </DataPropertyDomain>
     <DataPropertyRange>
         <DataProperty IRI="#Calorie"/>
@@ -20605,6 +21098,50 @@
     </DataPropertyRange>
     <DataPropertyRange>
         <DataProperty IRI="#severityScore"/>
+        <Datatype abbreviatedIRI="xsd:decimal"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#hasAge"/>
+        <Datatype abbreviatedIRI="xsd:integer"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#hasBMI"/>
+        <Datatype abbreviatedIRI="xsd:decimal"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#hasGender"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#hasHeight"/>
+        <Datatype abbreviatedIRI="xsd:decimal"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#hasLifestyle"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#hasMETScore"/>
+        <Datatype abbreviatedIRI="xsd:decimal"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#hasRiskFactor"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#hasVASvalue"/>
+        <Datatype abbreviatedIRI="xsd:decimal"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#hasWeight"/>
+        <Datatype abbreviatedIRI="xsd:decimal"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#painOnMotion"/>
+        <Datatype abbreviatedIRI="xsd:boolean"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#rangeOfMotion"/>
         <Datatype abbreviatedIRI="xsd:decimal"/>
     </DataPropertyRange>
     <AnnotationAssertion>
@@ -23171,13 +23708,13 @@
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-        <IRI>#User</IRI>
-        <Literal>This class is used for users practising yoga</Literal>
+        <IRI>#Patient</IRI>
+        <Literal>Diese Klasse repräsentiert einen Reha-Patienten, der die Physiotherapie in Anspruch nimmt</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>#User</IRI>
-        <Literal>User</Literal>
+        <IRI>#Patient</IRI>
+        <Literal>Patient</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
@@ -23712,7 +24249,7 @@
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
         <IRI>#performedBy</IRI>
-        <Literal>User who did the session</Literal>
+        <Literal>Patient who did the session</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
@@ -23798,6 +24335,476 @@
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#Bicycling20+Mph</IRI>
         <Literal>Bicycling20+Mph</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#AnkleJoint</IRI>
+        <Literal>AnkleJoint</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#AnkleJoint</IRI>
+        <Literal>Sprunggelenk</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Answer</IRI>
+        <Literal>Answer</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Answer</IRI>
+        <Literal>Antwort auf eine klinische Frage (CompetencyQuestion); reifizierter Wert in einer Patientenakte</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#CompetencyQuestion</IRI>
+        <Literal>CompetencyQuestion</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#CompetencyQuestion</IRI>
+        <Literal>Klinische Fragestellung, auf die eine Answer eine Antwort liefert (CQ+Answer-Pattern)</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#ConditionAnswer</IRI>
+        <Literal>ConditionAnswer</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#ConditionAnswer</IRI>
+        <Literal>Diagnose oder bestehende Kondition des Patienten</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#CoordinationMobility</IRI>
+        <Literal>Koordination/Beweglichkeit</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#CoordinationMobility</IRI>
+        <Literal>Übungen zur Schulung der Koordination und kontrollierten Bewegung</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#DemographicsAnswer</IRI>
+        <Literal>DemographicsAnswer</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#DemographicsAnswer</IRI>
+        <Literal>Demografische Daten des Patienten (Alter, BMI, Größe, Gewicht, Geschlecht, Lebensstil, Risikofaktoren)</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Elbow</IRI>
+        <Literal>Elbow</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Elbow</IRI>
+        <Literal>Ellbogengelenk</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Goal</IRI>
+        <Literal>Goal</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Goal</IRI>
+        <Literal>Rehabilitationsziel des Patienten; abgeleitet aus Krankengeschichte und körperlichem Zustand</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#HipJoint</IRI>
+        <Literal>HipJoint</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#HipJoint</IRI>
+        <Literal>Hüftgelenk</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Injury</IRI>
+        <Literal>Injury</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Injury</IRI>
+        <Literal>Konkrete Verletzung des Patienten (Spezialisierung von Condition)</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#InjuryAnswer</IRI>
+        <Literal>InjuryAnswer</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#InjuryAnswer</IRI>
+        <Literal>Antwort, die eine konkrete Verletzung dokumentiert</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Joint</IRI>
+        <Literal>Joint</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Joint</IRI>
+        <Literal>Gelenk des menschlichen Körpers; Oberklasse aller spezifischen Gelenke</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#KneeJoint</IRI>
+        <Literal>KneeJoint</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#KneeJoint</IRI>
+        <Literal>Kniegelenk</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#MobilisationStretching</IRI>
+        <Literal>Mobilisation/Dehnung</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#MobilisationStretching</IRI>
+        <Literal>Übungen zur Verbesserung der Beweglichkeit und Dehnfähigkeit</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#MovementExplorationAnswer</IRI>
+        <Literal>MovementExplorationAnswer</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#MovementExplorationAnswer</IRI>
+        <Literal>Bewegungsuntersuchung: betroffenes Gelenk, Bewegungsart, Range of Motion, Schmerz-Auftritt</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#MovementType</IRI>
+        <Literal>MovementType</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#MovementType</IRI>
+        <Literal>Art der Bewegung (Flexion, Extension, Abduktion, Adduktion, Rotation)</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#NeckJoint</IRI>
+        <Literal>NeckJoint</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#NeckJoint</IRI>
+        <Literal>Halswirbelsäulen-Bereich (Cervicalgelenke)</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#PainLevelAnswer</IRI>
+        <Literal>PainLevelAnswer</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#PainLevelAnswer</IRI>
+        <Literal>Schmerzintensität des Patienten, gemessen als VAS-Wert (0.0–10.0)</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#PatientProperties</IRI>
+        <Literal>PatientProperties</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#PatientProperties</IRI>
+        <Literal>Oberklasse für Eigenschafts-Bündel eines Patienten (Age, Condition, Pain, TrainingsLevel, Goal)</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#PhysiotherapyRecord</IRI>
+        <Literal>PhysiotherapyRecord</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#PhysiotherapyRecord</IRI>
+        <Literal>Patientenakte / Physiotherapie-Akte; zentraler Knotenpunkt, der alle Antworten (Answer) zu klinischen Fragen bündelt</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#RecoveryGoalAnswer</IRI>
+        <Literal>RecoveryGoalAnswer</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#RecoveryGoalAnswer</IRI>
+        <Literal>Antwort, die ein Rehabilitationsziel des Patienten dokumentiert</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Relaxation</IRI>
+        <Literal>Entspannung</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Relaxation</IRI>
+        <Literal>Übungen zur körperlichen und geistigen Entspannung</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#ShoulderJoint</IRI>
+        <Literal>ShoulderJoint</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#ShoulderJoint</IRI>
+        <Literal>Schultergelenk</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#SkillsetAnswer</IRI>
+        <Literal>SkillsetAnswer</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#SkillsetAnswer</IRI>
+        <Literal>Aktuelles Leistungsniveau des Patienten, ausgedrückt als MET-Score</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#SpineJoint</IRI>
+        <Literal>SpineJoint</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#SpineJoint</IRI>
+        <Literal>Wirbelsäulen-Bereich (thoracal/lumbal)</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#StrengthExercise</IRI>
+        <Literal>Kraft</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#StrengthExercise</IRI>
+        <Literal>Krafttraining – Übungen zur Steigerung der Muskelkraft</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#WristJoint</IRI>
+        <Literal>WristJoint</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#WristJoint</IRI>
+        <Literal>Handgelenk</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#answersQuestion</IRI>
+        <Literal>answersQuestion</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#answersQuestion</IRI>
+        <Literal>Verknüpft eine Answer mit der CompetencyQuestion, die sie beantwortet</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#examinesJoint</IRI>
+        <Literal>examinesJoint</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#examinesJoint</IRI>
+        <Literal>Gelenk, das im Rahmen einer Bewegungsuntersuchung untersucht wird</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#fulfillsPurpose</IRI>
+        <Literal>fulfillsPurpose</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#fulfillsPurpose</IRI>
+        <Literal>Verknüpft eine Übung mit dem Rehabilitationsziel (Goal), das sie therapeutisch erfüllt</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#hasAnswer</IRI>
+        <Literal>hasAnswer</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#hasAnswer</IRI>
+        <Literal>Verknüpft eine Patientenakte mit einer ihrer Antworten (CQ+Answer-Pattern)</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#hasCondition</IRI>
+        <Literal>hasCondition</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#hasCondition</IRI>
+        <Literal>Verknüpft eine Patientenakte mit einer bestehenden Kondition/Diagnose</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#hasInjury</IRI>
+        <Literal>hasInjury</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#hasInjury</IRI>
+        <Literal>Verknüpft eine Patientenakte mit einer Verletzung. Sub-Property von hasCondition.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#hasMovementType</IRI>
+        <Literal>hasMovementType</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#hasMovementType</IRI>
+        <Literal>Art der Bewegung in einer Bewegungsuntersuchung (Flexion, Extension, …)</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#hasRecord</IRI>
+        <Literal>hasRecord</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#hasRecord</IRI>
+        <Literal>Verknüpft einen Patienten mit seiner Physiotherapie-Akte</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#hasRecoveryGoal</IRI>
+        <Literal>hasRecoveryGoal</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#hasRecoveryGoal</IRI>
+        <Literal>Verknüpft eine Patientenakte mit einem Rehabilitationsziel (Goal)</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#isAnsweredBy</IRI>
+        <Literal>isAnsweredBy</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#isAnswerOf</IRI>
+        <Literal>isAnswerOf</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#isExaminedBy</IRI>
+        <Literal>isExaminedBy</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#isFulfilledBy</IRI>
+        <Literal>isFulfilledBy</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#isInjuryOf</IRI>
+        <Literal>isInjuryOf</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#isRehabilitatedBy</IRI>
+        <Literal>isRehabilitatedBy</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#isRecoveryGoalOf</IRI>
+        <Literal>isRecoveryGoalOf</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#isRecordOf</IRI>
+        <Literal>isRecordOf</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#rehabilitates</IRI>
+        <Literal>rehabilitates</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#rehabilitates</IRI>
+        <Literal>Verknüpft eine Übung mit dem Körperteil (BodyPart), den sie therapeutisch rehabilitiert</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#hasAge</IRI>
+        <Literal>hasAge</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#hasBMI</IRI>
+        <Literal>hasBMI</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#hasGender</IRI>
+        <Literal>hasGender</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#hasHeight</IRI>
+        <Literal>hasHeight</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#hasLifestyle</IRI>
+        <Literal>hasLifestyle</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#hasMETScore</IRI>
+        <Literal>hasMETScore</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#hasRiskFactor</IRI>
+        <Literal>hasRiskFactor</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#hasVASvalue</IRI>
+        <Literal>hasVASvalue</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#hasVASvalue</IRI>
+        <Literal>Schmerzintensität auf der Visuellen Analogskala (0.0–10.0)</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#hasWeight</IRI>
+        <Literal>hasWeight</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#painOnMotion</IRI>
+        <Literal>painOnMotion</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#rangeOfMotion</IRI>
+        <Literal>rangeOfMotion</Literal>
     </AnnotationAssertion>
     <DatatypeDefinition>
         <Datatype IRI="#Calorie"/>
