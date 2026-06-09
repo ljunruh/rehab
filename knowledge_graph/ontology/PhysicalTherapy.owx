@@ -27,9 +27,6 @@
         <Class IRI="#Asana"/>
     </Declaration>
     <Declaration>
-        <Class IRI="#Balance"/>
-    </Declaration>
-    <Declaration>
         <Class IRI="#Biceps"/>
     </Declaration>
     <Declaration>
@@ -154,9 +151,6 @@
     </Declaration>
     <Declaration>
         <Class IRI="#Standing"/>
-    </Declaration>
-    <Declaration>
-        <Class IRI="#Strength"/>
     </Declaration>
     <Declaration>
         <Class IRI="#Stretching"/>
@@ -909,7 +903,7 @@
         <NamedIndividual IRI="#HighLunge_KneeIssue"/>
     </Declaration>
     <Declaration>
-        <NamedIndividual IRI="#HighLunge_LowerbackIssue"/>
+        <NamedIndividual IRI="#HighLunge_LowerBackIssue"/>
     </Declaration>
     <Declaration>
         <NamedIndividual IRI="#HighRisk"/>
@@ -1851,9 +1845,6 @@
         <Class IRI="#RecoveryGoalAnswer"/>
     </Declaration>
     <Declaration>
-        <Class IRI="#Relaxation"/>
-    </Declaration>
-    <Declaration>
         <Class IRI="#ShoulderJoint"/>
     </Declaration>
     <Declaration>
@@ -1892,10 +1883,6 @@
     <SubClassOf>
         <Class IRI="#Asana"/>
         <Class IRI="#Yoga"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="#Balance"/>
-        <Class IRI="#Exercise"/>
     </SubClassOf>
     <SubClassOf>
         <Class IRI="#Biceps"/>
@@ -2164,10 +2151,6 @@
     <SubClassOf>
         <Class IRI="#RecoveryGoalAnswer"/>
         <Class IRI="#Answer"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="#Relaxation"/>
-        <Class IRI="#Exercise"/>
     </SubClassOf>
     <SubClassOf>
         <Class IRI="#ShoulderJoint"/>
@@ -2859,7 +2842,7 @@
     </ClassAssertion>
     <ClassAssertion>
         <Class IRI="#Contraindication"/>
-        <NamedIndividual IRI="#HighLunge_LowerbackIssue"/>
+        <NamedIndividual IRI="#HighLunge_LowerBackIssue"/>
     </ClassAssertion>
     <ClassAssertion>
         <Class IRI="#SeverityLevel"/>
@@ -9631,7 +9614,7 @@
         </Annotation>
         <ObjectProperty IRI="#hasContraindication"/>
         <NamedIndividual IRI="#HighLunge"/>
-        <NamedIndividual IRI="#HighLunge_LowerbackIssue"/>
+        <NamedIndividual IRI="#HighLunge_LowerBackIssue"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <Annotation>
@@ -9960,19 +9943,19 @@
     <ObjectPropertyAssertion>
         <Annotation>
             <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-            <Literal>HighLunge_LowerbackIssue has a relationship with LowerBackIssue through property forCondition.</Literal>
+            <Literal>HighLunge_LowerBackIssue has a relationship with LowerBackIssue through property forCondition.</Literal>
         </Annotation>
         <ObjectProperty IRI="#forCondition"/>
-        <NamedIndividual IRI="#HighLunge_LowerbackIssue"/>
+        <NamedIndividual IRI="#HighLunge_LowerBackIssue"/>
         <NamedIndividual IRI="#LowerBackIssue"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <Annotation>
             <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-            <Literal>HighLunge_LowerbackIssue has a relationship with MediumRisk through property severity.</Literal>
+            <Literal>HighLunge_LowerBackIssue has a relationship with MediumRisk through property severity.</Literal>
         </Annotation>
         <ObjectProperty IRI="#severity"/>
-        <NamedIndividual IRI="#HighLunge_LowerbackIssue"/>
+        <NamedIndividual IRI="#HighLunge_LowerBackIssue"/>
         <NamedIndividual IRI="#MediumRisk"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
@@ -19857,7 +19840,7 @@
     <DataPropertyAssertion>
         <DataProperty IRI="#date"/>
         <NamedIndividual IRI="#Session0001"/>
-        <Literal>11-06-2025</Literal>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#dateTime">2025-06-11T00:00:00</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="#duration"/>
@@ -21090,7 +21073,7 @@
     </DataPropertyRange>
     <DataPropertyRange>
         <DataProperty IRI="#date"/>
-        <Datatype abbreviatedIRI="rdf:langString"/>
+        <Datatype abbreviatedIRI="xsd:dateTime"/>
     </DataPropertyRange>
     <DataPropertyRange>
         <DataProperty IRI="#duration"/>
@@ -22236,8 +22219,8 @@
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>#HighLunge_LowerbackIssue</IRI>
-        <Literal>HighLunge_LowerbackIssue</Literal>
+        <IRI>#HighLunge_LowerBackIssue</IRI>
+        <Literal>HighLunge_LowerBackIssue</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
