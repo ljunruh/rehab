@@ -27,7 +27,28 @@ def add_body_part(graph, uri, label: str):
     graph.add((uri, RDF.type, PT.BodyPart))
     graph.add((uri, RDFS.label, Literal(label, lang="de")))
 
+def add_injury(graph, uri, label: str | None = None):
+    """Setzt rdf:type pt:Injury und optional ein deutsches rdfs:label."""
+    graph.add((uri, RDF.type, PT.Injury))
+    if label:
+        graph.add((uri, RDFS.label, Literal(label, lang="de")))
 
+
+def add_patient(graph, uri, label: str | None = None):
+    """Setzt rdf:type pt:Patient und optional ein deutsches rdfs:label."""
+    graph.add((uri, RDF.type, PT.Patient))
+    if label:
+        graph.add((uri, RDFS.label, Literal(label, lang="de")))
+
+
+def link_injury_body_part(graph, injury_uri, body_part_uri):
+    """Verknüpft eine Verletzung mit einem betroffenen Körperteil."""
+    graph.add((injury_uri, PT.affectsBodyPart, body_part_uri))
+
+
+def link_patient_injury(graph, patient_uri, injury_uri):
+    """Verknüpft einen Patienten mit einer Verletzung."""
+    graph.add((patient_uri, PT.hasInjury, injury_uri))
 # ---------------------------------------------------------------------------
 # Relation Builders
 # ---------------------------------------------------------------------------

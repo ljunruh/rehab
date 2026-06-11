@@ -16,7 +16,7 @@ import sys
 from pathlib import Path
 
 import rdflib
-from rdflib.namespace import RDF
+from rdflib.namespace import RDF, RDFS
 
 import owlready2
 
@@ -24,9 +24,13 @@ from src.vocab import ID, PT
 from src.builders import (
     add_activity,
     add_body_part,
+    add_injury,
+    add_patient,
     link_activity_body_part,
     link_difficulty,
     link_contraindication,
+    link_injury_body_part,
+    link_patient_injury,
 )
 from src.validators import ValidationError, validate_dataset
 
@@ -57,9 +61,8 @@ def load_ontology(graph: rdflib.Graph, ontology_path: Path) -> owlready2.World:
 
     print(f"Lade Ontologie von {ontology_path}…")
 
-    ontology_file_uri = ontology_path.resolve().as_uri()
     world = owlready2.World()
-    world.get_ontology(ontology_file_uri).load()
+    world.get_ontology(str(ontology_path.resolve())).load()
 
     for triple in world.as_rdflib_graph():
         graph.add(triple)
@@ -127,6 +130,68 @@ def process_item(graph: rdflib.Graph, item_data: dict) -> None:
 
     print(f"[OK] '{activity_name}' zum Graphen hinzugefügt.")
 
+# ---------------------------------------------------------------------------
+# JSON -> RDF : Injuries and Users
+# ---------------------------------------------------------------------------
+
+def body_part_id_and_name(bp):
+    if isinstance(bp, dict):
+        return bp.get("id"), bp.get("name")
+    return bp, None 
+
+def process_injury(graph: rdflib.Graph, injury_data: dict) -> None:
+    """
+    Verarbeitet eine konkrete Verletzung.
+
+    Erwartete Injury-Felder:
+      - injury_id oder id
+      - injury_name oder name
+      - affected_body_parts[] mit Strings oder {"id", "name"}
+      - condition optional: pt:Condition-Instanz; wird zusätzlich als pt:hasCondition gespeichert
+    """
+    injury_id = injury_data.get("injury_id") or injury_data.get("id")
+    injury_name = injury_data.get("injury_name") or injury_data.get("name")
+    if not injury_id:
+        print(f"[WARNUNG] Injury ohne injury_id/id übersprungen: {injury_data}")
+        return
+
+    injury_uri = ID[injury_id]
+    add_injury(graph, injury_uri, injury_name)
+
+    affected_body_parts = injury_data.get("affected_body_parts") or injury_data.get("body_parts") or []
+    for bp in affected_body_parts:
+        bp_id, bp_name = body_part_id_and_name(bp)
+        if not bp_id:
+            print(f"    [WARNUNG] Ungültiger affected_body_part in {injury_id}: {bp}")
+            continue
+        bp_uri = PT[bp_id]
+        if bp_name:
+            add_body_part(graph, bp_uri, bp_name)
+        link_injury_body_part(graph, injury_uri, bp_uri)
+
+    condition = injury_data.get("condition")
+    if condition:
+        graph.add((injury_uri, PT.hasCondition, PT[condition]))
+
+    print(f"[OK] Verletzung '{injury_id}' zum Graphen hinzugefügt.")
+
+def process_user(graph: rdflib.Graph, user_data: dict) -> None:
+    """Verarbeitet optional User/Patient-Daten und verknüpft vorhandene Injuries."""
+    user_id = user_data.get("user_id") or user_data.get("id")
+    user_name = user_data.get("name")
+    if not user_id:
+        print(f"[WARNUNG] User ohne user_id/id übersprungen: {user_data}")
+        return
+
+    user_uri = ID[user_id]
+    add_patient(graph, user_uri, user_name)
+
+    for injury_ref in user_data.get("injuries", []) or []:
+        injury_id = injury_ref.get("id") if isinstance(injury_ref, dict) else injury_ref
+        if injury_id:
+            link_patient_injury(graph, user_uri, ID[injury_id])
+
+    print(f"[OK] User '{user_id}' zum Graphen hinzugefügt.")
 
 # ---------------------------------------------------------------------------
 # JSON-Loader
@@ -147,7 +212,27 @@ def load_json(import_file: str):
         print(f"Fehler: Datei '{import_file}' ist kein gültiges JSON: {e}", file=sys.stderr)
         return None
 
+def _activity_items(data):
+    if isinstance(data, dict) and "activities" in data:
+        return data.get("activities") or []
+    if isinstance(data, list):
+        return data
+    if isinstance(data, dict) and "activity_id" in data:
+        return [data]
+    return []
 
+def _injury_items(data):
+    if isinstance(data, dict) and "injuries" in data:
+        return data.get("injuries") or []
+    injuries = []
+    for item in _activity_items(data):
+        injuries.extend(item.get("injuries", []) or [])
+    return injuries
+
+def _user_items(data):
+    if isinstance(data, dict) and "users" in data:
+        return data.get("users") or []
+    return []
 # ---------------------------------------------------------------------------
 # Graph-Orchestrierung
 # ---------------------------------------------------------------------------
@@ -163,6 +248,7 @@ def build_graph(data, ontology_path: Path) -> rdflib.Graph | None:
     g = rdflib.Graph()
     g.bind("id", ID)
     g.bind("pt", PT)
+    g.bind("rdfs",RDFS)
 
     # Ontologie laden
     world = load_ontology(g, ontology_path)
@@ -174,15 +260,20 @@ def build_graph(data, ontology_path: Path) -> rdflib.Graph | None:
         print(f"\n{e}", file=sys.stderr)
         return None
 
-    # Daten verarbeiten
-    if isinstance(data, list):
-        for item in data:
-            process_item(g, item)
-    elif isinstance(data, dict):
-        process_item(g, data)
-    else:
-        print("Fehler: JSON muss ein Objekt ({...}) oder ein Array ([...]) sein.", file=sys.stderr)
+    activity_items = _activity_items(data)
+    injury_items = _injury_items(data)
+    user_items = _user_items(data)
+
+    if not activity_items and not injury_items and not user_items:
+        print("Fehler: JSON enthält keine importierbaren activities/injuries/users.", file=sys.stderr)
         return None
+
+    for item in activity_items:
+        process_item(g, item)
+    for injury in injury_items:
+        process_injury(g, injury)
+    for user in user_items:
+        process_user(g, user)
 
     return g
 
