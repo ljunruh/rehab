@@ -20,3 +20,6 @@ Thumbs.db
 # --- IDEs / Editoren ---
 .vscode/
 .idea/
+
+# --- Apache Fuseki ---
+run/
