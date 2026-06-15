@@ -169,6 +169,238 @@ Die App benötigt Launcher Icons. Diese werden automatisch aus einem Basisbild g
 
 ---
 
-## Ausblick
-### Derry Script Manager
-In Zukunft soll der Derry Script Manager das Starten aller notwendigen Komponenten vereinfachen.
+## Derry Script Manager - Usage Guide
+
+Der **Derry Script Manager** ist eine Sammlung von Shortcut-Kommandos
+zur Automatisierung von Entwicklungsprozessen rund um:
+
+-   Apache Jena Fuseki Knowledge Graph Server
+-   Android Emulator / Flutter Development
+-   Flutter App Execution (Web & Mobile)
+
+------------------------------------------------------------------------
+
+### Installation (Pflicht)
+
+Damit die Derry-Kommandos genutzt werden können, muss Derry global
+installiert sein:
+
+``` bash
+dart pub global activate derry
+```
+
+Stelle sicher, dass `dart` auf dem System installiert ist.
+
+### Installation (Empfehlung)
+#### Robot zur Ontology Konvertierung
+
+Für die zuverlässige Konvertierung von Ontologien aus Protégé (`.owx` / `.owl`) in ein für Apache Jena Fuseki kompatibles Knowledge Graph Format (`.ttl`) wird das Tool **Robot** empfohlen.
+
+Robot kann hier installiert werden:
+https://robot.obolibrary.org/
+
+#### Zweck
+- Konvertiert Ontologien aus Protégé (`.owx` / `.owl`)
+- Ausgabe als Turtle (`.ttl`) für Apache Jena Fuseki
+- Vermeidet potenzielle Importfehler, die bei direktem Laden von `.owx` in Fuseki auftreten können
+
+#### Warum Robot?
+Apache Jena Fuseki kann bei direkten Imports von Protégé-Dateien (`.owx`) unerwartete Fehler oder Inkompatibilitäten verursachen.  
+Robot ist ein etabliertes und zuverlässiges Tool im Bereich Ontologie-Processing und sorgt für eine konsistente und saubere Konvertierung in RDF/Turtle.
+
+#### Hinweis
+Nach der Installation kann Robot z. B. wie folgt manuell genutzt werden:
+
+```bash
+robot convert --input ontology.owl --output ontology.ttl
+```
+
+------------------------------------------------------------------------
+
+### Notwendige Umgebungsvariablen
+
+Derry unterstützt nur einfache Parameter am Ende der Kommandos.\
+Daher müssen folgende Umgebungsvariablen zwingend gesetzt werden:
+
+``` bash
+# Pub Derry Script Manager REHAB
+export FUSEKI_HOME="<PATH_PREFIX>/apache-jena-fuseki-6.1.0"
+export ANDROID_SDK="<PATH_PREFIX>/Android/Sdk"
+export ANDROID_DEFAULT_DEVICEID="<EMULATOR_DEVICEID>" # flutter emulators > ID
+```
+Empfehlung:
+- Linux/macOS: in `~/.bashrc` oder `~/.zshrc` eintragen, damit sie
+dauerhaft verfügbar sind.
+- Windows: Über die UI für Umgebungsvariabeln eintragen
+
+------------------------------------------------------------------------
+
+### Wichtige Grundregel für Parameter
+
+Derry kann keine Parameter mitten im Command verarbeiten.\
+Deshalb gilt:
+
+> Alle dynamischen Werte (z. B. Device IDs oder Emulator IDs) müssen mit
+> `--` am Ende übergeben werden.
+
+### Beispiel:
+
+``` bash
+derry app:phone -- emulator-5554
+```
+
+------------------------------------------------------------------------
+
+### Start-Reihenfolge der gesamten Anwendung
+
+Wenn die komplette Entwicklungsumgebung gestartet werden soll, muss die
+Reihenfolge strikt eingehalten werden:
+
+#### 1. Fuseki Knowledge Graph Server starten
+
+``` bash
+derry fuseki:run
+```
+oder um lokale Änderungen in der Ontologie einzubinden
+``` bash
+derry fuseki:start
+```
+
+------------------------------------------------------------------------
+
+#### 2. Android Emulator starten (optional je nach Zielplattform Phone oder Web)
+
+#### Default Android Emulator:
+
+``` bash
+derry emu:run:android
+```
+
+#### Oder mit spezifischer Device ID:
+
+``` bash
+derry emu:run -- <GeräteID>
+```
+
+------------------------------------------------------------------------
+
+#### 3. Flutter App starten
+
+#### Web (Chrome):
+
+``` bash
+derry app:chrome
+```
+
+#### Android Emulator (laufende Device Instanz):
+
+``` bash
+derry app:phone:android
+```
+
+#### Android Emulator (spezifische Device ID):
+
+``` bash
+derry app:phone -- emulator-5554
+```
+
+------------------------------------------------------------------------
+
+### Fuseki & Ontology Kommandos
+
+#### Ontologie in Turtle Format konvertieren
+
+``` bash
+derry fuseki:convert
+```
+
+------------------------------------------------------------------------
+
+#### Fuseki Server starten (mit Knowledge Graph)
+
+``` bash
+derry fuseki:start
+```
+
+------------------------------------------------------------------------
+
+### Android Emulator Kommandos
+
+#### Liste aller Emulatoren anzeigen
+
+``` bash
+derry emu:list
+```
+
+------------------------------------------------------------------------
+
+#### Emulator starten
+
+#### Mit spezifischer Device ID:
+
+``` bash
+derry emu:run -- <GeräteID>
+```
+
+#### Log-Modus (Verbose + GPU Host):
+
+``` bash
+derry emu:log -- <GeräteID>
+```
+
+#### Default Emulator starten:
+
+``` bash
+derry emu:log:android
+```
+
+------------------------------------------------------------------------
+
+### Flutter App Kommandos
+
+#### Verfügbare Geräte anzeigen
+
+``` bash
+derry devices:list
+```
+
+------------------------------------------------------------------------
+
+#### App starten
+
+#### Chrome:
+
+``` bash
+derry app:chrome
+```
+
+#### Android Emulator (spezifisch):
+
+``` bash
+derry app:phone -- emulator-5554
+```
+
+#### Android Default Device:
+
+``` bash
+derry app:phone:android
+```
+
+------------------------------------------------------------------------
+
+### Zusammenfassung
+
+Der typische Workflow sieht so aus:
+
+1.  Fuseki Server starten
+2.  Emulator starten (optional je nach Plattform)
+3.  Flutter App starten
+
+------------------------------------------------------------------------
+
+### ⚠️ Hinweise
+
+- Alle Kommandos setzen korrekt konfigurierte ENV-Variablen voraus
+- Device IDs müssen korrekt aus `flutter devices` oder `flutter emulators` entnommen werden
+- Reihenfolge beim Starten der Umgebung ist zwingend einzuhalten
+- <b>Die Flutter App kann über die IDE Plugins gestartet werden</b>

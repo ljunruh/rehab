@@ -1,0 +1,57 @@
+# Derry Script Manager - Shortcuts for Commands
+# !!!FUSEKI_HOME und ANDROID_SDK müssen in den Umgebungsvariabeln gesetzt werden
+# --- FUSEKI & ONTOLOGY KOMMANDOS ---
+# Aufruf: derry ontology:convert -> Protoge Onotolgy Format > Fuseki Knowledge Graph Format
+fuseki:convert: robot convert --input ../../knowledge_graph/ontology/PhysicalTherapy.owx --output api/PhysicalTherapy.ttl --format ttl
+# Aufruf: derry fuseki:run -> Fuseki Server starten
+fuseki:run: \${FUSEKI_HOME}/fuseki-server --file=../../api/PhysicalTherapy.ttl /rehab
+# Aufruf: derry fuseki:start -> Fuseki Server starten mit aktuellen Knowledge Graph
+fuseki:start:
+  - derry fuseki:convert
+  - derry fuseki:run
+
+# --- ANDROID EMULATOR KOMMANDOS ---
+# Aufruf: derry emu:list -> Liste aller Emulator anzeigen für GeräteID anzeigen. Wird von Android Studio zugewiesen
+emu:list: flutter emulators
+# Aufruf: derry emu:launch -- <GeräteID> -> Emulator starten mit GeräteID
+emu:run: flutter emulators --launch #-- <GeräteID>
+# Aufruf: derry emu:launch:android -> Emulator starten mit default Android Gerät
+emu:run:android: derry emu:run -- \${ANDROID_DEFAULT_DEVICEID}
+# Aufruf: derry emu:log <Prefix_Path> <GeräteID> -> Emulator starten mit Terminal Log und GeräteID
+emu:log: \${ANDROID_SDK}/emulator/emulator -verbose -gpu host -avd #-- <GeräteID>
+emu:log:android: derry emu:log -- \${ANDROID_DEFAULT_DEVICEID}
+
+# --- FLUTTER APP STARTEN ---
+# Aufruf: derry devices:list -> Verfügbare Flutter Devices anzeigen. Wird von Flutter zugewiesen
+devices:list: flutter devices
+# Aufruf: derry app:chrome -> Flutter App in Chrome starten
+app:chrome: flutter run -d chrome
+# Aufruf: derry app:android -> Flutter App auf einem Android Emulator starten
+app:phone: flutter run -d #-- <DevicesID> z.B. emulator-5554
+# Aufruf: derry app:android -> Flutter App auf default Android Emulator starten. Suche verfügbare Android DeviceID und nimmt diese.
+app:phone:android: derry app:phone -- \$(adb devices | grep emulator | head -n 1 | cut -f1)
+
+# --- WIP - RUN APPLICATION ---
+# Aufruf: derry run:chrome -> Fuseki Server mit Ontologie und Flutter App in Chrome starten
+#run:chrome:
+#  - derry fuseki:run
+#  - derry app:chrome
+# Aufruf: derry run:chrome:clean -> Fuseki Server mit aktueller Ontologie und Flutter App in Chrome starten
+#run:chrome:clean:
+#  - derry fuseki:start
+#  - derry app:chrome
+# Aufruf: derry run:android -> Fuseki Server mit Ontologie und Flutter App mit default Android Emulator starten
+#run:android:
+#  - derry fuseki:run
+#  - derry emu:run:android
+#  - derry app:phone:android
+# Aufruf: derry run:chrome:clean -> Fuseki Server mit aktueller Ontologie und Flutter App mit default Android Emulator starten
+#run:android:clean:
+#  - derry fuseki:start
+#  - derry emu:run:android
+#  - derry app:phone:android
+# Aufruf: derry run:chrome:clean -> Fuseki Server mit Ontologie und Flutter App mit default Android Emulator und Terminal Log starten
+#run:android:log:
+#  - derry fuseki:run
+#  - derry emu:log:android
+#  - derry app:phone:android
