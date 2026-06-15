@@ -2,7 +2,7 @@
 # !!!FUSEKI_HOME und ANDROID_SDK müssen in den Umgebungsvariabeln gesetzt werden
 # --- FUSEKI & ONTOLOGY KOMMANDOS ---
 # Aufruf: derry ontology:convert -> Protoge Onotolgy Format > Fuseki Knowledge Graph Format
-fuseki:convert: robot convert --input ../../knowledge_graph/ontology/PhysicalTherapy.owx --output api/PhysicalTherapy.ttl --format ttl
+fuseki:convert: robot convert --input ../../knowledge_graph/ontology/PhysicalTherapy.owx --output ../../api/PhysicalTherapy.ttl --format ttl
 # Aufruf: derry fuseki:run -> Fuseki Server starten
 fuseki:run: \${FUSEKI_HOME}/fuseki-server --file=../../api/PhysicalTherapy.ttl /rehab
 # Aufruf: derry fuseki:start -> Fuseki Server starten mit aktuellen Knowledge Graph
