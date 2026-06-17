@@ -1,3 +1,4 @@
+import 'package:app_prototype/api/storage/storage_view/isar_view_test.dart';
 import 'package:app_prototype/ui/exercise_widget.dart';
 import 'package:flutter/material.dart';
 
@@ -33,7 +34,7 @@ class RehabApp extends StatelessWidget {
       ),
 
       // Startbildschirm der App
-      home: const ExerciseListScreen(),
+      home: const UserProfilePage(),
     );
   }
 }
