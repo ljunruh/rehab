@@ -157,7 +157,7 @@ Welche Übungen eignen sich für Kniebeschwerden auf Beginner-Level?
 * BodyPart
 * Injury / Complaint
 * DifficultyLevel
-* Relation: `targetsBodyPart`
+* Relation: `engagedBodyPart`
 * Relation: `recommendedForInjury`
 * Relation: `hasDifficultyLevel`
 
@@ -177,7 +177,7 @@ Welche Übungen unterstützen Stabilität im Kniebereich?
 * Goal
 * BodyPart
 * Relation: `supportsGoal`
-* Relation: `targetsBodyPart`
+* Relation: `engagedBodyPart`
 
 **Beispielantwort:**
 Zur Stabilität im Kniebereich könnten Balanceübungen, Einbeinstand oder kontrollierte Kräftigungsübungen relevant sein.
