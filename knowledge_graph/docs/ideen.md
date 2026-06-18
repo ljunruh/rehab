@@ -60,7 +60,7 @@ vielleicht müssen wir die userdaten von dem rest koppeln wegen performance
 
 
 ### Nach der Stunde
-+ Kompetenzfragen aufstellen
++ Kompetenzfragen aufstellen: Siehe [Competency Questions](competency_questions.md)
 + DOLCE oder BFO Ontology benutzen
 + Aufteilung in Module 
 + OntOlogy Pitfall Scanner
