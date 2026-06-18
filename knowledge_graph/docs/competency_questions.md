@@ -219,8 +219,6 @@ Bei starken Schmerzen sollte die Übung pausiert werden. Die App könnte einen W
 
 ## Mögliche zentrale Relationen
 
-## Mögliche zentrale Relationen
-
 Aktuell verwendet:
 
 * `engagedBodyPart`
