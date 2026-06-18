@@ -15,16 +15,16 @@
     <Prefix name="rdfs" IRI="http://www.w3.org/2000/01/rdf-schema#"/>
     <Prefix name="YogaKG" IRI="http://www.ease-crc.org/ont/yoga#"/>
     <Declaration>
-        <Class IRI="#Abs"/>
+        <NamedIndividual IRI="#Abs"/>
     </Declaration>
     <Declaration>
-        <Class IRI="#Adductors"/>
+        <NamedIndividual IRI="#Adductors"/>
     </Declaration>
     <Declaration>
-        <Class IRI="#AgeGroup"/>
+        <NamedIndividual IRI="#AgeGroup"/>
     </Declaration>
     <Declaration>
-        <Class IRI="#AnkleJoint"/>
+        <NamedIndividual IRI="#AnkleJoint"/>
     </Declaration>
     <Declaration>
         <Class IRI="#Asana"/>
@@ -33,19 +33,19 @@
         <Class IRI="#BackPain"/>
     </Declaration>
     <Declaration>
-        <Class IRI="#Biceps"/>
+        <NamedIndividual IRI="#Biceps"/>
     </Declaration>
     <Declaration>
         <Class IRI="#BodyPart"/>
     </Declaration>
     <Declaration>
-        <Class IRI="#Calves"/>
+        <NamedIndividual IRI="#Calves"/>
     </Declaration>
     <Declaration>
         <Class IRI="#Cardio"/>
     </Declaration>
     <Declaration>
-        <Class IRI="#Chest"/>
+        <NamedIndividual IRI="#Chest"/>
     </Declaration>
     <Declaration>
         <Class IRI="#Condition"/>
@@ -63,7 +63,7 @@
         <Class IRI="#DifficultyLevel"/>
     </Declaration>
     <Declaration>
-        <Class IRI="#Elbow"/>
+        <NamedIndividual IRI="#Elbow"/>
     </Declaration>
     <Declaration>
         <Class IRI="#Equipment"/>
@@ -75,22 +75,22 @@
         <Class IRI="#ExerciseProperties"/>
     </Declaration>
     <Declaration>
-        <Class IRI="#ForearmFlexors"/>
+        <NamedIndividual IRI="#ForearmFlexors"/>
     </Declaration>
     <Declaration>
         <Class IRI="#Fracture"/>
     </Declaration>
     <Declaration>
-        <Class IRI="#FrontDeltoid"/>
+        <NamedIndividual IRI="#FrontDeltoid"/>
     </Declaration>
     <Declaration>
-        <Class IRI="#Glutes"/>
+        <NamedIndividual IRI="#Glutes"/>
     </Declaration>
     <Declaration>
-        <Class IRI="#Hamstrings"/>
+        <NamedIndividual IRI="#Hamstrings"/>
     </Declaration>
     <Declaration>
-        <Class IRI="#HipJoint"/>
+        <NamedIndividual IRI="#HipJoint"/>
     </Declaration>
     <Declaration>
         <Class IRI="#Injury"/>
@@ -105,16 +105,13 @@
         <Class IRI="#JumpingJacks"/>
     </Declaration>
     <Declaration>
-        <Class IRI="#KneeJoint"/>
+        <NamedIndividual IRI="#KneeJoint"/>
     </Declaration>
     <Declaration>
-        <Class IRI="#LateralDeltoids"/>
+        <NamedIndividual IRI="#LateralDeltoids"/>
     </Declaration>
     <Declaration>
-        <Class IRI="#Lats"/>
-    </Declaration>
-    <Declaration>
-        <Class IRI="#LegRaise"/>
+        <NamedIndividual IRI="#Lats"/>
     </Declaration>
     <Declaration>
         <Class IRI="#Limb"/>
@@ -123,7 +120,7 @@
         <Class IRI="#LimbAlignment"/>
     </Declaration>
     <Declaration>
-        <Class IRI="#LowerBack"/>
+        <NamedIndividual IRI="#LowerBack"/>
     </Declaration>
     <Declaration>
         <Class IRI="#MobilisationStretching"/>
@@ -138,13 +135,13 @@
         <Class IRI="#MuscleInjury"/>
     </Declaration>
     <Declaration>
-        <Class IRI="#NeckJoint"/>
+        <NamedIndividual IRI="#NeckJoint"/>
     </Declaration>
     <Declaration>
-        <Class IRI="#Obliques"/>
+        <NamedIndividual IRI="#Obliques"/>
     </Declaration>
     <Declaration>
-        <Class IRI="#Pain"/>
+        <NamedIndividual IRI="#Pain"/>
     </Declaration>
     <Declaration>
         <Class IRI="#Patient"/>
@@ -156,19 +153,19 @@
         <Class IRI="#PushUps"/>
     </Declaration>
     <Declaration>
-        <Class IRI="#Quadriceps"/>
+        <NamedIndividual IRI="#Quadriceps"/>
     </Declaration>
     <Declaration>
-        <Class IRI="#Quads"/>
+        <NamedIndividual IRI="#Quads"/>
     </Declaration>
     <Declaration>
-        <Class IRI="#RearDeltoids"/>
+        <NamedIndividual IRI="#RearDeltoids"/>
     </Declaration>
     <Declaration>
         <Class IRI="#Relaxation"/>
     </Declaration>
     <Declaration>
-        <Class IRI="#RotatorCuffs"/>
+        <NamedIndividual IRI="#RotatorCuffs"/>
     </Declaration>
     <Declaration>
         <Class IRI="#Session"/>
@@ -177,13 +174,13 @@
         <Class IRI="#SeverityLevel"/>
     </Declaration>
     <Declaration>
-        <Class IRI="#Shoulder"/>
+        <NamedIndividual IRI="#Shoulder"/>
     </Declaration>
     <Declaration>
-        <Class IRI="#ShoulderJoint"/>
+        <NamedIndividual IRI="#ShoulderJoint"/>
     </Declaration>
     <Declaration>
-        <Class IRI="#SpineJoint"/>
+        <NamedIndividual IRI="#SpineJoint"/>
     </Declaration>
     <Declaration>
         <Class IRI="#SportActivity"/>
@@ -207,13 +204,13 @@
         <Class IRI="#TrainingsLevel"/>
     </Declaration>
     <Declaration>
-        <Class IRI="#Trapezius"/>
+        <NamedIndividual IRI="#Trapezius"/>
     </Declaration>
     <Declaration>
-        <Class IRI="#Triceps"/>
+        <NamedIndividual IRI="#Triceps"/>
     </Declaration>
     <Declaration>
-        <Class IRI="#WristJoint"/>
+        <NamedIndividual IRI="#WristJoint"/>
     </Declaration>
     <Declaration>
         <Class IRI="#Yoga"/>
@@ -1158,6 +1155,9 @@
         <NamedIndividual IRI="#LeftLeg"/>
     </Declaration>
     <Declaration>
+        <NamedIndividual IRI="#LegRaise"/>
+    </Declaration>
+    <Declaration>
         <NamedIndividual IRI="#Legs"/>
     </Declaration>
     <Declaration>
@@ -2066,22 +2066,22 @@
     <Declaration>
         <Datatype abbreviatedIRI="xsd:date"/>
     </Declaration>
-    <SubClassOf>
-        <Class IRI="#Abs"/>
+    <ClassAssertion>
         <Class IRI="#Muscle"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="#Adductors"/>
+        <NamedIndividual IRI="#Abs"/>
+    </ClassAssertion>
+    <ClassAssertion>
         <Class IRI="#Muscle"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="#AgeGroup"/>
+        <NamedIndividual IRI="#Adductors"/>
+    </ClassAssertion>
+    <ClassAssertion>
         <Class IRI="#Patient"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="#AnkleJoint"/>
+        <NamedIndividual IRI="#AgeGroup"/>
+    </ClassAssertion>
+    <ClassAssertion>
         <Class IRI="#Joint"/>
-    </SubClassOf>
+        <NamedIndividual IRI="#AnkleJoint"/>
+    </ClassAssertion>
     <SubClassOf>
         <Class IRI="#Asana"/>
         <Class IRI="#Yoga"/>
@@ -2090,22 +2090,22 @@
         <Class IRI="#BackPain"/>
         <Class IRI="#Injury"/>
     </SubClassOf>
-    <SubClassOf>
-        <Class IRI="#Biceps"/>
+    <ClassAssertion>
         <Class IRI="#Muscle"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="#Calves"/>
+        <NamedIndividual IRI="#Biceps"/>
+    </ClassAssertion>
+    <ClassAssertion>
         <Class IRI="#Muscle"/>
-    </SubClassOf>
+        <NamedIndividual IRI="#Calves"/>
+    </ClassAssertion>
     <SubClassOf>
         <Class IRI="#Cardio"/>
         <Class IRI="#Exercise"/>
     </SubClassOf>
-    <SubClassOf>
-        <Class IRI="#Chest"/>
+    <ClassAssertion>
         <Class IRI="#Muscle"/>
-    </SubClassOf>
+        <NamedIndividual IRI="#Chest"/>
+    </ClassAssertion>
     <SubClassOf>
         <Class IRI="#Contraindication"/>
         <Class IRI="#ExerciseProperties"/>
@@ -2122,10 +2122,10 @@
         <Class IRI="#DifficultyLevel"/>
         <Class IRI="#ExerciseProperties"/>
     </SubClassOf>
-    <SubClassOf>
-        <Class IRI="#Elbow"/>
+    <ClassAssertion>
         <Class IRI="#Joint"/>
-    </SubClassOf>
+        <NamedIndividual IRI="#Elbow"/>
+    </ClassAssertion>
     <SubClassOf>
         <Class IRI="#Equipment"/>
         <Class IRI="#ExerciseProperties"/>
@@ -2138,30 +2138,30 @@
         <Class IRI="#ExerciseProperties"/>
         <Class abbreviatedIRI="owl:Thing"/>
     </SubClassOf>
-    <SubClassOf>
-        <Class IRI="#ForearmFlexors"/>
+    <ClassAssertion>
         <Class IRI="#Muscle"/>
-    </SubClassOf>
+        <NamedIndividual IRI="#ForearmFlexors"/>
+    </ClassAssertion>
     <SubClassOf>
         <Class IRI="#Fracture"/>
         <Class IRI="#Injury"/>
     </SubClassOf>
-    <SubClassOf>
-        <Class IRI="#FrontDeltoid"/>
+    <ClassAssertion>
         <Class IRI="#Muscle"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="#Glutes"/>
+        <NamedIndividual IRI="#FrontDeltoid"/>
+    </ClassAssertion>
+    <ClassAssertion>
         <Class IRI="#Muscle"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="#Hamstrings"/>
+        <NamedIndividual IRI="#Glutes"/>
+    </ClassAssertion>
+    <ClassAssertion>
         <Class IRI="#Muscle"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="#HipJoint"/>
+        <NamedIndividual IRI="#Hamstrings"/>
+    </ClassAssertion>
+    <ClassAssertion>
         <Class IRI="#Joint"/>
-    </SubClassOf>
+        <NamedIndividual IRI="#HipJoint"/>
+    </ClassAssertion>
     <SubClassOf>
         <Class IRI="#Joint"/>
         <Class IRI="#BodyPart"/>
@@ -2174,22 +2174,18 @@
         <Class IRI="#JumpingJacks"/>
         <Class IRI="#Cardio"/>
     </SubClassOf>
-    <SubClassOf>
-        <Class IRI="#KneeJoint"/>
+    <ClassAssertion>
         <Class IRI="#Joint"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="#LateralDeltoids"/>
+        <NamedIndividual IRI="#KneeJoint"/>
+    </ClassAssertion>
+    <ClassAssertion>
         <Class IRI="#Muscle"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="#Lats"/>
+        <NamedIndividual IRI="#LateralDeltoids"/>
+    </ClassAssertion>
+    <ClassAssertion>
         <Class IRI="#Muscle"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="#LegRaise"/>
-        <Class IRI="#Strength"/>
-    </SubClassOf>
+        <NamedIndividual IRI="#Lats"/>
+    </ClassAssertion>
     <SubClassOf>
         <Class IRI="#Limb"/>
         <Class IRI="#BodyPart"/>
@@ -2198,10 +2194,10 @@
         <Class IRI="#LimbAlignment"/>
         <Class IRI="#ExerciseProperties"/>
     </SubClassOf>
-    <SubClassOf>
-        <Class IRI="#LowerBack"/>
+    <ClassAssertion>
         <Class IRI="#Muscle"/>
-    </SubClassOf>
+        <NamedIndividual IRI="#LowerBack"/>
+    </ClassAssertion>
     <SubClassOf>
         <Class IRI="#MobilisationStretching"/>
         <Class IRI="#Exercise"/>
@@ -2218,18 +2214,18 @@
         <Class IRI="#MuscleInjury"/>
         <Class IRI="#Injury"/>
     </SubClassOf>
-    <SubClassOf>
-        <Class IRI="#NeckJoint"/>
+    <ClassAssertion>
         <Class IRI="#Joint"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="#Obliques"/>
+        <NamedIndividual IRI="#NeckJoint"/>
+    </ClassAssertion>
+    <ClassAssertion>
         <Class IRI="#Muscle"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="#Pain"/>
+        <NamedIndividual IRI="#Obliques"/>
+    </ClassAssertion>
+    <ClassAssertion>
         <Class IRI="#Patient"/>
-    </SubClassOf>
+        <NamedIndividual IRI="#Pain"/>
+    </ClassAssertion>
     <SubClassOf>
         <Class IRI="#Plank"/>
         <Class IRI="#Strength"/>
@@ -2238,42 +2234,42 @@
         <Class IRI="#PushUps"/>
         <Class IRI="#Strength"/>
     </SubClassOf>
-    <SubClassOf>
-        <Class IRI="#Quadriceps"/>
+    <ClassAssertion>
         <Class IRI="#Muscle"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="#Quads"/>
+        <NamedIndividual IRI="#Quadriceps"/>
+    </ClassAssertion>
+    <ClassAssertion>
         <Class IRI="#Muscle"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="#RearDeltoids"/>
+        <NamedIndividual IRI="#Quads"/>
+    </ClassAssertion>
+    <ClassAssertion>
         <Class IRI="#Muscle"/>
-    </SubClassOf>
+        <NamedIndividual IRI="#RearDeltoids"/>
+    </ClassAssertion>
     <SubClassOf>
         <Class IRI="#Relaxation"/>
         <Class IRI="#Exercise"/>
     </SubClassOf>
-    <SubClassOf>
-        <Class IRI="#RotatorCuffs"/>
+    <ClassAssertion>
         <Class IRI="#Muscle"/>
-    </SubClassOf>
+        <NamedIndividual IRI="#RotatorCuffs"/>
+    </ClassAssertion>
     <SubClassOf>
         <Class IRI="#SeverityLevel"/>
         <Class IRI="#ExerciseProperties"/>
     </SubClassOf>
-    <SubClassOf>
-        <Class IRI="#Shoulder"/>
+    <ClassAssertion>
         <Class IRI="#Muscle"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="#ShoulderJoint"/>
+        <NamedIndividual IRI="#Shoulder"/>
+    </ClassAssertion>
+    <ClassAssertion>
         <Class IRI="#Joint"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="#SpineJoint"/>
+        <NamedIndividual IRI="#ShoulderJoint"/>
+    </ClassAssertion>
+    <ClassAssertion>
         <Class IRI="#Joint"/>
-    </SubClassOf>
+        <NamedIndividual IRI="#SpineJoint"/>
+    </ClassAssertion>
     <SubClassOf>
         <Class IRI="#Squats"/>
         <Class IRI="#Strength"/>
@@ -2294,18 +2290,18 @@
         <Class IRI="#TrainingsEffect"/>
         <Class IRI="#ExerciseProperties"/>
     </SubClassOf>
-    <SubClassOf>
-        <Class IRI="#Trapezius"/>
+    <ClassAssertion>
         <Class IRI="#Muscle"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="#Triceps"/>
+        <NamedIndividual IRI="#Trapezius"/>
+    </ClassAssertion>
+    <ClassAssertion>
         <Class IRI="#Muscle"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="#WristJoint"/>
+        <NamedIndividual IRI="#Triceps"/>
+    </ClassAssertion>
+    <ClassAssertion>
         <Class IRI="#Joint"/>
-    </SubClassOf>
+        <NamedIndividual IRI="#WristJoint"/>
+    </ClassAssertion>
     <SubClassOf>
         <Class IRI="#Yoga"/>
         <Class IRI="#Exercise"/>
@@ -3224,6 +3220,10 @@
     <ClassAssertion>
         <Class IRI="#Limb"/>
         <NamedIndividual IRI="#LeftLeg"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Strength"/>
+        <NamedIndividual IRI="#LegRaise"/>
     </ClassAssertion>
     <ClassAssertion>
         <Class IRI="#BodyPart"/>
@@ -20599,6 +20599,11 @@
         <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#decimal">0.0</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
+        <DataProperty IRI="#MET"/>
+        <NamedIndividual IRI="#FaszienrolleRueckenWade"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#decimal">10</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
         <DataProperty IRI="#Calorie"/>
         <NamedIndividual IRI="#FellingTrees"/>
         <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#decimal">571.0</Literal>
@@ -22045,6 +22050,10 @@
     <ObjectPropertyDomain>
         <ObjectProperty IRI="#affectsBodyPart"/>
         <Class IRI="#Condition"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#affectsBodyPart"/>
+        <Class IRI="#Exercise"/>
     </ObjectPropertyDomain>
     <ObjectPropertyDomain>
         <ObjectProperty IRI="#affectsBodyPart"/>
