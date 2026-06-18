@@ -11,7 +11,7 @@ class ExerciseApi {
       ? 'localhost:3030'
       : (Platform.isAndroid ? '10.0.2.2:3030' : 'localhost:3030');
 
-  final String _fusekiUrl = 'http://$_host/rehab_dummy/query';
+  final String _fusekiUrl = 'http://$_host/rehab/query';
 
   Future<List<Exercise>> fetchExercises() async {
     const query = '''

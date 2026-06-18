@@ -1,4 +1,10 @@
+import 'package:isar/isar.dart';
+
+part 'exercise.g.dart';
+
+@Collection()
 class Exercise {
+  Id isarId = Isar.autoIncrement;
   final String id;
   final String label;
   final String bodyPartLabel;
