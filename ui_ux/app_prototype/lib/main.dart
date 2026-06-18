@@ -12,25 +12,10 @@ void main() async {
   // Stellen Sie sicher, dass Flutter-Bindings initialisiert sind
   WidgetsFlutterBinding.ensureInitialized();
 
-  // Zielverzeichnis: api/data_storage
-  String dbPath = '/home/daniel/Desktop/Uni/Bachelorprojekt/Repo/rehab/api/data_storage';
-
-  // Robustheits-Check: Falls der absolute Pfad nicht existiert (z. B. auf einem anderen System),
-  // nutzen wir einen relativen Pfad oder den Standard-Anwendungsordner.
-  final absoluteDir = Directory(dbPath);
-  if (!await absoluteDir.exists()) {
-    final relativeDir = Directory('../../api/data_storage');
-    if (await relativeDir.exists()) {
-      dbPath = relativeDir.path;
-    } else {
-      final appDir = await getApplicationDocumentsDirectory();
-      dbPath = appDir.path;
-    }
-  }
-
+  final appDir = await getApplicationDocumentsDirectory();
   final isar = await Isar.open(
     [UserSchema],
-    directory: dbPath,
+    directory: appDir.path,
   );
 
   final userExists = await isar.users.where().findFirst() != null;

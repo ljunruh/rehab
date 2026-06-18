@@ -1,3 +1,4 @@
+import 'package:app_prototype/model/enum/gender.dart';
 import 'package:flutter/material.dart';
 import 'package:isar/isar.dart';
 
@@ -17,9 +18,9 @@ class _UserSetupScreenState extends State<UserSetupScreen> {
   final _height = TextEditingController();
   final _weight = TextEditingController();
 
-  String gender = "Male";
+  Gender gender = Gender.male;
 
-  Future<void> _save() async {
+  Future<void> _create() async {
     final isar = Isar.getInstance()!;
 
     final user = User()
@@ -47,7 +48,7 @@ class _UserSetupScreenState extends State<UserSetupScreen> {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         const Text(
-          "Geschlecht",
+          "Gender",
           style: TextStyle(fontSize: 16, fontWeight: FontWeight.normal),
         ),
 
@@ -56,19 +57,19 @@ class _UserSetupScreenState extends State<UserSetupScreen> {
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
-            _genderOption("Male"),
-            _genderOption("Female"),
-            _genderOption("Divers"),
+            _genderOption(Gender.male),
+            _genderOption(Gender.female),
+            _genderOption(Gender.diverse),
           ],
         ),
       ],
     );
   }
 
-  Widget _genderOption(String value) {
+  Widget _genderOption(Gender value) {
     return Row(
       children: [
-        Radio<String>(
+        Radio<Gender>(
           value: value,
           groupValue: gender,
           onChanged: (newValue) {
@@ -77,7 +78,7 @@ class _UserSetupScreenState extends State<UserSetupScreen> {
             });
           },
         ),
-        Text(value),
+        Text(value.label),
       ],
     );
   }
@@ -96,15 +97,13 @@ class _UserSetupScreenState extends State<UserSetupScreen> {
             TextField(controller: _name, decoration: const InputDecoration(labelText: "Name")),
             const SizedBox(height: 20),
             _buildGenderSelector(),
-            TextField(controller: _age, decoration: const InputDecoration(labelText: "Alter")),
-            TextField(controller: _height, decoration: const InputDecoration(labelText: "Größe")),
-            TextField(controller: _weight, decoration: const InputDecoration(labelText: "Gewicht")),
-
+            TextField(controller: _age, decoration: const InputDecoration(labelText: "Age")),
+            TextField(controller: _height, decoration: const InputDecoration(labelText: "Height")),
+            TextField(controller: _weight, decoration: const InputDecoration(labelText: "Weight")),
             const SizedBox(height: 20),
-
             ElevatedButton(
-              onPressed: _save,
-              child: const Text("Speichern"),
+              onPressed: _create,
+              child: const Text("Create"),
             ),
           ],
         ),

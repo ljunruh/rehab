@@ -1,3 +1,4 @@
+import 'package:app_prototype/model/enum/gender.dart';
 import 'package:flutter/material.dart';
 import 'package:isar/isar.dart';
 
@@ -13,15 +14,16 @@ class ProfileScreen extends StatefulWidget {
 
 class _ProfileScreenState extends State<ProfileScreen> {
   User? user;
+  late Isar isar;
 
   @override
   void initState() {
     super.initState();
+    isar = Isar.getInstance()!;
     _loadUser();
   }
 
   Future<void> _loadUser() async {
-    final isar = Isar.getInstance()!;
     final result = await isar.users.where().findFirst();
 
     setState(() {
@@ -30,8 +32,6 @@ class _ProfileScreenState extends State<ProfileScreen> {
   }
 
   Future<void> _deleteUser() async {
-    final isar = Isar.getInstance()!;
-
     await isar.writeTxn(() async {
       await isar.users.clear();
     });
@@ -67,17 +67,17 @@ class _ProfileScreenState extends State<ProfileScreen> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text("Name: ${user!.name}"),
-            Text("Alter: ${user!.age}"),
-            Text("Geschlecht: ${user!.gender}"),
-            Text("Größe: ${user!.height} cm"),
-            Text("Gewicht: ${user!.weight} kg"),
+            Text("Age: ${user!.age}"),
+            Text("Gender: ${user!.gender.label}"),
+            Text("Height: ${user!.height} cm"),
+            Text("Weight: ${user!.weight} kg"),
 
             const SizedBox(height: 30),
 
             ElevatedButton.icon(
               onPressed: _deleteUser,
               icon: const Icon(Icons.delete),
-              label: const Text("Profil löschen"),
+              label: const Text("delete Profil"),
               style: ElevatedButton.styleFrom(
                 backgroundColor: Colors.red,
                 foregroundColor: Colors.white,

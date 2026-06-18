@@ -25,7 +25,8 @@ const UserSchema = CollectionSchema(
     r'gender': PropertySchema(
       id: 1,
       name: r'gender',
-      type: IsarType.string,
+      type: IsarType.byte,
+      enumMap: _UsergenderEnumValueMap,
     ),
     r'height': PropertySchema(
       id: 2,
@@ -63,7 +64,6 @@ int _userEstimateSize(
   Map<Type, List<int>> allOffsets,
 ) {
   var bytesCount = offsets.last;
-  bytesCount += 3 + object.gender.length * 3;
   bytesCount += 3 + object.name.length * 3;
   return bytesCount;
 }
@@ -75,7 +75,7 @@ void _userSerialize(
   Map<Type, List<int>> allOffsets,
 ) {
   writer.writeLong(offsets[0], object.age);
-  writer.writeString(offsets[1], object.gender);
+  writer.writeByte(offsets[1], object.gender.index);
   writer.writeDouble(offsets[2], object.height);
   writer.writeString(offsets[3], object.name);
   writer.writeDouble(offsets[4], object.weight);
@@ -89,7 +89,8 @@ User _userDeserialize(
 ) {
   final object = User();
   object.age = reader.readLong(offsets[0]);
-  object.gender = reader.readString(offsets[1]);
+  object.gender =
+      _UsergenderValueEnumMap[reader.readByteOrNull(offsets[1])] ?? Gender.male;
   object.height = reader.readDouble(offsets[2]);
   object.id = id;
   object.name = reader.readString(offsets[3]);
@@ -107,7 +108,8 @@ P _userDeserializeProp<P>(
     case 0:
       return (reader.readLong(offset)) as P;
     case 1:
-      return (reader.readString(offset)) as P;
+      return (_UsergenderValueEnumMap[reader.readByteOrNull(offset)] ??
+          Gender.male) as P;
     case 2:
       return (reader.readDouble(offset)) as P;
     case 3:
@@ -118,6 +120,17 @@ P _userDeserializeProp<P>(
       throw IsarError('Unknown property with id $propertyId');
   }
 }
+
+const _UsergenderEnumValueMap = {
+  'male': 0,
+  'female': 1,
+  'diverse': 2,
+};
+const _UsergenderValueEnumMap = {
+  0: Gender.male,
+  1: Gender.female,
+  2: Gender.diverse,
+};
 
 Id _userGetId(User object) {
   return object.id;
@@ -259,55 +272,46 @@ extension UserQueryFilter on QueryBuilder<User, User, QFilterCondition> {
     });
   }
 
-  QueryBuilder<User, User, QAfterFilterCondition> genderEqualTo(
-    String value, {
-    bool caseSensitive = true,
-  }) {
+  QueryBuilder<User, User, QAfterFilterCondition> genderEqualTo(Gender value) {
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(FilterCondition.equalTo(
         property: r'gender',
         value: value,
-        caseSensitive: caseSensitive,
       ));
     });
   }
 
   QueryBuilder<User, User, QAfterFilterCondition> genderGreaterThan(
-    String value, {
+    Gender value, {
     bool include = false,
-    bool caseSensitive = true,
   }) {
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(FilterCondition.greaterThan(
         include: include,
         property: r'gender',
         value: value,
-        caseSensitive: caseSensitive,
       ));
     });
   }
 
   QueryBuilder<User, User, QAfterFilterCondition> genderLessThan(
-    String value, {
+    Gender value, {
     bool include = false,
-    bool caseSensitive = true,
   }) {
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(FilterCondition.lessThan(
         include: include,
         property: r'gender',
         value: value,
-        caseSensitive: caseSensitive,
       ));
     });
   }
 
   QueryBuilder<User, User, QAfterFilterCondition> genderBetween(
-    String lower,
-    String upper, {
+    Gender lower,
+    Gender upper, {
     bool includeLower = true,
     bool includeUpper = true,
-    bool caseSensitive = true,
   }) {
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(FilterCondition.between(
@@ -316,73 +320,6 @@ extension UserQueryFilter on QueryBuilder<User, User, QFilterCondition> {
         includeLower: includeLower,
         upper: upper,
         includeUpper: includeUpper,
-        caseSensitive: caseSensitive,
-      ));
-    });
-  }
-
-  QueryBuilder<User, User, QAfterFilterCondition> genderStartsWith(
-    String value, {
-    bool caseSensitive = true,
-  }) {
-    return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(FilterCondition.startsWith(
-        property: r'gender',
-        value: value,
-        caseSensitive: caseSensitive,
-      ));
-    });
-  }
-
-  QueryBuilder<User, User, QAfterFilterCondition> genderEndsWith(
-    String value, {
-    bool caseSensitive = true,
-  }) {
-    return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(FilterCondition.endsWith(
-        property: r'gender',
-        value: value,
-        caseSensitive: caseSensitive,
-      ));
-    });
-  }
-
-  QueryBuilder<User, User, QAfterFilterCondition> genderContains(String value,
-      {bool caseSensitive = true}) {
-    return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(FilterCondition.contains(
-        property: r'gender',
-        value: value,
-        caseSensitive: caseSensitive,
-      ));
-    });
-  }
-
-  QueryBuilder<User, User, QAfterFilterCondition> genderMatches(String pattern,
-      {bool caseSensitive = true}) {
-    return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(FilterCondition.matches(
-        property: r'gender',
-        wildcard: pattern,
-        caseSensitive: caseSensitive,
-      ));
-    });
-  }
-
-  QueryBuilder<User, User, QAfterFilterCondition> genderIsEmpty() {
-    return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(FilterCondition.equalTo(
-        property: r'gender',
-        value: '',
-      ));
-    });
-  }
-
-  QueryBuilder<User, User, QAfterFilterCondition> genderIsNotEmpty() {
-    return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(FilterCondition.greaterThan(
-        property: r'gender',
-        value: '',
       ));
     });
   }
@@ -839,10 +776,9 @@ extension UserQueryWhereDistinct on QueryBuilder<User, User, QDistinct> {
     });
   }
 
-  QueryBuilder<User, User, QDistinct> distinctByGender(
-      {bool caseSensitive = true}) {
+  QueryBuilder<User, User, QDistinct> distinctByGender() {
     return QueryBuilder.apply(this, (query) {
-      return query.addDistinctBy(r'gender', caseSensitive: caseSensitive);
+      return query.addDistinctBy(r'gender');
     });
   }
 
@@ -879,7 +815,7 @@ extension UserQueryProperty on QueryBuilder<User, User, QQueryProperty> {
     });
   }
 
-  QueryBuilder<User, String, QQueryOperations> genderProperty() {
+  QueryBuilder<User, Gender, QQueryOperations> genderProperty() {
     return QueryBuilder.apply(this, (query) {
       return query.addPropertyName(r'gender');
     });

@@ -1,3 +1,4 @@
+import 'package:app_prototype/model/enum/gender.dart';
 import 'package:isar/isar.dart';
 
 part 'user.g.dart';
@@ -8,7 +9,8 @@ class User {
 
   late String name;
   late int age;
-  late String gender;
+  @enumerated
+  late Gender gender;
   late double height;
   late double weight;
 }
