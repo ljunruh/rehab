@@ -219,14 +219,14 @@ Bei starken Schmerzen sollte die Übung pausiert werden. Die App könnte einen W
 
 ## Mögliche zentrale Relationen
 
-* `targetsBodyPart`
 * `engagedBodyPart`
-* `recommendedForInjury`
-* `supportsGoal`
 * `hasDifficultyLevel`
-* `requiresEquipment`
 * `hasContraindication`
-* `requiresWarning`
+* `recommendedForInjury` *(proposed relation)*
+* `supportsGoal` *(proposed relation)*
+* `requiresEquipment` *(proposed relation)*
+* `requiresWarning` *(proposed relation)*
+
 
 ---
 
