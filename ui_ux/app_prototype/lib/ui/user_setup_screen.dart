@@ -3,7 +3,7 @@ import 'package:app_prototype/model/condition.dart';
 import 'package:app_prototype/model/enum/gender.dart';
 import 'package:flutter/material.dart';
 import 'package:isar/isar.dart';
-
+import 'shared/selectable_accordion.dart';
 import '../model/user.dart';
 import 'home_screen.dart';
 
@@ -124,6 +124,36 @@ class _UserSetupScreenState extends State<UserSetupScreen> {
     );
   }
 
+  Widget _buildConditionSummary() {
+    if (_selectedConditionIds.isEmpty) {
+      return const Text(
+        "Keine Einschränkungen ausgewählt.",
+        style: TextStyle(
+          color: Colors.grey,
+          fontStyle: FontStyle.italic,
+        ),
+      );
+    }
+
+    return Wrap(
+      spacing: 8,
+      runSpacing: 4,
+      children: _allConditions
+          .where((c) => _selectedConditionIds.contains(c.id))
+          .map(
+            (c) => Chip(
+          label: Text(c.label),
+          onDeleted: () {
+            setState(() {
+              _selectedConditionIds.remove(c.id);
+            });
+          },
+        ),
+      )
+          .toList(),
+    );
+  }
+
   Widget _buildConditionsSection() {
     if (_isLoadingConditions) {
       return const Column(
@@ -131,7 +161,10 @@ class _UserSetupScreenState extends State<UserSetupScreen> {
         children: [
           Text(
             "Einschränkungen / Bedingungen",
-            style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+            style: TextStyle(
+              fontSize: 16,
+              fontWeight: FontWeight.bold,
+            ),
           ),
           SizedBox(height: 12),
           Center(child: CircularProgressIndicator()),
@@ -145,7 +178,10 @@ class _UserSetupScreenState extends State<UserSetupScreen> {
         children: [
           const Text(
             "Einschränkungen / Bedingungen",
-            style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+            style: TextStyle(
+              fontSize: 16,
+              fontWeight: FontWeight.bold,
+            ),
           ),
           const SizedBox(height: 12),
           Text(
@@ -156,92 +192,34 @@ class _UserSetupScreenState extends State<UserSetupScreen> {
       );
     }
 
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        const Text(
-          "Bestehende Einschränkungen / Bedingungen",
-          style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
-        ),
-        const SizedBox(height: 8),
-        if (_selectedConditionIds.isNotEmpty)
-          Wrap(
-            spacing: 8.0,
-            runSpacing: 4.0,
-            children: _allConditions
-                .where((c) => _selectedConditionIds.contains(c.id))
-                .map((c) => Chip(
-                      label: Text(c.label),
-                      onDeleted: () {
-                        setState(() {
-                          _selectedConditionIds.remove(c.id);
-                        });
-                      },
-                    ))
-                .toList(),
-          )
-        else
-          const Text(
-            "Keine Einschränkungen ausgewählt.",
-            style: TextStyle(color: Colors.grey, fontStyle: FontStyle.italic),
-          ),
-        const SizedBox(height: 12),
-        TextField(
-          controller: _searchController,
-          decoration: InputDecoration(
-            labelText: "Suchen...",
-            prefixIcon: const Icon(Icons.search),
-            suffixIcon: _searchController.text.isNotEmpty
-                ? IconButton(
-                    icon: const Icon(Icons.clear),
-                    onPressed: () {
-                      _searchController.clear();
-                      _filterConditions('');
-                    },
-                  )
-                : null,
-            border: const OutlineInputBorder(),
-          ),
-          onChanged: _filterConditions,
-        ),
-        const SizedBox(height: 8),
-        Container(
-          height: 180,
-          decoration: BoxDecoration(
-            border: Border.all(color: Colors.grey.shade400),
-            borderRadius: BorderRadius.circular(4),
-          ),
-          child: _filteredConditions.isEmpty
-              ? const Center(child: Text("Keine passenden Optionen gefunden"))
-              : ListView.builder(
-                  shrinkWrap: true,
-                  itemCount: _filteredConditions.length,
-                  itemBuilder: (context, index) {
-                    final condition = _filteredConditions[index];
-                    final isSelected = _selectedConditionIds.contains(condition.id);
-                    return CheckboxListTile(
-                      value: isSelected,
-                      title: Text(condition.label),
-                      subtitle: condition.comment.isNotEmpty
-                          ? Text(
-                              condition.comment,
-                              style: const TextStyle(fontSize: 12),
-                            )
-                          : null,
-                      onChanged: (checked) {
-                        setState(() {
-                          if (checked == true) {
-                            _selectedConditionIds.add(condition.id);
-                          } else {
-                            _selectedConditionIds.remove(condition.id);
-                          }
-                        });
-                      },
-                    );
-                  },
-                ),
-        ),
-      ],
+    return SelectableAccordion<Condition>(
+      title: "Bestehende Einschränkungen / Bedingungen",
+
+      // <-- HIER die Summary-Methode verwenden
+      summary: _buildConditionSummary(),
+
+      items: _allConditions,
+      filteredItems: _filteredConditions,
+
+      onSearch: _filterConditions,
+
+      getId: (condition) => condition.id,
+
+      getTitle: (condition) => condition.label,
+
+      getSubtitle: (condition) => condition.comment,
+
+      selectedIds: _selectedConditionIds,
+
+      onSelectionChanged: (id, selected) {
+        setState(() {
+          if (selected) {
+            _selectedConditionIds.add(id);
+          } else {
+            _selectedConditionIds.remove(id);
+          }
+        });
+      },
     );
   }
 
