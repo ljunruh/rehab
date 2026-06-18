@@ -271,7 +271,7 @@ PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 SELECT ?exercise ?label
 WHERE {
   ?exercise a pt:Exercise ;
-            pt:engagedBodyPart pt:Knee ;
+            pt:engagedBodyPart pt:Knees ;
             pt:hasDifficultyLevel pt:Beginner ;
             rdfs:label ?label .
 
