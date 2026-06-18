@@ -22,24 +22,29 @@ const UserSchema = CollectionSchema(
       name: r'age',
       type: IsarType.long,
     ),
-    r'gender': PropertySchema(
+    r'conditions': PropertySchema(
       id: 1,
+      name: r'conditions',
+      type: IsarType.stringList,
+    ),
+    r'gender': PropertySchema(
+      id: 2,
       name: r'gender',
       type: IsarType.byte,
       enumMap: _UsergenderEnumValueMap,
     ),
     r'height': PropertySchema(
-      id: 2,
+      id: 3,
       name: r'height',
       type: IsarType.double,
     ),
     r'name': PropertySchema(
-      id: 3,
+      id: 4,
       name: r'name',
       type: IsarType.string,
     ),
     r'weight': PropertySchema(
-      id: 4,
+      id: 5,
       name: r'weight',
       type: IsarType.double,
     )
@@ -64,6 +69,13 @@ int _userEstimateSize(
   Map<Type, List<int>> allOffsets,
 ) {
   var bytesCount = offsets.last;
+  bytesCount += 3 + object.conditions.length * 3;
+  {
+    for (var i = 0; i < object.conditions.length; i++) {
+      final value = object.conditions[i];
+      bytesCount += value.length * 3;
+    }
+  }
   bytesCount += 3 + object.name.length * 3;
   return bytesCount;
 }
@@ -75,10 +87,11 @@ void _userSerialize(
   Map<Type, List<int>> allOffsets,
 ) {
   writer.writeLong(offsets[0], object.age);
-  writer.writeByte(offsets[1], object.gender.index);
-  writer.writeDouble(offsets[2], object.height);
-  writer.writeString(offsets[3], object.name);
-  writer.writeDouble(offsets[4], object.weight);
+  writer.writeStringList(offsets[1], object.conditions);
+  writer.writeByte(offsets[2], object.gender.index);
+  writer.writeDouble(offsets[3], object.height);
+  writer.writeString(offsets[4], object.name);
+  writer.writeDouble(offsets[5], object.weight);
 }
 
 User _userDeserialize(
@@ -89,12 +102,13 @@ User _userDeserialize(
 ) {
   final object = User();
   object.age = reader.readLong(offsets[0]);
+  object.conditions = reader.readStringList(offsets[1]) ?? [];
   object.gender =
-      _UsergenderValueEnumMap[reader.readByteOrNull(offsets[1])] ?? Gender.male;
-  object.height = reader.readDouble(offsets[2]);
+      _UsergenderValueEnumMap[reader.readByteOrNull(offsets[2])] ?? Gender.male;
+  object.height = reader.readDouble(offsets[3]);
   object.id = id;
-  object.name = reader.readString(offsets[3]);
-  object.weight = reader.readDouble(offsets[4]);
+  object.name = reader.readString(offsets[4]);
+  object.weight = reader.readDouble(offsets[5]);
   return object;
 }
 
@@ -108,13 +122,15 @@ P _userDeserializeProp<P>(
     case 0:
       return (reader.readLong(offset)) as P;
     case 1:
+      return (reader.readStringList(offset) ?? []) as P;
+    case 2:
       return (_UsergenderValueEnumMap[reader.readByteOrNull(offset)] ??
           Gender.male) as P;
-    case 2:
-      return (reader.readDouble(offset)) as P;
     case 3:
-      return (reader.readString(offset)) as P;
+      return (reader.readDouble(offset)) as P;
     case 4:
+      return (reader.readString(offset)) as P;
+    case 5:
       return (reader.readDouble(offset)) as P;
     default:
       throw IsarError('Unknown property with id $propertyId');
@@ -269,6 +285,221 @@ extension UserQueryFilter on QueryBuilder<User, User, QFilterCondition> {
         upper: upper,
         includeUpper: includeUpper,
       ));
+    });
+  }
+
+  QueryBuilder<User, User, QAfterFilterCondition> conditionsElementEqualTo(
+    String value, {
+    bool caseSensitive = true,
+  }) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.equalTo(
+        property: r'conditions',
+        value: value,
+        caseSensitive: caseSensitive,
+      ));
+    });
+  }
+
+  QueryBuilder<User, User, QAfterFilterCondition> conditionsElementGreaterThan(
+    String value, {
+    bool include = false,
+    bool caseSensitive = true,
+  }) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.greaterThan(
+        include: include,
+        property: r'conditions',
+        value: value,
+        caseSensitive: caseSensitive,
+      ));
+    });
+  }
+
+  QueryBuilder<User, User, QAfterFilterCondition> conditionsElementLessThan(
+    String value, {
+    bool include = false,
+    bool caseSensitive = true,
+  }) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.lessThan(
+        include: include,
+        property: r'conditions',
+        value: value,
+        caseSensitive: caseSensitive,
+      ));
+    });
+  }
+
+  QueryBuilder<User, User, QAfterFilterCondition> conditionsElementBetween(
+    String lower,
+    String upper, {
+    bool includeLower = true,
+    bool includeUpper = true,
+    bool caseSensitive = true,
+  }) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.between(
+        property: r'conditions',
+        lower: lower,
+        includeLower: includeLower,
+        upper: upper,
+        includeUpper: includeUpper,
+        caseSensitive: caseSensitive,
+      ));
+    });
+  }
+
+  QueryBuilder<User, User, QAfterFilterCondition> conditionsElementStartsWith(
+    String value, {
+    bool caseSensitive = true,
+  }) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.startsWith(
+        property: r'conditions',
+        value: value,
+        caseSensitive: caseSensitive,
+      ));
+    });
+  }
+
+  QueryBuilder<User, User, QAfterFilterCondition> conditionsElementEndsWith(
+    String value, {
+    bool caseSensitive = true,
+  }) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.endsWith(
+        property: r'conditions',
+        value: value,
+        caseSensitive: caseSensitive,
+      ));
+    });
+  }
+
+  QueryBuilder<User, User, QAfterFilterCondition> conditionsElementContains(
+      String value,
+      {bool caseSensitive = true}) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.contains(
+        property: r'conditions',
+        value: value,
+        caseSensitive: caseSensitive,
+      ));
+    });
+  }
+
+  QueryBuilder<User, User, QAfterFilterCondition> conditionsElementMatches(
+      String pattern,
+      {bool caseSensitive = true}) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.matches(
+        property: r'conditions',
+        wildcard: pattern,
+        caseSensitive: caseSensitive,
+      ));
+    });
+  }
+
+  QueryBuilder<User, User, QAfterFilterCondition> conditionsElementIsEmpty() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.equalTo(
+        property: r'conditions',
+        value: '',
+      ));
+    });
+  }
+
+  QueryBuilder<User, User, QAfterFilterCondition>
+      conditionsElementIsNotEmpty() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.greaterThan(
+        property: r'conditions',
+        value: '',
+      ));
+    });
+  }
+
+  QueryBuilder<User, User, QAfterFilterCondition> conditionsLengthEqualTo(
+      int length) {
+    return QueryBuilder.apply(this, (query) {
+      return query.listLength(
+        r'conditions',
+        length,
+        true,
+        length,
+        true,
+      );
+    });
+  }
+
+  QueryBuilder<User, User, QAfterFilterCondition> conditionsIsEmpty() {
+    return QueryBuilder.apply(this, (query) {
+      return query.listLength(
+        r'conditions',
+        0,
+        true,
+        0,
+        true,
+      );
+    });
+  }
+
+  QueryBuilder<User, User, QAfterFilterCondition> conditionsIsNotEmpty() {
+    return QueryBuilder.apply(this, (query) {
+      return query.listLength(
+        r'conditions',
+        0,
+        false,
+        999999,
+        true,
+      );
+    });
+  }
+
+  QueryBuilder<User, User, QAfterFilterCondition> conditionsLengthLessThan(
+    int length, {
+    bool include = false,
+  }) {
+    return QueryBuilder.apply(this, (query) {
+      return query.listLength(
+        r'conditions',
+        0,
+        true,
+        length,
+        include,
+      );
+    });
+  }
+
+  QueryBuilder<User, User, QAfterFilterCondition> conditionsLengthGreaterThan(
+    int length, {
+    bool include = false,
+  }) {
+    return QueryBuilder.apply(this, (query) {
+      return query.listLength(
+        r'conditions',
+        length,
+        include,
+        999999,
+        true,
+      );
+    });
+  }
+
+  QueryBuilder<User, User, QAfterFilterCondition> conditionsLengthBetween(
+    int lower,
+    int upper, {
+    bool includeLower = true,
+    bool includeUpper = true,
+  }) {
+    return QueryBuilder.apply(this, (query) {
+      return query.listLength(
+        r'conditions',
+        lower,
+        includeLower,
+        upper,
+        includeUpper,
+      );
     });
   }
 
@@ -776,6 +1007,12 @@ extension UserQueryWhereDistinct on QueryBuilder<User, User, QDistinct> {
     });
   }
 
+  QueryBuilder<User, User, QDistinct> distinctByConditions() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addDistinctBy(r'conditions');
+    });
+  }
+
   QueryBuilder<User, User, QDistinct> distinctByGender() {
     return QueryBuilder.apply(this, (query) {
       return query.addDistinctBy(r'gender');
@@ -812,6 +1049,12 @@ extension UserQueryProperty on QueryBuilder<User, User, QQueryProperty> {
   QueryBuilder<User, int, QQueryOperations> ageProperty() {
     return QueryBuilder.apply(this, (query) {
       return query.addPropertyName(r'age');
+    });
+  }
+
+  QueryBuilder<User, List<String>, QQueryOperations> conditionsProperty() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addPropertyName(r'conditions');
     });
   }
 

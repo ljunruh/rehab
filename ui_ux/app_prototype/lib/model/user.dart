@@ -13,4 +13,6 @@ class User {
   late Gender gender;
   late double height;
   late double weight;
+
+  List<String> conditions = [];
 }
