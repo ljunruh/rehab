@@ -40,7 +40,7 @@ Welche Übungen eignen sich für das Knie?
 
 * Exercise
 * BodyPart
-* Relation: `targetsBodyPart` oder `engagedBodyPart`
+* Relation: `engagedBodyPart`
 
 **Beispielantwort:**
 Für das Knie könnten z. B. Kniebeugen mit Unterstützung, Einbeinstand oder leichte Stabilisationsübungen relevant sein.
@@ -58,7 +58,7 @@ Welche Übungen eignen sich bei Kniebeschwerden?
 * Injury / Complaint
 * BodyPart
 * Relation: `recommendedForInjury`
-* Relation: `targetsBodyPart`
+* Relation: `engagedBodyPart`
 
 **Beispielantwort:**
 Bei Kniebeschwerden könnten anfängerfreundliche und kontrollierte Übungen empfohlen werden, z. B. Kniebeugen mit Unterstützung oder Balanceübungen.
