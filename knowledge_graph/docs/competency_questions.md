@@ -232,7 +232,6 @@ Mögliche Erweiterungen:
 * `requiresEquipment`
 * `requiresWarning`
 
-
 ---
 
 ## Beispielhafte Empfehlungslogik
@@ -246,7 +245,7 @@ User input:
 
 Knowledge Graph query:
 Find exercises that:
-- target the knee
+- engage the knee
 - are suitable for beginner level
 - support stability
 - are not contraindicated for knee pain
@@ -254,6 +253,41 @@ Find exercises that:
 
 **Mögliche Antwort:**
 Einbeinstand mit Unterstützung, Kniebeuge mit Unterstützung oder leichte Balanceübungen.
+
+---
+
+## Beispielhafte SPARQL Query
+
+Die folgende Beispielabfrage zeigt, wie eine Competency Question später technisch abgefragt werden könnte.
+
+**Competency Question:**
+Welche Beginner-Übungen sprechen das Knie an und haben keine Kontraindikation für Kniebeschwerden?
+
+```sparql
+PREFIX pt: <http://purl.org/PhysicalTherapy#>
+PREFIX id: <http://reha-app.org/id/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+SELECT ?exercise ?label
+WHERE {
+  ?exercise a pt:Exercise ;
+            pt:engagedBodyPart pt:Knee ;
+            pt:hasDifficultyLevel pt:Beginner ;
+            rdfs:label ?label .
+
+  FILTER NOT EXISTS {
+    ?exercise pt:hasContraindication pt:KneeIssue .
+  }
+}
+```
+
+Diese Query nutzt Relationen, die bereits in der aktuellen Import-Pipeline verwendet werden:
+
+* `pt:engagedBodyPart`
+* `pt:hasDifficultyLevel`
+* `pt:hasContraindication`
+
+Weitere Relationen wie `supportsGoal`, `recommendedForInjury`, `requiresEquipment` oder `requiresWarning` wären mögliche Erweiterungen, falls Ziele, konkrete Verletzungsempfehlungen, Hilfsmittel oder Warnhinweise später explizit im Knowledge Graph modelliert werden.
 
 ---
 
@@ -269,4 +303,5 @@ Wenn eine Frage nicht beantwortet werden kann, fehlen wahrscheinlich noch:
 * oder Beispiel-Daten im Graphen
 
 Dadurch können die nächsten Modellierungsschritte gezielter geplant werden.
+
 
