@@ -192,6 +192,9 @@
         <Class IRI="#Squats"/>
     </Declaration>
     <Declaration>
+        <Class IRI="#StartingPosition"/>
+    </Declaration>
+    <Declaration>
         <Class IRI="#Strength"/>
     </Declaration>
     <Declaration>
@@ -217,9 +220,6 @@
     </Declaration>
     <Declaration>
         <ObjectProperty IRI="#affectsBodyPart"/>
-    </Declaration>
-    <Declaration>
-        <ObjectProperty IRI="#answersQuestion"/>
     </Declaration>
     <Declaration>
         <ObjectProperty IRI="#avoidsAsana"/>
@@ -277,6 +277,9 @@
     </Declaration>
     <Declaration>
         <ObjectProperty IRI="#hasSeverityLevel"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasStartingPosition"/>
     </Declaration>
     <Declaration>
         <ObjectProperty IRI="#hasTrainingEffect"/>
@@ -483,7 +486,16 @@
         <NamedIndividual IRI="#Archery"/>
     </Declaration>
     <Declaration>
+        <NamedIndividual IRI="#ArmkreisenGewichtsverlagerung"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#ArmkreisenGewichtsverlagerung_ShoulderIssue"/>
+    </Declaration>
+    <Declaration>
         <NamedIndividual IRI="#Arms"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Atemuebung478"/>
     </Declaration>
     <Declaration>
         <NamedIndividual IRI="#Back"/>
@@ -544,6 +556,18 @@
     </Declaration>
     <Declaration>
         <NamedIndividual IRI="#Bowling"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Bruecke"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Bruecke_LowerBackIssue"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#BrustwirbelsaeulenRotation"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#BrustwirbelsaeulenRotation_SpineIssue"/>
     </Declaration>
     <Declaration>
         <NamedIndividual IRI="#Cactus"/>
@@ -726,6 +750,12 @@
         <NamedIndividual IRI="#DancingModern"/>
     </Declaration>
     <Declaration>
+        <NamedIndividual IRI="#DeadBug"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#DeadBug_LowerBackIssue"/>
+    </Declaration>
+    <Declaration>
         <NamedIndividual IRI="#Down"/>
     </Declaration>
     <Declaration>
@@ -759,13 +789,37 @@
         <NamedIndividual IRI="#Eagle_Torso"/>
     </Declaration>
     <Declaration>
+        <NamedIndividual IRI="#Einbeinstand"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Einbeinstand_AnkleIssue"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Einbeinstand_BalanceIssue"/>
+    </Declaration>
+    <Declaration>
         <NamedIndividual IRI="#Elbows"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#FaszienrolleRueckenWade"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#FaszienrolleRueckenWade_SpineIssue"/>
     </Declaration>
     <Declaration>
         <NamedIndividual IRI="#FellingTrees"/>
     </Declaration>
     <Declaration>
         <NamedIndividual IRI="#Fencing"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#FerseZehenGang"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#FerseZehenGang_AnkleIssue"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#FerseZehenGang_BalanceIssue"/>
     </Declaration>
     <Declaration>
         <NamedIndividual IRI="#FishingInStream"/>
@@ -856,6 +910,21 @@
     </Declaration>
     <Declaration>
         <NamedIndividual IRI="#Gate_Torso"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#GewichtsverlagerungSeitlich"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#GewichtsverlagerungSeitlich_BalanceIssue"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#GleichgewichtInstabil"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#GleichgewichtInstabil_AnkleIssue"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#GleichgewichtInstabil_BalanceIssue"/>
     </Declaration>
     <Declaration>
         <NamedIndividual IRI="#Glutes"/>
@@ -1002,6 +1071,15 @@
         <NamedIndividual IRI="#HouseworkLight"/>
     </Declaration>
     <Declaration>
+        <NamedIndividual IRI="#HueftbeugerDehnung"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#HueftbeugerDehnung_HipIssue"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#HueftbeugerDehnung_KneeIssue"/>
+    </Declaration>
+    <Declaration>
         <NamedIndividual IRI="#IceSkating"/>
     </Declaration>
     <Declaration>
@@ -1015,6 +1093,15 @@
     </Declaration>
     <Declaration>
         <NamedIndividual IRI="#Kayaking"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Kindpose"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Kindpose_HipIssue"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Kindpose_KneeIssue"/>
     </Declaration>
     <Declaration>
         <NamedIndividual IRI="#KingDancer"/>
@@ -1051,6 +1138,12 @@
     </Declaration>
     <Declaration>
         <NamedIndividual IRI="#Knees"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#KniegelenkMobilisation"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#KniegelenkMobilisation_KneeIssue"/>
     </Declaration>
     <Declaration>
         <NamedIndividual IRI="#Lacrosse"/>
@@ -1119,6 +1212,18 @@
         <NamedIndividual IRI="#MowingLawn"/>
     </Declaration>
     <Declaration>
+        <NamedIndividual IRI="#Muschel"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Muschel_HipIssue"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Nackendehnungen"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Nackendehnungen_NeckIssue"/>
+    </Declaration>
+    <Declaration>
         <NamedIndividual IRI="#Neck"/>
     </Declaration>
     <Declaration>
@@ -1167,6 +1272,15 @@
         <NamedIndividual IRI="#Pelvic"/>
     </Declaration>
     <Declaration>
+        <NamedIndividual IRI="#PigeonPose"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#PigeonPose_HipIssue"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#PigeonPose_KneeIssue"/>
+    </Declaration>
+    <Declaration>
         <NamedIndividual IRI="#PlayingCatch"/>
     </Declaration>
     <Declaration>
@@ -1174,6 +1288,9 @@
     </Declaration>
     <Declaration>
         <NamedIndividual IRI="#Posture"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#ProgressiveMuskelentspannung"/>
     </Declaration>
     <Declaration>
         <NamedIndividual IRI="#Psoas"/>
@@ -1284,6 +1401,21 @@
         <NamedIndividual IRI="#Running9MinMile"/>
     </Declaration>
     <Declaration>
+        <NamedIndividual IRI="#ScapulaRetraktion"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#ScapulaRetraktion_ShoulderIssue"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#SchulterNackenEntspannung"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#SchulterNackenEntspannung_NeckIssue"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#SchulterNackenEntspannung_ShoulderIssue"/>
+    </Declaration>
+    <Declaration>
         <NamedIndividual IRI="#Session0001"/>
     </Declaration>
     <Declaration>
@@ -1330,6 +1462,12 @@
     </Declaration>
     <Declaration>
         <NamedIndividual IRI="#Sitting"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#SitzenStehen"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#SitzenStehen_KneeIssue"/>
     </Declaration>
     <Declaration>
         <NamedIndividual IRI="#Skateboarding"/>
@@ -1584,6 +1722,39 @@
         <NamedIndividual IRI="#StandingSplit_Torso"/>
     </Declaration>
     <Declaration>
+        <NamedIndividual IRI="#StartingAnyPosition"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#StartingChairSitting"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#StartingFloor"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#StartingKneeling"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#StartingLaying"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#StartingSideLaying"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#StartingSitting"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#StartingSittingOrFloor"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#StartingStanding"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#StartingStandingOnCushion"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#StartingWallStanding"/>
+    </Declaration>
+    <Declaration>
         <NamedIndividual IRI="#StationaryCycling100Watts"/>
     </Declaration>
     <Declaration>
@@ -1624,6 +1795,12 @@
     </Declaration>
     <Declaration>
         <NamedIndividual IRI="#TennisDoubles"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#TherabandAussenrotation"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#TherabandAussenrotation_ShoulderIssue"/>
     </Declaration>
     <Declaration>
         <NamedIndividual IRI="#Thighs"/>
@@ -1719,6 +1896,12 @@
         <NamedIndividual IRI="#Volleyball"/>
     </Declaration>
     <Declaration>
+        <NamedIndividual IRI="#Wadendehnung"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Wadendehnung_AnkleIssue"/>
+    </Declaration>
+    <Declaration>
         <NamedIndividual IRI="#Walking11MinMile"/>
     </Declaration>
     <Declaration>
@@ -1741,6 +1924,12 @@
     </Declaration>
     <Declaration>
         <NamedIndividual IRI="#Wall"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Wandsitzen"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Wandsitzen_KneeIssue"/>
     </Declaration>
     <Declaration>
         <NamedIndividual IRI="#Warrior1"/>
@@ -2090,6 +2279,10 @@
         <Class IRI="#Strength"/>
     </SubClassOf>
     <SubClassOf>
+        <Class IRI="#StartingPosition"/>
+        <Class IRI="#ExerciseProperties"/>
+    </SubClassOf>
+    <SubClassOf>
         <Class IRI="#Strength"/>
         <Class IRI="#Exercise"/>
     </SubClassOf>
@@ -2205,8 +2398,20 @@
         <NamedIndividual IRI="#Archery"/>
     </ClassAssertion>
     <ClassAssertion>
+        <Class IRI="#CoordinationMobility"/>
+        <NamedIndividual IRI="#ArmkreisenGewichtsverlagerung"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Contraindication"/>
+        <NamedIndividual IRI="#ArmkreisenGewichtsverlagerung_ShoulderIssue"/>
+    </ClassAssertion>
+    <ClassAssertion>
         <Class IRI="#BodyPart"/>
         <NamedIndividual IRI="#Arms"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Relaxation"/>
+        <NamedIndividual IRI="#Atemuebung478"/>
     </ClassAssertion>
     <ClassAssertion>
         <Class IRI="#BodyPart"/>
@@ -2283,6 +2488,22 @@
     <ClassAssertion>
         <Class IRI="#SportActivity"/>
         <NamedIndividual IRI="#Bowling"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Strength"/>
+        <NamedIndividual IRI="#Bruecke"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Contraindication"/>
+        <NamedIndividual IRI="#Bruecke_LowerBackIssue"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#MobilisationStretching"/>
+        <NamedIndividual IRI="#BrustwirbelsaeulenRotation"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Contraindication"/>
+        <NamedIndividual IRI="#BrustwirbelsaeulenRotation_SpineIssue"/>
     </ClassAssertion>
     <ClassAssertion>
         <Class IRI="#Asana"/>
@@ -2505,6 +2726,14 @@
         <NamedIndividual IRI="#DancingModern"/>
     </ClassAssertion>
     <ClassAssertion>
+        <Class IRI="#Strength"/>
+        <NamedIndividual IRI="#DeadBug"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Contraindication"/>
+        <NamedIndividual IRI="#DeadBug_LowerBackIssue"/>
+    </ClassAssertion>
+    <ClassAssertion>
         <Class IRI="#Asana"/>
         <NamedIndividual IRI="#Eagle"/>
     </ClassAssertion>
@@ -2541,8 +2770,28 @@
         <NamedIndividual IRI="#Eagle_Torso"/>
     </ClassAssertion>
     <ClassAssertion>
+        <Class IRI="#CoordinationMobility"/>
+        <NamedIndividual IRI="#Einbeinstand"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Contraindication"/>
+        <NamedIndividual IRI="#Einbeinstand_AnkleIssue"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Contraindication"/>
+        <NamedIndividual IRI="#Einbeinstand_BalanceIssue"/>
+    </ClassAssertion>
+    <ClassAssertion>
         <Class IRI="#BodyPart"/>
         <NamedIndividual IRI="#Elbows"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Relaxation"/>
+        <NamedIndividual IRI="#FaszienrolleRueckenWade"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Contraindication"/>
+        <NamedIndividual IRI="#FaszienrolleRueckenWade_SpineIssue"/>
     </ClassAssertion>
     <ClassAssertion>
         <Class IRI="#SportActivity"/>
@@ -2551,6 +2800,18 @@
     <ClassAssertion>
         <Class IRI="#SportActivity"/>
         <NamedIndividual IRI="#Fencing"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#CoordinationMobility"/>
+        <NamedIndividual IRI="#FerseZehenGang"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Contraindication"/>
+        <NamedIndividual IRI="#FerseZehenGang_AnkleIssue"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Contraindication"/>
+        <NamedIndividual IRI="#FerseZehenGang_BalanceIssue"/>
     </ClassAssertion>
     <ClassAssertion>
         <Class IRI="#SportActivity"/>
@@ -2659,6 +2920,26 @@
     <ClassAssertion>
         <Class IRI="#LimbAlignment"/>
         <NamedIndividual IRI="#Gate_Torso"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#CoordinationMobility"/>
+        <NamedIndividual IRI="#GewichtsverlagerungSeitlich"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Contraindication"/>
+        <NamedIndividual IRI="#GewichtsverlagerungSeitlich_BalanceIssue"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#CoordinationMobility"/>
+        <NamedIndividual IRI="#GleichgewichtInstabil"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Contraindication"/>
+        <NamedIndividual IRI="#GleichgewichtInstabil_AnkleIssue"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Contraindication"/>
+        <NamedIndividual IRI="#GleichgewichtInstabil_BalanceIssue"/>
     </ClassAssertion>
     <ClassAssertion>
         <Class IRI="#BodyPart"/>
@@ -2837,6 +3118,18 @@
         <NamedIndividual IRI="#HouseworkLight"/>
     </ClassAssertion>
     <ClassAssertion>
+        <Class IRI="#MobilisationStretching"/>
+        <NamedIndividual IRI="#HueftbeugerDehnung"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Contraindication"/>
+        <NamedIndividual IRI="#HueftbeugerDehnung_HipIssue"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Contraindication"/>
+        <NamedIndividual IRI="#HueftbeugerDehnung_KneeIssue"/>
+    </ClassAssertion>
+    <ClassAssertion>
         <Class IRI="#SportActivity"/>
         <NamedIndividual IRI="#IceSkating"/>
     </ClassAssertion>
@@ -2855,6 +3148,18 @@
     <ClassAssertion>
         <Class IRI="#SportActivity"/>
         <NamedIndividual IRI="#Kayaking"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Relaxation"/>
+        <NamedIndividual IRI="#Kindpose"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Contraindication"/>
+        <NamedIndividual IRI="#Kindpose_HipIssue"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Contraindication"/>
+        <NamedIndividual IRI="#Kindpose_KneeIssue"/>
     </ClassAssertion>
     <ClassAssertion>
         <Class IRI="#Asana"/>
@@ -2899,6 +3204,14 @@
     <ClassAssertion>
         <Class IRI="#BodyPart"/>
         <NamedIndividual IRI="#Knees"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#MobilisationStretching"/>
+        <NamedIndividual IRI="#KniegelenkMobilisation"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Contraindication"/>
+        <NamedIndividual IRI="#KniegelenkMobilisation_KneeIssue"/>
     </ClassAssertion>
     <ClassAssertion>
         <Class IRI="#SportActivity"/>
@@ -2981,6 +3294,22 @@
         <NamedIndividual IRI="#MowingLawn"/>
     </ClassAssertion>
     <ClassAssertion>
+        <Class IRI="#Strength"/>
+        <NamedIndividual IRI="#Muschel"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Contraindication"/>
+        <NamedIndividual IRI="#Muschel_HipIssue"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#MobilisationStretching"/>
+        <NamedIndividual IRI="#Nackendehnungen"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Contraindication"/>
+        <NamedIndividual IRI="#Nackendehnungen_NeckIssue"/>
+    </ClassAssertion>
+    <ClassAssertion>
         <Class IRI="#BodyPart"/>
         <NamedIndividual IRI="#Neck"/>
     </ClassAssertion>
@@ -3037,6 +3366,18 @@
         <NamedIndividual IRI="#Pelvic"/>
     </ClassAssertion>
     <ClassAssertion>
+        <Class IRI="#MobilisationStretching"/>
+        <NamedIndividual IRI="#PigeonPose"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Contraindication"/>
+        <NamedIndividual IRI="#PigeonPose_HipIssue"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Contraindication"/>
+        <NamedIndividual IRI="#PigeonPose_KneeIssue"/>
+    </ClassAssertion>
+    <ClassAssertion>
         <Class IRI="#SportActivity"/>
         <NamedIndividual IRI="#PlayingCatch"/>
     </ClassAssertion>
@@ -3047,6 +3388,10 @@
     <ClassAssertion>
         <Class IRI="#TrainingsEffect"/>
         <NamedIndividual IRI="#Posture"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Relaxation"/>
+        <NamedIndividual IRI="#ProgressiveMuskelentspannung"/>
     </ClassAssertion>
     <ClassAssertion>
         <Class IRI="#BodyPart"/>
@@ -3181,6 +3526,26 @@
         <NamedIndividual IRI="#Running9MinMile"/>
     </ClassAssertion>
     <ClassAssertion>
+        <Class IRI="#Strength"/>
+        <NamedIndividual IRI="#ScapulaRetraktion"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Contraindication"/>
+        <NamedIndividual IRI="#ScapulaRetraktion_ShoulderIssue"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Relaxation"/>
+        <NamedIndividual IRI="#SchulterNackenEntspannung"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Contraindication"/>
+        <NamedIndividual IRI="#SchulterNackenEntspannung_NeckIssue"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Contraindication"/>
+        <NamedIndividual IRI="#SchulterNackenEntspannung_ShoulderIssue"/>
+    </ClassAssertion>
+    <ClassAssertion>
         <Class IRI="#Session"/>
         <NamedIndividual IRI="#Session0001"/>
     </ClassAssertion>
@@ -3239,6 +3604,14 @@
     <ClassAssertion>
         <Class IRI="#SportActivity"/>
         <NamedIndividual IRI="#Sitting"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#CoordinationMobility"/>
+        <NamedIndividual IRI="#SitzenStehen"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Contraindication"/>
+        <NamedIndividual IRI="#SitzenStehen_KneeIssue"/>
     </ClassAssertion>
     <ClassAssertion>
         <Class IRI="#SportActivity"/>
@@ -3549,6 +3922,50 @@
         <NamedIndividual IRI="#StandingSplit_Torso"/>
     </ClassAssertion>
     <ClassAssertion>
+        <Class IRI="#StartingPosition"/>
+        <NamedIndividual IRI="#StartingAnyPosition"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#StartingPosition"/>
+        <NamedIndividual IRI="#StartingChairSitting"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#StartingPosition"/>
+        <NamedIndividual IRI="#StartingFloor"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#StartingPosition"/>
+        <NamedIndividual IRI="#StartingKneeling"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#StartingPosition"/>
+        <NamedIndividual IRI="#StartingLaying"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#StartingPosition"/>
+        <NamedIndividual IRI="#StartingSideLaying"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#StartingPosition"/>
+        <NamedIndividual IRI="#StartingSitting"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#StartingPosition"/>
+        <NamedIndividual IRI="#StartingSittingOrFloor"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#StartingPosition"/>
+        <NamedIndividual IRI="#StartingStanding"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#StartingPosition"/>
+        <NamedIndividual IRI="#StartingStandingOnCushion"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#StartingPosition"/>
+        <NamedIndividual IRI="#StartingWallStanding"/>
+    </ClassAssertion>
+    <ClassAssertion>
         <Class IRI="#SportActivity"/>
         <NamedIndividual IRI="#StationaryCycling100Watts"/>
     </ClassAssertion>
@@ -3599,6 +4016,14 @@
     <ClassAssertion>
         <Class IRI="#SportActivity"/>
         <NamedIndividual IRI="#TennisDoubles"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Strength"/>
+        <NamedIndividual IRI="#TherabandAussenrotation"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Contraindication"/>
+        <NamedIndividual IRI="#TherabandAussenrotation_ShoulderIssue"/>
     </ClassAssertion>
     <ClassAssertion>
         <Class IRI="#BodyPart"/>
@@ -3705,6 +4130,14 @@
         <NamedIndividual IRI="#Volleyball"/>
     </ClassAssertion>
     <ClassAssertion>
+        <Class IRI="#MobilisationStretching"/>
+        <NamedIndividual IRI="#Wadendehnung"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Contraindication"/>
+        <NamedIndividual IRI="#Wadendehnung_AnkleIssue"/>
+    </ClassAssertion>
+    <ClassAssertion>
         <Class IRI="#SportActivity"/>
         <NamedIndividual IRI="#Walking11MinMile"/>
     </ClassAssertion>
@@ -3735,6 +4168,14 @@
     <ClassAssertion>
         <Class IRI="#Equipment"/>
         <NamedIndividual IRI="#Wall"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Strength"/>
+        <NamedIndividual IRI="#Wandsitzen"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Contraindication"/>
+        <NamedIndividual IRI="#Wandsitzen_KneeIssue"/>
     </ClassAssertion>
     <ClassAssertion>
         <Class IRI="#Asana"/>
@@ -4373,6 +4814,69 @@
     <ObjectPropertyAssertion>
         <Annotation>
             <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>The core is actively involved during the execution of ArmkreisenGewichtsverlagerung.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#engagedBodyPart"/>
+        <NamedIndividual IRI="#ArmkreisenGewichtsverlagerung"/>
+        <NamedIndividual IRI="#Core"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>The shoulders is actively involved during the execution of ArmkreisenGewichtsverlagerung.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#engagedBodyPart"/>
+        <NamedIndividual IRI="#ArmkreisenGewichtsverlagerung"/>
+        <NamedIndividual IRI="#Shoulders"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>This Contraindication should be considered for practitioners of ArmkreisenGewichtsverlagerung to avoid strain or injury.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#hasContraindication"/>
+        <NamedIndividual IRI="#ArmkreisenGewichtsverlagerung"/>
+        <NamedIndividual IRI="#ArmkreisenGewichtsverlagerung_ShoulderIssue"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>Indicates that the difficulty level of ArmkreisenGewichtsverlagerung is categorized as beginner.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#hasDifficultyLevel"/>
+        <NamedIndividual IRI="#ArmkreisenGewichtsverlagerung"/>
+        <NamedIndividual IRI="#Beginner"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>ArmkreisenGewichtsverlagerung starts in the standing position.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#hasStartingPosition"/>
+        <NamedIndividual IRI="#ArmkreisenGewichtsverlagerung"/>
+        <NamedIndividual IRI="#StartingStanding"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>Indicates that the difficulty level of Atemuebung478 is categorized as beginner.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#hasDifficultyLevel"/>
+        <NamedIndividual IRI="#Atemuebung478"/>
+        <NamedIndividual IRI="#Beginner"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>Atemuebung478 starts in any position.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#hasStartingPosition"/>
+        <NamedIndividual IRI="#Atemuebung478"/>
+        <NamedIndividual IRI="#StartingAnyPosition"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
             <Literal>BalanceIssue has a relationship with Ankles through property affectsBodyPart.</Literal>
         </Annotation>
         <ObjectProperty IRI="#affectsBodyPart"/>
@@ -4387,6 +4891,96 @@
         <ObjectProperty IRI="#affectsBodyPart"/>
         <NamedIndividual IRI="#BalanceIssue"/>
         <NamedIndividual IRI="#Core"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>The glutes is actively involved during the execution of Bruecke.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#engagedBodyPart"/>
+        <NamedIndividual IRI="#Bruecke"/>
+        <NamedIndividual IRI="#Glutes"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>The lower back is actively involved during the execution of Bruecke.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#engagedBodyPart"/>
+        <NamedIndividual IRI="#Bruecke"/>
+        <NamedIndividual IRI="#LowerBack"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>This Contraindication should be considered for practitioners of Bruecke to avoid strain or injury.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#hasContraindication"/>
+        <NamedIndividual IRI="#Bruecke"/>
+        <NamedIndividual IRI="#Bruecke_LowerBackIssue"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>Indicates that the difficulty level of Bruecke is categorized as beginner.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#hasDifficultyLevel"/>
+        <NamedIndividual IRI="#Bruecke"/>
+        <NamedIndividual IRI="#Beginner"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>Bruecke starts in the laying position.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#hasStartingPosition"/>
+        <NamedIndividual IRI="#Bruecke"/>
+        <NamedIndividual IRI="#StartingLaying"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>The spine is actively involved during the execution of BrustwirbelsaeulenRotation.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#engagedBodyPart"/>
+        <NamedIndividual IRI="#BrustwirbelsaeulenRotation"/>
+        <NamedIndividual IRI="#Spine"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>The upper back is actively involved during the execution of BrustwirbelsaeulenRotation.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#engagedBodyPart"/>
+        <NamedIndividual IRI="#BrustwirbelsaeulenRotation"/>
+        <NamedIndividual IRI="#UpperBack"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>This Contraindication should be considered for practitioners of BrustwirbelsaeulenRotation to avoid strain or injury.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#hasContraindication"/>
+        <NamedIndividual IRI="#BrustwirbelsaeulenRotation"/>
+        <NamedIndividual IRI="#BrustwirbelsaeulenRotation_SpineIssue"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>Indicates that the difficulty level of BrustwirbelsaeulenRotation is categorized as beginner.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#hasDifficultyLevel"/>
+        <NamedIndividual IRI="#BrustwirbelsaeulenRotation"/>
+        <NamedIndividual IRI="#Beginner"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>BrustwirbelsaeulenRotation starts in the sitting position.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#hasStartingPosition"/>
+        <NamedIndividual IRI="#BrustwirbelsaeulenRotation"/>
+        <NamedIndividual IRI="#StartingSitting"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <Annotation>
@@ -6857,6 +7451,42 @@
     <ObjectPropertyAssertion>
         <Annotation>
             <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>The core is actively involved during the execution of DeadBug.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#engagedBodyPart"/>
+        <NamedIndividual IRI="#DeadBug"/>
+        <NamedIndividual IRI="#Core"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>This Contraindication should be considered for practitioners of DeadBug to avoid strain or injury.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#hasContraindication"/>
+        <NamedIndividual IRI="#DeadBug"/>
+        <NamedIndividual IRI="#DeadBug_LowerBackIssue"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>Indicates that the difficulty level of DeadBug is categorized as intermediate.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#hasDifficultyLevel"/>
+        <NamedIndividual IRI="#DeadBug"/>
+        <NamedIndividual IRI="#Intermediate"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>DeadBug starts in the laying position.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#hasStartingPosition"/>
+        <NamedIndividual IRI="#DeadBug"/>
+        <NamedIndividual IRI="#StartingLaying"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
             <Literal>The ankles is actively involved during the execution of Eagle.</Literal>
         </Annotation>
         <ObjectProperty IRI="#engagedBodyPart"/>
@@ -7384,6 +8014,159 @@
         <ObjectProperty IRI="#limb"/>
         <NamedIndividual IRI="#Eagle_Torso"/>
         <NamedIndividual IRI="#Torso"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>The ankles is actively involved during the execution of Einbeinstand.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#engagedBodyPart"/>
+        <NamedIndividual IRI="#Einbeinstand"/>
+        <NamedIndividual IRI="#Ankles"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>The knees is actively involved during the execution of Einbeinstand.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#engagedBodyPart"/>
+        <NamedIndividual IRI="#Einbeinstand"/>
+        <NamedIndividual IRI="#Knees"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>This Contraindication should be considered for practitioners of Einbeinstand to avoid strain or injury.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#hasContraindication"/>
+        <NamedIndividual IRI="#Einbeinstand"/>
+        <NamedIndividual IRI="#Einbeinstand_AnkleIssue"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>This Contraindication should be considered for practitioners of Einbeinstand to avoid strain or injury.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#hasContraindication"/>
+        <NamedIndividual IRI="#Einbeinstand"/>
+        <NamedIndividual IRI="#Einbeinstand_BalanceIssue"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>Indicates that the difficulty level of Einbeinstand is categorized as beginner.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#hasDifficultyLevel"/>
+        <NamedIndividual IRI="#Einbeinstand"/>
+        <NamedIndividual IRI="#Beginner"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>Einbeinstand starts in the standing position.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#hasStartingPosition"/>
+        <NamedIndividual IRI="#Einbeinstand"/>
+        <NamedIndividual IRI="#StartingStanding"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>The calves is actively involved during the execution of FaszienrolleRueckenWade.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#engagedBodyPart"/>
+        <NamedIndividual IRI="#FaszienrolleRueckenWade"/>
+        <NamedIndividual IRI="#Calves"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>The lower back is actively involved during the execution of FaszienrolleRueckenWade.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#engagedBodyPart"/>
+        <NamedIndividual IRI="#FaszienrolleRueckenWade"/>
+        <NamedIndividual IRI="#LowerBack"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>This Contraindication should be considered for practitioners of FaszienrolleRueckenWade to avoid strain or injury.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#hasContraindication"/>
+        <NamedIndividual IRI="#FaszienrolleRueckenWade"/>
+        <NamedIndividual IRI="#FaszienrolleRueckenWade_SpineIssue"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>Indicates that the difficulty level of FaszienrolleRueckenWade is categorized as beginner.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#hasDifficultyLevel"/>
+        <NamedIndividual IRI="#FaszienrolleRueckenWade"/>
+        <NamedIndividual IRI="#Beginner"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>FaszienrolleRueckenWade starts in the floor position.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#hasStartingPosition"/>
+        <NamedIndividual IRI="#FaszienrolleRueckenWade"/>
+        <NamedIndividual IRI="#StartingFloor"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>The ankles is actively involved during the execution of FerseZehenGang.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#engagedBodyPart"/>
+        <NamedIndividual IRI="#FerseZehenGang"/>
+        <NamedIndividual IRI="#Ankles"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>The calves is actively involved during the execution of FerseZehenGang.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#engagedBodyPart"/>
+        <NamedIndividual IRI="#FerseZehenGang"/>
+        <NamedIndividual IRI="#Calves"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>This Contraindication should be considered for practitioners of FerseZehenGang to avoid strain or injury.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#hasContraindication"/>
+        <NamedIndividual IRI="#FerseZehenGang"/>
+        <NamedIndividual IRI="#FerseZehenGang_AnkleIssue"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>This Contraindication should be considered for practitioners of FerseZehenGang to avoid strain or injury.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#hasContraindication"/>
+        <NamedIndividual IRI="#FerseZehenGang"/>
+        <NamedIndividual IRI="#FerseZehenGang_BalanceIssue"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>Indicates that the difficulty level of FerseZehenGang is categorized as beginner.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#hasDifficultyLevel"/>
+        <NamedIndividual IRI="#FerseZehenGang"/>
+        <NamedIndividual IRI="#Beginner"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>FerseZehenGang starts in the standing position.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#hasStartingPosition"/>
+        <NamedIndividual IRI="#FerseZehenGang"/>
+        <NamedIndividual IRI="#StartingStanding"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <Annotation>
@@ -8329,6 +9112,105 @@
         <ObjectProperty IRI="#limb"/>
         <NamedIndividual IRI="#Gate_Torso"/>
         <NamedIndividual IRI="#Torso"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>The core is actively involved during the execution of GewichtsverlagerungSeitlich.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#engagedBodyPart"/>
+        <NamedIndividual IRI="#GewichtsverlagerungSeitlich"/>
+        <NamedIndividual IRI="#Core"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>The hip is actively involved during the execution of GewichtsverlagerungSeitlich.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#engagedBodyPart"/>
+        <NamedIndividual IRI="#GewichtsverlagerungSeitlich"/>
+        <NamedIndividual IRI="#Hip"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>This Contraindication should be considered for practitioners of GewichtsverlagerungSeitlich to avoid strain or injury.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#hasContraindication"/>
+        <NamedIndividual IRI="#GewichtsverlagerungSeitlich"/>
+        <NamedIndividual IRI="#GewichtsverlagerungSeitlich_BalanceIssue"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>Indicates that the difficulty level of GewichtsverlagerungSeitlich is categorized as beginner.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#hasDifficultyLevel"/>
+        <NamedIndividual IRI="#GewichtsverlagerungSeitlich"/>
+        <NamedIndividual IRI="#Beginner"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>GewichtsverlagerungSeitlich starts in the standing position.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#hasStartingPosition"/>
+        <NamedIndividual IRI="#GewichtsverlagerungSeitlich"/>
+        <NamedIndividual IRI="#StartingStanding"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>The ankles is actively involved during the execution of GleichgewichtInstabil.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#engagedBodyPart"/>
+        <NamedIndividual IRI="#GleichgewichtInstabil"/>
+        <NamedIndividual IRI="#Ankles"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>The core is actively involved during the execution of GleichgewichtInstabil.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#engagedBodyPart"/>
+        <NamedIndividual IRI="#GleichgewichtInstabil"/>
+        <NamedIndividual IRI="#Core"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>This Contraindication should be considered for practitioners of GleichgewichtInstabil to avoid strain or injury.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#hasContraindication"/>
+        <NamedIndividual IRI="#GleichgewichtInstabil"/>
+        <NamedIndividual IRI="#GleichgewichtInstabil_AnkleIssue"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>This Contraindication should be considered for practitioners of GleichgewichtInstabil to avoid strain or injury.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#hasContraindication"/>
+        <NamedIndividual IRI="#GleichgewichtInstabil"/>
+        <NamedIndividual IRI="#GleichgewichtInstabil_BalanceIssue"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>Indicates that the difficulty level of GleichgewichtInstabil is categorized as intermediate.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#hasDifficultyLevel"/>
+        <NamedIndividual IRI="#GleichgewichtInstabil"/>
+        <NamedIndividual IRI="#Intermediate"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>GleichgewichtInstabil starts in the standing on cushion position.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#hasStartingPosition"/>
+        <NamedIndividual IRI="#GleichgewichtInstabil"/>
+        <NamedIndividual IRI="#StartingStandingOnCushion"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <Annotation>
@@ -9926,6 +10808,105 @@
     <ObjectPropertyAssertion>
         <Annotation>
             <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>The hip is actively involved during the execution of HueftbeugerDehnung.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#engagedBodyPart"/>
+        <NamedIndividual IRI="#HueftbeugerDehnung"/>
+        <NamedIndividual IRI="#Hip"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>This Contraindication should be considered for practitioners of HueftbeugerDehnung to avoid strain or injury.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#hasContraindication"/>
+        <NamedIndividual IRI="#HueftbeugerDehnung"/>
+        <NamedIndividual IRI="#HueftbeugerDehnung_HipIssue"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>This Contraindication should be considered for practitioners of HueftbeugerDehnung to avoid strain or injury.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#hasContraindication"/>
+        <NamedIndividual IRI="#HueftbeugerDehnung"/>
+        <NamedIndividual IRI="#HueftbeugerDehnung_KneeIssue"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>Indicates that the difficulty level of HueftbeugerDehnung is categorized as beginner.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#hasDifficultyLevel"/>
+        <NamedIndividual IRI="#HueftbeugerDehnung"/>
+        <NamedIndividual IRI="#Beginner"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>HueftbeugerDehnung starts in the kneeling position.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#hasStartingPosition"/>
+        <NamedIndividual IRI="#HueftbeugerDehnung"/>
+        <NamedIndividual IRI="#StartingKneeling"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>The hip is actively involved during the execution of Kindpose.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#engagedBodyPart"/>
+        <NamedIndividual IRI="#Kindpose"/>
+        <NamedIndividual IRI="#Hip"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>The lower back is actively involved during the execution of Kindpose.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#engagedBodyPart"/>
+        <NamedIndividual IRI="#Kindpose"/>
+        <NamedIndividual IRI="#LowerBack"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>This Contraindication should be considered for practitioners of Kindpose to avoid strain or injury.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#hasContraindication"/>
+        <NamedIndividual IRI="#Kindpose"/>
+        <NamedIndividual IRI="#Kindpose_HipIssue"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>This Contraindication should be considered for practitioners of Kindpose to avoid strain or injury.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#hasContraindication"/>
+        <NamedIndividual IRI="#Kindpose"/>
+        <NamedIndividual IRI="#Kindpose_KneeIssue"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>Indicates that the difficulty level of Kindpose is categorized as beginner.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#hasDifficultyLevel"/>
+        <NamedIndividual IRI="#Kindpose"/>
+        <NamedIndividual IRI="#Beginner"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>Kindpose starts in the floor position.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#hasStartingPosition"/>
+        <NamedIndividual IRI="#Kindpose"/>
+        <NamedIndividual IRI="#StartingFloor"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
             <Literal>The back is actively involved during the execution of KingDancer.</Literal>
         </Annotation>
         <ObjectProperty IRI="#engagedBodyPart"/>
@@ -10493,6 +11474,42 @@
     <ObjectPropertyAssertion>
         <Annotation>
             <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>The knees is actively involved during the execution of KniegelenkMobilisation.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#engagedBodyPart"/>
+        <NamedIndividual IRI="#KniegelenkMobilisation"/>
+        <NamedIndividual IRI="#Knees"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>This Contraindication should be considered for practitioners of KniegelenkMobilisation to avoid strain or injury.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#hasContraindication"/>
+        <NamedIndividual IRI="#KniegelenkMobilisation"/>
+        <NamedIndividual IRI="#KniegelenkMobilisation_KneeIssue"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>Indicates that the difficulty level of KniegelenkMobilisation is categorized as beginner.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#hasDifficultyLevel"/>
+        <NamedIndividual IRI="#KniegelenkMobilisation"/>
+        <NamedIndividual IRI="#Beginner"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>KniegelenkMobilisation starts in the laying position.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#hasStartingPosition"/>
+        <NamedIndividual IRI="#KniegelenkMobilisation"/>
+        <NamedIndividual IRI="#StartingLaying"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
             <Literal>LowerBackIssue has a relationship with LowerBack through property affectsBodyPart.</Literal>
         </Annotation>
         <ObjectProperty IRI="#affectsBodyPart"/>
@@ -10813,6 +11830,87 @@
         <ObjectProperty IRI="#limb"/>
         <NamedIndividual IRI="#Mountain_Torso"/>
         <NamedIndividual IRI="#Torso"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>The glutes is actively involved during the execution of Muschel.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#engagedBodyPart"/>
+        <NamedIndividual IRI="#Muschel"/>
+        <NamedIndividual IRI="#Glutes"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>The hip is actively involved during the execution of Muschel.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#engagedBodyPart"/>
+        <NamedIndividual IRI="#Muschel"/>
+        <NamedIndividual IRI="#Hip"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>This Contraindication should be considered for practitioners of Muschel to avoid strain or injury.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#hasContraindication"/>
+        <NamedIndividual IRI="#Muschel"/>
+        <NamedIndividual IRI="#Muschel_HipIssue"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>Indicates that the difficulty level of Muschel is categorized as beginner.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#hasDifficultyLevel"/>
+        <NamedIndividual IRI="#Muschel"/>
+        <NamedIndividual IRI="#Beginner"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>Muschel starts in the side laying position.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#hasStartingPosition"/>
+        <NamedIndividual IRI="#Muschel"/>
+        <NamedIndividual IRI="#StartingSideLaying"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>The neck is actively involved during the execution of Nackendehnungen.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#engagedBodyPart"/>
+        <NamedIndividual IRI="#Nackendehnungen"/>
+        <NamedIndividual IRI="#Neck"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>This Contraindication should be considered for practitioners of Nackendehnungen to avoid strain or injury.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#hasContraindication"/>
+        <NamedIndividual IRI="#Nackendehnungen"/>
+        <NamedIndividual IRI="#Nackendehnungen_NeckIssue"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>Indicates that the difficulty level of Nackendehnungen is categorized as beginner.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#hasDifficultyLevel"/>
+        <NamedIndividual IRI="#Nackendehnungen"/>
+        <NamedIndividual IRI="#Beginner"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>Nackendehnungen starts in the sitting position.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#hasStartingPosition"/>
+        <NamedIndividual IRI="#Nackendehnungen"/>
+        <NamedIndividual IRI="#StartingSitting"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <Annotation>
@@ -11299,6 +12397,78 @@
         <ObjectProperty IRI="#severity"/>
         <NamedIndividual IRI="#ParadiseBird_WristIssue"/>
         <NamedIndividual IRI="#LowRisk"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>The hip is actively involved during the execution of PigeonPose.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#engagedBodyPart"/>
+        <NamedIndividual IRI="#PigeonPose"/>
+        <NamedIndividual IRI="#Hip"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>This Contraindication should be considered for practitioners of PigeonPose to avoid strain or injury.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#hasContraindication"/>
+        <NamedIndividual IRI="#PigeonPose"/>
+        <NamedIndividual IRI="#PigeonPose_HipIssue"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>This Contraindication should be considered for practitioners of PigeonPose to avoid strain or injury.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#hasContraindication"/>
+        <NamedIndividual IRI="#PigeonPose"/>
+        <NamedIndividual IRI="#PigeonPose_KneeIssue"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>Indicates that the difficulty level of PigeonPose is categorized as beginner.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#hasDifficultyLevel"/>
+        <NamedIndividual IRI="#PigeonPose"/>
+        <NamedIndividual IRI="#Beginner"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>PigeonPose starts in the sitting or floor position.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#hasStartingPosition"/>
+        <NamedIndividual IRI="#PigeonPose"/>
+        <NamedIndividual IRI="#StartingSittingOrFloor"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>The core is actively involved during the execution of ProgressiveMuskelentspannung.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#engagedBodyPart"/>
+        <NamedIndividual IRI="#ProgressiveMuskelentspannung"/>
+        <NamedIndividual IRI="#Core"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>Indicates that the difficulty level of ProgressiveMuskelentspannung is categorized as beginner.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#hasDifficultyLevel"/>
+        <NamedIndividual IRI="#ProgressiveMuskelentspannung"/>
+        <NamedIndividual IRI="#Beginner"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>ProgressiveMuskelentspannung starts in the laying position.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#hasStartingPosition"/>
+        <NamedIndividual IRI="#ProgressiveMuskelentspannung"/>
+        <NamedIndividual IRI="#StartingLaying"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <Annotation>
@@ -12320,6 +13490,105 @@
     <ObjectPropertyAssertion>
         <Annotation>
             <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>The shoulders is actively involved during the execution of ScapulaRetraktion.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#engagedBodyPart"/>
+        <NamedIndividual IRI="#ScapulaRetraktion"/>
+        <NamedIndividual IRI="#Shoulders"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>The upper back is actively involved during the execution of ScapulaRetraktion.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#engagedBodyPart"/>
+        <NamedIndividual IRI="#ScapulaRetraktion"/>
+        <NamedIndividual IRI="#UpperBack"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>This Contraindication should be considered for practitioners of ScapulaRetraktion to avoid strain or injury.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#hasContraindication"/>
+        <NamedIndividual IRI="#ScapulaRetraktion"/>
+        <NamedIndividual IRI="#ScapulaRetraktion_ShoulderIssue"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>Indicates that the difficulty level of ScapulaRetraktion is categorized as beginner.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#hasDifficultyLevel"/>
+        <NamedIndividual IRI="#ScapulaRetraktion"/>
+        <NamedIndividual IRI="#Beginner"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>ScapulaRetraktion starts in the sitting position.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#hasStartingPosition"/>
+        <NamedIndividual IRI="#ScapulaRetraktion"/>
+        <NamedIndividual IRI="#StartingSitting"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>The neck is actively involved during the execution of SchulterNackenEntspannung.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#engagedBodyPart"/>
+        <NamedIndividual IRI="#SchulterNackenEntspannung"/>
+        <NamedIndividual IRI="#Neck"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>The shoulders is actively involved during the execution of SchulterNackenEntspannung.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#engagedBodyPart"/>
+        <NamedIndividual IRI="#SchulterNackenEntspannung"/>
+        <NamedIndividual IRI="#Shoulders"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>This Contraindication should be considered for practitioners of SchulterNackenEntspannung to avoid strain or injury.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#hasContraindication"/>
+        <NamedIndividual IRI="#SchulterNackenEntspannung"/>
+        <NamedIndividual IRI="#SchulterNackenEntspannung_NeckIssue"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>This Contraindication should be considered for practitioners of SchulterNackenEntspannung to avoid strain or injury.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#hasContraindication"/>
+        <NamedIndividual IRI="#SchulterNackenEntspannung"/>
+        <NamedIndividual IRI="#SchulterNackenEntspannung_ShoulderIssue"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>Indicates that the difficulty level of SchulterNackenEntspannung is categorized as beginner.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#hasDifficultyLevel"/>
+        <NamedIndividual IRI="#SchulterNackenEntspannung"/>
+        <NamedIndividual IRI="#Beginner"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>SchulterNackenEntspannung starts in the sitting position.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#hasStartingPosition"/>
+        <NamedIndividual IRI="#SchulterNackenEntspannung"/>
+        <NamedIndividual IRI="#StartingSitting"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
             <Literal>Session0001 has a relationship with Balance through property hasTrainingsGoal.</Literal>
         </Annotation>
         <ObjectProperty IRI="#hasTrainingsGoal"/>
@@ -12901,6 +14170,60 @@
         <ObjectProperty IRI="#limb"/>
         <NamedIndividual IRI="#SideAngle_Torso"/>
         <NamedIndividual IRI="#Torso"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>The core is actively involved during the execution of SitzenStehen.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#engagedBodyPart"/>
+        <NamedIndividual IRI="#SitzenStehen"/>
+        <NamedIndividual IRI="#Core"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>The knees is actively involved during the execution of SitzenStehen.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#engagedBodyPart"/>
+        <NamedIndividual IRI="#SitzenStehen"/>
+        <NamedIndividual IRI="#Knees"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>The thighs is actively involved during the execution of SitzenStehen.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#engagedBodyPart"/>
+        <NamedIndividual IRI="#SitzenStehen"/>
+        <NamedIndividual IRI="#Thighs"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>This Contraindication should be considered for practitioners of SitzenStehen to avoid strain or injury.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#hasContraindication"/>
+        <NamedIndividual IRI="#SitzenStehen"/>
+        <NamedIndividual IRI="#SitzenStehen_KneeIssue"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>Indicates that the difficulty level of SitzenStehen is categorized as beginner.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#hasDifficultyLevel"/>
+        <NamedIndividual IRI="#SitzenStehen"/>
+        <NamedIndividual IRI="#Beginner"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>SitzenStehen starts in the chair sitting position.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#hasStartingPosition"/>
+        <NamedIndividual IRI="#SitzenStehen"/>
+        <NamedIndividual IRI="#StartingChairSitting"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <Annotation>
@@ -16064,6 +17387,42 @@
     <ObjectPropertyAssertion>
         <Annotation>
             <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>The shoulders is actively involved during the execution of TherabandAussenrotation.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#engagedBodyPart"/>
+        <NamedIndividual IRI="#TherabandAussenrotation"/>
+        <NamedIndividual IRI="#Shoulders"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>This Contraindication should be considered for practitioners of TherabandAussenrotation to avoid strain or injury.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#hasContraindication"/>
+        <NamedIndividual IRI="#TherabandAussenrotation"/>
+        <NamedIndividual IRI="#TherabandAussenrotation_ShoulderIssue"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>Indicates that the difficulty level of TherabandAussenrotation is categorized as beginner.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#hasDifficultyLevel"/>
+        <NamedIndividual IRI="#TherabandAussenrotation"/>
+        <NamedIndividual IRI="#Beginner"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>TherabandAussenrotation starts in the standing position.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#hasStartingPosition"/>
+        <NamedIndividual IRI="#TherabandAussenrotation"/>
+        <NamedIndividual IRI="#StartingStanding"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
             <Literal>The arms is actively involved during the execution of Tree.</Literal>
         </Annotation>
         <ObjectProperty IRI="#engagedBodyPart"/>
@@ -17142,6 +18501,87 @@
         <ObjectProperty IRI="#prefersEffect"/>
         <NamedIndividual IRI="#User0001"/>
         <NamedIndividual IRI="#Flexibility"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>The calves is actively involved during the execution of Wadendehnung.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#engagedBodyPart"/>
+        <NamedIndividual IRI="#Wadendehnung"/>
+        <NamedIndividual IRI="#Calves"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>This Contraindication should be considered for practitioners of Wadendehnung to avoid strain or injury.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#hasContraindication"/>
+        <NamedIndividual IRI="#Wadendehnung"/>
+        <NamedIndividual IRI="#Wadendehnung_AnkleIssue"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>Indicates that the difficulty level of Wadendehnung is categorized as beginner.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#hasDifficultyLevel"/>
+        <NamedIndividual IRI="#Wadendehnung"/>
+        <NamedIndividual IRI="#Beginner"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>Wadendehnung starts in the wall standing position.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#hasStartingPosition"/>
+        <NamedIndividual IRI="#Wadendehnung"/>
+        <NamedIndividual IRI="#StartingWallStanding"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>The knees is actively involved during the execution of Wandsitzen.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#engagedBodyPart"/>
+        <NamedIndividual IRI="#Wandsitzen"/>
+        <NamedIndividual IRI="#Knees"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>The thighs is actively involved during the execution of Wandsitzen.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#engagedBodyPart"/>
+        <NamedIndividual IRI="#Wandsitzen"/>
+        <NamedIndividual IRI="#Thighs"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>This Contraindication should be considered for practitioners of Wandsitzen to avoid strain or injury.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#hasContraindication"/>
+        <NamedIndividual IRI="#Wandsitzen"/>
+        <NamedIndividual IRI="#Wandsitzen_KneeIssue"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>Indicates that the difficulty level of Wandsitzen is categorized as beginner.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#hasDifficultyLevel"/>
+        <NamedIndividual IRI="#Wandsitzen"/>
+        <NamedIndividual IRI="#Beginner"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>Wandsitzen starts in the standing position.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#hasStartingPosition"/>
+        <NamedIndividual IRI="#Wandsitzen"/>
+        <NamedIndividual IRI="#StartingStanding"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <Annotation>
@@ -20556,10 +21996,6 @@
         <ObjectProperty IRI="#hasContraindication"/>
     </SubObjectPropertyOf>
     <InverseObjectProperties>
-        <ObjectProperty IRI="#answersQuestion"/>
-        <ObjectProperty IRI="#isAnsweredBy"/>
-    </InverseObjectProperties>
-    <InverseObjectProperties>
         <ObjectProperty IRI="#engagedBodyPart"/>
         <ObjectProperty IRI="#isEngagedBy"/>
     </InverseObjectProperties>
@@ -21137,6 +22573,16 @@
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#ArmkreisenGewichtsverlagerung</IRI>
+        <Literal>Armkreisen mit Gewichtsverlagerung</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#ArmkreisenGewichtsverlagerung_ShoulderIssue</IRI>
+        <Literal>ArmkreisenGewichtsverlagerung_ShoulderIssue</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#Arms</IRI>
         <Literal>Arms</Literal>
     </AnnotationAssertion>
@@ -21149,6 +22595,11 @@
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#Asana</IRI>
         <Literal>Asana</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Atemuebung478</IRI>
+        <Literal>Atemuebung (4-7-8 Technik)</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
@@ -21254,6 +22705,26 @@
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#Bowling</IRI>
         <Literal>Bowling</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Bruecke</IRI>
+        <Literal>Bruecke (Bridging)</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Bruecke_LowerBackIssue</IRI>
+        <Literal>Bruecke_LowerBackIssue</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#BrustwirbelsaeulenRotation</IRI>
+        <Literal>Brustwirbelsaeulen-Rotation</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#BrustwirbelsaeulenRotation_SpineIssue</IRI>
+        <Literal>BrustwirbelsaeulenRotation_SpineIssue</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
@@ -21657,6 +23128,16 @@
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#DeadBug</IRI>
+        <Literal>Dead Bug</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#DeadBug_LowerBackIssue</IRI>
+        <Literal>DeadBug_LowerBackIssue</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#Down</IRI>
         <Literal>Down</Literal>
     </AnnotationAssertion>
@@ -21721,6 +23202,21 @@
         <Literal>Eagle_Torso</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Einbeinstand</IRI>
+        <Literal>Einbeinstand</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Einbeinstand_AnkleIssue</IRI>
+        <Literal>Einbeinstand_AnkleIssue</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Einbeinstand_BalanceIssue</IRI>
+        <Literal>Einbeinstand_BalanceIssue</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
         <IRI>#Elbow</IRI>
         <Literal>Ellbogengelenk</Literal>
@@ -21737,6 +23233,16 @@
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#FaszienrolleRueckenWade</IRI>
+        <Literal>Faszienrolle Ruecken/Wade</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#FaszienrolleRueckenWade_SpineIssue</IRI>
+        <Literal>FaszienrolleRueckenWade_SpineIssue</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#FellingTrees</IRI>
         <Literal>FellingTrees</Literal>
     </AnnotationAssertion>
@@ -21744,6 +23250,21 @@
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#Fencing</IRI>
         <Literal>Fencing</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#FerseZehenGang</IRI>
+        <Literal>Ferse-Zehen-Gang</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#FerseZehenGang_AnkleIssue</IRI>
+        <Literal>FerseZehenGang_AnkleIssue</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#FerseZehenGang_BalanceIssue</IRI>
+        <Literal>FerseZehenGang_BalanceIssue</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
@@ -21914,6 +23435,31 @@
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#Gate_Torso</IRI>
         <Literal>Gate_Torso</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#GewichtsverlagerungSeitlich</IRI>
+        <Literal>Gewichtsverlagerung seitlich</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#GewichtsverlagerungSeitlich_BalanceIssue</IRI>
+        <Literal>GewichtsverlagerungSeitlich_BalanceIssue</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#GleichgewichtInstabil</IRI>
+        <Literal>Gleichgewicht auf instabilem Untergrund</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#GleichgewichtInstabil_AnkleIssue</IRI>
+        <Literal>GleichgewichtInstabil_AnkleIssue</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#GleichgewichtInstabil_BalanceIssue</IRI>
+        <Literal>GleichgewichtInstabil_BalanceIssue</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
@@ -22207,6 +23753,21 @@
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#HueftbeugerDehnung</IRI>
+        <Literal>Hueftbeuger-Dehnung (Iliopsoas)</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#HueftbeugerDehnung_HipIssue</IRI>
+        <Literal>HueftbeugerDehnung_HipIssue</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#HueftbeugerDehnung_KneeIssue</IRI>
+        <Literal>HueftbeugerDehnung_KneeIssue</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#IceSkating</IRI>
         <Literal>IceSkating</Literal>
     </AnnotationAssertion>
@@ -22244,6 +23805,21 @@
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#Kayaking</IRI>
         <Literal>Kayaking</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Kindpose</IRI>
+        <Literal>Kindpose (Child&apos;s Pose)</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Kindpose_HipIssue</IRI>
+        <Literal>Kindpose_HipIssue</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Kindpose_KneeIssue</IRI>
+        <Literal>Kindpose_KneeIssue</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
@@ -22329,6 +23905,16 @@
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#Knees</IRI>
         <Literal>Knees</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#KniegelenkMobilisation</IRI>
+        <Literal>Kniegelenk-Mobilisation</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#KniegelenkMobilisation_KneeIssue</IRI>
+        <Literal>KniegelenkMobilisation_KneeIssue</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
@@ -22489,6 +24075,26 @@
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Muschel</IRI>
+        <Literal>Muschel (Clamshell)</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Muschel_HipIssue</IRI>
+        <Literal>Muschel_HipIssue</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Nackendehnungen</IRI>
+        <Literal>Nackendehnungen</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Nackendehnungen_NeckIssue</IRI>
+        <Literal>Nackendehnungen_NeckIssue</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#Neck</IRI>
         <Literal>Neck</Literal>
     </AnnotationAssertion>
@@ -22599,6 +24205,21 @@
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#PigeonPose</IRI>
+        <Literal>Pigeon Pose (vereinfacht)</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#PigeonPose_HipIssue</IRI>
+        <Literal>PigeonPose_HipIssue</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#PigeonPose_KneeIssue</IRI>
+        <Literal>PigeonPose_KneeIssue</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#PlayingCatch</IRI>
         <Literal>PlayingCatch</Literal>
     </AnnotationAssertion>
@@ -22611,6 +24232,11 @@
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#Posture</IRI>
         <Literal>Posture</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#ProgressiveMuskelentspannung</IRI>
+        <Literal>Progressive Muskelentspannung</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
@@ -22823,6 +24449,31 @@
         <Literal>Running9MinMile</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#ScapulaRetraktion</IRI>
+        <Literal>Scapula-Retraktion</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#ScapulaRetraktion_ShoulderIssue</IRI>
+        <Literal>ScapulaRetraktion_ShoulderIssue</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#SchulterNackenEntspannung</IRI>
+        <Literal>Schulter-Nacken-Entspannung</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#SchulterNackenEntspannung_NeckIssue</IRI>
+        <Literal>SchulterNackenEntspannung_NeckIssue</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#SchulterNackenEntspannung_ShoulderIssue</IRI>
+        <Literal>SchulterNackenEntspannung_ShoulderIssue</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
         <IRI>#Session</IRI>
         <Literal>Class for a yoga session of an user</Literal>
@@ -22936,6 +24587,16 @@
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#SideAngle_Torso</IRI>
         <Literal>SideAngle_Torso</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#SitzenStehen</IRI>
+        <Literal>Sitzen-Stehen-Uebung (Sit-to-Stand)</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#SitzenStehen_KneeIssue</IRI>
+        <Literal>SitzenStehen_KneeIssue</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
@@ -23454,6 +25115,71 @@
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#StartingAnyPosition</IRI>
+        <Literal>AnyPosition</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#StartingChairSitting</IRI>
+        <Literal>ChairSitting</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#StartingFloor</IRI>
+        <Literal>Floor</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#StartingKneeling</IRI>
+        <Literal>Kneeling</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#StartingLaying</IRI>
+        <Literal>Laying</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#StartingPosition</IRI>
+        <Literal>Position in which an exercise is started</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#StartingPosition</IRI>
+        <Literal>StartingPosition</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#StartingSideLaying</IRI>
+        <Literal>SideLaying</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#StartingSitting</IRI>
+        <Literal>Sitting</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#StartingSittingOrFloor</IRI>
+        <Literal>SittingOrFloor</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#StartingStanding</IRI>
+        <Literal>Standing</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#StartingStandingOnCushion</IRI>
+        <Literal>StandingOnCushion</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#StartingWallStanding</IRI>
+        <Literal>WallStanding</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#StationaryCycling100Watts</IRI>
         <Literal>StationaryCycling100Watts</Literal>
     </AnnotationAssertion>
@@ -23521,6 +25247,16 @@
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#TennisDoubles</IRI>
         <Literal>TennisDoubles</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#TherabandAussenrotation</IRI>
+        <Literal>Theraband-Aussenrotation</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#TherabandAussenrotation_ShoulderIssue</IRI>
+        <Literal>TherabandAussenrotation_ShoulderIssue</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
@@ -23719,6 +25455,16 @@
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Wadendehnung</IRI>
+        <Literal>Wadendehnung</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Wadendehnung_AnkleIssue</IRI>
+        <Literal>Wadendehnung_AnkleIssue</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#Walking11MinMile</IRI>
         <Literal>Walking11MinMile</Literal>
     </AnnotationAssertion>
@@ -23751,6 +25497,16 @@
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#WalkingUpStairs</IRI>
         <Literal>WalkingUpStairs</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Wandsitzen</IRI>
+        <Literal>Wandsitzen (Wall Sit)</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Wandsitzen_KneeIssue</IRI>
+        <Literal>Wandsitzen_KneeIssue</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
@@ -24014,16 +25770,6 @@
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-        <IRI>#answersQuestion</IRI>
-        <Literal>Verknüpft eine Answer mit der CompetencyQuestion, die sie beantwortet</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>#answersQuestion</IRI>
-        <Literal>answersQuestion</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
         <IRI>#avoidsAsana</IRI>
         <Literal>Avoided Asana from a user</Literal>
     </AnnotationAssertion>
@@ -24271,6 +26017,16 @@
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#hasRiskFactor</IRI>
         <Literal>hasRiskFactor</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#hasStartingPosition</IRI>
+        <Literal>The starting position of an exercise</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#hasStartingPosition</IRI>
+        <Literal>hasStartingPosition</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
