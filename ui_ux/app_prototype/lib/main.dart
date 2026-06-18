@@ -1,5 +1,8 @@
 import 'dart:io';
+import 'package:app_prototype/model/user.dart';
 import 'package:app_prototype/ui/exercise_widget.dart';
+import 'package:app_prototype/ui/home_screen.dart';
+import 'package:app_prototype/ui/user_setup_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:isar/isar.dart';
 import 'package:path_provider/path_provider.dart';
@@ -25,43 +28,35 @@ void main() async {
     }
   }
 
-  // Isar Instanz mit dem Exercise-Schema im Zielverzeichnis öffnen
-  // ignore: unused_local_variable
   final isar = await Isar.open(
-    [ExerciseSchema],
+    [UserSchema],
     directory: dbPath,
   );
 
-  runApp(const RehabApp());
+  final userExists = await isar.users.where().findFirst() != null;
+
+  runApp(RehabApp(userExists: userExists));
 }
 
 class RehabApp extends StatelessWidget {
-  const RehabApp({super.key});
+  final bool userExists;
+
+  const RehabApp({
+    super.key,
+    required this.userExists,
+  });
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'SmartRehab',
-      debugShowCheckedModeBanner: false, // Entfernt das "Debug"-Banner oben rechts
-
-      // Modernes Theme-Setup (Material 3)
+      title: 'My Fitness App',
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
         useMaterial3: true,
-        colorScheme: ColorScheme.fromSeed(
-          seedColor: Colors.blue,
-          brightness: Brightness.light,
-        ),
-        // Schickes Design für die App-Bar definieren
-        appBarTheme: const AppBarTheme(
-          centerTitle: true,
-          backgroundColor: Colors.blue,
-          foregroundColor: Colors.white,
-          elevation: 2,
-        ),
       ),
-
-      // Startbildschirm der App
-      home: const ExerciseListScreen(),
+      home: userExists
+          ? const HomeScreen()
+          : const UserSetupScreen(),
     );
   }
 }

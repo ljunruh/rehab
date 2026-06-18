@@ -31,6 +31,12 @@ app:phone: flutter run -d #-- <DevicesID> z.B. emulator-5554
 # Aufruf: derry app:android -> Flutter App auf default Android Emulator starten. Suche verfügbare Android DeviceID und nimmt diese.
 app:phone:android: derry app:phone -- \$(adb devices | grep emulator | head -n 1 | cut -f1)
 
+# --- ISAR LOCALSTORAGE BUILD  ---
+# Aufruf: derry build:storage -> Baut aus den Isar Annotations für die Models die Storage Objekte.
+storage:build: dart run build_runner build
+# Aufruf: derry storage:watch -> Baut aus den Isar Annotations für die Models die Storage Objekte. Baut bei Code Änderungen neu.
+storage:watch: dart run build_runner watch
+
 # --- WIP - RUN APPLICATION ---
 # Aufruf: derry run:chrome -> Fuseki Server mit Ontologie und Flutter App in Chrome starten
 #run:chrome:
