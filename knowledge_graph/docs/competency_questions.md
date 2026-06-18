@@ -265,7 +265,6 @@ Welche Beginner-Übungen sprechen das Knie an und haben keine Kontraindikation f
 
 ```sparql
 PREFIX pt: <http://purl.org/PhysicalTherapy#>
-PREFIX id: <http://reha-app.org/id/>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 
 SELECT ?exercise ?label
