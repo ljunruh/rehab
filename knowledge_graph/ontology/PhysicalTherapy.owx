@@ -20219,6 +20219,3651 @@
         <NamedIndividual IRI="#WristIssue"/>
         <NamedIndividual IRI="#Wrists"/>
     </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>Airplane affects Core through property affectsBodyPart.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#affectsBodyPart"/>
+        <NamedIndividual IRI="#Airplane"/>
+        <NamedIndividual IRI="#Core"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>Airplane affects Glutes through property affectsBodyPart.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#affectsBodyPart"/>
+        <NamedIndividual IRI="#Airplane"/>
+        <NamedIndividual IRI="#Glutes"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>Airplane affects Hamstrings through property affectsBodyPart.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#affectsBodyPart"/>
+        <NamedIndividual IRI="#Airplane"/>
+        <NamedIndividual IRI="#Hamstrings"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>Airplane affects Hip through property affectsBodyPart.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#affectsBodyPart"/>
+        <NamedIndividual IRI="#Airplane"/>
+        <NamedIndividual IRI="#Hip"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>Airplane affects Psoas through property affectsBodyPart.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#affectsBodyPart"/>
+        <NamedIndividual IRI="#Airplane"/>
+        <NamedIndividual IRI="#Psoas"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>Airplane affects Quadriceps through property affectsBodyPart.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#affectsBodyPart"/>
+        <NamedIndividual IRI="#Airplane"/>
+        <NamedIndividual IRI="#Quadriceps"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>ArmkreisenGewichtsverlagerung affects Core through property affectsBodyPart.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#affectsBodyPart"/>
+        <NamedIndividual IRI="#ArmkreisenGewichtsverlagerung"/>
+        <NamedIndividual IRI="#Core"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>ArmkreisenGewichtsverlagerung affects Shoulders through property affectsBodyPart.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#affectsBodyPart"/>
+        <NamedIndividual IRI="#ArmkreisenGewichtsverlagerung"/>
+        <NamedIndividual IRI="#Shoulders"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>Atemuebung478 affects Core through property affectsBodyPart.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#affectsBodyPart"/>
+        <NamedIndividual IRI="#Atemuebung478"/>
+        <NamedIndividual IRI="#Core"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>Atemuebung478 affects Chest through property affectsBodyPart.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#affectsBodyPart"/>
+        <NamedIndividual IRI="#Atemuebung478"/>
+        <NamedIndividual IRI="#Chest"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>Bruecke affects Glutes through property affectsBodyPart.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#affectsBodyPart"/>
+        <NamedIndividual IRI="#Bruecke"/>
+        <NamedIndividual IRI="#Glutes"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>Bruecke affects Hamstrings through property affectsBodyPart.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#affectsBodyPart"/>
+        <NamedIndividual IRI="#Bruecke"/>
+        <NamedIndividual IRI="#Hamstrings"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>Bruecke affects Core through property affectsBodyPart.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#affectsBodyPart"/>
+        <NamedIndividual IRI="#Bruecke"/>
+        <NamedIndividual IRI="#Core"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>Bruecke affects Hip through property affectsBodyPart.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#affectsBodyPart"/>
+        <NamedIndividual IRI="#Bruecke"/>
+        <NamedIndividual IRI="#Hip"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>Bruecke affects LowerBack through property affectsBodyPart.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#affectsBodyPart"/>
+        <NamedIndividual IRI="#Bruecke"/>
+        <NamedIndividual IRI="#LowerBack"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>BrustwirbelsaeulenRotation affects Spine through property affectsBodyPart.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#affectsBodyPart"/>
+        <NamedIndividual IRI="#BrustwirbelsaeulenRotation"/>
+        <NamedIndividual IRI="#Spine"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>BrustwirbelsaeulenRotation affects UpperBack through property affectsBodyPart.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#affectsBodyPart"/>
+        <NamedIndividual IRI="#BrustwirbelsaeulenRotation"/>
+        <NamedIndividual IRI="#UpperBack"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>Cactus affects Arms through property affectsBodyPart.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#affectsBodyPart"/>
+        <NamedIndividual IRI="#Cactus"/>
+        <NamedIndividual IRI="#Arms"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>Cactus affects Chest through property affectsBodyPart.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#affectsBodyPart"/>
+        <NamedIndividual IRI="#Cactus"/>
+        <NamedIndividual IRI="#Chest"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>Cactus affects Shoulders through property affectsBodyPart.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#affectsBodyPart"/>
+        <NamedIndividual IRI="#Cactus"/>
+        <NamedIndividual IRI="#Shoulders"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>Cactus affects UpperBack through property affectsBodyPart.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#affectsBodyPart"/>
+        <NamedIndividual IRI="#Cactus"/>
+        <NamedIndividual IRI="#UpperBack"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>CenterSplits affects Core through property affectsBodyPart.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#affectsBodyPart"/>
+        <NamedIndividual IRI="#CenterSplits"/>
+        <NamedIndividual IRI="#Core"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>CenterSplits affects Hip through property affectsBodyPart.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#affectsBodyPart"/>
+        <NamedIndividual IRI="#CenterSplits"/>
+        <NamedIndividual IRI="#Hip"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>CenterSplits affects Quadriceps through property affectsBodyPart.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#affectsBodyPart"/>
+        <NamedIndividual IRI="#CenterSplits"/>
+        <NamedIndividual IRI="#Quadriceps"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>Chair affects Arms through property affectsBodyPart.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#affectsBodyPart"/>
+        <NamedIndividual IRI="#Chair"/>
+        <NamedIndividual IRI="#Arms"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>Chair affects Back through property affectsBodyPart.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#affectsBodyPart"/>
+        <NamedIndividual IRI="#Chair"/>
+        <NamedIndividual IRI="#Back"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>Chair affects Glutes through property affectsBodyPart.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#affectsBodyPart"/>
+        <NamedIndividual IRI="#Chair"/>
+        <NamedIndividual IRI="#Glutes"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>Chair affects Hip through property affectsBodyPart.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#affectsBodyPart"/>
+        <NamedIndividual IRI="#Chair"/>
+        <NamedIndividual IRI="#Hip"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>Chair affects Knees through property affectsBodyPart.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#affectsBodyPart"/>
+        <NamedIndividual IRI="#Chair"/>
+        <NamedIndividual IRI="#Knees"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>Chair affects Pelvic through property affectsBodyPart.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#affectsBodyPart"/>
+        <NamedIndividual IRI="#Chair"/>
+        <NamedIndividual IRI="#Pelvic"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>Chair affects Quadriceps through property affectsBodyPart.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#affectsBodyPart"/>
+        <NamedIndividual IRI="#Chair"/>
+        <NamedIndividual IRI="#Quadriceps"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>Chair affects Shoulders through property affectsBodyPart.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#affectsBodyPart"/>
+        <NamedIndividual IRI="#Chair"/>
+        <NamedIndividual IRI="#Shoulders"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>Crab affects Arms through property affectsBodyPart.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#affectsBodyPart"/>
+        <NamedIndividual IRI="#Crab"/>
+        <NamedIndividual IRI="#Arms"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>Crab affects Biceps through property affectsBodyPart.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#affectsBodyPart"/>
+        <NamedIndividual IRI="#Crab"/>
+        <NamedIndividual IRI="#Biceps"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>Crab affects Core through property affectsBodyPart.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#affectsBodyPart"/>
+        <NamedIndividual IRI="#Crab"/>
+        <NamedIndividual IRI="#Core"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>Crab affects Glutes through property affectsBodyPart.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#affectsBodyPart"/>
+        <NamedIndividual IRI="#Crab"/>
+        <NamedIndividual IRI="#Glutes"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>Crab affects Quadriceps through property affectsBodyPart.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#affectsBodyPart"/>
+        <NamedIndividual IRI="#Crab"/>
+        <NamedIndividual IRI="#Quadriceps"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>Crab affects Shoulders through property affectsBodyPart.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#affectsBodyPart"/>
+        <NamedIndividual IRI="#Crab"/>
+        <NamedIndividual IRI="#Shoulders"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>Crab affects Triceps through property affectsBodyPart.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#affectsBodyPart"/>
+        <NamedIndividual IRI="#Crab"/>
+        <NamedIndividual IRI="#Triceps"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>Dancer affects Arms through property affectsBodyPart.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#affectsBodyPart"/>
+        <NamedIndividual IRI="#Dancer"/>
+        <NamedIndividual IRI="#Arms"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>Dancer affects Chest through property affectsBodyPart.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#affectsBodyPart"/>
+        <NamedIndividual IRI="#Dancer"/>
+        <NamedIndividual IRI="#Chest"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>Dancer affects Glutes through property affectsBodyPart.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#affectsBodyPart"/>
+        <NamedIndividual IRI="#Dancer"/>
+        <NamedIndividual IRI="#Glutes"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>Dancer affects Hamstrings through property affectsBodyPart.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#affectsBodyPart"/>
+        <NamedIndividual IRI="#Dancer"/>
+        <NamedIndividual IRI="#Hamstrings"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>Dancer affects Hip through property affectsBodyPart.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#affectsBodyPart"/>
+        <NamedIndividual IRI="#Dancer"/>
+        <NamedIndividual IRI="#Hip"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>Dancer affects LowerBack through property affectsBodyPart.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#affectsBodyPart"/>
+        <NamedIndividual IRI="#Dancer"/>
+        <NamedIndividual IRI="#LowerBack"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>Dancer affects Psoas through property affectsBodyPart.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#affectsBodyPart"/>
+        <NamedIndividual IRI="#Dancer"/>
+        <NamedIndividual IRI="#Psoas"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>Dancer affects Quadriceps through property affectsBodyPart.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#affectsBodyPart"/>
+        <NamedIndividual IRI="#Dancer"/>
+        <NamedIndividual IRI="#Quadriceps"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>DeadBug affects Core through property affectsBodyPart.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#affectsBodyPart"/>
+        <NamedIndividual IRI="#DeadBug"/>
+        <NamedIndividual IRI="#Core"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>DeadBug affects Abs through property affectsBodyPart.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#affectsBodyPart"/>
+        <NamedIndividual IRI="#DeadBug"/>
+        <NamedIndividual IRI="#Abs"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>DeadBug affects Hip through property affectsBodyPart.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#affectsBodyPart"/>
+        <NamedIndividual IRI="#DeadBug"/>
+        <NamedIndividual IRI="#Hip"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>DeadBug affects LowerBack through property affectsBodyPart.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#affectsBodyPart"/>
+        <NamedIndividual IRI="#DeadBug"/>
+        <NamedIndividual IRI="#LowerBack"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>Eagle affects Ankles through property affectsBodyPart.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#affectsBodyPart"/>
+        <NamedIndividual IRI="#Eagle"/>
+        <NamedIndividual IRI="#Ankles"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>Eagle affects Arms through property affectsBodyPart.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#affectsBodyPart"/>
+        <NamedIndividual IRI="#Eagle"/>
+        <NamedIndividual IRI="#Arms"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>Eagle affects Glutes through property affectsBodyPart.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#affectsBodyPart"/>
+        <NamedIndividual IRI="#Eagle"/>
+        <NamedIndividual IRI="#Glutes"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>Eagle affects Hamstrings through property affectsBodyPart.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#affectsBodyPart"/>
+        <NamedIndividual IRI="#Eagle"/>
+        <NamedIndividual IRI="#Hamstrings"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>Eagle affects Hip through property affectsBodyPart.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#affectsBodyPart"/>
+        <NamedIndividual IRI="#Eagle"/>
+        <NamedIndividual IRI="#Hip"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>Eagle affects Knees through property affectsBodyPart.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#affectsBodyPart"/>
+        <NamedIndividual IRI="#Eagle"/>
+        <NamedIndividual IRI="#Knees"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>Eagle affects Shoulders through property affectsBodyPart.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#affectsBodyPart"/>
+        <NamedIndividual IRI="#Eagle"/>
+        <NamedIndividual IRI="#Shoulders"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>Eagle affects UpperBack through property affectsBodyPart.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#affectsBodyPart"/>
+        <NamedIndividual IRI="#Eagle"/>
+        <NamedIndividual IRI="#UpperBack"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>Einbeinstand affects Ankles through property affectsBodyPart.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#affectsBodyPart"/>
+        <NamedIndividual IRI="#Einbeinstand"/>
+        <NamedIndividual IRI="#Ankles"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>Einbeinstand affects Knees through property affectsBodyPart.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#affectsBodyPart"/>
+        <NamedIndividual IRI="#Einbeinstand"/>
+        <NamedIndividual IRI="#Knees"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>FaszienrolleRueckenWade affects Calves through property affectsBodyPart.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#affectsBodyPart"/>
+        <NamedIndividual IRI="#FaszienrolleRueckenWade"/>
+        <NamedIndividual IRI="#Calves"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>FaszienrolleRueckenWade affects LowerBack through property affectsBodyPart.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#affectsBodyPart"/>
+        <NamedIndividual IRI="#FaszienrolleRueckenWade"/>
+        <NamedIndividual IRI="#LowerBack"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>FerseZehenGang affects Ankles through property affectsBodyPart.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#affectsBodyPart"/>
+        <NamedIndividual IRI="#FerseZehenGang"/>
+        <NamedIndividual IRI="#Ankles"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>FerseZehenGang affects Calves through property affectsBodyPart.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#affectsBodyPart"/>
+        <NamedIndividual IRI="#FerseZehenGang"/>
+        <NamedIndividual IRI="#Calves"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>Flamingo affects Ankles through property affectsBodyPart.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#affectsBodyPart"/>
+        <NamedIndividual IRI="#Flamingo"/>
+        <NamedIndividual IRI="#Ankles"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>Flamingo affects Arms through property affectsBodyPart.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#affectsBodyPart"/>
+        <NamedIndividual IRI="#Flamingo"/>
+        <NamedIndividual IRI="#Arms"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>Flamingo affects Chest through property affectsBodyPart.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#affectsBodyPart"/>
+        <NamedIndividual IRI="#Flamingo"/>
+        <NamedIndividual IRI="#Chest"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>Flamingo affects Knees through property affectsBodyPart.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#affectsBodyPart"/>
+        <NamedIndividual IRI="#Flamingo"/>
+        <NamedIndividual IRI="#Knees"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>Flamingo affects Quadriceps through property affectsBodyPart.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#affectsBodyPart"/>
+        <NamedIndividual IRI="#Flamingo"/>
+        <NamedIndividual IRI="#Quadriceps"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>Flamingo affects Shoulders through property affectsBodyPart.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#affectsBodyPart"/>
+        <NamedIndividual IRI="#Flamingo"/>
+        <NamedIndividual IRI="#Shoulders"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>Gate affects Ankles through property affectsBodyPart.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#affectsBodyPart"/>
+        <NamedIndividual IRI="#Gate"/>
+        <NamedIndividual IRI="#Ankles"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>Gate affects Chest through property affectsBodyPart.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#affectsBodyPart"/>
+        <NamedIndividual IRI="#Gate"/>
+        <NamedIndividual IRI="#Chest"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>Gate affects Glutes through property affectsBodyPart.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#affectsBodyPart"/>
+        <NamedIndividual IRI="#Gate"/>
+        <NamedIndividual IRI="#Glutes"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>Gate affects Hamstrings through property affectsBodyPart.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#affectsBodyPart"/>
+        <NamedIndividual IRI="#Gate"/>
+        <NamedIndividual IRI="#Hamstrings"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>Gate affects Hip through property affectsBodyPart.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#affectsBodyPart"/>
+        <NamedIndividual IRI="#Gate"/>
+        <NamedIndividual IRI="#Hip"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>Gate affects Neck through property affectsBodyPart.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#affectsBodyPart"/>
+        <NamedIndividual IRI="#Gate"/>
+        <NamedIndividual IRI="#Neck"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>Gate affects Pelvic through property affectsBodyPart.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#affectsBodyPart"/>
+        <NamedIndividual IRI="#Gate"/>
+        <NamedIndividual IRI="#Pelvic"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>Gate affects Psoas through property affectsBodyPart.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#affectsBodyPart"/>
+        <NamedIndividual IRI="#Gate"/>
+        <NamedIndividual IRI="#Psoas"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>Gate affects Quadriceps through property affectsBodyPart.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#affectsBodyPart"/>
+        <NamedIndividual IRI="#Gate"/>
+        <NamedIndividual IRI="#Quadriceps"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>Gate affects UpperBack through property affectsBodyPart.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#affectsBodyPart"/>
+        <NamedIndividual IRI="#Gate"/>
+        <NamedIndividual IRI="#UpperBack"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>GewichtsverlagerungSeitlich affects Core through property affectsBodyPart.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#affectsBodyPart"/>
+        <NamedIndividual IRI="#GewichtsverlagerungSeitlich"/>
+        <NamedIndividual IRI="#Core"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>GewichtsverlagerungSeitlich affects Hip through property affectsBodyPart.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#affectsBodyPart"/>
+        <NamedIndividual IRI="#GewichtsverlagerungSeitlich"/>
+        <NamedIndividual IRI="#Hip"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>GleichgewichtInstabil affects Ankles through property affectsBodyPart.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#affectsBodyPart"/>
+        <NamedIndividual IRI="#GleichgewichtInstabil"/>
+        <NamedIndividual IRI="#Ankles"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>GleichgewichtInstabil affects Core through property affectsBodyPart.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#affectsBodyPart"/>
+        <NamedIndividual IRI="#GleichgewichtInstabil"/>
+        <NamedIndividual IRI="#Core"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>Goddess affects Arms through property affectsBodyPart.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#affectsBodyPart"/>
+        <NamedIndividual IRI="#Goddess"/>
+        <NamedIndividual IRI="#Arms"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>Goddess affects Glutes through property affectsBodyPart.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#affectsBodyPart"/>
+        <NamedIndividual IRI="#Goddess"/>
+        <NamedIndividual IRI="#Glutes"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>Goddess affects Hamstrings through property affectsBodyPart.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#affectsBodyPart"/>
+        <NamedIndividual IRI="#Goddess"/>
+        <NamedIndividual IRI="#Hamstrings"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>Goddess affects Hip through property affectsBodyPart.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#affectsBodyPart"/>
+        <NamedIndividual IRI="#Goddess"/>
+        <NamedIndividual IRI="#Hip"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>Goddess affects Knees through property affectsBodyPart.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#affectsBodyPart"/>
+        <NamedIndividual IRI="#Goddess"/>
+        <NamedIndividual IRI="#Knees"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>Goddess affects LowerBack through property affectsBodyPart.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#affectsBodyPart"/>
+        <NamedIndividual IRI="#Goddess"/>
+        <NamedIndividual IRI="#LowerBack"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>Goddess affects Pelvic through property affectsBodyPart.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#affectsBodyPart"/>
+        <NamedIndividual IRI="#Goddess"/>
+        <NamedIndividual IRI="#Pelvic"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>Goddess affects Quadriceps through property affectsBodyPart.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#affectsBodyPart"/>
+        <NamedIndividual IRI="#Goddess"/>
+        <NamedIndividual IRI="#Quadriceps"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>HalfMoon affects Biceps through property affectsBodyPart.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#affectsBodyPart"/>
+        <NamedIndividual IRI="#HalfMoon"/>
+        <NamedIndividual IRI="#Biceps"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>HalfMoon affects Core through property affectsBodyPart.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#affectsBodyPart"/>
+        <NamedIndividual IRI="#HalfMoon"/>
+        <NamedIndividual IRI="#Core"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>HalfMoon affects Glutes through property affectsBodyPart.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#affectsBodyPart"/>
+        <NamedIndividual IRI="#HalfMoon"/>
+        <NamedIndividual IRI="#Glutes"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>HalfMoon affects Hamstrings through property affectsBodyPart.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#affectsBodyPart"/>
+        <NamedIndividual IRI="#HalfMoon"/>
+        <NamedIndividual IRI="#Hamstrings"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>HalfMoon affects Hip through property affectsBodyPart.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#affectsBodyPart"/>
+        <NamedIndividual IRI="#HalfMoon"/>
+        <NamedIndividual IRI="#Hip"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>HalfMoon affects Psoas through property affectsBodyPart.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#affectsBodyPart"/>
+        <NamedIndividual IRI="#HalfMoon"/>
+        <NamedIndividual IRI="#Psoas"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>HalfMoon affects Quadriceps through property affectsBodyPart.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#affectsBodyPart"/>
+        <NamedIndividual IRI="#HalfMoon"/>
+        <NamedIndividual IRI="#Quadriceps"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>HalfMoon affects Triceps through property affectsBodyPart.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#affectsBodyPart"/>
+        <NamedIndividual IRI="#HalfMoon"/>
+        <NamedIndividual IRI="#Triceps"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>HighLunge affects Arms through property affectsBodyPart.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#affectsBodyPart"/>
+        <NamedIndividual IRI="#HighLunge"/>
+        <NamedIndividual IRI="#Arms"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>HighLunge affects Glutes through property affectsBodyPart.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#affectsBodyPart"/>
+        <NamedIndividual IRI="#HighLunge"/>
+        <NamedIndividual IRI="#Glutes"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>HighLunge affects Hamstrings through property affectsBodyPart.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#affectsBodyPart"/>
+        <NamedIndividual IRI="#HighLunge"/>
+        <NamedIndividual IRI="#Hamstrings"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>HighLunge affects Hip through property affectsBodyPart.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#affectsBodyPart"/>
+        <NamedIndividual IRI="#HighLunge"/>
+        <NamedIndividual IRI="#Hip"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>HighLunge affects Knees through property affectsBodyPart.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#affectsBodyPart"/>
+        <NamedIndividual IRI="#HighLunge"/>
+        <NamedIndividual IRI="#Knees"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>HighLunge affects LowerBack through property affectsBodyPart.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#affectsBodyPart"/>
+        <NamedIndividual IRI="#HighLunge"/>
+        <NamedIndividual IRI="#LowerBack"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>HighLunge affects Quadriceps through property affectsBodyPart.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#affectsBodyPart"/>
+        <NamedIndividual IRI="#HighLunge"/>
+        <NamedIndividual IRI="#Quadriceps"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>HighLunge affects Shoulders through property affectsBodyPart.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#affectsBodyPart"/>
+        <NamedIndividual IRI="#HighLunge"/>
+        <NamedIndividual IRI="#Shoulders"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>HighLunge affects UpperBack through property affectsBodyPart.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#affectsBodyPart"/>
+        <NamedIndividual IRI="#HighLunge"/>
+        <NamedIndividual IRI="#UpperBack"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>HueftbeugerDehnung affects Hip through property affectsBodyPart.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#affectsBodyPart"/>
+        <NamedIndividual IRI="#HueftbeugerDehnung"/>
+        <NamedIndividual IRI="#Hip"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>JumpingJacks affects Calves through property affectsBodyPart.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#affectsBodyPart"/>
+        <NamedIndividual IRI="#JumpingJacks"/>
+        <NamedIndividual IRI="#Calves"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>JumpingJacks affects Glutes through property affectsBodyPart.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#affectsBodyPart"/>
+        <NamedIndividual IRI="#JumpingJacks"/>
+        <NamedIndividual IRI="#Glutes"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>JumpingJacks affects Quadriceps through property affectsBodyPart.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#affectsBodyPart"/>
+        <NamedIndividual IRI="#JumpingJacks"/>
+        <NamedIndividual IRI="#Quadriceps"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>JumpingJacks affects Hip through property affectsBodyPart.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#affectsBodyPart"/>
+        <NamedIndividual IRI="#JumpingJacks"/>
+        <NamedIndividual IRI="#Hip"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>JumpingJacks affects Shoulders through property affectsBodyPart.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#affectsBodyPart"/>
+        <NamedIndividual IRI="#JumpingJacks"/>
+        <NamedIndividual IRI="#Shoulders"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>JumpingJacks affects Core through property affectsBodyPart.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#affectsBodyPart"/>
+        <NamedIndividual IRI="#JumpingJacks"/>
+        <NamedIndividual IRI="#Core"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>Kindpose affects Hip through property affectsBodyPart.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#affectsBodyPart"/>
+        <NamedIndividual IRI="#Kindpose"/>
+        <NamedIndividual IRI="#Hip"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>Kindpose affects LowerBack through property affectsBodyPart.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#affectsBodyPart"/>
+        <NamedIndividual IRI="#Kindpose"/>
+        <NamedIndividual IRI="#LowerBack"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>KingDancer affects Back through property affectsBodyPart.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#affectsBodyPart"/>
+        <NamedIndividual IRI="#KingDancer"/>
+        <NamedIndividual IRI="#Back"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>KingDancer affects Biceps through property affectsBodyPart.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#affectsBodyPart"/>
+        <NamedIndividual IRI="#KingDancer"/>
+        <NamedIndividual IRI="#Biceps"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>KingDancer affects Chest through property affectsBodyPart.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#affectsBodyPart"/>
+        <NamedIndividual IRI="#KingDancer"/>
+        <NamedIndividual IRI="#Chest"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>KingDancer affects Psoas through property affectsBodyPart.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#affectsBodyPart"/>
+        <NamedIndividual IRI="#KingDancer"/>
+        <NamedIndividual IRI="#Psoas"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>KingDancer affects Quadriceps through property affectsBodyPart.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#affectsBodyPart"/>
+        <NamedIndividual IRI="#KingDancer"/>
+        <NamedIndividual IRI="#Quadriceps"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>KingDancer affects Shoulders through property affectsBodyPart.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#affectsBodyPart"/>
+        <NamedIndividual IRI="#KingDancer"/>
+        <NamedIndividual IRI="#Shoulders"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>KingDancer affects Triceps through property affectsBodyPart.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#affectsBodyPart"/>
+        <NamedIndividual IRI="#KingDancer"/>
+        <NamedIndividual IRI="#Triceps"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>KingDancer affects UpperBack through property affectsBodyPart.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#affectsBodyPart"/>
+        <NamedIndividual IRI="#KingDancer"/>
+        <NamedIndividual IRI="#UpperBack"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>KniegelenkMobilisation affects Knees through property affectsBodyPart.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#affectsBodyPart"/>
+        <NamedIndividual IRI="#KniegelenkMobilisation"/>
+        <NamedIndividual IRI="#Knees"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>LegRaise affects Abs through property affectsBodyPart.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#affectsBodyPart"/>
+        <NamedIndividual IRI="#LegRaise"/>
+        <NamedIndividual IRI="#Abs"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>LegRaise affects Core through property affectsBodyPart.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#affectsBodyPart"/>
+        <NamedIndividual IRI="#LegRaise"/>
+        <NamedIndividual IRI="#Core"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>LegRaise affects Hip through property affectsBodyPart.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#affectsBodyPart"/>
+        <NamedIndividual IRI="#LegRaise"/>
+        <NamedIndividual IRI="#Hip"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>LegRaise affects Psoas through property affectsBodyPart.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#affectsBodyPart"/>
+        <NamedIndividual IRI="#LegRaise"/>
+        <NamedIndividual IRI="#Psoas"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>Mountain affects Ankles through property affectsBodyPart.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#affectsBodyPart"/>
+        <NamedIndividual IRI="#Mountain"/>
+        <NamedIndividual IRI="#Ankles"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>Mountain affects Arms through property affectsBodyPart.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#affectsBodyPart"/>
+        <NamedIndividual IRI="#Mountain"/>
+        <NamedIndividual IRI="#Arms"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>Mountain affects Back through property affectsBodyPart.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#affectsBodyPart"/>
+        <NamedIndividual IRI="#Mountain"/>
+        <NamedIndividual IRI="#Back"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>Mountain affects Hip through property affectsBodyPart.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#affectsBodyPart"/>
+        <NamedIndividual IRI="#Mountain"/>
+        <NamedIndividual IRI="#Hip"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>Mountain affects Shoulders through property affectsBodyPart.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#affectsBodyPart"/>
+        <NamedIndividual IRI="#Mountain"/>
+        <NamedIndividual IRI="#Shoulders"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>MountainClimber affects Core through property affectsBodyPart.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#affectsBodyPart"/>
+        <NamedIndividual IRI="#MountainClimber"/>
+        <NamedIndividual IRI="#Core"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>MountainClimber affects Shoulders through property affectsBodyPart.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#affectsBodyPart"/>
+        <NamedIndividual IRI="#MountainClimber"/>
+        <NamedIndividual IRI="#Shoulders"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>MountainClimber affects Chest through property affectsBodyPart.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#affectsBodyPart"/>
+        <NamedIndividual IRI="#MountainClimber"/>
+        <NamedIndividual IRI="#Chest"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>MountainClimber affects Triceps through property affectsBodyPart.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#affectsBodyPart"/>
+        <NamedIndividual IRI="#MountainClimber"/>
+        <NamedIndividual IRI="#Triceps"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>MountainClimber affects Glutes through property affectsBodyPart.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#affectsBodyPart"/>
+        <NamedIndividual IRI="#MountainClimber"/>
+        <NamedIndividual IRI="#Glutes"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>MountainClimber affects Quadriceps through property affectsBodyPart.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#affectsBodyPart"/>
+        <NamedIndividual IRI="#MountainClimber"/>
+        <NamedIndividual IRI="#Quadriceps"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>MountainClimber affects Hip through property affectsBodyPart.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#affectsBodyPart"/>
+        <NamedIndividual IRI="#MountainClimber"/>
+        <NamedIndividual IRI="#Hip"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>Muschel affects Glutes through property affectsBodyPart.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#affectsBodyPart"/>
+        <NamedIndividual IRI="#Muschel"/>
+        <NamedIndividual IRI="#Glutes"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>Muschel affects Hip through property affectsBodyPart.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#affectsBodyPart"/>
+        <NamedIndividual IRI="#Muschel"/>
+        <NamedIndividual IRI="#Hip"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>Muschel affects Core through property affectsBodyPart.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#affectsBodyPart"/>
+        <NamedIndividual IRI="#Muschel"/>
+        <NamedIndividual IRI="#Core"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>Nackendehnungen affects Neck through property affectsBodyPart.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#affectsBodyPart"/>
+        <NamedIndividual IRI="#Nackendehnungen"/>
+        <NamedIndividual IRI="#Neck"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>ParadiseBird affects Biceps through property affectsBodyPart.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#affectsBodyPart"/>
+        <NamedIndividual IRI="#ParadiseBird"/>
+        <NamedIndividual IRI="#Biceps"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>ParadiseBird affects Calves through property affectsBodyPart.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#affectsBodyPart"/>
+        <NamedIndividual IRI="#ParadiseBird"/>
+        <NamedIndividual IRI="#Calves"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>ParadiseBird affects Core through property affectsBodyPart.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#affectsBodyPart"/>
+        <NamedIndividual IRI="#ParadiseBird"/>
+        <NamedIndividual IRI="#Core"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>ParadiseBird affects Hamstrings through property affectsBodyPart.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#affectsBodyPart"/>
+        <NamedIndividual IRI="#ParadiseBird"/>
+        <NamedIndividual IRI="#Hamstrings"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>ParadiseBird affects Hip through property affectsBodyPart.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#affectsBodyPart"/>
+        <NamedIndividual IRI="#ParadiseBird"/>
+        <NamedIndividual IRI="#Hip"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>ParadiseBird affects Quadriceps through property affectsBodyPart.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#affectsBodyPart"/>
+        <NamedIndividual IRI="#ParadiseBird"/>
+        <NamedIndividual IRI="#Quadriceps"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>ParadiseBird affects Triceps through property affectsBodyPart.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#affectsBodyPart"/>
+        <NamedIndividual IRI="#ParadiseBird"/>
+        <NamedIndividual IRI="#Triceps"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>PigeonPose affects Hip through property affectsBodyPart.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#affectsBodyPart"/>
+        <NamedIndividual IRI="#PigeonPose"/>
+        <NamedIndividual IRI="#Hip"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>Plank affects Core through property affectsBodyPart.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#affectsBodyPart"/>
+        <NamedIndividual IRI="#Plank"/>
+        <NamedIndividual IRI="#Core"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>Plank affects Abs through property affectsBodyPart.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#affectsBodyPart"/>
+        <NamedIndividual IRI="#Plank"/>
+        <NamedIndividual IRI="#Abs"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>Plank affects Shoulders through property affectsBodyPart.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#affectsBodyPart"/>
+        <NamedIndividual IRI="#Plank"/>
+        <NamedIndividual IRI="#Shoulders"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>Plank affects UpperBack through property affectsBodyPart.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#affectsBodyPart"/>
+        <NamedIndividual IRI="#Plank"/>
+        <NamedIndividual IRI="#UpperBack"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>Plank affects Glutes through property affectsBodyPart.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#affectsBodyPart"/>
+        <NamedIndividual IRI="#Plank"/>
+        <NamedIndividual IRI="#Glutes"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>Plank affects Chest through property affectsBodyPart.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#affectsBodyPart"/>
+        <NamedIndividual IRI="#Plank"/>
+        <NamedIndividual IRI="#Chest"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>ProgressiveMuskelentspannung affects Core through property affectsBodyPart.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#affectsBodyPart"/>
+        <NamedIndividual IRI="#ProgressiveMuskelentspannung"/>
+        <NamedIndividual IRI="#Core"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>PushUps affects Chest through property affectsBodyPart.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#affectsBodyPart"/>
+        <NamedIndividual IRI="#PushUps"/>
+        <NamedIndividual IRI="#Chest"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>PushUps affects Triceps through property affectsBodyPart.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#affectsBodyPart"/>
+        <NamedIndividual IRI="#PushUps"/>
+        <NamedIndividual IRI="#Triceps"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>PushUps affects Shoulders through property affectsBodyPart.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#affectsBodyPart"/>
+        <NamedIndividual IRI="#PushUps"/>
+        <NamedIndividual IRI="#Shoulders"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>PushUps affects Core through property affectsBodyPart.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#affectsBodyPart"/>
+        <NamedIndividual IRI="#PushUps"/>
+        <NamedIndividual IRI="#Core"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>Pyramid affects Arms through property affectsBodyPart.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#affectsBodyPart"/>
+        <NamedIndividual IRI="#Pyramid"/>
+        <NamedIndividual IRI="#Arms"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>Pyramid affects Core through property affectsBodyPart.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#affectsBodyPart"/>
+        <NamedIndividual IRI="#Pyramid"/>
+        <NamedIndividual IRI="#Core"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>Pyramid affects Glutes through property affectsBodyPart.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#affectsBodyPart"/>
+        <NamedIndividual IRI="#Pyramid"/>
+        <NamedIndividual IRI="#Glutes"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>Pyramid affects Hamstrings through property affectsBodyPart.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#affectsBodyPart"/>
+        <NamedIndividual IRI="#Pyramid"/>
+        <NamedIndividual IRI="#Hamstrings"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>Pyramid affects Hip through property affectsBodyPart.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#affectsBodyPart"/>
+        <NamedIndividual IRI="#Pyramid"/>
+        <NamedIndividual IRI="#Hip"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>Pyramid affects LowerBack through property affectsBodyPart.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#affectsBodyPart"/>
+        <NamedIndividual IRI="#Pyramid"/>
+        <NamedIndividual IRI="#LowerBack"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>Pyramid affects Quadriceps through property affectsBodyPart.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#affectsBodyPart"/>
+        <NamedIndividual IRI="#Pyramid"/>
+        <NamedIndividual IRI="#Quadriceps"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>Pyramid affects Shoulders through property affectsBodyPart.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#affectsBodyPart"/>
+        <NamedIndividual IRI="#Pyramid"/>
+        <NamedIndividual IRI="#Shoulders"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>Pyramid affects UpperBack through property affectsBodyPart.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#affectsBodyPart"/>
+        <NamedIndividual IRI="#Pyramid"/>
+        <NamedIndividual IRI="#UpperBack"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>RaisedHands affects Arms through property affectsBodyPart.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#affectsBodyPart"/>
+        <NamedIndividual IRI="#RaisedHands"/>
+        <NamedIndividual IRI="#Arms"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>RaisedHands affects Chest through property affectsBodyPart.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#affectsBodyPart"/>
+        <NamedIndividual IRI="#RaisedHands"/>
+        <NamedIndividual IRI="#Chest"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>RaisedHands affects LowerBack through property affectsBodyPart.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#affectsBodyPart"/>
+        <NamedIndividual IRI="#RaisedHands"/>
+        <NamedIndividual IRI="#LowerBack"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>RaisedHands affects Neck through property affectsBodyPart.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#affectsBodyPart"/>
+        <NamedIndividual IRI="#RaisedHands"/>
+        <NamedIndividual IRI="#Neck"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>RaisedHands affects Psoas through property affectsBodyPart.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#affectsBodyPart"/>
+        <NamedIndividual IRI="#RaisedHands"/>
+        <NamedIndividual IRI="#Psoas"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>RaisedHands affects Shoulders through property affectsBodyPart.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#affectsBodyPart"/>
+        <NamedIndividual IRI="#RaisedHands"/>
+        <NamedIndividual IRI="#Shoulders"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>RaisedHands affects UpperBack through property affectsBodyPart.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#affectsBodyPart"/>
+        <NamedIndividual IRI="#RaisedHands"/>
+        <NamedIndividual IRI="#UpperBack"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>ScapulaRetraktion affects Shoulders through property affectsBodyPart.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#affectsBodyPart"/>
+        <NamedIndividual IRI="#ScapulaRetraktion"/>
+        <NamedIndividual IRI="#Shoulders"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>ScapulaRetraktion affects UpperBack through property affectsBodyPart.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#affectsBodyPart"/>
+        <NamedIndividual IRI="#ScapulaRetraktion"/>
+        <NamedIndividual IRI="#UpperBack"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>ScapulaRetraktion affects Spine through property affectsBodyPart.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#affectsBodyPart"/>
+        <NamedIndividual IRI="#ScapulaRetraktion"/>
+        <NamedIndividual IRI="#Spine"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>ScapulaRetraktion affects Trapezius through property affectsBodyPart.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#affectsBodyPart"/>
+        <NamedIndividual IRI="#ScapulaRetraktion"/>
+        <NamedIndividual IRI="#Trapezius"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>SchulterNackenEntspannung affects Neck through property affectsBodyPart.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#affectsBodyPart"/>
+        <NamedIndividual IRI="#SchulterNackenEntspannung"/>
+        <NamedIndividual IRI="#Neck"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>SchulterNackenEntspannung affects Shoulders through property affectsBodyPart.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#affectsBodyPart"/>
+        <NamedIndividual IRI="#SchulterNackenEntspannung"/>
+        <NamedIndividual IRI="#Shoulders"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>SideAngle affects Arms through property affectsBodyPart.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#affectsBodyPart"/>
+        <NamedIndividual IRI="#SideAngle"/>
+        <NamedIndividual IRI="#Arms"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>SideAngle affects Chest through property affectsBodyPart.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#affectsBodyPart"/>
+        <NamedIndividual IRI="#SideAngle"/>
+        <NamedIndividual IRI="#Chest"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>SideAngle affects Glutes through property affectsBodyPart.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#affectsBodyPart"/>
+        <NamedIndividual IRI="#SideAngle"/>
+        <NamedIndividual IRI="#Glutes"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>SideAngle affects Hamstrings through property affectsBodyPart.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#affectsBodyPart"/>
+        <NamedIndividual IRI="#SideAngle"/>
+        <NamedIndividual IRI="#Hamstrings"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>SideAngle affects Hip through property affectsBodyPart.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#affectsBodyPart"/>
+        <NamedIndividual IRI="#SideAngle"/>
+        <NamedIndividual IRI="#Hip"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>SideAngle affects Knees through property affectsBodyPart.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#affectsBodyPart"/>
+        <NamedIndividual IRI="#SideAngle"/>
+        <NamedIndividual IRI="#Knees"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>SideAngle affects LowerBack through property affectsBodyPart.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#affectsBodyPart"/>
+        <NamedIndividual IRI="#SideAngle"/>
+        <NamedIndividual IRI="#LowerBack"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>SideAngle affects Pelvic through property affectsBodyPart.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#affectsBodyPart"/>
+        <NamedIndividual IRI="#SideAngle"/>
+        <NamedIndividual IRI="#Pelvic"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>SideAngle affects Psoas through property affectsBodyPart.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#affectsBodyPart"/>
+        <NamedIndividual IRI="#SideAngle"/>
+        <NamedIndividual IRI="#Psoas"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>SideAngle affects Quadriceps through property affectsBodyPart.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#affectsBodyPart"/>
+        <NamedIndividual IRI="#SideAngle"/>
+        <NamedIndividual IRI="#Quadriceps"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>SideAngle affects Shoulders through property affectsBodyPart.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#affectsBodyPart"/>
+        <NamedIndividual IRI="#SideAngle"/>
+        <NamedIndividual IRI="#Shoulders"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>SideAngle affects UpperBack through property affectsBodyPart.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#affectsBodyPart"/>
+        <NamedIndividual IRI="#SideAngle"/>
+        <NamedIndividual IRI="#UpperBack"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>SitzenStehen affects Core through property affectsBodyPart.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#affectsBodyPart"/>
+        <NamedIndividual IRI="#SitzenStehen"/>
+        <NamedIndividual IRI="#Core"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>SitzenStehen affects Knees through property affectsBodyPart.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#affectsBodyPart"/>
+        <NamedIndividual IRI="#SitzenStehen"/>
+        <NamedIndividual IRI="#Knees"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>SitzenStehen affects Thighs through property affectsBodyPart.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#affectsBodyPart"/>
+        <NamedIndividual IRI="#SitzenStehen"/>
+        <NamedIndividual IRI="#Thighs"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>Squads affects Quadriceps through property affectsBodyPart.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#affectsBodyPart"/>
+        <NamedIndividual IRI="#Squads"/>
+        <NamedIndividual IRI="#Quadriceps"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>Squads affects Glutes through property affectsBodyPart.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#affectsBodyPart"/>
+        <NamedIndividual IRI="#Squads"/>
+        <NamedIndividual IRI="#Glutes"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>Squads affects Hamstrings through property affectsBodyPart.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#affectsBodyPart"/>
+        <NamedIndividual IRI="#Squads"/>
+        <NamedIndividual IRI="#Hamstrings"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>Squads affects Hip through property affectsBodyPart.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#affectsBodyPart"/>
+        <NamedIndividual IRI="#Squads"/>
+        <NamedIndividual IRI="#Hip"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>Squads affects Calves through property affectsBodyPart.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#affectsBodyPart"/>
+        <NamedIndividual IRI="#Squads"/>
+        <NamedIndividual IRI="#Calves"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>Squads affects Core through property affectsBodyPart.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#affectsBodyPart"/>
+        <NamedIndividual IRI="#Squads"/>
+        <NamedIndividual IRI="#Core"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>StandingBackbend affects Back through property affectsBodyPart.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#affectsBodyPart"/>
+        <NamedIndividual IRI="#StandingBackbend"/>
+        <NamedIndividual IRI="#Back"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>StandingBackbend affects Chest through property affectsBodyPart.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#affectsBodyPart"/>
+        <NamedIndividual IRI="#StandingBackbend"/>
+        <NamedIndividual IRI="#Chest"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>StandingBackbend affects LowerBack through property affectsBodyPart.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#affectsBodyPart"/>
+        <NamedIndividual IRI="#StandingBackbend"/>
+        <NamedIndividual IRI="#LowerBack"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>StandingBackbend affects Neck through property affectsBodyPart.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#affectsBodyPart"/>
+        <NamedIndividual IRI="#StandingBackbend"/>
+        <NamedIndividual IRI="#Neck"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>StandingBackbend affects Psoas through property affectsBodyPart.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#affectsBodyPart"/>
+        <NamedIndividual IRI="#StandingBackbend"/>
+        <NamedIndividual IRI="#Psoas"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>StandingBackbend affects UpperBack through property affectsBodyPart.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#affectsBodyPart"/>
+        <NamedIndividual IRI="#StandingBackbend"/>
+        <NamedIndividual IRI="#UpperBack"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>StandingCompass affects Ankles through property affectsBodyPart.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#affectsBodyPart"/>
+        <NamedIndividual IRI="#StandingCompass"/>
+        <NamedIndividual IRI="#Ankles"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>StandingCompass affects Arms through property affectsBodyPart.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#affectsBodyPart"/>
+        <NamedIndividual IRI="#StandingCompass"/>
+        <NamedIndividual IRI="#Arms"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>StandingCompass affects Back through property affectsBodyPart.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#affectsBodyPart"/>
+        <NamedIndividual IRI="#StandingCompass"/>
+        <NamedIndividual IRI="#Back"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>StandingCompass affects Core through property affectsBodyPart.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#affectsBodyPart"/>
+        <NamedIndividual IRI="#StandingCompass"/>
+        <NamedIndividual IRI="#Core"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>StandingCompass affects Glutes through property affectsBodyPart.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#affectsBodyPart"/>
+        <NamedIndividual IRI="#StandingCompass"/>
+        <NamedIndividual IRI="#Glutes"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>StandingCompass affects Hamstrings through property affectsBodyPart.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#affectsBodyPart"/>
+        <NamedIndividual IRI="#StandingCompass"/>
+        <NamedIndividual IRI="#Hamstrings"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>StandingCompass affects Hip through property affectsBodyPart.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#affectsBodyPart"/>
+        <NamedIndividual IRI="#StandingCompass"/>
+        <NamedIndividual IRI="#Hip"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>StandingCompass affects Neck through property affectsBodyPart.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#affectsBodyPart"/>
+        <NamedIndividual IRI="#StandingCompass"/>
+        <NamedIndividual IRI="#Neck"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>StandingCompass affects Pelvic through property affectsBodyPart.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#affectsBodyPart"/>
+        <NamedIndividual IRI="#StandingCompass"/>
+        <NamedIndividual IRI="#Pelvic"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>StandingCompass affects Psoas through property affectsBodyPart.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#affectsBodyPart"/>
+        <NamedIndividual IRI="#StandingCompass"/>
+        <NamedIndividual IRI="#Psoas"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>StandingCompass affects Quadriceps through property affectsBodyPart.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#affectsBodyPart"/>
+        <NamedIndividual IRI="#StandingCompass"/>
+        <NamedIndividual IRI="#Quadriceps"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>StandingCompass affects Shoulders through property affectsBodyPart.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#affectsBodyPart"/>
+        <NamedIndividual IRI="#StandingCompass"/>
+        <NamedIndividual IRI="#Shoulders"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>StandingFirefly affects Ankles through property affectsBodyPart.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#affectsBodyPart"/>
+        <NamedIndividual IRI="#StandingFirefly"/>
+        <NamedIndividual IRI="#Ankles"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>StandingFirefly affects Arms through property affectsBodyPart.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#affectsBodyPart"/>
+        <NamedIndividual IRI="#StandingFirefly"/>
+        <NamedIndividual IRI="#Arms"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>StandingFirefly affects Hip through property affectsBodyPart.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#affectsBodyPart"/>
+        <NamedIndividual IRI="#StandingFirefly"/>
+        <NamedIndividual IRI="#Hip"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>StandingFirefly affects Neck through property affectsBodyPart.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#affectsBodyPart"/>
+        <NamedIndividual IRI="#StandingFirefly"/>
+        <NamedIndividual IRI="#Neck"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>StandingFirefly affects UpperBack through property affectsBodyPart.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#affectsBodyPart"/>
+        <NamedIndividual IRI="#StandingFirefly"/>
+        <NamedIndividual IRI="#UpperBack"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>StandingForwardBend affects Calves through property affectsBodyPart.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#affectsBodyPart"/>
+        <NamedIndividual IRI="#StandingForwardBend"/>
+        <NamedIndividual IRI="#Calves"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>StandingForwardBend affects Core through property affectsBodyPart.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#affectsBodyPart"/>
+        <NamedIndividual IRI="#StandingForwardBend"/>
+        <NamedIndividual IRI="#Core"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>StandingForwardBend affects Glutes through property affectsBodyPart.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#affectsBodyPart"/>
+        <NamedIndividual IRI="#StandingForwardBend"/>
+        <NamedIndividual IRI="#Glutes"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>StandingForwardBend affects Hamstrings through property affectsBodyPart.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#affectsBodyPart"/>
+        <NamedIndividual IRI="#StandingForwardBend"/>
+        <NamedIndividual IRI="#Hamstrings"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>StandingForwardBend affects Hip through property affectsBodyPart.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#affectsBodyPart"/>
+        <NamedIndividual IRI="#StandingForwardBend"/>
+        <NamedIndividual IRI="#Hip"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>StandingForwardBend affects LowerBack through property affectsBodyPart.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#affectsBodyPart"/>
+        <NamedIndividual IRI="#StandingForwardBend"/>
+        <NamedIndividual IRI="#LowerBack"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>StandingForwardBend affects Neck through property affectsBodyPart.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#affectsBodyPart"/>
+        <NamedIndividual IRI="#StandingForwardBend"/>
+        <NamedIndividual IRI="#Neck"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>StandingForwardBend affects UpperBack through property affectsBodyPart.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#affectsBodyPart"/>
+        <NamedIndividual IRI="#StandingForwardBend"/>
+        <NamedIndividual IRI="#UpperBack"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>StandingLegRaise affects Core through property affectsBodyPart.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#affectsBodyPart"/>
+        <NamedIndividual IRI="#StandingLegRaise"/>
+        <NamedIndividual IRI="#Core"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>StandingLegRaise affects Glutes through property affectsBodyPart.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#affectsBodyPart"/>
+        <NamedIndividual IRI="#StandingLegRaise"/>
+        <NamedIndividual IRI="#Glutes"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>StandingLegRaise affects Hamstrings through property affectsBodyPart.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#affectsBodyPart"/>
+        <NamedIndividual IRI="#StandingLegRaise"/>
+        <NamedIndividual IRI="#Hamstrings"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>StandingLegRaise affects Hip through property affectsBodyPart.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#affectsBodyPart"/>
+        <NamedIndividual IRI="#StandingLegRaise"/>
+        <NamedIndividual IRI="#Hip"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>StandingLegRaise affects Quadriceps through property affectsBodyPart.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#affectsBodyPart"/>
+        <NamedIndividual IRI="#StandingLegRaise"/>
+        <NamedIndividual IRI="#Quadriceps"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>StandingSideBend affects Arms through property affectsBodyPart.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#affectsBodyPart"/>
+        <NamedIndividual IRI="#StandingSideBend"/>
+        <NamedIndividual IRI="#Arms"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>StandingSideBend affects Core through property affectsBodyPart.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#affectsBodyPart"/>
+        <NamedIndividual IRI="#StandingSideBend"/>
+        <NamedIndividual IRI="#Core"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>StandingSideBend affects Pelvic through property affectsBodyPart.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#affectsBodyPart"/>
+        <NamedIndividual IRI="#StandingSideBend"/>
+        <NamedIndividual IRI="#Pelvic"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>StandingSideBend affects Shoulders through property affectsBodyPart.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#affectsBodyPart"/>
+        <NamedIndividual IRI="#StandingSideBend"/>
+        <NamedIndividual IRI="#Shoulders"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>StandingSplit affects Arms through property affectsBodyPart.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#affectsBodyPart"/>
+        <NamedIndividual IRI="#StandingSplit"/>
+        <NamedIndividual IRI="#Arms"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>StandingSplit affects Core through property affectsBodyPart.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#affectsBodyPart"/>
+        <NamedIndividual IRI="#StandingSplit"/>
+        <NamedIndividual IRI="#Core"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>StandingSplit affects Glutes through property affectsBodyPart.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#affectsBodyPart"/>
+        <NamedIndividual IRI="#StandingSplit"/>
+        <NamedIndividual IRI="#Glutes"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>StandingSplit affects Hamstrings through property affectsBodyPart.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#affectsBodyPart"/>
+        <NamedIndividual IRI="#StandingSplit"/>
+        <NamedIndividual IRI="#Hamstrings"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>StandingSplit affects Hip through property affectsBodyPart.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#affectsBodyPart"/>
+        <NamedIndividual IRI="#StandingSplit"/>
+        <NamedIndividual IRI="#Hip"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>StandingSplit affects LowerBack through property affectsBodyPart.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#affectsBodyPart"/>
+        <NamedIndividual IRI="#StandingSplit"/>
+        <NamedIndividual IRI="#LowerBack"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>StandingSplit affects Psoas through property affectsBodyPart.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#affectsBodyPart"/>
+        <NamedIndividual IRI="#StandingSplit"/>
+        <NamedIndividual IRI="#Psoas"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>StandingSplit affects Quadriceps through property affectsBodyPart.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#affectsBodyPart"/>
+        <NamedIndividual IRI="#StandingSplit"/>
+        <NamedIndividual IRI="#Quadriceps"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>TherabandAussenrotation affects Shoulders through property affectsBodyPart.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#affectsBodyPart"/>
+        <NamedIndividual IRI="#TherabandAussenrotation"/>
+        <NamedIndividual IRI="#Shoulders"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>TherabandAussenrotation affects RotatorCuffs through property affectsBodyPart.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#affectsBodyPart"/>
+        <NamedIndividual IRI="#TherabandAussenrotation"/>
+        <NamedIndividual IRI="#RotatorCuffs"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>Tree affects Arms through property affectsBodyPart.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#affectsBodyPart"/>
+        <NamedIndividual IRI="#Tree"/>
+        <NamedIndividual IRI="#Arms"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>Tree affects Calves through property affectsBodyPart.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#affectsBodyPart"/>
+        <NamedIndividual IRI="#Tree"/>
+        <NamedIndividual IRI="#Calves"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>Tree affects Glutes through property affectsBodyPart.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#affectsBodyPart"/>
+        <NamedIndividual IRI="#Tree"/>
+        <NamedIndividual IRI="#Glutes"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>Tree affects Hamstrings through property affectsBodyPart.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#affectsBodyPart"/>
+        <NamedIndividual IRI="#Tree"/>
+        <NamedIndividual IRI="#Hamstrings"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>Tree affects Hip through property affectsBodyPart.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#affectsBodyPart"/>
+        <NamedIndividual IRI="#Tree"/>
+        <NamedIndividual IRI="#Hip"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>Tree affects Knees through property affectsBodyPart.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#affectsBodyPart"/>
+        <NamedIndividual IRI="#Tree"/>
+        <NamedIndividual IRI="#Knees"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>Tree affects Quadriceps through property affectsBodyPart.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#affectsBodyPart"/>
+        <NamedIndividual IRI="#Tree"/>
+        <NamedIndividual IRI="#Quadriceps"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>Triangle affects Arms through property affectsBodyPart.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#affectsBodyPart"/>
+        <NamedIndividual IRI="#Triangle"/>
+        <NamedIndividual IRI="#Arms"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>Triangle affects Chest through property affectsBodyPart.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#affectsBodyPart"/>
+        <NamedIndividual IRI="#Triangle"/>
+        <NamedIndividual IRI="#Chest"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>Triangle affects Core through property affectsBodyPart.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#affectsBodyPart"/>
+        <NamedIndividual IRI="#Triangle"/>
+        <NamedIndividual IRI="#Core"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>Triangle affects Glutes through property affectsBodyPart.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#affectsBodyPart"/>
+        <NamedIndividual IRI="#Triangle"/>
+        <NamedIndividual IRI="#Glutes"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>Triangle affects Hamstrings through property affectsBodyPart.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#affectsBodyPart"/>
+        <NamedIndividual IRI="#Triangle"/>
+        <NamedIndividual IRI="#Hamstrings"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>Triangle affects Hip through property affectsBodyPart.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#affectsBodyPart"/>
+        <NamedIndividual IRI="#Triangle"/>
+        <NamedIndividual IRI="#Hip"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>Triangle affects LowerBack through property affectsBodyPart.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#affectsBodyPart"/>
+        <NamedIndividual IRI="#Triangle"/>
+        <NamedIndividual IRI="#LowerBack"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>Triangle affects Neck through property affectsBodyPart.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#affectsBodyPart"/>
+        <NamedIndividual IRI="#Triangle"/>
+        <NamedIndividual IRI="#Neck"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>Triangle affects Psoas through property affectsBodyPart.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#affectsBodyPart"/>
+        <NamedIndividual IRI="#Triangle"/>
+        <NamedIndividual IRI="#Psoas"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>Triangle affects Quadriceps through property affectsBodyPart.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#affectsBodyPart"/>
+        <NamedIndividual IRI="#Triangle"/>
+        <NamedIndividual IRI="#Quadriceps"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>Triangle affects Shoulders through property affectsBodyPart.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#affectsBodyPart"/>
+        <NamedIndividual IRI="#Triangle"/>
+        <NamedIndividual IRI="#Shoulders"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>Wadendehnung affects Calves through property affectsBodyPart.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#affectsBodyPart"/>
+        <NamedIndividual IRI="#Wadendehnung"/>
+        <NamedIndividual IRI="#Calves"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>Wandsitzen affects Quadriceps through property affectsBodyPart.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#affectsBodyPart"/>
+        <NamedIndividual IRI="#Wandsitzen"/>
+        <NamedIndividual IRI="#Quadriceps"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>Wandsitzen affects Glutes through property affectsBodyPart.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#affectsBodyPart"/>
+        <NamedIndividual IRI="#Wandsitzen"/>
+        <NamedIndividual IRI="#Glutes"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>Wandsitzen affects Calves through property affectsBodyPart.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#affectsBodyPart"/>
+        <NamedIndividual IRI="#Wandsitzen"/>
+        <NamedIndividual IRI="#Calves"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>Wandsitzen affects Core through property affectsBodyPart.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#affectsBodyPart"/>
+        <NamedIndividual IRI="#Wandsitzen"/>
+        <NamedIndividual IRI="#Core"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>Warrior1 affects Arms through property affectsBodyPart.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#affectsBodyPart"/>
+        <NamedIndividual IRI="#Warrior1"/>
+        <NamedIndividual IRI="#Arms"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>Warrior1 affects Back through property affectsBodyPart.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#affectsBodyPart"/>
+        <NamedIndividual IRI="#Warrior1"/>
+        <NamedIndividual IRI="#Back"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>Warrior1 affects Chest through property affectsBodyPart.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#affectsBodyPart"/>
+        <NamedIndividual IRI="#Warrior1"/>
+        <NamedIndividual IRI="#Chest"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>Warrior1 affects Glutes through property affectsBodyPart.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#affectsBodyPart"/>
+        <NamedIndividual IRI="#Warrior1"/>
+        <NamedIndividual IRI="#Glutes"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>Warrior1 affects Hamstrings through property affectsBodyPart.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#affectsBodyPart"/>
+        <NamedIndividual IRI="#Warrior1"/>
+        <NamedIndividual IRI="#Hamstrings"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>Warrior1 affects Hip through property affectsBodyPart.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#affectsBodyPart"/>
+        <NamedIndividual IRI="#Warrior1"/>
+        <NamedIndividual IRI="#Hip"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>Warrior1 affects Knees through property affectsBodyPart.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#affectsBodyPart"/>
+        <NamedIndividual IRI="#Warrior1"/>
+        <NamedIndividual IRI="#Knees"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>Warrior1 affects LowerBack through property affectsBodyPart.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#affectsBodyPart"/>
+        <NamedIndividual IRI="#Warrior1"/>
+        <NamedIndividual IRI="#LowerBack"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>Warrior1 affects Neck through property affectsBodyPart.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#affectsBodyPart"/>
+        <NamedIndividual IRI="#Warrior1"/>
+        <NamedIndividual IRI="#Neck"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>Warrior1 affects Psoas through property affectsBodyPart.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#affectsBodyPart"/>
+        <NamedIndividual IRI="#Warrior1"/>
+        <NamedIndividual IRI="#Psoas"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>Warrior1 affects Quadriceps through property affectsBodyPart.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#affectsBodyPart"/>
+        <NamedIndividual IRI="#Warrior1"/>
+        <NamedIndividual IRI="#Quadriceps"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>Warrior1 affects Shoulders through property affectsBodyPart.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#affectsBodyPart"/>
+        <NamedIndividual IRI="#Warrior1"/>
+        <NamedIndividual IRI="#Shoulders"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>Warrior2 affects Arms through property affectsBodyPart.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#affectsBodyPart"/>
+        <NamedIndividual IRI="#Warrior2"/>
+        <NamedIndividual IRI="#Arms"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>Warrior2 affects Back through property affectsBodyPart.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#affectsBodyPart"/>
+        <NamedIndividual IRI="#Warrior2"/>
+        <NamedIndividual IRI="#Back"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>Warrior2 affects Chest through property affectsBodyPart.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#affectsBodyPart"/>
+        <NamedIndividual IRI="#Warrior2"/>
+        <NamedIndividual IRI="#Chest"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>Warrior2 affects Glutes through property affectsBodyPart.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#affectsBodyPart"/>
+        <NamedIndividual IRI="#Warrior2"/>
+        <NamedIndividual IRI="#Glutes"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>Warrior2 affects Hamstrings through property affectsBodyPart.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#affectsBodyPart"/>
+        <NamedIndividual IRI="#Warrior2"/>
+        <NamedIndividual IRI="#Hamstrings"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>Warrior2 affects Hip through property affectsBodyPart.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#affectsBodyPart"/>
+        <NamedIndividual IRI="#Warrior2"/>
+        <NamedIndividual IRI="#Hip"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>Warrior2 affects Knees through property affectsBodyPart.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#affectsBodyPart"/>
+        <NamedIndividual IRI="#Warrior2"/>
+        <NamedIndividual IRI="#Knees"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>Warrior2 affects LowerBack through property affectsBodyPart.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#affectsBodyPart"/>
+        <NamedIndividual IRI="#Warrior2"/>
+        <NamedIndividual IRI="#LowerBack"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>Warrior2 affects Psoas through property affectsBodyPart.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#affectsBodyPart"/>
+        <NamedIndividual IRI="#Warrior2"/>
+        <NamedIndividual IRI="#Psoas"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>Warrior2 affects Quadriceps through property affectsBodyPart.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#affectsBodyPart"/>
+        <NamedIndividual IRI="#Warrior2"/>
+        <NamedIndividual IRI="#Quadriceps"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>Warrior2 affects Shoulders through property affectsBodyPart.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#affectsBodyPart"/>
+        <NamedIndividual IRI="#Warrior2"/>
+        <NamedIndividual IRI="#Shoulders"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>Wheel affects Arms through property affectsBodyPart.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#affectsBodyPart"/>
+        <NamedIndividual IRI="#Wheel"/>
+        <NamedIndividual IRI="#Arms"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>Wheel affects Chest through property affectsBodyPart.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#affectsBodyPart"/>
+        <NamedIndividual IRI="#Wheel"/>
+        <NamedIndividual IRI="#Chest"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>Wheel affects Core through property affectsBodyPart.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#affectsBodyPart"/>
+        <NamedIndividual IRI="#Wheel"/>
+        <NamedIndividual IRI="#Core"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>Wheel affects Glutes through property affectsBodyPart.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#affectsBodyPart"/>
+        <NamedIndividual IRI="#Wheel"/>
+        <NamedIndividual IRI="#Glutes"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>Wheel affects LowerBack through property affectsBodyPart.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#affectsBodyPart"/>
+        <NamedIndividual IRI="#Wheel"/>
+        <NamedIndividual IRI="#LowerBack"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>Wheel affects Neck through property affectsBodyPart.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#affectsBodyPart"/>
+        <NamedIndividual IRI="#Wheel"/>
+        <NamedIndividual IRI="#Neck"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>Wheel affects Psoas through property affectsBodyPart.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#affectsBodyPart"/>
+        <NamedIndividual IRI="#Wheel"/>
+        <NamedIndividual IRI="#Psoas"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>Wheel affects Quadriceps through property affectsBodyPart.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#affectsBodyPart"/>
+        <NamedIndividual IRI="#Wheel"/>
+        <NamedIndividual IRI="#Quadriceps"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>Wheel affects Shoulders through property affectsBodyPart.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#affectsBodyPart"/>
+        <NamedIndividual IRI="#Wheel"/>
+        <NamedIndividual IRI="#Shoulders"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>Regular practice of ArmkreisenGewichtsverlagerung is known to enhance Coordination.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#improves"/>
+        <NamedIndividual IRI="#ArmkreisenGewichtsverlagerung"/>
+        <NamedIndividual IRI="#Coordination"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>Regular practice of ArmkreisenGewichtsverlagerung is known to enhance Balance.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#improves"/>
+        <NamedIndividual IRI="#ArmkreisenGewichtsverlagerung"/>
+        <NamedIndividual IRI="#Balance"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>Regular practice of ArmkreisenGewichtsverlagerung is known to enhance Mobility.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#improves"/>
+        <NamedIndividual IRI="#ArmkreisenGewichtsverlagerung"/>
+        <NamedIndividual IRI="#Mobility"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>Regular practice of Atemuebung478 is known to enhance Relaxation.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#improves"/>
+        <NamedIndividual IRI="#Atemuebung478"/>
+        <NamedIndividual IRI="#Relaxation"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>Regular practice of Atemuebung478 is known to enhance Focus.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#improves"/>
+        <NamedIndividual IRI="#Atemuebung478"/>
+        <NamedIndividual IRI="#Focus"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>Regular practice of Bruecke is known to enhance Strength.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#improves"/>
+        <NamedIndividual IRI="#Bruecke"/>
+        <NamedIndividual IRI="#Strength"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>Regular practice of Bruecke is known to enhance Stability.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#improves"/>
+        <NamedIndividual IRI="#Bruecke"/>
+        <NamedIndividual IRI="#Stability"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>Regular practice of Bruecke is known to enhance Posture.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#improves"/>
+        <NamedIndividual IRI="#Bruecke"/>
+        <NamedIndividual IRI="#Posture"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>Regular practice of BrustwirbelsaeulenRotation is known to enhance Mobility.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#improves"/>
+        <NamedIndividual IRI="#BrustwirbelsaeulenRotation"/>
+        <NamedIndividual IRI="#Mobility"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>Regular practice of BrustwirbelsaeulenRotation is known to enhance Flexibility.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#improves"/>
+        <NamedIndividual IRI="#BrustwirbelsaeulenRotation"/>
+        <NamedIndividual IRI="#Flexibility"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>Regular practice of BrustwirbelsaeulenRotation is known to enhance Posture.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#improves"/>
+        <NamedIndividual IRI="#BrustwirbelsaeulenRotation"/>
+        <NamedIndividual IRI="#Posture"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>Regular practice of DeadBug is known to enhance Strength.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#improves"/>
+        <NamedIndividual IRI="#DeadBug"/>
+        <NamedIndividual IRI="#Strength"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>Regular practice of DeadBug is known to enhance Coordination.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#improves"/>
+        <NamedIndividual IRI="#DeadBug"/>
+        <NamedIndividual IRI="#Coordination"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>Regular practice of DeadBug is known to enhance Stability.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#improves"/>
+        <NamedIndividual IRI="#DeadBug"/>
+        <NamedIndividual IRI="#Stability"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>Regular practice of DeadBug is known to enhance Posture.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#improves"/>
+        <NamedIndividual IRI="#DeadBug"/>
+        <NamedIndividual IRI="#Posture"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>Regular practice of Einbeinstand is known to enhance Balance.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#improves"/>
+        <NamedIndividual IRI="#Einbeinstand"/>
+        <NamedIndividual IRI="#Balance"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>Regular practice of Einbeinstand is known to enhance Stability.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#improves"/>
+        <NamedIndividual IRI="#Einbeinstand"/>
+        <NamedIndividual IRI="#Stability"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>Regular practice of Einbeinstand is known to enhance Coordination.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#improves"/>
+        <NamedIndividual IRI="#Einbeinstand"/>
+        <NamedIndividual IRI="#Coordination"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>Regular practice of Einbeinstand is known to enhance Focus.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#improves"/>
+        <NamedIndividual IRI="#Einbeinstand"/>
+        <NamedIndividual IRI="#Focus"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>Regular practice of FaszienrolleRueckenWade is known to enhance Flexibility.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#improves"/>
+        <NamedIndividual IRI="#FaszienrolleRueckenWade"/>
+        <NamedIndividual IRI="#Flexibility"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>Regular practice of FaszienrolleRueckenWade is known to enhance Mobility.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#improves"/>
+        <NamedIndividual IRI="#FaszienrolleRueckenWade"/>
+        <NamedIndividual IRI="#Mobility"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>Regular practice of FaszienrolleRueckenWade is known to enhance Relaxation.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#improves"/>
+        <NamedIndividual IRI="#FaszienrolleRueckenWade"/>
+        <NamedIndividual IRI="#Relaxation"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>Regular practice of FerseZehenGang is known to enhance Balance.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#improves"/>
+        <NamedIndividual IRI="#FerseZehenGang"/>
+        <NamedIndividual IRI="#Balance"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>Regular practice of FerseZehenGang is known to enhance Coordination.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#improves"/>
+        <NamedIndividual IRI="#FerseZehenGang"/>
+        <NamedIndividual IRI="#Coordination"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>Regular practice of GewichtsverlagerungSeitlich is known to enhance Balance.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#improves"/>
+        <NamedIndividual IRI="#GewichtsverlagerungSeitlich"/>
+        <NamedIndividual IRI="#Balance"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>Regular practice of GewichtsverlagerungSeitlich is known to enhance Coordination.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#improves"/>
+        <NamedIndividual IRI="#GewichtsverlagerungSeitlich"/>
+        <NamedIndividual IRI="#Coordination"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>Regular practice of GewichtsverlagerungSeitlich is known to enhance Mobility.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#improves"/>
+        <NamedIndividual IRI="#GewichtsverlagerungSeitlich"/>
+        <NamedIndividual IRI="#Mobility"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>Regular practice of GleichgewichtInstabil is known to enhance Balance.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#improves"/>
+        <NamedIndividual IRI="#GleichgewichtInstabil"/>
+        <NamedIndividual IRI="#Balance"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>Regular practice of GleichgewichtInstabil is known to enhance Stability.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#improves"/>
+        <NamedIndividual IRI="#GleichgewichtInstabil"/>
+        <NamedIndividual IRI="#Stability"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>Regular practice of GleichgewichtInstabil is known to enhance Coordination.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#improves"/>
+        <NamedIndividual IRI="#GleichgewichtInstabil"/>
+        <NamedIndividual IRI="#Coordination"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>Regular practice of HueftbeugerDehnung is known to enhance Flexibility.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#improves"/>
+        <NamedIndividual IRI="#HueftbeugerDehnung"/>
+        <NamedIndividual IRI="#Flexibility"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>Regular practice of HueftbeugerDehnung is known to enhance Mobility.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#improves"/>
+        <NamedIndividual IRI="#HueftbeugerDehnung"/>
+        <NamedIndividual IRI="#Mobility"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>Regular practice of JumpingJacks is known to enhance Coordination.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#improves"/>
+        <NamedIndividual IRI="#JumpingJacks"/>
+        <NamedIndividual IRI="#Coordination"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>Regular practice of JumpingJacks is known to enhance Balance.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#improves"/>
+        <NamedIndividual IRI="#JumpingJacks"/>
+        <NamedIndividual IRI="#Balance"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>Regular practice of JumpingJacks is known to enhance Mobility.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#improves"/>
+        <NamedIndividual IRI="#JumpingJacks"/>
+        <NamedIndividual IRI="#Mobility"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>Regular practice of JumpingJacks is known to enhance Strength.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#improves"/>
+        <NamedIndividual IRI="#JumpingJacks"/>
+        <NamedIndividual IRI="#Strength"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>Regular practice of Kindpose is known to enhance Flexibility.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#improves"/>
+        <NamedIndividual IRI="#Kindpose"/>
+        <NamedIndividual IRI="#Flexibility"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>Regular practice of Kindpose is known to enhance Mobility.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#improves"/>
+        <NamedIndividual IRI="#Kindpose"/>
+        <NamedIndividual IRI="#Mobility"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>Regular practice of Kindpose is known to enhance Relaxation.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#improves"/>
+        <NamedIndividual IRI="#Kindpose"/>
+        <NamedIndividual IRI="#Relaxation"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>Regular practice of KniegelenkMobilisation is known to enhance Mobility.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#improves"/>
+        <NamedIndividual IRI="#KniegelenkMobilisation"/>
+        <NamedIndividual IRI="#Mobility"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>Regular practice of KniegelenkMobilisation is known to enhance Flexibility.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#improves"/>
+        <NamedIndividual IRI="#KniegelenkMobilisation"/>
+        <NamedIndividual IRI="#Flexibility"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>Regular practice of LegRaise is known to enhance Strength.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#improves"/>
+        <NamedIndividual IRI="#LegRaise"/>
+        <NamedIndividual IRI="#Strength"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>Regular practice of LegRaise is known to enhance Stability.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#improves"/>
+        <NamedIndividual IRI="#LegRaise"/>
+        <NamedIndividual IRI="#Stability"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>Regular practice of LegRaise is known to enhance Focus.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#improves"/>
+        <NamedIndividual IRI="#LegRaise"/>
+        <NamedIndividual IRI="#Focus"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>Regular practice of MountainClimber is known to enhance Strength.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#improves"/>
+        <NamedIndividual IRI="#MountainClimber"/>
+        <NamedIndividual IRI="#Strength"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>Regular practice of MountainClimber is known to enhance Coordination.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#improves"/>
+        <NamedIndividual IRI="#MountainClimber"/>
+        <NamedIndividual IRI="#Coordination"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>Regular practice of MountainClimber is known to enhance Balance.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#improves"/>
+        <NamedIndividual IRI="#MountainClimber"/>
+        <NamedIndividual IRI="#Balance"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>Regular practice of MountainClimber is known to enhance Mobility.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#improves"/>
+        <NamedIndividual IRI="#MountainClimber"/>
+        <NamedIndividual IRI="#Mobility"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>Regular practice of Muschel is known to enhance Strength.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#improves"/>
+        <NamedIndividual IRI="#Muschel"/>
+        <NamedIndividual IRI="#Strength"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>Regular practice of Muschel is known to enhance Stability.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#improves"/>
+        <NamedIndividual IRI="#Muschel"/>
+        <NamedIndividual IRI="#Stability"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>Regular practice of Muschel is known to enhance Balance.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#improves"/>
+        <NamedIndividual IRI="#Muschel"/>
+        <NamedIndividual IRI="#Balance"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>Regular practice of Nackendehnungen is known to enhance Flexibility.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#improves"/>
+        <NamedIndividual IRI="#Nackendehnungen"/>
+        <NamedIndividual IRI="#Flexibility"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>Regular practice of Nackendehnungen is known to enhance Mobility.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#improves"/>
+        <NamedIndividual IRI="#Nackendehnungen"/>
+        <NamedIndividual IRI="#Mobility"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>Regular practice of Nackendehnungen is known to enhance Posture.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#improves"/>
+        <NamedIndividual IRI="#Nackendehnungen"/>
+        <NamedIndividual IRI="#Posture"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>Regular practice of PigeonPose is known to enhance Flexibility.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#improves"/>
+        <NamedIndividual IRI="#PigeonPose"/>
+        <NamedIndividual IRI="#Flexibility"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>Regular practice of PigeonPose is known to enhance Mobility.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#improves"/>
+        <NamedIndividual IRI="#PigeonPose"/>
+        <NamedIndividual IRI="#Mobility"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>Regular practice of Plank is known to enhance Strength.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#improves"/>
+        <NamedIndividual IRI="#Plank"/>
+        <NamedIndividual IRI="#Strength"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>Regular practice of Plank is known to enhance Stability.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#improves"/>
+        <NamedIndividual IRI="#Plank"/>
+        <NamedIndividual IRI="#Stability"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>Regular practice of Plank is known to enhance Posture.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#improves"/>
+        <NamedIndividual IRI="#Plank"/>
+        <NamedIndividual IRI="#Posture"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>Regular practice of Plank is known to enhance Balance.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#improves"/>
+        <NamedIndividual IRI="#Plank"/>
+        <NamedIndividual IRI="#Balance"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>Regular practice of ProgressiveMuskelentspannung is known to enhance Relaxation.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#improves"/>
+        <NamedIndividual IRI="#ProgressiveMuskelentspannung"/>
+        <NamedIndividual IRI="#Relaxation"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>Regular practice of ProgressiveMuskelentspannung is known to enhance Flexibility.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#improves"/>
+        <NamedIndividual IRI="#ProgressiveMuskelentspannung"/>
+        <NamedIndividual IRI="#Flexibility"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>Regular practice of PushUps is known to enhance Strength.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#improves"/>
+        <NamedIndividual IRI="#PushUps"/>
+        <NamedIndividual IRI="#Strength"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>Regular practice of PushUps is known to enhance Stability.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#improves"/>
+        <NamedIndividual IRI="#PushUps"/>
+        <NamedIndividual IRI="#Stability"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>Regular practice of PushUps is known to enhance Posture.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#improves"/>
+        <NamedIndividual IRI="#PushUps"/>
+        <NamedIndividual IRI="#Posture"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>Regular practice of PushUps is known to enhance Coordination.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#improves"/>
+        <NamedIndividual IRI="#PushUps"/>
+        <NamedIndividual IRI="#Coordination"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>Regular practice of ScapulaRetraktion is known to enhance Strength.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#improves"/>
+        <NamedIndividual IRI="#ScapulaRetraktion"/>
+        <NamedIndividual IRI="#Strength"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>Regular practice of ScapulaRetraktion is known to enhance Posture.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#improves"/>
+        <NamedIndividual IRI="#ScapulaRetraktion"/>
+        <NamedIndividual IRI="#Posture"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>Regular practice of ScapulaRetraktion is known to enhance Stability.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#improves"/>
+        <NamedIndividual IRI="#ScapulaRetraktion"/>
+        <NamedIndividual IRI="#Stability"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>Regular practice of SchulterNackenEntspannung is known to enhance Relaxation.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#improves"/>
+        <NamedIndividual IRI="#SchulterNackenEntspannung"/>
+        <NamedIndividual IRI="#Relaxation"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>Regular practice of SchulterNackenEntspannung is known to enhance Flexibility.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#improves"/>
+        <NamedIndividual IRI="#SchulterNackenEntspannung"/>
+        <NamedIndividual IRI="#Flexibility"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>Regular practice of SchulterNackenEntspannung is known to enhance Mobility.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#improves"/>
+        <NamedIndividual IRI="#SchulterNackenEntspannung"/>
+        <NamedIndividual IRI="#Mobility"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>Regular practice of SchulterNackenEntspannung is known to enhance Posture.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#improves"/>
+        <NamedIndividual IRI="#SchulterNackenEntspannung"/>
+        <NamedIndividual IRI="#Posture"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>Regular practice of SitzenStehen is known to enhance Strength.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#improves"/>
+        <NamedIndividual IRI="#SitzenStehen"/>
+        <NamedIndividual IRI="#Strength"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>Regular practice of SitzenStehen is known to enhance Balance.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#improves"/>
+        <NamedIndividual IRI="#SitzenStehen"/>
+        <NamedIndividual IRI="#Balance"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>Regular practice of SitzenStehen is known to enhance Coordination.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#improves"/>
+        <NamedIndividual IRI="#SitzenStehen"/>
+        <NamedIndividual IRI="#Coordination"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>Regular practice of SitzenStehen is known to enhance Mobility.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#improves"/>
+        <NamedIndividual IRI="#SitzenStehen"/>
+        <NamedIndividual IRI="#Mobility"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>Regular practice of SitzenStehen is known to enhance Stability.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#improves"/>
+        <NamedIndividual IRI="#SitzenStehen"/>
+        <NamedIndividual IRI="#Stability"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>Regular practice of Squads is known to enhance Strength.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#improves"/>
+        <NamedIndividual IRI="#Squads"/>
+        <NamedIndividual IRI="#Strength"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>Regular practice of Squads is known to enhance Stability.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#improves"/>
+        <NamedIndividual IRI="#Squads"/>
+        <NamedIndividual IRI="#Stability"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>Regular practice of Squads is known to enhance Balance.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#improves"/>
+        <NamedIndividual IRI="#Squads"/>
+        <NamedIndividual IRI="#Balance"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>Regular practice of Squads is known to enhance Posture.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#improves"/>
+        <NamedIndividual IRI="#Squads"/>
+        <NamedIndividual IRI="#Posture"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>Regular practice of Squads is known to enhance Mobility.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#improves"/>
+        <NamedIndividual IRI="#Squads"/>
+        <NamedIndividual IRI="#Mobility"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>Regular practice of TherabandAussenrotation is known to enhance Strength.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#improves"/>
+        <NamedIndividual IRI="#TherabandAussenrotation"/>
+        <NamedIndividual IRI="#Strength"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>Regular practice of TherabandAussenrotation is known to enhance Stability.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#improves"/>
+        <NamedIndividual IRI="#TherabandAussenrotation"/>
+        <NamedIndividual IRI="#Stability"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>Regular practice of TherabandAussenrotation is known to enhance Mobility.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#improves"/>
+        <NamedIndividual IRI="#TherabandAussenrotation"/>
+        <NamedIndividual IRI="#Mobility"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>Regular practice of Wadendehnung is known to enhance Flexibility.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#improves"/>
+        <NamedIndividual IRI="#Wadendehnung"/>
+        <NamedIndividual IRI="#Flexibility"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>Regular practice of Wadendehnung is known to enhance Mobility.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#improves"/>
+        <NamedIndividual IRI="#Wadendehnung"/>
+        <NamedIndividual IRI="#Mobility"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>Regular practice of Wandsitzen is known to enhance Strength.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#improves"/>
+        <NamedIndividual IRI="#Wandsitzen"/>
+        <NamedIndividual IRI="#Strength"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>Regular practice of Wandsitzen is known to enhance Stability.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#improves"/>
+        <NamedIndividual IRI="#Wandsitzen"/>
+        <NamedIndividual IRI="#Stability"/>
+    </ObjectPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="#Calorie"/>
         <NamedIndividual IRI="#AerobicDance"/>
