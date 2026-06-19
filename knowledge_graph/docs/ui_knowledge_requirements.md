@@ -56,6 +56,10 @@ Mögliche Werte aus den aktuellen Daten sind zum Beispiel:
 * `Spine`
 * `Neck`
 
+### Hinweis zu BodyPart-IDs
+
+Die genannten BodyPart-Werte stammen aus den aktuellen Übungsdaten in `deep_squad.json`. Vor einer technischen Nutzung in der Import-Pipeline sollte geprüft werden, ob alle IDs exakt mit den Instanzen in `PhysicalTherapy.owx` übereinstimmen.
+
 ### Schwierigkeitsgrad
 
 Der Schwierigkeitsgrad ist durch `hasDifficultyLevel` bereits in der aktuellen Import-Pipeline abgedeckt.
@@ -160,13 +164,9 @@ Output:
 Eine einfache erste Regel für den Prototyp könnte sein:
 
 ```text
-Pain Level > 3 → nur Beginner-Übungen anzeigen
-```
-
-Zusätzlich könnte gelten:
-
-```text
-Pain Level > 6 → Warnhinweis anzeigen und keine belastenden Übungen empfehlen
+Pain Level 0–3 → normale Empfehlung möglich
+Pain Level 4–6 → nur Beginner-Übungen anzeigen und Warnhinweis geben
+Pain Level 7–10 → keine belastenden Übungen empfehlen und therapeutische Abklärung empfehlen
 ```
 
 ### Mögliche UI-Formulierung
@@ -549,6 +549,7 @@ Vor der finalen Umsetzung sollten folgende Fragen im Team geklärt werden:
 5. Welche Mobilitätstest-Fragen sollen final ins UI?
 6. Soll Equipment bereits im MVP modelliert werden?
 7. Welche Daten kommen direkt aus dem Knowledge Graph und welche bleiben zunächst UI-seitig?
+8. Stimmen die BodyPart-IDs aus `deep_squad.json` vollständig mit den Instanzen in `PhysicalTherapy.owx` überein?
 
 ---
 
@@ -564,6 +565,7 @@ Vor der finalen Umsetzung sollten folgende Fragen im Team geklärt werden:
 | Übungsbeschreibung / Anweisungen / Korrekturen | Noch nicht in den Daten vorhanden                              |
 | Equipment                                      | Noch nicht modelliert                                          |
 | Mobilitätstest-Logik                           | Antwortkonzepte vorhanden, Verknüpfung zur Übungsauswahl fehlt |
+| BodyPart-ID-Abgleich                           | Muss vor technischer Nutzung geprüft werden                    |
 
 ---
 
