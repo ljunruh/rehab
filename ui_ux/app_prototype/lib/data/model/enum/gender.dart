@@ -8,11 +8,11 @@ extension GenderExt on Gender {
   String get label {
     switch (this) {
       case Gender.male:
-        return "Männlich";
+        return "männlich";
       case Gender.female:
-        return "Weiblich";
+        return "weiblich";
       case Gender.diverse:
-        return "Diverse";
+        return "divers";
     }
   }
 
