@@ -8,6 +8,7 @@ class User {
   Id id = Isar.autoIncrement;
 
   late String name;
+  late String email;
   late int age;
   @enumerated
   late Gender gender;

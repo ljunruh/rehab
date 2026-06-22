@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import '../../../core/theme/app_theme.dart';
+import '../../../core/widgets/app_card.dart';
 
 class SelectableAccordion<T> extends StatefulWidget {
   final String title;
@@ -57,32 +59,30 @@ class _SelectableAccordionState<T>
 
   @override
   Widget build(BuildContext context) {
-    return Card(
+    return AppCard(
+      padding: EdgeInsets.zero,
       child: Column(
         children: [
           InkWell(
+            borderRadius: BorderRadius.circular(AppRadius.card),
             onTap: () {
               setState(() {
                 _expanded = !_expanded;
               });
             },
             child: Padding(
-              padding: const EdgeInsets.all(16),
+              padding: const EdgeInsets.all(AppSpacing.cardPadding),
               child: Row(
                 children: [
                   Expanded(
                     child: Column(
-                      crossAxisAlignment:
-                      CrossAxisAlignment.start,
+                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
                           widget.title,
-                          style: const TextStyle(
-                            fontSize: 16,
-                            fontWeight: FontWeight.bold,
-                          ),
+                          style: AppText.cardTitle,
                         ),
-                        const SizedBox(height: 8),
+                        const SizedBox(height: AppSpacing.sm),
                         widget.summary,
                       ],
                     ),
@@ -91,6 +91,8 @@ class _SelectableAccordionState<T>
                     _expanded
                         ? Icons.expand_less
                         : Icons.expand_more,
+                    color: AppColors.textSecondary,
+                    size: AppIconSize.defaultSize,
                   ),
                 ],
               ),
@@ -100,29 +102,42 @@ class _SelectableAccordionState<T>
           if (_expanded)
             Padding(
               padding: const EdgeInsets.fromLTRB(
-                  16, 0, 16, 16),
+                  AppSpacing.cardPadding, 0, AppSpacing.cardPadding, AppSpacing.cardPadding),
               child: Column(
                 children: [
                   TextField(
                     controller: _searchController,
+                    style: AppText.body,
                     decoration: InputDecoration(
                       labelText: "Suchen...",
-                      prefixIcon:
-                      const Icon(Icons.search),
-                      suffixIcon:
-                      _searchController.text.isNotEmpty
+                      labelStyle: AppText.body.copyWith(color: AppColors.textSecondary),
+                      floatingLabelStyle: AppText.body.copyWith(color: AppColors.sage, fontWeight: FontWeight.w500),
+                      prefixIcon: const Icon(Icons.search, color: AppColors.textSecondary, size: AppIconSize.defaultSize),
+                      suffixIcon: _searchController.text.isNotEmpty
                           ? IconButton(
-                        icon: const Icon(
-                            Icons.clear),
-                        onPressed: () {
-                          _searchController.clear();
-                          widget.onSearch('');
-                          setState(() {});
-                        },
-                      )
+                              icon: const Icon(Icons.clear, color: AppColors.textSecondary, size: AppIconSize.defaultSize),
+                              onPressed: () {
+                                _searchController.clear();
+                                widget.onSearch('');
+                                setState(() {});
+                              },
+                            )
                           : null,
-                      border:
-                      const OutlineInputBorder(),
+                      filled: true,
+                      fillColor: AppColors.offwhite,
+                      contentPadding: const EdgeInsets.symmetric(horizontal: 14, vertical: 14),
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(AppRadius.input),
+                        borderSide: const BorderSide(color: AppColors.beige),
+                      ),
+                      enabledBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(AppRadius.input),
+                        borderSide: const BorderSide(color: AppColors.beige),
+                      ),
+                      focusedBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(AppRadius.input),
+                        borderSide: const BorderSide(color: AppColors.sage),
+                      ),
                     ),
                     onChanged: (value) {
                       widget.onSearch(value);
@@ -130,59 +145,49 @@ class _SelectableAccordionState<T>
                     },
                   ),
 
-                  const SizedBox(height: 8),
+                  const SizedBox(height: AppSpacing.md),
 
                   SizedBox(
                     height: 180,
                     child: widget.filteredItems.isEmpty
-                        ? const Center(
-                      child: Text(
-                          "Keine Einträge gefunden"),
-                    )
-                        : ListView.builder(
-                      itemCount:
-                      widget.filteredItems.length,
-                      itemBuilder:
-                          (context, index) {
-                        final item = widget
-                            .filteredItems[index];
-
-                        final id =
-                        widget.getId(item);
-
-                        final selected = widget
-                            .selectedIds
-                            .contains(id);
-
-                        return CheckboxListTile(
-                          value: selected,
-                          title: Text(
-                            widget.getTitle(item),
-                          ),
-                          subtitle:
-                          widget.getSubtitle !=
-                              null
-                              ? Text(
-                            widget
-                                .getSubtitle!(
-                                item),
-                            style:
-                            const TextStyle(
-                              fontSize:
-                              12,
+                        ? Center(
+                            child: Text(
+                              "Keine Einträge gefunden",
+                              style: AppText.caption.copyWith(color: AppColors.textMuted),
                             ),
                           )
-                              : null,
-                          onChanged: (value) {
-                            widget
-                                .onSelectionChanged(
-                              id,
-                              value ?? false,
-                            );
-                          },
-                        );
-                      },
-                    ),
+                        : ListView.builder(
+                            itemCount: widget.filteredItems.length,
+                            itemBuilder: (context, index) {
+                              final item = widget.filteredItems[index];
+                              final id = widget.getId(item);
+                              final selected = widget.selectedIds.contains(id);
+
+                              return CheckboxListTile(
+                                value: selected,
+                                activeColor: AppColors.sage,
+                                checkColor: AppColors.white,
+                                title: Text(
+                                  widget.getTitle(item),
+                                  style: AppText.body.copyWith(fontWeight: FontWeight.w500),
+                                ),
+                                subtitle: widget.getSubtitle != null
+                                    ? Text(
+                                        widget.getSubtitle!(item),
+                                        style: AppText.caption,
+                                      )
+                                    : null,
+                                contentPadding: EdgeInsets.zero,
+                                controlAffinity: ListTileControlAffinity.leading,
+                                onChanged: (value) {
+                                  widget.onSelectionChanged(
+                                    id,
+                                    value ?? false,
+                                  );
+                                },
+                              );
+                            },
+                          ),
                   ),
                 ],
               ),

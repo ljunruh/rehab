@@ -3,8 +3,12 @@ import 'package:app_prototype/data/model/condition.dart';
 import 'package:app_prototype/data/model/enum/gender.dart';
 import 'package:flutter/material.dart';
 import 'package:isar/isar.dart';
+import 'package:provider/provider.dart';
 import 'selectable_accordion.dart';
 import '../../../data/model/user.dart';
+import '../../../core/theme/app_theme.dart';
+import '../../../core/widgets/widgets.dart';
+import '../../../state/ui_state.dart';
 
 class UserSetupScreen extends StatefulWidget {
   final VoidCallback onFinished;
@@ -19,10 +23,10 @@ class UserSetupScreen extends StatefulWidget {
 
 class _UserSetupScreenState extends State<UserSetupScreen> {
   final _name = TextEditingController();
+  final _email = TextEditingController();
   final _age = TextEditingController();
   final _height = TextEditingController();
   final _weight = TextEditingController();
-  final _searchController = TextEditingController();
 
   Gender gender = Gender.male;
 
@@ -66,14 +70,48 @@ class _UserSetupScreenState extends State<UserSetupScreen> {
   }
 
   Future<void> _create() async {
+    //TODO[API]: Allgemein Validator prüfen
+    final uiState = context.read<UiState>();
+    final nameVal = _name.text.trim();
+    final emailVal = _email.text.trim();
+    if (nameVal.isEmpty) {
+      uiState.showToast("Bitte gib deinen Namen ein.");
+      return;
+    }
+
+    //TODO[API]: Brauch einen Email Validator
+    if (emailVal.isEmpty) {
+      uiState.showToast("Bitte gib deine Email ein.");
+      return;
+    }
+
+    final ageVal = int.tryParse(_age.text);
+    if (ageVal == null || ageVal <= 0) {
+      uiState.showToast("Bitte gib ein gültiges Alter ein.");
+      return;
+    }
+
+    final heightVal = double.tryParse(_height.text);
+    if (heightVal == null || heightVal <= 0) {
+      uiState.showToast("Bitte gib eine gültige Größe ein.");
+      return;
+    }
+
+    final weightVal = double.tryParse(_weight.text);
+    if (weightVal == null || weightVal <= 0) {
+      uiState.showToast("Bitte gib ein gültiges Gewicht ein.");
+      return;
+    }
+
     final isar = Isar.getInstance()!;
 
     final user = User()
-      ..name = _name.text
-      ..age = int.parse(_age.text)
+      ..name = nameVal
+      ..email = emailVal
+      ..age = ageVal
       ..gender = gender
-      ..height = double.parse(_height.text)
-      ..weight = double.parse(_weight.text)
+      ..height = heightVal
+      ..weight = weightVal
       ..conditions = _selectedConditionIds.toList();
 
     await isar.writeTxn(() async {
@@ -85,130 +123,128 @@ class _UserSetupScreenState extends State<UserSetupScreen> {
   }
 
   Widget _buildGenderSelector() {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        const Text(
-          "Gender",
-          style: TextStyle(fontSize: 16, fontWeight: FontWeight.normal),
-        ),
-        const SizedBox(height: 8),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: [
-            _genderOption(Gender.male),
-            _genderOption(Gender.female),
-            _genderOption(Gender.diverse),
-          ],
-        ),
-      ],
-    );
-  }
-
-  Widget _genderOption(Gender value) {
-    return Row(
-      children: [
-        Radio<Gender>(
-          value: value,
-          groupValue: gender,
-          onChanged: (newValue) {
-            setState(() {
-              gender = newValue!;
-            });
-          },
-        ),
-        Text(value.label),
-      ],
+    return Padding(
+      padding: const EdgeInsets.only(bottom: AppSpacing.base),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          const Text(
+            "Geschlecht",
+            style: AppText.sectionHeader,
+          ),
+          const SizedBox(height: AppSpacing.sm),
+          Row(
+            children: Gender.values.map((g) {
+              return Padding(
+                padding: const EdgeInsets.only(right: AppSpacing.sm),
+                child: AppChip(
+                  label: g.label,
+                  active: gender == g,
+                  onTap: () {
+                    setState(() {
+                      gender = g;
+                    });
+                  },
+                ),
+              );
+            }).toList(),
+          ),
+        ],
+      ),
     );
   }
 
   Widget _buildConditionSummary() {
     if (_selectedConditionIds.isEmpty) {
-      return const Text(
+      return Text(
         "Keine Einschränkungen ausgewählt.",
-        style: TextStyle(
-          color: Colors.grey,
+        style: AppText.caption.copyWith(
+          color: AppColors.textMuted,
           fontStyle: FontStyle.italic,
         ),
       );
     }
 
     return Wrap(
-      spacing: 8,
-      runSpacing: 4,
+      spacing: AppSpacing.sm,
+      runSpacing: AppSpacing.xs,
       children: _allConditions
           .where((c) => _selectedConditionIds.contains(c.id))
           .map(
             (c) => Chip(
-          label: Text(c.label),
-          onDeleted: () {
-            setState(() {
-              _selectedConditionIds.remove(c.id);
-            });
-          },
-        ),
-      )
+              label: Text(
+                c.label,
+                style: AppText.caption.copyWith(color: AppColors.sageDeep),
+              ),
+              backgroundColor: AppColors.sageLight,
+              side: BorderSide.none,
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(AppRadius.pill),
+              ),
+              deleteIconColor: AppColors.sageDeep,
+              onDeleted: () {
+                setState(() {
+                  _selectedConditionIds.remove(c.id);
+                });
+              },
+            ),
+          )
           .toList(),
     );
   }
 
   Widget _buildConditionsSection() {
     if (_isLoadingConditions) {
-      return const Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Text(
-            "Einschränkungen / Bedingungen",
-            style: TextStyle(
-              fontSize: 16,
-              fontWeight: FontWeight.bold,
+      return Padding(
+        padding: const EdgeInsets.symmetric(vertical: AppSpacing.lg),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            const Text(
+              "Einschränkungen / Bedingungen",
+              style: AppText.sectionHeader,
             ),
-          ),
-          SizedBox(height: 12),
-          Center(child: CircularProgressIndicator()),
-        ],
+            const SizedBox(height: AppSpacing.md),
+            const Center(
+              child: CircularProgressIndicator(
+                valueColor: AlwaysStoppedAnimation<Color>(AppColors.sage),
+              ),
+            ),
+          ],
+        ),
       );
     }
 
     if (_conditionsError.isNotEmpty) {
-      return Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          const Text(
-            "Einschränkungen / Bedingungen",
-            style: TextStyle(
-              fontSize: 16,
-              fontWeight: FontWeight.bold,
+      return Padding(
+        padding: const EdgeInsets.symmetric(vertical: AppSpacing.lg),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            const Text(
+              "Einschränkungen / Bedingungen",
+              style: AppText.sectionHeader,
             ),
-          ),
-          const SizedBox(height: 12),
-          Text(
-            "Fehler beim Laden: $_conditionsError",
-            style: const TextStyle(color: Colors.red),
-          ),
-        ],
+            const SizedBox(height: AppSpacing.md),
+            Text(
+              "Fehler beim Laden: $_conditionsError",
+              style: AppText.body.copyWith(color: Colors.red),
+            ),
+          ],
+        ),
       );
     }
 
     return SelectableAccordion<Condition>(
-      title: "Bestehende Einschränkungen / Bedingungen",
-
-      // <-- HIER die Summary-Methode verwenden
+      title: "Einschränkungen / Bedingungen",
       summary: _buildConditionSummary(),
-
       items: _allConditions,
       filteredItems: _filteredConditions,
-
       onSearch: _filterConditions,
-
       getId: (condition) => condition.id,
-
       getTitle: (condition) => condition.label,
-
       getSubtitle: (condition) => condition.comment,
-
       selectedIds: _selectedConditionIds,
-
       onSelectionChanged: (id, selected) {
         setState(() {
           if (selected) {
@@ -221,32 +257,93 @@ class _UserSetupScreenState extends State<UserSetupScreen> {
     );
   }
 
+  Widget _buildTextField({
+    required TextEditingController controller,
+    required String label,
+    TextInputType keyboardType = TextInputType.text,
+  }) {
+    return Padding(
+      padding: const EdgeInsets.only(bottom: AppSpacing.base),
+      child: TextField(
+        controller: controller,
+        keyboardType: keyboardType,
+        style: AppText.body,
+        decoration: InputDecoration(
+          labelText: label,
+          labelStyle: AppText.body.copyWith(color: AppColors.textSecondary),
+          floatingLabelStyle: AppText.body.copyWith(color: AppColors.sage, fontWeight: FontWeight.w500),
+          filled: true,
+          fillColor: AppColors.white,
+          contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
+          border: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(AppRadius.input),
+            borderSide: const BorderSide(color: AppColors.beige),
+          ),
+          enabledBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(AppRadius.input),
+            borderSide: const BorderSide(color: AppColors.beige),
+          ),
+          focusedBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(AppRadius.input),
+            borderSide: const BorderSide(color: AppColors.sage),
+          ),
+        ),
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text("Setup"),
-        automaticallyImplyLeading: false, // 👈 kein Zurück möglich
-      ),
-      body: SingleChildScrollView(
-        child: Padding(
-          padding: const EdgeInsets.all(16),
+      backgroundColor: AppColors.cream,
+      body: SafeArea(
+        child: SingleChildScrollView(
+          padding: const EdgeInsets.fromLTRB(
+            AppSpacing.screenH,
+            AppSpacing.base + 8,
+            AppSpacing.screenH,
+            AppSpacing.scrollBottom + 16,
+          ),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
-              TextField(controller: _name, decoration: const InputDecoration(labelText: "Name")),
-              const SizedBox(height: 20),
+              const Padding(
+                padding: EdgeInsets.only(bottom: AppSpacing.lg),
+                child: Text(
+                  "Profil erstellen",
+                  style: AppText.screenTitle,
+                ),
+              ),
+              _buildTextField(
+                controller: _name,
+                label: "Name",
+              ),
+              _buildTextField(
+                controller: _email,
+                label: "E-Mail",
+              ),
               _buildGenderSelector(),
-              const SizedBox(height: 20),
-              TextField(controller: _age, decoration: const InputDecoration(labelText: "Age"), keyboardType: TextInputType.number),
-              TextField(controller: _height, decoration: const InputDecoration(labelText: "Height (cm)"), keyboardType: TextInputType.number),
-              TextField(controller: _weight, decoration: const InputDecoration(labelText: "Weight (kg)"), keyboardType: TextInputType.number),
-              const SizedBox(height: 24),
+              _buildTextField(
+                controller: _age,
+                label: "Alter",
+                keyboardType: TextInputType.number,
+              ),
+              _buildTextField(
+                controller: _height,
+                label: "Größe (cm)",
+                keyboardType: TextInputType.number,
+              ),
+              _buildTextField(
+                controller: _weight,
+                label: "Gewicht (kg)",
+                keyboardType: TextInputType.number,
+              ),
+              const SizedBox(height: AppSpacing.sm),
               _buildConditionsSection(),
-              const SizedBox(height: 30),
-              ElevatedButton(
+              const SizedBox(height: AppSpacing.xl),
+              PrimaryButton(
+                label: "Erstellen",
                 onPressed: _create,
-                child: const Text("Create"),
               ),
             ],
           ),
