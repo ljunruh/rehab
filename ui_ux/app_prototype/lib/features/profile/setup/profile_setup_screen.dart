@@ -3,8 +3,8 @@ import 'package:app_prototype/data/model/condition.dart';
 import 'package:app_prototype/data/model/enum/gender.dart';
 import 'package:flutter/material.dart';
 import 'package:isar/isar.dart';
-import 'shared/selectable_accordion.dart';
-import '../data/model/user.dart';
+import 'selectable_accordion.dart';
+import '../../../data/model/user.dart';
 
 class UserSetupScreen extends StatefulWidget {
   final VoidCallback onFinished;

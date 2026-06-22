@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:isar/isar.dart';
 
 import '../data/model/user.dart';
-import 'user_setup_screen.dart';
+import '../features/profile/setup/profile_setup_screen.dart';
 
 class ProfileScreen extends StatefulWidget {
   const ProfileScreen({super.key});
