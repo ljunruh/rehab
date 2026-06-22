@@ -1,14 +1,17 @@
-import 'package:app_prototype/api/user_api.dart';
-import 'package:app_prototype/model/condition.dart';
-import 'package:app_prototype/model/enum/gender.dart';
+import 'package:app_prototype/data/api/user_api.dart';
+import 'package:app_prototype/data/model/condition.dart';
+import 'package:app_prototype/data/model/enum/gender.dart';
 import 'package:flutter/material.dart';
 import 'package:isar/isar.dart';
 import 'shared/selectable_accordion.dart';
-import '../model/user.dart';
-import 'home_screen.dart';
+import '../data/model/user.dart';
 
 class UserSetupScreen extends StatefulWidget {
-  const UserSetupScreen({super.key});
+  final VoidCallback onFinished;
+  const UserSetupScreen({
+    super.key,
+    required this.onFinished,
+  });
 
   @override
   State<UserSetupScreen> createState() => _UserSetupScreenState();
@@ -23,7 +26,7 @@ class _UserSetupScreenState extends State<UserSetupScreen> {
 
   Gender gender = Gender.male;
 
-  final UserApi _userApi = UserApi();
+  final ConditionApi _conditionApi = ConditionApi();
   List<Condition> _allConditions = [];
   List<Condition> _filteredConditions = [];
   final Set<String> _selectedConditionIds = {};
@@ -38,7 +41,7 @@ class _UserSetupScreenState extends State<UserSetupScreen> {
 
   Future<void> _loadConditions() async {
     try {
-      final conditions = await _userApi.fetchConditions();
+      final conditions = await _conditionApi.fetchConditions();
       setState(() {
         _allConditions = conditions;
         _filteredConditions = conditions;
@@ -78,12 +81,7 @@ class _UserSetupScreenState extends State<UserSetupScreen> {
       await isar.users.put(user);
     });
 
-    if (!mounted) return;
-
-    Navigator.of(context).pushAndRemoveUntil(
-      MaterialPageRoute(builder: (_) => const HomeScreen()),
-      (route) => false,
-    );
+    widget.onFinished();
   }
 
   Widget _buildGenderSelector() {

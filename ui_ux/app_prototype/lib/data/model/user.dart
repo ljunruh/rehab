@@ -1,4 +1,4 @@
-import 'package:app_prototype/model/enum/gender.dart';
+import 'package:app_prototype/data/model/enum/gender.dart';
 import 'package:isar/isar.dart';
 
 part 'user.g.dart';

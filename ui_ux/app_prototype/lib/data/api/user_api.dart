@@ -1,10 +1,10 @@
 import 'dart:convert';
 
-import 'package:app_prototype/api/core_api.dart';
+import 'package:app_prototype/data/api/core_api.dart';
 
 import '../model/condition.dart';
 
-class UserApi extends CoreApi {
+class ConditionApi extends CoreApi {
   Future<List<Condition>> fetchConditions() async {
     const query = '''
       SELECT ?condition ?label ?comment WHERE {

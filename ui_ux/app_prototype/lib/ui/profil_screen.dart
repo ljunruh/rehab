@@ -1,10 +1,10 @@
-import 'package:app_prototype/api/user_api.dart';
-import 'package:app_prototype/model/condition.dart';
-import 'package:app_prototype/model/enum/gender.dart';
+import 'package:app_prototype/data/api/user_api.dart';
+import 'package:app_prototype/data/model/condition.dart';
+import 'package:app_prototype/data/model/enum/gender.dart';
 import 'package:flutter/material.dart';
 import 'package:isar/isar.dart';
 
-import '../model/user.dart';
+import '../data/model/user.dart';
 import 'user_setup_screen.dart';
 
 class ProfileScreen extends StatefulWidget {
@@ -17,7 +17,7 @@ class ProfileScreen extends StatefulWidget {
 class _ProfileScreenState extends State<ProfileScreen> {
   User? user;
   late Isar isar;
-  final UserApi _userApi = UserApi();
+  final ConditionApi _conditionApi = ConditionApi();
   List<Condition> _allConditions = [];
   bool _isLoadingConditions = true;
 
@@ -43,7 +43,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
 
   Future<void> _loadConditions() async {
     try {
-      final conditions = await _userApi.fetchConditions();
+      final conditions = await _conditionApi.fetchConditions();
       setState(() {
         _allConditions = conditions;
         _isLoadingConditions = false;
@@ -63,10 +63,10 @@ class _ProfileScreenState extends State<ProfileScreen> {
     if (!mounted) return;
 
     // 👉 Setup erzwingen + kompletter Stack reset
-    Navigator.of(context).pushAndRemoveUntil(
+    /*Navigator.of(context).pushAndRemoveUntil(
       MaterialPageRoute(builder: (_) => const UserSetupScreen()),
       (route) => false,
-    );
+    );*/
   }
 
   Widget _buildConditionsSection() {
