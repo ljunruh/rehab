@@ -1,47 +1,32 @@
-import 'dart:io';
-import 'package:app_prototype/model/user.dart';
-import 'package:app_prototype/ui/exercise_widget.dart';
-import 'package:app_prototype/ui/home_screen.dart';
-import 'package:app_prototype/ui/user_setup_screen.dart';
 import 'package:flutter/material.dart';
-import 'package:isar/isar.dart';
-import 'package:path_provider/path_provider.dart';
-import 'package:app_prototype/model/exercise.dart';
+import 'package:provider/provider.dart';
 
-void main() async {
-  // Stellen Sie sicher, dass Flutter-Bindings initialisiert sind
-  WidgetsFlutterBinding.ensureInitialized();
+import 'core/theme/app_theme.dart';
+import 'state/ui_state.dart';
+import 'navigation/app_shell.dart';
 
-  final appDir = await getApplicationDocumentsDirectory();
-  final isar = await Isar.open(
-    [UserSchema],
-    directory: appDir.path,
-  );
-
-  final userExists = await isar.users.where().findFirst() != null;
-
-  runApp(RehabApp(userExists: userExists));
+void main() {
+  runApp(const RehaApp());
 }
 
-class RehabApp extends StatelessWidget {
-  final bool userExists;
-
-  const RehabApp({
-    super.key,
-    required this.userExists,
-  });
+/// Wurzel der Reha App (UI/UX-Projekt).
+///
+/// Stellt den [UiState] bereit (Provider) und das App-Theme. Es gibt bewusst
+/// keine Backend-/Lade-Logik: Die Demo-Daten liegen direkt im UiState, damit
+/// die Oberfläche sofort sichtbar und durchklickbar ist.
+class RehaApp extends StatelessWidget {
+  const RehaApp({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'My Fitness App',
-      debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        useMaterial3: true,
+    return ChangeNotifierProvider(
+      create: (_) => UiState(),
+      child: MaterialApp(
+        title: 'Reha App',
+        debugShowCheckedModeBanner: false,
+        theme: AppTheme.light,
+        home: const AppShell(),
       ),
-      home: userExists
-          ? const HomeScreen()
-          : const UserSetupScreen(),
     );
   }
 }
