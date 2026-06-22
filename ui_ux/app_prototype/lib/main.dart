@@ -1,39 +1,55 @@
-import 'package:app_prototype/ui/exercise_widget.dart';
+import 'package:app_prototype/data/api/user_api.dart';
+import 'package:app_prototype/data/model/user.dart';
+import 'package:app_prototype/data/provider/user_provider.dart';
+import 'package:app_prototype/data/repository/user_repository.dart';
 import 'package:flutter/material.dart';
+import 'package:isar/isar.dart';
+import 'package:path_provider/path_provider.dart';
+import 'package:provider/provider.dart';
 
-void main() {
-  // Falls du später Plugins wie Hive/Isar für lokale Daten initialisierst,
-  // kommt das genau hier vor runApp() hin.
-  runApp(const RehabApp());
+import 'core/theme/app_theme.dart';
+import 'data/service/user_service.dart';
+import 'navigation/app_shell.dart';
+import 'state/ui_state.dart';
+
+void main() async {
+  // Stellen Sie sicher, dass Flutter-Bindings initialisiert sind
+  WidgetsFlutterBinding.ensureInitialized();
+
+  final appDir = await getApplicationDocumentsDirectory();
+  final isar = await Isar.open(
+    [UserSchema],
+    directory: appDir.path,
+  );
+
+  final userRepository = UserRepository(
+    conditionApi: ConditionApi(),
+    service: UserService(isar),
+  );
+
+  runApp(MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (_) => UiState()),
+        ChangeNotifierProvider(create: (_) => UserProvider(userRepository)),
+      ],
+      child: RehaApp()));
 }
 
-class RehabApp extends StatelessWidget {
-  const RehabApp({super.key});
+/// Wurzel der Reha App (UI/UX-Projekt).
+///
+/// Stellt den [UiState] bereit (Provider) und das App-Theme. Es gibt bewusst
+/// keine Backend-/Lade-Logik: Die Demo-Daten liegen direkt im UiState, damit
+/// die Oberfläche sofort sichtbar und durchklickbar ist.
+class RehaApp extends StatelessWidget {
+  const RehaApp({super.key});
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'SmartRehab',
-      debugShowCheckedModeBanner: false, // Entfernt das "Debug"-Banner oben rechts
-
-      // Modernes Theme-Setup (Material 3)
-      theme: ThemeData(
-        useMaterial3: true,
-        colorScheme: ColorScheme.fromSeed(
-          seedColor: Colors.blue,
-          brightness: Brightness.light,
-        ),
-        // Schickes Design für die App-Bar definieren
-        appBarTheme: const AppBarTheme(
-          centerTitle: true,
-          backgroundColor: Colors.blue,
-          foregroundColor: Colors.white,
-          elevation: 2,
-        ),
-      ),
-
-      // Startbildschirm der App
-      home: const ExerciseListScreen(),
+      title: 'Reha App',
+      debugShowCheckedModeBanner: false,
+      theme: AppTheme.light,
+      home: AppShell(),
     );
   }
 }
