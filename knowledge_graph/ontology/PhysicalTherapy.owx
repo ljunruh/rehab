@@ -2488,13 +2488,6 @@
         <Class IRI="#MuscleInjury"/>
     </DisjointClasses>
     <DisjointClasses>
-        <Class IRI="#Cardio"/>
-        <Class IRI="#CoordinationMobility"/>
-        <Class IRI="#MobilisationStretching"/>
-        <Class IRI="#Relaxation"/>
-        <Class IRI="#Strength"/>
-    </DisjointClasses>
-    <DisjointClasses>
         <Class IRI="#Contraindication"/>
         <Class IRI="#DifficultyLevel"/>
         <Class IRI="#Equipment"/>
@@ -2615,10 +2608,6 @@
     <ClassAssertion>
         <Class IRI="#CoordinationMobility"/>
         <NamedIndividual IRI="#AssistedShoulderRotation"/>
-    </ClassAssertion>
-    <ClassAssertion>
-        <Class IRI="#CoordinationMobility"/>
-        <NamedIndividual IRI="#Atemuebung478"/>
     </ClassAssertion>
     <ClassAssertion>
         <Class IRI="#Relaxation"/>
@@ -22341,6 +22330,31 @@
         <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#decimal">3.5</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
+        <DataProperty IRI="#hasCommonMistake"/>
+        <NamedIndividual IRI="#Atemuebung478"/>
+        <Literal>Die Luft wird mit Kraft angehalten, die Schultern werden beim Einatmen hochgezogen oder die Atemphasen werden zu schnell ausgeführt.</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasCorrectionGuidance"/>
+        <NamedIndividual IRI="#Atemuebung478"/>
+        <Literal>Nur so tief einatmen und so lange pausieren, wie es angenehm möglich ist. Schultern und Gesicht entspannt lassen. Bei Schwierigkeiten kann zunächst ein kürzerer Rhythmus verwendet werden.</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasDescription"/>
+        <NamedIndividual IRI="#Atemuebung478"/>
+        <Literal>Eine kontrollierte Atemübung zur Entspannung und zur bewussten Verlangsamung der Atmung. Die Übung lenkt die Aufmerksamkeit auf einen gleichmäßigen Atemrhythmus und kann im Sitzen oder Liegen durchgeführt werden.</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasInstruction"/>
+        <NamedIndividual IRI="#Atemuebung478"/>
+        <Literal>1. Eine bequeme Sitz- oder Liegeposition einnehmen und die Schultern entspannen.
+2. Ruhig durch die Nase einatmen und dabei bis vier zählen.
+3. Den Atem ohne starkes Pressen halten und bis sieben zählen.
+4. Langsam durch den Mund ausatmen und dabei bis acht zählen.
+5. Kurz normal weiteratmen.
+6. Den Ablauf drei- bis viermal wiederholen.</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
         <DataProperty IRI="#Calorie"/>
         <NamedIndividual IRI="#Backpacking"/>
         <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#decimal">500.0</Literal>
@@ -22469,6 +22483,33 @@
         <DataProperty IRI="#MET"/>
         <NamedIndividual IRI="#Bowling"/>
         <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#decimal">3.0</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasCommonMistake"/>
+        <NamedIndividual IRI="#BrustwirbelsaeulenRotation"/>
+        <Literal>Die Rotation erfolgt hauptsächlich aus dem unteren Rücken, das Becken dreht stark mit oder die Bewegung wird ruckartig ausgeführt.</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasCorrectionGuidance"/>
+        <NamedIndividual IRI="#BrustwirbelsaeulenRotation"/>
+        <Literal>Das Becken stabil halten und die Bewegung bewusst aus der Brustwirbelsäule einleiten. Den Bewegungsumfang verkleinern, wenn die Lendenwirbelsäule ausweicht oder Schmerzen auftreten.</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasDescription"/>
+        <NamedIndividual IRI="#BrustwirbelsaeulenRotation"/>
+        <Literal>Eine Mobilisationsübung für die Brustwirbelsäule und den oberen Rücken. Die kontrollierte Rotation kann die Beweglichkeit des Oberkörpers verbessern und Spannungen in der Schulterblatt- und Rückenregion reduzieren.</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasInstruction"/>
+        <NamedIndividual IRI="#BrustwirbelsaeulenRotation"/>
+        <Literal>1. Aufrecht sitzen oder in Seitenlage eine stabile Ausgangsposition einnehmen.
+2. Die Wirbelsäule lang halten und die Schultern entspannen.
+3. Die Arme vor dem Körper positionieren.
+4. Einen Arm langsam nach hinten führen und den Oberkörper mitdrehen.
+5. Das Becken möglichst ruhig halten.
+6. Der Bewegung mit dem Blick folgen.
+7. Die Endposition kurz halten.
+8. Langsam in die Ausgangsposition zurückkehren und die andere Seite ausführen.</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="#angle"/>
@@ -22658,62 +22699,57 @@
     <DataPropertyAssertion>
         <DataProperty IRI="#hasCommonMistake"/>
         <NamedIndividual IRI="#DeadBug"/>
-        <Literal xml:lang="de">Arm oder Bein werden auf dem Boden abgelegt.</Literal>
+        <Literal>Arm oder Bein werden auf dem Boden abgelegt.</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="#hasCommonMistake"/>
         <NamedIndividual IRI="#DeadBug"/>
-        <Literal xml:lang="de">Arm und Bein werden zu schnell oder unkontrolliert abgesenkt.</Literal>
+        <Literal>Der Kopf wird angehoben und der Nacken unnötig angespannt.</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="#hasCommonMistake"/>
         <NamedIndividual IRI="#DeadBug"/>
-        <Literal xml:lang="de">Der Kopf wird angehoben und der Nacken unnötig angespannt.</Literal>
+        <Literal>Der untere Rücken hebt sich vom Boden ab und bildet ein Hohlkreuz.</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="#hasCommonMistake"/>
         <NamedIndividual IRI="#DeadBug"/>
-        <Literal xml:lang="de">Der untere Rücken hebt sich vom Boden ab und bildet ein Hohlkreuz.</Literal>
-    </DataPropertyAssertion>
-    <DataPropertyAssertion>
-        <DataProperty IRI="#hasCommonMistake"/>
-        <NamedIndividual IRI="#DeadBug"/>
-        <Literal xml:lang="de">Die Bauchspannung wird während der Bewegung verloren.</Literal>
+        <Literal>Die Bauchspannung wird während der Bewegung verloren.</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="#hasCorrectionGuidance"/>
         <NamedIndividual IRI="#DeadBug"/>
-        <Literal xml:lang="de">Bei Verlust der Rumpfspannung den Bewegungsumfang verkleinern.</Literal>
+        <Literal>Bei Verlust der Rumpfspannung den Bewegungsumfang verkleinern.</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="#hasCorrectionGuidance"/>
         <NamedIndividual IRI="#DeadBug"/>
-        <Literal xml:lang="de">Den unteren Rücken während der gesamten Bewegung sanft gegen den Boden drücken.</Literal>
+        <Literal>Den unteren Rücken während der gesamten Bewegung sanft gegen den Boden drücken.</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="#hasCorrectionGuidance"/>
         <NamedIndividual IRI="#DeadBug"/>
-        <Literal xml:lang="de">Die Bewegung langsam und kontrolliert ausführen.</Literal>
+        <Literal>Die Bewegung langsam und kontrolliert ausführen.</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="#hasCorrectionGuidance"/>
         <NamedIndividual IRI="#DeadBug"/>
-        <Literal xml:lang="de">Kopf und Schultern entspannt auf dem Boden lassen.</Literal>
+        <Literal>Kopf und Schultern entspannt auf dem Boden lassen.</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="#hasCorrectionGuidance"/>
         <NamedIndividual IRI="#DeadBug"/>
-        <Literal xml:lang="de">Nur so weit strecken, wie die neutrale Rückenposition gehalten werden kann.</Literal>
+        <Literal>Nur so weit strecken, wie die neutrale Rückenposition gehalten werden kann.</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="#hasDescription"/>
         <NamedIndividual IRI="#DeadBug"/>
-        <Literal xml:lang="de">Der Dead Bug aktiviert vor allem die tiefe Rumpfmuskulatur, insbesondere den Musculus transversus abdominis. Die Übung unterstützt die Stabilisierung von Wirbelsäule und Becken und trainiert die koordinierte Bewegung von Armen und Beinen bei kontrollierter Rumpfspannung.</Literal>
+        <Literal>Der Dead Bug aktiviert vor allem die tiefe Rumpfmuskulatur, insbesondere den Musculus transversus abdominis. Die Übung unterstützt die Stabilisierung von Wirbelsäule und Becken und trainiert die koordinierte Bewegung von Armen und Beinen bei kontrollierter Rumpfspannung.</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="#hasInstruction"/>
         <NamedIndividual IRI="#DeadBug"/>
-        <Literal xml:lang="de">1. Auf den Rücken legen und beide Arme senkrecht zur Decke strecken.
+        <Literal>1. Auf den Rücken legen und beide Arme senkrecht zur Decke strecken.
 2. Hüfte und Knie ungefähr im 90-Grad-Winkel beugen und die Füße vom Boden anheben.
 3. Den unteren Rücken kontrolliert auf dem Boden halten und die Bauchmuskulatur anspannen.
 4. Einen Arm langsam hinter den Kopf führen und gleichzeitig das gegenüberliegende Bein in Richtung Boden strecken.
@@ -22746,6 +22782,38 @@
         <DataProperty IRI="#angle"/>
         <NamedIndividual IRI="#Eagle_Torso"/>
         <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#decimal">0.0</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasCommonMistake"/>
+        <NamedIndividual IRI="#FaszienrolleRueckenWade"/>
+        <Literal>Zu schnelles Rollen, zu starker Druck, direktes Rollen über Knochen oder Gelenke sowie eine angespannte Körperhaltung.</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasCorrectionGuidance"/>
+        <NamedIndividual IRI="#FaszienrolleRueckenWade"/>
+        <Literal>Die Bewegung langsam ausführen und den Druck über Arme und Beine kontrollieren. Bei stechendem Schmerz, Taubheit oder starkem Unwohlsein sofort stoppen. Nicht direkt über verletzte oder akut entzündete Bereiche rollen.</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasCorrectionGuidance"/>
+        <NamedIndividual IRI="#FaszienrolleRueckenWade"/>
+        <Literal>Direkter Druck auf Knochen, Gelenke und die Lendenwirbelsäule sollte vermieden werden.</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasDescription"/>
+        <NamedIndividual IRI="#FaszienrolleRueckenWade"/>
+        <Literal>Eine Selbstmassage mit der Faszienrolle für verspannte Muskelbereiche des oberen Rückens und der Waden. Durch langsamen, kontrollierten Druck können beanspruchte Muskeln bearbeitet und die Beweglichkeit unterstützt werden.</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasInstruction"/>
+        <NamedIndividual IRI="#FaszienrolleRueckenWade"/>
+        <Literal>1. Die Faszienrolle auf eine stabile Unterlage legen.
+2. Für den oberen Rücken die Rolle unterhalb der Schulterblätter positionieren und den Oberkörper leicht anheben.
+3. Langsam zwischen oberem Rücken und Schulterblattregion vor- und zurückrollen.
+4. Nicht direkt über die Wirbelsäule oder den Nacken rollen.
+5. Für die Wade im Sitzen die Rolle unter eine Wade legen.
+6. Das Bein langsam vom Sprunggelenk bis unterhalb des Knies über die Rolle bewegen.
+7. Empfindliche Stellen kurz und mit reduziertem Druck bearbeiten.
+8. Anschließend die Seite wechseln.</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="#Calorie"/>
@@ -23058,6 +23126,33 @@
         <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#decimal">2.5</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
+        <DataProperty IRI="#hasCommonMistake"/>
+        <NamedIndividual IRI="#HueftbeugerDehnung"/>
+        <Literal>Das Becken wird stark nach vorne geschoben, der untere Rücken bildet ein Hohlkreuz oder der Oberkörper kippt weit nach vorne.</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasCorrectionGuidance"/>
+        <NamedIndividual IRI="#HueftbeugerDehnung"/>
+        <Literal>Das Becken leicht nach hinten kippen und die Bauchmuskulatur sanft anspannen. Den Oberkörper aufrecht halten und nur so weit nach vorne gehen, bis eine angenehme Dehnung spürbar ist.</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasDescription"/>
+        <NamedIndividual IRI="#HueftbeugerDehnung"/>
+        <Literal>Eine Dehnübung für die Hüftbeugemuskulatur. Sie kann die Beweglichkeit der Hüfte unterstützen und Spannungsgefühle reduzieren, die beispielsweise durch langes Sitzen entstehen.</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasInstruction"/>
+        <NamedIndividual IRI="#HueftbeugerDehnung"/>
+        <Literal>1. In einen halben Kniestand kommen, wobei ein Knie am Boden liegt.
+2. Das vordere Bein ungefähr im rechten Winkel aufstellen.
+3. Den Oberkörper aufrecht halten.
+4. Das Becken leicht nach hinten kippen.
+5. Das Becken langsam nach vorne verlagern, ohne ein Hohlkreuz zu bilden.
+6. Die Dehnung an der Vorderseite der Hüfte des hinteren Beins wahrnehmen.
+7. Die Position ruhig halten und gleichmäßig atmen.
+8. Anschließend die Seite wechseln.</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
         <DataProperty IRI="#Calorie"/>
         <NamedIndividual IRI="#IceSkating"/>
         <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#decimal">393.0</Literal>
@@ -23088,6 +23183,33 @@
         <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#decimal">10.0</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
+        <DataProperty IRI="#hasCommonMistake"/>
+        <NamedIndividual IRI="#Katze-Kuh-Übung"/>
+        <Literal>Die Bewegung wird zu schnell ausgeführt, der Nacken wird stark überstreckt oder die Ellenbogen werden gebeugt.</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasCorrectionGuidance"/>
+        <NamedIndividual IRI="#Katze-Kuh-Übung"/>
+        <Literal>Die Bewegung Wirbel für Wirbel ausführen und den Nacken als Verlängerung der Wirbelsäule halten. Die Arme gestreckt lassen und den Bewegungsumfang bei Beschwerden reduzieren.</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasDescription"/>
+        <NamedIndividual IRI="#Katze-Kuh-Übung"/>
+        <Literal>Eine dynamische Mobilisationsübung für die Wirbelsäule. Durch den kontrollierten Wechsel zwischen Rundrücken und sanfter Streckung werden Rücken, Nacken und Rumpf bewegt und die Wahrnehmung der Wirbelsäulenposition verbessert.</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasInstruction"/>
+        <NamedIndividual IRI="#Katze-Kuh-Übung"/>
+        <Literal>1. In den Vierfüßlerstand kommen.
+2. Hände unter den Schultern und Knie unter der Hüfte positionieren.
+3. Beim Ausatmen den Rücken langsam runden.
+4. Das Kinn leicht zur Brust führen und den Bauchnabel nach innen ziehen.
+5. Beim Einatmen das Becken kippen und die Wirbelsäule sanft nach unten bewegen.
+6. Brustbein und Blick leicht nach vorne anheben.
+7. Die Bewegung langsam und fließend wiederholen.
+8. Nur im angenehmen Bewegungsbereich arbeiten.</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
         <DataProperty IRI="#Calorie"/>
         <NamedIndividual IRI="#Kayaking"/>
         <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#decimal">357.0</Literal>
@@ -23096,6 +23218,33 @@
         <DataProperty IRI="#MET"/>
         <NamedIndividual IRI="#Kayaking"/>
         <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#decimal">5.0</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasCommonMistake"/>
+        <NamedIndividual IRI="#Kindpose"/>
+        <Literal>Das Becken wird gewaltsam zu den Fersen gedrückt, der Nacken bleibt angespannt oder die Knieposition verursacht Schmerzen.</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasCorrectionGuidance"/>
+        <NamedIndividual IRI="#Kindpose"/>
+        <Literal>Nur so weit zurückgehen, wie es angenehm möglich ist. Bei eingeschränkter Beweglichkeit ein Kissen unter Brust oder Gesäß legen. Die Knie weiter oder enger positionieren, bis Hüfte und Knie entspannt bleiben.</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasDescription"/>
+        <NamedIndividual IRI="#Kindpose"/>
+        <Literal>Eine ruhige Bodenposition zur Entspannung und sanften Mobilisation von Rücken und Hüfte. Der Oberkörper wird nach vorne abgesenkt, während das Becken in Richtung Fersen bewegt wird. Die Position kann mit einem Kissen oder Block angepasst werden.</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasInstruction"/>
+        <NamedIndividual IRI="#Kindpose"/>
+        <Literal>1. In den Vierfüßlerstand kommen.
+2. Die Knie bequem auseinanderstellen und die großen Zehen zueinander führen.
+3. Das Becken langsam in Richtung Fersen zurückschieben.
+4. Den Oberkörper zwischen oder auf den Oberschenkeln ablegen.
+5. Die Arme nach vorne ausstrecken oder entspannt neben dem Körper ablegen.
+6. Die Stirn auf dem Boden, einem Kissen oder einem Block ablegen.
+7. Ruhig und gleichmäßig atmen.
+8. Die Position für mehrere Atemzüge halten und anschließend langsam verlassen.</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="#angle"/>
@@ -23123,6 +23272,32 @@
         <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#decimal">90.0</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
+        <DataProperty IRI="#hasCommonMistake"/>
+        <NamedIndividual IRI="#KniegelenkMobilisation"/>
+        <Literal>Die Ferse wird zu schnell bewegt, das Knie kippt seitlich weg oder die Bewegung wird trotz zunehmender Schmerzen erzwungen.</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasCorrectionGuidance"/>
+        <NamedIndividual IRI="#KniegelenkMobilisation"/>
+        <Literal>Die Bewegung langsam ausführen und das Knie währenddessen nach oben ausrichten. Nur im schmerzfreien Bewegungsbereich arbeiten. Bei Bedarf den Bewegungsumfang verkleinern.</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasDescription"/>
+        <NamedIndividual IRI="#KniegelenkMobilisation"/>
+        <Literal>Eine sanfte Mobilisationsübung für das Kniegelenk. Durch das kontrollierte Heranziehen und Wegschieben der Ferse wird die Kniebeugung und Kniestreckung im schmerzfreien Bewegungsbereich trainiert. Das Handtuch reduziert die Reibung auf dem Boden.</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasInstruction"/>
+        <NamedIndividual IRI="#KniegelenkMobilisation"/>
+        <Literal>1. Auf den Rücken legen und beide Beine ausstrecken.
+2. Ein Handtuch unter die Ferse des zu trainierenden Beins legen.
+3. Die Ferse langsam in Richtung Gesäß ziehen und dabei das Knie beugen.
+4. Nur so weit beugen, wie die Bewegung angenehm und schmerzfrei bleibt.
+5. Die Position kurz halten.
+6. Die Ferse langsam wieder nach vorne schieben und das Bein kontrolliert strecken.
+7. Die Bewegung ruhig und gleichmäßig wiederholen.</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
         <DataProperty IRI="#Calorie"/>
         <NamedIndividual IRI="#Lacrosse"/>
         <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#decimal">571.0</Literal>
@@ -23145,7 +23320,7 @@
     <DataPropertyAssertion>
         <DataProperty IRI="#hasDailyLifeAdvice"/>
         <NamedIndividual IRI="#MeniscusTear"/>
-        <Literal xml:lang="de">Tiefe Kniebeugen und schnelle Drehbewegungen vermeiden.</Literal>
+        <Literal>Tiefe Kniebeugen und schnelle Drehbewegungen vermeiden.</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="#Calorie"/>
@@ -23193,6 +23368,33 @@
         <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#decimal">5.5</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
+        <DataProperty IRI="#hasCommonMistake"/>
+        <NamedIndividual IRI="#Nackendehnungen"/>
+        <Literal>Der Kopf wird mit der Hand stark nach unten gezogen, die Schulter wird angehoben oder die Bewegung erfolgt ruckartig.</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasCorrectionGuidance"/>
+        <NamedIndividual IRI="#Nackendehnungen"/>
+        <Literal>Nur mit dem Eigengewicht des Kopfes arbeiten und die Schultern entspannt halten. Keine kreisenden Vollbewegungen erzwingen. Bei Schwindel, Taubheit oder ausstrahlendem Schmerz sofort abbrechen.</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasDescription"/>
+        <NamedIndividual IRI="#Nackendehnungen"/>
+        <Literal>Eine sanfte Dehnübung für die seitliche und hintere Nackenmuskulatur. Sie kann Spannungsgefühle reduzieren, die beispielsweise durch langes Sitzen oder eine statische Bildschirmhaltung entstehen.</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasInstruction"/>
+        <NamedIndividual IRI="#Nackendehnungen"/>
+        <Literal>1. Aufrecht sitzen oder stehen.
+2. Die Schultern locker nach unten sinken lassen.
+3. Den Kopf langsam zu einer Seite neigen.
+4. Das gegenüberliegende Ohr bewegt sich dabei von der Schulter weg.
+5. Die Position für mehrere ruhige Atemzüge halten.
+Langsam zur Mitte zurückkehren.
+6. Die Übung auf der anderen Seite wiederholen.
+7. Optional den Kopf leicht nach vorne neigen, um die hintere Nackenregion zu dehnen.</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
         <DataProperty IRI="#angle"/>
         <NamedIndividual IRI="#ParadiseBird_Left_Arm"/>
         <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#decimal">90.0</Literal>
@@ -23218,6 +23420,33 @@
         <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#decimal">0.0</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
+        <DataProperty IRI="#hasCommonMistake"/>
+        <NamedIndividual IRI="#PigeonPose"/>
+        <Literal>Das Becken kippt stark zur Seite, das vordere Knie wird unter Druck verdreht oder der Körper wird gewaltsam nach unten gedrückt.</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasCorrectionGuidance"/>
+        <NamedIndividual IRI="#PigeonPose"/>
+        <Literal>Ein Kissen oder einen Block unter die Hüfte legen, wenn das Becken nicht stabil bleibt. Den Winkel des vorderen Beins verkleinern und die Position sofort verlassen, wenn Knieschmerzen auftreten.</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasDescription"/>
+        <NamedIndividual IRI="#PigeonPose"/>
+        <Literal>Eine vereinfachte Hüftdehnung, die insbesondere Gesäß- und Hüftmuskulatur anspricht. Die Übung kann die Beweglichkeit der Hüfte verbessern und Spannungen in der Gesäßregion reduzieren.</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasInstruction"/>
+        <NamedIndividual IRI="#PigeonPose"/>
+        <Literal>1. Im Vierfüßlerstand beginnen.
+2. Ein Knie nach vorne in Richtung der gleichseitigen Hand führen.
+3. Den Unterschenkel bequem vor dem Körper ablegen.
+4. Das andere Bein nach hinten ausstrecken.
+5. Das Becken möglichst gerade ausrichten.
+6. Den Oberkörper aufrecht halten oder langsam nach vorne absenken.
+7. Die Position im schmerzfreien Bereich halten und ruhig atmen.
+8. Langsam lösen und die Seite wechseln.</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
         <DataProperty IRI="#Calorie"/>
         <NamedIndividual IRI="#PlayingCatch"/>
         <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#decimal">178.0</Literal>
@@ -23236,6 +23465,33 @@
         <DataProperty IRI="#MET"/>
         <NamedIndividual IRI="#PlayingPiano"/>
         <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#decimal">2.5</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasCommonMistake"/>
+        <NamedIndividual IRI="#ProgressiveMuskelentspannung"/>
+        <Literal>Die Muskeln werden zu stark angespannt, der Atem wird angehalten oder einzelne Körperbereiche werden ruckartig belastet.</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasCorrectionGuidance"/>
+        <NamedIndividual IRI="#ProgressiveMuskelentspannung"/>
+        <Literal>Nur mit leichter bis mittlerer Kraft anspannen. Schmerzhafte oder verletzte Körperbereiche auslassen. Während der gesamten Übung gleichmäßig atmen und zwischen Anspannung und Entspannung ausreichend Zeit lassen.</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasDescription"/>
+        <NamedIndividual IRI="#ProgressiveMuskelentspannung"/>
+        <Literal>Eine Entspannungsmethode, bei der verschiedene Muskelgruppen nacheinander bewusst angespannt und anschließend wieder gelöst werden. Dadurch kann der Unterschied zwischen Muskelanspannung und Entspannung deutlicher wahrgenommen werden.</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasInstruction"/>
+        <NamedIndividual IRI="#ProgressiveMuskelentspannung"/>
+        <Literal>1. Eine bequeme Sitz- oder Liegeposition einnehmen.
+2. Die Augen bei Bedarf schließen und ruhig weiteratmen.
+3. Mit den Füßen beginnen und die Muskulatur für ungefähr fünf Sekunden sanft anspannen.
+4. Die Spannung vollständig lösen und die Entspannung für mehrere Sekunden wahrnehmen.
+5. Danach nacheinander Waden, Oberschenkel, Gesäß, Bauch, Hände, Arme, Schultern und Gesicht anspannen und wieder entspannen.
+6. Während des Anspannens weiteratmen und nicht pressen.
+7. Nach der letzten Muskelgruppe einige Atemzüge ruhig liegen oder sitzen bleiben.
+8. Den Körper langsam wieder bewegen und die Übung beenden.</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="#angle"/>
@@ -23390,46 +23646,74 @@
     <DataPropertyAssertion>
         <DataProperty IRI="#hasCommonMistake"/>
         <NamedIndividual IRI="#ScapulaRetraktion"/>
-        <Literal xml:lang="de">Die Bewegung wird ruckartig ausgeführt.</Literal>
+        <Literal>Die Bewegung wird ruckartig ausgeführt.</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="#hasCommonMistake"/>
         <NamedIndividual IRI="#ScapulaRetraktion"/>
-        <Literal xml:lang="de">Die Schultern werden zu den Ohren gezogen.</Literal>
+        <Literal>Die Schultern werden zu den Ohren gezogen.</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="#hasCommonMistake"/>
         <NamedIndividual IRI="#ScapulaRetraktion"/>
-        <Literal xml:lang="de">Es entsteht ein starkes Hohlkreuz.</Literal>
+        <Literal>Es entsteht ein starkes Hohlkreuz.</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="#hasCorrectionGuidance"/>
         <NamedIndividual IRI="#ScapulaRetraktion"/>
-        <Literal xml:lang="de">Den Brustkorb nicht übermäßig nach vorne schieben.</Literal>
+        <Literal>Den Brustkorb nicht übermäßig nach vorne schieben.</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="#hasCorrectionGuidance"/>
         <NamedIndividual IRI="#ScapulaRetraktion"/>
-        <Literal xml:lang="de">Die Bewegung langsam und nur im schmerzfreien Bereich ausführen.</Literal>
+        <Literal>Die Bewegung langsam und nur im schmerzfreien Bereich ausführen.</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="#hasCorrectionGuidance"/>
         <NamedIndividual IRI="#ScapulaRetraktion"/>
-        <Literal xml:lang="de">Nacken lang und Schultern entspannt halten.</Literal>
+        <Literal>Nacken lang und Schultern entspannt halten.</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="#hasDescription"/>
         <NamedIndividual IRI="#ScapulaRetraktion"/>
-        <Literal xml:lang="de">Kräftigt die Muskulatur des oberen Rückens und der Schulterregion und kann helfen, Verspannungen durch langes Sitzen oder Bildschirmarbeit zu reduzieren.</Literal>
+        <Literal>Kräftigt die Muskulatur des oberen Rückens und der Schulterregion und kann helfen, Verspannungen durch langes Sitzen oder Bildschirmarbeit zu reduzieren.</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="#hasInstruction"/>
         <NamedIndividual IRI="#ScapulaRetraktion"/>
-        <Literal xml:lang="de">1. Aufrecht stehen und die Ellenbogen im 90-Grad-Winkel halten.
+        <Literal>1. Aufrecht stehen und die Ellenbogen im 90-Grad-Winkel halten.
 2. Schultern und Ellenbogen langsam nach hinten bewegen.
 3. Schulterblätter kontrolliert zusammenziehen.
 4. Kurz halten.
 5. Langsam in die Ausgangsposition zurückkehren.&quot;</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasCommonMistake"/>
+        <NamedIndividual IRI="#SchulterNackenEntspannung"/>
+        <Literal>Die Schultern werden hochgezogen gehalten, der Kopf wird mit der Hand stark zur Seite gezogen oder die Bewegungen werden schnell und ruckartig ausgeführt.</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasCorrectionGuidance"/>
+        <NamedIndividual IRI="#SchulterNackenEntspannung"/>
+        <Literal>Den Nacken lang halten und die Schultern bewusst nach unten entspannen. Nur einen kleinen Bewegungsumfang verwenden, wenn Spannung oder Beschwerden auftreten. Keine kreisenden Vollbewegungen des Kopfes erzwingen.</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasDescription"/>
+        <NamedIndividual IRI="#SchulterNackenEntspannung"/>
+        <Literal>Eine sanfte Bewegungsfolge zur Lockerung der Schulter- und Nackenregion. Sie eignet sich besonders nach längerem Sitzen oder Bildschirmarbeit und verbindet bewusste Atmung mit langsamen Schulter- und Kopfbewegungen.</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasInstruction"/>
+        <NamedIndividual IRI="#SchulterNackenEntspannung"/>
+        <Literal>1. Aufrecht sitzen oder stehen und die Arme locker neben dem Körper halten.
+2. Die Schultern langsam zu den Ohren anheben.
+3. Beim Ausatmen die Schultern bewusst nach unten sinken lassen.
+4. Die Schultern langsam nach hinten kreisen.
+5. Den Kopf anschließend vorsichtig zu einer Seite neigen, ohne die Schulter anzuheben.
+6. Die Position für zwei bis drei ruhige Atemzüge halten.
+7. Zur Mitte zurückkehren und die andere Seite ausführen.
+8. Zum Abschluss den Kopf langsam nach rechts und links drehen.
+9. Alle Bewegungen im schmerzfreien Bereich ausführen.</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="#date"/>
@@ -23599,7 +23883,7 @@
     <DataPropertyAssertion>
         <DataProperty IRI="#hasDailyLifeAdvice"/>
         <NamedIndividual IRI="#SprainedAnkle"/>
-        <Literal xml:lang="de">Das Sprunggelenk in der akuten Phase nicht unnötig belasten.</Literal>
+        <Literal>Das Sprunggelenk in der akuten Phase nicht unnötig belasten.</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="#angle"/>
@@ -23970,6 +24254,33 @@
         <DataProperty IRI="#MET"/>
         <NamedIndividual IRI="#Volleyball"/>
         <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#decimal">3.0</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasCommonMistake"/>
+        <NamedIndividual IRI="#Wadendehnung"/>
+        <Literal>Die hintere Ferse hebt sich vom Boden ab, der Fuß dreht nach außen oder das hintere Knie wird unkontrolliert gebeugt.</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasCorrectionGuidance"/>
+        <NamedIndividual IRI="#Wadendehnung"/>
+        <Literal>Die Ferse bewusst in Richtung Boden drücken und den Fuß gerade ausrichten. Den Abstand zur Wand verkleinern, wenn die Ferse nicht unten bleibt oder die Dehnung zu intensiv ist.</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasDescription"/>
+        <NamedIndividual IRI="#Wadendehnung"/>
+        <Literal>Eine Dehnübung für die Wadenmuskulatur und den Bereich des Sprunggelenks. Sie kann die Beweglichkeit des Fußgelenks unterstützen und Spannungen in der Wade reduzieren.</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasInstruction"/>
+        <NamedIndividual IRI="#Wadendehnung"/>
+        <Literal>1. Vor eine Wand stellen und beide Hände an der Wand abstützen.
+2. Ein Bein nach hinten setzen.
+3. Die hintere Ferse am Boden lassen.
+4. Die Fußspitze des hinteren Beins nach vorne ausrichten.
+5. Das vordere Knie leicht beugen.
+6. Das Becken langsam nach vorne verlagern.
+7. Die Dehnung in der Wade des hinteren Beins halten.
+8. Ruhig atmen und anschließend die Seite wechseln.</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="#Calorie"/>
