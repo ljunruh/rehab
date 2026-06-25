@@ -18,7 +18,7 @@
         <Class IRI="#ActivityDuration"/>
     </Declaration>
     <Declaration>
-        <Class IRI="#AnkleFracture"/>
+        <Class IRI="#AnkleFrac"/>
     </Declaration>
     <Declaration>
         <Class IRI="#AnkleJointInjury"/>
@@ -57,7 +57,7 @@
         <Class IRI="#DifficultyLevel"/>
     </Declaration>
     <Declaration>
-        <Class IRI="#ElbowFracture"/>
+        <Class IRI="#ElbowFrac"/>
     </Declaration>
     <Declaration>
         <Class IRI="#ElbowJointInjury"/>
@@ -72,16 +72,16 @@
         <Class IRI="#ExerciseProperties"/>
     </Declaration>
     <Declaration>
-        <Class IRI="#FootFracture"/>
+        <Class IRI="#FootFrac"/>
     </Declaration>
     <Declaration>
         <Class IRI="#Fracture"/>
     </Declaration>
     <Declaration>
-        <Class IRI="#HandFracture"/>
+        <Class IRI="#HandFrac"/>
     </Declaration>
     <Declaration>
-        <Class IRI="#HipFracture"/>
+        <Class IRI="#HipFrac"/>
     </Declaration>
     <Declaration>
         <Class IRI="#HipJointInjury"/>
@@ -102,7 +102,7 @@
         <Class IRI="#JointInjury"/>
     </Declaration>
     <Declaration>
-        <Class IRI="#KneeFracture"/>
+        <Class IRI="#KneeFrac"/>
     </Declaration>
     <Declaration>
         <Class IRI="#KneeJointInjury"/>
@@ -153,7 +153,7 @@
         <Class IRI="#SeverityLevel"/>
     </Declaration>
     <Declaration>
-        <Class IRI="#ShoulderFracture"/>
+        <Class IRI="#ShoulderFrac"/>
     </Declaration>
     <Declaration>
         <Class IRI="#ShoulderJointInjury"/>
@@ -162,7 +162,7 @@
         <Class IRI="#ShoulderMuscleInjury"/>
     </Declaration>
     <Declaration>
-        <Class IRI="#SpineFracture"/>
+        <Class IRI="#SpineFrac"/>
     </Declaration>
     <Declaration>
         <Class IRI="#SpineJointInjury"/>
@@ -195,7 +195,7 @@
         <Class IRI="#UpperBackPain"/>
     </Declaration>
     <Declaration>
-        <Class IRI="#WristFracture"/>
+        <Class IRI="#WristFrac"/>
     </Declaration>
     <Declaration>
         <Class IRI="#WristJointInjury"/>
@@ -2353,7 +2353,7 @@
         <Class IRI="#MobilityTest"/>
     </SubClassOf>
     <SubClassOf>
-        <Class IRI="#AnkleFracture"/>
+        <Class IRI="#AnkleFrac"/>
         <Class IRI="#Fracture"/>
     </SubClassOf>
     <SubClassOf>
@@ -2401,7 +2401,7 @@
         <Class IRI="#ExerciseProperties"/>
     </SubClassOf>
     <SubClassOf>
-        <Class IRI="#ElbowFracture"/>
+        <Class IRI="#ElbowFrac"/>
         <Class IRI="#Fracture"/>
     </SubClassOf>
     <SubClassOf>
@@ -2421,7 +2421,7 @@
         <Class abbreviatedIRI="owl:Thing"/>
     </SubClassOf>
     <SubClassOf>
-        <Class IRI="#FootFracture"/>
+        <Class IRI="#FootFrac"/>
         <Class IRI="#Fracture"/>
     </SubClassOf>
     <SubClassOf>
@@ -2429,11 +2429,11 @@
         <Class IRI="#Injury"/>
     </SubClassOf>
     <SubClassOf>
-        <Class IRI="#HandFracture"/>
+        <Class IRI="#HandFrac"/>
         <Class IRI="#Fracture"/>
     </SubClassOf>
     <SubClassOf>
-        <Class IRI="#HipFracture"/>
+        <Class IRI="#HipFrac"/>
         <Class IRI="#Fracture"/>
     </SubClassOf>
     <SubClassOf>
@@ -2457,7 +2457,7 @@
         <Class IRI="#Injury"/>
     </SubClassOf>
     <SubClassOf>
-        <Class IRI="#KneeFracture"/>
+        <Class IRI="#KneeFrac"/>
         <Class IRI="#Fracture"/>
     </SubClassOf>
     <SubClassOf>
@@ -2517,7 +2517,7 @@
         <Class IRI="#ExerciseProperties"/>
     </SubClassOf>
     <SubClassOf>
-        <Class IRI="#ShoulderFracture"/>
+        <Class IRI="#ShoulderFrac"/>
         <Class IRI="#Fracture"/>
     </SubClassOf>
     <SubClassOf>
@@ -2529,7 +2529,7 @@
         <Class IRI="#MuscleInjury"/>
     </SubClassOf>
     <SubClassOf>
-        <Class IRI="#SpineFracture"/>
+        <Class IRI="#SpineFrac"/>
         <Class IRI="#Fracture"/>
     </SubClassOf>
     <SubClassOf>
@@ -2569,7 +2569,7 @@
         <Class IRI="#BackPain"/>
     </SubClassOf>
     <SubClassOf>
-        <Class IRI="#WristFracture"/>
+        <Class IRI="#WristFrac"/>
         <Class IRI="#Fracture"/>
     </SubClassOf>
     <SubClassOf>
@@ -2673,7 +2673,7 @@
         <NamedIndividual IRI="#Airplane_Torso"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="#AnkleFracture"/>
+        <Class IRI="#AnkleFrac"/>
         <NamedIndividual IRI="#AnkleFracture"/>
     </ClassAssertion>
     <ClassAssertion>
@@ -2965,7 +2965,7 @@
         <NamedIndividual IRI="#ChronicLowBackPain"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="#ShoulderFracture"/>
+        <Class IRI="#ShoulderFrac"/>
         <NamedIndividual IRI="#ClavicleFracture"/>
     </ClassAssertion>
     <ClassAssertion>
@@ -3493,7 +3493,7 @@
         <NamedIndividual IRI="#Hip"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="#HipFracture"/>
+        <Class IRI="#HipFrac"/>
         <NamedIndividual IRI="#HipFracture"/>
     </ClassAssertion>
     <ClassAssertion>
@@ -4885,7 +4885,7 @@
         <NamedIndividual IRI="#Wrestling"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="#WristFracture"/>
+        <Class IRI="#WristFrac"/>
         <NamedIndividual IRI="#WristFracture"/>
     </ClassAssertion>
     <ClassAssertion>
@@ -22403,14 +22403,79 @@
         <NamedIndividual IRI="#Beginner"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#recommendsDifficultyLevel"/>
+        <NamedIndividual IRI="#10"/>
+        <NamedIndividual IRI="#Beginner"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#recommendsDifficultyLevel"/>
+        <NamedIndividual IRI="#2"/>
+        <NamedIndividual IRI="#Advanced"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#recommendsDifficultyLevel"/>
+        <NamedIndividual IRI="#2"/>
+        <NamedIndividual IRI="#Beginner"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#recommendsDifficultyLevel"/>
+        <NamedIndividual IRI="#2"/>
+        <NamedIndividual IRI="#Intermediate"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
         <ObjectProperty IRI="#mapstoTrainingLevel"/>
         <NamedIndividual IRI="#2.0"/>
+        <NamedIndividual IRI="#Intermediate"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#recommendsDifficultyLevel"/>
+        <NamedIndividual IRI="#3"/>
+        <NamedIndividual IRI="#Advanced"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#recommendsDifficultyLevel"/>
+        <NamedIndividual IRI="#3"/>
+        <NamedIndividual IRI="#Beginner"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#recommendsDifficultyLevel"/>
+        <NamedIndividual IRI="#3"/>
         <NamedIndividual IRI="#Intermediate"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#mapstoTrainingLevel"/>
         <NamedIndividual IRI="#3.0"/>
         <NamedIndividual IRI="#Advanced"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#recommendsDifficultyLevel"/>
+        <NamedIndividual IRI="#4"/>
+        <NamedIndividual IRI="#Beginner"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#recommendsDifficultyLevel"/>
+        <NamedIndividual IRI="#5"/>
+        <NamedIndividual IRI="#Beginner"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#recommendsDifficultyLevel"/>
+        <NamedIndividual IRI="#6"/>
+        <NamedIndividual IRI="#Beginner"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#recommendsDifficultyLevel"/>
+        <NamedIndividual IRI="#7"/>
+        <NamedIndividual IRI="#Beginner"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#recommendsDifficultyLevel"/>
+        <NamedIndividual IRI="#8"/>
+        <NamedIndividual IRI="#Beginner"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#recommendsDifficultyLevel"/>
+        <NamedIndividual IRI="#9"/>
+        <NamedIndividual IRI="#Beginner"/>
     </ObjectPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="#Calorie"/>
@@ -26606,6 +26671,11 @@ Langsam zur Mitte zurückkehren.
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#Mobility</IRI>
         <Literal>Mobility</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#MobilityTest</IRI>
+        <Literal>Mobilitiy Test</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
