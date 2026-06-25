@@ -15,6 +15,9 @@
     <Prefix name="rdfs" IRI="http://www.w3.org/2000/01/rdf-schema#"/>
     <Prefix name="YogaKG" IRI="http://www.ease-crc.org/ont/yoga#"/>
     <Declaration>
+        <Class IRI="#ActivityDuration"/>
+    </Declaration>
+    <Declaration>
         <Class IRI="#AnkleFracture"/>
     </Declaration>
     <Declaration>
@@ -90,6 +93,9 @@
         <Class IRI="#Injury"/>
     </Declaration>
     <Declaration>
+        <Class IRI="#Intensity"/>
+    </Declaration>
+    <Declaration>
         <Class IRI="#Joint"/>
     </Declaration>
     <Declaration>
@@ -117,13 +123,25 @@
         <Class IRI="#LumbarSpinePain"/>
     </Declaration>
     <Declaration>
+        <Class IRI="#METScore"/>
+    </Declaration>
+    <Declaration>
         <Class IRI="#MobilisationStretching"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#MobilityTest"/>
     </Declaration>
     <Declaration>
         <Class IRI="#Muscle"/>
     </Declaration>
     <Declaration>
         <Class IRI="#MuscleInjury"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#PainFrequency"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#PainScore"/>
     </Declaration>
     <Declaration>
         <Class IRI="#Patient"/>
@@ -270,10 +288,16 @@
         <ObjectProperty IRI="#limb"/>
     </Declaration>
     <Declaration>
+        <ObjectProperty IRI="#mapstoTrainingLevel"/>
+    </Declaration>
+    <Declaration>
         <ObjectProperty IRI="#opens"/>
     </Declaration>
     <Declaration>
         <ObjectProperty IRI="#partOf"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#recommendsDifficultyLevel"/>
     </Declaration>
     <Declaration>
         <ObjectProperty IRI="#rehabilitates"/>
@@ -2262,7 +2286,73 @@
         <NamedIndividual IRI="#Z-Sits"/>
     </Declaration>
     <Declaration>
+        <NamedIndividual IRI="#dreibis5Mal"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#einMal"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#kaum"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#leicht"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#mehrAls60Minuten"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#stark"/>
+    </Declaration>
+    <Declaration>
         <NamedIndividual IRI="#test"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#wenigerAls15Minuten"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#zweibisdreiMal"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#zwischen15und60Minuten"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#1"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#1.0"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#10"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#2"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#2.0"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#3"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#3.0"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#4"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#5"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#6"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#7"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#8"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#9"/>
     </Declaration>
     <Declaration>
         <NamedIndividual IRI="#Bicycling20+Mph"/>
@@ -2273,6 +2363,10 @@
     <Declaration>
         <Datatype abbreviatedIRI="xsd:date"/>
     </Declaration>
+    <SubClassOf>
+        <Class IRI="#ActivityDuration"/>
+        <Class IRI="#MobilityTest"/>
+    </SubClassOf>
     <SubClassOf>
         <Class IRI="#AnkleFracture"/>
         <Class IRI="#Fracture"/>
@@ -2366,6 +2460,10 @@
         <Class IRI="#MuscleInjury"/>
     </SubClassOf>
     <SubClassOf>
+        <Class IRI="#Intensity"/>
+        <Class IRI="#MobilityTest"/>
+    </SubClassOf>
+    <SubClassOf>
         <Class IRI="#Joint"/>
         <Class IRI="#BodyPart"/>
     </SubClassOf>
@@ -2402,6 +2500,10 @@
         <Class IRI="#SpinePain"/>
     </SubClassOf>
     <SubClassOf>
+        <Class IRI="#METScore"/>
+        <Class IRI="#MobilityTest"/>
+    </SubClassOf>
+    <SubClassOf>
         <Class IRI="#MobilisationStretching"/>
         <Class IRI="#Exercise"/>
     </SubClassOf>
@@ -2412,6 +2514,14 @@
     <SubClassOf>
         <Class IRI="#MuscleInjury"/>
         <Class IRI="#Injury"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#PainFrequency"/>
+        <Class IRI="#MobilityTest"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#PainScore"/>
+        <Class IRI="#MobilityTest"/>
     </SubClassOf>
     <SubClassOf>
         <Class IRI="#Relaxation"/>
@@ -4814,6 +4924,94 @@
         <NamedIndividual IRI="#Z-Sits"/>
     </ClassAssertion>
     <ClassAssertion>
+        <Class IRI="#Intensity"/>
+        <NamedIndividual IRI="#dreibis5Mal"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Intensity"/>
+        <NamedIndividual IRI="#einMal"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#PainFrequency"/>
+        <NamedIndividual IRI="#kaum"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#PainFrequency"/>
+        <NamedIndividual IRI="#leicht"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#ActivityDuration"/>
+        <NamedIndividual IRI="#mehrAls60Minuten"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#PainFrequency"/>
+        <NamedIndividual IRI="#stark"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#ActivityDuration"/>
+        <NamedIndividual IRI="#wenigerAls15Minuten"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Intensity"/>
+        <NamedIndividual IRI="#zweibisdreiMal"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#ActivityDuration"/>
+        <NamedIndividual IRI="#zwischen15und60Minuten"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#PainScore"/>
+        <NamedIndividual IRI="#1"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#METScore"/>
+        <NamedIndividual IRI="#1.0"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#PainScore"/>
+        <NamedIndividual IRI="#10"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#PainScore"/>
+        <NamedIndividual IRI="#2"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#METScore"/>
+        <NamedIndividual IRI="#2.0"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#PainScore"/>
+        <NamedIndividual IRI="#3"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#METScore"/>
+        <NamedIndividual IRI="#3.0"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#PainScore"/>
+        <NamedIndividual IRI="#4"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#PainScore"/>
+        <NamedIndividual IRI="#5"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#PainScore"/>
+        <NamedIndividual IRI="#6"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#PainScore"/>
+        <NamedIndividual IRI="#7"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#PainScore"/>
+        <NamedIndividual IRI="#8"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#PainScore"/>
+        <NamedIndividual IRI="#9"/>
+    </ClassAssertion>
+    <ClassAssertion>
         <Class IRI="#SportActivity"/>
         <NamedIndividual IRI="#Bicycling20+Mph"/>
     </ClassAssertion>
@@ -4946,6 +5144,16 @@
         <ObjectProperty IRI="#partOf"/>
         <NamedIndividual IRI="#Adductors"/>
         <NamedIndividual IRI="#Thighs"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#recommendsDifficultyLevel"/>
+        <NamedIndividual IRI="#Advanced"/>
+        <NamedIndividual IRI="#Beginner"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#recommendsDifficultyLevel"/>
+        <NamedIndividual IRI="#Advanced"/>
+        <NamedIndividual IRI="#Intermediate"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <Annotation>
@@ -22274,6 +22482,36 @@
         <NamedIndividual IRI="#Z-Sits"/>
         <NamedIndividual IRI="#LowerBack"/>
     </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#recommendsDifficultyLevel"/>
+        <NamedIndividual IRI="#1"/>
+        <NamedIndividual IRI="#Advanced"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#recommendsDifficultyLevel"/>
+        <NamedIndividual IRI="#1"/>
+        <NamedIndividual IRI="#Beginner"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#recommendsDifficultyLevel"/>
+        <NamedIndividual IRI="#1"/>
+        <NamedIndividual IRI="#Intermediate"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#mapstoTrainingLevel"/>
+        <NamedIndividual IRI="#1.0"/>
+        <NamedIndividual IRI="#Beginner"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#mapstoTrainingLevel"/>
+        <NamedIndividual IRI="#2.0"/>
+        <NamedIndividual IRI="#Intermediate"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#mapstoTrainingLevel"/>
+        <NamedIndividual IRI="#3.0"/>
+        <NamedIndividual IRI="#Advanced"/>
+    </ObjectPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="#Calorie"/>
         <NamedIndividual IRI="#AerobicDance"/>
@@ -24241,9 +24479,9 @@ Langsam zur Mitte zurückkehren.
         <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#decimal">90.0</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
-        <DataProperty IRI="#fitnessLevelScore"/>
+        <DataProperty IRI="#hasMETScore"/>
         <NamedIndividual IRI="#User0001"/>
-        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#decimal">89.0</Literal>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#decimal">10</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="#Calorie"/>
@@ -24488,6 +24726,51 @@ Langsam zur Mitte zurückkehren.
         <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#decimal">3.0</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
+        <DataProperty IRI="#hasMETScore"/>
+        <NamedIndividual IRI="#dreibis5Mal"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#decimal">3.0</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasMETScore"/>
+        <NamedIndividual IRI="#einMal"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#decimal">1.0</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasMETScore"/>
+        <NamedIndividual IRI="#kaum"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#decimal">3.0</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasMETScore"/>
+        <NamedIndividual IRI="#leicht"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#decimal">2.0</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasMETScore"/>
+        <NamedIndividual IRI="#mehrAls60Minuten"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#decimal">3.0</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasMETScore"/>
+        <NamedIndividual IRI="#stark"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#decimal">1.0</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasMETScore"/>
+        <NamedIndividual IRI="#wenigerAls15Minuten"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#decimal">1.0</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasMETScore"/>
+        <NamedIndividual IRI="#zweibisdreiMal"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#decimal">2.0</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasMETScore"/>
+        <NamedIndividual IRI="#zwischen15und60Minuten"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#decimal">2.0</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
         <DataProperty IRI="#Calorie"/>
         <NamedIndividual IRI="#Bicycling20+Mph"/>
         <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#decimal">1142.0</Literal>
@@ -24508,6 +24791,10 @@ Langsam zur Mitte zurückkehren.
     <SubObjectPropertyOf>
         <ObjectProperty IRI="#hasInjury"/>
         <ObjectProperty IRI="#hasCondition"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#recommendsDifficultyLevel"/>
+        <ObjectProperty abbreviatedIRI="owl:topObjectProperty"/>
     </SubObjectPropertyOf>
     <SubObjectPropertyOf>
         <ObjectProperty IRI="#severity"/>
