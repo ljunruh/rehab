@@ -15,9 +15,6 @@
     <Prefix name="rdfs" IRI="http://www.w3.org/2000/01/rdf-schema#"/>
     <Prefix name="YogaKG" IRI="http://www.ease-crc.org/ont/yoga#"/>
     <Declaration>
-        <Class IRI="#ActivityDuration"/>
-    </Declaration>
-    <Declaration>
         <Class IRI="#AnkleFrac"/>
     </Declaration>
     <Declaration>
@@ -93,9 +90,6 @@
         <Class IRI="#Injury"/>
     </Declaration>
     <Declaration>
-        <Class IRI="#Intensity"/>
-    </Declaration>
-    <Declaration>
         <Class IRI="#Joint"/>
     </Declaration>
     <Declaration>
@@ -123,25 +117,13 @@
         <Class IRI="#LumbarSpinePain"/>
     </Declaration>
     <Declaration>
-        <Class IRI="#METScore"/>
-    </Declaration>
-    <Declaration>
         <Class IRI="#MobilisationStretching"/>
-    </Declaration>
-    <Declaration>
-        <Class IRI="#MobilityTest"/>
     </Declaration>
     <Declaration>
         <Class IRI="#Muscle"/>
     </Declaration>
     <Declaration>
         <Class IRI="#MuscleInjury"/>
-    </Declaration>
-    <Declaration>
-        <Class IRI="#PainFrequency"/>
-    </Declaration>
-    <Declaration>
-        <Class IRI="#PainScore"/>
     </Declaration>
     <Declaration>
         <Class IRI="#Patient"/>
@@ -2349,10 +2331,6 @@
         <Datatype abbreviatedIRI="xsd:date"/>
     </Declaration>
     <SubClassOf>
-        <Class IRI="#ActivityDuration"/>
-        <Class IRI="#MobilityTest"/>
-    </SubClassOf>
-    <SubClassOf>
         <Class IRI="#AnkleFrac"/>
         <Class IRI="#Fracture"/>
     </SubClassOf>
@@ -2445,10 +2423,6 @@
         <Class IRI="#MuscleInjury"/>
     </SubClassOf>
     <SubClassOf>
-        <Class IRI="#Intensity"/>
-        <Class IRI="#MobilityTest"/>
-    </SubClassOf>
-    <SubClassOf>
         <Class IRI="#Joint"/>
         <Class IRI="#BodyPart"/>
     </SubClassOf>
@@ -2485,10 +2459,6 @@
         <Class IRI="#SpinePain"/>
     </SubClassOf>
     <SubClassOf>
-        <Class IRI="#METScore"/>
-        <Class IRI="#MobilityTest"/>
-    </SubClassOf>
-    <SubClassOf>
         <Class IRI="#MobilisationStretching"/>
         <Class IRI="#Exercise"/>
     </SubClassOf>
@@ -2499,14 +2469,6 @@
     <SubClassOf>
         <Class IRI="#MuscleInjury"/>
         <Class IRI="#Injury"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="#PainFrequency"/>
-        <Class IRI="#MobilityTest"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="#PainScore"/>
-        <Class IRI="#MobilityTest"/>
     </SubClassOf>
     <SubClassOf>
         <Class IRI="#Relaxation"/>
@@ -4911,94 +4873,6 @@
     <ClassAssertion>
         <Class IRI="#Stretching"/>
         <NamedIndividual IRI="#Z-Sits"/>
-    </ClassAssertion>
-    <ClassAssertion>
-        <Class IRI="#Intensity"/>
-        <NamedIndividual IRI="#dreibis5Mal"/>
-    </ClassAssertion>
-    <ClassAssertion>
-        <Class IRI="#Intensity"/>
-        <NamedIndividual IRI="#einMal"/>
-    </ClassAssertion>
-    <ClassAssertion>
-        <Class IRI="#PainFrequency"/>
-        <NamedIndividual IRI="#kaum"/>
-    </ClassAssertion>
-    <ClassAssertion>
-        <Class IRI="#PainFrequency"/>
-        <NamedIndividual IRI="#leicht"/>
-    </ClassAssertion>
-    <ClassAssertion>
-        <Class IRI="#ActivityDuration"/>
-        <NamedIndividual IRI="#mehrAls60Minuten"/>
-    </ClassAssertion>
-    <ClassAssertion>
-        <Class IRI="#PainFrequency"/>
-        <NamedIndividual IRI="#stark"/>
-    </ClassAssertion>
-    <ClassAssertion>
-        <Class IRI="#ActivityDuration"/>
-        <NamedIndividual IRI="#wenigerAls15Minuten"/>
-    </ClassAssertion>
-    <ClassAssertion>
-        <Class IRI="#Intensity"/>
-        <NamedIndividual IRI="#zweibisdreiMal"/>
-    </ClassAssertion>
-    <ClassAssertion>
-        <Class IRI="#ActivityDuration"/>
-        <NamedIndividual IRI="#zwischen15und60Minuten"/>
-    </ClassAssertion>
-    <ClassAssertion>
-        <Class IRI="#PainScore"/>
-        <NamedIndividual IRI="#1"/>
-    </ClassAssertion>
-    <ClassAssertion>
-        <Class IRI="#METScore"/>
-        <NamedIndividual IRI="#1.0"/>
-    </ClassAssertion>
-    <ClassAssertion>
-        <Class IRI="#PainScore"/>
-        <NamedIndividual IRI="#10"/>
-    </ClassAssertion>
-    <ClassAssertion>
-        <Class IRI="#PainScore"/>
-        <NamedIndividual IRI="#2"/>
-    </ClassAssertion>
-    <ClassAssertion>
-        <Class IRI="#METScore"/>
-        <NamedIndividual IRI="#2.0"/>
-    </ClassAssertion>
-    <ClassAssertion>
-        <Class IRI="#PainScore"/>
-        <NamedIndividual IRI="#3"/>
-    </ClassAssertion>
-    <ClassAssertion>
-        <Class IRI="#METScore"/>
-        <NamedIndividual IRI="#3.0"/>
-    </ClassAssertion>
-    <ClassAssertion>
-        <Class IRI="#PainScore"/>
-        <NamedIndividual IRI="#4"/>
-    </ClassAssertion>
-    <ClassAssertion>
-        <Class IRI="#PainScore"/>
-        <NamedIndividual IRI="#5"/>
-    </ClassAssertion>
-    <ClassAssertion>
-        <Class IRI="#PainScore"/>
-        <NamedIndividual IRI="#6"/>
-    </ClassAssertion>
-    <ClassAssertion>
-        <Class IRI="#PainScore"/>
-        <NamedIndividual IRI="#7"/>
-    </ClassAssertion>
-    <ClassAssertion>
-        <Class IRI="#PainScore"/>
-        <NamedIndividual IRI="#8"/>
-    </ClassAssertion>
-    <ClassAssertion>
-        <Class IRI="#PainScore"/>
-        <NamedIndividual IRI="#9"/>
     </ClassAssertion>
     <ClassAssertion>
         <Class IRI="#SportActivity"/>
@@ -26671,11 +26545,6 @@ Langsam zur Mitte zurückkehren.
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#Mobility</IRI>
         <Literal>Mobility</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>#MobilityTest</IRI>
-        <Literal>Mobilitiy Test</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
