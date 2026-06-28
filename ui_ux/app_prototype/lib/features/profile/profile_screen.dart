@@ -14,7 +14,8 @@ import '../../data/enum/gender.dart';
 /// └──────────────────────────────────────────────────────────┘
 class ProfileScreen extends StatelessWidget {
   final VoidCallback onBack;
-  const ProfileScreen({super.key, required this.onBack});
+  final VoidCallback onEdit;
+  const ProfileScreen({super.key, required this.onBack, required this.onEdit});
 
   @override
   Widget build(BuildContext context) {
@@ -131,9 +132,7 @@ class ProfileScreen extends StatelessWidget {
         PrimaryButton(
           label: 'Angaben bearbeiten',
           icon: Icons.edit_outlined,
-          onPressed: () {
-            userProvider.updateUser(userProvider.user!);
-          },
+          onPressed: onEdit,
         ),
         const SizedBox(height: AppSpacing.md),
 

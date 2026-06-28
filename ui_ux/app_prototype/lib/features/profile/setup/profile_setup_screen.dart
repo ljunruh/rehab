@@ -2,6 +2,7 @@ import 'package:app_prototype/data/enum/gender.dart';
 import 'package:app_prototype/data/enum/injury.dart';
 import 'package:app_prototype/data/enum/skill_level.dart';
 import 'package:app_prototype/data/models/models.dart';
+import 'package:app_prototype/data/provider/user_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:isar/isar.dart';
 import 'package:provider/provider.dart';
@@ -12,10 +13,17 @@ import '../../../state/ui_state.dart';
 
 class UserSetupScreen extends StatefulWidget {
   final VoidCallback onFinished;
-  const UserSetupScreen({
-    super.key,
-    required this.onFinished,
-  });
+  final VoidCallback? onBack;
+  final String title;
+  final bool isEdit;
+
+  const UserSetupScreen(
+      this.title, {
+        super.key,
+        required this.onFinished,
+        this.onBack,
+        this.isEdit = false,
+      });
 
   @override
   State<UserSetupScreen> createState() => _UserSetupScreenState();
@@ -37,8 +45,13 @@ class _UserSetupScreenState extends State<UserSetupScreen> {
   @override
   void initState() {
     super.initState();
+
     _allInjuries = Injury.values.where((i) => i != Injury.none).toList();
     _filteredInjuries = _allInjuries;
+
+    if (widget.isEdit) {
+      _loadUser();
+    }
   }
 
   void _filterInjuries(String query) {
@@ -51,8 +64,31 @@ class _UserSetupScreenState extends State<UserSetupScreen> {
     });
   }
 
-  Future<void> _create() async {
+  Future<void> _loadUser() async {
+    final provider = context.read<UserProvider>();
+    final user = provider.user;
+
+    if (user == null) return;
+
+    setState(() {
+      _name.text = user.name;
+      _age.text = user.age.toString();
+      _height.text = user.height.toString();
+      _weight.text = user.weight.toString();
+
+      gender = user.gender;
+      skillLevel = user.skillLevel;
+
+      _selectedInjuryNames
+        ..clear()
+        ..addAll(user.injuries);
+    });
+  }
+
+  Future<void> _saveUser() async {
     final uiState = context.read<UiState>();
+    final userProvider = context.read<UserProvider>();
+
     final nameVal = _name.text.trim();
     if (nameVal.isEmpty) {
       uiState.showToast("Bitte gib deinen Namen ein.");
@@ -60,41 +96,46 @@ class _UserSetupScreenState extends State<UserSetupScreen> {
     }
 
     final ageVal = int.tryParse(_age.text);
-    if (ageVal == null || ageVal <= 0) {
-      uiState.showToast("Bitte gib ein gültiges Alter ein.");
-      return;
-    }
-
     final heightVal = int.tryParse(_height.text);
-    if (heightVal == null || heightVal <= 0) {
-      uiState.showToast("Bitte gib eine gültige Größe ein.");
-      return;
-    }
-
     final weightVal = int.tryParse(_weight.text);
-    if (weightVal == null || weightVal <= 0) {
-      uiState.showToast("Bitte gib ein gültiges Gewicht ein.");
+
+    if (ageVal == null || heightVal == null || weightVal == null) {
+      uiState.showToast("Bitte gültige Werte eingeben.");
       return;
     }
 
-    final isar = Isar.getInstance()!;
-
-    final user = User(
+    await userProvider.saveUser(
       name: nameVal,
       gender: gender,
       age: ageVal,
       height: heightVal,
       weight: weightVal,
-      injuries: _selectedInjuryNames.toList(),
       skillLevel: skillLevel,
+      injuries: _selectedInjuryNames.toList(),
     );
 
-    await isar.writeTxn(() async {
-      await isar.users.clear(); // sicherstellen: nur 1 user
-      await isar.users.put(user);
-    });
-
     widget.onFinished();
+  }
+
+
+  Widget _buildHeader() {
+    return Padding(
+      padding: const EdgeInsets.only(bottom: AppSpacing.lg),
+      child: Row(
+        children: [
+          if (widget.isEdit)
+            IconButton(
+              icon: const Icon(Icons.arrow_back),
+              onPressed: widget.onBack,
+            ),
+          if (widget.isEdit) const SizedBox(width: 8),
+          Text(
+            widget.title,
+            style: AppText.screenTitle,
+          ),
+        ],
+      ),
+    );
   }
 
   Widget _buildGenderSelector() {
@@ -339,13 +380,7 @@ class _UserSetupScreenState extends State<UserSetupScreen> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
-              const Padding(
-                padding: EdgeInsets.only(bottom: AppSpacing.lg),
-                child: Text(
-                  "Profil erstellen",
-                  style: AppText.screenTitle,
-                ),
-              ),
+              _buildHeader(),
               _buildTextField(
                 controller: _name,
                 label: "Name",
@@ -371,8 +406,8 @@ class _UserSetupScreenState extends State<UserSetupScreen> {
               _buildInjuriesSection(),
               const SizedBox(height: AppSpacing.xl),
               PrimaryButton(
-                label: "Erstellen",
-                onPressed: _create,
+                label: widget.isEdit ? "Speichern" : "Erstellen",
+                onPressed: _saveUser,
               ),
             ],
           ),
