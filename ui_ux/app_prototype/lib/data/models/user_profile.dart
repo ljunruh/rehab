@@ -1,54 +1,103 @@
-/// Benutzerprofil (reines UI-Modell).
-class UserProfile {
-  final String name;
-  final String email;
-  final String goal;
-  final String region; // Hauptregion
-  final List<String> regions; // alle betroffenen Regionen
-  final String mobility; // Niedrig | Mittel | Hoch
-  final String gender;
-  final String reminder; // "08:00"
+import 'package:app_prototype/data/enum/gender.dart';
+import 'package:app_prototype/data/enum/skill_level.dart';
+import 'package:isar/isar.dart';
 
-  const UserProfile({
-    required this.name,
-    required this.email,
-    required this.goal,
-    required this.region,
-    this.regions = const [],
-    required this.mobility,
-    required this.gender,
-    required this.reminder,
-  });
+part 'user_profile.g.dart';
 
-  /// Initialen für den Header-Avatar (StyleGuide §7.8).
+@collection
+class User {
+  Id id = Isar.autoIncrement;
+
+  late String name;
+  @enumerated
+  late Gender gender;
+  late int age;
+  late int weight;
+  late int height;
+
+  /// Isar-safe: Enum als String speichern, da List Enums zu komplex.
+  late List<String> injuries;
+
+  @enumerated
+  late SkillLevel skillLevel;
+
+  // optional UI-only / non-persisted fields
+  @ignore
+  String email = '';
+
+  @ignore
+  String goal = '';
+
+  @ignore
+  String region = '';
+
+  @ignore
+  List<String> regions = [];
+
+  @ignore
+  String mobility = '';
+
+  @ignore
+  String reminder = '';
+
+  /// Initialen für Avatar
   String get initials {
     final parts = name.trim().split(RegExp(r'\s+'));
     if (parts.isEmpty || parts.first.isEmpty) return '?';
     if (parts.length == 1) {
       return parts.first.substring(0, 1).toUpperCase();
     }
-    return (parts.first.substring(0, 1) + parts.last.substring(0, 1))
-        .toUpperCase();
+    return (parts.first[0] + parts.last[0]).toUpperCase();
   }
 
-  UserProfile copyWith({
+  User({
+    required this.name,
+    required this.gender,
+    required this.age,
+    required this.weight,
+    required this.height,
+    required this.injuries,
+    required this.skillLevel,
+
+    // ✅ optional UI fields mit Defaults
+    this.email = '',
+    this.goal = '',
+    this.region = '',
+    this.regions = const [],
+    this.mobility = '',
+    this.reminder = '',
+  });
+
+  User copyWith({
     String? name,
+    Gender? gender,
+    int? age,
+    int? weight,
+    int? height,
+    List<String>? injury,
+    SkillLevel? skillLevel,
+
     String? email,
     String? goal,
     String? region,
     List<String>? regions,
     String? mobility,
-    String? gender,
     String? reminder,
   }) {
-    return UserProfile(
+    return User(
       name: name ?? this.name,
+      gender: gender ?? this.gender,
+      age: age ?? this.age,
+      weight: weight ?? this.weight,
+      height: height ?? this.height,
+      injuries: injury ?? this.injuries,
+      skillLevel: skillLevel ?? this.skillLevel,
+
       email: email ?? this.email,
       goal: goal ?? this.goal,
       region: region ?? this.region,
       regions: regions ?? this.regions,
       mobility: mobility ?? this.mobility,
-      gender: gender ?? this.gender,
       reminder: reminder ?? this.reminder,
     );
   }

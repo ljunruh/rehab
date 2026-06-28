@@ -1,4 +1,4 @@
-import 'package:app_prototype/data/model/condition.dart';
+import 'package:app_prototype/data/models/condition.dart';
 import 'package:isar/isar.dart';
 
 class ConditionLocalDataSource {

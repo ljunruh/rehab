@@ -26,7 +26,9 @@ import '../features/profile/profile_screen.dart';
 /// Person 4 erweitert dieses Routing, wenn neue Detail-Screens dazukommen.
 enum SubView {
   none,
+  userSetup,
   profile,
+  profileEdit,
   exerciseDetail,
   planDetail,
   planTraining,
@@ -58,34 +60,36 @@ class _AppShellState extends State<AppShell> {
   String? _selectedId;
 
   void _openProfile() => setState(() => _sub = SubView.profile);
+
   void _openTip() => setState(() => _sub = SubView.tip);
+
   void _closeSub() => setState(() {
-        _sub = SubView.none;
-        _selectedId = null;
-      });
+    _sub = SubView.none;
+    _selectedId = null;
+  });
 
   // Öffnet die Übungs-Detailansicht. Bereit für eine antippbare Übungsliste
   // (Person 1) oder den Aufruf aus dem Plan-Detail (Person 2).
   // ignore: unused_element
   void _openExercise(String id) => setState(() {
-        _selectedId = id;
-        _sub = SubView.exerciseDetail;
-      });
+    _selectedId = id;
+    _sub = SubView.exerciseDetail;
+  });
 
   void _openPlan(String id) => setState(() {
-        _selectedId = id;
-        _sub = SubView.planDetail;
-      });
+    _selectedId = id;
+    _sub = SubView.planDetail;
+  });
 
   void _startTraining(String id) => setState(() {
-        _selectedId = id;
-        _sub = SubView.planTraining;
-      });
+    _selectedId = id;
+    _sub = SubView.planTraining;
+  });
 
   void _openAddExercise(String id) => setState(() {
-        _selectedId = id;
-        _sub = SubView.addExercise;
-      });
+    _selectedId = id;
+    _sub = SubView.addExercise;
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -104,6 +108,7 @@ class _AppShellState extends State<AppShell> {
 
     if (!userProvider.userExists) {
       screen = UserSetupScreen(
+        "Profil erstellen",
         onFinished: () {
           context.read<UserProvider>().init();
           setState(() {
@@ -113,8 +118,32 @@ class _AppShellState extends State<AppShell> {
         },
       );
       showNav = false;
+    } else if (_sub == SubView.profileEdit) {
+      screen = UserSetupScreen(
+        "Profil bearbeiten",
+        isEdit: true,
+        onBack: () {
+          setState(() {
+            _sub = SubView.profile;
+          });
+        },
+        onFinished: () {
+          context.read<UserProvider>().init();
+          setState(() {
+            _sub = SubView.profile;
+          });
+        },
+      );
+      showNav = false;
     } else if (_sub == SubView.profile) {
-      screen = ProfileScreen(onBack: _closeSub);
+      screen = ProfileScreen(
+        onBack: _closeSub,
+        onEdit: () {
+          setState(() {
+            _sub = SubView.profileEdit;
+          });
+        },
+      );
       showNav = false;
     } else if (_sub == SubView.tip) {
       screen = TipScreen(onBack: _closeSub);
@@ -219,8 +248,7 @@ class _AppShellState extends State<AppShell> {
             child: Stack(
               children: [
                 Positioned.fill(child: screen),
-                if (app.toast != null)
-                  AppToast(message: app.toast!),
+                if (app.toast != null) AppToast(message: app.toast!),
               ],
             ),
           ),
@@ -234,8 +262,7 @@ class _AppShellState extends State<AppShell> {
               onAddPlan: () {
                 NewPlanChoiceSheet.show(
                   context,
-                  onRecommend: () =>
-                      setState(() => _sub = SubView.recommend),
+                  onRecommend: () => setState(() => _sub = SubView.recommend),
                   onManual: () => setState(() => _sub = SubView.planCreate),
                 );
               },
@@ -251,6 +278,7 @@ class _AppShellState extends State<AppShell> {
 /// das [child] in ein Scaffold setzen.
 class _PhoneFrame extends StatelessWidget {
   final Widget child;
+
   const _PhoneFrame({required this.child});
 
   @override

@@ -1,84 +1,91 @@
-import 'package:app_prototype/data/model/enum/gender.dart';
-import 'package:app_prototype/data/model/user.dart';
+import 'package:app_prototype/data/enum/gender.dart';
+import 'package:app_prototype/data/enum/injury.dart';
+import 'package:app_prototype/data/enum/skill_level.dart';
+import 'package:app_prototype/data/models/models.dart';
 import 'package:app_prototype/data/repository/user_repository.dart';
 import 'package:flutter/material.dart';
-import '../model/condition.dart';
 
 class UserProvider extends ChangeNotifier {
   final UserRepository repo;
 
+  User? _user;
+  bool _loading = false;
+
   UserProvider(this.repo);
 
-  User? user;
-  List<Condition> conditions = [];
+  User? get user => _user;
+  bool get userExists => _user != null;
+  bool get loading => _loading;
 
-  bool loading = false;
-  bool get userExists => user != null;
 
-  // ---------------------------
-  // COMPUTED UI FIELDS
-  // ---------------------------
-  String get fullName => user?.name ?? '';
+  String get fullName => _user?.name ?? '';
 
-  String get email => user?.email ?? '';
+  String get email => _user?.email ?? '';
 
-  String get ageText => user?.age != null ? '${user!.age}' : '—';
+  String get ageText => _user != null ? '${_user!.age}' : '—';
 
-  String get genderText => user?.gender.label ?? '—';
+  String get genderText => _user?.gender.label ?? '—';
 
-  String get heightText =>
-      user != null ? '${user!.height.toInt()} cm' : '—';
+  String get heightText => _user != null ? '${_user!.height} cm' : '—';
 
-  String get weightText =>
-      user != null ? '${user!.weight.toInt()} kg' : '—';
+  String get weightText => _user != null ? '${_user!.weight} kg' : '—';
+
+  String get skillLevelText => _user?.skillLevel.label ?? '—';
+
+  List<String> get injuryLabels =>
+      _user?.injuries
+          .map((name) => InjuryExt.fromString(name).label)
+          .toList() ??
+          [];
 
   String get initials {
-    final name = user?.name ?? '';
+    final name = _user?.name ?? '';
     final parts = name.trim().split(RegExp(r'\s+'));
 
     if (parts.isEmpty || parts.first.isEmpty) return '?';
-    if (parts.length == 1) {
-      return parts.first.substring(0, 1).toUpperCase();
-    }
+    if (parts.length == 1) return parts.first[0].toUpperCase();
 
     return (parts.first[0] + parts.last[0]).toUpperCase();
   }
 
-  List<String> get conditionLabels {
-    if (user == null) return [];
-
-    return user!.conditions.map((id) {
-      final match = conditions.firstWhere(
-            (c) => c.id == id,
-        orElse: () => Condition(id: id, label: id, comment: ''),
-      );
-      return match.label;
-    }).toList();
-  }
-
-  // ---------------------------
-  // LOGIC
-  // ---------------------------
   Future<void> init() async {
-    loading = true;
+    _loading = true;
     notifyListeners();
 
-    user = await repo.getUser();
-    conditions = await repo.getConditions();
+    _user = await repo.getUser();
 
-    loading = false;
+    _loading = false;
     notifyListeners();
   }
 
-  Future<void> saveUser(User user) async {
-    await repo.saveUser(user);
-    this.user = user;
+  Future<void> saveUser({
+    required String name,
+    required Gender gender,
+    required int age,
+    required int height,
+    required int weight,
+    required SkillLevel skillLevel,
+    required List<String> injuries,
+  }) async {
+    final newUser = User(
+      name: name,
+      gender: gender,
+      age: age,
+      height: height,
+      weight: weight,
+      skillLevel: skillLevel,
+      injuries: injuries,
+    );
+
+    await repo.saveUser(newUser);
+
+    _user = newUser;
     notifyListeners();
   }
 
   Future<void> deleteUser() async {
     await repo.deleteUser();
-    this.user = null;
+    _user = null;
     notifyListeners();
   }
 }

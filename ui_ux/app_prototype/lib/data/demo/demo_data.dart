@@ -1,3 +1,7 @@
+import 'package:app_prototype/data/enum/gender.dart';
+import 'package:app_prototype/data/enum/injury.dart';
+import 'package:app_prototype/data/enum/skill_level.dart';
+
 import '../models/models.dart';
 import '../../core/theme/app_colors.dart';
 
@@ -10,14 +14,19 @@ import '../../core/theme/app_colors.dart';
 class DemoData {
   DemoData._();
 
-  static UserProfile profile = const UserProfile(
+  static User profile = User(
     name: 'Lena Müller',
+    gender: Gender.female,
+    age: 20,
+    weight: 60,
+    height: 170,
+    injuries: [Injury.kneeIssue.label],
+    skillLevel: SkillLevel.intermediate,
     email: 'lena.mueller@email.de',
     goal: 'Beweglichkeit verbessern',
     region: 'Knie',
     regions: ['Knie', 'Schulter'],
     mobility: 'Mittel',
-    gender: 'weiblich',
     reminder: '08:00',
   );
 

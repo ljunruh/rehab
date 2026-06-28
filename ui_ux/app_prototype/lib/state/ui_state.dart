@@ -26,7 +26,7 @@ class UiState extends ChangeNotifier {
   }
 
   // ── Daten (direkt aus den Demo-Daten) ───────────────────────
-  late UserProfile profile;
+  late User profile;
   late List<Exercise> exercises;
   late List<Exercise> library;
   late List<TrainingPlan> plans;
@@ -225,7 +225,7 @@ class UiState extends ChangeNotifier {
   }
 
   // ── Profil (Person 4) ───────────────────────────────────────
-  void updateProfile(UserProfile newProfile) {
+  void updateProfile(User newProfile) {
     profile = newProfile;
     showToast('Profil aktualisiert.');
   }
