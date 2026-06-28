@@ -66,6 +66,12 @@ class UserProvider extends ChangeNotifier {
     notifyListeners();
   }
 
+  Future<void> updateUser(User user) async {
+    await repo.saveUser(user);
+    this.user = user;
+    notifyListeners();
+  }
+
   Future<void> deleteUser() async {
     await repo.deleteUser();
     this.user = null;

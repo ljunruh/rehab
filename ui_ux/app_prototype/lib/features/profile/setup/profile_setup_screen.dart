@@ -342,7 +342,7 @@ class _UserSetupScreenState extends State<UserSetupScreen> {
               const Padding(
                 padding: EdgeInsets.only(bottom: AppSpacing.lg),
                 child: Text(
-                  "Setup",
+                  "Profil erstellen",
                   style: AppText.screenTitle,
                 ),
               ),
