@@ -1,4 +1,4 @@
-import 'package:app_prototype/data/model/user.dart';
+import 'package:app_prototype/data/models/models.dart';
 import 'package:isar/isar.dart';
 
 class UserService {

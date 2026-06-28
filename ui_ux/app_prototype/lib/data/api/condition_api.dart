@@ -2,9 +2,14 @@ import 'dart:convert';
 
 import 'package:app_prototype/data/api/core_api.dart';
 
-import '../model/condition.dart';
+import '../models/condition.dart';
 
 class ConditionApi extends CoreApi {
+  /*
+  Lese alle Conditions aus und gebe Condition, Label und Description zurück.
+  TODO[API]: Ist veraltet und muss angepasst werden durch Injury.
+  Wir später bei Planerstellung und -empfehlung genutzt
+  */
   Future<List<Condition>> fetchConditions() async {
     const query = '''
       SELECT ?condition ?label ?comment WHERE {

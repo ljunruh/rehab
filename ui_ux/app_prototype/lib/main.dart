@@ -1,5 +1,4 @@
-import 'package:app_prototype/data/api/user_api.dart';
-import 'package:app_prototype/data/model/user.dart';
+import 'package:app_prototype/data/models/models.dart';
 import 'package:app_prototype/data/provider/user_provider.dart';
 import 'package:app_prototype/data/repository/user_repository.dart';
 import 'package:flutter/material.dart';
@@ -22,10 +21,7 @@ void main() async {
     directory: appDir.path,
   );
 
-  final userRepository = UserRepository(
-    conditionApi: ConditionApi(),
-    service: UserService(isar),
-  );
+  final userRepository = UserRepository(service: UserService(isar));
 
   runApp(MultiProvider(
       providers: [

@@ -1,11 +1,11 @@
-import 'package:app_prototype/data/api/user_api.dart';
-import 'package:app_prototype/data/model/condition.dart';
-import 'package:app_prototype/data/model/enum/gender.dart';
+import 'package:app_prototype/data/enum/gender.dart';
+import 'package:app_prototype/data/enum/injury.dart';
+import 'package:app_prototype/data/enum/skill_level.dart';
+import 'package:app_prototype/data/models/models.dart';
 import 'package:flutter/material.dart';
 import 'package:isar/isar.dart';
 import 'package:provider/provider.dart';
 import 'selectable_accordion.dart';
-import '../../../data/model/user.dart';
 import '../../../core/theme/app_theme.dart';
 import '../../../core/widgets/widgets.dart';
 import '../../../state/ui_state.dart';
@@ -23,65 +23,39 @@ class UserSetupScreen extends StatefulWidget {
 
 class _UserSetupScreenState extends State<UserSetupScreen> {
   final _name = TextEditingController();
-  final _email = TextEditingController();
   final _age = TextEditingController();
   final _height = TextEditingController();
   final _weight = TextEditingController();
 
   Gender gender = Gender.male;
+  SkillLevel skillLevel = SkillLevel.beginner;
 
-  final ConditionApi _conditionApi = ConditionApi();
-  List<Condition> _allConditions = [];
-  List<Condition> _filteredConditions = [];
-  final Set<String> _selectedConditionIds = {};
-  bool _isLoadingConditions = true;
-  String _conditionsError = '';
+  List<Injury> _allInjuries = [];
+  List<Injury> _filteredInjuries = [];
+  final Set<String> _selectedInjuryNames = {};
 
   @override
   void initState() {
     super.initState();
-    _loadConditions();
+    _allInjuries = Injury.values.where((i) => i != Injury.none).toList();
+    _filteredInjuries = _allInjuries;
   }
 
-  Future<void> _loadConditions() async {
-    try {
-      final conditions = await _conditionApi.fetchConditions();
-      setState(() {
-        _allConditions = conditions;
-        _filteredConditions = conditions;
-        _isLoadingConditions = false;
-      });
-    } catch (e) {
-      setState(() {
-        _conditionsError = e.toString();
-        _isLoadingConditions = false;
-      });
-    }
-  }
-
-  void _filterConditions(String query) {
+  void _filterInjuries(String query) {
     setState(() {
-      _filteredConditions = _allConditions
-          .where((c) =>
-              c.label.toLowerCase().contains(query.toLowerCase()) ||
-              c.comment.toLowerCase().contains(query.toLowerCase()))
+      _filteredInjuries = _allInjuries
+          .where((i) =>
+              i.label.toLowerCase().contains(query.toLowerCase()) ||
+              i.description.toLowerCase().contains(query.toLowerCase()))
           .toList();
     });
   }
 
   Future<void> _create() async {
-    //TODO[API]: Allgemein Validator prüfen
     final uiState = context.read<UiState>();
     final nameVal = _name.text.trim();
-    final emailVal = _email.text.trim();
     if (nameVal.isEmpty) {
       uiState.showToast("Bitte gib deinen Namen ein.");
-      return;
-    }
-
-    //TODO[API]: Brauch einen Email Validator
-    if (emailVal.isEmpty) {
-      uiState.showToast("Bitte gib deine Email ein.");
       return;
     }
 
@@ -91,13 +65,13 @@ class _UserSetupScreenState extends State<UserSetupScreen> {
       return;
     }
 
-    final heightVal = double.tryParse(_height.text);
+    final heightVal = int.tryParse(_height.text);
     if (heightVal == null || heightVal <= 0) {
       uiState.showToast("Bitte gib eine gültige Größe ein.");
       return;
     }
 
-    final weightVal = double.tryParse(_weight.text);
+    final weightVal = int.tryParse(_weight.text);
     if (weightVal == null || weightVal <= 0) {
       uiState.showToast("Bitte gib ein gültiges Gewicht ein.");
       return;
@@ -105,14 +79,15 @@ class _UserSetupScreenState extends State<UserSetupScreen> {
 
     final isar = Isar.getInstance()!;
 
-    final user = User()
-      ..name = nameVal
-      ..email = emailVal
-      ..age = ageVal
-      ..gender = gender
-      ..height = heightVal
-      ..weight = weightVal
-      ..conditions = _selectedConditionIds.toList();
+    final user = User(
+      name: nameVal,
+      gender: gender,
+      age: ageVal,
+      height: heightVal,
+      weight: weightVal,
+      injuries: _selectedInjuryNames.toList(),
+      skillLevel: skillLevel,
+    );
 
     await isar.writeTxn(() async {
       await isar.users.clear(); // sicherstellen: nur 1 user
@@ -154,8 +129,106 @@ class _UserSetupScreenState extends State<UserSetupScreen> {
     );
   }
 
-  Widget _buildConditionSummary() {
-    if (_selectedConditionIds.isEmpty) {
+  List<String> _getSkillLevelDescriptions(SkillLevel level) {
+    final raw = level.description;
+    final parts = raw.split(RegExp(r'\n\s*\n'));
+    return parts
+        .map((p) => p.replaceAll(RegExp(r'^[12]\.\s*'), '').replaceAll(RegExp(r'\n\s*'), ' ').trim())
+        .where((p) => p.isNotEmpty)
+        .toList();
+  }
+
+  Widget _buildSkillLevelSelector() {
+    final descriptions = _getSkillLevelDescriptions(skillLevel);
+
+    return Padding(
+      padding: const EdgeInsets.only(bottom: AppSpacing.base),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          const Text(
+            "Fitnesslevel / Aktivitätsniveau",
+            style: AppText.sectionHeader,
+          ),
+          const SizedBox(height: AppSpacing.sm),
+          Wrap(
+            spacing: AppSpacing.sm * 0.5,
+            runSpacing: AppSpacing.sm * 0.5,
+            children: SkillLevel.values.map<Widget>((level) {
+              return AppChip(
+                label: level.label,
+                active: skillLevel == level,
+                onTap: () {
+                  setState(() {
+                    skillLevel = level;
+                  });
+                },
+              );
+            }).toList(),
+          ),
+          const SizedBox(height: AppSpacing.md),
+          AppCard(
+            background: AppColors.offwhite,
+            padding: const EdgeInsets.all(AppSpacing.cardPadding),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Row(
+                  children: [
+                    const Icon(
+                      Icons.info_outline,
+                      color: AppColors.sage,
+                      size: 16,
+                    ),
+                    const SizedBox(width: AppSpacing.sm),
+                    Text(
+                      "Kriterien für ${skillLevel.label}:",
+                      style: AppText.caption.copyWith(
+                        color: AppColors.sageDeep,
+                        fontWeight: FontWeight.w600,
+                      ),
+                    ),
+                  ],
+                ),
+                const SizedBox(height: AppSpacing.md),
+                ...descriptions.map((desc) {
+                  return Padding(
+                    padding: const EdgeInsets.only(bottom: AppSpacing.sm),
+                    child: Row(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        const Padding(
+                          padding: EdgeInsets.only(top: 2.0),
+                          child: Icon(
+                            Icons.check_circle_outline,
+                            color: AppColors.sage,
+                            size: 14,
+                          ),
+                        ),
+                        const SizedBox(width: AppSpacing.sm),
+                        Expanded(
+                          child: Text(
+                            desc,
+                            style: AppText.body.copyWith(
+                              color: AppColors.textSecondary,
+                              height: 1.35,
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  );
+                }),
+              ],
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildInjurySummary() {
+    if (_selectedInjuryNames.isEmpty) {
       return Text(
         "Keine Einschränkungen ausgewählt.",
         style: AppText.caption.copyWith(
@@ -168,12 +241,12 @@ class _UserSetupScreenState extends State<UserSetupScreen> {
     return Wrap(
       spacing: AppSpacing.sm,
       runSpacing: AppSpacing.xs,
-      children: _allConditions
-          .where((c) => _selectedConditionIds.contains(c.id))
+      children: _allInjuries
+          .where((i) => _selectedInjuryNames.contains(i.name))
           .map(
-            (c) => Chip(
+            (i) => Chip(
               label: Text(
-                c.label,
+                i.label,
                 style: AppText.caption.copyWith(color: AppColors.sageDeep),
               ),
               backgroundColor: AppColors.sageLight,
@@ -184,7 +257,7 @@ class _UserSetupScreenState extends State<UserSetupScreen> {
               deleteIconColor: AppColors.sageDeep,
               onDeleted: () {
                 setState(() {
-                  _selectedConditionIds.remove(c.id);
+                  _selectedInjuryNames.remove(i.name);
                 });
               },
             ),
@@ -193,64 +266,23 @@ class _UserSetupScreenState extends State<UserSetupScreen> {
     );
   }
 
-  Widget _buildConditionsSection() {
-    if (_isLoadingConditions) {
-      return Padding(
-        padding: const EdgeInsets.symmetric(vertical: AppSpacing.lg),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            const Text(
-              "Einschränkungen / Bedingungen",
-              style: AppText.sectionHeader,
-            ),
-            const SizedBox(height: AppSpacing.md),
-            const Center(
-              child: CircularProgressIndicator(
-                valueColor: AlwaysStoppedAnimation<Color>(AppColors.sage),
-              ),
-            ),
-          ],
-        ),
-      );
-    }
-
-    if (_conditionsError.isNotEmpty) {
-      return Padding(
-        padding: const EdgeInsets.symmetric(vertical: AppSpacing.lg),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            const Text(
-              "Einschränkungen / Bedingungen",
-              style: AppText.sectionHeader,
-            ),
-            const SizedBox(height: AppSpacing.md),
-            Text(
-              "Fehler beim Laden: $_conditionsError",
-              style: AppText.body.copyWith(color: Colors.red),
-            ),
-          ],
-        ),
-      );
-    }
-
-    return SelectableAccordion<Condition>(
-      title: "Einschränkungen / Bedingungen",
-      summary: _buildConditionSummary(),
-      items: _allConditions,
-      filteredItems: _filteredConditions,
-      onSearch: _filterConditions,
-      getId: (condition) => condition.id,
-      getTitle: (condition) => condition.label,
-      getSubtitle: (condition) => condition.comment,
-      selectedIds: _selectedConditionIds,
-      onSelectionChanged: (id, selected) {
+  Widget _buildInjuriesSection() {
+    return SelectableAccordion<Injury>(
+      title: "Bestehende Verletzungen / Beschwerden",
+      summary: _buildInjurySummary(),
+      items: _allInjuries,
+      filteredItems: _filteredInjuries,
+      onSearch: _filterInjuries,
+      getId: (injury) => injury.name,
+      getTitle: (injury) => injury.label,
+      getSubtitle: (injury) => injury.description,
+      selectedIds: _selectedInjuryNames,
+      onSelectionChanged: (name, selected) {
         setState(() {
           if (selected) {
-            _selectedConditionIds.add(id);
+            _selectedInjuryNames.add(name);
           } else {
-            _selectedConditionIds.remove(id);
+            _selectedInjuryNames.remove(name);
           }
         });
       },
@@ -310,17 +342,13 @@ class _UserSetupScreenState extends State<UserSetupScreen> {
               const Padding(
                 padding: EdgeInsets.only(bottom: AppSpacing.lg),
                 child: Text(
-                  "Profil erstellen",
+                  "Setup",
                   style: AppText.screenTitle,
                 ),
               ),
               _buildTextField(
                 controller: _name,
                 label: "Name",
-              ),
-              _buildTextField(
-                controller: _email,
-                label: "E-Mail",
               ),
               _buildGenderSelector(),
               _buildTextField(
@@ -338,8 +366,9 @@ class _UserSetupScreenState extends State<UserSetupScreen> {
                 label: "Gewicht (kg)",
                 keyboardType: TextInputType.number,
               ),
+              _buildSkillLevelSelector(),
               const SizedBox(height: AppSpacing.sm),
-              _buildConditionsSection(),
+              _buildInjuriesSection(),
               const SizedBox(height: AppSpacing.xl),
               PrimaryButton(
                 label: "Erstellen",

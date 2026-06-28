@@ -1,19 +1,17 @@
-import 'package:app_prototype/data/model/enum/gender.dart';
-import 'package:app_prototype/data/model/user.dart';
+import 'package:app_prototype/data/enum/gender.dart';
+import 'package:app_prototype/data/enum/injury.dart';
+import 'package:app_prototype/data/enum/skill_level.dart';
+import 'package:app_prototype/data/models/models.dart';
 import 'package:app_prototype/data/repository/user_repository.dart';
 import 'package:flutter/material.dart';
-import '../model/condition.dart';
 
 class UserProvider extends ChangeNotifier {
   final UserRepository repo;
-
-  UserProvider(this.repo);
-
   User? user;
-  List<Condition> conditions = [];
-
   bool loading = false;
   bool get userExists => user != null;
+
+  UserProvider(this.repo);
 
   // ---------------------------
   // COMPUTED UI FIELDS
@@ -27,10 +25,15 @@ class UserProvider extends ChangeNotifier {
   String get genderText => user?.gender.label ?? '—';
 
   String get heightText =>
-      user != null ? '${user!.height.toInt()} cm' : '—';
+      user != null ? '${user!.height} cm' : '—';
 
   String get weightText =>
-      user != null ? '${user!.weight.toInt()} kg' : '—';
+      user != null ? '${user!.weight} kg' : '—';
+
+  String get skillLevelText => user?.skillLevel.label ?? '—';
+
+  List<String> get injuryLabels =>
+      user?.injuries.map((name) => InjuryExt.fromString(name).label).toList() ?? [];
 
   String get initials {
     final name = user?.name ?? '';
@@ -44,18 +47,6 @@ class UserProvider extends ChangeNotifier {
     return (parts.first[0] + parts.last[0]).toUpperCase();
   }
 
-  List<String> get conditionLabels {
-    if (user == null) return [];
-
-    return user!.conditions.map((id) {
-      final match = conditions.firstWhere(
-            (c) => c.id == id,
-        orElse: () => Condition(id: id, label: id, comment: ''),
-      );
-      return match.label;
-    }).toList();
-  }
-
   // ---------------------------
   // LOGIC
   // ---------------------------
@@ -64,7 +55,6 @@ class UserProvider extends ChangeNotifier {
     notifyListeners();
 
     user = await repo.getUser();
-    conditions = await repo.getConditions();
 
     loading = false;
     notifyListeners();

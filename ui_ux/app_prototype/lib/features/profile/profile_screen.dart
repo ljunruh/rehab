@@ -4,8 +4,7 @@ import 'package:provider/provider.dart';
 import '../../core/theme/app_theme.dart';
 import '../../core/widgets/widgets.dart';
 import '../../state/ui_state.dart';
-import '../../data/model/condition.dart';
-import '../../data/model/enum/gender.dart';
+import '../../data/enum/gender.dart';
 
 /// ┌──────────────────────────────────────────────────────────┐
 /// │  PERSON 4 — PROFIL, PRAXIS & NAVIGATION                   │
@@ -17,21 +16,23 @@ class ProfileScreen extends StatelessWidget {
   final VoidCallback onBack;
   const ProfileScreen({super.key, required this.onBack});
 
-  String _getInitials(String name) {
-    final parts = name.trim().split(RegExp(r'\s+'));
-    if (parts.isEmpty || parts.first.isEmpty) return '?';
-    if (parts.length == 1) {
-      return parts.first.substring(0, 1).toUpperCase();
-    }
-    return (parts.first.substring(0, 1) + parts.last.substring(0, 1))
-        .toUpperCase();
-  }
-
   @override
   Widget build(BuildContext context) {
     final app = context.watch<UiState>();
     final profile = app.profile;
     final userProvider = context.watch<UserProvider>();
+
+    final name = userProvider.userExists ? userProvider.fullName : profile.name;
+    final initials = userProvider.userExists ? userProvider.initials : profile.initials;
+    final email = userProvider.userExists && userProvider.email.isNotEmpty
+        ? userProvider.email
+        : profile.email;
+    final gender = userProvider.userExists ? userProvider.genderText : profile.gender.label;
+    final age = userProvider.userExists ? userProvider.ageText : '—';
+    final height = userProvider.userExists ? userProvider.heightText : '—';
+    final weight = userProvider.userExists ? userProvider.weightText : '—';
+    final skillLevel = userProvider.userExists ? userProvider.skillLevelText : profile.mobility;
+    final injuryLabels = userProvider.userExists ? userProvider.injuryLabels : <String>[];
 
     return ListView(
       padding: const EdgeInsets.fromLTRB(
@@ -54,14 +55,14 @@ class ProfileScreen extends StatelessWidget {
         AppCard(
           child: Row(
             children: [
-              HeaderAvatar(initials: userProvider.initials),
+              HeaderAvatar(initials: initials),
               const SizedBox(width: AppSpacing.md),
               Expanded(
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text(userProvider.fullName, style: AppText.cardTitle),
-                    Text(userProvider.email, style: AppText.caption),
+                    Text(name, style: AppText.cardTitle),
+                    Text(email, style: AppText.caption),
                   ],
                 ),
               ),
@@ -71,12 +72,12 @@ class ProfileScreen extends StatelessWidget {
         const SizedBox(height: AppSpacing.sectionGap),
 
         const SectionTitle('Deine Angaben'),
-        _InfoRow(label: 'Geschlecht', value: userProvider.genderText),
-        _InfoRow(label: 'Alter', value: userProvider.ageText),
-        _InfoRow(label: 'Größe', value: userProvider.heightText),
-        _InfoRow(label: 'Gewicht', value: userProvider.weightText),
+        _InfoRow(label: 'Geschlecht', value: gender),
+        _InfoRow(label: 'Alter', value: age),
+        _InfoRow(label: 'Größe', value: height),
+        _InfoRow(label: 'Gewicht', value: weight),
 
-        if (userProvider.conditionLabels.isNotEmpty) ...[
+        if (injuryLabels.isNotEmpty) ...[
           Padding(
             padding: const EdgeInsets.only(bottom: AppSpacing.sm),
             child: AppCard(
@@ -91,8 +92,8 @@ class ProfileScreen extends StatelessWidget {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Text('Einschränkungen', style: AppText.caption),
-                      Text('${userProvider.conditionLabels.length} ausgewählt',
+                      Text('Verletzungen / Beschwerden', style: AppText.caption),
+                      Text('${injuryLabels.length} ausgewählt',
                         style: AppText.micro.copyWith(color: AppColors.sageDeep),
                       ),
                     ],
@@ -101,8 +102,8 @@ class ProfileScreen extends StatelessWidget {
                   Wrap(
                     spacing: AppSpacing.sm,
                     runSpacing: AppSpacing.xs,
-                    children: userProvider.conditionLabels.map((cond) {
-                      return AppTag(cond, variant: TagVariant.region);
+                    children: injuryLabels.map((injuryLabel) {
+                      return AppTag(injuryLabel, variant: TagVariant.region);
                     }).toList(),
                   ),
                 ],
@@ -113,7 +114,7 @@ class ProfileScreen extends StatelessWidget {
 
         _InfoRow(label: 'Ziel', value: profile.goal),
         _InfoRow(label: 'Hauptregion', value: profile.region),
-        _InfoRow(label: 'Beweglichkeit', value: profile.mobility),
+        _InfoRow(label: 'Fitnesslevel', value: skillLevel),
         _InfoRow(label: 'Erinnerung', value: '${profile.reminder} Uhr'),
         const SizedBox(height: AppSpacing.sectionGap),
 
