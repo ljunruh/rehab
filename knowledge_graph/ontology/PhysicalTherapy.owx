@@ -423,6 +423,9 @@
         <NamedIndividual IRI="#Airplane_Torso"/>
     </Declaration>
     <Declaration>
+        <NamedIndividual IRI="#AllFourswithLegExtension"/>
+    </Declaration>
+    <Declaration>
         <NamedIndividual IRI="#AnkleFracture"/>
     </Declaration>
     <Declaration>
@@ -438,10 +441,10 @@
         <NamedIndividual IRI="#Archery"/>
     </Declaration>
     <Declaration>
-        <NamedIndividual IRI="#ArmkreisenGewichtsverlagerung"/>
+        <NamedIndividual IRI="#Armkreisen"/>
     </Declaration>
     <Declaration>
-        <NamedIndividual IRI="#ArmkreisenGewichtsverlagerung_ShoulderIssue"/>
+        <NamedIndividual IRI="#Armkreisen_ShoulderIssue"/>
     </Declaration>
     <Declaration>
         <NamedIndividual IRI="#Arms"/>
@@ -727,6 +730,9 @@
     </Declaration>
     <Declaration>
         <NamedIndividual IRI="#DeadBug_LowerBackIssue"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Deadlift"/>
     </Declaration>
     <Declaration>
         <NamedIndividual IRI="#DislocatedShoulder"/>
@@ -1563,6 +1569,9 @@
         <NamedIndividual IRI="#ShoulderImpingement"/>
     </Declaration>
     <Declaration>
+        <NamedIndividual IRI="#ShoulderInternalExternalRotation"/>
+    </Declaration>
+    <Declaration>
         <NamedIndividual IRI="#ShoulderIssue"/>
     </Declaration>
     <Declaration>
@@ -1825,6 +1834,9 @@
     </Declaration>
     <Declaration>
         <NamedIndividual IRI="#StandingLegRaise_Torso"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#StandingPelvicTilts"/>
     </Declaration>
     <Declaration>
         <NamedIndividual IRI="#StandingSideBend"/>
@@ -2116,6 +2128,9 @@
     </Declaration>
     <Declaration>
         <NamedIndividual IRI="#Wall"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#WallPushUps"/>
     </Declaration>
     <Declaration>
         <NamedIndividual IRI="#Wandsitzen"/>
@@ -2635,6 +2650,14 @@
         <NamedIndividual IRI="#Airplane_Torso"/>
     </ClassAssertion>
     <ClassAssertion>
+        <Class IRI="#CoordinationMobility"/>
+        <NamedIndividual IRI="#AllFourswithLegExtension"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Strength"/>
+        <NamedIndividual IRI="#AllFourswithLegExtension"/>
+    </ClassAssertion>
+    <ClassAssertion>
         <Class IRI="#AnkleFrac"/>
         <NamedIndividual IRI="#AnkleFracture"/>
     </ClassAssertion>
@@ -2656,11 +2679,11 @@
     </ClassAssertion>
     <ClassAssertion>
         <Class IRI="#CoordinationMobility"/>
-        <NamedIndividual IRI="#ArmkreisenGewichtsverlagerung"/>
+        <NamedIndividual IRI="#Armkreisen"/>
     </ClassAssertion>
     <ClassAssertion>
         <Class IRI="#Contraindication"/>
-        <NamedIndividual IRI="#ArmkreisenGewichtsverlagerung_ShoulderIssue"/>
+        <NamedIndividual IRI="#Armkreisen_ShoulderIssue"/>
     </ClassAssertion>
     <ClassAssertion>
         <Class IRI="#BodyPart"/>
@@ -3031,6 +3054,10 @@
         <NamedIndividual IRI="#DeadBug_LowerBackIssue"/>
     </ClassAssertion>
     <ClassAssertion>
+        <Class IRI="#Strength"/>
+        <NamedIndividual IRI="#Deadlift"/>
+    </ClassAssertion>
+    <ClassAssertion>
         <Class IRI="#ShoulderJointInjury"/>
         <NamedIndividual IRI="#DislocatedShoulder"/>
     </ClassAssertion>
@@ -3325,10 +3352,6 @@
     <ClassAssertion>
         <Class IRI="#SportActivity"/>
         <NamedIndividual IRI="#GolfWithCart"/>
-    </ClassAssertion>
-    <ClassAssertion>
-        <Class IRI="#Equipment"/>
-        <NamedIndividual IRI="#Gummiband"/>
     </ClassAssertion>
     <ClassAssertion>
         <Class IRI="#SportActivity"/>
@@ -4063,6 +4086,14 @@
         <NamedIndividual IRI="#Shoulder"/>
     </ClassAssertion>
     <ClassAssertion>
+        <Class IRI="#CoordinationMobility"/>
+        <NamedIndividual IRI="#ShoulderInternalExternalRotation"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#MobilisationStretching"/>
+        <NamedIndividual IRI="#ShoulderInternalExternalRotation"/>
+    </ClassAssertion>
+    <ClassAssertion>
         <Class IRI="#Injury"/>
         <NamedIndividual IRI="#ShoulderIssue"/>
     </ClassAssertion>
@@ -4705,6 +4736,10 @@
     <ClassAssertion>
         <Class IRI="#Equipment"/>
         <NamedIndividual IRI="#Wall"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Strength"/>
+        <NamedIndividual IRI="#WallPushUps"/>
     </ClassAssertion>
     <ClassAssertion>
         <Class IRI="#Strength"/>
@@ -5441,6 +5476,91 @@
         <NamedIndividual IRI="#Torso"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#engagedBodyPart"/>
+        <NamedIndividual IRI="#AllFourswithLegExtension"/>
+        <NamedIndividual IRI="#Abs"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#engagedBodyPart"/>
+        <NamedIndividual IRI="#AllFourswithLegExtension"/>
+        <NamedIndividual IRI="#Glutes"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#engagedBodyPart"/>
+        <NamedIndividual IRI="#AllFourswithLegExtension"/>
+        <NamedIndividual IRI="#HipJoint"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#engagedBodyPart"/>
+        <NamedIndividual IRI="#AllFourswithLegExtension"/>
+        <NamedIndividual IRI="#LowerBack"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#engagedBodyPart"/>
+        <NamedIndividual IRI="#AllFourswithLegExtension"/>
+        <NamedIndividual IRI="#SpineJoint"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasContraindication"/>
+        <NamedIndividual IRI="#AllFourswithLegExtension"/>
+        <NamedIndividual IRI="#AcuteLowBackPain"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasDifficultyLevel"/>
+        <NamedIndividual IRI="#AllFourswithLegExtension"/>
+        <NamedIndividual IRI="#Beginner"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#improves"/>
+        <NamedIndividual IRI="#AllFourswithLegExtension"/>
+        <NamedIndividual IRI="#Balance"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#improves"/>
+        <NamedIndividual IRI="#AllFourswithLegExtension"/>
+        <NamedIndividual IRI="#Posture"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#improves"/>
+        <NamedIndividual IRI="#AllFourswithLegExtension"/>
+        <NamedIndividual IRI="#Stability"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#improves"/>
+        <NamedIndividual IRI="#AllFourswithLegExtension"/>
+        <NamedIndividual IRI="#Strength"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#rehabilitates"/>
+        <NamedIndividual IRI="#AllFourswithLegExtension"/>
+        <NamedIndividual IRI="#Hip"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#rehabilitates"/>
+        <NamedIndividual IRI="#AllFourswithLegExtension"/>
+        <NamedIndividual IRI="#LowerBack"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#requiresEquipment"/>
+        <NamedIndividual IRI="#AllFourswithLegExtension"/>
+        <NamedIndividual IRI="#None"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#strengthens"/>
+        <NamedIndividual IRI="#AllFourswithLegExtension"/>
+        <NamedIndividual IRI="#Abs"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#strengthens"/>
+        <NamedIndividual IRI="#AllFourswithLegExtension"/>
+        <NamedIndividual IRI="#Glutes"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#strengthens"/>
+        <NamedIndividual IRI="#AllFourswithLegExtension"/>
+        <NamedIndividual IRI="#LowerBack"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
         <ObjectProperty IRI="#excludesExercise"/>
         <NamedIndividual IRI="#AnkleFracture"/>
         <NamedIndividual IRI="#Einbeinstand"/>
@@ -5467,57 +5587,57 @@
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#engagedBodyPart"/>
-        <NamedIndividual IRI="#ArmkreisenGewichtsverlagerung"/>
+        <NamedIndividual IRI="#Armkreisen"/>
         <NamedIndividual IRI="#Core"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#engagedBodyPart"/>
-        <NamedIndividual IRI="#ArmkreisenGewichtsverlagerung"/>
+        <NamedIndividual IRI="#Armkreisen"/>
         <NamedIndividual IRI="#ShoulderJoint"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#engagedBodyPart"/>
-        <NamedIndividual IRI="#ArmkreisenGewichtsverlagerung"/>
+        <NamedIndividual IRI="#Armkreisen"/>
         <NamedIndividual IRI="#Shoulders"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#hasContraindication"/>
-        <NamedIndividual IRI="#ArmkreisenGewichtsverlagerung"/>
-        <NamedIndividual IRI="#ArmkreisenGewichtsverlagerung_ShoulderIssue"/>
+        <NamedIndividual IRI="#Armkreisen"/>
+        <NamedIndividual IRI="#Armkreisen_ShoulderIssue"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#hasDifficultyLevel"/>
-        <NamedIndividual IRI="#ArmkreisenGewichtsverlagerung"/>
+        <NamedIndividual IRI="#Armkreisen"/>
         <NamedIndividual IRI="#Beginner"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#improves"/>
-        <NamedIndividual IRI="#ArmkreisenGewichtsverlagerung"/>
+        <NamedIndividual IRI="#Armkreisen"/>
         <NamedIndividual IRI="#Balance"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#improves"/>
-        <NamedIndividual IRI="#ArmkreisenGewichtsverlagerung"/>
+        <NamedIndividual IRI="#Armkreisen"/>
         <NamedIndividual IRI="#Coordination"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#improves"/>
-        <NamedIndividual IRI="#ArmkreisenGewichtsverlagerung"/>
+        <NamedIndividual IRI="#Armkreisen"/>
         <NamedIndividual IRI="#Mobility"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#requiresEquipment"/>
-        <NamedIndividual IRI="#ArmkreisenGewichtsverlagerung"/>
+        <NamedIndividual IRI="#Armkreisen"/>
         <NamedIndividual IRI="#None"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#forCondition"/>
-        <NamedIndividual IRI="#ArmkreisenGewichtsverlagerung_ShoulderIssue"/>
+        <NamedIndividual IRI="#Armkreisen_ShoulderIssue"/>
         <NamedIndividual IRI="#ShoulderIssue"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#severity"/>
-        <NamedIndividual IRI="#ArmkreisenGewichtsverlagerung_ShoulderIssue"/>
+        <NamedIndividual IRI="#Armkreisen_ShoulderIssue"/>
         <NamedIndividual IRI="#LowRisk"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
@@ -5618,7 +5738,7 @@
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#excludesExercise"/>
         <NamedIndividual IRI="#BicepsStrain"/>
-        <NamedIndividual IRI="#ArmkreisenGewichtsverlagerung"/>
+        <NamedIndividual IRI="#Armkreisen"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#excludesExercise"/>
@@ -8249,9 +8369,104 @@
         <NamedIndividual IRI="#MediumRisk"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#engagedBodyPart"/>
+        <NamedIndividual IRI="#Deadlift"/>
+        <NamedIndividual IRI="#Glutes"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#engagedBodyPart"/>
+        <NamedIndividual IRI="#Deadlift"/>
+        <NamedIndividual IRI="#Hamstrings"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#engagedBodyPart"/>
+        <NamedIndividual IRI="#Deadlift"/>
+        <NamedIndividual IRI="#HipJoint"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#engagedBodyPart"/>
+        <NamedIndividual IRI="#Deadlift"/>
+        <NamedIndividual IRI="#Knees"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#engagedBodyPart"/>
+        <NamedIndividual IRI="#Deadlift"/>
+        <NamedIndividual IRI="#LowerBack"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#engagedBodyPart"/>
+        <NamedIndividual IRI="#Deadlift"/>
+        <NamedIndividual IRI="#SpineJoint"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasContraindication"/>
+        <NamedIndividual IRI="#Deadlift"/>
+        <NamedIndividual IRI="#HipIssue"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasContraindication"/>
+        <NamedIndividual IRI="#Deadlift"/>
+        <NamedIndividual IRI="#LowerBackIssue"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasContraindication"/>
+        <NamedIndividual IRI="#Deadlift"/>
+        <NamedIndividual IRI="#SpineIssue"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasDifficultyLevel"/>
+        <NamedIndividual IRI="#Deadlift"/>
+        <NamedIndividual IRI="#Advanced"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#improves"/>
+        <NamedIndividual IRI="#Deadlift"/>
+        <NamedIndividual IRI="#Posture"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#improves"/>
+        <NamedIndividual IRI="#Deadlift"/>
+        <NamedIndividual IRI="#Stability"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#improves"/>
+        <NamedIndividual IRI="#Deadlift"/>
+        <NamedIndividual IRI="#Strength"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#rehabilitates"/>
+        <NamedIndividual IRI="#Deadlift"/>
+        <NamedIndividual IRI="#LowerBackIssue"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#requiresEquipment"/>
+        <NamedIndividual IRI="#Deadlift"/>
+        <NamedIndividual IRI="#Dumble"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#strengthens"/>
+        <NamedIndividual IRI="#Deadlift"/>
+        <NamedIndividual IRI="#Abs"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#strengthens"/>
+        <NamedIndividual IRI="#Deadlift"/>
+        <NamedIndividual IRI="#Glutes"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#strengthens"/>
+        <NamedIndividual IRI="#Deadlift"/>
+        <NamedIndividual IRI="#Hamstrings"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#strengthens"/>
+        <NamedIndividual IRI="#Deadlift"/>
+        <NamedIndividual IRI="#LowerBack"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
         <ObjectProperty IRI="#excludesExercise"/>
         <NamedIndividual IRI="#DislocatedShoulder"/>
-        <NamedIndividual IRI="#ArmkreisenGewichtsverlagerung"/>
+        <NamedIndividual IRI="#Armkreisen"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#excludesExercise"/>
@@ -12719,7 +12934,7 @@
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#isEngagedBy"/>
         <NamedIndividual IRI="#LateralDeltoids"/>
-        <NamedIndividual IRI="#ArmkreisenGewichtsverlagerung"/>
+        <NamedIndividual IRI="#Armkreisen"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#partOf"/>
@@ -13429,12 +13644,12 @@
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#requiresEquipment"/>
         <NamedIndividual IRI="#Muschel"/>
-        <NamedIndividual IRI="#Gummiband"/>
+        <NamedIndividual IRI="#None"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#requiresEquipment"/>
         <NamedIndividual IRI="#Muschel"/>
-        <NamedIndividual IRI="#None"/>
+        <NamedIndividual IRI="#Theraband"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#strengthens"/>
@@ -15285,7 +15500,7 @@
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#excludesExercise"/>
         <NamedIndividual IRI="#RotatorCuffStrain"/>
-        <NamedIndividual IRI="#ArmkreisenGewichtsverlagerung"/>
+        <NamedIndividual IRI="#Armkreisen"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#excludesExercise"/>
@@ -15335,7 +15550,7 @@
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#excludesExercise"/>
         <NamedIndividual IRI="#RotatorCuffTear"/>
-        <NamedIndividual IRI="#ArmkreisenGewichtsverlagerung"/>
+        <NamedIndividual IRI="#Armkreisen"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#excludesExercise"/>
@@ -15718,6 +15933,76 @@
         <ObjectProperty IRI="#isEngagedBy"/>
         <NamedIndividual IRI="#Shoulder"/>
         <NamedIndividual IRI="#SchulterNackenEntspannung"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#engagedBodyPart"/>
+        <NamedIndividual IRI="#ShoulderInternalExternalRotation"/>
+        <NamedIndividual IRI="#FrontDeltoid"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#engagedBodyPart"/>
+        <NamedIndividual IRI="#ShoulderInternalExternalRotation"/>
+        <NamedIndividual IRI="#RearDeltoids"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#engagedBodyPart"/>
+        <NamedIndividual IRI="#ShoulderInternalExternalRotation"/>
+        <NamedIndividual IRI="#RotatorCuffs"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#engagedBodyPart"/>
+        <NamedIndividual IRI="#ShoulderInternalExternalRotation"/>
+        <NamedIndividual IRI="#ShoulderJoint"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#engagedBodyPart"/>
+        <NamedIndividual IRI="#ShoulderInternalExternalRotation"/>
+        <NamedIndividual IRI="#Shoulders"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasContraindication"/>
+        <NamedIndividual IRI="#ShoulderInternalExternalRotation"/>
+        <NamedIndividual IRI="#ShoulderIssue"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasDifficultyLevel"/>
+        <NamedIndividual IRI="#ShoulderInternalExternalRotation"/>
+        <NamedIndividual IRI="#Beginner"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#improves"/>
+        <NamedIndividual IRI="#ShoulderInternalExternalRotation"/>
+        <NamedIndividual IRI="#Coordination"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#improves"/>
+        <NamedIndividual IRI="#ShoulderInternalExternalRotation"/>
+        <NamedIndividual IRI="#Mobility"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#improves"/>
+        <NamedIndividual IRI="#ShoulderInternalExternalRotation"/>
+        <NamedIndividual IRI="#Stability"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#rehabilitates"/>
+        <NamedIndividual IRI="#ShoulderInternalExternalRotation"/>
+        <NamedIndividual IRI="#ShoulderJoint"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#rehabilitates"/>
+        <NamedIndividual IRI="#ShoulderInternalExternalRotation"/>
+        <NamedIndividual IRI="#Shoulders"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#requiresEquipment"/>
+        <NamedIndividual IRI="#ShoulderInternalExternalRotation"/>
+        <NamedIndividual IRI="#Theraband"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#strengthens"/>
+        <NamedIndividual IRI="#ShoulderInternalExternalRotation"/>
+        <NamedIndividual IRI="#RotatorCuffs"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#requiresImprovementOf"/>
@@ -20577,6 +20862,101 @@
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#engagedBodyPart"/>
+        <NamedIndividual IRI="#WallPushUps"/>
+        <NamedIndividual IRI="#Abs"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#engagedBodyPart"/>
+        <NamedIndividual IRI="#WallPushUps"/>
+        <NamedIndividual IRI="#Chest"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#engagedBodyPart"/>
+        <NamedIndividual IRI="#WallPushUps"/>
+        <NamedIndividual IRI="#ShoulderJoint"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#engagedBodyPart"/>
+        <NamedIndividual IRI="#WallPushUps"/>
+        <NamedIndividual IRI="#Triceps"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#engagedBodyPart"/>
+        <NamedIndividual IRI="#WallPushUps"/>
+        <NamedIndividual IRI="#WristJoint"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#engagedBodyPart"/>
+        <NamedIndividual IRI="#WallPushUps"/>
+        <NamedIndividual IRI="#Wrists"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasContraindication"/>
+        <NamedIndividual IRI="#WallPushUps"/>
+        <NamedIndividual IRI="#ShoulderIssue"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasContraindication"/>
+        <NamedIndividual IRI="#WallPushUps"/>
+        <NamedIndividual IRI="#WristFracture"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasContraindication"/>
+        <NamedIndividual IRI="#WallPushUps"/>
+        <NamedIndividual IRI="#WristIssue"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasDifficultyLevel"/>
+        <NamedIndividual IRI="#WallPushUps"/>
+        <NamedIndividual IRI="#Beginner"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#improves"/>
+        <NamedIndividual IRI="#WallPushUps"/>
+        <NamedIndividual IRI="#Stability"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#improves"/>
+        <NamedIndividual IRI="#WallPushUps"/>
+        <NamedIndividual IRI="#Strength"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#rehabilitates"/>
+        <NamedIndividual IRI="#WallPushUps"/>
+        <NamedIndividual IRI="#ShoulderJoint"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#rehabilitates"/>
+        <NamedIndividual IRI="#WallPushUps"/>
+        <NamedIndividual IRI="#Shoulders"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#requiresEquipment"/>
+        <NamedIndividual IRI="#WallPushUps"/>
+        <NamedIndividual IRI="#Wall"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#strengthens"/>
+        <NamedIndividual IRI="#WallPushUps"/>
+        <NamedIndividual IRI="#Abs"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#strengthens"/>
+        <NamedIndividual IRI="#WallPushUps"/>
+        <NamedIndividual IRI="#Chest"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#strengthens"/>
+        <NamedIndividual IRI="#WallPushUps"/>
+        <NamedIndividual IRI="#Shoulders"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#strengthens"/>
+        <NamedIndividual IRI="#WallPushUps"/>
+        <NamedIndividual IRI="#Triceps"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#engagedBodyPart"/>
         <NamedIndividual IRI="#Wandsitzen"/>
         <NamedIndividual IRI="#Glutes"/>
     </ObjectPropertyAssertion>
@@ -22397,6 +22777,32 @@
         <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#decimal">90.0</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
+        <DataProperty IRI="#hasCommonMistake"/>
+        <NamedIndividual IRI="#AllFourswithLegExtension"/>
+        <Literal>Das Becken kippt zur Seite, der untere Rücken geht ins Hohlkreuz oder das Bein wird zu hoch gehoben.</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasCorrectionGuidance"/>
+        <NamedIndividual IRI="#AllFourswithLegExtension"/>
+        <Literal>Das Bein nur bis auf Hüfthöhe anheben und den Rücken neutral halten. Die Bewegung langsam und ohne Schwung ausführen.</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasDescription"/>
+        <NamedIndividual IRI="#AllFourswithLegExtension"/>
+        <Literal>Stabilisationsübung für Rumpf, Gesäß und unteren Rücken im Vierfüßlerstand. Die Übung trainiert Kontrolle, Gleichgewicht und Beckenstabilität.</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasInstruction"/>
+        <NamedIndividual IRI="#AllFourswithLegExtension"/>
+        <Literal>1. In den Vierfüßlerstand kommen.
+2. Hände unter den Schultern und Knie unter der Hüfte positionieren.
+3. Bauch leicht anspannen.
+4. Ein Bein langsam nach hinten ausstrecken.
+5. Das Becken möglichst stabil halten.
+6. Das Bein kontrolliert wieder absetzen.
+7. Die Seite wechseln und wiederholen.</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
         <DataProperty IRI="#Calorie"/>
         <NamedIndividual IRI="#Archery"/>
         <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#decimal">250.0</Literal>
@@ -22405,6 +22811,57 @@
         <DataProperty IRI="#MET"/>
         <NamedIndividual IRI="#Archery"/>
         <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#decimal">3.5</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasCommonMistake"/>
+        <NamedIndividual IRI="#Armkreisen"/>
+        <Literal>Die Schultern werden hochgezogen, die Bewegung wird zu schnell ausgeführt oder der Oberkörper weicht stark aus.</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasCorrectionGuidance"/>
+        <NamedIndividual IRI="#Armkreisen"/>
+        <Literal>Die Schultern bewusst locker lassen und die Bewegung langsam kontrollieren. Den Bewegungsradius verkleinern, wenn Schmerzen oder Ausweichbewegungen auftreten.</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasDescription"/>
+        <NamedIndividual IRI="#Armkreisen"/>
+        <Literal>Eine einfache Mobilisationsübung für Schultergelenke, Schultergürtel und oberen Rücken. Die Übung verbessert die Beweglichkeit der Schultern und bereitet die Muskulatur auf weitere Bewegungen vor.</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasInstruction"/>
+        <NamedIndividual IRI="#Armkreisen"/>
+        <Literal>1. Aufrecht stehen oder sitzen.
+2. Die Arme seitlich ausstrecken oder locker neben dem Körper halten.
+3. Kleine kontrollierte Kreise mit den Armen ausführen.
+4. Die Kreise langsam größer werden lassen.
+5. Nach einigen Wiederholungen die Richtung wechseln.
+6. Die Schultern entspannt halten und gleichmäßig atmen</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasCommonMistake"/>
+        <NamedIndividual IRI="#AssistedShoulderRotation"/>
+        <Literal>Die Bewegung wird zu stark gezogen, der Ellenbogen entfernt sich vom Körper oder der Oberkörper dreht mit.</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasCorrectionGuidance"/>
+        <NamedIndividual IRI="#AssistedShoulderRotation"/>
+        <Literal>Den Ellenbogen stabil am Körper halten und nur sanften Druck verwenden. Der Bewegungsbereich soll schmerzfrei bleiben.</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasDescription"/>
+        <NamedIndividual IRI="#AssistedShoulderRotation"/>
+        <Literal>Sanfte Mobilisationsübung für die Schulterrotation mit Unterstützung durch die andere Hand, einen Stab oder ein Hilfsmittel. Sie verbessert die kontrollierte Beweglichkeit der Schulter.</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasInstruction"/>
+        <NamedIndividual IRI="#AssistedShoulderRotation"/>
+        <Literal>1. Aufrecht sitzen oder stehen.
+2. Den Ellenbogen des zu bewegenden Arms nah am Körper halten.
+3. Einen Stab oder die andere Hand zur Unterstützung verwenden.
+4. Den Unterarm langsam in die gewünschte Rotationsrichtung bewegen.
+5. Die Bewegung nur passiv oder leicht aktiv unterstützen.
+6. Kurz halten und langsam zurückführen.
+7. Mehrmals kontrolliert wiederholen.</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="#hasCommonMistake"/>
@@ -22834,6 +23291,32 @@
 6. Die Position für ein bis zwei Atemzüge halten.
 7. Arm und Bein langsam in die Ausgangsposition zurückführen.
 8. Die Bewegung mit dem anderen Arm und dem anderen Bein wiederholen.</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasCommonMistake"/>
+        <NamedIndividual IRI="#Deadlift"/>
+        <Literal>Der Rücken rundet sich, die Knie schieben zu weit nach vorne oder das Gewicht wird aus dem unteren Rücken gehoben.</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasCorrectionGuidance"/>
+        <NamedIndividual IRI="#Deadlift"/>
+        <Literal>Die Bewegung aus der Hüfte einleiten und die Wirbelsäule neutral halten. Mit wenig oder keinem Zusatzgewicht beginnen und den Bewegungsumfang reduzieren.</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasDescription"/>
+        <NamedIndividual IRI="#Deadlift"/>
+        <Literal>Kräftigungsübung für hintere Oberschenkelmuskulatur, Gesäß, Rückenstrecker und Rumpf. Der Fokus liegt auf der Hüftbeugebewegung und einer stabilen Wirbelsäule.</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasInstruction"/>
+        <NamedIndividual IRI="#Deadlift"/>
+        <Literal>1. Aufrecht stehen, Füße etwa hüftbreit.
+2. Knie leicht beugen.
+3. Das Becken kontrolliert nach hinten schieben.
+4. Den Rücken gerade halten.
+5. Den Oberkörper nach vorne neigen, ohne den Rücken zu runden.
+6. Über Gesäß und hintere Oberschenkel wieder aufrichten.
+7. Die Bewegung langsam wiederholen.</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="#angle"/>
@@ -23385,6 +23868,32 @@
         <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#decimal">8.0</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
+        <DataProperty IRI="#hasCommonMistake"/>
+        <NamedIndividual IRI="#LegRaise"/>
+        <Literal>Der untere Rücken hebt stark vom Boden ab, die Beine werden schwungvoll bewegt oder der Nacken verspannt.</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasCorrectionGuidance"/>
+        <NamedIndividual IRI="#LegRaise"/>
+        <Literal>Den Bewegungsumfang verkleinern oder nur ein Bein bewegen. Bauchspannung halten und die Bewegung langsam ausführen.</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasDescription"/>
+        <NamedIndividual IRI="#LegRaise"/>
+        <Literal>Kräftigungsübung für Bauchmuskulatur und Hüftbeuger. Die Übung trainiert die Kontrolle der Beckenposition und die Stabilität des unteren Rückens.</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasInstruction"/>
+        <NamedIndividual IRI="#LegRaise"/>
+        <Literal>1. Auf den Rücken legen.
+2. Beine ausstrecken oder leicht beugen.
+3. Den unteren Rücken kontrolliert Richtung Boden stabilisieren.
+4. Ein Bein oder beide Beine langsam anheben.
+5. Die Beine kontrolliert wieder absenken.
+6. Nur so tief gehen, wie der Rücken stabil bleibt.
+7. Gleichmäßig atmen.</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
         <DataProperty IRI="#severityScore"/>
         <NamedIndividual IRI="#LowRisk"/>
         <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#decimal">0.2</Literal>
@@ -23524,6 +24033,58 @@ Langsam zur Mitte zurückkehren.
 8. Langsam lösen und die Seite wechseln.</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
+        <DataProperty IRI="#hasCommonMistake"/>
+        <NamedIndividual IRI="#PiriformisStretch"/>
+        <Literal>Das Knie wird stark nach unten gedrückt, der Nacken verspannt oder die Dehnung wird trotz Schmerzen erzwungen.</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasCorrectionGuidance"/>
+        <NamedIndividual IRI="#PiriformisStretch"/>
+        <Literal>Die Dehnung sanft halten und nicht am Knie ziehen. Kopf und Schultern entspannt ablegen und nur im angenehmen Bereich arbeiten.</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasDescription"/>
+        <NamedIndividual IRI="#PiriformisStretch"/>
+        <Literal>Dehnübung für die tiefe Gesäßmuskulatur, insbesondere den Piriformis. Sie kann Spannungen im Gesäßbereich reduzieren und die Hüftbeweglichkeit unterstützen.</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasInstruction"/>
+        <NamedIndividual IRI="#PiriformisStretch"/>
+        <Literal>1. Auf den Rücken legen.
+2. Ein Bein anwinkeln.
+3. Den Knöchel des anderen Beins auf den Oberschenkel legen.
+4. Das untere Bein langsam zum Körper ziehen.
+5. Die Dehnung im Gesäß wahrnehmen.
+6. Die Position ruhig halten.
+7. Langsam lösen und die Seite wechseln.</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasCommonMistake"/>
+        <NamedIndividual IRI="#Plank"/>
+        <Literal>Das Becken sinkt ab, das Gesäß wird zu hoch gehalten oder der Nacken wird überstreckt.</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasCorrectionGuidance"/>
+        <NamedIndividual IRI="#Plank"/>
+        <Literal>Bauchspannung aktivieren und den Blick zum Boden richten. Die Übung abbrechen oder verkürzen, wenn die Körperlinie nicht mehr gehalten werden kann.</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasDescription"/>
+        <NamedIndividual IRI="#Plank"/>
+        <Literal>Statische Kräftigungsübung für Rumpf, Bauchmuskulatur, Schultern und Hüfte. Sie verbessert die Körperstabilität und die Kontrolle der Wirbelsäulenposition.</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasInstruction"/>
+        <NamedIndividual IRI="#Plank"/>
+        <Literal>1. In den Unterarmstütz kommen.
+2. Ellenbogen unter den Schultern positionieren.
+3. Beine nach hinten ausstrecken.
+4. Bauch und Gesäß leicht anspannen.
+5. Den Körper in einer geraden Linie halten.
+6. Ruhig weiteratmen.
+7. Die Position nur so lange halten, wie die Kontrolle erhalten bleibt.</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
         <DataProperty IRI="#Calorie"/>
         <NamedIndividual IRI="#PlayingCatch"/>
         <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#decimal">178.0</Literal>
@@ -23569,6 +24130,32 @@ Langsam zur Mitte zurückkehren.
 6. Während des Anspannens weiteratmen und nicht pressen.
 7. Nach der letzten Muskelgruppe einige Atemzüge ruhig liegen oder sitzen bleiben.
 8. Den Körper langsam wieder bewegen und die Übung beenden.</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasCommonMistake"/>
+        <NamedIndividual IRI="#PushUps"/>
+        <Literal>Das Becken hängt durch, die Ellenbogen gehen zu weit nach außen oder der Kopf wird nach vorne geschoben.</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasCorrectionGuidance"/>
+        <NamedIndividual IRI="#PushUps"/>
+        <Literal>Rumpf aktiv stabilisieren und die Bewegung langsam ausführen. Bei zu hoher Belastung auf Knie-Liegestütze oder Wall Push Ups ausweichen.</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasDescription"/>
+        <NamedIndividual IRI="#PushUps"/>
+        <Literal>Kräftigungsübung für Brust, Schultern, Trizeps und Rumpf. Klassische Liegestütze erfordern gute Körperspannung und Schulterkontrolle.</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasInstruction"/>
+        <NamedIndividual IRI="#PushUps"/>
+        <Literal>1. In die Liegestützposition kommen.
+2. Hände etwas breiter als schulterbreit platzieren.
+3. Beine nach hinten ausstrecken und den Körper gerade halten.
+4. Den Oberkörper kontrolliert absenken.
+5. Ellenbogen leicht schräg nach hinten führen.
+6. Den Körper wieder nach oben drücken.
+7. Die Bewegung kontrolliert wiederholen.</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="#angle"/>
@@ -23793,6 +24380,32 @@ Langsam zur Mitte zurückkehren.
 9. Alle Bewegungen im schmerzfreien Bereich ausführen.</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
+        <DataProperty IRI="#hasCommonMistake"/>
+        <NamedIndividual IRI="#SealStretch"/>
+        <Literal>Die Schultern werden hochgezogen, die Ellenbogen werden durchgedrückt oder die Bewegung wird trotz Rückenschmerzen erzwungen.</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasCorrectionGuidance"/>
+        <NamedIndividual IRI="#SealStretch"/>
+        <Literal>Die Arme nur so weit strecken, wie es angenehm ist. Schultern tief halten und bei Druck im unteren Rücken die Höhe reduzieren.</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasDescription"/>
+        <NamedIndividual IRI="#SealStretch"/>
+        <Literal>Mobilisations- und Dehnübung für die vordere Rumpfseite und die Wirbelsäulenstreckung. Die Übung wird häufig zur sanften Extension der Wirbelsäule genutzt.</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasInstruction"/>
+        <NamedIndividual IRI="#SealStretch"/>
+        <Literal>1. In Bauchlage starten.
+2. Hände neben oder leicht vor den Schultern aufstützen.
+3. Den Oberkörper langsam anheben.
+4. Das Becken bleibt möglichst am Boden.
+5. Schultern weg von den Ohren halten.
+6. Die Position kurz halten und ruhig atmen.
+7. Langsam wieder absenken.</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
         <DataProperty IRI="#date"/>
         <NamedIndividual IRI="#Session0001"/>
         <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#dateTime">2025-06-11T00:00:00</Literal>
@@ -23801,6 +24414,31 @@ Langsam zur Mitte zurückkehren.
         <DataProperty IRI="#duration"/>
         <NamedIndividual IRI="#Session0001"/>
         <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">60</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasCommonMistake"/>
+        <NamedIndividual IRI="#ShoulderInternalExternalRotation"/>
+        <Literal>Der Oberkörper dreht mit, der Ellenbogen wandert nach außen oder die Bewegung wird ruckartig ausgeführt.</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasCorrectionGuidance"/>
+        <NamedIndividual IRI="#ShoulderInternalExternalRotation"/>
+        <Literal>Den Ellenbogen nah am Körper halten und die Bewegung nur aus dem Schultergelenk ausführen. Den Bewegungsumfang reduzieren, wenn Ausweichbewegungen entstehen.</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasDescription"/>
+        <NamedIndividual IRI="#ShoulderInternalExternalRotation"/>
+        <Literal>Mobilisations- und Kontrollübung für Innen- und Außenrotation der Schulter. Die Übung verbessert die Bewegungswahrnehmung und unterstützt die funktionelle Schulterbeweglichkeit.</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasInstruction"/>
+        <NamedIndividual IRI="#ShoulderInternalExternalRotation"/>
+        <Literal>1. Aufrecht stehen oder sitzen.
+2. Den Ellenbogen am Körper halten und etwa 90 Grad beugen.
+3. Den Unterarm langsam nach außen rotieren.
+4. Anschließend kontrolliert nach innen rotieren.
+5. Die Bewegung langsam und schmerzfrei ausführen.
+6. Die Schulter während der Bewegung stabil halten</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="#Calorie"/>
@@ -24088,6 +24726,32 @@ Langsam zur Mitte zurückkehren.
         <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#decimal">0.0</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
+        <DataProperty IRI="#hasCommonMistake"/>
+        <NamedIndividual IRI="#StandingPelvicTilts"/>
+        <Literal>Die Bewegung wird aus den Knien oder dem Oberkörper gemacht, statt aus dem Becken. Der Rücken wird stark überstreckt.</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasCorrectionGuidance"/>
+        <NamedIndividual IRI="#StandingPelvicTilts"/>
+        <Literal>Die Bewegung klein halten und bewusst aus dem Becken steuern. Bauch- und Gesäßmuskulatur leicht aktivieren.</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasDescription"/>
+        <NamedIndividual IRI="#StandingPelvicTilts"/>
+        <Literal>Kontrollübung für Beckenposition und unteren Rücken. Sie verbessert die Wahrnehmung von Beckenkippung und kann helfen, die Lendenwirbelsäule besser zu kontrollieren.</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasInstruction"/>
+        <NamedIndividual IRI="#StandingPelvicTilts"/>
+        <Literal>1. Aufrecht stehen, Füße etwa hüftbreit.
+2. Knie leicht beugen.
+3. Das Becken langsam nach vorne kippen.
+4. Danach das Becken langsam nach hinten kippen.
+5. Die Bewegung klein und kontrolliert ausführen.
+6. Den Oberkörper möglichst ruhig halten.
+7. Mehrere Wiederholungen langsam durchführen.</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
         <DataProperty IRI="#angle"/>
         <NamedIndividual IRI="#StandingSideBend_Left_Arm"/>
         <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#decimal">45.0</Literal>
@@ -24136,6 +24800,32 @@ Langsam zur Mitte zurückkehren.
         <DataProperty IRI="#angle"/>
         <NamedIndividual IRI="#StandingSplit_Torso"/>
         <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#decimal">180.0</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasCommonMistake"/>
+        <NamedIndividual IRI="#Standing_sleeper_stretch"/>
+        <Literal>Zu viel Druck wird auf die Schulter gegeben, der Oberkörper dreht mit oder die Bewegung verursacht stechende Schmerzen.</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasCorrectionGuidance"/>
+        <NamedIndividual IRI="#Standing_sleeper_stretch"/>
+        <Literal>Nur leichten Druck verwenden und die Schulter stabil halten. Die Dehnung muss sanft bleiben. Bei Schmerz den Winkel oder Bewegungsumfang reduzieren.</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasDescription"/>
+        <NamedIndividual IRI="#Standing_sleeper_stretch"/>
+        <Literal>Dehnübung für die hintere Schulterkapsel und die Innenrotation der Schulter. Sie kann die Beweglichkeit der Schulter verbessern, sollte aber sehr kontrolliert ausgeführt werden.</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasInstruction"/>
+        <NamedIndividual IRI="#Standing_sleeper_stretch"/>
+        <Literal>1. Seitlich an eine Wand stellen.
+2. Den betroffenen Arm auf Schulterhöhe an die Wand bringen.
+3. Den Ellenbogen etwa 90 Grad beugen.
+4. Den Unterarm langsam nach unten führen.
+5. Eine sanfte Dehnung in der hinteren Schulter spüren.
+6. Die Position kurz halten.
+7. Langsam lösen.</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="#Calorie"/>
@@ -24256,6 +24946,32 @@ Langsam zur Mitte zurückkehren.
         <DataProperty IRI="#MET"/>
         <NamedIndividual IRI="#TennisDoubles"/>
         <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#decimal">5.0</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasCommonMistake"/>
+        <NamedIndividual IRI="#TherabandAussenrotation"/>
+        <Literal>Der Ellenbogen entfernt sich vom Körper, das Handgelenk knickt ab oder der Oberkörper dreht mit.</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasCorrectionGuidance"/>
+        <NamedIndividual IRI="#TherabandAussenrotation"/>
+        <Literal>Den Ellenbogen nah am Körper halten, eventuell ein kleines Handtuch zwischen Ellenbogen und Oberkörper klemmen. Nur so weit nach außen rotieren, wie die Schulter stabil bleibt.</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasDescription"/>
+        <NamedIndividual IRI="#TherabandAussenrotation"/>
+        <Literal>Kräftigungsübung für die Außenrotatoren der Schulter und die Rotatorenmanschette. Sie unterstützt die Schulterstabilität und kann bei kontrolliertem Training die Haltung des Schultergelenks verbessern.</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasInstruction"/>
+        <NamedIndividual IRI="#TherabandAussenrotation"/>
+        <Literal>1. Aufrecht stehen oder sitzen.
+2. Das Theraband mit beiden Händen halten.
+3. Die Ellenbogen nah am Körper halten und etwa 90 Grad beugen.
+4. Einen Unterarm langsam nach außen drehen.
+5. Das Handgelenk stabil halten.
+6. Langsam in die Ausgangsposition zurückkehren.
+7. Die Bewegung kontrolliert wiederholen.</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="#Calorie"/>
@@ -24428,6 +25144,32 @@ Langsam zur Mitte zurückkehren.
         <DataProperty IRI="#MET"/>
         <NamedIndividual IRI="#WalkingUpStairs"/>
         <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#decimal">8.0</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasCommonMistake"/>
+        <NamedIndividual IRI="#WallPushUps"/>
+        <Literal>Der Rücken hängt durch, die Schultern werden hochgezogen oder die Ellenbogen gehen stark nach außen.</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasCorrectionGuidance"/>
+        <NamedIndividual IRI="#WallPushUps"/>
+        <Literal>Bauch leicht anspannen und den Körper in einer Linie halten. Die Schultern tief halten und die Ellenbogen leicht schräg nach hinten führen.</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasDescription"/>
+        <NamedIndividual IRI="#WallPushUps"/>
+        <Literal>Eine vereinfachte Liegestützvariante an der Wand. Die Übung kräftigt Brust, Schultern, Arme und Rumpf mit reduzierter Belastung im Vergleich zu klassischen Liegestützen.</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasInstruction"/>
+        <NamedIndividual IRI="#WallPushUps"/>
+        <Literal>1. Vor eine Wand stellen.
+2. Die Hände etwa schulterbreit an die Wand setzen.
+3. Die Füße etwas von der Wand entfernen.
+4. Den Körper gerade halten.
+5. Die Ellenbogen langsam beugen und den Oberkörper zur Wand führen.
+6. Kontrolliert zurückdrücken.
+7. Die Bewegung ruhig wiederholen.</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="#angle"/>
@@ -25153,13 +25895,13 @@ Langsam zur Mitte zurückkehren.
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>#ArmkreisenGewichtsverlagerung</IRI>
-        <Literal>Armkreisen mit Gewichtsverlagerung</Literal>
+        <IRI>#Armkreisen</IRI>
+        <Literal>Armkreisen</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>#ArmkreisenGewichtsverlagerung_ShoulderIssue</IRI>
-        <Literal>ArmkreisenGewichtsverlagerung_ShoulderIssue</Literal>
+        <IRI>#Armkreisen_ShoulderIssue</IRI>
+        <Literal>Armkreisen_ShoulderIssue</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
@@ -25179,7 +25921,7 @@ Langsam zur Mitte zurückkehren.
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#AssistedShoulderRotation</IRI>
-        <Literal xml:lang="en">Assisted Shoulder Rotation</Literal>
+        <Literal>Assisted Shoulder Rotation</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
@@ -25299,7 +26041,7 @@ Langsam zur Mitte zurückkehren.
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#BrustwirbelsaeulenRotation</IRI>
-        <Literal>Brustwirbelsaeulen-Rotation</Literal>
+        <Literal>BrustwirbelsaeulenRotation</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
@@ -26289,7 +27031,7 @@ Langsam zur Mitte zurückkehren.
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#HueftbeugerDehnung</IRI>
-        <Literal>Hueftbeuger-Dehnung (Iliopsoas)</Literal>
+        <Literal>Hueftbeuger-Dehnung</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
@@ -26339,12 +27081,7 @@ Langsam zur Mitte zurückkehren.
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#Katze-Kuh-Übung</IRI>
-        <Literal xml:lang="en">Cat-Cow</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>#Katze-Kuh-Übung</IRI>
-        <Literal xml:lang="de">Katze-Kuh</Literal>
+        <Literal>KatzeKuh</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
@@ -26739,7 +27476,7 @@ Langsam zur Mitte zurückkehren.
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#PigeonPose</IRI>
-        <Literal>Pigeon Pose (vereinfacht)</Literal>
+        <Literal>Pigeon Pose</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
@@ -27129,7 +27866,7 @@ Langsam zur Mitte zurückkehren.
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#SitzenStehen</IRI>
-        <Literal>Sitzen-Stehen-Uebung (Sit-to-Stand)</Literal>
+        <Literal>Sit-to-Stand</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
