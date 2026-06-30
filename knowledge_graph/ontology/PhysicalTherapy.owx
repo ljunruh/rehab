@@ -5822,7 +5822,7 @@
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#hasDifficultyLevel"/>
         <NamedIndividual IRI="#Bruecke"/>
-        <NamedIndividual IRI="#Beginner"/>
+        <NamedIndividual IRI="#Intermediate"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#improves"/>
@@ -5838,6 +5838,11 @@
         <ObjectProperty IRI="#improves"/>
         <NamedIndividual IRI="#Bruecke"/>
         <NamedIndividual IRI="#Strength"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#rehabilitates"/>
+        <NamedIndividual IRI="#Bruecke"/>
+        <NamedIndividual IRI="#Spine"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#requiresEquipment"/>
@@ -5907,7 +5912,7 @@
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#hasDifficultyLevel"/>
         <NamedIndividual IRI="#BrustwirbelsaeulenRotation"/>
-        <NamedIndividual IRI="#Beginner"/>
+        <NamedIndividual IRI="#Intermediate"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#improves"/>
@@ -11942,7 +11947,7 @@
         </Annotation>
         <ObjectProperty IRI="#hasDifficultyLevel"/>
         <NamedIndividual IRI="#HueftbeugerDehnung"/>
-        <NamedIndividual IRI="#Beginner"/>
+        <NamedIndividual IRI="#Intermediate"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <Annotation>
@@ -11971,6 +11976,11 @@
         <ObjectProperty IRI="#rehabilitates"/>
         <NamedIndividual IRI="#HueftbeugerDehnung"/>
         <NamedIndividual IRI="#HipJoint"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#rehabilitates"/>
+        <NamedIndividual IRI="#HueftbeugerDehnung"/>
+        <NamedIndividual IRI="#Spine"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#requiresEquipment"/>
@@ -13566,6 +13576,11 @@
         <NamedIndividual IRI="#Back"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#rehabilitates"/>
+        <NamedIndividual IRI="#MountainClimber"/>
+        <NamedIndividual IRI="#Spine"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
         <ObjectProperty IRI="#requiresEquipment"/>
         <NamedIndividual IRI="#MountainClimber"/>
         <NamedIndividual IRI="#None"/>
@@ -14435,7 +14450,7 @@
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#hasDifficultyLevel"/>
         <NamedIndividual IRI="#Plank"/>
-        <NamedIndividual IRI="#Beginner"/>
+        <NamedIndividual IRI="#Advanced"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#improves"/>
@@ -14456,6 +14471,11 @@
         <ObjectProperty IRI="#improves"/>
         <NamedIndividual IRI="#Plank"/>
         <NamedIndividual IRI="#Strength"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#rehabilitates"/>
+        <NamedIndividual IRI="#Plank"/>
+        <NamedIndividual IRI="#Spine"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#requiresEquipment"/>
@@ -21305,7 +21325,7 @@
         </Annotation>
         <ObjectProperty IRI="#hasDifficultyLevel"/>
         <NamedIndividual IRI="#Warrior1"/>
-        <NamedIndividual IRI="#Intermediate"/>
+        <NamedIndividual IRI="#Advanced"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <Annotation>
@@ -21441,6 +21461,11 @@
         <ObjectProperty IRI="#improves"/>
         <NamedIndividual IRI="#Warrior1"/>
         <NamedIndividual IRI="#Strength"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#rehabilitates"/>
+        <NamedIndividual IRI="#Warrior1"/>
+        <NamedIndividual IRI="#Spine"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <Annotation>
@@ -21773,7 +21798,7 @@
         </Annotation>
         <ObjectProperty IRI="#hasDifficultyLevel"/>
         <NamedIndividual IRI="#Warrior2"/>
-        <NamedIndividual IRI="#Intermediate"/>
+        <NamedIndividual IRI="#Advanced"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <Annotation>
@@ -21936,6 +21961,11 @@
         <ObjectProperty IRI="#opens"/>
         <NamedIndividual IRI="#Warrior2"/>
         <NamedIndividual IRI="#Thighs"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#rehabilitates"/>
+        <NamedIndividual IRI="#Warrior2"/>
+        <NamedIndividual IRI="#Spine"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <Annotation>
