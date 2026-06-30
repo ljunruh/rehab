@@ -23174,6 +23174,31 @@
     </DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="#hasCommonMistake"/>
+        <NamedIndividual IRI="#Bruecke"/>
+        <Literal xml:lang="de">Am häufigsten werden die Hüfte zu hoch gestreckt, der untere Rücken durchgedrückt und die Füße vom Boden abgehoben, wodurch die Gesäßmuskeln ausfallen und die Lendenwirbelsäule belastet wird.</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasCorrectionGuidance"/>
+        <NamedIndividual IRI="#Bruecke"/>
+        <Literal xml:lang="de">Füße hüftbreit lassen, Fersen in den Boden drücken, Rippen nach unten ziehen und die Bewegung bewusst aus dem Gesäß statt aus dem Rücken initiieren, bis Ohr, Schulter, Hüfte und Knie eine Linie bilden.</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasDescription"/>
+        <NamedIndividual IRI="#Bruecke"/>
+        <Literal xml:lang="de">Die Brücke ist eine Rückenlage-Übung, bei der du die Hüfte durch Anspannen des Gesäßes anhebst und so Gesäß, Beinrückseite und Rumpf stabilisierend trainierst.</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasInstruction"/>
+        <NamedIndividual IRI="#Bruecke"/>
+        <Literal xml:lang="de">1. Rückenlage, Knie angewinkelt, Füße hüftbreit und flach auf dem Boden.
+2. Arme entspannt seitlich am Körper ablegen, Handflächen nach oben.
+3. Core aktivieren und den unteren Rücken sanft in den Boden drücken.
+4. Gesäß fest anspannen und die Hüfte kontrolliert nach oben schieben.
+5. Am oberen Punkt bilden Schulter, Hüfte und Knie eine Linie, Pobacken oben richtig zusammendrücken.
+6. Position kurz halten, dann die Hüfte langsam und kontrolliert wieder absenken.</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasCommonMistake"/>
         <NamedIndividual IRI="#BrustwirbelsaeulenRotation"/>
         <Literal>Die Rotation erfolgt hauptsächlich aus dem unteren Rücken, das Becken dreht stark mit oder die Bewegung wird ruckartig ausgeführt.</Literal>
     </DataPropertyAssertion>
