@@ -23305,6 +23305,32 @@
         <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#decimal">0.0</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
+        <DataProperty IRI="#hasCommonMistake"/>
+        <NamedIndividual IRI="#ChestDoorwayStretch"/>
+        <Literal xml:lang="de">Achte darauf, dass du bei der Bewegungsausführung nicht ins Hohlkreuz gelangst. Du darfst dein Kinn nicht nach vorne Schieben. Die Schultern dürfen hierbei nicht hochgezpgen werden. Die 90 Grad der Ellbogen müssen eingehalten werden, weil sonst die Belastung verschoben wird.</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasCorrectionGuidance"/>
+        <NamedIndividual IRI="#ChestDoorwayStretch"/>
+        <Literal xml:lang="de">Lehne dich aus der Brust, nicht aus dem Rücken. Die Vorwärtsbewegung kommt aus dem Brustbein. Das Kinn bildet eine Linie mit dem Brustbein, du darfst kein Doppelkinn erzwingen. Beim langsamen Ausatmen kann sich das Brustbein besser senen und die Dehnung wird tiefer.</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasDescription"/>
+        <NamedIndividual IRI="#ChestDoorwayStretch"/>
+        <Literal xml:lang="de">Dehnübung, die mithilfe eines Türrahmens die Brustmuskulatur sowie die vordere Schulter dehnt. Die Übung öffnet die Körpervorderseite, wirkt die nach vorne gerollten Schultern entgegen und verbessert die Schulter- und Nackenmobilität.</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasInstruction"/>
+        <NamedIndividual IRI="#ChestDoorwayStretch"/>
+        <Literal xml:lang="de">1. Stelle dich aufrecht in einen offenen Türrahmen, Füße schulterbreit.
+2. Hebe beide Arme seitlich auf Schulterhöhe an und winke die Ellbogen im 90-Grad-Winkel ab, die Unterarme liegen flach am Türrahmen an, Handflächen zeigen nach vorne.
+3. Ziehe die Schulterblätter bewusst nach unten und hinten (nicht hochziehen).
+4. Mache einen kleinen Schritt mit einem Fuß nach vorne durch den Türrahmen.
+5. Lehne den Brustkorb langsam nach vorne, bis du eine sanfte Dehnung quer über Brust und Vorderschultern spürst.
+6. Halte den Hals neutral, das Kinn parallel zum Boden, Blick nach vorne.
+7. Löse die Dehnung, indem du langsam zurücktrittst.</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
         <DataProperty IRI="#Calorie"/>
         <NamedIndividual IRI="#ChoppingWood"/>
         <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#decimal">428.0</Literal>
