@@ -24781,6 +24781,32 @@ Langsam zur Mitte zurückkehren.
         <Literal>Das Sprunggelenk in der akuten Phase nicht unnötig belasten.</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
+        <DataProperty IRI="#hasCommonMistake"/>
+        <NamedIndividual IRI="#StandingBackbend"/>
+        <Literal xml:lang="de">Das ruckartige Nach-hinten-Werfen des Kopfes mit Nackenkompression gilt es zu vermeiden, das Überstrecken nur im unteren Rücken (Hohlkreuz), das Hochziehen der Schultern, das Anwinkeln der Knie und ein schlaffer Bauch.</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasCorrectionGuidance"/>
+        <NamedIndividual IRI="#StandingBackbend"/>
+        <Literal xml:lang="de">Zur Korrektur das Kinn Richtung Mitte der Schlüsselbein ziehen, den Hinterkopf lang nach hinten führen, das Brustbein aktiv heben, das Becken nach vorn schieben und den Rumpf sowie die Beine durchgehend angespannt halten, sodass die Biegung gleichmäßig über die Brustwirbelsäule verteilt wird.</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasDescription"/>
+        <NamedIndividual IRI="#StandingBackbend"/>
+        <Literal xml:lang="de">Die Standing Back Bend ist eine stehende Rückbeuge, die Brust und Körpervorderseite öffnet, die Wirbelsäule mobilisiert und gleichzeitig Rumpf, Gesäß und Beine aktiviert.</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasInstruction"/>
+        <NamedIndividual IRI="#StandingBackbend"/>
+        <Literal xml:lang="de">1. Stell dich hüftbreit und aufrecht hin, die Hände an die Hüften oder den unteren Rücken.
+2. Aktivier den Core, die Oberschenkel und das Gesäß, und strecke die Wirbelsäule nach oben.
+3. Atme ein, heb das Brustbein an und zieh die Schultern bewusst nach unten und zurück.
+4. Schieb das Becken leicht nach vorn und lehn dich dann kontrolliert aus der Brustwirbelsäule nach hinten.
+5. Lass den Kopf nur locker folgen und halt den Nacken lang, statt ihn ruckartig nach hinten zu werfen.
+6. Bleib für einige ruhige Atemzüge in der Position und halt Spannung im Bauch und in den Beinen.
+7. Spann den Core an und kehr Wirbel für Wirbel langsam in den aufrechten Stand zurück.</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
         <DataProperty IRI="#angle"/>
         <NamedIndividual IRI="#StandingBackbend_Left_Arm"/>
         <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#decimal">90.0</Literal>
