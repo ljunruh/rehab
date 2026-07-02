@@ -43,17 +43,52 @@ class ExerciseApi extends CoreApi {
   Future<List<Exercise>> fetchFilteredExercises(BodyPart bodyPart, Goal goal, int painLevel, List<Injury> injury, SkillLevel skillLevel) async {
     String difficulty = _getDifficulties(skillLevel, painLevel);
 
-    final query =
-    '''
-SELECT ?exercise ?label ?comment ?difficulty
-WHERE {
-    VALUES ?difficulty { $difficulty }
+    final List<String> activeFilters = [];
+    final List<String> valuesBlocks = [];
 
-    ?exercise a/rdfs:subClassOf* rehab:Exercise ;
-              rehab:hasDifficultyLevel ?difficulty .
+    // Difficulty filter
+    valuesBlocks.add('VALUES ?difficulty { $difficulty }');
+    activeFilters.add('?exercise rehab:hasDifficultyLevel ?difficulty .');
 
-    OPTIONAL { ?exercise rdfs:label ?label }
-    OPTIONAL { ?exercise rdfs:comment ?comment }
+    // BodyPart filter
+    if (bodyPart != BodyPart.none) {
+      String bodyPartName = bodyPart.name[0].toUpperCase() + bodyPart.name.substring(1);
+      activeFilters.add('?exercise rehab:rehabilitates rehab:$bodyPartName .');
+    }
+
+    // Goal filter
+    if (goal != Goal.none) {
+      String goalName = goal.name[0].toUpperCase() + goal.name.substring(1);
+      activeFilters.add('?exercise (rehab:improves|rehab:hasTrainingEffect) rehab:$goalName .');
+    }
+
+    // Injury filter
+    final filteredInjuries = injury.where((i) => i != Injury.none).toList();
+    if (filteredInjuries.isNotEmpty) {
+      final injuryURIs = filteredInjuries.map((i) {
+        String name = i.name[0].toUpperCase() + i.name.substring(1);
+        return 'rehab:$name';
+      }).join(' ');
+
+      valuesBlocks.add('VALUES ?selectedInjury { $injuryURIs }');
+
+      activeFilters.add('''
+    FILTER NOT EXISTS { ?selectedInjury rehab:excludesExercise ?exercise }
+    FILTER NOT EXISTS { ?exercise rehab:hasContraindication ?selectedInjury }
+    FILTER NOT EXISTS { ?exercise rehab:hasContraindication/rehab:forCondition ?selectedInjury }
+      ''');
+    }
+
+    final query = '''
+SELECT ?exercise ?label ?comment WHERE {
+    ${valuesBlocks.join('\n    ')}
+
+    ?exercise a/rdfs:subClassOf* rehab:Exercise .
+
+    ${activeFilters.join('\n    ')}
+
+    OPTIONAL { ?exercise rdfs:label ?label . }
+    OPTIONAL { ?exercise rdfs:comment ?comment . }
 }
     ''';
 
@@ -72,7 +107,7 @@ WHERE {
     }
   }
 
-  _getDifficulties(SkillLevel skillLevel, int painLevel) {
+  String _getDifficulties(SkillLevel skillLevel, int painLevel) {
     if (painLevel > 3) {
       return "rehab:Beginner";
     }

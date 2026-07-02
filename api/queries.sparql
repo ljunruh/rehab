@@ -4,3 +4,123 @@ SELECT ?exercise ?label ?comment WHERE {
   	OPTIONAL { ?exercise rdfs:label ?label . }
 	OPTIONAL { ?exercise rdfs:comment ?comment . }
 }
+
+# WIP
+SELECT ?exercise ?label ?comment
+WHERE {
+    ?exercise a/rdfs:subClassOf* rehab:Exercise ;
+              rehab:hasDifficultyLevel ?difficulty .
+
+    OPTIONAL { ?exercise rdfs:label ?label }
+    OPTIONAL { ?exercise rdfs:comment ?comment }
+
+    FILTER(
+        (?painLevel > 3 && ?difficulty = rehab:Beginner) ||
+        (?painLevel <= 3 && ?difficulty = ?skillLevel)
+    )
+}
+
+
+FILTER NOT EXISTS {
+        VALUES ?injury {
+            rehab:KneeIssue
+        }
+        ?exercise rehab:hasContraindication ?injury .
+    }
+    
+    
+    
+    
+SELECT ?exercise ?label ?comment ?difficulty ?injury
+WHERE {
+    VALUES ?difficulty { rehab:Beginner rehab:Intermediate }
+
+    ?exercise a/rdfs:subClassOf* rehab:Exercise ;
+  				rehab:hasDifficultyLevel ?difficulty .
+  				
+
+    FILTER NOT EXISTS {
+    VALUES ?injury {
+        rehab:KneeIssue
+        rehab:WristIssue
+    }
+    	?exercise (rehab:hasContraindication | ^rehab:isContraindicationFor) ?injury .
+  	}
+
+    OPTIONAL { ?exercise rdfs:label ?label }
+    OPTIONAL { ?exercise rdfs:comment ?comment }
+}
+
+- Wenn painlevel höher als 3, dann sollen nur beginner übungen zurückgegeben werden
+- Ansonsten basierend auf dem Skilllevel und alle mit niedrigerem Skilllevel.
+- Alle Exercises sollen rausgefiltert werden für die es einen eintrag in der Liste bei User unter Injury gibt
+- Es solle nur übungen angezeigt werden die der vom User ausgewählten BodyPart und Goal entsprechen
+unter @ui_ux/app_prototype/ gibt es bereits ein unvollständiges Query in ExerciseApi fetchFilteredExercises()
+
+
+
+SELECT ?exercise ?label ?comment WHERE {                                                                                             
+        # 1. Parameterwerte als Variablen binden                                                                                         
+        VALUES ?difficulty { rehab:Beginner rehab:Intermediate }                                                                         
+        VALUES ?selectedInjury { rehab:KneeIssue }                                                                                       
+                                                                                                                                         
+        # 2. Grundlegender Typ-Filter                                                                                                    
+        ?exercise a/rdfs:subClassOf* rehab:Exercise .                                                                                    
+                                                                                                                                         
+        # 3. Filter für Schwierigkeit                                                                                                    
+        ?exercise rehab:hasDifficultyLevel ?difficulty .                                                                                 
+                                                                                                                                         
+        # 4. Filter für ausgewählte Körperregion (z.B. Knie / rehab:Knees)                                                               
+        #?exercise rehab:rehabilitates rehab:Knees .                                                                                      
+                                                                                                                                         
+        # 5. Filter für ausgewähltes Ziel (z.B. Kraft / rehab:Strength)                                                                  
+        ?exercise (rehab:improves|rehab:hasTrainingEffect) rehab:Strength .                                                              
+                                                                                                                                         
+        # 6. Ausschlussfilter für Übungen bei bestehenden Verletzungen
+        #FILTER NOT EXISTS { ?selectedInjury rehab:excludesExercise ?exercise }
+        #FILTER NOT EXISTS { ?exercise rehab:hasContraindication ?selectedInjury }
+        FILTER NOT EXISTS { ?exercise rehab:hasContraindication/rehab:forCondition ?selectedInjury }
+}
+
+Über Injury oder Contraindication gehen?
+
+
+### Exercises abhängig von Schwierigkeitslevel und nicht wiedersprüchlichen Verletzungen zurück
+SELECT ?exercise ?label ?clabel
+WHERE {
+    VALUES ?difficulty { rehab:Beginner rehab:Intermediate }   
+  
+    ?exercise a/rdfs:subClassOf* rehab:Exercise ;
+              rehab:hasDifficultyLevel ?difficulty .
+
+  	FILTER NOT EXISTS {
+    	VALUES ?selectedInjury { rehab:HipIssue }
+    	?exercise rehab:hasContraindication/rehab:forCondition ?selectedInjury
+  	}
+  
+    OPTIONAL { ?exercise rdfs:label ?label }
+    OPTIONAL { ?exercise rdfs:comment ?comment }
+    OPTIONAL {
+        ?exercise rehab:hasContraindication ?contra .
+        OPTIONAL { ?contra rdfs:label ?clabel }
+    }
+}
+
+### Exercises abhängig von Schwierigkeitslevel und nicht wiedersprüchlichen Verletzungen zurück. Es werde nur Einträge angezeigt die ein clabel haben also hasContraindication Eintrag.
+SELECT ?exercise ?label ?clabel
+WHERE {
+    VALUES ?difficulty { rehab:Beginner rehab:Intermediate }   
+  
+    ?exercise a/rdfs:subClassOf* rehab:Exercise ;
+              rehab:hasDifficultyLevel ?difficulty ;
+  			  rehab:hasContraindication ?contra .
+    ?contra rdfs:label ?clabel
+
+  	FILTER NOT EXISTS {
+    	VALUES ?selectedInjury { rehab:HipIssue }
+    	?exercise rehab:hasContraindication/rehab:forCondition ?selectedInjury
+  	}
+  
+    OPTIONAL { ?exercise rdfs:label ?label }
+    OPTIONAL { ?exercise rdfs:comment ?comment }
+}
