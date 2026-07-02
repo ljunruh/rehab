@@ -1,10 +1,10 @@
-import 'package:app_prototype/data/models/condition.dart';
+import 'package:app_prototype/data/models/graph/condition.dart';
 import 'package:isar/isar.dart';
 
-class ConditionLocalDataSource {
+class ConditionService {
   final Isar isar;
 
-  ConditionLocalDataSource(this.isar);
+  ConditionService(this.isar);
 
   Future<List<Condition>> getAll() {
     return isar.conditions.where().findAll();

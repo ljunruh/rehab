@@ -110,7 +110,6 @@ class _AppShellState extends State<AppShell> {
       screen = UserSetupScreen(
         "Profil erstellen",
         onFinished: () {
-          context.read<UserProvider>().init();
           setState(() {
             _tab = AppTab.home;
             _sub = SubView.none;

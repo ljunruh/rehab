@@ -1,3 +1,7 @@
+import 'package:app_prototype/data/api/exercise_api.dart';
+import 'package:app_prototype/data/provider/exercise_provider.dart';
+import 'package:app_prototype/data/repository/exercise_repository.dart';
+import 'package:app_prototype/data/service/exercise_service.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../../core/theme/app_theme.dart';
@@ -392,11 +396,14 @@ class _PlanCreateScreenState extends State<PlanCreateScreen> {
 
   Widget _buildFooterButton() {
     if (_step == 1) {
+      //TODO: Test
       return PrimaryButton(
         label: 'Weiter',
         icon: Icons.arrow_forward,
         disabled: !_canStep1,
-        onPressed: _canStep1 ? _next : null,
+        onPressed: () {
+        context.read<ExerciseProvider>().loadAll();
+      },//_canStep1 ? _next : null,
       );
     }
     if (_step == 2) {

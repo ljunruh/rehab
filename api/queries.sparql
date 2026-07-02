@@ -1,0 +1,6 @@
+# Alle Übungen: Lese Rekusiv alle Instances von allen Exercise und entsprechenden SubKlassen  
+SELECT ?exercise ?label ?comment WHERE {
+	?exercise a/rdfs:subClassOf* rehab:Exercise .
+  	OPTIONAL { ?exercise rdfs:label ?label . }
+	OPTIONAL { ?exercise rdfs:comment ?comment . }
+}

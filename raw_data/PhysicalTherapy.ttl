@@ -83,24 +83,10 @@ xsd:date rdf:type rdfs:Datatype .
               rdfs:label "forCondition" .
 
 
-###  http://purl.org/PhysicalTherapy#fulfillsPurpose
-:fulfillsPurpose rdf:type owl:ObjectProperty ;
-                 owl:inverseOf :isFulfilledBy ;
-                 rdfs:domain :Exercise ;
-                 rdfs:comment "Verknüpft eine Übung mit dem Rehabilitationsziel (Goal), das sie therapeutisch erfüllt" ;
-                 rdfs:label "fulfillsPurpose" .
-
-
 ###  http://purl.org/PhysicalTherapy#hasBreathingGuidance
 :hasBreathingGuidance rdf:type owl:ObjectProperty ;
                       rdfs:comment "Breathing guidance while performing an asana" ;
                       rdfs:label "hasBreathingGuidance" .
-
-
-###  http://purl.org/PhysicalTherapy#hasCondition
-:hasCondition rdf:type owl:ObjectProperty ;
-              rdfs:comment "Verknüpft eine Patientenakte mit einer bestehenden Kondition/Diagnose" ;
-              rdfs:label "hasCondition" .
 
 
 ###  http://purl.org/PhysicalTherapy#hasContraindication
@@ -133,7 +119,6 @@ xsd:date rdf:type rdfs:Datatype .
 
 ###  http://purl.org/PhysicalTherapy#hasInjury
 :hasInjury rdf:type owl:ObjectProperty ;
-           rdfs:subPropertyOf :hasCondition ;
            owl:inverseOf :isInjuryOf ;
            rdfs:domain :Patient ;
            rdfs:range :Injury ;
@@ -149,23 +134,10 @@ xsd:date rdf:type rdfs:Datatype .
                   rdfs:label "hasLimbAlignment" .
 
 
-###  http://purl.org/PhysicalTherapy#hasSeverityLevel
-:hasSeverityLevel rdf:type owl:ObjectProperty ;
-                  rdfs:domain :Injury ;
-                  rdfs:range :SeverityLevel .
-
-
 ###  http://purl.org/PhysicalTherapy#hasTrainingEffect
 :hasTrainingEffect rdf:type owl:ObjectProperty ;
                    rdfs:domain :Exercise ;
                    rdfs:range :TrainingsEffect .
-
-
-###  http://purl.org/PhysicalTherapy#hasTrainingsGoal
-:hasTrainingsGoal rdf:type owl:ObjectProperty ;
-                  rdfs:range :TrainingsEffect ;
-                  rdfs:comment "Desired trainings effect of the session" ;
-                  rdfs:label "hasTrainingsGoal" .
 
 
 ###  http://purl.org/PhysicalTherapy#hasTrainingsLevel
@@ -221,12 +193,6 @@ xsd:date rdf:type rdfs:Datatype .
            rdfs:label "isFocusOf" .
 
 
-###  http://purl.org/PhysicalTherapy#isFulfilledBy
-:isFulfilledBy rdf:type owl:ObjectProperty ;
-               rdfs:range :Exercise ;
-               rdfs:label "isFulfilledBy" .
-
-
 ###  http://purl.org/PhysicalTherapy#isImprovedBy
 :isImprovedBy rdf:type owl:ObjectProperty ;
               rdfs:domain :TrainingsEffect ;
@@ -257,6 +223,10 @@ xsd:date rdf:type rdfs:Datatype .
       rdfs:label "limb" .
 
 
+###  http://purl.org/PhysicalTherapy#mapstoTrainingLevel
+:mapstoTrainingLevel rdf:type owl:ObjectProperty .
+
+
 ###  http://purl.org/PhysicalTherapy#opens
 :opens rdf:type owl:ObjectProperty ;
        rdfs:domain :Asana ;
@@ -270,6 +240,18 @@ xsd:date rdf:type rdfs:Datatype .
                  owl:TransitiveProperty ;
         rdfs:domain :BodyPart ;
         rdfs:range :BodyPart .
+
+
+###  http://purl.org/PhysicalTherapy#recommendedForInjury
+:recommendedForInjury rdf:type owl:ObjectProperty ;
+                      rdfs:subPropertyOf owl:topObjectProperty ;
+                      rdfs:domain :Exercise ;
+                      rdfs:range :Injury .
+
+
+###  http://purl.org/PhysicalTherapy#recommendsDifficultyLevel
+:recommendsDifficultyLevel rdf:type owl:ObjectProperty ;
+                           rdfs:subPropertyOf owl:topObjectProperty .
 
 
 ###  http://purl.org/PhysicalTherapy#rehabilitates
@@ -489,14 +471,19 @@ xsd:date rdf:type rdfs:Datatype .
 #    Classes
 #################################################################
 
-###  http://purl.org/PhysicalTherapy#AnkleFracture
-:AnkleFracture rdf:type owl:Class ;
-               rdfs:subClassOf :Fracture .
+###  http://purl.org/PhysicalTherapy#AnkleFrac
+:AnkleFrac rdf:type owl:Class ;
+           rdfs:subClassOf :Fracture .
 
 
 ###  http://purl.org/PhysicalTherapy#AnkleJointInjury
 :AnkleJointInjury rdf:type owl:Class ;
                   rdfs:subClassOf :JointInjury .
+
+
+###  http://purl.org/PhysicalTherapy#AnkleMuscleInjury
+:AnkleMuscleInjury rdf:type owl:Class ;
+                   rdfs:subClassOf :MuscleInjury .
 
 
 ###  http://purl.org/PhysicalTherapy#ArmMuscleInjury
@@ -561,14 +548,21 @@ xsd:date rdf:type rdfs:Datatype .
                  rdfs:subClassOf :ExerciseProperties .
 
 
-###  http://purl.org/PhysicalTherapy#ElbowFracture
-:ElbowFracture rdf:type owl:Class ;
-               rdfs:subClassOf :Fracture .
+###  http://purl.org/PhysicalTherapy#ElbowFrac
+:ElbowFrac rdf:type owl:Class ;
+           rdfs:subClassOf :Fracture .
 
 
 ###  http://purl.org/PhysicalTherapy#ElbowJointInjury
 :ElbowJointInjury rdf:type owl:Class ;
                   rdfs:subClassOf :JointInjury .
+
+
+###  http://purl.org/PhysicalTherapy#Entspannung
+:Entspannung rdf:type owl:Class ;
+             rdfs:subClassOf :Exercise ;
+             rdfs:comment "Übungen zur körperlichen und geistigen Entspannung" ;
+             rdfs:label "Entspannung" .
 
 
 ###  http://purl.org/PhysicalTherapy#Equipment
@@ -586,9 +580,9 @@ xsd:date rdf:type rdfs:Datatype .
                     rdfs:subClassOf owl:Thing .
 
 
-###  http://purl.org/PhysicalTherapy#FootFracture
-:FootFracture rdf:type owl:Class ;
-              rdfs:subClassOf :Fracture .
+###  http://purl.org/PhysicalTherapy#FootFrac
+:FootFrac rdf:type owl:Class ;
+          rdfs:subClassOf :Fracture .
 
 
 ###  http://purl.org/PhysicalTherapy#Fracture
@@ -596,14 +590,14 @@ xsd:date rdf:type rdfs:Datatype .
           rdfs:subClassOf :Injury .
 
 
-###  http://purl.org/PhysicalTherapy#HandFracture
-:HandFracture rdf:type owl:Class ;
-              rdfs:subClassOf :Fracture .
+###  http://purl.org/PhysicalTherapy#HandFrac
+:HandFrac rdf:type owl:Class ;
+          rdfs:subClassOf :Fracture .
 
 
-###  http://purl.org/PhysicalTherapy#HipFracture
-:HipFracture rdf:type owl:Class ;
-             rdfs:subClassOf :Fracture .
+###  http://purl.org/PhysicalTherapy#HipFrac
+:HipFrac rdf:type owl:Class ;
+         rdfs:subClassOf :Fracture .
 
 
 ###  http://purl.org/PhysicalTherapy#HipJointInjury
@@ -634,9 +628,9 @@ xsd:date rdf:type rdfs:Datatype .
              rdfs:subClassOf :Injury .
 
 
-###  http://purl.org/PhysicalTherapy#KneeFracture
-:KneeFracture rdf:type owl:Class ;
-              rdfs:subClassOf :Fracture .
+###  http://purl.org/PhysicalTherapy#KneeFrac
+:KneeFrac rdf:type owl:Class ;
+          rdfs:subClassOf :Fracture .
 
 
 ###  http://purl.org/PhysicalTherapy#KneeJointInjury
@@ -690,15 +684,15 @@ xsd:date rdf:type rdfs:Datatype .
               rdfs:subClassOf :Injury .
 
 
+###  http://purl.org/PhysicalTherapy#NeckMuscleInjury
+:NeckMuscleInjury rdf:type owl:Class ;
+                  rdfs:subClassOf :MuscleInjury .
+
+
 ###  http://purl.org/PhysicalTherapy#Patient
 :Patient rdf:type owl:Class ;
          rdfs:comment "Diese Klasse repräsentiert einen Reha-Patienten, der die Physiotherapie in Anspruch nimmt" ;
          rdfs:label "Patient" .
-
-
-###  http://purl.org/PhysicalTherapy#Relaxation
-:Relaxation rdf:type owl:Class ;
-            rdfs:subClassOf :Exercise .
 
 
 ###  http://purl.org/PhysicalTherapy#SeverityLevel
@@ -708,9 +702,9 @@ xsd:date rdf:type rdfs:Datatype .
                rdfs:label "SeverityLevel" .
 
 
-###  http://purl.org/PhysicalTherapy#ShoulderFracture
-:ShoulderFracture rdf:type owl:Class ;
-                  rdfs:subClassOf :Fracture .
+###  http://purl.org/PhysicalTherapy#ShoulderFrac
+:ShoulderFrac rdf:type owl:Class ;
+              rdfs:subClassOf :Fracture .
 
 
 ###  http://purl.org/PhysicalTherapy#ShoulderJointInjury
@@ -723,9 +717,9 @@ xsd:date rdf:type rdfs:Datatype .
                       rdfs:subClassOf :MuscleInjury .
 
 
-###  http://purl.org/PhysicalTherapy#SpineFracture
-:SpineFracture rdf:type owl:Class ;
-               rdfs:subClassOf :Fracture .
+###  http://purl.org/PhysicalTherapy#SpineFrac
+:SpineFrac rdf:type owl:Class ;
+           rdfs:subClassOf :Fracture .
 
 
 ###  http://purl.org/PhysicalTherapy#SpineJointInjury
@@ -754,6 +748,11 @@ xsd:date rdf:type rdfs:Datatype .
             rdfs:subClassOf :Exercise .
 
 
+###  http://purl.org/PhysicalTherapy#TendonInjury
+:TendonInjury rdf:type owl:Class ;
+              rdfs:subClassOf :Injury .
+
+
 ###  http://purl.org/PhysicalTherapy#ThighMuscleInjury
 :ThighMuscleInjury rdf:type owl:Class ;
                    rdfs:subClassOf :MuscleInjury .
@@ -773,6 +772,7 @@ xsd:date rdf:type rdfs:Datatype .
 
 ###  http://purl.org/PhysicalTherapy#TrainingsLevel
 :TrainingsLevel rdf:type owl:Class ;
+                rdfs:subClassOf :Patient ;
                 rdfs:comment "Sport level class for ranking users in beginner, intermediate and advanced" ;
                 rdfs:label "TrainingsLevel" .
 
@@ -782,9 +782,9 @@ xsd:date rdf:type rdfs:Datatype .
                rdfs:subClassOf :BackPain .
 
 
-###  http://purl.org/PhysicalTherapy#WristFracture
-:WristFracture rdf:type owl:Class ;
-               rdfs:subClassOf :Fracture .
+###  http://purl.org/PhysicalTherapy#WristFrac
+:WristFrac rdf:type owl:Class ;
+           rdfs:subClassOf :Fracture .
 
 
 ###  http://purl.org/PhysicalTherapy#WristJointInjury
@@ -812,7 +812,6 @@ xsd:date rdf:type rdfs:Datatype .
                            :SitzenStehen ,
                            :Squads ,
                            :Wandsitzen ;
-         :hasSeverityLevel :Severe ;
          :requiresImprovementOf :KneeJoint .
 
 
@@ -831,7 +830,8 @@ xsd:date rdf:type rdfs:Datatype .
 
 
 ###  http://purl.org/PhysicalTherapy#AchillesTendinitis
-:AchillesTendinitis rdf:type owl:NamedIndividual .
+:AchillesTendinitis rdf:type owl:NamedIndividual ,
+                             :TendonInjury .
 
 
 ###  http://purl.org/PhysicalTherapy#AcuteLowBackPain
@@ -839,8 +839,8 @@ xsd:date rdf:type rdfs:Datatype .
                            :LowerBackPain ;
                   :excludesExercise :LegRaise ,
                                     :MountainClimber ;
-                  :hasSeverityLevel :Mild ;
-                  :requiresImprovementOf :LowerBack .
+                  :requiresImprovementOf :LowerBack ,
+                                         :SpineJoint .
 
 
 ###  http://purl.org/PhysicalTherapy#Adductors
@@ -854,7 +854,9 @@ xsd:date rdf:type rdfs:Datatype .
 ###  http://purl.org/PhysicalTherapy#Advanced
 :Advanced rdf:type owl:NamedIndividual ,
                    :DifficultyLevel ,
-                   :TrainingsLevel .
+                   :TrainingsLevel ;
+          :recommendsDifficultyLevel :Beginner ,
+                                     :Intermediate .
 
 
 ###  http://purl.org/PhysicalTherapy#AerobicDance
@@ -1334,19 +1336,58 @@ xsd:date rdf:type rdfs:Datatype .
  ] .
 
 
+###  http://purl.org/PhysicalTherapy#AllFourswithLegExtension
+:AllFourswithLegExtension rdf:type owl:NamedIndividual ,
+                                   :CoordinationMobility ,
+                                   :Strength ;
+                          :engagedBodyPart :Abs ,
+                                           :Glutes ,
+                                           :HipJoint ,
+                                           :Knees ,
+                                           :LowerBack ,
+                                           :ShoulderJoint ,
+                                           :SpineJoint ;
+                          :hasContraindication :AcuteLowBackPain ,
+                                               :KneeFracture ,
+                                               :SpineIssue ,
+                                               :WristFracture ;
+                          :hasDifficultyLevel :Beginner ;
+                          :improves :Balance ,
+                                    :Posture ,
+                                    :Stability ,
+                                    :Strength ;
+                          :rehabilitates :Glutes ,
+                                         :Hip ,
+                                         :HipJoint ,
+                                         :LowerBack ,
+                                         :SpineJoint ;
+                          :requiresEquipment :None ;
+                          :strengthens :Abs ,
+                                       :Glutes ,
+                                       :LowerBack ;
+                          :hasCommonMistake "Das Becken kippt zur Seite, der untere Rücken geht ins Hohlkreuz oder das Bein wird zu hoch gehoben." ;
+                          :hasCorrectionGuidance "Das Bein nur bis auf Hüfthöhe anheben und den Rücken neutral halten. Die Bewegung langsam und ohne Schwung ausführen." ;
+                          :hasDescription "Stabilisationsübung für Rumpf, Gesäß und unteren Rücken im Vierfüßlerstand. Die Übung trainiert Kontrolle, Gleichgewicht und Beckenstabilität." ;
+                          :hasInstruction """1. In den Vierfüßlerstand kommen.
+2. Hände unter den Schultern und Knie unter der Hüfte positionieren.
+3. Bauch leicht anspannen.
+4. Ein Bein langsam nach hinten ausstrecken.
+5. Das Becken möglichst stabil halten.
+6. Das Bein kontrolliert wieder absetzen.
+7. Die Seite wechseln und wiederholen.""" .
+
+
 ###  http://purl.org/PhysicalTherapy#AnkleFracture
 :AnkleFracture rdf:type owl:NamedIndividual ,
-                        :AnkleFracture ;
+                        :AnkleFrac ;
                :excludesExercise :Einbeinstand ,
                                  :GleichgewichtInstabil ;
-               :hasSeverityLevel :Severe ;
                :requiresImprovementOf :AnkleJoint .
 
 
 ###  http://purl.org/PhysicalTherapy#AnkleIssue
 :AnkleIssue rdf:type owl:NamedIndividual ,
                      :Injury ;
-            :hasSeverityLevel :MediumRisk ;
             :requiresImprovementOf :AnkleJoint ;
             rdfs:comment "Instability, past injury, or pain in the ankle joints" ;
             rdfs:label "AnkleIssue" .
@@ -1374,27 +1415,45 @@ xsd:date rdf:type rdfs:Datatype .
          rdfs:label "Archery" .
 
 
-###  http://purl.org/PhysicalTherapy#ArmkreisenGewichtsverlagerung
-:ArmkreisenGewichtsverlagerung rdf:type owl:NamedIndividual ,
-                                        :CoordinationMobility ;
-                               :engagedBodyPart :Core ,
-                                                :ShoulderJoint ,
-                                                :Shoulders ;
-                               :hasContraindication :ArmkreisenGewichtsverlagerung_ShoulderIssue ;
-                               :hasDifficultyLevel :Beginner ;
-                               :improves :Balance ,
-                                         :Coordination ,
-                                         :Mobility ;
-                               :requiresEquipment :None ;
-                               rdfs:label "Armkreisen mit Gewichtsverlagerung" .
+###  http://purl.org/PhysicalTherapy#Armkreisen
+:Armkreisen rdf:type owl:NamedIndividual ,
+                     :CoordinationMobility ;
+            :engagedBodyPart :Chest ,
+                             :RotatorCuffs ,
+                             :ShoulderJoint ,
+                             :Shoulders ,
+                             :Trapezius ,
+                             :UpperBack ;
+            :hasContraindication :ClavicleFracture ,
+                                 :FrozenShoulder ,
+                                 :RotatorCuffStrain ,
+                                 :RotatorCuffTear ;
+            :hasDifficultyLevel :Beginner ;
+            :improves :Balance ,
+                      :Coordination ,
+                      :Mobility ;
+            :rehabilitates :ShoulderJoint ,
+                           :Shoulders ,
+                           :UpperBack ;
+            :requiresEquipment :None ;
+            :hasCommonMistake "Die Schultern werden hochgezogen, die Bewegung wird zu schnell ausgeführt oder der Oberkörper weicht stark aus." ;
+            :hasCorrectionGuidance "Die Schultern bewusst locker lassen und die Bewegung langsam kontrollieren. Den Bewegungsradius verkleinern, wenn Schmerzen oder Ausweichbewegungen auftreten." ;
+            :hasDescription "Eine einfache Mobilisationsübung für Schultergelenke, Schultergürtel und oberen Rücken. Die Übung verbessert die Beweglichkeit der Schultern und bereitet die Muskulatur auf weitere Bewegungen vor." ;
+            :hasInstruction """1. Aufrecht stehen oder sitzen.
+2. Die Arme seitlich ausstrecken oder locker neben dem Körper halten.
+3. Kleine kontrollierte Kreise mit den Armen ausführen.
+4. Die Kreise langsam größer werden lassen.
+5. Nach einigen Wiederholungen die Richtung wechseln.
+6. Die Schultern entspannt halten und gleichmäßig atmen""" ;
+            rdfs:label "Armkreisen" .
 
 
-###  http://purl.org/PhysicalTherapy#ArmkreisenGewichtsverlagerung_ShoulderIssue
-:ArmkreisenGewichtsverlagerung_ShoulderIssue rdf:type owl:NamedIndividual ,
-                                                      :Contraindication ;
-                                             :forCondition :ShoulderIssue ;
-                                             :severity :LowRisk ;
-                                             rdfs:label "ArmkreisenGewichtsverlagerung_ShoulderIssue" .
+###  http://purl.org/PhysicalTherapy#Armkreisen_ShoulderIssue
+:Armkreisen_ShoulderIssue rdf:type owl:NamedIndividual ,
+                                   :Contraindication ;
+                          :forCondition :ShoulderIssue ;
+                          :severity :LowRisk ;
+                          rdfs:label "Armkreisen_ShoulderIssue" .
 
 
 ###  http://purl.org/PhysicalTherapy#Arms
@@ -1405,23 +1464,37 @@ xsd:date rdf:type rdfs:Datatype .
 
 ###  http://purl.org/PhysicalTherapy#AssistedShoulderRotation
 :AssistedShoulderRotation rdf:type owl:NamedIndividual ,
-                                   :CoordinationMobility ;
+                                   :CoordinationMobility ,
+                                   :MobilisationStretching ;
                           :engagedBodyPart :Arms ,
                                            :RotatorCuffs ,
                                            :ShoulderJoint ,
-                                           :Shoulders ;
+                                           :Shoulders ,
+                                           :UpperBack ;
+                          :hasContraindication :ClavicleFracture ;
                           :hasDifficultyLevel :Beginner ;
                           :improves :Coordination ,
                                     :Flexibility ,
                                     :Mobility ;
-                          :rehabilitates :ShoulderJoint ;
+                          :rehabilitates :RotatorCuffs ,
+                                         :ShoulderJoint ;
                           :requiresEquipment :Stick ;
-                          rdfs:label "Assisted Shoulder Rotation"@en .
+                          :hasCommonMistake "Die Bewegung wird zu stark gezogen, der Ellenbogen entfernt sich vom Körper oder der Oberkörper dreht mit." ;
+                          :hasCorrectionGuidance "Den Ellenbogen stabil am Körper halten und nur sanften Druck verwenden. Der Bewegungsbereich soll schmerzfrei bleiben." ;
+                          :hasDescription "Sanfte Mobilisationsübung für die Schulterrotation mit Unterstützung durch die andere Hand, einen Stab oder ein Hilfsmittel. Sie verbessert die kontrollierte Beweglichkeit der Schulter." ;
+                          :hasInstruction """1. Aufrecht sitzen oder stehen.
+2. Den Ellenbogen des zu bewegenden Arms nah am Körper halten.
+3. Einen Stab oder die andere Hand zur Unterstützung verwenden.
+4. Den Unterarm langsam in die gewünschte Rotationsrichtung bewegen.
+5. Die Bewegung nur passiv oder leicht aktiv unterstützen.
+6. Kurz halten und langsam zurückführen.
+7. Mehrmals kontrolliert wiederholen.""" ;
+                          rdfs:label "Assisted Shoulder Rotation" .
 
 
 ###  http://purl.org/PhysicalTherapy#Atemuebung478
 :Atemuebung478 rdf:type owl:NamedIndividual ,
-                        :Relaxation ;
+                        :Entspannung ;
                :engagedBodyPart :Chest ,
                                 :Core ;
                :hasDifficultyLevel :Beginner ;
@@ -1443,8 +1516,18 @@ xsd:date rdf:type rdfs:Datatype .
 ###  http://purl.org/PhysicalTherapy#Back
 :Back rdf:type owl:NamedIndividual ,
                :BodyPart ;
+      :isRehabilitatedBy :Bruecke ,
+                         :BrustwirbelsaeulenRotation ,
+                         :MountainClimber ;
       :partOf :Torso ;
       rdfs:label "Back" .
+
+
+###  http://purl.org/PhysicalTherapy#BackIssue
+:BackIssue rdf:type owl:NamedIndividual ,
+                    :Injury ;
+           :requiresImprovementOf :Back ,
+                                  :SpineJoint .
 
 
 ###  http://purl.org/PhysicalTherapy#Backpacking
@@ -1477,7 +1560,6 @@ xsd:date rdf:type rdfs:Datatype .
 ###  http://purl.org/PhysicalTherapy#BalanceIssue
 :BalanceIssue rdf:type owl:NamedIndividual ,
                        :Injury ;
-              :hasSeverityLevel :MediumRisk ;
               rdfs:comment "Difficulty maintaining equilibrium due to vestibular or muscular factors" ;
               rdfs:label "BalanceIssue" .
 
@@ -1488,10 +1570,6 @@ xsd:date rdf:type rdfs:Datatype .
         :Calorie 428.0 ;
         :MET 6.0 ;
         rdfs:label "Ballet" .
-
-
-###  http://purl.org/PhysicalTherapy#Band
-:Band rdf:type owl:NamedIndividual .
 
 
 ###  http://purl.org/PhysicalTherapy#Baseball
@@ -1543,13 +1621,12 @@ xsd:date rdf:type rdfs:Datatype .
 :BicepsStrain rdf:type owl:NamedIndividual ,
                        :ArmMuscleInjury ;
               :excludesExercise :Archery ,
-                                :ArmkreisenGewichtsverlagerung ,
+                                :Armkreisen ,
                                 :ChestDoorwayStretch ,
                                 :MountainClimber ,
                                 :Plank ,
                                 :PushUps ,
-                                :TherabandAussenrotation ;
-              :hasSeverityLevel :Mild .
+                                :TherabandAussenrotation .
 
 
 ###  http://purl.org/PhysicalTherapy#Bicycling12-13Mph
@@ -1608,14 +1685,24 @@ xsd:date rdf:type rdfs:Datatype .
                           :Hip ,
                           :LowerBack ;
          :hasContraindication :Bruecke_LowerBackIssue ;
-         :hasDifficultyLevel :Beginner ;
+         :hasDifficultyLevel :Intermediate ;
          :improves :Posture ,
                    :Stability ,
                    :Strength ;
+         :rehabilitates :Spine ;
          :requiresEquipment :None ;
          :strengthens :Abs ,
                       :Glutes ,
                       :LowerBack ;
+         :hasCommonMistake "Am häufigsten werden die Hüfte zu hoch gestreckt, der untere Rücken durchgedrückt und die Füße vom Boden abgehoben, wodurch die Gesäßmuskeln ausfallen und die Lendenwirbelsäule belastet wird."@de ;
+         :hasCorrectionGuidance "Füße hüftbreit lassen, Fersen in den Boden drücken, Rippen nach unten ziehen und die Bewegung bewusst aus dem Gesäß statt aus dem Rücken initiieren, bis Ohr, Schulter, Hüfte und Knie eine Linie bilden."@de ;
+         :hasDescription "Die Brücke ist eine Rückenlage-Übung, bei der du die Hüfte durch Anspannen des Gesäßes anhebst und so Gesäß, Beinrückseite und Rumpf stabilisierend trainierst."@de ;
+         :hasInstruction """1. Rückenlage, Knie angewinkelt, Füße hüftbreit und flach auf dem Boden.
+2. Arme entspannt seitlich am Körper ablegen, Handflächen nach oben.
+3. Core aktivieren und den unteren Rücken sanft in den Boden drücken.
+4. Gesäß fest anspannen und die Hüfte kontrolliert nach oben schieben.
+5. Am oberen Punkt bilden Schulter, Hüfte und Knie eine Linie, Pobacken oben richtig zusammendrücken.
+6. Position kurz halten, dann die Hüfte langsam und kontrolliert wieder absenken."""@de ;
          rdfs:label "Bruecke (Bridging)" .
 
 
@@ -1637,7 +1724,7 @@ xsd:date rdf:type rdfs:Datatype .
                                              :SpineJoint ,
                                              :UpperBack ;
                             :hasContraindication :BrustwirbelsaeulenRotation_SpineIssue ;
-                            :hasDifficultyLevel :Beginner ;
+                            :hasDifficultyLevel :Intermediate ;
                             :improves :Coordination ,
                                       :Flexibility ,
                                       :Mobility ;
@@ -1656,7 +1743,7 @@ xsd:date rdf:type rdfs:Datatype .
 6. Der Bewegung mit dem Blick folgen.
 7. Die Endposition kurz halten.
 8. Langsam in die Ausgangsposition zurückkehren und die andere Seite ausführen.""" ;
-                            rdfs:label "Brustwirbelsaeulen-Rotation" .
+                            rdfs:label "BrustwirbelsaeulenRotation" .
 
 
 ###  http://purl.org/PhysicalTherapy#BrustwirbelsaeulenRotation_SpineIssue
@@ -1675,7 +1762,7 @@ xsd:date rdf:type rdfs:Datatype .
         :hasBreathingGuidance :CactusInstruction ;
         :hasContraindication :Cactus_BalanceIssue ,
                              :Cactus_ShoulderIssue ;
-        :hasDifficultyLevel :Beginner ;
+        :hasDifficultyLevel :Intermediate ;
         :hasFocusOn :Posture ;
         :hasLimbAlignment :CactusInstruction ,
                           :Cactus_Left_Arm ,
@@ -1690,6 +1777,7 @@ xsd:date rdf:type rdfs:Datatype .
                   :Stability ;
         :opens :Chest ,
                :Shoulders ;
+        :rehabilitates :Shoulders ;
         :strengthens :Arms ,
                      :Back ,
                      :Core ,
@@ -1751,7 +1839,7 @@ xsd:date rdf:type rdfs:Datatype .
 [ rdf:type owl:Axiom ;
    owl:annotatedSource :Cactus ;
    owl:annotatedProperty :hasDifficultyLevel ;
-   owl:annotatedTarget :Beginner ;
+   owl:annotatedTarget :Intermediate ;
    rdfs:comment "Indicates that the difficulty level of Cactus is categorized as beginner."
  ] .
 
@@ -2018,7 +2106,6 @@ xsd:date rdf:type rdfs:Datatype .
                      :LowerLegMuscleInjury ;
             :excludesExercise :FerseZehenGang ,
                               :JumpingJacks ;
-            :hasSeverityLevel :Moderate ;
             :requiresImprovementOf :Calves .
 
 
@@ -3005,13 +3092,24 @@ xsd:date rdf:type rdfs:Datatype .
                               :Stretching ;
                      :engagedBodyPart :Chest ,
                                       :Shoulders ;
-                     :hasDifficultyLevel :Beginner ;
+                     :hasDifficultyLevel :Intermediate ;
                      :improves :Flexibility ,
                                :Mobility ,
                                :Posture ;
+                     :rehabilitates :Shoulders ;
                      :requiresEquipment :Door ;
                      :stretches :Chest ,
-                                :Shoulders .
+                                :Shoulders ;
+                     :hasCommonMistake "Achte darauf, dass du bei der Bewegungsausführung nicht ins Hohlkreuz gelangst. Du darfst dein Kinn nicht nach vorne Schieben. Die Schultern dürfen hierbei nicht hochgezpgen werden. Die 90 Grad der Ellbogen müssen eingehalten werden, weil sonst die Belastung verschoben wird."@de ;
+                     :hasCorrectionGuidance "Lehne dich aus der Brust, nicht aus dem Rücken. Die Vorwärtsbewegung kommt aus dem Brustbein. Das Kinn bildet eine Linie mit dem Brustbein, du darfst kein Doppelkinn erzwingen. Beim langsamen Ausatmen kann sich das Brustbein besser senen und die Dehnung wird tiefer."@de ;
+                     :hasDescription "Dehnübung, die mithilfe eines Türrahmens die Brustmuskulatur sowie die vordere Schulter dehnt. Die Übung öffnet die Körpervorderseite, wirkt die nach vorne gerollten Schultern entgegen und verbessert die Schulter- und Nackenmobilität."@de ;
+                     :hasInstruction """1. Stelle dich aufrecht in einen offenen Türrahmen, Füße schulterbreit.
+2. Hebe beide Arme seitlich auf Schulterhöhe an und winke die Ellbogen im 90-Grad-Winkel ab, die Unterarme liegen flach am Türrahmen an, Handflächen zeigen nach vorne.
+3. Ziehe die Schulterblätter bewusst nach unten und hinten (nicht hochziehen).
+4. Mache einen kleinen Schritt mit einem Fuß nach vorne durch den Türrahmen.
+5. Lehne den Brustkorb langsam nach vorne, bis du eine sanfte Dehnung quer über Brust und Vorderschultern spürst.
+6. Halte den Hals neutral, das Kinn parallel zum Boden, Blick nach vorne.
+7. Löse die Dehnung, indem du langsam zurücktrittst."""@de .
 
 
 ###  http://purl.org/PhysicalTherapy#ChestDoorwayStretch_ShoulderIssue
@@ -3035,18 +3133,18 @@ xsd:date rdf:type rdfs:Datatype .
                              :LowerBackPain ;
                     :excludesExercise :LegRaise ,
                                       :MountainClimber ;
-                    :hasSeverityLevel :Moderate ;
-                    :requiresImprovementOf :LowerBack .
+                    :requiresImprovementOf :LowerBack ,
+                                           :SpineJoint .
 
 
 ###  http://purl.org/PhysicalTherapy#ClavicleFracture
 :ClavicleFracture rdf:type owl:NamedIndividual ,
-                           :ShoulderFracture ;
+                           :ShoulderFrac ;
                   :excludesExercise :Plank ,
                                     :PushUps ;
-                  :hasSeverityLevel :Severe ;
                   :requiresImprovementOf :Mobility ,
                                          :ShoulderJoint ,
+                                         :Shoulders ,
                                          :Strength .
 
 
@@ -3066,7 +3164,6 @@ xsd:date rdf:type rdfs:Datatype .
 ###  http://purl.org/PhysicalTherapy#CoreWeakness
 :CoreWeakness rdf:type owl:NamedIndividual ,
                        :Injury ;
-              :hasSeverityLevel :LowRisk ;
               :requiresImprovementOf :Core ;
               rdfs:comment "Lack of abdominal and back muscle strength affecting balance or posture" ;
               rdfs:label "CoreWeakness" .
@@ -3570,6 +3667,7 @@ xsd:date rdf:type rdfs:Datatype .
                   :Posture ,
                   :Stability ;
         :opens :Hip ;
+        :rehabilitates :Shoulders ;
         :strengthens :Ankles ,
                      :Arms ,
                      :Calves ,
@@ -4149,10 +4247,49 @@ xsd:date rdf:type rdfs:Datatype .
                         rdfs:label "DeadBug_LowerBackIssue" .
 
 
+###  http://purl.org/PhysicalTherapy#Deadlift
+:Deadlift rdf:type owl:NamedIndividual ,
+                   :Strength ;
+          :engagedBodyPart :Abs ,
+                           :Glutes ,
+                           :Hamstrings ,
+                           :HipJoint ,
+                           :Knees ,
+                           :LowerBack ,
+                           :SpineJoint ;
+          :hasContraindication :AcuteLowBackPain ,
+                               :HipFracture ,
+                               :LumbarDiscHerniation ,
+                               :Sciatica ,
+                               :SpineIssue ;
+          :hasDifficultyLevel :Advanced ;
+          :improves :Posture ,
+                    :Stability ,
+                    :Strength ;
+          :rehabilitates :Glutes ,
+                         :Hamstrings ,
+                         :HipJoint ;
+          :requiresEquipment :Dumble ;
+          :strengthens :Abs ,
+                       :Glutes ,
+                       :Hamstrings ,
+                       :LowerBack ;
+          :hasCommonMistake "Der Rücken rundet sich, die Knie schieben zu weit nach vorne oder das Gewicht wird aus dem unteren Rücken gehoben." ;
+          :hasCorrectionGuidance "Die Bewegung aus der Hüfte einleiten und die Wirbelsäule neutral halten. Mit wenig oder keinem Zusatzgewicht beginnen und den Bewegungsumfang reduzieren." ;
+          :hasDescription "Kräftigungsübung für hintere Oberschenkelmuskulatur, Gesäß, Rückenstrecker und Rumpf. Der Fokus liegt auf der Hüftbeugebewegung und einer stabilen Wirbelsäule." ;
+          :hasInstruction """1. Aufrecht stehen, Füße etwa hüftbreit.
+2. Knie leicht beugen.
+3. Das Becken kontrolliert nach hinten schieben.
+4. Den Rücken gerade halten.
+5. Den Oberkörper nach vorne neigen, ohne den Rücken zu runden.
+6. Über Gesäß und hintere Oberschenkel wieder aufrichten.
+7. Die Bewegung langsam wiederholen.""" .
+
+
 ###  http://purl.org/PhysicalTherapy#DislocatedShoulder
 :DislocatedShoulder rdf:type owl:NamedIndividual ,
                              :ShoulderJointInjury ;
-                    :excludesExercise :ArmkreisenGewichtsverlagerung ,
+                    :excludesExercise :Armkreisen ,
                                       :ChestDoorwayStretch ,
                                       :Dancer ,
                                       :KingDancer ,
@@ -4161,7 +4298,6 @@ xsd:date rdf:type rdfs:Datatype .
                                       :PushUps ,
                                       :TherabandAussenrotation ,
                                       :Wheel ;
-                    :hasSeverityLevel :Severe ;
                     :requiresImprovementOf :ShoulderJoint .
 
 
@@ -4727,16 +4863,18 @@ xsd:date rdf:type rdfs:Datatype .
 
 
 ###  http://purl.org/PhysicalTherapy#Erhöhung
-:Erhöhung rdf:type owl:NamedIndividual .
+:Erhöhung rdf:type owl:NamedIndividual ,
+                   :Equipment .
 
 
 ###  http://purl.org/PhysicalTherapy#Faszienrolle
-:Faszienrolle rdf:type owl:NamedIndividual .
+:Faszienrolle rdf:type owl:NamedIndividual ,
+                       :Equipment .
 
 
 ###  http://purl.org/PhysicalTherapy#FaszienrolleRueckenWade
 :FaszienrolleRueckenWade rdf:type owl:NamedIndividual ,
-                                  :Relaxation ;
+                                  :Entspannung ;
                          :engagedBodyPart :Calves ,
                                           :LowerBack ;
                          :hasContraindication :FaszienrolleRueckenWade_SpineIssue ;
@@ -5356,7 +5494,14 @@ xsd:date rdf:type rdfs:Datatype .
 
 
 ###  http://purl.org/PhysicalTherapy#FrozenShoulder
-:FrozenShoulder rdf:type owl:NamedIndividual .
+:FrozenShoulder rdf:type owl:NamedIndividual ,
+                         :ShoulderJointInjury ;
+                :excludesExercise :Plank ,
+                                  :PushUps ,
+                                  :WallPushUps ;
+                :requiresImprovementOf :RotatorCuffs ,
+                                       :ShoulderJoint ,
+                                       :Shoulders .
 
 
 ###  http://purl.org/PhysicalTherapy#Gardening
@@ -6409,11 +6554,6 @@ xsd:date rdf:type rdfs:Datatype .
               rdfs:label "GolfWithCart" .
 
 
-###  http://purl.org/PhysicalTherapy#Gummiband
-:Gummiband rdf:type owl:NamedIndividual ,
-                    :Equipment .
-
-
 ###  http://purl.org/PhysicalTherapy#Gymnastics
 :Gymnastics rdf:type owl:NamedIndividual ,
                      :SportActivity ;
@@ -6971,7 +7111,6 @@ xsd:date rdf:type rdfs:Datatype .
 ###  http://purl.org/PhysicalTherapy#HamstringIssue
 :HamstringIssue rdf:type owl:NamedIndividual ,
                          :Injury ;
-                :hasSeverityLevel :MediumRisk ;
                 :requiresImprovementOf :Hamstrings ;
                 rdfs:comment "Tightness or strain in the back thigh muscles" ;
                 rdfs:label "HamstringIssue" .
@@ -6982,7 +7121,6 @@ xsd:date rdf:type rdfs:Datatype .
                           :ThighMuscleInjury ;
                  :excludesExercise :HamstringStretch ,
                                    :StandingForwardBend ;
-                 :hasSeverityLevel :Moderate ;
                  :requiresImprovementOf :Hamstrings ,
                                         :Strength .
 
@@ -7492,10 +7630,9 @@ xsd:date rdf:type rdfs:Datatype .
 
 ###  http://purl.org/PhysicalTherapy#HipFracture
 :HipFracture rdf:type owl:NamedIndividual ,
-                      :HipFracture ;
+                      :HipFrac ;
              :excludesExercise :Bruecke ,
                                :Muschel ;
-             :hasSeverityLevel :Severe ;
              :requiresImprovementOf :Balance ,
                                     :HipJoint ,
                                     :Strength .
@@ -7504,7 +7641,6 @@ xsd:date rdf:type rdfs:Datatype .
 ###  http://purl.org/PhysicalTherapy#HipIssue
 :HipIssue rdf:type owl:NamedIndividual ,
                    :Injury ;
-          :hasSeverityLevel :MediumRisk ;
           :requiresImprovementOf :Hip ;
           rdfs:comment "Joint stiffness, misalignment, or discomfort in the hip region" ;
           rdfs:label "HipIssue" .
@@ -7552,13 +7688,17 @@ xsd:date rdf:type rdfs:Datatype .
                              :MobilisationStretching ;
                     :engagedBodyPart :Hip ,
                                      :HipJoint ,
+                                     :Knees ,
+                                     :LowerBack ,
                                      :Psoas ,
                                      :Quadriceps ;
-                    :hasContraindication :HueftbeugerDehnung_HipIssue ,
-                                         :HueftbeugerDehnung_KneeIssue ;
+                    :hasContraindication :HipFracture ,
+                                         :KneeFracture ,
+                                         :KneeOsteoarthritis ;
                     :hasDifficultyLevel :Beginner ;
                     :improves :Flexibility ,
-                              :Mobility ;
+                              :Mobility ,
+                              :Posture ;
                     :rehabilitates :HipJoint ;
                     :requiresEquipment :None ;
                     :stretches :Psoas ,
@@ -7574,27 +7714,13 @@ xsd:date rdf:type rdfs:Datatype .
 6. Die Dehnung an der Vorderseite der Hüfte des hinteren Beins wahrnehmen.
 7. Die Position ruhig halten und gleichmäßig atmen.
 8. Anschließend die Seite wechseln.""" ;
-                    rdfs:label "Hueftbeuger-Dehnung (Iliopsoas)" .
+                    rdfs:label "Hueftbeuger-Dehnung" .
 
 [ rdf:type owl:Axiom ;
    owl:annotatedSource :HueftbeugerDehnung ;
    owl:annotatedProperty :engagedBodyPart ;
    owl:annotatedTarget :Hip ;
    rdfs:comment "The hip is actively involved during the execution of HueftbeugerDehnung."
- ] .
-
-[ rdf:type owl:Axiom ;
-   owl:annotatedSource :HueftbeugerDehnung ;
-   owl:annotatedProperty :hasContraindication ;
-   owl:annotatedTarget :HueftbeugerDehnung_HipIssue ;
-   rdfs:comment "This Contraindication should be considered for practitioners of HueftbeugerDehnung to avoid strain or injury."
- ] .
-
-[ rdf:type owl:Axiom ;
-   owl:annotatedSource :HueftbeugerDehnung ;
-   owl:annotatedProperty :hasContraindication ;
-   owl:annotatedTarget :HueftbeugerDehnung_KneeIssue ;
-   rdfs:comment "This Contraindication should be considered for practitioners of HueftbeugerDehnung to avoid strain or injury."
  ] .
 
 [ rdf:type owl:Axiom ;
@@ -7701,18 +7827,28 @@ xsd:date rdf:type rdfs:Datatype .
 ###  http://purl.org/PhysicalTherapy#Katze-Kuh-Übung
 :Katze-Kuh-Übung rdf:type owl:NamedIndividual ,
                           :MobilisationStretching ;
-                 :engagedBodyPart :Core ,
+                 :engagedBodyPart :Abs ,
+                                  :Back ,
+                                  :Chest ,
+                                  :Core ,
                                   :LowerBack ,
                                   :Neck ,
+                                  :NeckJoint ,
                                   :Spine ,
                                   :SpineJoint ,
                                   :UpperBack ;
+                 :hasContraindication :WristFracture ;
                  :hasDifficultyLevel :Beginner ;
                  :improves :Coordination ,
                            :Flexibility ,
                            :Mobility ,
+                           :Posture ,
                            :Relaxation ;
-                 :rehabilitates :SpineJoint ;
+                 :rehabilitates :LowerBack ,
+                                :NeckJoint ,
+                                :SpineJoint ,
+                                :UpperBack ;
+                 :requiresEquipment :None ;
                  :stretches :Core ,
                             :LowerBack ,
                             :UpperBack ;
@@ -7727,8 +7863,7 @@ xsd:date rdf:type rdfs:Datatype .
 6. Brustbein und Blick leicht nach vorne anheben.
 7. Die Bewegung langsam und fließend wiederholen.
 8. Nur im angenehmen Bewegungsbereich arbeiten.""" ;
-                 rdfs:label "Cat-Cow"@en ,
-                            "Katze-Kuh"@de .
+                 rdfs:label "KatzeKuh" .
 
 
 ###  http://purl.org/PhysicalTherapy#Kayaking
@@ -7741,16 +7876,26 @@ xsd:date rdf:type rdfs:Datatype .
 
 ###  http://purl.org/PhysicalTherapy#Kindpose
 :Kindpose rdf:type owl:NamedIndividual ,
-                   :Relaxation ;
-          :engagedBodyPart :Hip ,
+                   :Entspannung ;
+          :engagedBodyPart :Abs ,
+                           :Back ,
+                           :Glutes ,
+                           :Hip ,
                            :HipJoint ,
-                           :LowerBack ;
-          :hasContraindication :Kindpose_HipIssue ,
-                               :Kindpose_KneeIssue ;
+                           :Legs ,
+                           :LowerBack ,
+                           :Thighs ;
+          :hasContraindication :FrozenShoulder ,
+                               :HipFracture ,
+                               :KneeFracture ,
+                               :KneeOsteoarthritis ;
           :hasDifficultyLevel :Beginner ;
           :improves :Flexibility ,
                     :Mobility ,
                     :Relaxation ;
+          :rehabilitates :LowerBack ,
+                         :Spine ,
+                         :SpineJoint ;
           :requiresEquipment :None ;
           :hasCommonMistake "Das Becken wird gewaltsam zu den Fersen gedrückt, der Nacken bleibt angespannt oder die Knieposition verursacht Schmerzen." ;
           :hasCorrectionGuidance "Nur so weit zurückgehen, wie es angenehm möglich ist. Bei eingeschränkter Beweglichkeit ein Kissen unter Brust oder Gesäß legen. Die Knie weiter oder enger positionieren, bis Hüfte und Knie entspannt bleiben." ;
@@ -7777,20 +7922,6 @@ xsd:date rdf:type rdfs:Datatype .
    owl:annotatedProperty :engagedBodyPart ;
    owl:annotatedTarget :LowerBack ;
    rdfs:comment "The lower back is actively involved during the execution of Kindpose."
- ] .
-
-[ rdf:type owl:Axiom ;
-   owl:annotatedSource :Kindpose ;
-   owl:annotatedProperty :hasContraindication ;
-   owl:annotatedTarget :Kindpose_HipIssue ;
-   rdfs:comment "This Contraindication should be considered for practitioners of Kindpose to avoid strain or injury."
- ] .
-
-[ rdf:type owl:Axiom ;
-   owl:annotatedSource :Kindpose ;
-   owl:annotatedProperty :hasContraindication ;
-   owl:annotatedTarget :Kindpose_KneeIssue ;
-   rdfs:comment "This Contraindication should be considered for practitioners of Kindpose to avoid strain or injury."
  ] .
 
 [ rdf:type owl:Axiom ;
@@ -8336,10 +8467,16 @@ xsd:date rdf:type rdfs:Datatype .
  ] .
 
 
+###  http://purl.org/PhysicalTherapy#KneeFracture
+:KneeFracture rdf:type owl:NamedIndividual ,
+                       :KneeFrac ;
+              :requiresImprovementOf :KneeJoint ,
+                                     :Knees .
+
+
 ###  http://purl.org/PhysicalTherapy#KneeIssue
 :KneeIssue rdf:type owl:NamedIndividual ,
                     :Injury ;
-           :hasSeverityLevel :MediumRisk ;
            :requiresImprovementOf :Knees ;
            rdfs:comment "Any injury, instability, or strain involving the knee joint" ;
            rdfs:label "KneeIssue" .
@@ -8348,13 +8485,37 @@ xsd:date rdf:type rdfs:Datatype .
 ###  http://purl.org/PhysicalTherapy#KneeJoint
 :KneeJoint rdf:type owl:NamedIndividual ,
                     :Joint ;
+           :isRehabilitatedBy :Bruecke ,
+                              :Chair ,
+                              :Einbeinstand ,
+                              :FerseZehenGang ,
+                              :GleichgewichtInstabil ,
+                              :HighLunge ,
+                              :KniegelenkMobilisation ,
+                              :LegRaise ,
+                              :MonsterWalk ,
+                              :MountainClimber ,
+                              :SitzenStehen ,
+                              :Squads ,
+                              :Tree ,
+                              :Wandsitzen ,
+                              :Warrior1 ,
+                              :Warrior2 ;
            :partOf :Knees ;
            rdfs:comment "Kniegelenk" ;
            rdfs:label "KneeJoint" .
 
 
 ###  http://purl.org/PhysicalTherapy#KneeOsteoarthritis
-:KneeOsteoarthritis rdf:type owl:NamedIndividual .
+:KneeOsteoarthritis rdf:type owl:NamedIndividual ,
+                             :KneeJointInjury ;
+                    :excludesExercise :Deadlift ,
+                                      :JumpingJacks ,
+                                      :Squads ;
+                    :requiresImprovementOf :Hamstrings ,
+                                           :KneeJoint ,
+                                           :Knees ,
+                                           :Quadriceps .
 
 
 ###  http://purl.org/PhysicalTherapy#Knees
@@ -8410,16 +8571,38 @@ xsd:date rdf:type rdfs:Datatype .
 
 ###  http://purl.org/PhysicalTherapy#LatStretch
 :LatStretch rdf:type owl:NamedIndividual ,
-                     :Stretching ;
-            :engagedBodyPart :Lats ,
+                     :MobilisationStretching ;
+            :engagedBodyPart :Back ,
+                             :Lats ,
+                             :LowerBack ,
+                             :ShoulderJoint ,
+                             :Shoulders ,
+                             :Spine ,
+                             :SpineJoint ,
                              :UpperBack ;
+            :hasContraindication :FrozenShoulder ;
             :hasDifficultyLevel :Beginner ;
             :improves :Flexibility ,
                       :Mobility ,
-                      :Posture ;
+                      :Posture ,
+                      :Relaxation ;
+            :rehabilitates :Lats ,
+                           :ShoulderJoint ,
+                           :SpineJoint ,
+                           :UpperBack ;
             :requiresEquipment :None ;
             :stretches :Lats ,
-                       :UpperBack .
+                       :UpperBack ;
+            :hasCommonMistake "Die Schulter wird hochgezogen, der Rücken wird stark verdreht oder die Dehnung wird mit zu viel Kraft erzwungen. Häufig wird außerdem ins Hohlkreuz ausgewichen, statt die Dehnung kontrolliert über den seitlichen Rücken auszuführen." ;
+            :hasCorrectionGuidance "Die Schulter bewusst locker nach unten sinken lassen und den Bewegungsumfang verkleinern, wenn Schmerzen entstehen. Den Bauch leicht anspannen, damit der untere Rücken stabil bleibt. Die Dehnung soll seitlich am Rücken und unterhalb der Schulter spürbar sein, nicht als stechender Schmerz im Schultergelenk." ;
+            :hasDescription "Eine sanfte Dehnübung für den Latissimus, die Schulterregion und den seitlichen Rücken. Die Übung kann helfen, die Beweglichkeit der Schulter und der Brustwirbelsäule zu verbessern und Spannungen im oberen Rücken zu reduzieren." ;
+            :hasInstruction """1. Aufrecht stehen, sitzen oder in eine stabile Kniestand-Position kommen.
+2. Einen Arm nach vorne oder leicht diagonal nach oben ausstrecken.
+3. Den Oberkörper langsam zur Gegenseite oder nach hinten unten bewegen, bis eine Dehnung an der seitlichen Rücken- und Schulterregion spürbar ist.
+4. Die Schulter entspannt lassen und nicht zu den Ohren ziehen.
+5. Die Position ruhig halten und gleichmäßig atmen.
+6. Die Dehnung nur im angenehmen, schmerzfreien Bereich ausführen.
+7. Langsam in die Ausgangsposition zurückkehren und die Seite wechseln.""" .
 
 
 ###  http://purl.org/PhysicalTherapy#LatStretch_ShoulderIssue
@@ -8433,7 +8616,7 @@ xsd:date rdf:type rdfs:Datatype .
 ###  http://purl.org/PhysicalTherapy#LateralDeltoids
 :LateralDeltoids rdf:type owl:NamedIndividual ,
                           :Muscle ;
-                 :isEngagedBy :ArmkreisenGewichtsverlagerung ;
+                 :isEngagedBy :Armkreisen ;
                  :partOf :Shoulders .
 
 
@@ -8463,15 +8646,37 @@ xsd:date rdf:type rdfs:Datatype .
 ###  http://purl.org/PhysicalTherapy#LegRaise
 :LegRaise rdf:type owl:NamedIndividual ,
                    :Strength ;
-          :engagedBodyPart :Hip ;
-          :hasDifficultyLevel :Beginner ;
+          :engagedBodyPart :Abs ,
+                           :Hip ,
+                           :HipJoint ,
+                           :LowerBack ,
+                           :Quadriceps ,
+                           :Spine ,
+                           :SpineJoint ;
+          :hasContraindication :AcuteLowBackPain ,
+                               :HipFracture ,
+                               :LumbarDiscHerniation ,
+                               :Sciatica ;
+          :hasDifficultyLevel :Intermediate ;
           :improves :Focus ,
                     :Stability ,
                     :Strength ;
+          :rehabilitates :Abs ,
+                         :HipJoint ;
           :requiresEquipment :None ;
           :strengthens :Abs ,
                        :Obliques ,
-                       :Quadriceps .
+                       :Quadriceps ;
+          :hasCommonMistake "Der untere Rücken hebt stark vom Boden ab, die Beine werden schwungvoll bewegt oder der Nacken verspannt." ;
+          :hasCorrectionGuidance "Den Bewegungsumfang verkleinern oder nur ein Bein bewegen. Bauchspannung halten und die Bewegung langsam ausführen." ;
+          :hasDescription "Kräftigungsübung für Bauchmuskulatur und Hüftbeuger. Die Übung trainiert die Kontrolle der Beckenposition und die Stabilität des unteren Rückens." ;
+          :hasInstruction """1. Auf den Rücken legen.
+2. Beine ausstrecken oder leicht beugen.
+3. Den unteren Rücken kontrolliert Richtung Boden stabilisieren.
+4. Ein Bein oder beide Beine langsam anheben.
+5. Die Beine kontrolliert wieder absenken.
+6. Nur so tief gehen, wie der Rücken stabil bleibt.
+7. Gleichmäßig atmen.""" .
 
 
 ###  http://purl.org/PhysicalTherapy#LegRaise_LowerBackIssue
@@ -8505,7 +8710,6 @@ xsd:date rdf:type rdfs:Datatype .
 ###  http://purl.org/PhysicalTherapy#LowerBackIssue
 :LowerBackIssue rdf:type owl:NamedIndividual ,
                          :Injury ;
-                :hasSeverityLevel :MediumRisk ;
                 :requiresImprovementOf :LowerBack ;
                 rdfs:comment "Discomfort or risk in the lumbar region of the spine" ;
                 rdfs:label "LowerBackIssue" .
@@ -8518,14 +8722,18 @@ xsd:date rdf:type rdfs:Datatype .
 
 ###  http://purl.org/PhysicalTherapy#LumbarDiscHerniation
 :LumbarDiscHerniation rdf:type owl:NamedIndividual ,
-                               :SpinePain ;
-                      :excludesExercise :LegRaise ,
+                               :LumbarSpinePain ;
+                      :excludesExercise :Deadlift ,
+                                        :LegRaise ,
                                         :MountainClimber ;
-                      :hasSeverityLevel :Severe ;
-                      :requiresImprovementOf :Flexibility ,
-                                             :LowerBack ,
-                                             :Posture ,
+                      :requiresImprovementOf :LowerBack ,
                                              :Spine .
+
+
+###  http://purl.org/PhysicalTherapy#LumbarStrain
+:LumbarStrain rdf:type owl:NamedIndividual ,
+                       :BackMuscleInjury ;
+              :requiresImprovementOf :LowerBack .
 
 
 ###  http://purl.org/PhysicalTherapy#MCLSprain
@@ -8539,7 +8747,6 @@ xsd:date rdf:type rdfs:Datatype .
                              :SitzenStehen ,
                              :Squads ,
                              :Wandsitzen ;
-           :hasSeverityLevel :Moderate ;
            :requiresImprovementOf :KneeJoint ,
                                   :Stability .
 
@@ -8566,7 +8773,6 @@ xsd:date rdf:type rdfs:Datatype .
                                 :SitzenStehen ,
                                 :Squads ,
                                 :Wandsitzen ;
-              :hasSeverityLevel :Moderate ;
               :requiresImprovementOf :KneeJoint ,
                                      :Stability ,
                                      :Strength ;
@@ -8604,7 +8810,7 @@ xsd:date rdf:type rdfs:Datatype .
                        :Stability ,
                        :Strength ;
              :rehabilitates :HipJoint ;
-             :requiresEquipment :Band ;
+             :requiresEquipment :Theraband ;
              :strengthens :Core ,
                           :Glutes ,
                           :Quadriceps ;
@@ -8834,6 +9040,8 @@ xsd:date rdf:type rdfs:Datatype .
                            :Coordination ,
                            :Mobility ,
                            :Strength ;
+                 :rehabilitates :Back ,
+                                :Spine ;
                  :requiresEquipment :None ;
                  :strengthens :Abs ,
                               :Chest ,
@@ -8957,8 +9165,8 @@ xsd:date rdf:type rdfs:Datatype .
          :improves :Balance ,
                    :Stability ,
                    :Strength ;
-         :requiresEquipment :Gummiband ,
-                            :None ;
+         :requiresEquipment :None ,
+                            :Theraband ;
          :strengthens :Glutes ;
          rdfs:label "Muschel (Clamshell)" .
 
@@ -9012,7 +9220,6 @@ Langsam zur Mitte zurückkehren.
 ###  http://purl.org/PhysicalTherapy#NeckIssue
 :NeckIssue rdf:type owl:NamedIndividual ,
                     :Injury ;
-           :hasSeverityLevel :LowRisk ;
            :requiresImprovementOf :Neck ;
            rdfs:comment "Tension, instability, or injury in the cervical spine or neck area" ;
            rdfs:label "NeckIssue" .
@@ -9027,7 +9234,8 @@ Langsam zur Mitte zurückkehren.
 
 
 ###  http://purl.org/PhysicalTherapy#NeckStiffness
-:NeckStiffness rdf:type owl:NamedIndividual .
+:NeckStiffness rdf:type owl:NamedIndividual ,
+                        :NeckMuscleInjury .
 
 
 ###  http://purl.org/PhysicalTherapy#None
@@ -9546,7 +9754,7 @@ Langsam zur Mitte zurückkehren.
 6. Den Oberkörper aufrecht halten oder langsam nach vorne absenken.
 7. Die Position im schmerzfreien Bereich halten und ruhig atmen.
 8. Langsam lösen und die Seite wechseln.""" ;
-            rdfs:label "Pigeon Pose (vereinfacht)" .
+            rdfs:label "Pigeon Pose" .
 
 
 ###  http://purl.org/PhysicalTherapy#PigeonPose_HipIssue
@@ -9567,15 +9775,35 @@ Langsam zur Mitte zurückkehren.
 
 ###  http://purl.org/PhysicalTherapy#PiriformisStretch
 :PiriformisStretch rdf:type owl:NamedIndividual ,
+                            :MobilisationStretching ,
                             :Stretching ;
                    :engagedBodyPart :Glutes ,
-                                    :Hip ;
+                                    :Hip ,
+                                    :HipJoint ,
+                                    :LowerBack ,
+                                    :SpineJoint ;
+                   :hasContraindication :AcuteLowBackPain ,
+                                        :HipFracture ;
                    :hasDifficultyLevel :Beginner ;
                    :improves :Flexibility ,
-                             :Mobility ;
+                             :Mobility ,
+                             :Relaxation ;
+                   :rehabilitates :Glutes ,
+                                  :HipJoint ,
+                                  :LowerBack ;
                    :requiresEquipment :None ;
                    :stretches :Glutes ,
-                              :Hip .
+                              :Hip ;
+                   :hasCommonMistake "Das Knie wird stark nach unten gedrückt, der Nacken verspannt oder die Dehnung wird trotz Schmerzen erzwungen." ;
+                   :hasCorrectionGuidance "Die Dehnung sanft halten und nicht am Knie ziehen. Kopf und Schultern entspannt ablegen und nur im angenehmen Bereich arbeiten." ;
+                   :hasDescription "Dehnübung für die tiefe Gesäßmuskulatur, insbesondere den Piriformis. Sie kann Spannungen im Gesäßbereich reduzieren und die Hüftbeweglichkeit unterstützen." ;
+                   :hasInstruction """1. Auf den Rücken legen.
+2. Ein Bein anwinkeln.
+3. Den Knöchel des anderen Beins auf den Oberschenkel legen.
+4. Das untere Bein langsam zum Körper ziehen.
+5. Die Dehnung im Gesäß wahrnehmen.
+6. Die Position ruhig halten.
+7. Langsam lösen und die Seite wechseln.""" .
 
 
 ###  http://purl.org/PhysicalTherapy#PiriformisStretch_KneeIssue
@@ -9589,22 +9817,46 @@ Langsam zur Mitte zurückkehren.
 ###  http://purl.org/PhysicalTherapy#Plank
 :Plank rdf:type owl:NamedIndividual ,
                 :Strength ;
-       :engagedBodyPart :Chest ,
+       :engagedBodyPart :Abs ,
+                        :Chest ,
                         :Core ,
                         :Glutes ,
+                        :HipJoint ,
+                        :LowerBack ,
+                        :ShoulderJoint ,
                         :Shoulders ,
+                        :SpineJoint ,
                         :UpperBack ;
-       :hasDifficultyLevel :Beginner ;
+       :hasContraindication :AcuteLowBackPain ,
+                            :FrozenShoulder ,
+                            :LumbarDiscHerniation ,
+                            :ShoulderImpingement ,
+                            :WristFracture ;
+       :hasDifficultyLevel :Advanced ;
        :improves :Balance ,
                  :Posture ,
                  :Stability ,
                  :Strength ;
+       :rehabilitates :Abs ,
+                      :LowerBack ,
+                      :Spine ,
+                      :SpineJoint ;
        :requiresEquipment :None ;
        :strengthens :Abs ,
                     :FrontDeltoid ,
                     :LowerBack ,
                     :Obliques ,
-                    :Shoulders .
+                    :Shoulders ;
+       :hasCommonMistake "Das Becken sinkt ab, das Gesäß wird zu hoch gehalten oder der Nacken wird überstreckt." ;
+       :hasCorrectionGuidance "Bauchspannung aktivieren und den Blick zum Boden richten. Die Übung abbrechen oder verkürzen, wenn die Körperlinie nicht mehr gehalten werden kann." ;
+       :hasDescription "Statische Kräftigungsübung für Rumpf, Bauchmuskulatur, Schultern und Hüfte. Sie verbessert die Körperstabilität und die Kontrolle der Wirbelsäulenposition." ;
+       :hasInstruction """1. In den Unterarmstütz kommen.
+2. Ellenbogen unter den Schultern positionieren.
+3. Beine nach hinten ausstrecken.
+4. Bauch und Gesäß leicht anspannen.
+5. Den Körper in einer geraden Linie halten.
+6. Ruhig weiteratmen.
+7. Die Position nur so lange halten, wie die Kontrolle erhalten bleibt.""" .
 
 
 ###  http://purl.org/PhysicalTherapy#Plank_WristIssue
@@ -9616,7 +9868,8 @@ Langsam zur Mitte zurückkehren.
 
 
 ###  http://purl.org/PhysicalTherapy#PlantarFasciitis
-:PlantarFasciitis rdf:type owl:NamedIndividual .
+:PlantarFasciitis rdf:type owl:NamedIndividual ,
+                           :AnkleMuscleInjury .
 
 
 ###  http://purl.org/PhysicalTherapy#PlayingCatch
@@ -9643,7 +9896,7 @@ Langsam zur Mitte zurückkehren.
 
 ###  http://purl.org/PhysicalTherapy#ProgressiveMuskelentspannung
 :ProgressiveMuskelentspannung rdf:type owl:NamedIndividual ,
-                                       :Relaxation ;
+                                       :Entspannung ;
                               :engagedBodyPart :Abs ,
                                                :Core ;
                               :hasDifficultyLevel :Beginner ;
@@ -9674,20 +9927,42 @@ Langsam zur Mitte zurückkehren.
 ###  http://purl.org/PhysicalTherapy#PushUps
 :PushUps rdf:type owl:NamedIndividual ,
                   :Strength ;
-         :engagedBodyPart :Chest ,
+         :engagedBodyPart :Abs ,
+                          :Chest ,
                           :Core ,
+                          :ShoulderJoint ,
                           :Shoulders ,
-                          :Triceps ;
-         :hasDifficultyLevel :Beginner ;
+                          :SpineJoint ,
+                          :Triceps ,
+                          :WristJoint ;
+         :hasContraindication :FrozenShoulder ,
+                              :ShoulderImpingement ,
+                              :TennisElbow ,
+                              :WristFracture ;
+         :hasDifficultyLevel :Advanced ;
          :improves :Coordination ,
                    :Posture ,
                    :Stability ,
                    :Strength ;
+         :rehabilitates :Chest ,
+                        :ShoulderJoint ,
+                        :Shoulders ,
+                        :Triceps ;
          :requiresEquipment :None ;
          :strengthens :Abs ,
                       :Chest ,
                       :FrontDeltoid ,
-                      :Triceps .
+                      :Triceps ;
+         :hasCommonMistake "Das Becken hängt durch, die Ellenbogen gehen zu weit nach außen oder der Kopf wird nach vorne geschoben." ;
+         :hasCorrectionGuidance "Rumpf aktiv stabilisieren und die Bewegung langsam ausführen. Bei zu hoher Belastung auf Knie-Liegestütze oder Wall Push Ups ausweichen." ;
+         :hasDescription "Kräftigungsübung für Brust, Schultern, Trizeps und Rumpf. Klassische Liegestütze erfordern gute Körperspannung und Schulterkontrolle." ;
+         :hasInstruction """1. In die Liegestützposition kommen.
+2. Hände etwas breiter als schulterbreit platzieren.
+3. Beine nach hinten ausstrecken und den Körper gerade halten.
+4. Den Oberkörper kontrolliert absenken.
+5. Ellenbogen leicht schräg nach hinten führen.
+6. Den Körper wieder nach oben drücken.
+7. Die Bewegung kontrolliert wiederholen.""" .
 
 
 ###  http://purl.org/PhysicalTherapy#PushUps_WristIssue
@@ -10198,7 +10473,6 @@ Langsam zur Mitte zurückkehren.
                            :ThighMuscleInjury ;
                   :excludesExercise :Squads ,
                                     :Wandsitzen ;
-                  :hasSeverityLevel :Moderate ;
                   :requiresImprovementOf :Quadriceps ,
                                          :Quads ,
                                          :Strength .
@@ -10706,14 +10980,13 @@ Langsam zur Mitte zurückkehren.
 ###  http://purl.org/PhysicalTherapy#RotatorCuffStrain
 :RotatorCuffStrain rdf:type owl:NamedIndividual ,
                             :ShoulderMuscleInjury ;
-                   :excludesExercise :ArmkreisenGewichtsverlagerung ,
+                   :excludesExercise :Armkreisen ,
                                      :ChestDoorwayStretch ,
                                      :MountainClimber ,
                                      :Plank ,
                                      :PushUps ,
                                      :TherabandAussenrotation ,
                                      :TricepsStretch ;
-                   :hasSeverityLevel :Moderate ;
                    :requiresImprovementOf :RotatorCuffs ,
                                           :ShoulderJoint ,
                                           :Strength .
@@ -10722,7 +10995,7 @@ Langsam zur Mitte zurückkehren.
 ###  http://purl.org/PhysicalTherapy#RotatorCuffTear
 :RotatorCuffTear rdf:type owl:NamedIndividual ,
                           :ShoulderJointInjury ;
-                 :excludesExercise :ArmkreisenGewichtsverlagerung ,
+                 :excludesExercise :Armkreisen ,
                                    :ChestDoorwayStretch ,
                                    :KingDancer ,
                                    :MountainClimber ,
@@ -10731,7 +11004,6 @@ Langsam zur Mitte zurückkehren.
                                    :TherabandAussenrotation ,
                                    :TricepsStretch ,
                                    :Wheel ;
-                 :hasSeverityLevel :Severe ;
                  :requiresImprovementOf :RotatorCuffs ,
                                         :ShoulderJoint ,
                                         :Strength .
@@ -10779,20 +11051,25 @@ Langsam zur Mitte zurückkehren.
 
 ###  http://purl.org/PhysicalTherapy#ScapulaRetraktion
 :ScapulaRetraktion rdf:type owl:NamedIndividual ,
+                            :CoordinationMobility ,
                             :Strength ;
                    :engagedBodyPart :RearDeltoids ,
                                     :RotatorCuffs ,
+                                    :ShoulderJoint ,
                                     :Shoulders ,
                                     :Spine ,
+                                    :SpineJoint ,
                                     :Trapezius ,
                                     :UpperBack ;
-                   :hasContraindication :ScapulaRetraktion_ShoulderIssue ;
-                   :hasDifficultyLevel :Beginner ;
+                   :hasContraindication :ClavicleFracture ;
+                   :hasDifficultyLevel :Intermediate ;
                    :improves :Posture ,
                              :Stability ,
                              :Strength ;
                    :rehabilitates :ShoulderJoint ,
-                                  :Shoulders ;
+                                  :Shoulders ,
+                                  :Trapezius ,
+                                  :UpperBack ;
                    :requiresEquipment :None ;
                    :strengthens :Lats ,
                                 :RearDeltoids ,
@@ -10825,7 +11102,7 @@ Langsam zur Mitte zurückkehren.
 
 ###  http://purl.org/PhysicalTherapy#SchulterNackenEntspannung
 :SchulterNackenEntspannung rdf:type owl:NamedIndividual ,
-                                    :Relaxation ;
+                                    :Entspannung ;
                            :engagedBodyPart :Neck ,
                                             :NeckJoint ,
                                             :ShoulderJoint ,
@@ -10837,6 +11114,7 @@ Langsam zur Mitte zurückkehren.
                                      :Mobility ,
                                      :Posture ,
                                      :Relaxation ;
+                           :rehabilitates :Shoulders ;
                            :requiresEquipment :None ;
                            :hasCommonMistake "Die Schultern werden hochgezogen gehalten, der Kopf wird mit der Hand stark zur Seite gezogen oder die Bewegungen werden schnell und ruckartig ausgeführt." ;
                            :hasCorrectionGuidance "Den Nacken lang halten und die Schultern bewusst nach unten entspannen. Nur einen kleinen Bewegungsumfang verwenden, wenn Spannung oder Beschwerden auftreten. Keine kreisenden Vollbewegungen des Kopfes erzwingen." ;
@@ -10874,46 +11152,58 @@ Langsam zur Mitte zurückkehren.
                    :SpinePain ;
           :excludesExercise :HamstringStretch ,
                             :LegRaise ;
-          :hasSeverityLevel :Moderate ;
-          :requiresImprovementOf :Flexibility ,
-                                 :LowerBack ,
-                                 :Posture .
+          :requiresImprovementOf :Hip ,
+                                 :HipJoint ,
+                                 :LowerBack .
 
 
 ###  http://purl.org/PhysicalTherapy#SealStretch
 :SealStretch rdf:type owl:NamedIndividual ,
+                      :MobilisationStretching ,
                       :Stretching ;
-             :engagedBodyPart :Core ,
+             :engagedBodyPart :Abs ,
+                              :Chest ,
+                              :Core ,
                               :Hip ,
+                              :HipJoint ,
                               :LowerBack ,
                               :Psoas ,
+                              :ShoulderJoint ,
                               :Spine ,
                               :SpineJoint ;
+             :hasContraindication :AcuteLowBackPain ,
+                                  :LumbarDiscHerniation ,
+                                  :SpineIssue ;
              :hasDifficultyLevel :Intermediate ;
              :improves :Flexibility ,
-                       :Mobility ;
-             :rehabilitates :SpineJoint ;
+                       :Mobility ,
+                       :Posture ;
+             :rehabilitates :Abs ,
+                            :LowerBack ,
+                            :SpineJoint ;
              :stretches :Core ,
                         :Psoas ;
+             :hasCommonMistake "Die Schultern werden hochgezogen, die Ellenbogen werden durchgedrückt oder die Bewegung wird trotz Rückenschmerzen erzwungen." ;
+             :hasCorrectionGuidance "Die Arme nur so weit strecken, wie es angenehm ist. Schultern tief halten und bei Druck im unteren Rücken die Höhe reduzieren." ;
+             :hasDescription "Mobilisations- und Dehnübung für die vordere Rumpfseite und die Wirbelsäulenstreckung. Die Übung wird häufig zur sanften Extension der Wirbelsäule genutzt." ;
+             :hasInstruction """1. In Bauchlage starten.
+2. Hände neben oder leicht vor den Schultern aufstützen.
+3. Den Oberkörper langsam anheben.
+4. Das Becken bleibt möglichst am Boden.
+5. Schultern weg von den Ohren halten.
+6. Die Position kurz halten und ruhig atmen.
+7. Langsam wieder absenken.""" ;
              rdfs:label "Seal Stretch"@en .
 
 
 ###  http://purl.org/PhysicalTherapy#Session0001
 :Session0001 rdf:type owl:NamedIndividual ;
-             :hasTrainingsGoal :Balance ;
              :includesAsana :Dancer ,
                             :Gate ,
                             :HalfMoon ;
              :date "2025-06-11T00:00:00"^^xsd:dateTime ;
              :duration 60 ;
              rdfs:label "Session0001" .
-
-[ rdf:type owl:Axiom ;
-   owl:annotatedSource :Session0001 ;
-   owl:annotatedProperty :hasTrainingsGoal ;
-   owl:annotatedTarget :Balance ;
-   rdfs:comment "Session0001 has a relationship with Balance through property hasTrainingsGoal."
- ] .
 
 [ rdf:type owl:Axiom ;
    owl:annotatedSource :Session0001 ;
@@ -10944,21 +11234,64 @@ Langsam zur Mitte zurückkehren.
 
 ###  http://purl.org/PhysicalTherapy#Shoulder
 :Shoulder rdf:type owl:NamedIndividual ,
-                   :Muscle ;
-          :isEngagedBy :Plank ,
-                       :PushUps ,
-                       :SchulterNackenEntspannung .
+                   :Muscle .
 
 
 ###  http://purl.org/PhysicalTherapy#ShoulderImpingement
-:ShoulderImpingement rdf:type owl:NamedIndividual .
+:ShoulderImpingement rdf:type owl:NamedIndividual ,
+                              :TendonInjury ;
+                     :excludesExercise :Plank ,
+                                       :PushUps ;
+                     :requiresImprovementOf :RotatorCuffs ,
+                                            :ShoulderJoint ,
+                                            :Shoulders .
+
+
+###  http://purl.org/PhysicalTherapy#ShoulderInstability
+:ShoulderInstability rdf:type owl:NamedIndividual ,
+                              :ShoulderJointInjury ;
+                     :requiresImprovementOf :RotatorCuffs ,
+                                            :ShoulderJoint ,
+                                            :Shoulders .
+
+
+###  http://purl.org/PhysicalTherapy#ShoulderInternalExternalRotation
+:ShoulderInternalExternalRotation rdf:type owl:NamedIndividual ,
+                                           :CoordinationMobility ,
+                                           :MobilisationStretching ;
+                                  :engagedBodyPart :FrontDeltoid ,
+                                                   :RearDeltoids ,
+                                                   :RotatorCuffs ,
+                                                   :ShoulderJoint ,
+                                                   :Shoulders ,
+                                                   :UpperBack ;
+                                  :hasContraindication :ClavicleFracture ,
+                                                       :ShoulderIssue ;
+                                  :hasDifficultyLevel :Beginner ;
+                                  :improves :Coordination ,
+                                            :Mobility ,
+                                            :Stability ;
+                                  :rehabilitates :RotatorCuffs ,
+                                                 :ShoulderJoint ,
+                                                 :Shoulders ;
+                                  :requiresEquipment :Theraband ;
+                                  :strengthens :RotatorCuffs ;
+                                  :hasCommonMistake "Der Oberkörper dreht mit, der Ellenbogen wandert nach außen oder die Bewegung wird ruckartig ausgeführt." ;
+                                  :hasCorrectionGuidance "Den Ellenbogen nah am Körper halten und die Bewegung nur aus dem Schultergelenk ausführen. Den Bewegungsumfang reduzieren, wenn Ausweichbewegungen entstehen." ;
+                                  :hasDescription "Mobilisations- und Kontrollübung für Innen- und Außenrotation der Schulter. Die Übung verbessert die Bewegungswahrnehmung und unterstützt die funktionelle Schulterbeweglichkeit." ;
+                                  :hasInstruction """1. Aufrecht stehen oder sitzen.
+2. Den Ellenbogen am Körper halten und etwa 90 Grad beugen.
+3. Den Unterarm langsam nach außen rotieren.
+4. Anschließend kontrolliert nach innen rotieren.
+5. Die Bewegung langsam und schmerzfrei ausführen.
+6. Die Schulter während der Bewegung stabil halten""" .
 
 
 ###  http://purl.org/PhysicalTherapy#ShoulderIssue
 :ShoulderIssue rdf:type owl:NamedIndividual ,
                         :Injury ;
-               :hasSeverityLevel :MediumRisk ;
-               :requiresImprovementOf :Shoulders ;
+               :requiresImprovementOf :ShoulderJoint ,
+                                      :Shoulders ;
                rdfs:comment "Pain, tension, or mobility restriction in the shoulder area" ;
                rdfs:label "ShoulderIssue" .
 
@@ -10975,6 +11308,16 @@ Langsam zur Mitte zurückkehren.
 :Shoulders rdf:type owl:NamedIndividual ,
                     :BodyPart ,
                     :Muscle ;
+           :isRehabilitatedBy :Armkreisen ,
+                              :AssistedShoulderRotation ,
+                              :Cactus ,
+                              :ChestDoorwayStretch ,
+                              :Dancer ,
+                              :PushUps ,
+                              :ScapulaRetraktion ,
+                              :SchulterNackenEntspannung ,
+                              :StandingBackbend ,
+                              :TherabandAussenrotation ;
            rdfs:label "Shoulders" .
 
 
@@ -11513,7 +11856,7 @@ Langsam zur Mitte zurückkehren.
                         :Mobility ,
                         :Stability ,
                         :Strength ;
-              rdfs:label "Sitzen-Stehen-Uebung (Sit-to-Stand)" .
+              rdfs:label "Sit-to-Stand" .
 
 
 ###  http://purl.org/PhysicalTherapy#SitzenStehen_KneeIssue
@@ -11622,7 +11965,6 @@ Langsam zur Mitte zurückkehren.
 ###  http://purl.org/PhysicalTherapy#SpineIssue
 :SpineIssue rdf:type owl:NamedIndividual ,
                      :Injury ;
-            :hasSeverityLevel :HighRisk ;
             :requiresImprovementOf :Spine ;
             rdfs:comment "General spinal sensitivity or instability, e.g., scoliosis" ;
             rdfs:label "SpineIssue" .
@@ -11648,7 +11990,6 @@ Langsam zur Mitte zurückkehren.
                                  :Tree ,
                                  :Wadendehnung ,
                                  :Warrior2 ;
-               :hasSeverityLevel :Moderate ;
                :requiresImprovementOf :AnkleJoint ,
                                       :Balance ,
                                       :Stability ;
@@ -11793,7 +12134,7 @@ Langsam zur Mitte zurückkehren.
                                        :StandingBackBend_NeckIssue ,
                                        :StandingBackBend_ShoulderIssue ,
                                        :StandingBackBend_SpineIssue ;
-                  :hasDifficultyLevel :Beginner ;
+                  :hasDifficultyLevel :Advanced ;
                   :hasFocusOn :Flexibility ;
                   :hasLimbAlignment :StandingBackbendInstruction ,
                                     :StandingBackbend_Left_Arm ,
@@ -11811,10 +12152,21 @@ Langsam zur Mitte zurückkehren.
                             :Stability ;
                   :opens :Chest ,
                          :Shoulders ;
+                  :rehabilitates :Shoulders ;
                   :strengthens :Back ;
                   :stretches :Back ,
                              :Core ,
                              :Hip ;
+                  :hasCommonMistake "Das ruckartige Nach-hinten-Werfen des Kopfes mit Nackenkompression gilt es zu vermeiden, das Überstrecken nur im unteren Rücken (Hohlkreuz), das Hochziehen der Schultern, das Anwinkeln der Knie und ein schlaffer Bauch."@de ;
+                  :hasCorrectionGuidance "Zur Korrektur das Kinn Richtung Mitte der Schlüsselbein ziehen, den Hinterkopf lang nach hinten führen, das Brustbein aktiv heben, das Becken nach vorn schieben und den Rumpf sowie die Beine durchgehend angespannt halten, sodass die Biegung gleichmäßig über die Brustwirbelsäule verteilt wird."@de ;
+                  :hasDescription "Die Standing Back Bend ist eine stehende Rückbeuge, die Brust und Körpervorderseite öffnet, die Wirbelsäule mobilisiert und gleichzeitig Rumpf, Gesäß und Beine aktiviert."@de ;
+                  :hasInstruction """1. Stell dich hüftbreit und aufrecht hin, die Hände an die Hüften oder den unteren Rücken.
+2. Aktivier den Core, die Oberschenkel und das Gesäß, und strecke die Wirbelsäule nach oben.
+3. Atme ein, heb das Brustbein an und zieh die Schultern bewusst nach unten und zurück.
+4. Schieb das Becken leicht nach vorn und lehn dich dann kontrolliert aus der Brustwirbelsäule nach hinten.
+5. Lass den Kopf nur locker folgen und halt den Nacken lang, statt ihn ruckartig nach hinten zu werfen.
+6. Bleib für einige ruhige Atemzüge in der Position und halt Spannung im Bauch und in den Beinen.
+7. Spann den Core an und kehr Wirbel für Wirbel langsam in den aufrechten Stand zurück."""@de ;
                   rdfs:comment "Tittibhasana B" ;
                   rdfs:isDefinedBy "A gentle backbend that helps improve spinal flexibility." ;
                   rdfs:label "StandingBackBend" .
@@ -11899,7 +12251,7 @@ Langsam zur Mitte zurückkehren.
 [ rdf:type owl:Axiom ;
    owl:annotatedSource :StandingBackbend ;
    owl:annotatedProperty :hasDifficultyLevel ;
-   owl:annotatedTarget :Beginner ;
+   owl:annotatedTarget :Advanced ;
    rdfs:comment "Indicates that the difficulty level of StandingBackbend is categorized as beginner."
  ] .
 
@@ -12691,13 +13043,6 @@ Langsam zur Mitte zurückkehren.
 [ rdf:type owl:Axiom ;
    owl:annotatedSource :StandingFirefly ;
    owl:annotatedProperty :engagedBodyPart ;
-   owl:annotatedTarget :Ankles ;
-   rdfs:comment "The ankles is actively involved during the execution of StandingFirefly."
- ] .
-
-[ rdf:type owl:Axiom ;
-   owl:annotatedSource :StandingFirefly ;
-   owl:annotatedProperty :engagedBodyPart ;
    owl:annotatedTarget :Arms ;
    rdfs:comment "The arms is actively involved during the execution of StandingFirefly."
  ] .
@@ -12903,6 +13248,13 @@ Langsam zur Mitte zurückkehren.
    owl:annotatedProperty :stretches ;
    owl:annotatedTarget :Thighs ;
    rdfs:comment "This pose provides a stretch for the thighs, aiding flexibility."
+ ] .
+
+[ rdf:type owl:Axiom ;
+   owl:annotatedSource :StandingFirefly ;
+   owl:annotatedProperty :engagedBodyPart ;
+   owl:annotatedTarget :Ankles ;
+   rdfs:comment "The ankles is actively involved during the execution of StandingFirefly."
  ] .
 
 
@@ -13896,6 +14248,36 @@ Langsam zur Mitte zurückkehren.
  ] .
 
 
+###  http://purl.org/PhysicalTherapy#StandingPelvicTilts
+:StandingPelvicTilts rdf:type owl:NamedIndividual ,
+                              :MobilisationStretching ;
+                     :engagedBodyPart :Abs ,
+                                      :Glutes ,
+                                      :HipJoint ,
+                                      :LowerBack ,
+                                      :SpineJoint ;
+                     :hasContraindication :HipFracture ,
+                                          :SpineIssue ;
+                     :hasDifficultyLevel :Beginner ;
+                     :improves :Mobility ,
+                               :Posture ,
+                               :Stability ;
+                     :rehabilitates :HipJoint ,
+                                    :LowerBack ,
+                                    :SpineJoint ;
+                     :requiresEquipment :None ;
+                     :hasCommonMistake "Die Bewegung wird aus den Knien oder dem Oberkörper gemacht, statt aus dem Becken. Der Rücken wird stark überstreckt." ;
+                     :hasCorrectionGuidance "Die Bewegung klein halten und bewusst aus dem Becken steuern. Bauch- und Gesäßmuskulatur leicht aktivieren." ;
+                     :hasDescription "Kontrollübung für Beckenposition und unteren Rücken. Sie verbessert die Wahrnehmung von Beckenkippung und kann helfen, die Lendenwirbelsäule besser zu kontrollieren." ;
+                     :hasInstruction """1. Aufrecht stehen, Füße etwa hüftbreit.
+2. Knie leicht beugen.
+3. Das Becken langsam nach vorne kippen.
+4. Danach das Becken langsam nach hinten kippen.
+5. Die Bewegung klein und kontrolliert ausführen.
+6. Den Oberkörper möglichst ruhig halten.
+7. Mehrere Wiederholungen langsam durchführen.""" .
+
+
 ###  http://purl.org/PhysicalTherapy#StandingSideBend
 :StandingSideBend rdf:type owl:NamedIndividual ,
                            :Asana ;
@@ -14670,17 +15052,35 @@ Langsam zur Mitte zurückkehren.
 
 ###  http://purl.org/PhysicalTherapy#Standing_sleeper_stretch
 :Standing_sleeper_stretch rdf:type owl:NamedIndividual ,
+                                   :MobilisationStretching ,
                                    :Stretching ;
                           :engagedBodyPart :RearDeltoids ,
                                            :RotatorCuffs ,
                                            :ShoulderJoint ,
-                                           :Shoulders ;
+                                           :Shoulders ,
+                                           :UpperBack ;
+                          :hasContraindication :ClavicleFracture ,
+                                               :FrozenShoulder ,
+                                               :ShoulderImpingement ;
                           :hasDifficultyLevel :Beginner ;
                           :improves :Flexibility ,
-                                    :Mobility ;
-                          :rehabilitates :ShoulderJoint ;
+                                    :Mobility ,
+                                    :Stability ;
+                          :rehabilitates :RotatorCuffs ,
+                                         :ShoulderJoint ;
+                          :requiresEquipment :Wall ;
                           :stretches :RearDeltoids ,
                                      :RotatorCuffs ;
+                          :hasCommonMistake "Zu viel Druck wird auf die Schulter gegeben, der Oberkörper dreht mit oder die Bewegung verursacht stechende Schmerzen." ;
+                          :hasCorrectionGuidance "Nur leichten Druck verwenden und die Schulter stabil halten. Die Dehnung muss sanft bleiben. Bei Schmerz den Winkel oder Bewegungsumfang reduzieren." ;
+                          :hasDescription "Dehnübung für die hintere Schulterkapsel und die Innenrotation der Schulter. Sie kann die Beweglichkeit der Schulter verbessern, sollte aber sehr kontrolliert ausgeführt werden." ;
+                          :hasInstruction """1. Seitlich an eine Wand stellen.
+2. Den betroffenen Arm auf Schulterhöhe an die Wand bringen.
+3. Den Ellenbogen etwa 90 Grad beugen.
+4. Den Unterarm langsam nach unten führen.
+5. Eine sanfte Dehnung in der hinteren Schulter spüren.
+6. Die Position kurz halten.
+7. Langsam lösen.""" ;
                           rdfs:label "Sleeper Stretch im Stehen"@de ,
                                      "Standing Sleeper Stretch"@en .
 
@@ -14733,11 +15133,6 @@ Langsam zur Mitte zurückkehren.
 ###  http://purl.org/PhysicalTherapy#StartingStandingOnCushion
 :StartingStandingOnCushion rdf:type owl:NamedIndividual ;
                            rdfs:label "StandingOnCushion" .
-
-
-###  http://purl.org/PhysicalTherapy#StartingWallStanding
-:StartingWallStanding rdf:type owl:NamedIndividual ;
-                      rdfs:label "WallStanding" .
 
 
 ###  http://purl.org/PhysicalTherapy#StationaryCycling100Watts
@@ -14851,7 +15246,10 @@ Langsam zur Mitte zurückkehren.
 
 
 ###  http://purl.org/PhysicalTherapy#TennisElbow
-:TennisElbow rdf:type owl:NamedIndividual .
+:TennisElbow rdf:type owl:NamedIndividual ,
+                      :TendonInjury ;
+             :requiresImprovementOf :Elbows ,
+                                    :WristJoint .
 
 
 ###  http://purl.org/PhysicalTherapy#Theraband
@@ -14862,17 +15260,32 @@ Langsam zur Mitte zurückkehren.
 ###  http://purl.org/PhysicalTherapy#TherabandAussenrotation
 :TherabandAussenrotation rdf:type owl:NamedIndividual ,
                                   :Strength ;
-                         :engagedBodyPart :RotatorCuffs ,
+                         :engagedBodyPart :RearDeltoids ,
+                                          :RotatorCuffs ,
                                           :ShoulderJoint ,
-                                          :Shoulders ;
-                         :hasContraindication :TherabandAussenrotation_ShoulderIssue ;
+                                          :Shoulders ,
+                                          :Trapezius ;
+                         :hasContraindication :ClavicleFracture ;
                          :hasDifficultyLevel :Beginner ;
                          :improves :Mobility ,
                                    :Stability ,
                                    :Strength ;
-                         :requiresEquipment :Band ;
+                         :rehabilitates :RotatorCuffs ,
+                                        :ShoulderJoint ,
+                                        :Shoulders ;
+                         :requiresEquipment :Theraband ;
                          :strengthens :RearDeltoids ,
                                       :RotatorCuffs ;
+                         :hasCommonMistake "Der Ellenbogen entfernt sich vom Körper, das Handgelenk knickt ab oder der Oberkörper dreht mit." ;
+                         :hasCorrectionGuidance "Den Ellenbogen nah am Körper halten, eventuell ein kleines Handtuch zwischen Ellenbogen und Oberkörper klemmen. Nur so weit nach außen rotieren, wie die Schulter stabil bleibt." ;
+                         :hasDescription "Kräftigungsübung für die Außenrotatoren der Schulter und die Rotatorenmanschette. Sie unterstützt die Schulterstabilität und kann bei kontrolliertem Training die Haltung des Schultergelenks verbessern." ;
+                         :hasInstruction """1. Aufrecht stehen oder sitzen.
+2. Das Theraband mit beiden Händen halten.
+3. Die Ellenbogen nah am Körper halten und etwa 90 Grad beugen.
+4. Einen Unterarm langsam nach außen drehen.
+5. Das Handgelenk stabil halten.
+6. Langsam in die Ausgangsposition zurückkehren.
+7. Die Bewegung kontrolliert wiederholen.""" ;
                          rdfs:label "Theraband-Aussenrotation" .
 
 
@@ -14892,12 +15305,10 @@ Langsam zur Mitte zurückkehren.
 
 ###  http://purl.org/PhysicalTherapy#ThoracicBackPain
 :ThoracicBackPain rdf:type owl:NamedIndividual ,
-                           :SpinePain ;
+                           :ThoracicSpinePain ;
                   :excludesExercise :BrustwirbelsaeulenRotation ,
                                     :MountainClimber ;
-                  :hasSeverityLevel :Mild ;
-                  :requiresEquipment :Posture ;
-                  :requiresImprovementOf :Mobility ,
+                  :requiresImprovementOf :Spine ,
                                          :SpineJoint ,
                                          :UpperBack .
 
@@ -15912,6 +16323,12 @@ Langsam zur Mitte zurückkehren.
            rdfs:label "UpperBack" .
 
 
+###  http://purl.org/PhysicalTherapy#UpperBackIssue
+:UpperBackIssue rdf:type owl:NamedIndividual ,
+                         :Injury ;
+                :requiresImprovementOf :UpperBack .
+
+
 ###  http://purl.org/PhysicalTherapy#Upright
 :Upright rdf:type owl:NamedIndividual ;
          rdfs:label "Upright" .
@@ -15922,7 +16339,7 @@ Langsam zur Mitte zurückkehren.
                    :Patient ;
           :avoidsAsana :KingDancer ;
           :hasContraindication :KneeIssue ;
-          :fitnessLevelScore 89.0 ;
+          :hasMETScore 10 ;
           rdfs:label "User0001" .
 
 
@@ -16031,6 +16448,45 @@ Langsam zur Mitte zurückkehren.
                :Equipment .
 
 
+###  http://purl.org/PhysicalTherapy#WallPushUps
+:WallPushUps rdf:type owl:NamedIndividual ,
+                      :Strength ;
+             :engagedBodyPart :Abs ,
+                              :Chest ,
+                              :ShoulderJoint ,
+                              :Shoulders ,
+                              :SpineJoint ,
+                              :Triceps ,
+                              :WristJoint ,
+                              :Wrists ;
+             :hasContraindication :ClavicleFracture ,
+                                  :FrozenShoulder ,
+                                  :TennisElbow ,
+                                  :WristFracture ;
+             :hasDifficultyLevel :Beginner ;
+             :improves :Stability ,
+                       :Strength ;
+             :rehabilitates :Chest ,
+                            :ShoulderJoint ,
+                            :Shoulders ,
+                            :Triceps ;
+             :requiresEquipment :Wall ;
+             :strengthens :Abs ,
+                          :Chest ,
+                          :Shoulders ,
+                          :Triceps ;
+             :hasCommonMistake "Der Rücken hängt durch, die Schultern werden hochgezogen oder die Ellenbogen gehen stark nach außen." ;
+             :hasCorrectionGuidance "Bauch leicht anspannen und den Körper in einer Linie halten. Die Schultern tief halten und die Ellenbogen leicht schräg nach hinten führen." ;
+             :hasDescription "Eine vereinfachte Liegestützvariante an der Wand. Die Übung kräftigt Brust, Schultern, Arme und Rumpf mit reduzierter Belastung im Vergleich zu klassischen Liegestützen." ;
+             :hasInstruction """1. Vor eine Wand stellen.
+2. Die Hände etwa schulterbreit an die Wand setzen.
+3. Die Füße etwas von der Wand entfernen.
+4. Den Körper gerade halten.
+5. Die Ellenbogen langsam beugen und den Oberkörper zur Wand führen.
+6. Kontrolliert zurückdrücken.
+7. Die Bewegung ruhig wiederholen.""" .
+
+
 ###  http://purl.org/PhysicalTherapy#Wandsitzen
 :Wandsitzen rdf:type owl:NamedIndividual ,
                      :Strength ;
@@ -16077,7 +16533,7 @@ Langsam zur Mitte zurückkehren.
           :hasContraindication :Warrior1_BalanceIssue ,
                                :Warrior1_CoreIssue ,
                                :Warrior1_KneeIssue ;
-          :hasDifficultyLevel :Intermediate ;
+          :hasDifficultyLevel :Advanced ;
           :hasFocusOn :Balance ;
           :hasLimbAlignment :Warrior1Instruction ,
                             :Warrior1_Left_Arm ,
@@ -16093,6 +16549,7 @@ Langsam zur Mitte zurückkehren.
                     :Posture ,
                     :Stability ,
                     :Strength ;
+          :rehabilitates :Spine ;
           :strengthens :Arms ,
                        :Back ,
                        :Core ,
@@ -16222,7 +16679,7 @@ Langsam zur Mitte zurückkehren.
 [ rdf:type owl:Axiom ;
    owl:annotatedSource :Warrior1 ;
    owl:annotatedProperty :hasDifficultyLevel ;
-   owl:annotatedTarget :Intermediate ;
+   owl:annotatedTarget :Advanced ;
    rdfs:comment "Indicates that the difficulty level of Warrior1 is categorized as intermediate."
  ] .
 
@@ -16566,7 +17023,7 @@ Langsam zur Mitte zurückkehren.
           :hasContraindication :Warrior2_AnkleIssue ,
                                :Warrior2_HipIssue ,
                                :Warrior2_KneeIssue ;
-          :hasDifficultyLevel :Intermediate ;
+          :hasDifficultyLevel :Advanced ;
           :hasFocusOn :Focus ;
           :hasLimbAlignment :Warrior2_Left_Arm ,
                             :Warrior2_Left_Leg ,
@@ -16585,6 +17042,7 @@ Langsam zur Mitte zurückkehren.
           :opens :Chest ,
                  :Hip ,
                  :Thighs ;
+          :rehabilitates :Spine ;
           :strengthens :Ankles ,
                        :Core ,
                        :Legs ,
@@ -16705,7 +17163,7 @@ Langsam zur Mitte zurückkehren.
 [ rdf:type owl:Axiom ;
    owl:annotatedSource :Warrior2 ;
    owl:annotatedProperty :hasDifficultyLevel ;
-   owl:annotatedTarget :Intermediate ;
+   owl:annotatedTarget :Advanced ;
    rdfs:comment "Indicates that the difficulty level of Warrior2 is categorized as intermediate."
  ] .
 
@@ -17616,17 +18074,15 @@ Langsam zur Mitte zurückkehren.
 
 ###  http://purl.org/PhysicalTherapy#WristFracture
 :WristFracture rdf:type owl:NamedIndividual ,
-                        :WristFracture ;
+                        :WristFrac ;
                :excludesExercise :Plank ,
                                  :PushUps ;
-               :hasSeverityLevel :Severe ;
                :requiresImprovementOf :WristJoint .
 
 
 ###  http://purl.org/PhysicalTherapy#WristIssue
 :WristIssue rdf:type owl:NamedIndividual ,
                      :Injury ;
-            :hasSeverityLevel :LowRisk ;
             :requiresImprovementOf :Wrists ;
             rdfs:comment "Pain, weakness, or carpal instability in the wrist" ;
             rdfs:label "WristIssue" .
@@ -17650,7 +18106,6 @@ Langsam zur Mitte zurückkehren.
                                :PushUps ,
                                :StandingFirefly ,
                                :Wheel ;
-             :hasSeverityLevel :Mild ;
              :requiresImprovementOf :Stability ,
                                     :WristJoint .
 
@@ -17687,10 +18142,6 @@ Langsam zur Mitte zurückkehren.
                    "Z-Sitz"@de .
 
 
-###  http://purl.org/PhysicalTherapy#test
-:test rdf:type owl:NamedIndividual .
-
-
 ###  http://purl.org/PhysicalTherapy#Bicycling20+Mph
 <http://purl.org/PhysicalTherapy#Bicycling20+Mph> rdf:type owl:NamedIndividual ,
                                                            :SportActivity ;
@@ -17702,11 +18153,6 @@ Langsam zur Mitte zurückkehren.
 #################################################################
 #    Annotations
 #################################################################
-
-:Relaxation rdfs:comment "Übungen zur körperlichen und geistigen Entspannung" ;
-            rdfs:label "Entspannung" ,
-                       "Relaxation" .
-
 
 :Strength rdfs:label "Strength" .
 

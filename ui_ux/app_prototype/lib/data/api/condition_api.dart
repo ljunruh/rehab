@@ -2,7 +2,7 @@ import 'dart:convert';
 
 import 'package:app_prototype/data/api/core_api.dart';
 
-import '../models/condition.dart';
+import '../models/graph/condition.dart';
 
 class ConditionApi extends CoreApi {
   /*
