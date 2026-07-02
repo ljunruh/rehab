@@ -27160,6 +27160,21 @@ Langsam zur Mitte zurückkehren.
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Cardio</IRI>
+        <Literal>Aerobic exercise that elevates heart rate and breathing to improve cardiovascular endurance.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <IRI>#Cardio</IRI>
+        <Literal>Also known as aerobic or endurance training. Cardio uses large muscle groups in continuous, rhythmic movement sustained long enough to raise heart rate into a moderate-to-vigorous training zone, relying on oxygen-based energy production. It is considered the cornerstone of endurance training in rehabilitation, supporting heart and lung function, stamina, weight and blood pressure management.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Cardio</IRI>
+        <Literal>Cardio</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
         <IRI>#CenterSplits</IRI>
         <Literal>Samakonasana</Literal>
     </AnnotationAssertion>
