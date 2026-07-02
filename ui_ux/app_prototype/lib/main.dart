@@ -26,9 +26,7 @@ void main() async {
   );
 
   final userRepository = UserRepository(service: UserService(isar));
-  final exerciseRepository = ExerciseRepository(service: ExerciseService(isar), api: ExerciseApi());
-
-
+  final exerciseRepository = ExerciseRepository(service: ExerciseService(isar), api: ExerciseApi(), userRepository: userRepository);
 
   runApp(MultiProvider(
       providers: [

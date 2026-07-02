@@ -11,7 +11,7 @@ class ExerciseProvider extends ChangeNotifier {
   List<Exercise> get exercises => _exercises;
 
   Future<void> loadAll() async {
-    _exercises = await repo.getAll() ?? [];
+    _exercises = await repo.getFilterdExcercises() ?? [];
     notifyListeners();
   }
 }
