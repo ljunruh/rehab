@@ -7,7 +7,7 @@
      xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
      ontologyIRI="http://purl.org/PhysicalTherapy"
      versionIRI="http://purl.org/PhysicalTherapy/1.0">
-    <Prefix name="" IRI="http://www.w3.org/2002/07/owl#"/>
+    <Prefix name="" IRI="http://purl.org/PhysicalTherapy#"/>
     <Prefix name="owl" IRI="http://www.w3.org/2002/07/owl#"/>
     <Prefix name="rdf" IRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
     <Prefix name="xml" IRI="http://www.w3.org/XML/1998/namespace"/>
@@ -26974,6 +26974,16 @@ Langsam zur Mitte zurückkehren.
         <Literal>Back</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#BackPain</IRI>
+        <Literal>Rückenschmerz als Schmerz im Bereich des Rückens bzw. der Wirbelsäule, der von Knochen, Muskeln, Bandscheiben, Bändern, Gelenken oder Nerven ausgehen kann. Es wird zwischen unspezifischem Rückenschmerz (ohne klar erkennbare Ursache, meist muskulär bedingt) und spezifischem Rückenschmerz (mit fassbarer Ursache wie Bandscheibenvorfall, Fraktur oder Entzündung) unterschieden. Nach der Dauer werden akute (bis 6 Wochen), subakute (6–12 Wochen) und chronische (über 12 Wochen) Verläufe unterschieden.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#BackPain</IRI>
+        <Literal>BackPain</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#Backpacking</IRI>
         <Literal>Backpacking</Literal>
@@ -27171,7 +27181,7 @@ Langsam zur Mitte zurückkehren.
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#Cardio</IRI>
-        <Literal>Ausdauertraining</Literal>
+        <Literal>Cardio</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
@@ -27301,7 +27311,7 @@ Langsam zur Mitte zurückkehren.
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
         <IRI>#Contraindication</IRI>
-        <Literal>A warning associated with a yoga pose for users with specific conditions.</Literal>
+        <Literal>Kontraindikation oder Gegenanzeige für eine Übung oder therapeutische Maßnahme. Beschreibt einen Zustand, eine Erkrankung oder einen Umstand, bei dem eine bestimmte Übung nicht, nur eingeschränkt oder nur unter besonderer Vorsicht durchgeführt werden darf, z.B. akute Infektionen oder Entzündungen, Fieber, Thrombosen, frische Frakturen, schwere Osteoporose, maligne Tumoren, Herz-Kreislauf-Erkrankungen oder eine Schwangerschaft. Auch als Red Flag bezeichnet, die besondere Vorsicht oder den Verzicht auf die Maßnahme erfordert.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
@@ -27479,6 +27489,16 @@ Langsam zur Mitte zurückkehren.
         <Literal>DeadBug_LowerBackIssue</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#DifficultyLevel</IRI>
+        <Literal>Schwierigkeitsstufe einer Übung oder Aktivität, die den Grad der körperlichen, koordinativen und konditionellen Anforderungen beschreibt. Dient zur Einordnung und zum Vergleich von Übungen nach Komplexität, benötigtem Können, Kraftaufwand und Balanceanforderungen, um Übungen passend zum Leistungsstand des Übenden auszuwählen und eine sichere sowie wirksame Belastungssteuerung zu ermöglichen.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#DifficultyLevel</IRI>
+        <Literal>DifficultyLevel</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#Down</IRI>
         <Literal>Down</Literal>
@@ -27587,6 +27607,16 @@ Langsam zur Mitte zurückkehren.
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#Entspannung</IRI>
         <Literal>Entspannung</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Equipment</IRI>
+        <Literal>Trainingsgeräte und Hilfsmittel, die in der Physiotherapie, Rehabilitation und beim Training eingesetzt werden, um Übungen zu erleichtern, Belastungen zu variieren oder gezielt zu dosieren. Beispiele sind medizinische Trainingsgeräte, Gymnastikbänder, Therapiekreisel, Faszienrollen, Balance-Pads, Gewichtsmanschetten und Übungsmatten. Sie dienen der Verbesserung von Kraft, Ausdauer, Beweglichkeit, Koordination und Stabilität.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Equipment</IRI>
+        <Literal>Equipment</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
@@ -27717,6 +27747,16 @@ Langsam zur Mitte zurückkehren.
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#Forward</IRI>
         <Literal>Forward</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Fracture</IRI>
+        <Literal>Fraktur oder Knochenbruch als vollständige oder unvollständige Kontinuitätsunterbrechung eines Knochens unter Bildung von zwei oder mehr Bruchstücken. Ursachen können direkte oder indirekte Gewalteinwirkung im Rahmen eines Unfalls, eine pathologische Fraktur bei Vorerkrankungen wie Osteoporose oder Knochentumoren sowie eine Ermüdungsfraktur bei chronischer Überlastung sein. Die Behandlung erfolgt konservativ (z.B. mit Gips) oder operativ (z.B. mit Osteosynthese).</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Fracture</IRI>
+        <Literal>Fracture</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
@@ -28131,12 +28171,22 @@ Langsam zur Mitte zurückkehren.
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
         <IRI>#Joint</IRI>
-        <Literal>Gelenk des menschlichen Körpers; Oberklasse aller spezifischen Gelenke</Literal>
+        <Literal>Gelenk (Articulatio) als bewegliche Verbindung zwischen zwei oder mehreren knöchernen oder knorpeligen Skelettelementen des menschlichen Körpers. Besteht aus Gelenkflächen mit hyalinem Knorpelüberzug, einer Gelenkkapsel mit Membrana fibrosa und Membrana synovialis sowie der Gelenkflüssigkeit (Synovia). Echte Gelenke (Diarthrosen) lassen sich nach Form der Gelenkflächen einteilen, etwa als Kugel-, Scharnier-, Sattel- oder Eigelenk. Übergeordnete Klasse aller spezifischen Gelenke des Körpers.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#Joint</IRI>
         <Literal>Joint</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#JointInjury</IRI>
+        <Literal>Gelenkverletzung als Schädigung eines oder mehrerer Strukturen eines Gelenks, die dessen Funktion und Beweglichkeit einschränkt und mit Schmerzen, Schwellung und Instabilität einhergehen kann. Umfasst Prellungen, Verstauchungen (Distorsionen), Verrenkungen (Luxationen), Bänderrisse, Kapselverletzungen, Knorpelschäden sowie gelenknahe Frakturen. Häufige Ursachen sind Stürze, plötzliche Drehbewegungen, direkte Gewalteinwirkung oder chronische Überlastung, insbesondere bei Sportarten mit schnellen Richtungswechseln.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#JointInjury</IRI>
+        <Literal>JointInjury</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
@@ -28301,7 +28351,7 @@ Langsam zur Mitte zurückkehren.
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
         <IRI>#Limb</IRI>
-        <Literal>Limb class</Literal>
+        <Literal>Gliedmaße oder Extremität als beweglicher paariger Körperanhang des Menschen, der aus mehreren anatomischen Abschnitten besteht. Unterschieden werden die obere Extremität (Arm mit Schultergürtel, Oberarm, Unterarm und Hand) und die untere Extremität (Bein mit Beckengürtel, Oberschenkel, Unterschenkel und Fuß). Gliedmaßen dienen der Fortbewegung, der Manipulation von Objekten und der Körperhaltung; sie werden über Muskeln und Gelenke bewegt.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
@@ -28311,7 +28361,7 @@ Langsam zur Mitte zurückkehren.
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
         <IRI>#LimbAlignment</IRI>
-        <Literal>Limb alignment class</Literal>
+        <Literal>Achsenstellung oder Ausrichtung der Gliedmaßen zueinander. Beschreibt insbesondere die Beinachse und ihre Abweichungen, z.B. das O-Bein (Genu varum) mit medialer Verschiebung der mechanischen Beinachse oder das X-Bein (Genu valgum) mit lateraler Verschiebung. Eine abweichende Beinachse führt zu Fehlbelastung des Knie-, Hüft- und Sprunggelenks und kann langfristig Arthrose begünstigen.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
@@ -28341,7 +28391,7 @@ Langsam zur Mitte zurückkehren.
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
         <IRI>#MobilisationStretching</IRI>
-        <Literal>Übungen zur Verbesserung der Beweglichkeit und Dehnfähigkeit</Literal>
+        <Literal>Kombinierte Mobilisations- und Dehnungstechniken zur Verbesserung der Gelenkbeweglichkeit und der Dehnfähigkeit von Muskeln, Sehnen und Bindegewebe. Die Mobilisation umfasst dabei passive oder assistive Bewegungen innerhalb des physiologischen Bewegungsausmaßes, um Blockaden zu lösen und die Gelenkfunktion zu verbessern, während die Dehnung (Stretching) die Muskellänge und Flexibilität erhöht. Beide Komponenten werden häufig in der Physiotherapie bei Bewegungseinschränkungen, muskulären Verkürzungen und zur Rehabilitation eingesetzt.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
@@ -28427,6 +28477,26 @@ Langsam zur Mitte zurückkehren.
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#Muschel_HipIssue</IRI>
         <Literal>Muschel_HipIssue</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Muscle</IRI>
+        <Literal>Skelettmuskel (Musculus skeleti) als quergestreifter, willkürlich steuerbarer Muskel, der über Sehnen am Skelett befestigt ist und durch Kontraktion und Erschlaffung die Bewegung des Körpers ermöglicht. Ein Skelettmuskel besteht aus zahlreichen, von Bindegewebe (Faszie, Epimysium, Perimysium, Endomysium) umhüllten Muskelfaserbündeln, die wiederum aus einzelnen Muskelfasern mit kontraktilen Aktin- und Myosinfilamenten aufgebaut sind. Skelettmuskeln sind für Körperhaltung, Bewegung und Wärmeproduktion verantwortlich und machen etwa 40–50 % der Körpermasse aus.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Muscle</IRI>
+        <Literal>Muscle</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#MuscleInjury</IRI>
+        <Literal>Muskelverletzung als Schädigung eines Muskels, die durch Überdehnung, plötzliche unkontrollierte Bewegungen, Überlastung oder direkte Gewalteinwirkung (z.B. Schlag oder Stoß) entstehen kann. Nach dem Schweregrad werden Muskelzerrung (leichteste Form mit Überdehnung der Sarkomere und schmerzhaftem Muskelhartspann), Muskelfaserriss (Riss einzelner oder mehrerer Muskelfasern, häufig mit Hämatom) und Muskelriss (vollständige Durchtrennung eines Muskelbündels mit deutlicher Funktionsstörung) unterschieden. Häufig betroffen sind die Waden- und Oberschenkelmuskulatur.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#MuscleInjury</IRI>
+        <Literal>MuscleInjury</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
@@ -28811,7 +28881,7 @@ Langsam zur Mitte zurückkehren.
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
         <IRI>#SeverityLevel</IRI>
-        <Literal>Class for measuring of risk intensity</Literal>
+        <Literal>Schweregrad oder Ausprägungsstufe einer Verletzung, Erkrankung, eines Schmerzzustands oder eines Risikos. Dient der standardisierten Klassifikation und Einschätzung des therapeutischen und rehabilitativen Vorgehens, etwa in leicht (mild), mittel (moderat) und schwer (severe) und Risikoklassen (z.B. Low Risk, Medium Risk, High Risk).</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
@@ -29531,7 +29601,12 @@ Langsam zur Mitte zurückkehren.
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#Strength</IRI>
-        <Literal>Krafttraining</Literal>
+        <Literal>Strength</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Stretching</IRI>
+        <Literal>Stretching als kontrollierte Längendehnung von Muskeln, Sehnen und Bindegewebe zur Verbesserung der Beweglichkeit, zur Lösung muskulärer Verspannungen und zur Vorbeugung von Krämpfen. Zu den Formen gehören statisches Stretching (Halten einer Dehnposition für 15–60 Sekunden), dynamisches Stretching (kontrollierte Dehnbewegungen), PNF-Stretching (propriozeptive neuromuskuläre Fazilitation) und ballistisches Stretching. Stretching ist Bestandteil vieler therapeutischer, rehabilitativer und sportlicher Programme und wird vor oder nach dem Training, zur Regeneration sowie zur Verletzungsprophylaxe eingesetzt.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
@@ -29574,6 +29649,16 @@ Langsam zur Mitte zurückkehren.
         <Literal>TaiChi</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#TendonInjury</IRI>
+        <Literal>Sehnenverletzung oder Tendinopathie als Schädigung einer Sehne, die durch akute Überlastung, chronische Fehlbelastung, degenerative Veränderungen oder direkte Traumata entstehen kann. Sehnen sind die faserigen Bindegewebsstrukturen, die Muskeln mit Knochen verbinden und die Muskelkraft auf das Skelett übertragen. Umfasst die Sehnenentzündung (Tendinitis) mit schmerzhaften Reizzuständen, die chronische Sehnenerkrankung (Tendinose) mit degenerativen Veränderungen und den akuten Sehnenriss. Häufig betroffene Sehnen sind die Rotatorenmanschette der Schulter, die Achillessehne, die Bizepssehne sowie Sehnen an Ellenbogen und Handgelenk.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#TendonInjury</IRI>
+        <Literal>TendonInjury</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#Tennis</IRI>
         <Literal>Tennis</Literal>
@@ -29611,7 +29696,7 @@ Langsam zur Mitte zurückkehren.
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
         <IRI>#TrainingsEffect</IRI>
-        <Literal>Class for benfits of Asana poses.</Literal>
+        <Literal>Trainingseffekt als physiologische und morphologische Anpassungsreaktion des Körpers auf regelmäßiges körperliches Training. Durch das gezielte Setzen von Trainingsreizen über der individuellen Reizschwelle und ausreichende Erholung kommt es zu Anpassungen, die die Leistungsfähigkeit und Belastbarkeit erhöhen. Beispiele sind Kraftzuwachs, Muskelhypertrophie, verbesserte Ausdauer und aerobe Kapazität, erhöhte Beweglichkeit, verbesserte intra- und intermuskuläre Koordination sowie gesteigerte Knochendichte. Die Effekte sind spezifisch für die Art des Trainingsreizes.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
@@ -29621,7 +29706,7 @@ Langsam zur Mitte zurückkehren.
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
         <IRI>#TrainingsLevel</IRI>
-        <Literal>Sport level class for ranking users in beginner, intermediate and advanced</Literal>
+        <Literal>Trainingsniveau oder Fitnesslevel eines Patienten oder Sportlers zur Einordnung der individuellen Leistungsfähigkeit, Trainingserfahrung und Anpassungsfähigkeit. Übliche Stufen sind Anfänger (geringe oder keine Erfahrung, schnelle Fortschritte durch neuronale Anpassungen möglich), Fortgeschrittene (regelmäßiges Training über mehrere Monate bis Jahre, höhere Belastungsreize erforderlich) und Profis (mehrjährige intensive Trainingserfahrung, langsamere Fortschritte, periodisierte Trainingsplanung notwendig). Das Trainingsniveau bestimmt Übungsauswahl, Belastungsdosierung und Progressionsgeschwindigkeit.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
