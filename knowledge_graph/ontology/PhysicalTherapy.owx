@@ -27161,17 +27161,17 @@ Langsam zur Mitte zurückkehren.
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
         <IRI>#Cardio</IRI>
-        <Literal>Aerobic exercise that elevates heart rate and breathing to improve cardiovascular endurance.</Literal>
+        <Literal>Aerobe Übung, die Herzfrequenz und Atmung erhöht, um die kardiovaskuläre Ausdauer zu verbessern.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
         <IRI>#Cardio</IRI>
-        <Literal>Also known as aerobic or endurance training. Cardio uses large muscle groups in continuous, rhythmic movement sustained long enough to raise heart rate into a moderate-to-vigorous training zone, relying on oxygen-based energy production. It is considered the cornerstone of endurance training in rehabilitation, supporting heart and lung function, stamina, weight and blood pressure management.</Literal>
+        <Literal>Auch bekannt als aerobes Training oder Ausdauertraining. Cardio nutzt große Muskelgruppen in kontinuierlichen, rhythmischen Bewegungen, die lange genug aufrechterhalten werden, um die Herzfrequenz in einen moderat bis intensiven Trainingsbereich anzuheben, und stützt sich auf sauerstoffbasierte Energiebereitstellung. Es gilt als Eckpfeiler des Ausdauertrainings in der Rehabilitation und unterstützt die Herz- und Lungenfunktion, die Ausdauer sowie das Gewichts- und Blutdruckmanagement.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#Cardio</IRI>
-        <Literal>Cardio</Literal>
+        <Literal>Ausdauertraining</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
@@ -27576,7 +27576,12 @@ Langsam zur Mitte zurückkehren.
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
         <IRI>#Entspannung</IRI>
-        <Literal>Übungen zur körperlichen und geistigen Entspannung</Literal>
+        <Literal>Übungen zur körperlichen und geistigen Entspannung.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <IRI>#Entspannung</IRI>
+        <Literal>Übungen und Techniken zur gezielten Herbeiführung eines körperlichen und geistigen Entspannungszustands. Sie wirken über die Aktivierung des Parasympathikus und eine trophotrope Umschaltung, die der Stress- und Alarmreaktion des Körpers entgegensteuert: Der Muskeltonus sinkt, Herzfrequenz und Blutdruck werden gesenkt, die Atmung wird ruhiger und die Skelettmuskulatur lockert sich. In der Physiotherapie und medizinischen Rehabilitation werden Verfahren wie die Progressive Muskelentspannung nach Jacobson, das Autogene Training nach Schultz, Atemtherapie und geleitete Imagination eingesetzt, um Stress und innere Unruhe zu reduzieren, chronische Schmerzen zu lindern, die Körperwahrnehmung zu verbessern und das allgemeine Wohlbefinden zu fördern.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
@@ -29514,9 +29519,19 @@ Langsam zur Mitte zurückkehren.
         <Literal>Straight</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Strength</IRI>
+        <Literal>Widerstandstraining, das die Muskelkraft aufbaut, indem Muskeln gegen einen äußeren Widerstand arbeiten.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <IRI>#Strength</IRI>
+        <Literal>Auch bekannt als Krafttraining. Kraftübungen nutzen das eigene Körpergewicht, freie Gewichte, Geräte, Widerstandsbänder oder andere äußere Widerstände, um Muskeln gegen eine Kraft kontrahieren zu lassen, mit dem Ziel, Muskelkraft, Schnellkraft, Ausdauer und Muskelhypertrophie zu entwickeln. Das American College of Sports Medicine und die American Heart Association empfehlen Krafttraining an mindestens zwei Tagen pro Woche, das alle großen Muskelgruppen anspricht. In der Physiotherapie und Rehabilitation ist Krafttraining die Grundlage für den Muskelaufbau nach Verletzungen oder Operationen, die Wiederherstellung der Gelenkstabilität, die Unterstützung der Knochengesundheit, die Verbesserung der körperlichen Funktion und die Sturzprävention bei älteren Erwachsenen.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#Strength</IRI>
-        <Literal>Strength</Literal>
+        <Literal>Krafttraining</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
