@@ -7,7 +7,7 @@
      xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
      ontologyIRI="http://purl.org/PhysicalTherapy"
      versionIRI="http://purl.org/PhysicalTherapy/1.0">
-    <Prefix name="" IRI="http://purl.org/PhysicalTherapy#"/>
+    <Prefix name="" IRI="http://www.w3.org/2002/07/owl#"/>
     <Prefix name="owl" IRI="http://www.w3.org/2002/07/owl#"/>
     <Prefix name="rdf" IRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
     <Prefix name="xml" IRI="http://www.w3.org/XML/1998/namespace"/>
@@ -2579,22 +2579,6 @@
         <NamedIndividual IRI="#Airplane"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="#Contraindication"/>
-        <NamedIndividual IRI="#Airplane_BalanceIssue"/>
-    </ClassAssertion>
-    <ClassAssertion>
-        <Class IRI="#Contraindication"/>
-        <NamedIndividual IRI="#Airplane_CoreIssue"/>
-    </ClassAssertion>
-    <ClassAssertion>
-        <Class IRI="#Contraindication"/>
-        <NamedIndividual IRI="#Airplane_HipIssue"/>
-    </ClassAssertion>
-    <ClassAssertion>
-        <Class IRI="#Contraindication"/>
-        <NamedIndividual IRI="#Airplane_KneeIssue"/>
-    </ClassAssertion>
-    <ClassAssertion>
         <Class IRI="#LimbAlignment"/>
         <NamedIndividual IRI="#Airplane_Left_Arm"/>
     </ClassAssertion>
@@ -2627,7 +2611,7 @@
         <NamedIndividual IRI="#AnkleFracture"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="#Injury"/>
+        <Class IRI="#Contraindication"/>
         <NamedIndividual IRI="#AnkleIssue"/>
     </ClassAssertion>
     <ClassAssertion>
@@ -2645,10 +2629,6 @@
     <ClassAssertion>
         <Class IRI="#CoordinationMobility"/>
         <NamedIndividual IRI="#Armkreisen"/>
-    </ClassAssertion>
-    <ClassAssertion>
-        <Class IRI="#Contraindication"/>
-        <NamedIndividual IRI="#Armkreisen_ShoulderIssue"/>
     </ClassAssertion>
     <ClassAssertion>
         <Class IRI="#BodyPart"/>
@@ -2671,7 +2651,7 @@
         <NamedIndividual IRI="#Back"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="#Injury"/>
+        <Class IRI="#Contraindication"/>
         <NamedIndividual IRI="#BackIssue"/>
     </ClassAssertion>
     <ClassAssertion>
@@ -2687,7 +2667,7 @@
         <NamedIndividual IRI="#Balance"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="#Injury"/>
+        <Class IRI="#Contraindication"/>
         <NamedIndividual IRI="#BalanceIssue"/>
     </ClassAssertion>
     <ClassAssertion>
@@ -2759,24 +2739,12 @@
         <NamedIndividual IRI="#Bruecke"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="#Contraindication"/>
-        <NamedIndividual IRI="#Bruecke_LowerBackIssue"/>
-    </ClassAssertion>
-    <ClassAssertion>
         <Class IRI="#MobilisationStretching"/>
         <NamedIndividual IRI="#BrustwirbelsaeulenRotation"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="#Contraindication"/>
-        <NamedIndividual IRI="#BrustwirbelsaeulenRotation_SpineIssue"/>
-    </ClassAssertion>
-    <ClassAssertion>
         <Class IRI="#Asana"/>
         <NamedIndividual IRI="#Cactus"/>
-    </ClassAssertion>
-    <ClassAssertion>
-        <Class IRI="#Contraindication"/>
-        <NamedIndividual IRI="#Cactus_BalanceIssue"/>
     </ClassAssertion>
     <ClassAssertion>
         <Class IRI="#LimbAlignment"/>
@@ -2793,10 +2761,6 @@
     <ClassAssertion>
         <Class IRI="#LimbAlignment"/>
         <NamedIndividual IRI="#Cactus_Right_Leg"/>
-    </ClassAssertion>
-    <ClassAssertion>
-        <Class IRI="#Contraindication"/>
-        <NamedIndividual IRI="#Cactus_ShoulderIssue"/>
     </ClassAssertion>
     <ClassAssertion>
         <Class IRI="#LimbAlignment"/>
@@ -2831,24 +2795,12 @@
         <NamedIndividual IRI="#CenterSplits"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="#Contraindication"/>
-        <NamedIndividual IRI="#CenterSplits_BalanceIssue"/>
-    </ClassAssertion>
-    <ClassAssertion>
-        <Class IRI="#Contraindication"/>
-        <NamedIndividual IRI="#CenterSplits_HipIssue"/>
-    </ClassAssertion>
-    <ClassAssertion>
         <Class IRI="#LimbAlignment"/>
         <NamedIndividual IRI="#CenterSplits_Left_Arm"/>
     </ClassAssertion>
     <ClassAssertion>
         <Class IRI="#LimbAlignment"/>
         <NamedIndividual IRI="#CenterSplits_Left_Leg"/>
-    </ClassAssertion>
-    <ClassAssertion>
-        <Class IRI="#Contraindication"/>
-        <NamedIndividual IRI="#CenterSplits_NeckIssue"/>
     </ClassAssertion>
     <ClassAssertion>
         <Class IRI="#LimbAlignment"/>
@@ -2867,24 +2819,12 @@
         <NamedIndividual IRI="#Chair"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="#Contraindication"/>
-        <NamedIndividual IRI="#Chair_AnkleIssue"/>
-    </ClassAssertion>
-    <ClassAssertion>
-        <Class IRI="#Contraindication"/>
-        <NamedIndividual IRI="#Chair_KneeIssue"/>
-    </ClassAssertion>
-    <ClassAssertion>
         <Class IRI="#LimbAlignment"/>
         <NamedIndividual IRI="#Chair_Left_Arm"/>
     </ClassAssertion>
     <ClassAssertion>
         <Class IRI="#LimbAlignment"/>
         <NamedIndividual IRI="#Chair_Left_Leg"/>
-    </ClassAssertion>
-    <ClassAssertion>
-        <Class IRI="#Contraindication"/>
-        <NamedIndividual IRI="#Chair_LowerBackIssue"/>
     </ClassAssertion>
     <ClassAssertion>
         <Class IRI="#LimbAlignment"/>
@@ -2911,10 +2851,6 @@
         <NamedIndividual IRI="#ChestDoorwayStretch"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="#Contraindication"/>
-        <NamedIndividual IRI="#ChestDoorwayStretch_ShoulderIssue"/>
-    </ClassAssertion>
-    <ClassAssertion>
         <Class IRI="#SportActivity"/>
         <NamedIndividual IRI="#ChoppingWood"/>
     </ClassAssertion>
@@ -2935,7 +2871,7 @@
         <NamedIndividual IRI="#Core"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="#Injury"/>
+        <Class IRI="#Contraindication"/>
         <NamedIndividual IRI="#CoreWeakness"/>
     </ClassAssertion>
     <ClassAssertion>
@@ -2951,10 +2887,6 @@
         <NamedIndividual IRI="#Crab_Left_Leg"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="#Contraindication"/>
-        <NamedIndividual IRI="#Crab_LowerBackIssue"/>
-    </ClassAssertion>
-    <ClassAssertion>
         <Class IRI="#LimbAlignment"/>
         <NamedIndividual IRI="#Crab_Right_Arm"/>
     </ClassAssertion>
@@ -2963,28 +2895,12 @@
         <NamedIndividual IRI="#Crab_Right_Leg"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="#Contraindication"/>
-        <NamedIndividual IRI="#Crab_ShoulderIssue"/>
-    </ClassAssertion>
-    <ClassAssertion>
         <Class IRI="#LimbAlignment"/>
         <NamedIndividual IRI="#Crab_Torso"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="#Contraindication"/>
-        <NamedIndividual IRI="#Crab_WristIssue"/>
-    </ClassAssertion>
-    <ClassAssertion>
         <Class IRI="#Asana"/>
         <NamedIndividual IRI="#Dancer"/>
-    </ClassAssertion>
-    <ClassAssertion>
-        <Class IRI="#Contraindication"/>
-        <NamedIndividual IRI="#Dancer_BalanceIssue"/>
-    </ClassAssertion>
-    <ClassAssertion>
-        <Class IRI="#Contraindication"/>
-        <NamedIndividual IRI="#Dancer_KneeIssue"/>
     </ClassAssertion>
     <ClassAssertion>
         <Class IRI="#LimbAlignment"/>
@@ -3003,10 +2919,6 @@
         <NamedIndividual IRI="#Dancer_Right_Leg"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="#Contraindication"/>
-        <NamedIndividual IRI="#Dancer_ShoulderIssue"/>
-    </ClassAssertion>
-    <ClassAssertion>
         <Class IRI="#LimbAlignment"/>
         <NamedIndividual IRI="#Dancer_Torso"/>
     </ClassAssertion>
@@ -3021,10 +2933,6 @@
     <ClassAssertion>
         <Class IRI="#Strength"/>
         <NamedIndividual IRI="#DeadBug"/>
-    </ClassAssertion>
-    <ClassAssertion>
-        <Class IRI="#Contraindication"/>
-        <NamedIndividual IRI="#DeadBug_LowerBackIssue"/>
     </ClassAssertion>
     <ClassAssertion>
         <Class IRI="#Strength"/>
@@ -3047,14 +2955,6 @@
         <NamedIndividual IRI="#Eagle"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="#Contraindication"/>
-        <NamedIndividual IRI="#Eagle_BalanceIssue"/>
-    </ClassAssertion>
-    <ClassAssertion>
-        <Class IRI="#Contraindication"/>
-        <NamedIndividual IRI="#Eagle_KneeIssue"/>
-    </ClassAssertion>
-    <ClassAssertion>
         <Class IRI="#LimbAlignment"/>
         <NamedIndividual IRI="#Eagle_Left_Arm"/>
     </ClassAssertion>
@@ -3071,24 +2971,12 @@
         <NamedIndividual IRI="#Eagle_Right_Leg"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="#Contraindication"/>
-        <NamedIndividual IRI="#Eagle_ShoulderIssue"/>
-    </ClassAssertion>
-    <ClassAssertion>
         <Class IRI="#LimbAlignment"/>
         <NamedIndividual IRI="#Eagle_Torso"/>
     </ClassAssertion>
     <ClassAssertion>
         <Class IRI="#CoordinationMobility"/>
         <NamedIndividual IRI="#Einbeinstand"/>
-    </ClassAssertion>
-    <ClassAssertion>
-        <Class IRI="#Contraindication"/>
-        <NamedIndividual IRI="#Einbeinstand_AnkleIssue"/>
-    </ClassAssertion>
-    <ClassAssertion>
-        <Class IRI="#Contraindication"/>
-        <NamedIndividual IRI="#Einbeinstand_BalanceIssue"/>
     </ClassAssertion>
     <ClassAssertion>
         <Class IRI="#Joint"/>
@@ -3111,10 +2999,6 @@
         <NamedIndividual IRI="#FaszienrolleRueckenWade"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="#Contraindication"/>
-        <NamedIndividual IRI="#FaszienrolleRueckenWade_SpineIssue"/>
-    </ClassAssertion>
-    <ClassAssertion>
         <Class IRI="#SportActivity"/>
         <NamedIndividual IRI="#FellingTrees"/>
     </ClassAssertion>
@@ -3127,20 +3011,8 @@
         <NamedIndividual IRI="#FerseZehenGang"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="#Contraindication"/>
-        <NamedIndividual IRI="#FerseZehenGang_AnkleIssue"/>
-    </ClassAssertion>
-    <ClassAssertion>
-        <Class IRI="#Contraindication"/>
-        <NamedIndividual IRI="#FerseZehenGang_BalanceIssue"/>
-    </ClassAssertion>
-    <ClassAssertion>
         <Class IRI="#Stretching"/>
         <NamedIndividual IRI="#FigureFourStretch"/>
-    </ClassAssertion>
-    <ClassAssertion>
-        <Class IRI="#Contraindication"/>
-        <NamedIndividual IRI="#FigureFourStretch_KneeIssue"/>
     </ClassAssertion>
     <ClassAssertion>
         <Class IRI="#SportActivity"/>
@@ -3153,18 +3025,6 @@
     <ClassAssertion>
         <Class IRI="#Asana"/>
         <NamedIndividual IRI="#Flamingo"/>
-    </ClassAssertion>
-    <ClassAssertion>
-        <Class IRI="#Contraindication"/>
-        <NamedIndividual IRI="#Flamingo_AnkleIssue"/>
-    </ClassAssertion>
-    <ClassAssertion>
-        <Class IRI="#Contraindication"/>
-        <NamedIndividual IRI="#Flamingo_BalanceIssue"/>
-    </ClassAssertion>
-    <ClassAssertion>
-        <Class IRI="#Contraindication"/>
-        <NamedIndividual IRI="#Flamingo_KneeIssue"/>
     </ClassAssertion>
     <ClassAssertion>
         <Class IRI="#LimbAlignment"/>
@@ -3231,24 +3091,12 @@
         <NamedIndividual IRI="#Gate"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="#Contraindication"/>
-        <NamedIndividual IRI="#Gate_CoreIssue"/>
-    </ClassAssertion>
-    <ClassAssertion>
-        <Class IRI="#Contraindication"/>
-        <NamedIndividual IRI="#Gate_HipIssue"/>
-    </ClassAssertion>
-    <ClassAssertion>
         <Class IRI="#LimbAlignment"/>
         <NamedIndividual IRI="#Gate_Left_Arm"/>
     </ClassAssertion>
     <ClassAssertion>
         <Class IRI="#LimbAlignment"/>
         <NamedIndividual IRI="#Gate_Left_Leg"/>
-    </ClassAssertion>
-    <ClassAssertion>
-        <Class IRI="#Contraindication"/>
-        <NamedIndividual IRI="#Gate_LowerBackIssue"/>
     </ClassAssertion>
     <ClassAssertion>
         <Class IRI="#LimbAlignment"/>
@@ -3267,20 +3115,8 @@
         <NamedIndividual IRI="#GewichtsverlagerungSeitlich"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="#Contraindication"/>
-        <NamedIndividual IRI="#GewichtsverlagerungSeitlich_BalanceIssue"/>
-    </ClassAssertion>
-    <ClassAssertion>
         <Class IRI="#CoordinationMobility"/>
         <NamedIndividual IRI="#GleichgewichtInstabil"/>
-    </ClassAssertion>
-    <ClassAssertion>
-        <Class IRI="#Contraindication"/>
-        <NamedIndividual IRI="#GleichgewichtInstabil_AnkleIssue"/>
-    </ClassAssertion>
-    <ClassAssertion>
-        <Class IRI="#Contraindication"/>
-        <NamedIndividual IRI="#GleichgewichtInstabil_BalanceIssue"/>
     </ClassAssertion>
     <ClassAssertion>
         <Class IRI="#BodyPart"/>
@@ -3295,28 +3131,12 @@
         <NamedIndividual IRI="#Goddess"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="#Contraindication"/>
-        <NamedIndividual IRI="#Goddess_AnkleIssue"/>
-    </ClassAssertion>
-    <ClassAssertion>
-        <Class IRI="#Contraindication"/>
-        <NamedIndividual IRI="#Goddess_HipIssue"/>
-    </ClassAssertion>
-    <ClassAssertion>
-        <Class IRI="#Contraindication"/>
-        <NamedIndividual IRI="#Goddess_KneeIssue"/>
-    </ClassAssertion>
-    <ClassAssertion>
         <Class IRI="#LimbAlignment"/>
         <NamedIndividual IRI="#Goddess_Left_Arm"/>
     </ClassAssertion>
     <ClassAssertion>
         <Class IRI="#LimbAlignment"/>
         <NamedIndividual IRI="#Goddess_Left_Leg"/>
-    </ClassAssertion>
-    <ClassAssertion>
-        <Class IRI="#Contraindication"/>
-        <NamedIndividual IRI="#Goddess_LowerBackIssue"/>
     </ClassAssertion>
     <ClassAssertion>
         <Class IRI="#LimbAlignment"/>
@@ -3351,18 +3171,6 @@
         <NamedIndividual IRI="#HalfMoon"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="#Contraindication"/>
-        <NamedIndividual IRI="#HalfMoon_BalanceIssue"/>
-    </ClassAssertion>
-    <ClassAssertion>
-        <Class IRI="#Contraindication"/>
-        <NamedIndividual IRI="#HalfMoon_HamstringIssue"/>
-    </ClassAssertion>
-    <ClassAssertion>
-        <Class IRI="#Contraindication"/>
-        <NamedIndividual IRI="#HalfMoon_HipIssue"/>
-    </ClassAssertion>
-    <ClassAssertion>
         <Class IRI="#LimbAlignment"/>
         <NamedIndividual IRI="#HalfMoon_Left_Arm"/>
     </ClassAssertion>
@@ -3383,7 +3191,7 @@
         <NamedIndividual IRI="#HalfMoon_Torso"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="#Injury"/>
+        <Class IRI="#Contraindication"/>
         <NamedIndividual IRI="#HamstringIssue"/>
     </ClassAssertion>
     <ClassAssertion>
@@ -3393,10 +3201,6 @@
     <ClassAssertion>
         <Class IRI="#Stretching"/>
         <NamedIndividual IRI="#HamstringStretch"/>
-    </ClassAssertion>
-    <ClassAssertion>
-        <Class IRI="#Contraindication"/>
-        <NamedIndividual IRI="#HamstringStretch_HamstringIssue"/>
     </ClassAssertion>
     <ClassAssertion>
         <Class IRI="#BodyPart"/>
@@ -3431,22 +3235,6 @@
         <NamedIndividual IRI="#HighLungePose_Torso"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="#Contraindication"/>
-        <NamedIndividual IRI="#HighLunge_BalanceIssue"/>
-    </ClassAssertion>
-    <ClassAssertion>
-        <Class IRI="#Contraindication"/>
-        <NamedIndividual IRI="#HighLunge_HipIssue"/>
-    </ClassAssertion>
-    <ClassAssertion>
-        <Class IRI="#Contraindication"/>
-        <NamedIndividual IRI="#HighLunge_KneeIssue"/>
-    </ClassAssertion>
-    <ClassAssertion>
-        <Class IRI="#Contraindication"/>
-        <NamedIndividual IRI="#HighLunge_LowerBackIssue"/>
-    </ClassAssertion>
-    <ClassAssertion>
         <Class IRI="#SeverityLevel"/>
         <NamedIndividual IRI="#HighRisk"/>
     </ClassAssertion>
@@ -3467,7 +3255,7 @@
         <NamedIndividual IRI="#HipFracture"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="#Injury"/>
+        <Class IRI="#Contraindication"/>
         <NamedIndividual IRI="#HipIssue"/>
     </ClassAssertion>
     <ClassAssertion>
@@ -3491,14 +3279,6 @@
         <NamedIndividual IRI="#HueftbeugerDehnung"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="#Contraindication"/>
-        <NamedIndividual IRI="#HueftbeugerDehnung_HipIssue"/>
-    </ClassAssertion>
-    <ClassAssertion>
-        <Class IRI="#Contraindication"/>
-        <NamedIndividual IRI="#HueftbeugerDehnung_KneeIssue"/>
-    </ClassAssertion>
-    <ClassAssertion>
         <Class IRI="#SportActivity"/>
         <NamedIndividual IRI="#IceSkating"/>
     </ClassAssertion>
@@ -3519,14 +3299,6 @@
         <NamedIndividual IRI="#JumpingJacks"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="#Contraindication"/>
-        <NamedIndividual IRI="#JumpingJacks_AnkleIssue"/>
-    </ClassAssertion>
-    <ClassAssertion>
-        <Class IRI="#Contraindication"/>
-        <NamedIndividual IRI="#JumpingJacks_KneeIssue"/>
-    </ClassAssertion>
-    <ClassAssertion>
         <Class IRI="#SportActivity"/>
         <NamedIndividual IRI="#Karate"/>
     </ClassAssertion>
@@ -3543,24 +3315,8 @@
         <NamedIndividual IRI="#Kindpose"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="#Contraindication"/>
-        <NamedIndividual IRI="#Kindpose_HipIssue"/>
-    </ClassAssertion>
-    <ClassAssertion>
-        <Class IRI="#Contraindication"/>
-        <NamedIndividual IRI="#Kindpose_KneeIssue"/>
-    </ClassAssertion>
-    <ClassAssertion>
         <Class IRI="#Asana"/>
         <NamedIndividual IRI="#KingDancer"/>
-    </ClassAssertion>
-    <ClassAssertion>
-        <Class IRI="#Contraindication"/>
-        <NamedIndividual IRI="#KingDancer_BalanceIssue"/>
-    </ClassAssertion>
-    <ClassAssertion>
-        <Class IRI="#Contraindication"/>
-        <NamedIndividual IRI="#KingDancer_KneeIssue"/>
     </ClassAssertion>
     <ClassAssertion>
         <Class IRI="#LimbAlignment"/>
@@ -3579,10 +3335,6 @@
         <NamedIndividual IRI="#KingDancer_Right_Leg"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="#Contraindication"/>
-        <NamedIndividual IRI="#KingDancer_ShoulderIssue"/>
-    </ClassAssertion>
-    <ClassAssertion>
         <Class IRI="#LimbAlignment"/>
         <NamedIndividual IRI="#KingDancer_Torso"/>
     </ClassAssertion>
@@ -3591,7 +3343,7 @@
         <NamedIndividual IRI="#KneeFracture"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="#Injury"/>
+        <Class IRI="#Contraindication"/>
         <NamedIndividual IRI="#KneeIssue"/>
     </ClassAssertion>
     <ClassAssertion>
@@ -3611,20 +3363,12 @@
         <NamedIndividual IRI="#KniegelenkMobilisation"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="#Contraindication"/>
-        <NamedIndividual IRI="#KniegelenkMobilisation_KneeIssue"/>
-    </ClassAssertion>
-    <ClassAssertion>
         <Class IRI="#SportActivity"/>
         <NamedIndividual IRI="#Lacrosse"/>
     </ClassAssertion>
     <ClassAssertion>
         <Class IRI="#MobilisationStretching"/>
         <NamedIndividual IRI="#LatStretch"/>
-    </ClassAssertion>
-    <ClassAssertion>
-        <Class IRI="#Contraindication"/>
-        <NamedIndividual IRI="#LatStretch_ShoulderIssue"/>
     </ClassAssertion>
     <ClassAssertion>
         <Class IRI="#Muscle"/>
@@ -3647,10 +3391,6 @@
         <NamedIndividual IRI="#LegRaise"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="#Contraindication"/>
-        <NamedIndividual IRI="#LegRaise_LowerBackIssue"/>
-    </ClassAssertion>
-    <ClassAssertion>
         <Class IRI="#BodyPart"/>
         <NamedIndividual IRI="#Legs"/>
     </ClassAssertion>
@@ -3667,7 +3407,7 @@
         <NamedIndividual IRI="#LowerBack"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="#Injury"/>
+        <Class IRI="#Contraindication"/>
         <NamedIndividual IRI="#LowerBackIssue"/>
     </ClassAssertion>
     <ClassAssertion>
@@ -3719,10 +3459,6 @@
         <NamedIndividual IRI="#MountainClimber"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="#Contraindication"/>
-        <NamedIndividual IRI="#MountainClimber_WristIssue"/>
-    </ClassAssertion>
-    <ClassAssertion>
         <Class IRI="#SportActivity"/>
         <NamedIndividual IRI="#MountainClimbing"/>
     </ClassAssertion>
@@ -3755,23 +3491,15 @@
         <NamedIndividual IRI="#Muschel"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="#Contraindication"/>
-        <NamedIndividual IRI="#Muschel_HipIssue"/>
-    </ClassAssertion>
-    <ClassAssertion>
         <Class IRI="#MobilisationStretching"/>
         <NamedIndividual IRI="#Nackendehnungen"/>
-    </ClassAssertion>
-    <ClassAssertion>
-        <Class IRI="#Contraindication"/>
-        <NamedIndividual IRI="#Nackendehnungen_NeckIssue"/>
     </ClassAssertion>
     <ClassAssertion>
         <Class IRI="#BodyPart"/>
         <NamedIndividual IRI="#Neck"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="#Injury"/>
+        <Class IRI="#Contraindication"/>
         <NamedIndividual IRI="#NeckIssue"/>
     </ClassAssertion>
     <ClassAssertion>
@@ -3803,10 +3531,6 @@
         <NamedIndividual IRI="#ParadiseBird"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="#Contraindication"/>
-        <NamedIndividual IRI="#ParadiseBird_BalanceIssue"/>
-    </ClassAssertion>
-    <ClassAssertion>
         <Class IRI="#LimbAlignment"/>
         <NamedIndividual IRI="#ParadiseBird_Left_Arm"/>
     </ClassAssertion>
@@ -3823,16 +3547,8 @@
         <NamedIndividual IRI="#ParadiseBird_Right_Leg"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="#Contraindication"/>
-        <NamedIndividual IRI="#ParadiseBird_ShoulderIssue"/>
-    </ClassAssertion>
-    <ClassAssertion>
         <Class IRI="#LimbAlignment"/>
         <NamedIndividual IRI="#ParadiseBird_Torso"/>
-    </ClassAssertion>
-    <ClassAssertion>
-        <Class IRI="#Contraindication"/>
-        <NamedIndividual IRI="#ParadiseBird_WristIssue"/>
     </ClassAssertion>
     <ClassAssertion>
         <Class IRI="#BodyPart"/>
@@ -3843,14 +3559,6 @@
         <NamedIndividual IRI="#PigeonPose"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="#Contraindication"/>
-        <NamedIndividual IRI="#PigeonPose_HipIssue"/>
-    </ClassAssertion>
-    <ClassAssertion>
-        <Class IRI="#Contraindication"/>
-        <NamedIndividual IRI="#PigeonPose_KneeIssue"/>
-    </ClassAssertion>
-    <ClassAssertion>
         <Class IRI="#MobilisationStretching"/>
         <NamedIndividual IRI="#PiriformisStretch"/>
     </ClassAssertion>
@@ -3859,16 +3567,8 @@
         <NamedIndividual IRI="#PiriformisStretch"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="#Contraindication"/>
-        <NamedIndividual IRI="#PiriformisStretch_KneeIssue"/>
-    </ClassAssertion>
-    <ClassAssertion>
         <Class IRI="#Strength"/>
         <NamedIndividual IRI="#Plank"/>
-    </ClassAssertion>
-    <ClassAssertion>
-        <Class IRI="#Contraindication"/>
-        <NamedIndividual IRI="#Plank_WristIssue"/>
     </ClassAssertion>
     <ClassAssertion>
         <Class IRI="#AnkleMuscleInjury"/>
@@ -3899,24 +3599,8 @@
         <NamedIndividual IRI="#PushUps"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="#Contraindication"/>
-        <NamedIndividual IRI="#PushUps_WristIssue"/>
-    </ClassAssertion>
-    <ClassAssertion>
         <Class IRI="#Asana"/>
         <NamedIndividual IRI="#Pyramid"/>
-    </ClassAssertion>
-    <ClassAssertion>
-        <Class IRI="#Contraindication"/>
-        <NamedIndividual IRI="#Pyramid_AnkleIssue"/>
-    </ClassAssertion>
-    <ClassAssertion>
-        <Class IRI="#Contraindication"/>
-        <NamedIndividual IRI="#Pyramid_BalanceIssue"/>
-    </ClassAssertion>
-    <ClassAssertion>
-        <Class IRI="#Contraindication"/>
-        <NamedIndividual IRI="#Pyramid_HamstringIssue"/>
     </ClassAssertion>
     <ClassAssertion>
         <Class IRI="#LimbAlignment"/>
@@ -3925,10 +3609,6 @@
     <ClassAssertion>
         <Class IRI="#LimbAlignment"/>
         <NamedIndividual IRI="#Pyramid_Left_Leg"/>
-    </ClassAssertion>
-    <ClassAssertion>
-        <Class IRI="#Contraindication"/>
-        <NamedIndividual IRI="#Pyramid_LowerBackIssue"/>
     </ClassAssertion>
     <ClassAssertion>
         <Class IRI="#LimbAlignment"/>
@@ -3975,20 +3655,12 @@
         <NamedIndividual IRI="#RaisedArms_Left_Leg"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="#Contraindication"/>
-        <NamedIndividual IRI="#RaisedArms_NeckIssue"/>
-    </ClassAssertion>
-    <ClassAssertion>
         <Class IRI="#LimbAlignment"/>
         <NamedIndividual IRI="#RaisedArms_Right_Arm"/>
     </ClassAssertion>
     <ClassAssertion>
         <Class IRI="#LimbAlignment"/>
         <NamedIndividual IRI="#RaisedArms_Right_Leg"/>
-    </ClassAssertion>
-    <ClassAssertion>
-        <Class IRI="#Contraindication"/>
-        <NamedIndividual IRI="#RaisedArms_ShoulderIssue"/>
     </ClassAssertion>
     <ClassAssertion>
         <Class IRI="#LimbAlignment"/>
@@ -4067,20 +3739,8 @@
         <NamedIndividual IRI="#ScapulaRetraktion"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="#Contraindication"/>
-        <NamedIndividual IRI="#ScapulaRetraktion_ShoulderIssue"/>
-    </ClassAssertion>
-    <ClassAssertion>
         <Class IRI="#Entspannung"/>
         <NamedIndividual IRI="#SchulterNackenEntspannung"/>
-    </ClassAssertion>
-    <ClassAssertion>
-        <Class IRI="#Contraindication"/>
-        <NamedIndividual IRI="#SchulterNackenEntspannung_NeckIssue"/>
-    </ClassAssertion>
-    <ClassAssertion>
-        <Class IRI="#Contraindication"/>
-        <NamedIndividual IRI="#SchulterNackenEntspannung_ShoulderIssue"/>
     </ClassAssertion>
     <ClassAssertion>
         <Class IRI="#SpinePain"/>
@@ -4119,7 +3779,7 @@
         <NamedIndividual IRI="#ShoulderInternalExternalRotation"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="#Injury"/>
+        <Class IRI="#Contraindication"/>
         <NamedIndividual IRI="#ShoulderIssue"/>
     </ClassAssertion>
     <ClassAssertion>
@@ -4143,24 +3803,12 @@
         <NamedIndividual IRI="#SideAngle"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="#Contraindication"/>
-        <NamedIndividual IRI="#SideAngle_HipIssue"/>
-    </ClassAssertion>
-    <ClassAssertion>
-        <Class IRI="#Contraindication"/>
-        <NamedIndividual IRI="#SideAngle_KneeIssue"/>
-    </ClassAssertion>
-    <ClassAssertion>
         <Class IRI="#LimbAlignment"/>
         <NamedIndividual IRI="#SideAngle_Left_Arm"/>
     </ClassAssertion>
     <ClassAssertion>
         <Class IRI="#LimbAlignment"/>
         <NamedIndividual IRI="#SideAngle_Left_Leg"/>
-    </ClassAssertion>
-    <ClassAssertion>
-        <Class IRI="#Contraindication"/>
-        <NamedIndividual IRI="#SideAngle_LowerBackIssue"/>
     </ClassAssertion>
     <ClassAssertion>
         <Class IRI="#LimbAlignment"/>
@@ -4185,10 +3833,6 @@
     <ClassAssertion>
         <Class IRI="#CoordinationMobility"/>
         <NamedIndividual IRI="#SitzenStehen"/>
-    </ClassAssertion>
-    <ClassAssertion>
-        <Class IRI="#Contraindication"/>
-        <NamedIndividual IRI="#SitzenStehen_KneeIssue"/>
     </ClassAssertion>
     <ClassAssertion>
         <Class IRI="#SportActivity"/>
@@ -4239,7 +3883,7 @@
         <NamedIndividual IRI="#Spine"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="#Injury"/>
+        <Class IRI="#Contraindication"/>
         <NamedIndividual IRI="#SpineIssue"/>
     </ClassAssertion>
     <ClassAssertion>
@@ -4255,28 +3899,8 @@
         <NamedIndividual IRI="#Squads"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="#Contraindication"/>
-        <NamedIndividual IRI="#Squads_KneeIssue"/>
-    </ClassAssertion>
-    <ClassAssertion>
         <Class IRI="#TrainingsEffect"/>
         <NamedIndividual IRI="#Stability"/>
-    </ClassAssertion>
-    <ClassAssertion>
-        <Class IRI="#Contraindication"/>
-        <NamedIndividual IRI="#StandingBackBend_LowerBackIssue"/>
-    </ClassAssertion>
-    <ClassAssertion>
-        <Class IRI="#Contraindication"/>
-        <NamedIndividual IRI="#StandingBackBend_NeckIssue"/>
-    </ClassAssertion>
-    <ClassAssertion>
-        <Class IRI="#Contraindication"/>
-        <NamedIndividual IRI="#StandingBackBend_ShoulderIssue"/>
-    </ClassAssertion>
-    <ClassAssertion>
-        <Class IRI="#Contraindication"/>
-        <NamedIndividual IRI="#StandingBackBend_SpineIssue"/>
     </ClassAssertion>
     <ClassAssertion>
         <Class IRI="#Asana"/>
@@ -4307,20 +3931,8 @@
         <NamedIndividual IRI="#StandingCalfStretch"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="#Contraindication"/>
-        <NamedIndividual IRI="#StandingCalfStretch_AnkleIssue"/>
-    </ClassAssertion>
-    <ClassAssertion>
         <Class IRI="#Asana"/>
         <NamedIndividual IRI="#StandingCompass"/>
-    </ClassAssertion>
-    <ClassAssertion>
-        <Class IRI="#Contraindication"/>
-        <NamedIndividual IRI="#StandingCompass_BalanceIssue"/>
-    </ClassAssertion>
-    <ClassAssertion>
-        <Class IRI="#Contraindication"/>
-        <NamedIndividual IRI="#StandingCompass_CoreIssue"/>
     </ClassAssertion>
     <ClassAssertion>
         <Class IRI="#LimbAlignment"/>
@@ -4347,14 +3959,6 @@
         <NamedIndividual IRI="#StandingFirefly"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="#Contraindication"/>
-        <NamedIndividual IRI="#StandingFirefly_BalanceIssue"/>
-    </ClassAssertion>
-    <ClassAssertion>
-        <Class IRI="#Contraindication"/>
-        <NamedIndividual IRI="#StandingFirefly_CoreIssue"/>
-    </ClassAssertion>
-    <ClassAssertion>
         <Class IRI="#LimbAlignment"/>
         <NamedIndividual IRI="#StandingFirefly_Left_Arm"/>
     </ClassAssertion>
@@ -4371,10 +3975,6 @@
         <NamedIndividual IRI="#StandingFirefly_Right_Leg"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="#Contraindication"/>
-        <NamedIndividual IRI="#StandingFirefly_ShoulderIssue"/>
-    </ClassAssertion>
-    <ClassAssertion>
         <Class IRI="#LimbAlignment"/>
         <NamedIndividual IRI="#StandingFirefly_Torso"/>
     </ClassAssertion>
@@ -4383,24 +3983,12 @@
         <NamedIndividual IRI="#StandingForwardBend"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="#Contraindication"/>
-        <NamedIndividual IRI="#StandingForwardBend_BalanceIssue"/>
-    </ClassAssertion>
-    <ClassAssertion>
-        <Class IRI="#Contraindication"/>
-        <NamedIndividual IRI="#StandingForwardBend_HamstringIssue"/>
-    </ClassAssertion>
-    <ClassAssertion>
         <Class IRI="#LimbAlignment"/>
         <NamedIndividual IRI="#StandingForwardBend_Left_Arm"/>
     </ClassAssertion>
     <ClassAssertion>
         <Class IRI="#LimbAlignment"/>
         <NamedIndividual IRI="#StandingForwardBend_Left_Leg"/>
-    </ClassAssertion>
-    <ClassAssertion>
-        <Class IRI="#Contraindication"/>
-        <NamedIndividual IRI="#StandingForwardBend_LowerBackIssue"/>
     </ClassAssertion>
     <ClassAssertion>
         <Class IRI="#LimbAlignment"/>
@@ -4417,18 +4005,6 @@
     <ClassAssertion>
         <Class IRI="#Asana"/>
         <NamedIndividual IRI="#StandingLegRaise"/>
-    </ClassAssertion>
-    <ClassAssertion>
-        <Class IRI="#Contraindication"/>
-        <NamedIndividual IRI="#StandingLegRaise_BalanceIssue"/>
-    </ClassAssertion>
-    <ClassAssertion>
-        <Class IRI="#Contraindication"/>
-        <NamedIndividual IRI="#StandingLegRaise_HamstringIssue"/>
-    </ClassAssertion>
-    <ClassAssertion>
-        <Class IRI="#Contraindication"/>
-        <NamedIndividual IRI="#StandingLegRaise_HipIssue"/>
     </ClassAssertion>
     <ClassAssertion>
         <Class IRI="#LimbAlignment"/>
@@ -4459,24 +4035,12 @@
         <NamedIndividual IRI="#StandingSideBend"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="#Contraindication"/>
-        <NamedIndividual IRI="#StandingSideBend_BalanceIssue"/>
-    </ClassAssertion>
-    <ClassAssertion>
-        <Class IRI="#Contraindication"/>
-        <NamedIndividual IRI="#StandingSideBend_HipIssue"/>
-    </ClassAssertion>
-    <ClassAssertion>
         <Class IRI="#LimbAlignment"/>
         <NamedIndividual IRI="#StandingSideBend_Left_Arm"/>
     </ClassAssertion>
     <ClassAssertion>
         <Class IRI="#LimbAlignment"/>
         <NamedIndividual IRI="#StandingSideBend_Left_Leg"/>
-    </ClassAssertion>
-    <ClassAssertion>
-        <Class IRI="#Contraindication"/>
-        <NamedIndividual IRI="#StandingSideBend_LowerBackIssue"/>
     </ClassAssertion>
     <ClassAssertion>
         <Class IRI="#LimbAlignment"/>
@@ -4493,18 +4057,6 @@
     <ClassAssertion>
         <Class IRI="#Asana"/>
         <NamedIndividual IRI="#StandingSplit"/>
-    </ClassAssertion>
-    <ClassAssertion>
-        <Class IRI="#Contraindication"/>
-        <NamedIndividual IRI="#StandingSplit_BalanceIssue"/>
-    </ClassAssertion>
-    <ClassAssertion>
-        <Class IRI="#Contraindication"/>
-        <NamedIndividual IRI="#StandingSplit_HamstringIssue"/>
-    </ClassAssertion>
-    <ClassAssertion>
-        <Class IRI="#Contraindication"/>
-        <NamedIndividual IRI="#StandingSplit_HipIssue"/>
     </ClassAssertion>
     <ClassAssertion>
         <Class IRI="#LimbAlignment"/>
@@ -4603,10 +4155,6 @@
         <NamedIndividual IRI="#TherabandAussenrotation"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="#Contraindication"/>
-        <NamedIndividual IRI="#TherabandAussenrotation_ShoulderIssue"/>
-    </ClassAssertion>
-    <ClassAssertion>
         <Class IRI="#BodyPart"/>
         <NamedIndividual IRI="#Thighs"/>
     </ClassAssertion>
@@ -4635,18 +4183,6 @@
         <NamedIndividual IRI="#Tree"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="#Contraindication"/>
-        <NamedIndividual IRI="#Tree_AnkleIssue"/>
-    </ClassAssertion>
-    <ClassAssertion>
-        <Class IRI="#Contraindication"/>
-        <NamedIndividual IRI="#Tree_BalanceIssue"/>
-    </ClassAssertion>
-    <ClassAssertion>
-        <Class IRI="#Contraindication"/>
-        <NamedIndividual IRI="#Tree_KneeIssue"/>
-    </ClassAssertion>
-    <ClassAssertion>
         <Class IRI="#LimbAlignment"/>
         <NamedIndividual IRI="#Tree_Left_Arm"/>
     </ClassAssertion>
@@ -4671,28 +4207,12 @@
         <NamedIndividual IRI="#Triangle"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="#Contraindication"/>
-        <NamedIndividual IRI="#Triangle_HamstringIssue"/>
-    </ClassAssertion>
-    <ClassAssertion>
-        <Class IRI="#Contraindication"/>
-        <NamedIndividual IRI="#Triangle_HipIssue"/>
-    </ClassAssertion>
-    <ClassAssertion>
-        <Class IRI="#Contraindication"/>
-        <NamedIndividual IRI="#Triangle_KneeIssue"/>
-    </ClassAssertion>
-    <ClassAssertion>
         <Class IRI="#LimbAlignment"/>
         <NamedIndividual IRI="#Triangle_Left_Arm"/>
     </ClassAssertion>
     <ClassAssertion>
         <Class IRI="#LimbAlignment"/>
         <NamedIndividual IRI="#Triangle_Left_Leg"/>
-    </ClassAssertion>
-    <ClassAssertion>
-        <Class IRI="#Contraindication"/>
-        <NamedIndividual IRI="#Triangle_LowerBackIssue"/>
     </ClassAssertion>
     <ClassAssertion>
         <Class IRI="#LimbAlignment"/>
@@ -4719,15 +4239,11 @@
         <NamedIndividual IRI="#TricepsStretch"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="#Contraindication"/>
-        <NamedIndividual IRI="#TricepsStretch_ShoulderIssue"/>
-    </ClassAssertion>
-    <ClassAssertion>
         <Class IRI="#BodyPart"/>
         <NamedIndividual IRI="#UpperBack"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="#Injury"/>
+        <Class IRI="#Contraindication"/>
         <NamedIndividual IRI="#UpperBackIssue"/>
     </ClassAssertion>
     <ClassAssertion>
@@ -4741,10 +4257,6 @@
     <ClassAssertion>
         <Class IRI="#MobilisationStretching"/>
         <NamedIndividual IRI="#Wadendehnung"/>
-    </ClassAssertion>
-    <ClassAssertion>
-        <Class IRI="#Contraindication"/>
-        <NamedIndividual IRI="#Wadendehnung_AnkleIssue"/>
     </ClassAssertion>
     <ClassAssertion>
         <Class IRI="#SportActivity"/>
@@ -4787,24 +4299,8 @@
         <NamedIndividual IRI="#Wandsitzen"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="#Contraindication"/>
-        <NamedIndividual IRI="#Wandsitzen_KneeIssue"/>
-    </ClassAssertion>
-    <ClassAssertion>
         <Class IRI="#Asana"/>
         <NamedIndividual IRI="#Warrior1"/>
-    </ClassAssertion>
-    <ClassAssertion>
-        <Class IRI="#Contraindication"/>
-        <NamedIndividual IRI="#Warrior1_BalanceIssue"/>
-    </ClassAssertion>
-    <ClassAssertion>
-        <Class IRI="#Contraindication"/>
-        <NamedIndividual IRI="#Warrior1_CoreIssue"/>
-    </ClassAssertion>
-    <ClassAssertion>
-        <Class IRI="#Contraindication"/>
-        <NamedIndividual IRI="#Warrior1_KneeIssue"/>
     </ClassAssertion>
     <ClassAssertion>
         <Class IRI="#LimbAlignment"/>
@@ -4829,18 +4325,6 @@
     <ClassAssertion>
         <Class IRI="#Asana"/>
         <NamedIndividual IRI="#Warrior2"/>
-    </ClassAssertion>
-    <ClassAssertion>
-        <Class IRI="#Contraindication"/>
-        <NamedIndividual IRI="#Warrior2_AnkleIssue"/>
-    </ClassAssertion>
-    <ClassAssertion>
-        <Class IRI="#Contraindication"/>
-        <NamedIndividual IRI="#Warrior2_HipIssue"/>
-    </ClassAssertion>
-    <ClassAssertion>
-        <Class IRI="#Contraindication"/>
-        <NamedIndividual IRI="#Warrior2_KneeIssue"/>
     </ClassAssertion>
     <ClassAssertion>
         <Class IRI="#LimbAlignment"/>
@@ -4891,14 +4375,6 @@
         <NamedIndividual IRI="#Wheel_Left_Leg"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="#Contraindication"/>
-        <NamedIndividual IRI="#Wheel_LowerBackIssue"/>
-    </ClassAssertion>
-    <ClassAssertion>
-        <Class IRI="#Contraindication"/>
-        <NamedIndividual IRI="#Wheel_NeckIssue"/>
-    </ClassAssertion>
-    <ClassAssertion>
         <Class IRI="#LimbAlignment"/>
         <NamedIndividual IRI="#Wheel_Right_Arm"/>
     </ClassAssertion>
@@ -4907,16 +4383,8 @@
         <NamedIndividual IRI="#Wheel_Right_Leg"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="#Contraindication"/>
-        <NamedIndividual IRI="#Wheel_ShoulderIssue"/>
-    </ClassAssertion>
-    <ClassAssertion>
         <Class IRI="#LimbAlignment"/>
         <NamedIndividual IRI="#Wheel_Torso"/>
-    </ClassAssertion>
-    <ClassAssertion>
-        <Class IRI="#Contraindication"/>
-        <NamedIndividual IRI="#Wheel_WristIssue"/>
     </ClassAssertion>
     <ClassAssertion>
         <Class IRI="#SportActivity"/>
@@ -4927,7 +4395,7 @@
         <NamedIndividual IRI="#WristFracture"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="#Injury"/>
+        <Class IRI="#Contraindication"/>
         <NamedIndividual IRI="#WristIssue"/>
     </ClassAssertion>
     <ClassAssertion>
@@ -5559,12 +5027,12 @@
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#hasContraindication"/>
         <NamedIndividual IRI="#AllFourswithLegExtension"/>
-        <NamedIndividual IRI="#AcuteLowBackPain"/>
+        <NamedIndividual IRI="#KneeIssue"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#hasContraindication"/>
         <NamedIndividual IRI="#AllFourswithLegExtension"/>
-        <NamedIndividual IRI="#KneeFracture"/>
+        <NamedIndividual IRI="#LowerBackIssue"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#hasContraindication"/>
@@ -5574,7 +5042,7 @@
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#hasContraindication"/>
         <NamedIndividual IRI="#AllFourswithLegExtension"/>
-        <NamedIndividual IRI="#WristFracture"/>
+        <NamedIndividual IRI="#WristIssue"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#hasDifficultyLevel"/>
@@ -5704,22 +5172,7 @@
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#hasContraindication"/>
         <NamedIndividual IRI="#Armkreisen"/>
-        <NamedIndividual IRI="#ClavicleFracture"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="#hasContraindication"/>
-        <NamedIndividual IRI="#Armkreisen"/>
-        <NamedIndividual IRI="#FrozenShoulder"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="#hasContraindication"/>
-        <NamedIndividual IRI="#Armkreisen"/>
-        <NamedIndividual IRI="#RotatorCuffStrain"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="#hasContraindication"/>
-        <NamedIndividual IRI="#Armkreisen"/>
-        <NamedIndividual IRI="#RotatorCuffTear"/>
+        <NamedIndividual IRI="#ShoulderIssue"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#hasDifficultyLevel"/>
@@ -5799,7 +5252,7 @@
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#hasContraindication"/>
         <NamedIndividual IRI="#AssistedShoulderRotation"/>
-        <NamedIndividual IRI="#ClavicleFracture"/>
+        <NamedIndividual IRI="#ShoulderIssue"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#hasDifficultyLevel"/>
@@ -6049,7 +5502,7 @@
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#hasContraindication"/>
         <NamedIndividual IRI="#BrustwirbelsaeulenRotation"/>
-        <NamedIndividual IRI="#BrustwirbelsaeulenRotation_SpineIssue"/>
+        <NamedIndividual IRI="#SpineIssue"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#hasDifficultyLevel"/>
@@ -8607,22 +8060,12 @@
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#hasContraindication"/>
         <NamedIndividual IRI="#Deadlift"/>
-        <NamedIndividual IRI="#AcuteLowBackPain"/>
+        <NamedIndividual IRI="#HipIssue"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#hasContraindication"/>
         <NamedIndividual IRI="#Deadlift"/>
-        <NamedIndividual IRI="#HipFracture"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="#hasContraindication"/>
-        <NamedIndividual IRI="#Deadlift"/>
-        <NamedIndividual IRI="#LumbarDiscHerniation"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="#hasContraindication"/>
-        <NamedIndividual IRI="#Deadlift"/>
-        <NamedIndividual IRI="#Sciatica"/>
+        <NamedIndividual IRI="#LowerBackIssue"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#hasContraindication"/>
@@ -9248,12 +8691,12 @@
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#hasContraindication"/>
         <NamedIndividual IRI="#Einbeinstand"/>
-        <NamedIndividual IRI="#Einbeinstand_AnkleIssue"/>
+        <NamedIndividual IRI="#AnkleIssue"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#hasContraindication"/>
         <NamedIndividual IRI="#Einbeinstand"/>
-        <NamedIndividual IRI="#Einbeinstand_BalanceIssue"/>
+        <NamedIndividual IRI="#BalanceIssue"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#hasDifficultyLevel"/>
@@ -9323,7 +8766,12 @@
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#hasContraindication"/>
         <NamedIndividual IRI="#FaszienrolleRueckenWade"/>
-        <NamedIndividual IRI="#FaszienrolleRueckenWade_SpineIssue"/>
+        <NamedIndividual IRI="#BackIssue"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasContraindication"/>
+        <NamedIndividual IRI="#FaszienrolleRueckenWade"/>
+        <NamedIndividual IRI="#SpineIssue"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#hasDifficultyLevel"/>
@@ -9383,12 +8831,12 @@
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#hasContraindication"/>
         <NamedIndividual IRI="#FerseZehenGang"/>
-        <NamedIndividual IRI="#FerseZehenGang_AnkleIssue"/>
+        <NamedIndividual IRI="#AnkleIssue"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#hasContraindication"/>
         <NamedIndividual IRI="#FerseZehenGang"/>
-        <NamedIndividual IRI="#FerseZehenGang_BalanceIssue"/>
+        <NamedIndividual IRI="#BalanceIssue"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#hasDifficultyLevel"/>
@@ -12142,17 +11590,12 @@
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#hasContraindication"/>
         <NamedIndividual IRI="#HueftbeugerDehnung"/>
-        <NamedIndividual IRI="#HipFracture"/>
+        <NamedIndividual IRI="#HipIssue"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#hasContraindication"/>
         <NamedIndividual IRI="#HueftbeugerDehnung"/>
-        <NamedIndividual IRI="#KneeFracture"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="#hasContraindication"/>
-        <NamedIndividual IRI="#HueftbeugerDehnung"/>
-        <NamedIndividual IRI="#KneeOsteoarthritis"/>
+        <NamedIndividual IRI="#KneeIssue"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <Annotation>
@@ -12369,7 +11812,7 @@
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#hasContraindication"/>
         <NamedIndividual IRI="#Katze-Kuh-Übung"/>
-        <NamedIndividual IRI="#WristFracture"/>
+        <NamedIndividual IRI="#WristIssue"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#hasDifficultyLevel"/>
@@ -12492,22 +11935,17 @@
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#hasContraindication"/>
         <NamedIndividual IRI="#Kindpose"/>
-        <NamedIndividual IRI="#FrozenShoulder"/>
+        <NamedIndividual IRI="#HipIssue"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#hasContraindication"/>
         <NamedIndividual IRI="#Kindpose"/>
-        <NamedIndividual IRI="#HipFracture"/>
+        <NamedIndividual IRI="#KneeIssue"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#hasContraindication"/>
         <NamedIndividual IRI="#Kindpose"/>
-        <NamedIndividual IRI="#KneeFracture"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="#hasContraindication"/>
-        <NamedIndividual IRI="#Kindpose"/>
-        <NamedIndividual IRI="#KneeOsteoarthritis"/>
+        <NamedIndividual IRI="#ShoulderIssue"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <Annotation>
@@ -13234,7 +12672,7 @@
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#hasContraindication"/>
         <NamedIndividual IRI="#KniegelenkMobilisation"/>
-        <NamedIndividual IRI="#KniegelenkMobilisation_KneeIssue"/>
+        <NamedIndividual IRI="#KneeIssue"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#hasDifficultyLevel"/>
@@ -13319,7 +12757,7 @@
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#hasContraindication"/>
         <NamedIndividual IRI="#LatStretch"/>
-        <NamedIndividual IRI="#FrozenShoulder"/>
+        <NamedIndividual IRI="#ShoulderIssue"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#hasDifficultyLevel"/>
@@ -13449,22 +12887,22 @@
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#hasContraindication"/>
         <NamedIndividual IRI="#LegRaise"/>
-        <NamedIndividual IRI="#AcuteLowBackPain"/>
+        <NamedIndividual IRI="#BackIssue"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#hasContraindication"/>
         <NamedIndividual IRI="#LegRaise"/>
-        <NamedIndividual IRI="#HipFracture"/>
+        <NamedIndividual IRI="#HipIssue"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#hasContraindication"/>
         <NamedIndividual IRI="#LegRaise"/>
-        <NamedIndividual IRI="#LumbarDiscHerniation"/>
+        <NamedIndividual IRI="#LowerBackIssue"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#hasContraindication"/>
         <NamedIndividual IRI="#LegRaise"/>
-        <NamedIndividual IRI="#Sciatica"/>
+        <NamedIndividual IRI="#SpineIssue"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#hasDifficultyLevel"/>
@@ -14154,7 +13592,7 @@
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#hasContraindication"/>
         <NamedIndividual IRI="#Muschel"/>
-        <NamedIndividual IRI="#Muschel_HipIssue"/>
+        <NamedIndividual IRI="#HipIssue"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#hasDifficultyLevel"/>
@@ -14214,7 +13652,7 @@
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#hasContraindication"/>
         <NamedIndividual IRI="#Nackendehnungen"/>
-        <NamedIndividual IRI="#Nackendehnungen_NeckIssue"/>
+        <NamedIndividual IRI="#NeckIssue"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#hasDifficultyLevel"/>
@@ -14761,12 +14199,12 @@
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#hasContraindication"/>
         <NamedIndividual IRI="#PigeonPose"/>
-        <NamedIndividual IRI="#PigeonPose_HipIssue"/>
+        <NamedIndividual IRI="#HipIssue"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#hasContraindication"/>
         <NamedIndividual IRI="#PigeonPose"/>
-        <NamedIndividual IRI="#PigeonPose_KneeIssue"/>
+        <NamedIndividual IRI="#KneeIssue"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#hasDifficultyLevel"/>
@@ -14861,12 +14299,12 @@
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#hasContraindication"/>
         <NamedIndividual IRI="#PiriformisStretch"/>
-        <NamedIndividual IRI="#AcuteLowBackPain"/>
+        <NamedIndividual IRI="#HipIssue"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#hasContraindication"/>
         <NamedIndividual IRI="#PiriformisStretch"/>
-        <NamedIndividual IRI="#HipFracture"/>
+        <NamedIndividual IRI="#LowerBackIssue"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#hasDifficultyLevel"/>
@@ -14986,27 +14424,22 @@
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#hasContraindication"/>
         <NamedIndividual IRI="#Plank"/>
-        <NamedIndividual IRI="#AcuteLowBackPain"/>
+        <NamedIndividual IRI="#LowerBackIssue"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#hasContraindication"/>
         <NamedIndividual IRI="#Plank"/>
-        <NamedIndividual IRI="#FrozenShoulder"/>
+        <NamedIndividual IRI="#ShoulderIssue"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#hasContraindication"/>
         <NamedIndividual IRI="#Plank"/>
-        <NamedIndividual IRI="#LumbarDiscHerniation"/>
+        <NamedIndividual IRI="#SpineIssue"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#hasContraindication"/>
         <NamedIndividual IRI="#Plank"/>
-        <NamedIndividual IRI="#ShoulderImpingement"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="#hasContraindication"/>
-        <NamedIndividual IRI="#Plank"/>
-        <NamedIndividual IRI="#WristFracture"/>
+        <NamedIndividual IRI="#WristIssue"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#hasDifficultyLevel"/>
@@ -15176,22 +14609,17 @@
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#hasContraindication"/>
         <NamedIndividual IRI="#PushUps"/>
-        <NamedIndividual IRI="#FrozenShoulder"/>
+        <NamedIndividual IRI="#AnkleIssue"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#hasContraindication"/>
         <NamedIndividual IRI="#PushUps"/>
-        <NamedIndividual IRI="#ShoulderImpingement"/>
+        <NamedIndividual IRI="#ShoulderIssue"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#hasContraindication"/>
         <NamedIndividual IRI="#PushUps"/>
-        <NamedIndividual IRI="#TennisElbow"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="#hasContraindication"/>
-        <NamedIndividual IRI="#PushUps"/>
-        <NamedIndividual IRI="#WristFracture"/>
+        <NamedIndividual IRI="#WristIssue"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#hasDifficultyLevel"/>
@@ -16375,7 +15803,7 @@
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#hasContraindication"/>
         <NamedIndividual IRI="#ScapulaRetraktion"/>
-        <NamedIndividual IRI="#ClavicleFracture"/>
+        <NamedIndividual IRI="#ShoulderIssue"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#hasDifficultyLevel"/>
@@ -16480,12 +15908,12 @@
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#hasContraindication"/>
         <NamedIndividual IRI="#SchulterNackenEntspannung"/>
-        <NamedIndividual IRI="#SchulterNackenEntspannung_NeckIssue"/>
+        <NamedIndividual IRI="#NeckIssue"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#hasContraindication"/>
         <NamedIndividual IRI="#SchulterNackenEntspannung"/>
-        <NamedIndividual IRI="#SchulterNackenEntspannung_ShoulderIssue"/>
+        <NamedIndividual IRI="#ShoulderIssue"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#hasDifficultyLevel"/>
@@ -16620,12 +16048,12 @@
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#hasContraindication"/>
         <NamedIndividual IRI="#SealStretch"/>
-        <NamedIndividual IRI="#AcuteLowBackPain"/>
+        <NamedIndividual IRI="#BackIssue"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#hasContraindication"/>
         <NamedIndividual IRI="#SealStretch"/>
-        <NamedIndividual IRI="#LumbarDiscHerniation"/>
+        <NamedIndividual IRI="#LowerBackIssue"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#hasContraindication"/>
@@ -16773,11 +16201,6 @@
         <ObjectProperty IRI="#engagedBodyPart"/>
         <NamedIndividual IRI="#ShoulderInternalExternalRotation"/>
         <NamedIndividual IRI="#UpperBack"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="#hasContraindication"/>
-        <NamedIndividual IRI="#ShoulderInternalExternalRotation"/>
-        <NamedIndividual IRI="#ClavicleFracture"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#hasContraindication"/>
@@ -17470,7 +16893,7 @@
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#hasContraindication"/>
         <NamedIndividual IRI="#SitzenStehen"/>
-        <NamedIndividual IRI="#SitzenStehen_KneeIssue"/>
+        <NamedIndividual IRI="#KneeIssue"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#hasDifficultyLevel"/>
@@ -19853,7 +19276,7 @@
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#hasContraindication"/>
         <NamedIndividual IRI="#StandingPelvicTilts"/>
-        <NamedIndividual IRI="#HipFracture"/>
+        <NamedIndividual IRI="#HipIssue"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#hasContraindication"/>
@@ -20648,17 +20071,7 @@
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#hasContraindication"/>
         <NamedIndividual IRI="#Standing_sleeper_stretch"/>
-        <NamedIndividual IRI="#ClavicleFracture"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="#hasContraindication"/>
-        <NamedIndividual IRI="#Standing_sleeper_stretch"/>
-        <NamedIndividual IRI="#FrozenShoulder"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="#hasContraindication"/>
-        <NamedIndividual IRI="#Standing_sleeper_stretch"/>
-        <NamedIndividual IRI="#ShoulderImpingement"/>
+        <NamedIndividual IRI="#ShoulderIssue"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#hasDifficultyLevel"/>
@@ -20743,7 +20156,7 @@
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#hasContraindication"/>
         <NamedIndividual IRI="#TherabandAussenrotation"/>
-        <NamedIndividual IRI="#ClavicleFracture"/>
+        <NamedIndividual IRI="#ShoulderIssue"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#hasDifficultyLevel"/>
@@ -21848,7 +21261,7 @@
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#hasContraindication"/>
         <NamedIndividual IRI="#Wadendehnung"/>
-        <NamedIndividual IRI="#Wadendehnung_AnkleIssue"/>
+        <NamedIndividual IRI="#AnkleIssue"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#hasDifficultyLevel"/>
@@ -21933,22 +21346,17 @@
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#hasContraindication"/>
         <NamedIndividual IRI="#WallPushUps"/>
-        <NamedIndividual IRI="#ClavicleFracture"/>
+        <NamedIndividual IRI="#AnkleIssue"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#hasContraindication"/>
         <NamedIndividual IRI="#WallPushUps"/>
-        <NamedIndividual IRI="#FrozenShoulder"/>
+        <NamedIndividual IRI="#ShoulderIssue"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#hasContraindication"/>
         <NamedIndividual IRI="#WallPushUps"/>
-        <NamedIndividual IRI="#TennisElbow"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="#hasContraindication"/>
-        <NamedIndividual IRI="#WallPushUps"/>
-        <NamedIndividual IRI="#WristFracture"/>
+        <NamedIndividual IRI="#WristIssue"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#hasDifficultyLevel"/>
@@ -22033,7 +21441,7 @@
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#hasContraindication"/>
         <NamedIndividual IRI="#Wandsitzen"/>
-        <NamedIndividual IRI="#Wandsitzen_KneeIssue"/>
+        <NamedIndividual IRI="#KneeIssue"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#hasDifficultyLevel"/>
@@ -26974,16 +26382,6 @@ Langsam zur Mitte zurückkehren.
         <Literal>Back</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-        <IRI>#BackPain</IRI>
-        <Literal>Rückenschmerz als Schmerz im Bereich des Rückens bzw. der Wirbelsäule, der von Knochen, Muskeln, Bandscheiben, Bändern, Gelenken oder Nerven ausgehen kann. Es wird zwischen unspezifischem Rückenschmerz (ohne klar erkennbare Ursache, meist muskulär bedingt) und spezifischem Rückenschmerz (mit fassbarer Ursache wie Bandscheibenvorfall, Fraktur oder Entzündung) unterschieden. Nach der Dauer werden akute (bis 6 Wochen), subakute (6–12 Wochen) und chronische (über 12 Wochen) Verläufe unterschieden.</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>#BackPain</IRI>
-        <Literal>BackPain</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#Backpacking</IRI>
         <Literal>Backpacking</Literal>
@@ -27170,21 +26568,6 @@ Langsam zur Mitte zurückkehren.
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-        <IRI>#Cardio</IRI>
-        <Literal>Aerobe Übung, die Herzfrequenz und Atmung erhöht, um die kardiovaskuläre Ausdauer zu verbessern.</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
-        <IRI>#Cardio</IRI>
-        <Literal>Auch bekannt als aerobes Training oder Ausdauertraining. Cardio nutzt große Muskelgruppen in kontinuierlichen, rhythmischen Bewegungen, die lange genug aufrechterhalten werden, um die Herzfrequenz in einen moderat bis intensiven Trainingsbereich anzuheben, und stützt sich auf sauerstoffbasierte Energiebereitstellung. Es gilt als Eckpfeiler des Ausdauertrainings in der Rehabilitation und unterstützt die Herz- und Lungenfunktion, die Ausdauer sowie das Gewichts- und Blutdruckmanagement.</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>#Cardio</IRI>
-        <Literal>Cardio</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
         <IRI>#CenterSplits</IRI>
         <Literal>Samakonasana</Literal>
     </AnnotationAssertion>
@@ -27311,7 +26694,7 @@ Langsam zur Mitte zurückkehren.
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
         <IRI>#Contraindication</IRI>
-        <Literal>Kontraindikation oder Gegenanzeige für eine Übung oder therapeutische Maßnahme. Beschreibt einen Zustand, eine Erkrankung oder einen Umstand, bei dem eine bestimmte Übung nicht, nur eingeschränkt oder nur unter besonderer Vorsicht durchgeführt werden darf, z.B. akute Infektionen oder Entzündungen, Fieber, Thrombosen, frische Frakturen, schwere Osteoporose, maligne Tumoren, Herz-Kreislauf-Erkrankungen oder eine Schwangerschaft. Auch als Red Flag bezeichnet, die besondere Vorsicht oder den Verzicht auf die Maßnahme erfordert.</Literal>
+        <Literal>A warning associated with a yoga pose for users with specific conditions.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
@@ -27489,16 +26872,6 @@ Langsam zur Mitte zurückkehren.
         <Literal>DeadBug_LowerBackIssue</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-        <IRI>#DifficultyLevel</IRI>
-        <Literal>Schwierigkeitsstufe einer Übung oder Aktivität, die den Grad der körperlichen, koordinativen und konditionellen Anforderungen beschreibt. Dient zur Einordnung und zum Vergleich von Übungen nach Komplexität, benötigtem Können, Kraftaufwand und Balanceanforderungen, um Übungen passend zum Leistungsstand des Übenden auszuwählen und eine sichere sowie wirksame Belastungssteuerung zu ermöglichen.</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>#DifficultyLevel</IRI>
-        <Literal>DifficultyLevel</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#Down</IRI>
         <Literal>Down</Literal>
@@ -27596,27 +26969,12 @@ Langsam zur Mitte zurückkehren.
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
         <IRI>#Entspannung</IRI>
-        <Literal>Übungen zur körperlichen und geistigen Entspannung.</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
-        <IRI>#Entspannung</IRI>
-        <Literal>Übungen und Techniken zur gezielten Herbeiführung eines körperlichen und geistigen Entspannungszustands. Sie wirken über die Aktivierung des Parasympathikus und eine trophotrope Umschaltung, die der Stress- und Alarmreaktion des Körpers entgegensteuert: Der Muskeltonus sinkt, Herzfrequenz und Blutdruck werden gesenkt, die Atmung wird ruhiger und die Skelettmuskulatur lockert sich. In der Physiotherapie und medizinischen Rehabilitation werden Verfahren wie die Progressive Muskelentspannung nach Jacobson, das Autogene Training nach Schultz, Atemtherapie und geleitete Imagination eingesetzt, um Stress und innere Unruhe zu reduzieren, chronische Schmerzen zu lindern, die Körperwahrnehmung zu verbessern und das allgemeine Wohlbefinden zu fördern.</Literal>
+        <Literal>Übungen zur körperlichen und geistigen Entspannung</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#Entspannung</IRI>
         <Literal>Entspannung</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-        <IRI>#Equipment</IRI>
-        <Literal>Trainingsgeräte und Hilfsmittel, die in der Physiotherapie, Rehabilitation und beim Training eingesetzt werden, um Übungen zu erleichtern, Belastungen zu variieren oder gezielt zu dosieren. Beispiele sind medizinische Trainingsgeräte, Gymnastikbänder, Therapiekreisel, Faszienrollen, Balance-Pads, Gewichtsmanschetten und Übungsmatten. Sie dienen der Verbesserung von Kraft, Ausdauer, Beweglichkeit, Koordination und Stabilität.</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>#Equipment</IRI>
-        <Literal>Equipment</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
@@ -27747,16 +27105,6 @@ Langsam zur Mitte zurückkehren.
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#Forward</IRI>
         <Literal>Forward</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-        <IRI>#Fracture</IRI>
-        <Literal>Fraktur oder Knochenbruch als vollständige oder unvollständige Kontinuitätsunterbrechung eines Knochens unter Bildung von zwei oder mehr Bruchstücken. Ursachen können direkte oder indirekte Gewalteinwirkung im Rahmen eines Unfalls, eine pathologische Fraktur bei Vorerkrankungen wie Osteoporose oder Knochentumoren sowie eine Ermüdungsfraktur bei chronischer Überlastung sein. Die Behandlung erfolgt konservativ (z.B. mit Gips) oder operativ (z.B. mit Osteosynthese).</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>#Fracture</IRI>
-        <Literal>Fracture</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
@@ -28171,22 +27519,12 @@ Langsam zur Mitte zurückkehren.
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
         <IRI>#Joint</IRI>
-        <Literal>Gelenk (Articulatio) als bewegliche Verbindung zwischen zwei oder mehreren knöchernen oder knorpeligen Skelettelementen des menschlichen Körpers. Besteht aus Gelenkflächen mit hyalinem Knorpelüberzug, einer Gelenkkapsel mit Membrana fibrosa und Membrana synovialis sowie der Gelenkflüssigkeit (Synovia). Echte Gelenke (Diarthrosen) lassen sich nach Form der Gelenkflächen einteilen, etwa als Kugel-, Scharnier-, Sattel- oder Eigelenk. Übergeordnete Klasse aller spezifischen Gelenke des Körpers.</Literal>
+        <Literal>Gelenk des menschlichen Körpers; Oberklasse aller spezifischen Gelenke</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#Joint</IRI>
         <Literal>Joint</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-        <IRI>#JointInjury</IRI>
-        <Literal>Gelenkverletzung als Schädigung eines oder mehrerer Strukturen eines Gelenks, die dessen Funktion und Beweglichkeit einschränkt und mit Schmerzen, Schwellung und Instabilität einhergehen kann. Umfasst Prellungen, Verstauchungen (Distorsionen), Verrenkungen (Luxationen), Bänderrisse, Kapselverletzungen, Knorpelschäden sowie gelenknahe Frakturen. Häufige Ursachen sind Stürze, plötzliche Drehbewegungen, direkte Gewalteinwirkung oder chronische Überlastung, insbesondere bei Sportarten mit schnellen Richtungswechseln.</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>#JointInjury</IRI>
-        <Literal>JointInjury</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
@@ -28351,7 +27689,7 @@ Langsam zur Mitte zurückkehren.
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
         <IRI>#Limb</IRI>
-        <Literal>Gliedmaße oder Extremität als beweglicher paariger Körperanhang des Menschen, der aus mehreren anatomischen Abschnitten besteht. Unterschieden werden die obere Extremität (Arm mit Schultergürtel, Oberarm, Unterarm und Hand) und die untere Extremität (Bein mit Beckengürtel, Oberschenkel, Unterschenkel und Fuß). Gliedmaßen dienen der Fortbewegung, der Manipulation von Objekten und der Körperhaltung; sie werden über Muskeln und Gelenke bewegt.</Literal>
+        <Literal>Limb class</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
@@ -28361,7 +27699,7 @@ Langsam zur Mitte zurückkehren.
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
         <IRI>#LimbAlignment</IRI>
-        <Literal>Achsenstellung oder Ausrichtung der Gliedmaßen zueinander. Beschreibt insbesondere die Beinachse und ihre Abweichungen, z.B. das O-Bein (Genu varum) mit medialer Verschiebung der mechanischen Beinachse oder das X-Bein (Genu valgum) mit lateraler Verschiebung. Eine abweichende Beinachse führt zu Fehlbelastung des Knie-, Hüft- und Sprunggelenks und kann langfristig Arthrose begünstigen.</Literal>
+        <Literal>Limb alignment class</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
@@ -28391,7 +27729,7 @@ Langsam zur Mitte zurückkehren.
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
         <IRI>#MobilisationStretching</IRI>
-        <Literal>Kombinierte Mobilisations- und Dehnungstechniken zur Verbesserung der Gelenkbeweglichkeit und der Dehnfähigkeit von Muskeln, Sehnen und Bindegewebe. Die Mobilisation umfasst dabei passive oder assistive Bewegungen innerhalb des physiologischen Bewegungsausmaßes, um Blockaden zu lösen und die Gelenkfunktion zu verbessern, während die Dehnung (Stretching) die Muskellänge und Flexibilität erhöht. Beide Komponenten werden häufig in der Physiotherapie bei Bewegungseinschränkungen, muskulären Verkürzungen und zur Rehabilitation eingesetzt.</Literal>
+        <Literal>Übungen zur Verbesserung der Beweglichkeit und Dehnfähigkeit</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
@@ -28477,26 +27815,6 @@ Langsam zur Mitte zurückkehren.
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#Muschel_HipIssue</IRI>
         <Literal>Muschel_HipIssue</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-        <IRI>#Muscle</IRI>
-        <Literal>Skelettmuskel (Musculus skeleti) als quergestreifter, willkürlich steuerbarer Muskel, der über Sehnen am Skelett befestigt ist und durch Kontraktion und Erschlaffung die Bewegung des Körpers ermöglicht. Ein Skelettmuskel besteht aus zahlreichen, von Bindegewebe (Faszie, Epimysium, Perimysium, Endomysium) umhüllten Muskelfaserbündeln, die wiederum aus einzelnen Muskelfasern mit kontraktilen Aktin- und Myosinfilamenten aufgebaut sind. Skelettmuskeln sind für Körperhaltung, Bewegung und Wärmeproduktion verantwortlich und machen etwa 40–50 % der Körpermasse aus.</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>#Muscle</IRI>
-        <Literal>Muscle</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-        <IRI>#MuscleInjury</IRI>
-        <Literal>Muskelverletzung als Schädigung eines Muskels, die durch Überdehnung, plötzliche unkontrollierte Bewegungen, Überlastung oder direkte Gewalteinwirkung (z.B. Schlag oder Stoß) entstehen kann. Nach dem Schweregrad werden Muskelzerrung (leichteste Form mit Überdehnung der Sarkomere und schmerzhaftem Muskelhartspann), Muskelfaserriss (Riss einzelner oder mehrerer Muskelfasern, häufig mit Hämatom) und Muskelriss (vollständige Durchtrennung eines Muskelbündels mit deutlicher Funktionsstörung) unterschieden. Häufig betroffen sind die Waden- und Oberschenkelmuskulatur.</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>#MuscleInjury</IRI>
-        <Literal>MuscleInjury</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
@@ -28881,7 +28199,7 @@ Langsam zur Mitte zurückkehren.
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
         <IRI>#SeverityLevel</IRI>
-        <Literal>Schweregrad oder Ausprägungsstufe einer Verletzung, Erkrankung, eines Schmerzzustands oder eines Risikos. Dient der standardisierten Klassifikation und Einschätzung des therapeutischen und rehabilitativen Vorgehens, etwa in leicht (mild), mittel (moderat) und schwer (severe) und Risikoklassen (z.B. Low Risk, Medium Risk, High Risk).</Literal>
+        <Literal>Class for measuring of risk intensity</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
@@ -29589,24 +28907,9 @@ Langsam zur Mitte zurückkehren.
         <Literal>Straight</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-        <IRI>#Strength</IRI>
-        <Literal>Widerstandstraining, das die Muskelkraft aufbaut, indem Muskeln gegen einen äußeren Widerstand arbeiten.</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
-        <IRI>#Strength</IRI>
-        <Literal>Auch bekannt als Krafttraining. Kraftübungen nutzen das eigene Körpergewicht, freie Gewichte, Geräte, Widerstandsbänder oder andere äußere Widerstände, um Muskeln gegen eine Kraft kontrahieren zu lassen, mit dem Ziel, Muskelkraft, Schnellkraft, Ausdauer und Muskelhypertrophie zu entwickeln. Das American College of Sports Medicine und die American Heart Association empfehlen Krafttraining an mindestens zwei Tagen pro Woche, das alle großen Muskelgruppen anspricht. In der Physiotherapie und Rehabilitation ist Krafttraining die Grundlage für den Muskelaufbau nach Verletzungen oder Operationen, die Wiederherstellung der Gelenkstabilität, die Unterstützung der Knochengesundheit, die Verbesserung der körperlichen Funktion und die Sturzprävention bei älteren Erwachsenen.</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#Strength</IRI>
         <Literal>Strength</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-        <IRI>#Stretching</IRI>
-        <Literal>Stretching als kontrollierte Längendehnung von Muskeln, Sehnen und Bindegewebe zur Verbesserung der Beweglichkeit, zur Lösung muskulärer Verspannungen und zur Vorbeugung von Krämpfen. Zu den Formen gehören statisches Stretching (Halten einer Dehnposition für 15–60 Sekunden), dynamisches Stretching (kontrollierte Dehnbewegungen), PNF-Stretching (propriozeptive neuromuskuläre Fazilitation) und ballistisches Stretching. Stretching ist Bestandteil vieler therapeutischer, rehabilitativer und sportlicher Programme und wird vor oder nach dem Training, zur Regeneration sowie zur Verletzungsprophylaxe eingesetzt.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
@@ -29649,16 +28952,6 @@ Langsam zur Mitte zurückkehren.
         <Literal>TaiChi</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-        <IRI>#TendonInjury</IRI>
-        <Literal>Sehnenverletzung oder Tendinopathie als Schädigung einer Sehne, die durch akute Überlastung, chronische Fehlbelastung, degenerative Veränderungen oder direkte Traumata entstehen kann. Sehnen sind die faserigen Bindegewebsstrukturen, die Muskeln mit Knochen verbinden und die Muskelkraft auf das Skelett übertragen. Umfasst die Sehnenentzündung (Tendinitis) mit schmerzhaften Reizzuständen, die chronische Sehnenerkrankung (Tendinose) mit degenerativen Veränderungen und den akuten Sehnenriss. Häufig betroffene Sehnen sind die Rotatorenmanschette der Schulter, die Achillessehne, die Bizepssehne sowie Sehnen an Ellenbogen und Handgelenk.</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>#TendonInjury</IRI>
-        <Literal>TendonInjury</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#Tennis</IRI>
         <Literal>Tennis</Literal>
@@ -29696,7 +28989,7 @@ Langsam zur Mitte zurückkehren.
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
         <IRI>#TrainingsEffect</IRI>
-        <Literal>Trainingseffekt als physiologische und morphologische Anpassungsreaktion des Körpers auf regelmäßiges körperliches Training. Durch das gezielte Setzen von Trainingsreizen über der individuellen Reizschwelle und ausreichende Erholung kommt es zu Anpassungen, die die Leistungsfähigkeit und Belastbarkeit erhöhen. Beispiele sind Kraftzuwachs, Muskelhypertrophie, verbesserte Ausdauer und aerobe Kapazität, erhöhte Beweglichkeit, verbesserte intra- und intermuskuläre Koordination sowie gesteigerte Knochendichte. Die Effekte sind spezifisch für die Art des Trainingsreizes.</Literal>
+        <Literal>Class for benfits of Asana poses.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
@@ -29706,7 +28999,7 @@ Langsam zur Mitte zurückkehren.
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
         <IRI>#TrainingsLevel</IRI>
-        <Literal>Trainingsniveau oder Fitnesslevel eines Patienten oder Sportlers zur Einordnung der individuellen Leistungsfähigkeit, Trainingserfahrung und Anpassungsfähigkeit. Übliche Stufen sind Anfänger (geringe oder keine Erfahrung, schnelle Fortschritte durch neuronale Anpassungen möglich), Fortgeschrittene (regelmäßiges Training über mehrere Monate bis Jahre, höhere Belastungsreize erforderlich) und Profis (mehrjährige intensive Trainingserfahrung, langsamere Fortschritte, periodisierte Trainingsplanung notwendig). Das Trainingsniveau bestimmt Übungsauswahl, Belastungsdosierung und Progressionsgeschwindigkeit.</Literal>
+        <Literal>Sport level class for ranking users in beginner, intermediate and advanced</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
