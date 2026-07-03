@@ -1,0 +1,45 @@
+SO SPIELST DU DIESES UPDATE EIN
+================================
+Kompletter Ordner: lib/, assets/, pubspec.yaml.
+Komplett ueberschreiben, dann:
+  flutter pub get
+  flutter run -d chrome
+(Komplett neu starten, nicht nur Hot Reload.)
+
+WAS IN DIESER RUNDE GEFIXT WURDE:
+
+1. Overflow-Fehler bei "Beschwerdebezogen"-Karten (Plaene-Screen)
+   behoben - Kartenhoehe war zu knapp.
+
+2. HOME-SCREEN grundlich mit dem kompletten JSX-Code abgeglichen
+   (nicht nur Ausschnitte). Gefunden und korrigiert:
+
+   a) "Tipp fuer heute": lief bisher an eine erfundene Regel
+      gekoppelt ("gesperrt bis eine Uebung diese Woche fertig ist").
+      Im echten Prototyp ist das NICHT so - die Karte startet IMMER
+      gesperrt und schaltet sich rein durchs Antippen frei (Tippen:
+      gesperrt -> Titel sichtbar -> aufgeklappt). Jetzt korrekt.
+
+   b) Start-Karussell: die farbigen Kreise hatten ein Icon drin -
+      im Prototyp sind sie leer (nur Farbe). Entfernt.
+
+   c) Schmerz-Karussell: Der "Notiz"-Button war entweder/oder mit
+      dem Textfeld - im Prototyp ist der Umschalt-Button IMMER
+      sichtbar (auch wenn die Notiz offen ist, dann als Kopfzeile
+      ueber dem Textfeld). Text wechselt zwischen "Notiz hinzufuegen"
+      / "Notiz bearbeiten" / "Wie ging es dir?". Ausserdem fehlte die
+      "Gespeichert (Haken)"-Rueckmeldung nach dem Sichern (2 Sek.,
+      dann zurueck zu "Eintrag sichern") - beides ergaenzt. Die Notiz
+      wird jetzt auch nicht mehr geloescht nach dem Speichern (im
+      Prototyp bleibt sie stehen).
+
+   d) Wochenziel-Karte ("Ringe"): hatte einen erfundenen "Diese Woche"-
+      Titel + "X Tage Streak"-Badge, und die Ringe waren mit 140px viel
+      zu gross. Im Prototyp: kleine Ringe (66px) + Legende (Punkt+Name+
+      done/goal) + Trennlinie + Satz "X Woche(n) bist du schon dabei!"
+      (in WOCHEN, nicht Tagen). Komplett neu gebaut.
+
+STAND: Nur Home-Screen UND Plaene-Screen sind jetzt vollstaendig
+Zeile-fuer-Zeile mit dem Prototyp-Code abgeglichen. Die anderen
+Screens (Training, Verlauf/Kalender, Praxis, Profil-Details) folgen
+als naechstes in derselben Gruendlichkeit.
