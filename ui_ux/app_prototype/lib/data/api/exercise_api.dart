@@ -47,14 +47,19 @@ class ExerciseApi extends CoreApi {
     String injuries = injury.map((e) => "rehab:$e").join(" ");
 
     final query = '''
-      SELECT
+SELECT
 	?exercise 
 	?exerciseLabel
 	?difficultyLabel
 	# Verpack alle Values der Property in einem Value
-	(GROUP_CONCAT(DISTINCT ?contraindicationLabel; separator=", ") AS ?contraindications)
-	(GROUP_CONCAT(DISTINCT ?trainingsEffectLabel; separator=", ") AS ?trainingsEffects)
-	(GROUP_CONCAT(DISTINCT ?bodyPartLabel; separator=", ") AS ?bodyParts)
+	(GROUP_CONCAT(DISTINCT ?contraindicationLabel; separator=" | ") AS ?contraindications)
+	(GROUP_CONCAT(DISTINCT ?trainingsEffectLabel; separator=" | ") AS ?trainingsEffects)
+	(GROUP_CONCAT(DISTINCT ?bodyPartLabel; separator=" | ") AS ?bodyParts)
+	?description
+	?duration
+	?instruction
+	(GROUP_CONCAT(DISTINCT ?correction; separator=" | ") AS ?corrections)
+	(GROUP_CONCAT(DISTINCT ?mistake; separator=" | ") AS ?mistakes)
 WHERE {
   	#rehab:Advanced -> keine Profi Übungen
     VALUES ?difficulty { $difficulty }
@@ -63,6 +68,7 @@ WHERE {
   	#rehab:UpperBack -> Übungen die den UpperBack nicht beanspruchen
   	VALUES ?bodyPart { $bodyParts }
   
+  	# Filter auf Übungen anhand übergebener VALUES Parameter
     ?exercise a/rdfs:subClassOf* rehab:Exercise ;
               rehab:hasDifficultyLevel ?difficulty ;
   			  rehab:hasContraindication ?contraindication;
@@ -80,10 +86,25 @@ WHERE {
     	?exercise rehab:hasContraindication ?selectedInjury
   	}
   
-    OPTIONAL { ?exercise rdfs:label ?exerciseLabel }
+  	# Text Properties zur Übungsbeschreibung
+  	OPTIONAL { ?exercise rdfs:label ?exerciseLabel }
+  	OPTIONAL { ?exercise rehab:hasDescription ?description }
+  	OPTIONAL { ?exercise rehab:duration ?duration }
+  	OPTIONAL { ?exercise rehab:hasInstruction ?instruction }
+  	OPTIONAL { ?exercise rehab:hasCorrectionGuidance ?correction }
+  	OPTIONAL { ?exercise rehab:hasCommonMistake ?mistake }
+    
   	#Erstelle aus einer URI ein Labelersatz: http://purl.org/PhysicalTherapy#Deadlift -> Deadlift 
   	BIND(REPLACE(STR(?difficulty), "^.*[#/]", "") AS ?difficultyLabel)
-} GROUP BY ?exercise ?exerciseLabel ?difficultyLabel ?contraindications ?trainingsEffects ?bodyParts
+} GROUP BY
+    ?exercise
+    ?exerciseLabel
+    ?difficultyLabel
+    ?description
+    ?duration
+    ?instruction
+    ?corrections
+    ?mistakes
     ''';
 
     try {

@@ -1174,8 +1174,7 @@ xsd:date rdf:type rdfs:Datatype .
 
 
 ###  http://purl.org/PhysicalTherapy#Airplane_BalanceIssue
-:Airplane_BalanceIssue rdf:type owl:NamedIndividual ,
-                                :Contraindication ;
+:Airplane_BalanceIssue rdf:type owl:NamedIndividual ;
                        :forCondition :BalanceIssue ;
                        :severity :HighRisk ;
                        rdfs:label "Airplane_BalanceIssue" .
@@ -1196,8 +1195,7 @@ xsd:date rdf:type rdfs:Datatype .
 
 
 ###  http://purl.org/PhysicalTherapy#Airplane_CoreIssue
-:Airplane_CoreIssue rdf:type owl:NamedIndividual ,
-                             :Contraindication ;
+:Airplane_CoreIssue rdf:type owl:NamedIndividual ;
                     :forCondition :CoreWeakness ;
                     :severity :MediumRisk ;
                     rdfs:label "Airplane_CoreIssue" .
@@ -1218,8 +1216,7 @@ xsd:date rdf:type rdfs:Datatype .
 
 
 ###  http://purl.org/PhysicalTherapy#Airplane_HipIssue
-:Airplane_HipIssue rdf:type owl:NamedIndividual ,
-                            :Contraindication ;
+:Airplane_HipIssue rdf:type owl:NamedIndividual ;
                    :forCondition :HipIssue ;
                    :severity :HighRisk ;
                    rdfs:label "Airplane_HipIssue" .
@@ -1240,8 +1237,7 @@ xsd:date rdf:type rdfs:Datatype .
 
 
 ###  http://purl.org/PhysicalTherapy#Airplane_KneeIssue
-:Airplane_KneeIssue rdf:type owl:NamedIndividual ,
-                             :Contraindication ;
+:Airplane_KneeIssue rdf:type owl:NamedIndividual ;
                     :forCondition :KneeIssue ;
                     :severity :MediumRisk ;
                     rdfs:label "Airplane_KneeIssue" .
@@ -1347,10 +1343,10 @@ xsd:date rdf:type rdfs:Datatype .
                                            :LowerBack ,
                                            :ShoulderJoint ,
                                            :SpineJoint ;
-                          :hasContraindication :AcuteLowBackPain ,
-                                               :KneeFracture ,
+                          :hasContraindication :KneeIssue ,
+                                               :LowerBackIssue ,
                                                :SpineIssue ,
-                                               :WristFracture ;
+                                               :WristIssue ;
                           :hasDifficultyLevel :Beginner ;
                           :improves :Balance ,
                                     :Posture ,
@@ -1387,7 +1383,7 @@ xsd:date rdf:type rdfs:Datatype .
 
 ###  http://purl.org/PhysicalTherapy#AnkleIssue
 :AnkleIssue rdf:type owl:NamedIndividual ,
-                     :Injury ;
+                     :Contraindication ;
             :requiresImprovementOf :AnkleJoint ;
             rdfs:comment "Instability, past injury, or pain in the ankle joints" ;
             rdfs:label "AnkleIssue" .
@@ -1424,10 +1420,7 @@ xsd:date rdf:type rdfs:Datatype .
                              :Shoulders ,
                              :Trapezius ,
                              :UpperBack ;
-            :hasContraindication :ClavicleFracture ,
-                                 :FrozenShoulder ,
-                                 :RotatorCuffStrain ,
-                                 :RotatorCuffTear ;
+            :hasContraindication :ShoulderIssue ;
             :hasDifficultyLevel :Beginner ;
             :improves :Balance ,
                       :Coordination ,
@@ -1449,8 +1442,7 @@ xsd:date rdf:type rdfs:Datatype .
 
 
 ###  http://purl.org/PhysicalTherapy#Armkreisen_ShoulderIssue
-:Armkreisen_ShoulderIssue rdf:type owl:NamedIndividual ,
-                                   :Contraindication ;
+:Armkreisen_ShoulderIssue rdf:type owl:NamedIndividual ;
                           :forCondition :ShoulderIssue ;
                           :severity :LowRisk ;
                           rdfs:label "Armkreisen_ShoulderIssue" .
@@ -1471,7 +1463,7 @@ xsd:date rdf:type rdfs:Datatype .
                                            :ShoulderJoint ,
                                            :Shoulders ,
                                            :UpperBack ;
-                          :hasContraindication :ClavicleFracture ;
+                          :hasContraindication :ShoulderIssue ;
                           :hasDifficultyLevel :Beginner ;
                           :improves :Coordination ,
                                     :Flexibility ,
@@ -1525,7 +1517,7 @@ xsd:date rdf:type rdfs:Datatype .
 
 ###  http://purl.org/PhysicalTherapy#BackIssue
 :BackIssue rdf:type owl:NamedIndividual ,
-                    :Injury ;
+                    :Contraindication ;
            :requiresImprovementOf :Back ,
                                   :SpineJoint .
 
@@ -1559,7 +1551,7 @@ xsd:date rdf:type rdfs:Datatype .
 
 ###  http://purl.org/PhysicalTherapy#BalanceIssue
 :BalanceIssue rdf:type owl:NamedIndividual ,
-                       :Injury ;
+                       :Contraindication ;
               rdfs:comment "Difficulty maintaining equilibrium due to vestibular or muscular factors" ;
               rdfs:label "BalanceIssue" .
 
@@ -1707,8 +1699,7 @@ xsd:date rdf:type rdfs:Datatype .
 
 
 ###  http://purl.org/PhysicalTherapy#Bruecke_LowerBackIssue
-:Bruecke_LowerBackIssue rdf:type owl:NamedIndividual ,
-                                 :Contraindication ;
+:Bruecke_LowerBackIssue rdf:type owl:NamedIndividual ;
                         :forCondition :LowerBackIssue ;
                         :severity :MediumRisk ;
                         rdfs:label "Bruecke_LowerBackIssue" .
@@ -1723,7 +1714,7 @@ xsd:date rdf:type rdfs:Datatype .
                                              :Spine ,
                                              :SpineJoint ,
                                              :UpperBack ;
-                            :hasContraindication :BrustwirbelsaeulenRotation_SpineIssue ;
+                            :hasContraindication :SpineIssue ;
                             :hasDifficultyLevel :Intermediate ;
                             :improves :Coordination ,
                                       :Flexibility ,
@@ -1747,8 +1738,7 @@ xsd:date rdf:type rdfs:Datatype .
 
 
 ###  http://purl.org/PhysicalTherapy#BrustwirbelsaeulenRotation_SpineIssue
-:BrustwirbelsaeulenRotation_SpineIssue rdf:type owl:NamedIndividual ,
-                                                :Contraindication ;
+:BrustwirbelsaeulenRotation_SpineIssue rdf:type owl:NamedIndividual ;
                                        rdfs:label "BrustwirbelsaeulenRotation_SpineIssue" .
 
 
@@ -1983,8 +1973,7 @@ xsd:date rdf:type rdfs:Datatype .
 
 
 ###  http://purl.org/PhysicalTherapy#Cactus_BalanceIssue
-:Cactus_BalanceIssue rdf:type owl:NamedIndividual ,
-                              :Contraindication ;
+:Cactus_BalanceIssue rdf:type owl:NamedIndividual ;
                      :forCondition :BalanceIssue ;
                      :severity :LowRisk ;
                      rdfs:label "Cactus_BalanceIssue" .
@@ -2065,8 +2054,7 @@ xsd:date rdf:type rdfs:Datatype .
 
 
 ###  http://purl.org/PhysicalTherapy#Cactus_ShoulderIssue
-:Cactus_ShoulderIssue rdf:type owl:NamedIndividual ,
-                               :Contraindication ;
+:Cactus_ShoulderIssue rdf:type owl:NamedIndividual ;
                       :forCondition :ShoulderIssue ;
                       :severity :MediumRisk ;
                       rdfs:label "Cactus_ShoulderIssue" .
@@ -2442,8 +2430,7 @@ xsd:date rdf:type rdfs:Datatype .
 
 
 ###  http://purl.org/PhysicalTherapy#CenterSplits_BalanceIssue
-:CenterSplits_BalanceIssue rdf:type owl:NamedIndividual ,
-                                    :Contraindication ;
+:CenterSplits_BalanceIssue rdf:type owl:NamedIndividual ;
                            :forCondition :BalanceIssue ;
                            :severity :LowRisk ;
                            rdfs:label "CenterSplits_BalanceIssue" .
@@ -2464,8 +2451,7 @@ xsd:date rdf:type rdfs:Datatype .
 
 
 ###  http://purl.org/PhysicalTherapy#CenterSplits_HipIssue
-:CenterSplits_HipIssue rdf:type owl:NamedIndividual ,
-                                :Contraindication ;
+:CenterSplits_HipIssue rdf:type owl:NamedIndividual ;
                        :forCondition :HipIssue ;
                        :severity :LowRisk ;
                        rdfs:label "CenterSplits_HipIssue" .
@@ -2516,8 +2502,7 @@ xsd:date rdf:type rdfs:Datatype .
 
 
 ###  http://purl.org/PhysicalTherapy#CenterSplits_NeckIssue
-:CenterSplits_NeckIssue rdf:type owl:NamedIndividual ,
-                                 :Contraindication ;
+:CenterSplits_NeckIssue rdf:type owl:NamedIndividual ;
                         :forCondition :NeckIssue ;
                         :severity :LowRisk ;
                         rdfs:label "CenterSplits_NeckIssue" .
@@ -2940,8 +2925,7 @@ xsd:date rdf:type rdfs:Datatype .
 
 
 ###  http://purl.org/PhysicalTherapy#Chair_AnkleIssue
-:Chair_AnkleIssue rdf:type owl:NamedIndividual ,
-                           :Contraindication ;
+:Chair_AnkleIssue rdf:type owl:NamedIndividual ;
                   :forCondition :AnkleIssue ;
                   :severity :MediumRisk ;
                   rdfs:label "Chair_AnkleIssue" .
@@ -2962,8 +2946,7 @@ xsd:date rdf:type rdfs:Datatype .
 
 
 ###  http://purl.org/PhysicalTherapy#Chair_KneeIssue
-:Chair_KneeIssue rdf:type owl:NamedIndividual ,
-                          :Contraindication ;
+:Chair_KneeIssue rdf:type owl:NamedIndividual ;
                  :forCondition :KneeIssue ;
                  :severity :HighRisk ;
                  rdfs:label "Chair_KneeIssue" .
@@ -3014,8 +2997,7 @@ xsd:date rdf:type rdfs:Datatype .
 
 
 ###  http://purl.org/PhysicalTherapy#Chair_LowerBackIssue
-:Chair_LowerBackIssue rdf:type owl:NamedIndividual ,
-                               :Contraindication ;
+:Chair_LowerBackIssue rdf:type owl:NamedIndividual ;
                       :forCondition :LowerBackIssue ;
                       :severity :HighRisk ;
                       rdfs:label "Chair_LowerBackIssue" .
@@ -3113,8 +3095,7 @@ xsd:date rdf:type rdfs:Datatype .
 
 
 ###  http://purl.org/PhysicalTherapy#ChestDoorwayStretch_ShoulderIssue
-:ChestDoorwayStretch_ShoulderIssue rdf:type owl:NamedIndividual ,
-                                            :Contraindication ;
+:ChestDoorwayStretch_ShoulderIssue rdf:type owl:NamedIndividual ;
                                    :forCondition :ShoulderIssue ;
                                    :isContraindicationFor :ChestDoorwayStretch ;
                                    :severity :MediumRisk .
@@ -3163,7 +3144,7 @@ xsd:date rdf:type rdfs:Datatype .
 
 ###  http://purl.org/PhysicalTherapy#CoreWeakness
 :CoreWeakness rdf:type owl:NamedIndividual ,
-                       :Injury ;
+                       :Contraindication ;
               :requiresImprovementOf :Core ;
               rdfs:comment "Lack of abdominal and back muscle strength affecting balance or posture" ;
               rdfs:label "CoreWeakness" .
@@ -3525,8 +3506,7 @@ xsd:date rdf:type rdfs:Datatype .
 
 
 ###  http://purl.org/PhysicalTherapy#Crab_LowerBackIssue
-:Crab_LowerBackIssue rdf:type owl:NamedIndividual ,
-                              :Contraindication ;
+:Crab_LowerBackIssue rdf:type owl:NamedIndividual ;
                      :forCondition :LowerBackIssue ;
                      :severity :LowRisk ;
                      rdfs:label "Crab_LowerBackIssue" .
@@ -3577,8 +3557,7 @@ xsd:date rdf:type rdfs:Datatype .
 
 
 ###  http://purl.org/PhysicalTherapy#Crab_ShoulderIssue
-:Crab_ShoulderIssue rdf:type owl:NamedIndividual ,
-                             :Contraindication ;
+:Crab_ShoulderIssue rdf:type owl:NamedIndividual ;
                     :forCondition :ShoulderIssue ;
                     :severity :MediumRisk ;
                     rdfs:label "Crab_ShoulderIssue" .
@@ -3614,8 +3593,7 @@ xsd:date rdf:type rdfs:Datatype .
 
 
 ###  http://purl.org/PhysicalTherapy#Crab_WristIssue
-:Crab_WristIssue rdf:type owl:NamedIndividual ,
-                          :Contraindication ;
+:Crab_WristIssue rdf:type owl:NamedIndividual ;
                  :forCondition :WristIssue ;
                  :severity :HighRisk ;
                  rdfs:label "Crab_WristIssue" .
@@ -4042,8 +4020,7 @@ xsd:date rdf:type rdfs:Datatype .
 
 
 ###  http://purl.org/PhysicalTherapy#Dancer_BalanceIssue
-:Dancer_BalanceIssue rdf:type owl:NamedIndividual ,
-                              :Contraindication ;
+:Dancer_BalanceIssue rdf:type owl:NamedIndividual ;
                      :forCondition :BalanceIssue ;
                      :severity :HighRisk ;
                      rdfs:label "Dancer_BalanceIssue" .
@@ -4064,8 +4041,7 @@ xsd:date rdf:type rdfs:Datatype .
 
 
 ###  http://purl.org/PhysicalTherapy#Dancer_KneeIssue
-:Dancer_KneeIssue rdf:type owl:NamedIndividual ,
-                           :Contraindication ;
+:Dancer_KneeIssue rdf:type owl:NamedIndividual ;
                   :forCondition :KneeIssue ;
                   :severity :MediumRisk ;
                   rdfs:label "Dancer_KneeIssue" .
@@ -4146,8 +4122,7 @@ xsd:date rdf:type rdfs:Datatype .
 
 
 ###  http://purl.org/PhysicalTherapy#Dancer_ShoulderIssue
-:Dancer_ShoulderIssue rdf:type owl:NamedIndividual ,
-                               :Contraindication ;
+:Dancer_ShoulderIssue rdf:type owl:NamedIndividual ;
                       :forCondition :ShoulderIssue ;
                       :severity :MediumRisk ;
                       rdfs:label "Dancer_ShoulderIssue" .
@@ -4240,8 +4215,7 @@ xsd:date rdf:type rdfs:Datatype .
 
 
 ###  http://purl.org/PhysicalTherapy#DeadBug_LowerBackIssue
-:DeadBug_LowerBackIssue rdf:type owl:NamedIndividual ,
-                                 :Contraindication ;
+:DeadBug_LowerBackIssue rdf:type owl:NamedIndividual ;
                         :forCondition :LowerBackIssue ;
                         :severity :MediumRisk ;
                         rdfs:label "DeadBug_LowerBackIssue" .
@@ -4257,10 +4231,8 @@ xsd:date rdf:type rdfs:Datatype .
                            :Knees ,
                            :LowerBack ,
                            :SpineJoint ;
-          :hasContraindication :AcuteLowBackPain ,
-                               :HipFracture ,
-                               :LumbarDiscHerniation ,
-                               :Sciatica ,
+          :hasContraindication :HipIssue ,
+                               :LowerBackIssue ,
                                :SpineIssue ;
           :hasDifficultyLevel :Advanced ;
           :improves :Posture ,
@@ -4674,8 +4646,7 @@ xsd:date rdf:type rdfs:Datatype .
 
 
 ###  http://purl.org/PhysicalTherapy#Eagle_BalanceIssue
-:Eagle_BalanceIssue rdf:type owl:NamedIndividual ,
-                             :Contraindication ;
+:Eagle_BalanceIssue rdf:type owl:NamedIndividual ;
                     :forCondition :BalanceIssue ;
                     :severity :MediumRisk ;
                     rdfs:label "Eagle_BalanceIssue" .
@@ -4696,8 +4667,7 @@ xsd:date rdf:type rdfs:Datatype .
 
 
 ###  http://purl.org/PhysicalTherapy#Eagle_KneeIssue
-:Eagle_KneeIssue rdf:type owl:NamedIndividual ,
-                          :Contraindication ;
+:Eagle_KneeIssue rdf:type owl:NamedIndividual ;
                  :forCondition :KneeIssue ;
                  :severity :LowRisk ;
                  rdfs:label "Eagle_KneeIssue" .
@@ -4778,8 +4748,7 @@ xsd:date rdf:type rdfs:Datatype .
 
 
 ###  http://purl.org/PhysicalTherapy#Eagle_ShoulderIssue
-:Eagle_ShoulderIssue rdf:type owl:NamedIndividual ,
-                              :Contraindication ;
+:Eagle_ShoulderIssue rdf:type owl:NamedIndividual ;
                      :forCondition :ShoulderIssue ;
                      :severity :MediumRisk ;
                      rdfs:label "Eagle_ShoulderIssue" .
@@ -4821,8 +4790,8 @@ xsd:date rdf:type rdfs:Datatype .
                                :Ankles ,
                                :KneeJoint ,
                                :Knees ;
-              :hasContraindication :Einbeinstand_AnkleIssue ,
-                                   :Einbeinstand_BalanceIssue ;
+              :hasContraindication :AnkleIssue ,
+                                   :BalanceIssue ;
               :hasDifficultyLevel :Beginner ;
               :improves :Balance ,
                         :Coordination ,
@@ -4833,16 +4802,14 @@ xsd:date rdf:type rdfs:Datatype .
 
 
 ###  http://purl.org/PhysicalTherapy#Einbeinstand_AnkleIssue
-:Einbeinstand_AnkleIssue rdf:type owl:NamedIndividual ,
-                                  :Contraindication ;
+:Einbeinstand_AnkleIssue rdf:type owl:NamedIndividual ;
                          :forCondition :AnkleIssue ;
                          :severity :MediumRisk ;
                          rdfs:label "Einbeinstand_AnkleIssue" .
 
 
 ###  http://purl.org/PhysicalTherapy#Einbeinstand_BalanceIssue
-:Einbeinstand_BalanceIssue rdf:type owl:NamedIndividual ,
-                                    :Contraindication ;
+:Einbeinstand_BalanceIssue rdf:type owl:NamedIndividual ;
                            :forCondition :BalanceIssue ;
                            :severity :HighRisk ;
                            rdfs:label "Einbeinstand_BalanceIssue" .
@@ -4877,7 +4844,8 @@ xsd:date rdf:type rdfs:Datatype .
                                   :Entspannung ;
                          :engagedBodyPart :Calves ,
                                           :LowerBack ;
-                         :hasContraindication :FaszienrolleRueckenWade_SpineIssue ;
+                         :hasContraindication :BackIssue ,
+                                              :SpineIssue ;
                          :hasDifficultyLevel :Beginner ;
                          :improves :Flexibility ,
                                    :Mobility ,
@@ -4899,8 +4867,7 @@ xsd:date rdf:type rdfs:Datatype .
 
 
 ###  http://purl.org/PhysicalTherapy#FaszienrolleRueckenWade_SpineIssue
-:FaszienrolleRueckenWade_SpineIssue rdf:type owl:NamedIndividual ,
-                                             :Contraindication ;
+:FaszienrolleRueckenWade_SpineIssue rdf:type owl:NamedIndividual ;
                                     :forCondition :SpineIssue ;
                                     :severity :HighRisk ;
                                     rdfs:label "FaszienrolleRueckenWade_SpineIssue" .
@@ -4929,8 +4896,8 @@ xsd:date rdf:type rdfs:Datatype .
                                  :Ankles ,
                                  :Calves ,
                                  :Legs ;
-                :hasContraindication :FerseZehenGang_AnkleIssue ,
-                                     :FerseZehenGang_BalanceIssue ;
+                :hasContraindication :AnkleIssue ,
+                                     :BalanceIssue ;
                 :hasDifficultyLevel :Beginner ;
                 :improves :Coordination ,
                           :Flexibility ,
@@ -4941,16 +4908,14 @@ xsd:date rdf:type rdfs:Datatype .
 
 
 ###  http://purl.org/PhysicalTherapy#FerseZehenGang_AnkleIssue
-:FerseZehenGang_AnkleIssue rdf:type owl:NamedIndividual ,
-                                    :Contraindication ;
+:FerseZehenGang_AnkleIssue rdf:type owl:NamedIndividual ;
                            :forCondition :AnkleIssue ;
                            :severity :MediumRisk ;
                            rdfs:label "FerseZehenGang_AnkleIssue" .
 
 
 ###  http://purl.org/PhysicalTherapy#FerseZehenGang_BalanceIssue
-:FerseZehenGang_BalanceIssue rdf:type owl:NamedIndividual ,
-                                      :Contraindication ;
+:FerseZehenGang_BalanceIssue rdf:type owl:NamedIndividual ;
                              :forCondition :BalanceIssue ;
                              :severity :HighRisk ;
                              rdfs:label "FerseZehenGang_BalanceIssue" .
@@ -4970,8 +4935,7 @@ xsd:date rdf:type rdfs:Datatype .
 
 
 ###  http://purl.org/PhysicalTherapy#FigureFourStretch_KneeIssue
-:FigureFourStretch_KneeIssue rdf:type owl:NamedIndividual ,
-                                      :Contraindication ;
+:FigureFourStretch_KneeIssue rdf:type owl:NamedIndividual ;
                              :forCondition :KneeIssue ;
                              :isContraindicationFor :FigureFourStretch ;
                              :severity :MediumRisk .
@@ -5287,8 +5251,7 @@ xsd:date rdf:type rdfs:Datatype .
 
 
 ###  http://purl.org/PhysicalTherapy#Flamingo_AnkleIssue
-:Flamingo_AnkleIssue rdf:type owl:NamedIndividual ,
-                              :Contraindication ;
+:Flamingo_AnkleIssue rdf:type owl:NamedIndividual ;
                      :forCondition :AnkleIssue ;
                      :severity :MediumRisk ;
                      rdfs:label "Flamingo_AnkleIssue" .
@@ -5309,8 +5272,7 @@ xsd:date rdf:type rdfs:Datatype .
 
 
 ###  http://purl.org/PhysicalTherapy#Flamingo_BalanceIssue
-:Flamingo_BalanceIssue rdf:type owl:NamedIndividual ,
-                                :Contraindication ;
+:Flamingo_BalanceIssue rdf:type owl:NamedIndividual ;
                        :forCondition :BalanceIssue ;
                        :severity :HighRisk ;
                        rdfs:label "Flamingo_BalanceIssue" .
@@ -5331,8 +5293,7 @@ xsd:date rdf:type rdfs:Datatype .
 
 
 ###  http://purl.org/PhysicalTherapy#Flamingo_KneeIssue
-:Flamingo_KneeIssue rdf:type owl:NamedIndividual ,
-                             :Contraindication ;
+:Flamingo_KneeIssue rdf:type owl:NamedIndividual ;
                     :forCondition :KneeIssue ;
                     :severity :MediumRisk ;
                     rdfs:label "Flamingo_KneeIssue" .
@@ -5830,8 +5791,7 @@ xsd:date rdf:type rdfs:Datatype .
 
 
 ###  http://purl.org/PhysicalTherapy#Gate_CoreIssue
-:Gate_CoreIssue rdf:type owl:NamedIndividual ,
-                         :Contraindication ;
+:Gate_CoreIssue rdf:type owl:NamedIndividual ;
                 :forCondition :CoreWeakness ;
                 :severity :MediumRisk ;
                 rdfs:label "Gate_CoreIssue" .
@@ -5852,8 +5812,7 @@ xsd:date rdf:type rdfs:Datatype .
 
 
 ###  http://purl.org/PhysicalTherapy#Gate_HipIssue
-:Gate_HipIssue rdf:type owl:NamedIndividual ,
-                        :Contraindication ;
+:Gate_HipIssue rdf:type owl:NamedIndividual ;
                :forCondition :HipIssue ;
                :severity :LowRisk ;
                rdfs:label "Gate_HipIssue" .
@@ -5904,8 +5863,7 @@ xsd:date rdf:type rdfs:Datatype .
 
 
 ###  http://purl.org/PhysicalTherapy#Gate_LowerBackIssue
-:Gate_LowerBackIssue rdf:type owl:NamedIndividual ,
-                              :Contraindication ;
+:Gate_LowerBackIssue rdf:type owl:NamedIndividual ;
                      :forCondition :LowerBackIssue ;
                      :severity :MediumRisk ;
                      rdfs:label "Gate_LowerBackIssue" .
@@ -5988,8 +5946,7 @@ xsd:date rdf:type rdfs:Datatype .
 
 
 ###  http://purl.org/PhysicalTherapy#GewichtsverlagerungSeitlich_BalanceIssue
-:GewichtsverlagerungSeitlich_BalanceIssue rdf:type owl:NamedIndividual ,
-                                                   :Contraindication ;
+:GewichtsverlagerungSeitlich_BalanceIssue rdf:type owl:NamedIndividual ;
                                           :forCondition :BalanceIssue ;
                                           :severity :LowRisk ;
                                           rdfs:label "GewichtsverlagerungSeitlich_BalanceIssue" .
@@ -6012,16 +5969,14 @@ xsd:date rdf:type rdfs:Datatype .
 
 
 ###  http://purl.org/PhysicalTherapy#GleichgewichtInstabil_AnkleIssue
-:GleichgewichtInstabil_AnkleIssue rdf:type owl:NamedIndividual ,
-                                           :Contraindication ;
+:GleichgewichtInstabil_AnkleIssue rdf:type owl:NamedIndividual ;
                                   :forCondition :AnkleIssue ;
                                   :severity :MediumRisk ;
                                   rdfs:label "GleichgewichtInstabil_AnkleIssue" .
 
 
 ###  http://purl.org/PhysicalTherapy#GleichgewichtInstabil_BalanceIssue
-:GleichgewichtInstabil_BalanceIssue rdf:type owl:NamedIndividual ,
-                                             :Contraindication ;
+:GleichgewichtInstabil_BalanceIssue rdf:type owl:NamedIndividual ;
                                     :forCondition :BalanceIssue ;
                                     :severity :HighRisk ;
                                     rdfs:label "GleichgewichtInstabil_BalanceIssue" .
@@ -6376,8 +6331,7 @@ xsd:date rdf:type rdfs:Datatype .
 
 
 ###  http://purl.org/PhysicalTherapy#Goddess_AnkleIssue
-:Goddess_AnkleIssue rdf:type owl:NamedIndividual ,
-                             :Contraindication ;
+:Goddess_AnkleIssue rdf:type owl:NamedIndividual ;
                     :forCondition :AnkleIssue ;
                     :severity :MediumRisk ;
                     rdfs:label "Goddess_AnkleIssue" .
@@ -6398,8 +6352,7 @@ xsd:date rdf:type rdfs:Datatype .
 
 
 ###  http://purl.org/PhysicalTherapy#Goddess_HipIssue
-:Goddess_HipIssue rdf:type owl:NamedIndividual ,
-                           :Contraindication ;
+:Goddess_HipIssue rdf:type owl:NamedIndividual ;
                   :forCondition :HipIssue ;
                   :severity :MediumRisk ;
                   rdfs:label "Goddess_HipIssue" .
@@ -6420,8 +6373,7 @@ xsd:date rdf:type rdfs:Datatype .
 
 
 ###  http://purl.org/PhysicalTherapy#Goddess_KneeIssue
-:Goddess_KneeIssue rdf:type owl:NamedIndividual ,
-                            :Contraindication ;
+:Goddess_KneeIssue rdf:type owl:NamedIndividual ;
                    :forCondition :KneeIssue ;
                    :severity :MediumRisk ;
                    rdfs:label "Goddess_KneeIssue" .
@@ -6472,8 +6424,7 @@ xsd:date rdf:type rdfs:Datatype .
 
 
 ###  http://purl.org/PhysicalTherapy#Goddess_LowerBackIssue
-:Goddess_LowerBackIssue rdf:type owl:NamedIndividual ,
-                                 :Contraindication ;
+:Goddess_LowerBackIssue rdf:type owl:NamedIndividual ;
                         :forCondition :LowerBackIssue ;
                         :severity :LowRisk ;
                         rdfs:label "Goddess_LowerBackIssue" .
@@ -6968,8 +6919,7 @@ xsd:date rdf:type rdfs:Datatype .
 
 
 ###  http://purl.org/PhysicalTherapy#HalfMoon_BalanceIssue
-:HalfMoon_BalanceIssue rdf:type owl:NamedIndividual ,
-                                :Contraindication ;
+:HalfMoon_BalanceIssue rdf:type owl:NamedIndividual ;
                        :forCondition :BalanceIssue ;
                        :severity :HighRisk ;
                        rdfs:label "HalfMoon_BalanceIssue" .
@@ -6990,8 +6940,7 @@ xsd:date rdf:type rdfs:Datatype .
 
 
 ###  http://purl.org/PhysicalTherapy#HalfMoon_HamstringIssue
-:HalfMoon_HamstringIssue rdf:type owl:NamedIndividual ,
-                                  :Contraindication ;
+:HalfMoon_HamstringIssue rdf:type owl:NamedIndividual ;
                          :forCondition :HamstringIssue ;
                          :severity :MediumRisk ;
                          rdfs:label "HalfMoon_HamstringIssue" .
@@ -7012,8 +6961,7 @@ xsd:date rdf:type rdfs:Datatype .
 
 
 ###  http://purl.org/PhysicalTherapy#HalfMoon_HipIssue
-:HalfMoon_HipIssue rdf:type owl:NamedIndividual ,
-                            :Contraindication ;
+:HalfMoon_HipIssue rdf:type owl:NamedIndividual ;
                    :forCondition :HipIssue ;
                    :severity :MediumRisk ;
                    rdfs:label "HalfMoon_HipIssue" .
@@ -7110,7 +7058,7 @@ xsd:date rdf:type rdfs:Datatype .
 
 ###  http://purl.org/PhysicalTherapy#HamstringIssue
 :HamstringIssue rdf:type owl:NamedIndividual ,
-                         :Injury ;
+                         :Contraindication ;
                 :requiresImprovementOf :Hamstrings ;
                 rdfs:comment "Tightness or strain in the back thigh muscles" ;
                 rdfs:label "HamstringIssue" .
@@ -7137,8 +7085,7 @@ xsd:date rdf:type rdfs:Datatype .
 
 
 ###  http://purl.org/PhysicalTherapy#HamstringStretch_HamstringIssue
-:HamstringStretch_HamstringIssue rdf:type owl:NamedIndividual ,
-                                          :Contraindication ;
+:HamstringStretch_HamstringIssue rdf:type owl:NamedIndividual ;
                                  :forCondition :HamstringIssue ;
                                  :isContraindicationFor :HamstringStretch ;
                                  :severity :MediumRisk .
@@ -7512,8 +7459,7 @@ xsd:date rdf:type rdfs:Datatype .
 
 
 ###  http://purl.org/PhysicalTherapy#HighLunge_BalanceIssue
-:HighLunge_BalanceIssue rdf:type owl:NamedIndividual ,
-                                 :Contraindication ;
+:HighLunge_BalanceIssue rdf:type owl:NamedIndividual ;
                         :forCondition :BalanceIssue ;
                         :severity :MediumRisk ;
                         rdfs:label "HighLunge_BalanceIssue" .
@@ -7534,8 +7480,7 @@ xsd:date rdf:type rdfs:Datatype .
 
 
 ###  http://purl.org/PhysicalTherapy#HighLunge_HipIssue
-:HighLunge_HipIssue rdf:type owl:NamedIndividual ,
-                             :Contraindication ;
+:HighLunge_HipIssue rdf:type owl:NamedIndividual ;
                     :forCondition :HipIssue ;
                     :severity :HighRisk ;
                     rdfs:label "HighLunge_HipIssue" .
@@ -7556,8 +7501,7 @@ xsd:date rdf:type rdfs:Datatype .
 
 
 ###  http://purl.org/PhysicalTherapy#HighLunge_KneeIssue
-:HighLunge_KneeIssue rdf:type owl:NamedIndividual ,
-                              :Contraindication ;
+:HighLunge_KneeIssue rdf:type owl:NamedIndividual ;
                      :forCondition :KneeIssue ;
                      :severity :HighRisk ;
                      rdfs:label "HighLunge_KneeIssue" .
@@ -7578,8 +7522,7 @@ xsd:date rdf:type rdfs:Datatype .
 
 
 ###  http://purl.org/PhysicalTherapy#HighLunge_LowerBackIssue
-:HighLunge_LowerBackIssue rdf:type owl:NamedIndividual ,
-                                   :Contraindication ;
+:HighLunge_LowerBackIssue rdf:type owl:NamedIndividual ;
                           :forCondition :LowerBackIssue ;
                           :severity :MediumRisk ;
                           rdfs:label "HighLunge_LowerBackIssue" .
@@ -7640,7 +7583,7 @@ xsd:date rdf:type rdfs:Datatype .
 
 ###  http://purl.org/PhysicalTherapy#HipIssue
 :HipIssue rdf:type owl:NamedIndividual ,
-                   :Injury ;
+                   :Contraindication ;
           :requiresImprovementOf :Hip ;
           rdfs:comment "Joint stiffness, misalignment, or discomfort in the hip region" ;
           rdfs:label "HipIssue" .
@@ -7692,9 +7635,8 @@ xsd:date rdf:type rdfs:Datatype .
                                      :LowerBack ,
                                      :Psoas ,
                                      :Quadriceps ;
-                    :hasContraindication :HipFracture ,
-                                         :KneeFracture ,
-                                         :KneeOsteoarthritis ;
+                    :hasContraindication :HipIssue ,
+                                         :KneeIssue ;
                     :hasDifficultyLevel :Beginner ;
                     :improves :Flexibility ,
                               :Mobility ,
@@ -7746,16 +7688,14 @@ xsd:date rdf:type rdfs:Datatype .
 
 
 ###  http://purl.org/PhysicalTherapy#HueftbeugerDehnung_HipIssue
-:HueftbeugerDehnung_HipIssue rdf:type owl:NamedIndividual ,
-                                      :Contraindication ;
+:HueftbeugerDehnung_HipIssue rdf:type owl:NamedIndividual ;
                              :forCondition :HipIssue ;
                              :severity :MediumRisk ;
                              rdfs:label "HueftbeugerDehnung_HipIssue" .
 
 
 ###  http://purl.org/PhysicalTherapy#HueftbeugerDehnung_KneeIssue
-:HueftbeugerDehnung_KneeIssue rdf:type owl:NamedIndividual ,
-                                       :Contraindication ;
+:HueftbeugerDehnung_KneeIssue rdf:type owl:NamedIndividual ;
                               :forCondition :KneeIssue ;
                               :severity :MediumRisk ;
                               rdfs:label "HueftbeugerDehnung_KneeIssue" .
@@ -7801,16 +7741,14 @@ xsd:date rdf:type rdfs:Datatype .
 
 
 ###  http://purl.org/PhysicalTherapy#JumpingJacks_AnkleIssue
-:JumpingJacks_AnkleIssue rdf:type owl:NamedIndividual ,
-                                  :Contraindication ;
+:JumpingJacks_AnkleIssue rdf:type owl:NamedIndividual ;
                          :forCondition :AnkleIssue ;
                          :isContraindicationFor :JumpingJacks ;
                          :severity :MediumRisk .
 
 
 ###  http://purl.org/PhysicalTherapy#JumpingJacks_KneeIssue
-:JumpingJacks_KneeIssue rdf:type owl:NamedIndividual ,
-                                 :Contraindication ;
+:JumpingJacks_KneeIssue rdf:type owl:NamedIndividual ;
                         :forCondition :KneeIssue ;
                         :isContraindicationFor :JumpingJacks ;
                         :severity :HighRisk .
@@ -7837,7 +7775,7 @@ xsd:date rdf:type rdfs:Datatype .
                                   :Spine ,
                                   :SpineJoint ,
                                   :UpperBack ;
-                 :hasContraindication :WristFracture ;
+                 :hasContraindication :WristIssue ;
                  :hasDifficultyLevel :Beginner ;
                  :improves :Coordination ,
                            :Flexibility ,
@@ -7885,10 +7823,9 @@ xsd:date rdf:type rdfs:Datatype .
                            :Legs ,
                            :LowerBack ,
                            :Thighs ;
-          :hasContraindication :FrozenShoulder ,
-                               :HipFracture ,
-                               :KneeFracture ,
-                               :KneeOsteoarthritis ;
+          :hasContraindication :HipIssue ,
+                               :KneeIssue ,
+                               :ShoulderIssue ;
           :hasDifficultyLevel :Beginner ;
           :improves :Flexibility ,
                     :Mobility ,
@@ -7954,16 +7891,14 @@ xsd:date rdf:type rdfs:Datatype .
 
 
 ###  http://purl.org/PhysicalTherapy#Kindpose_HipIssue
-:Kindpose_HipIssue rdf:type owl:NamedIndividual ,
-                            :Contraindication ;
+:Kindpose_HipIssue rdf:type owl:NamedIndividual ;
                    :forCondition :HipIssue ;
                    :severity :LowRisk ;
                    rdfs:label "Kindpose_HipIssue" .
 
 
 ###  http://purl.org/PhysicalTherapy#Kindpose_KneeIssue
-:Kindpose_KneeIssue rdf:type owl:NamedIndividual ,
-                             :Contraindication ;
+:Kindpose_KneeIssue rdf:type owl:NamedIndividual ;
                     :forCondition :KneeIssue ;
                     :severity :LowRisk ;
                     rdfs:label "Kindpose_KneeIssue" .
@@ -8327,8 +8262,7 @@ xsd:date rdf:type rdfs:Datatype .
 
 
 ###  http://purl.org/PhysicalTherapy#KingDancer_BalanceIssue
-:KingDancer_BalanceIssue rdf:type owl:NamedIndividual ,
-                                  :Contraindication ;
+:KingDancer_BalanceIssue rdf:type owl:NamedIndividual ;
                          :forCondition :BalanceIssue ;
                          :severity :MediumRisk ;
                          rdfs:label "KingDancer_BalanceIssue" .
@@ -8349,8 +8283,7 @@ xsd:date rdf:type rdfs:Datatype .
 
 
 ###  http://purl.org/PhysicalTherapy#KingDancer_KneeIssue
-:KingDancer_KneeIssue rdf:type owl:NamedIndividual ,
-                               :Contraindication ;
+:KingDancer_KneeIssue rdf:type owl:NamedIndividual ;
                       :forCondition :KneeIssue ;
                       :severity :MediumRisk ;
                       rdfs:label "KingDancer_KneeIssue" .
@@ -8431,8 +8364,7 @@ xsd:date rdf:type rdfs:Datatype .
 
 
 ###  http://purl.org/PhysicalTherapy#KingDancer_ShoulderIssue
-:KingDancer_ShoulderIssue rdf:type owl:NamedIndividual ,
-                                   :Contraindication ;
+:KingDancer_ShoulderIssue rdf:type owl:NamedIndividual ;
                           :forCondition :ShoulderIssue ;
                           :severity :HighRisk ;
                           rdfs:label "KingDancer_ShoulderIssue" .
@@ -8476,7 +8408,7 @@ xsd:date rdf:type rdfs:Datatype .
 
 ###  http://purl.org/PhysicalTherapy#KneeIssue
 :KneeIssue rdf:type owl:NamedIndividual ,
-                    :Injury ;
+                    :Contraindication ;
            :requiresImprovementOf :Knees ;
            rdfs:comment "Any injury, instability, or strain involving the knee joint" ;
            rdfs:label "KneeIssue" .
@@ -8532,7 +8464,7 @@ xsd:date rdf:type rdfs:Datatype .
                                          :Knees ,
                                          :Legs ,
                                          :Quadriceps ;
-                        :hasContraindication :KniegelenkMobilisation_KneeIssue ;
+                        :hasContraindication :KneeIssue ;
                         :hasDifficultyLevel :Beginner ;
                         :improves :Coordination ,
                                   :Flexibility ,
@@ -8554,8 +8486,7 @@ xsd:date rdf:type rdfs:Datatype .
 
 
 ###  http://purl.org/PhysicalTherapy#KniegelenkMobilisation_KneeIssue
-:KniegelenkMobilisation_KneeIssue rdf:type owl:NamedIndividual ,
-                                           :Contraindication ;
+:KniegelenkMobilisation_KneeIssue rdf:type owl:NamedIndividual ;
                                   :forCondition :KneeIssue ;
                                   :severity :MediumRisk ;
                                   rdfs:label "KniegelenkMobilisation_KneeIssue" .
@@ -8580,7 +8511,7 @@ xsd:date rdf:type rdfs:Datatype .
                              :Spine ,
                              :SpineJoint ,
                              :UpperBack ;
-            :hasContraindication :FrozenShoulder ;
+            :hasContraindication :ShoulderIssue ;
             :hasDifficultyLevel :Beginner ;
             :improves :Flexibility ,
                       :Mobility ,
@@ -8606,8 +8537,7 @@ xsd:date rdf:type rdfs:Datatype .
 
 
 ###  http://purl.org/PhysicalTherapy#LatStretch_ShoulderIssue
-:LatStretch_ShoulderIssue rdf:type owl:NamedIndividual ,
-                                   :Contraindication ;
+:LatStretch_ShoulderIssue rdf:type owl:NamedIndividual ;
                           :forCondition :ShoulderIssue ;
                           :isContraindicationFor :LatStretch ;
                           :severity :LowRisk .
@@ -8653,10 +8583,10 @@ xsd:date rdf:type rdfs:Datatype .
                            :Quadriceps ,
                            :Spine ,
                            :SpineJoint ;
-          :hasContraindication :AcuteLowBackPain ,
-                               :HipFracture ,
-                               :LumbarDiscHerniation ,
-                               :Sciatica ;
+          :hasContraindication :BackIssue ,
+                               :HipIssue ,
+                               :LowerBackIssue ,
+                               :SpineIssue ;
           :hasDifficultyLevel :Intermediate ;
           :improves :Focus ,
                     :Stability ,
@@ -8680,8 +8610,7 @@ xsd:date rdf:type rdfs:Datatype .
 
 
 ###  http://purl.org/PhysicalTherapy#LegRaise_LowerBackIssue
-:LegRaise_LowerBackIssue rdf:type owl:NamedIndividual ,
-                                  :Contraindication ;
+:LegRaise_LowerBackIssue rdf:type owl:NamedIndividual ;
                          :forCondition :LowerBackIssue ;
                          :isContraindicationFor :LegRaise ;
                          :severity :MediumRisk .
@@ -8709,7 +8638,7 @@ xsd:date rdf:type rdfs:Datatype .
 
 ###  http://purl.org/PhysicalTherapy#LowerBackIssue
 :LowerBackIssue rdf:type owl:NamedIndividual ,
-                         :Injury ;
+                         :Contraindication ;
                 :requiresImprovementOf :LowerBack ;
                 rdfs:comment "Discomfort or risk in the lumbar region of the spine" ;
                 rdfs:label "LowerBackIssue" .
@@ -9051,8 +8980,7 @@ xsd:date rdf:type rdfs:Datatype .
 
 
 ###  http://purl.org/PhysicalTherapy#MountainClimber_WristIssue
-:MountainClimber_WristIssue rdf:type owl:NamedIndividual ,
-                                     :Contraindication ;
+:MountainClimber_WristIssue rdf:type owl:NamedIndividual ;
                             :forCondition :WristIssue ;
                             :isContraindicationFor :MountainClimber ;
                             :severity :MediumRisk .
@@ -9160,7 +9088,7 @@ xsd:date rdf:type rdfs:Datatype .
          :engagedBodyPart :Glutes ,
                           :Hip ,
                           :HipJoint ;
-         :hasContraindication :Muschel_HipIssue ;
+         :hasContraindication :HipIssue ;
          :hasDifficultyLevel :Beginner ;
          :improves :Balance ,
                    :Stability ,
@@ -9172,8 +9100,7 @@ xsd:date rdf:type rdfs:Datatype .
 
 
 ###  http://purl.org/PhysicalTherapy#Muschel_HipIssue
-:Muschel_HipIssue rdf:type owl:NamedIndividual ,
-                           :Contraindication ;
+:Muschel_HipIssue rdf:type owl:NamedIndividual ;
                   :forCondition :HipIssue ;
                   :severity :LowRisk ;
                   rdfs:label "Muschel_HipIssue" .
@@ -9184,7 +9111,7 @@ xsd:date rdf:type rdfs:Datatype .
                           :MobilisationStretching ;
                  :engagedBodyPart :Neck ,
                                   :NeckJoint ;
-                 :hasContraindication :Nackendehnungen_NeckIssue ;
+                 :hasContraindication :NeckIssue ;
                  :hasDifficultyLevel :Beginner ;
                  :improves :Flexibility ,
                            :Mobility ,
@@ -9204,8 +9131,7 @@ Langsam zur Mitte zurückkehren.
 
 
 ###  http://purl.org/PhysicalTherapy#Nackendehnungen_NeckIssue
-:Nackendehnungen_NeckIssue rdf:type owl:NamedIndividual ,
-                                    :Contraindication ;
+:Nackendehnungen_NeckIssue rdf:type owl:NamedIndividual ;
                            :forCondition :NeckIssue ;
                            :severity :MediumRisk ;
                            rdfs:label "Nackendehnungen_NeckIssue" .
@@ -9219,7 +9145,7 @@ Langsam zur Mitte zurückkehren.
 
 ###  http://purl.org/PhysicalTherapy#NeckIssue
 :NeckIssue rdf:type owl:NamedIndividual ,
-                    :Injury ;
+                    :Contraindication ;
            :requiresImprovementOf :Neck ;
            rdfs:comment "Tension, instability, or injury in the cervical spine or neck area" ;
            rdfs:label "NeckIssue" .
@@ -9576,8 +9502,7 @@ Langsam zur Mitte zurückkehren.
 
 
 ###  http://purl.org/PhysicalTherapy#ParadiseBird_BalanceIssue
-:ParadiseBird_BalanceIssue rdf:type owl:NamedIndividual ,
-                                    :Contraindication ;
+:ParadiseBird_BalanceIssue rdf:type owl:NamedIndividual ;
                            :forCondition :BalanceIssue ;
                            :severity :MediumRisk ;
                            rdfs:label "ParadiseBird_BalanceIssue" .
@@ -9658,8 +9583,7 @@ Langsam zur Mitte zurückkehren.
 
 
 ###  http://purl.org/PhysicalTherapy#ParadiseBird_ShoulderIssue
-:ParadiseBird_ShoulderIssue rdf:type owl:NamedIndividual ,
-                                     :Contraindication ;
+:ParadiseBird_ShoulderIssue rdf:type owl:NamedIndividual ;
                             :forCondition :ShoulderIssue ;
                             :severity :MediumRisk ;
                             rdfs:label "ParadiseBird_ShoulderIssue" .
@@ -9695,8 +9619,7 @@ Langsam zur Mitte zurückkehren.
 
 
 ###  http://purl.org/PhysicalTherapy#ParadiseBird_WristIssue
-:ParadiseBird_WristIssue rdf:type owl:NamedIndividual ,
-                                  :Contraindication ;
+:ParadiseBird_WristIssue rdf:type owl:NamedIndividual ;
                          :forCondition :WristIssue ;
                          :severity :LowRisk ;
                          rdfs:label "ParadiseBird_WristIssue" .
@@ -9732,8 +9655,8 @@ Langsam zur Mitte zurückkehren.
                              :Knees ,
                              :LowerBack ,
                              :Psoas ;
-            :hasContraindication :PigeonPose_HipIssue ,
-                                 :PigeonPose_KneeIssue ;
+            :hasContraindication :HipIssue ,
+                                 :KneeIssue ;
             :hasDifficultyLevel :Beginner ;
             :improves :Flexibility ,
                       :Mobility ,
@@ -9758,16 +9681,14 @@ Langsam zur Mitte zurückkehren.
 
 
 ###  http://purl.org/PhysicalTherapy#PigeonPose_HipIssue
-:PigeonPose_HipIssue rdf:type owl:NamedIndividual ,
-                              :Contraindication ;
+:PigeonPose_HipIssue rdf:type owl:NamedIndividual ;
                      :forCondition :HipIssue ;
                      :severity :MediumRisk ;
                      rdfs:label "PigeonPose_HipIssue" .
 
 
 ###  http://purl.org/PhysicalTherapy#PigeonPose_KneeIssue
-:PigeonPose_KneeIssue rdf:type owl:NamedIndividual ,
-                               :Contraindication ;
+:PigeonPose_KneeIssue rdf:type owl:NamedIndividual ;
                       :forCondition :KneeIssue ;
                       :severity :MediumRisk ;
                       rdfs:label "PigeonPose_KneeIssue" .
@@ -9782,8 +9703,8 @@ Langsam zur Mitte zurückkehren.
                                     :HipJoint ,
                                     :LowerBack ,
                                     :SpineJoint ;
-                   :hasContraindication :AcuteLowBackPain ,
-                                        :HipFracture ;
+                   :hasContraindication :HipIssue ,
+                                        :LowerBackIssue ;
                    :hasDifficultyLevel :Beginner ;
                    :improves :Flexibility ,
                              :Mobility ,
@@ -9807,8 +9728,7 @@ Langsam zur Mitte zurückkehren.
 
 
 ###  http://purl.org/PhysicalTherapy#PiriformisStretch_KneeIssue
-:PiriformisStretch_KneeIssue rdf:type owl:NamedIndividual ,
-                                      :Contraindication ;
+:PiriformisStretch_KneeIssue rdf:type owl:NamedIndividual ;
                              :forCondition :KneeIssue ;
                              :isContraindicationFor :PiriformisStretch ;
                              :severity :LowRisk .
@@ -9827,11 +9747,10 @@ Langsam zur Mitte zurückkehren.
                         :Shoulders ,
                         :SpineJoint ,
                         :UpperBack ;
-       :hasContraindication :AcuteLowBackPain ,
-                            :FrozenShoulder ,
-                            :LumbarDiscHerniation ,
-                            :ShoulderImpingement ,
-                            :WristFracture ;
+       :hasContraindication :LowerBackIssue ,
+                            :ShoulderIssue ,
+                            :SpineIssue ,
+                            :WristIssue ;
        :hasDifficultyLevel :Advanced ;
        :improves :Balance ,
                  :Posture ,
@@ -9860,8 +9779,7 @@ Langsam zur Mitte zurückkehren.
 
 
 ###  http://purl.org/PhysicalTherapy#Plank_WristIssue
-:Plank_WristIssue rdf:type owl:NamedIndividual ,
-                           :Contraindication ;
+:Plank_WristIssue rdf:type owl:NamedIndividual ;
                   :forCondition :WristIssue ;
                   :isContraindicationFor :Plank ;
                   :severity :MediumRisk .
@@ -9935,10 +9853,9 @@ Langsam zur Mitte zurückkehren.
                           :SpineJoint ,
                           :Triceps ,
                           :WristJoint ;
-         :hasContraindication :FrozenShoulder ,
-                              :ShoulderImpingement ,
-                              :TennisElbow ,
-                              :WristFracture ;
+         :hasContraindication :AnkleIssue ,
+                              :ShoulderIssue ,
+                              :WristIssue ;
          :hasDifficultyLevel :Advanced ;
          :improves :Coordination ,
                    :Posture ,
@@ -9966,8 +9883,7 @@ Langsam zur Mitte zurückkehren.
 
 
 ###  http://purl.org/PhysicalTherapy#PushUps_WristIssue
-:PushUps_WristIssue rdf:type owl:NamedIndividual ,
-                             :Contraindication ;
+:PushUps_WristIssue rdf:type owl:NamedIndividual ;
                     :forCondition :WristIssue ;
                     :isContraindicationFor :PushUps ;
                     :severity :MediumRisk .
@@ -10299,8 +10215,7 @@ Langsam zur Mitte zurückkehren.
 
 
 ###  http://purl.org/PhysicalTherapy#Pyramid_AnkleIssue
-:Pyramid_AnkleIssue rdf:type owl:NamedIndividual ,
-                             :Contraindication ;
+:Pyramid_AnkleIssue rdf:type owl:NamedIndividual ;
                     :forCondition :AnkleIssue ;
                     :severity :LowRisk ;
                     rdfs:label "Pyramid_AnkleIssue" .
@@ -10321,8 +10236,7 @@ Langsam zur Mitte zurückkehren.
 
 
 ###  http://purl.org/PhysicalTherapy#Pyramid_BalanceIssue
-:Pyramid_BalanceIssue rdf:type owl:NamedIndividual ,
-                               :Contraindication ;
+:Pyramid_BalanceIssue rdf:type owl:NamedIndividual ;
                       :forCondition :BalanceIssue ;
                       :severity :LowRisk ;
                       rdfs:label "Pyramid_BalanceIssue" .
@@ -10343,8 +10257,7 @@ Langsam zur Mitte zurückkehren.
 
 
 ###  http://purl.org/PhysicalTherapy#Pyramid_HamstringIssue
-:Pyramid_HamstringIssue rdf:type owl:NamedIndividual ,
-                                 :Contraindication ;
+:Pyramid_HamstringIssue rdf:type owl:NamedIndividual ;
                         :forCondition :HamstringIssue ;
                         :severity :MediumRisk ;
                         rdfs:label "Pyramid_HamstringIssue" .
@@ -10395,8 +10308,7 @@ Langsam zur Mitte zurückkehren.
 
 
 ###  http://purl.org/PhysicalTherapy#Pyramid_LowerBackIssue
-:Pyramid_LowerBackIssue rdf:type owl:NamedIndividual ,
-                                 :Contraindication ;
+:Pyramid_LowerBackIssue rdf:type owl:NamedIndividual ;
                         :forCondition :LowerBackIssue ;
                         :severity :MediumRisk ;
                         rdfs:label "Pyramid_LowerBackIssue" .
@@ -10534,8 +10446,7 @@ Langsam zur Mitte zurückkehren.
 
 
 ###  http://purl.org/PhysicalTherapy#RaisedArms_NeckIssue
-:RaisedArms_NeckIssue rdf:type owl:NamedIndividual ,
-                               :Contraindication ;
+:RaisedArms_NeckIssue rdf:type owl:NamedIndividual ;
                       :forCondition :NeckIssue ;
                       :severity :MediumRisk ;
                       rdfs:label "RaisedArms_NeckIssue" .
@@ -10586,8 +10497,7 @@ Langsam zur Mitte zurückkehren.
 
 
 ###  http://purl.org/PhysicalTherapy#RaisedArms_ShoulderIssue
-:RaisedArms_ShoulderIssue rdf:type owl:NamedIndividual ,
-                                   :Contraindication ;
+:RaisedArms_ShoulderIssue rdf:type owl:NamedIndividual ;
                           :forCondition :ShoulderIssue ;
                           :severity :LowRisk ;
                           rdfs:label "RaisedArms_ShoulderIssue" .
@@ -11061,7 +10971,7 @@ Langsam zur Mitte zurückkehren.
                                     :SpineJoint ,
                                     :Trapezius ,
                                     :UpperBack ;
-                   :hasContraindication :ClavicleFracture ;
+                   :hasContraindication :ShoulderIssue ;
                    :hasDifficultyLevel :Intermediate ;
                    :improves :Posture ,
                              :Stability ,
@@ -11093,8 +11003,7 @@ Langsam zur Mitte zurückkehren.
 
 
 ###  http://purl.org/PhysicalTherapy#ScapulaRetraktion_ShoulderIssue
-:ScapulaRetraktion_ShoulderIssue rdf:type owl:NamedIndividual ,
-                                          :Contraindication ;
+:ScapulaRetraktion_ShoulderIssue rdf:type owl:NamedIndividual ;
                                  :forCondition :ShoulderIssue ;
                                  :severity :MediumRisk ;
                                  rdfs:label "ScapulaRetraktion_ShoulderIssue" .
@@ -11107,8 +11016,8 @@ Langsam zur Mitte zurückkehren.
                                             :NeckJoint ,
                                             :ShoulderJoint ,
                                             :Shoulders ;
-                           :hasContraindication :SchulterNackenEntspannung_NeckIssue ,
-                                                :SchulterNackenEntspannung_ShoulderIssue ;
+                           :hasContraindication :NeckIssue ,
+                                                :ShoulderIssue ;
                            :hasDifficultyLevel :Beginner ;
                            :improves :Flexibility ,
                                      :Mobility ,
@@ -11132,16 +11041,14 @@ Langsam zur Mitte zurückkehren.
 
 
 ###  http://purl.org/PhysicalTherapy#SchulterNackenEntspannung_NeckIssue
-:SchulterNackenEntspannung_NeckIssue rdf:type owl:NamedIndividual ,
-                                              :Contraindication ;
+:SchulterNackenEntspannung_NeckIssue rdf:type owl:NamedIndividual ;
                                      :forCondition :NeckIssue ;
                                      :severity :LowRisk ;
                                      rdfs:label "SchulterNackenEntspannung_NeckIssue" .
 
 
 ###  http://purl.org/PhysicalTherapy#SchulterNackenEntspannung_ShoulderIssue
-:SchulterNackenEntspannung_ShoulderIssue rdf:type owl:NamedIndividual ,
-                                                  :Contraindication ;
+:SchulterNackenEntspannung_ShoulderIssue rdf:type owl:NamedIndividual ;
                                          :forCondition :ShoulderIssue ;
                                          :severity :LowRisk ;
                                          rdfs:label "SchulterNackenEntspannung_ShoulderIssue" .
@@ -11171,8 +11078,8 @@ Langsam zur Mitte zurückkehren.
                               :ShoulderJoint ,
                               :Spine ,
                               :SpineJoint ;
-             :hasContraindication :AcuteLowBackPain ,
-                                  :LumbarDiscHerniation ,
+             :hasContraindication :BackIssue ,
+                                  :LowerBackIssue ,
                                   :SpineIssue ;
              :hasDifficultyLevel :Intermediate ;
              :improves :Flexibility ,
@@ -11265,8 +11172,7 @@ Langsam zur Mitte zurückkehren.
                                                    :ShoulderJoint ,
                                                    :Shoulders ,
                                                    :UpperBack ;
-                                  :hasContraindication :ClavicleFracture ,
-                                                       :ShoulderIssue ;
+                                  :hasContraindication :ShoulderIssue ;
                                   :hasDifficultyLevel :Beginner ;
                                   :improves :Coordination ,
                                             :Mobility ,
@@ -11289,7 +11195,7 @@ Langsam zur Mitte zurückkehren.
 
 ###  http://purl.org/PhysicalTherapy#ShoulderIssue
 :ShoulderIssue rdf:type owl:NamedIndividual ,
-                        :Injury ;
+                        :Contraindication ;
                :requiresImprovementOf :ShoulderJoint ,
                                       :Shoulders ;
                rdfs:comment "Pain, tension, or mobility restriction in the shoulder area" ;
@@ -11671,8 +11577,7 @@ Langsam zur Mitte zurückkehren.
 
 
 ###  http://purl.org/PhysicalTherapy#SideAngle_HipIssue
-:SideAngle_HipIssue rdf:type owl:NamedIndividual ,
-                             :Contraindication ;
+:SideAngle_HipIssue rdf:type owl:NamedIndividual ;
                     :forCondition :HipIssue ;
                     :severity :MediumRisk ;
                     rdfs:label "SideAngle_HipIssue" .
@@ -11693,8 +11598,7 @@ Langsam zur Mitte zurückkehren.
 
 
 ###  http://purl.org/PhysicalTherapy#SideAngle_KneeIssue
-:SideAngle_KneeIssue rdf:type owl:NamedIndividual ,
-                              :Contraindication ;
+:SideAngle_KneeIssue rdf:type owl:NamedIndividual ;
                      :forCondition :KneeIssue ;
                      :severity :LowRisk ;
                      rdfs:label "SideAngle_KneeIssue" .
@@ -11745,8 +11649,7 @@ Langsam zur Mitte zurückkehren.
 
 
 ###  http://purl.org/PhysicalTherapy#SideAngle_LowerBackIssue
-:SideAngle_LowerBackIssue rdf:type owl:NamedIndividual ,
-                                   :Contraindication ;
+:SideAngle_LowerBackIssue rdf:type owl:NamedIndividual ;
                           :forCondition :LowerBackIssue ;
                           :severity :MediumRisk ;
                           rdfs:label "SideAngle_LowerBackIssue" .
@@ -11849,7 +11752,7 @@ Langsam zur Mitte zurückkehren.
                                :Knees ,
                                :Quads ,
                                :Thighs ;
-              :hasContraindication :SitzenStehen_KneeIssue ;
+              :hasContraindication :KneeIssue ;
               :hasDifficultyLevel :Beginner ;
               :improves :Balance ,
                         :Coordination ,
@@ -11860,8 +11763,7 @@ Langsam zur Mitte zurückkehren.
 
 
 ###  http://purl.org/PhysicalTherapy#SitzenStehen_KneeIssue
-:SitzenStehen_KneeIssue rdf:type owl:NamedIndividual ,
-                                 :Contraindication ;
+:SitzenStehen_KneeIssue rdf:type owl:NamedIndividual ;
                         :forCondition :KneeIssue ;
                         :severity :MediumRisk ;
                         rdfs:label "SitzenStehen_KneeIssue" .
@@ -11964,7 +11866,7 @@ Langsam zur Mitte zurückkehren.
 
 ###  http://purl.org/PhysicalTherapy#SpineIssue
 :SpineIssue rdf:type owl:NamedIndividual ,
-                     :Injury ;
+                     :Contraindication ;
             :requiresImprovementOf :Spine ;
             rdfs:comment "General spinal sensitivity or instability, e.g., scoliosis" ;
             rdfs:label "SpineIssue" .
@@ -12019,8 +11921,7 @@ Langsam zur Mitte zurückkehren.
 
 
 ###  http://purl.org/PhysicalTherapy#Squads_KneeIssue
-:Squads_KneeIssue rdf:type owl:NamedIndividual ,
-                           :Contraindication ;
+:Squads_KneeIssue rdf:type owl:NamedIndividual ;
                   :forCondition :KneeIssue ;
                   :isContraindicationFor :Squads ;
                   :severity :MediumRisk .
@@ -12033,8 +11934,7 @@ Langsam zur Mitte zurückkehren.
 
 
 ###  http://purl.org/PhysicalTherapy#StandingBackBend_LowerBackIssue
-:StandingBackBend_LowerBackIssue rdf:type owl:NamedIndividual ,
-                                          :Contraindication ;
+:StandingBackBend_LowerBackIssue rdf:type owl:NamedIndividual ;
                                  :forCondition :LowerBackIssue ;
                                  :severity :HighRisk ;
                                  rdfs:label "StandingBackBend_LowerBackIssue" .
@@ -12055,8 +11955,7 @@ Langsam zur Mitte zurückkehren.
 
 
 ###  http://purl.org/PhysicalTherapy#StandingBackBend_NeckIssue
-:StandingBackBend_NeckIssue rdf:type owl:NamedIndividual ,
-                                     :Contraindication ;
+:StandingBackBend_NeckIssue rdf:type owl:NamedIndividual ;
                             :forCondition :NeckIssue ;
                             :severity :MediumRisk ;
                             rdfs:label "StandingBackBend_NeckIssue" .
@@ -12077,8 +11976,7 @@ Langsam zur Mitte zurückkehren.
 
 
 ###  http://purl.org/PhysicalTherapy#StandingBackBend_ShoulderIssue
-:StandingBackBend_ShoulderIssue rdf:type owl:NamedIndividual ,
-                                         :Contraindication ;
+:StandingBackBend_ShoulderIssue rdf:type owl:NamedIndividual ;
                                 :forCondition :ShoulderIssue ;
                                 :severity :MediumRisk ;
                                 rdfs:label "StandingBackBend_ShoulderIssue" .
@@ -12099,8 +11997,7 @@ Langsam zur Mitte zurückkehren.
 
 
 ###  http://purl.org/PhysicalTherapy#StandingBackBend_SpineIssue
-:StandingBackBend_SpineIssue rdf:type owl:NamedIndividual ,
-                                      :Contraindication ;
+:StandingBackBend_SpineIssue rdf:type owl:NamedIndividual ;
                              :forCondition :SpineIssue ;
                              :severity :HighRisk ;
                              rdfs:label "StandingBackBend_SpineIssue" .
@@ -12495,8 +12392,7 @@ Langsam zur Mitte zurückkehren.
 
 
 ###  http://purl.org/PhysicalTherapy#StandingCalfStretch_AnkleIssue
-:StandingCalfStretch_AnkleIssue rdf:type owl:NamedIndividual ,
-                                         :Contraindication ;
+:StandingCalfStretch_AnkleIssue rdf:type owl:NamedIndividual ;
                                 :forCondition :AnkleIssue ;
                                 :isContraindicationFor :StandingCalfStretch ;
                                 :severity :MediumRisk .
@@ -12884,8 +12780,7 @@ Langsam zur Mitte zurückkehren.
 
 
 ###  http://purl.org/PhysicalTherapy#StandingCompass_BalanceIssue
-:StandingCompass_BalanceIssue rdf:type owl:NamedIndividual ,
-                                       :Contraindication ;
+:StandingCompass_BalanceIssue rdf:type owl:NamedIndividual ;
                               :forCondition :BalanceIssue ;
                               :severity :MediumRisk ;
                               rdfs:label "StandingCompass_BalanceIssue" .
@@ -12906,8 +12801,7 @@ Langsam zur Mitte zurückkehren.
 
 
 ###  http://purl.org/PhysicalTherapy#StandingCompass_CoreIssue
-:StandingCompass_CoreIssue rdf:type owl:NamedIndividual ,
-                                    :Contraindication ;
+:StandingCompass_CoreIssue rdf:type owl:NamedIndividual ;
                            :forCondition :CoreWeakness ;
                            :severity :LowRisk ;
                            rdfs:label "StandingCompass_CoreIssue" .
@@ -13264,8 +13158,7 @@ Langsam zur Mitte zurückkehren.
 
 
 ###  http://purl.org/PhysicalTherapy#StandingFirefly_BalanceIssue
-:StandingFirefly_BalanceIssue rdf:type owl:NamedIndividual ,
-                                       :Contraindication ;
+:StandingFirefly_BalanceIssue rdf:type owl:NamedIndividual ;
                               :forCondition :BalanceIssue ;
                               :severity :HighRisk ;
                               rdfs:label "StandingFirefly_BalanceIssue" .
@@ -13286,8 +13179,7 @@ Langsam zur Mitte zurückkehren.
 
 
 ###  http://purl.org/PhysicalTherapy#StandingFirefly_CoreIssue
-:StandingFirefly_CoreIssue rdf:type owl:NamedIndividual ,
-                                    :Contraindication ;
+:StandingFirefly_CoreIssue rdf:type owl:NamedIndividual ;
                            :forCondition :CoreWeakness ;
                            :severity :LowRisk ;
                            rdfs:label "StandingFirefly_CoreIssue" .
@@ -13368,8 +13260,7 @@ Langsam zur Mitte zurückkehren.
 
 
 ###  http://purl.org/PhysicalTherapy#StandingFirefly_ShoulderIssue
-:StandingFirefly_ShoulderIssue rdf:type owl:NamedIndividual ,
-                                        :Contraindication ;
+:StandingFirefly_ShoulderIssue rdf:type owl:NamedIndividual ;
                                :forCondition :ShoulderIssue ;
                                :severity :MediumRisk ;
                                rdfs:label "StandingFirefly_ShoulderIssue" .
@@ -13690,8 +13581,7 @@ Langsam zur Mitte zurückkehren.
 
 
 ###  http://purl.org/PhysicalTherapy#StandingForwardBend_BalanceIssue
-:StandingForwardBend_BalanceIssue rdf:type owl:NamedIndividual ,
-                                           :Contraindication ;
+:StandingForwardBend_BalanceIssue rdf:type owl:NamedIndividual ;
                                   :forCondition :BalanceIssue ;
                                   :severity :LowRisk ;
                                   rdfs:label "StandingForwardBend_BalanceIssue" .
@@ -13712,8 +13602,7 @@ Langsam zur Mitte zurückkehren.
 
 
 ###  http://purl.org/PhysicalTherapy#StandingForwardBend_HamstringIssue
-:StandingForwardBend_HamstringIssue rdf:type owl:NamedIndividual ,
-                                             :Contraindication ;
+:StandingForwardBend_HamstringIssue rdf:type owl:NamedIndividual ;
                                     :forCondition :HamstringIssue ;
                                     :severity :MediumRisk ;
                                     rdfs:label "StandingForwardBend_HamstringIssue" .
@@ -13764,8 +13653,7 @@ Langsam zur Mitte zurückkehren.
 
 
 ###  http://purl.org/PhysicalTherapy#StandingForwardBend_LowerBackIssue
-:StandingForwardBend_LowerBackIssue rdf:type owl:NamedIndividual ,
-                                             :Contraindication ;
+:StandingForwardBend_LowerBackIssue rdf:type owl:NamedIndividual ;
                                     :forCondition :LowerBackIssue ;
                                     :severity :MediumRisk ;
                                     rdfs:label "StandingForwardBend_LowerBackIssue" .
@@ -14108,8 +13996,7 @@ Langsam zur Mitte zurückkehren.
 
 
 ###  http://purl.org/PhysicalTherapy#StandingLegRaise_BalanceIssue
-:StandingLegRaise_BalanceIssue rdf:type owl:NamedIndividual ,
-                                        :Contraindication ;
+:StandingLegRaise_BalanceIssue rdf:type owl:NamedIndividual ;
                                :forCondition :BalanceIssue ;
                                :severity :MediumRisk ;
                                rdfs:label "StandingLegRaise_BalanceIssue" .
@@ -14130,8 +14017,7 @@ Langsam zur Mitte zurückkehren.
 
 
 ###  http://purl.org/PhysicalTherapy#StandingLegRaise_HamstringIssue
-:StandingLegRaise_HamstringIssue rdf:type owl:NamedIndividual ,
-                                          :Contraindication ;
+:StandingLegRaise_HamstringIssue rdf:type owl:NamedIndividual ;
                                  :forCondition :HamstringIssue ;
                                  :severity :MediumRisk ;
                                  rdfs:label "StandingLegRaise_HamstringIssue" .
@@ -14152,8 +14038,7 @@ Langsam zur Mitte zurückkehren.
 
 
 ###  http://purl.org/PhysicalTherapy#StandingLegRaise_HipIssue
-:StandingLegRaise_HipIssue rdf:type owl:NamedIndividual ,
-                                    :Contraindication ;
+:StandingLegRaise_HipIssue rdf:type owl:NamedIndividual ;
                            :forCondition :HipIssue ;
                            :severity :LowRisk ;
                            rdfs:label "StandingLegRaise_HipIssue" .
@@ -14256,7 +14141,7 @@ Langsam zur Mitte zurückkehren.
                                       :HipJoint ,
                                       :LowerBack ,
                                       :SpineJoint ;
-                     :hasContraindication :HipFracture ,
+                     :hasContraindication :HipIssue ,
                                           :SpineIssue ;
                      :hasDifficultyLevel :Beginner ;
                      :improves :Mobility ,
@@ -14503,8 +14388,7 @@ Langsam zur Mitte zurückkehren.
 
 
 ###  http://purl.org/PhysicalTherapy#StandingSideBend_BalanceIssue
-:StandingSideBend_BalanceIssue rdf:type owl:NamedIndividual ,
-                                        :Contraindication ;
+:StandingSideBend_BalanceIssue rdf:type owl:NamedIndividual ;
                                :forCondition :Balance ;
                                :severity :LowRisk ;
                                rdfs:label "StandingSideBend_BalanceIssue" .
@@ -14525,8 +14409,7 @@ Langsam zur Mitte zurückkehren.
 
 
 ###  http://purl.org/PhysicalTherapy#StandingSideBend_HipIssue
-:StandingSideBend_HipIssue rdf:type owl:NamedIndividual ,
-                                    :Contraindication ;
+:StandingSideBend_HipIssue rdf:type owl:NamedIndividual ;
                            :forCondition :HipIssue ;
                            :severity :LowRisk ;
                            rdfs:label "StandingSideBend_HipIssue" .
@@ -14577,8 +14460,7 @@ Langsam zur Mitte zurückkehren.
 
 
 ###  http://purl.org/PhysicalTherapy#StandingSideBend_LowerBackIssue
-:StandingSideBend_LowerBackIssue rdf:type owl:NamedIndividual ,
-                                          :Contraindication ;
+:StandingSideBend_LowerBackIssue rdf:type owl:NamedIndividual ;
                                  :forCondition :LowerBackIssue ;
                                  :severity :MediumRisk ;
                                  rdfs:label "StandingSideBend_LowerBackIssue" .
@@ -14910,8 +14792,7 @@ Langsam zur Mitte zurückkehren.
 
 
 ###  http://purl.org/PhysicalTherapy#StandingSplit_BalanceIssue
-:StandingSplit_BalanceIssue rdf:type owl:NamedIndividual ,
-                                     :Contraindication ;
+:StandingSplit_BalanceIssue rdf:type owl:NamedIndividual ;
                             :forCondition :BalanceIssue ;
                             :severity :HighRisk ;
                             rdfs:label "StandingSplit_BalanceIssue" .
@@ -14932,8 +14813,7 @@ Langsam zur Mitte zurückkehren.
 
 
 ###  http://purl.org/PhysicalTherapy#StandingSplit_HamstringIssue
-:StandingSplit_HamstringIssue rdf:type owl:NamedIndividual ,
-                                       :Contraindication ;
+:StandingSplit_HamstringIssue rdf:type owl:NamedIndividual ;
                               :forCondition :HamstringIssue ;
                               :severity :HighRisk ;
                               rdfs:label "StandingSplit_HamstringIssue" .
@@ -14954,8 +14834,7 @@ Langsam zur Mitte zurückkehren.
 
 
 ###  http://purl.org/PhysicalTherapy#StandingSplit_HipIssue
-:StandingSplit_HipIssue rdf:type owl:NamedIndividual ,
-                                 :Contraindication ;
+:StandingSplit_HipIssue rdf:type owl:NamedIndividual ;
                         :forCondition :HipIssue ;
                         :severity :HighRisk ;
                         rdfs:label "StandingSplit_HipIssue" .
@@ -15059,9 +14938,7 @@ Langsam zur Mitte zurückkehren.
                                            :ShoulderJoint ,
                                            :Shoulders ,
                                            :UpperBack ;
-                          :hasContraindication :ClavicleFracture ,
-                                               :FrozenShoulder ,
-                                               :ShoulderImpingement ;
+                          :hasContraindication :ShoulderIssue ;
                           :hasDifficultyLevel :Beginner ;
                           :improves :Flexibility ,
                                     :Mobility ,
@@ -15265,7 +15142,7 @@ Langsam zur Mitte zurückkehren.
                                           :ShoulderJoint ,
                                           :Shoulders ,
                                           :Trapezius ;
-                         :hasContraindication :ClavicleFracture ;
+                         :hasContraindication :ShoulderIssue ;
                          :hasDifficultyLevel :Beginner ;
                          :improves :Mobility ,
                                    :Stability ,
@@ -15290,8 +15167,7 @@ Langsam zur Mitte zurückkehren.
 
 
 ###  http://purl.org/PhysicalTherapy#TherabandAussenrotation_ShoulderIssue
-:TherabandAussenrotation_ShoulderIssue rdf:type owl:NamedIndividual ,
-                                                :Contraindication ;
+:TherabandAussenrotation_ShoulderIssue rdf:type owl:NamedIndividual ;
                                        :forCondition :ShoulderIssue ;
                                        :severity :MediumRisk ;
                                        rdfs:label "TherabandAussenrotation_ShoulderIssue" .
@@ -15649,8 +15525,7 @@ Langsam zur Mitte zurückkehren.
 
 
 ###  http://purl.org/PhysicalTherapy#Tree_AnkleIssue
-:Tree_AnkleIssue rdf:type owl:NamedIndividual ,
-                          :Contraindication ;
+:Tree_AnkleIssue rdf:type owl:NamedIndividual ;
                  :forCondition :AnkleIssue ;
                  :severity :MediumRisk ;
                  rdfs:label "Tree_AnkleIssue" .
@@ -15671,8 +15546,7 @@ Langsam zur Mitte zurückkehren.
 
 
 ###  http://purl.org/PhysicalTherapy#Tree_BalanceIssue
-:Tree_BalanceIssue rdf:type owl:NamedIndividual ,
-                            :Contraindication ;
+:Tree_BalanceIssue rdf:type owl:NamedIndividual ;
                    :forCondition :Balance ;
                    :severity :HighRisk ;
                    rdfs:label "Tree_BalanceIssue" .
@@ -15693,8 +15567,7 @@ Langsam zur Mitte zurückkehren.
 
 
 ###  http://purl.org/PhysicalTherapy#Tree_KneeIssue
-:Tree_KneeIssue rdf:type owl:NamedIndividual ,
-                         :Contraindication ;
+:Tree_KneeIssue rdf:type owl:NamedIndividual ;
                 :forCondition :KneeIssue ;
                 :severity :MediumRisk ;
                 rdfs:label "Tree_KneeIssue" .
@@ -16123,8 +15996,7 @@ Langsam zur Mitte zurückkehren.
 
 
 ###  http://purl.org/PhysicalTherapy#Triangle_HamstringIssue
-:Triangle_HamstringIssue rdf:type owl:NamedIndividual ,
-                                  :Contraindication ;
+:Triangle_HamstringIssue rdf:type owl:NamedIndividual ;
                          :forCondition :HamstringIssue ;
                          :severity :LowRisk ;
                          rdfs:label "Triangle_HamstringIssue" .
@@ -16145,8 +16017,7 @@ Langsam zur Mitte zurückkehren.
 
 
 ###  http://purl.org/PhysicalTherapy#Triangle_HipIssue
-:Triangle_HipIssue rdf:type owl:NamedIndividual ,
-                            :Contraindication ;
+:Triangle_HipIssue rdf:type owl:NamedIndividual ;
                    :forCondition :HipIssue ;
                    :severity :MediumRisk ;
                    rdfs:label "Triangle_HipIssue" .
@@ -16167,8 +16038,7 @@ Langsam zur Mitte zurückkehren.
 
 
 ###  http://purl.org/PhysicalTherapy#Triangle_KneeIssue
-:Triangle_KneeIssue rdf:type owl:NamedIndividual ,
-                             :Contraindication ;
+:Triangle_KneeIssue rdf:type owl:NamedIndividual ;
                     :forCondition :KneeIssue ;
                     :severity :LowRisk ;
                     rdfs:label "Triangle_KneeIssue" .
@@ -16219,8 +16089,7 @@ Langsam zur Mitte zurückkehren.
 
 
 ###  http://purl.org/PhysicalTherapy#Triangle_LowerBackIssue
-:Triangle_LowerBackIssue rdf:type owl:NamedIndividual ,
-                                  :Contraindication ;
+:Triangle_LowerBackIssue rdf:type owl:NamedIndividual ;
                          :forCondition :LowerBackIssue ;
                          :severity :MediumRisk ;
                          rdfs:label "Triangle_LowerBackIssue" .
@@ -16304,8 +16173,7 @@ Langsam zur Mitte zurückkehren.
 
 
 ###  http://purl.org/PhysicalTherapy#TricepsStretch_ShoulderIssue
-:TricepsStretch_ShoulderIssue rdf:type owl:NamedIndividual ,
-                                       :Contraindication ;
+:TricepsStretch_ShoulderIssue rdf:type owl:NamedIndividual ;
                               :forCondition :ShoulderIssue ;
                               :isContraindicationFor :TricepsStretch ;
                               :severity :LowRisk .
@@ -16325,7 +16193,7 @@ Langsam zur Mitte zurückkehren.
 
 ###  http://purl.org/PhysicalTherapy#UpperBackIssue
 :UpperBackIssue rdf:type owl:NamedIndividual ,
-                         :Injury ;
+                         :Contraindication ;
                 :requiresImprovementOf :UpperBack .
 
 
@@ -16358,7 +16226,7 @@ Langsam zur Mitte zurückkehren.
                                :Ankles ,
                                :Calves ,
                                :Legs ;
-              :hasContraindication :Wadendehnung_AnkleIssue ;
+              :hasContraindication :AnkleIssue ;
               :hasDifficultyLevel :Beginner ;
               :improves :Flexibility ,
                         :Mobility ;
@@ -16380,8 +16248,7 @@ Langsam zur Mitte zurückkehren.
 
 
 ###  http://purl.org/PhysicalTherapy#Wadendehnung_AnkleIssue
-:Wadendehnung_AnkleIssue rdf:type owl:NamedIndividual ,
-                                  :Contraindication ;
+:Wadendehnung_AnkleIssue rdf:type owl:NamedIndividual ;
                          :forCondition :AnkleIssue ;
                          :severity :MediumRisk ;
                          rdfs:label "Wadendehnung_AnkleIssue" .
@@ -16459,10 +16326,9 @@ Langsam zur Mitte zurückkehren.
                               :Triceps ,
                               :WristJoint ,
                               :Wrists ;
-             :hasContraindication :ClavicleFracture ,
-                                  :FrozenShoulder ,
-                                  :TennisElbow ,
-                                  :WristFracture ;
+             :hasContraindication :AnkleIssue ,
+                                  :ShoulderIssue ,
+                                  :WristIssue ;
              :hasDifficultyLevel :Beginner ;
              :improves :Stability ,
                        :Strength ;
@@ -16494,7 +16360,7 @@ Langsam zur Mitte zurückkehren.
                              :KneeJoint ,
                              :Quadriceps ,
                              :Quads ;
-            :hasContraindication :Wandsitzen_KneeIssue ;
+            :hasContraindication :KneeIssue ;
             :hasDifficultyLevel :Beginner ;
             :improves :Stability ,
                       :Strength ;
@@ -16507,8 +16373,7 @@ Langsam zur Mitte zurückkehren.
 
 
 ###  http://purl.org/PhysicalTherapy#Wandsitzen_KneeIssue
-:Wandsitzen_KneeIssue rdf:type owl:NamedIndividual ,
-                               :Contraindication ;
+:Wandsitzen_KneeIssue rdf:type owl:NamedIndividual ;
                       :forCondition :KneeIssue ;
                       :severity :HighRisk ;
                       rdfs:label "Wandsitzen_KneeIssue" .
@@ -16865,8 +16730,7 @@ Langsam zur Mitte zurückkehren.
 
 
 ###  http://purl.org/PhysicalTherapy#Warrior1_BalanceIssue
-:Warrior1_BalanceIssue rdf:type owl:NamedIndividual ,
-                                :Contraindication ;
+:Warrior1_BalanceIssue rdf:type owl:NamedIndividual ;
                        :forCondition :BalanceIssue ;
                        :severity :HighRisk ;
                        rdfs:label "Warrior1_BalanceIssue" .
@@ -16887,8 +16751,7 @@ Langsam zur Mitte zurückkehren.
 
 
 ###  http://purl.org/PhysicalTherapy#Warrior1_CoreIssue
-:Warrior1_CoreIssue rdf:type owl:NamedIndividual ,
-                             :Contraindication ;
+:Warrior1_CoreIssue rdf:type owl:NamedIndividual ;
                     :forCondition :CoreWeakness ;
                     :severity :MediumRisk ;
                     rdfs:label "Warrior1_CoreIssue" .
@@ -16909,8 +16772,7 @@ Langsam zur Mitte zurückkehren.
 
 
 ###  http://purl.org/PhysicalTherapy#Warrior1_KneeIssue
-:Warrior1_KneeIssue rdf:type owl:NamedIndividual ,
-                             :Contraindication ;
+:Warrior1_KneeIssue rdf:type owl:NamedIndividual ;
                     :forCondition :KneeIssue ;
                     :severity :MediumRisk ;
                     rdfs:label "Warrior1_KneeIssue" .
@@ -17351,8 +17213,7 @@ Langsam zur Mitte zurückkehren.
 
 
 ###  http://purl.org/PhysicalTherapy#Warrior2_AnkleIssue
-:Warrior2_AnkleIssue rdf:type owl:NamedIndividual ,
-                              :Contraindication ;
+:Warrior2_AnkleIssue rdf:type owl:NamedIndividual ;
                      :forCondition :AnkleIssue ;
                      :severity :LowRisk ;
                      rdfs:label "Warrior2_AnkleIssue" .
@@ -17373,8 +17234,7 @@ Langsam zur Mitte zurückkehren.
 
 
 ###  http://purl.org/PhysicalTherapy#Warrior2_HipIssue
-:Warrior2_HipIssue rdf:type owl:NamedIndividual ,
-                            :Contraindication ;
+:Warrior2_HipIssue rdf:type owl:NamedIndividual ;
                    :forCondition :HipIssue ;
                    :severity :LowRisk ;
                    rdfs:label "Warrior2_HipIssue" .
@@ -17395,8 +17255,7 @@ Langsam zur Mitte zurückkehren.
 
 
 ###  http://purl.org/PhysicalTherapy#Warrior2_KneeIssue
-:Warrior2_KneeIssue rdf:type owl:NamedIndividual ,
-                             :Contraindication ;
+:Warrior2_KneeIssue rdf:type owl:NamedIndividual ;
                     :forCondition :KneeIssue ;
                     :severity :MediumRisk ;
                     rdfs:label "Warrior2_KneeIssue" .
@@ -17932,8 +17791,7 @@ Langsam zur Mitte zurückkehren.
 
 
 ###  http://purl.org/PhysicalTherapy#Wheel_LowerBackIssue
-:Wheel_LowerBackIssue rdf:type owl:NamedIndividual ,
-                               :Contraindication ;
+:Wheel_LowerBackIssue rdf:type owl:NamedIndividual ;
                       :forCondition :LowerBackIssue ;
                       :severity :HighRisk ;
                       rdfs:label "Wheel_LowerBackIssue" .
@@ -17954,8 +17812,7 @@ Langsam zur Mitte zurückkehren.
 
 
 ###  http://purl.org/PhysicalTherapy#Wheel_NeckIssue
-:Wheel_NeckIssue rdf:type owl:NamedIndividual ,
-                          :Contraindication ;
+:Wheel_NeckIssue rdf:type owl:NamedIndividual ;
                  :forCondition :NeckIssue ;
                  :severity :MediumRisk ;
                  rdfs:label "Wheel_NeckIssue" .
@@ -18006,8 +17863,7 @@ Langsam zur Mitte zurückkehren.
 
 
 ###  http://purl.org/PhysicalTherapy#Wheel_ShoulderIssue
-:Wheel_ShoulderIssue rdf:type owl:NamedIndividual ,
-                              :Contraindication ;
+:Wheel_ShoulderIssue rdf:type owl:NamedIndividual ;
                      :forCondition :ShoulderIssue ;
                      :severity :HighRisk ;
                      rdfs:label "Wheel_ShoulderIssue" .
@@ -18043,8 +17899,7 @@ Langsam zur Mitte zurückkehren.
 
 
 ###  http://purl.org/PhysicalTherapy#Wheel_WristIssue
-:Wheel_WristIssue rdf:type owl:NamedIndividual ,
-                           :Contraindication ;
+:Wheel_WristIssue rdf:type owl:NamedIndividual ;
                   :forCondition :WristIssue ;
                   :severity :HighRisk ;
                   rdfs:label "Wheel_WristIssue" .
@@ -18082,7 +17937,7 @@ Langsam zur Mitte zurückkehren.
 
 ###  http://purl.org/PhysicalTherapy#WristIssue
 :WristIssue rdf:type owl:NamedIndividual ,
-                     :Injury ;
+                     :Contraindication ;
             :requiresImprovementOf :Wrists ;
             rdfs:comment "Pain, weakness, or carpal instability in the wrist" ;
             rdfs:label "WristIssue" .

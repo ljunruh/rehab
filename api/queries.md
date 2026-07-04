@@ -156,6 +156,73 @@ WHERE {
 GROUP BY ?exercise ?exerciseLabel ?difficultyLabel
 ```
 
+
+### Gefilterte Planempfehlung mit vollständigen Exercise-Details
+
+Diese Abfrage liefert gefilterte Übungen basierend auf Schwierigkeit, Trainingszielen und Körperbereichen. Zusätzlich werden sowohl Objekt-Properties (z. B. Contraindications, BodyParts) als auch Data-Properties (z. B. Beschreibung, Dauer, Instruktionen) für die Darstellung in der App geladen und teilweise aggregiert.
+
+```sparql
+SELECT
+	?exercise 
+	?exerciseLabel
+	?difficultyLabel
+	# Verpack alle Values der Property in einem Value
+	(GROUP_CONCAT(DISTINCT ?contraindicationLabel; separator=" | ") AS ?contraindications)
+	(GROUP_CONCAT(DISTINCT ?trainingsEffectLabel; separator=" | ") AS ?trainingsEffects)
+	(GROUP_CONCAT(DISTINCT ?bodyPartLabel; separator=" | ") AS ?bodyParts)
+	?description
+	?duration
+	?instruction
+	(GROUP_CONCAT(DISTINCT ?correction; separator=" | ") AS ?corrections)
+	(GROUP_CONCAT(DISTINCT ?mistake; separator=" | ") AS ?mistakes)
+WHERE {
+  	#rehab:Advanced -> keine Profi Übungen
+    VALUES ?difficulty { rehab:Beginner rehab:Intermediate rehab:Advanced }
+  	#rehab:Strength -> Übungen die kein Strength Ziel haben
+  	VALUES ?trainingsEffect { rehab:Balance rehab:Coordination rehab:Flexibility rehab:Focus rehab:Mobility rehab:Posture rehab:Relaxation rehab:Stability }
+  	#rehab:UpperBack -> Übungen die den UpperBack nicht beanspruchen
+  	VALUES ?bodyPart { rehab:Ankles rehab:Arms rehab:Back rehab:Biceps rehab:Calves rehab:Chest rehab:Core rehab:Elbows rehab:Glutes rehab:Hamstrings rehab:Hip rehab:Knees rehab:Legs rehab:LowerBack rehab:Neck rehab:Obliques rehab:Pelvic rehab:Psoas rehab:Quadriceps rehab:Shoulders rehab:Spine rehab:Thighs rehab:Triceps rehab:Wrists }
+  
+  	# Filter auf Übungen anhand übergebener VALUES Parameter
+    ?exercise a/rdfs:subClassOf* rehab:Exercise ;
+              rehab:hasDifficultyLevel ?difficulty ;
+  			  rehab:hasContraindication ?contraindication;
+       		  rehab:improves ?trainingsEffect ;
+  			  rehab:engagedBodyPart ?bodyPart .
+	?contraindication a rehab:Contraindication .
+	?contraindication rdfs:label ?contraindicationLabel .
+  	?trainingsEffect a rehab:TrainingsEffect .
+  	?trainingsEffect rdfs:label ?trainingsEffectLabel .
+  	?bodyPart a rehab:BodyPart .
+  	?bodyPart rdfs:label ?bodyPartLabel .
+
+  	FILTER NOT EXISTS {
+    	VALUES ?selectedContraindication { rehab:ShoulderIssue } # -> Übungen rausnehmen die diese Problemzonen beanspruchen würden
+    	?exercise rehab:hasContraindication ?selectedContraindication
+  	}
+  
+  	# Text Properties zur Übungsbeschreibung
+  	OPTIONAL { ?exercise rdfs:label ?exerciseLabel }
+  	OPTIONAL { ?exercise rehab:hasDescription ?description }
+  	OPTIONAL { ?exercise rehab:duration ?duration }
+  	OPTIONAL { ?exercise rehab:hasInstruction ?instruction }
+  	OPTIONAL { ?exercise rehab:hasCorrectionGuidance ?correction }
+  	OPTIONAL { ?exercise rehab:hasCommonMistake ?mistake }
+    
+  	#Erstelle aus einer URI ein Labelersatz: http://purl.org/PhysicalTherapy#Deadlift -> Deadlift 
+  	BIND(REPLACE(STR(?difficulty), "^.*[#/]", "") AS ?difficultyLabel)
+} GROUP BY
+    ?exercise
+    ?exerciseLabel
+    ?difficultyLabel
+    ?description
+    ?duration
+    ?instruction
+    ?corrections
+    ?mistakes
+```
+
+
 ## Allgemeine SPARQL-Hilfen
 
 ### URI → lokaler Name (Label-Extraktion)
