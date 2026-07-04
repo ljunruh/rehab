@@ -36,13 +36,15 @@ class Exercise {
 
   factory Exercise.fromSparqlJson(Map<String, dynamic> json) {
     Exercise exercise = Exercise(
-      id: json['exercise']['value'] ?? '',
-      label: json['exerciseLabel']['value'] ?? '',
+      id: json['exercise']?['value'] ?? '',
+      label: json['exerciseLabel']?['value'] ?? '',
       difficulty: json['difficultyLabel']?['value'] ?? '',
       trainingsEffects: _toStringList(json['trainingsEffects']?['value']),
       bodyParts: _toStringList(json['bodyParts']?['value']),
       description: json['description']?['value'] ?? '',
-      duration: json['duration']?['value'] ?? 0,
+      duration: json['duration']?['value'] is int
+          ? json['duration']['value'] as int
+          : int.tryParse(json['duration']?['value']?.toString() ?? '') ?? 0,
       instruction: json['instruction']?['value'] ?? '',
       corrections: _toStringList(json['corrections']?['value']),
       mistakes: _toStringList(json['mistakes']?['value']),
@@ -51,7 +53,8 @@ class Exercise {
   }
 
   //TODO[API] Muss in ein CoreModel oder ModelService ausgelagert werden
-  static List<String> _toStringList(String value) {
+  static List<String> _toStringList(String? value) {
+    if (value == null) return [];
     return value
         .split(' | ')
         .map((e) => e.trim())

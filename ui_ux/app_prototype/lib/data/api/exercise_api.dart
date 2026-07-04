@@ -63,9 +63,9 @@ SELECT
 WHERE {
   	#rehab:Advanced -> keine Profi Übungen
     VALUES ?difficulty { $difficulty }
-  	#rehab:Strength -> Übungen die kein Strength Ziel haben
+  	#rehab:Strength rehab:Coordination rehab:Flexibility rehab:Focus rehab:Mobility rehab:Posture rehab:Relaxation rehab:Stability -> Übungen die kein Strength Ziel haben
   	VALUES ?trainingsEffect { $goals }
-  	#rehab:UpperBack -> Übungen die den UpperBack nicht beanspruchen
+  	#rehab:UpperBack -> Übungen die den UpperBack nicht beanspruchen rehab:Ankles rehab:Arms rehab:Back rehab:Biceps rehab:Calves rehab:Chest rehab:Core rehab:Elbows rehab:Glutes rehab:Hamstrings rehab:Hip rehab:Knees rehab:Legs rehab:LowerBack rehab:Neck rehab:Obliques rehab:Pelvic rehab:Psoas rehab:Quadriceps rehab:Shoulders rehab:Spine rehab:Thighs rehab:Triceps rehab:Wrists
   	VALUES ?bodyPart { $bodyParts }
   
   	# Filter auf Übungen anhand übergebener VALUES Parameter
@@ -74,7 +74,7 @@ WHERE {
   			  rehab:hasContraindication ?contraindication;
        		  rehab:improves ?trainingsEffect ;
   			  rehab:engagedBodyPart ?bodyPart .
-	?contraindication a rehab:Injury .
+	?contraindication a rehab:Contraindication .
 	?contraindication rdfs:label ?contraindicationLabel .
   	?trainingsEffect a rehab:TrainingsEffect .
   	?trainingsEffect rdfs:label ?trainingsEffectLabel .
@@ -82,8 +82,8 @@ WHERE {
   	?bodyPart rdfs:label ?bodyPartLabel .
 
   	FILTER NOT EXISTS {
-    	VALUES ?selectedInjury { $injuries } # -> Übungen rausnehmen die diese Problemzonen beanspruchen würden
-    	?exercise rehab:hasContraindication ?selectedInjury
+    	VALUES ?selectedContraindication { $injuries } # -> Übungen rausnehmen die diese Problemzonen beanspruchen würden
+    	?exercise rehab:hasContraindication ?selectedContraindication
   	}
   
   	# Text Properties zur Übungsbeschreibung
@@ -113,7 +113,8 @@ WHERE {
       if (response.statusCode == 200) {
         final Map<String, dynamic> data = json.decode(response.body);
         final List<dynamic> bindings = data['results']['bindings'];
-        return bindings.map((json) => Exercise.fromSparqlJson(json)).toList();
+        List<Exercise> values = bindings.map((json) => Exercise.fromSparqlJson(json)).toList();
+        return values;
       } else {
         throw Exception('Fehler beim Laden der Daten: ${response.statusCode}');
       }

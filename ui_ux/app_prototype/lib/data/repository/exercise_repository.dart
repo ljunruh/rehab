@@ -16,15 +16,15 @@ class ExerciseRepository {
 
   Future<List<Exercise>?> getAll() => api.fetchAllExercises();
 
-  Future<List<Exercise>?> getFilterdExcercises() async {
+  Future<List<Exercise>?> getFilterdExcercises(BodyPart bodyPart, Goal goal) async {
     final user = await userRepository.getUser();
     if (user == null) {
-      return api.fetchFilteredExercises(BodyPart.none, Goal.none, [], SkillLevel.intermediate);
+      return api.fetchFilteredExercises(bodyPart, goal, [], SkillLevel.intermediate);
     }
 
     final result = api.fetchFilteredExercises(
-      BodyPart.core,
-      Goal.balance,
+      bodyPart,
+      goal,
       user.injuries,
       user.skillLevel,
     );
