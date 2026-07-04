@@ -40,56 +40,50 @@ class ExerciseApi extends CoreApi {
   /*
   Lese alle für Planerstellung passenden Exercises.
   */
-  Future<List<Exercise>> fetchFilteredExercises(BodyPart bodyPart, Goal goal, int painLevel, List<Injury> injury, SkillLevel skillLevel) async {
-    String difficulty = _getDifficulties(skillLevel, painLevel);
-
-    final List<String> activeFilters = [];
-    final List<String> valuesBlocks = [];
-
-    // Difficulty filter
-    valuesBlocks.add('VALUES ?difficulty { $difficulty }');
-    activeFilters.add('?exercise rehab:hasDifficultyLevel ?difficulty .');
-
-    // BodyPart filter
-    if (bodyPart != BodyPart.none) {
-      String bodyPartName = bodyPart.name[0].toUpperCase() + bodyPart.name.substring(1);
-      activeFilters.add('?exercise rehab:rehabilitates rehab:$bodyPartName .');
-    }
-
-    // Goal filter
-    if (goal != Goal.none) {
-      String goalName = goal.name[0].toUpperCase() + goal.name.substring(1);
-      activeFilters.add('?exercise (rehab:improves|rehab:hasTrainingEffect) rehab:$goalName .');
-    }
-
-    // Injury filter
-    final filteredInjuries = injury.where((i) => i != Injury.none).toList();
-    if (filteredInjuries.isNotEmpty) {
-      final injuryURIs = filteredInjuries.map((i) {
-        String name = i.name[0].toUpperCase() + i.name.substring(1);
-        return 'rehab:$name';
-      }).join(' ');
-
-      valuesBlocks.add('VALUES ?selectedInjury { $injuryURIs }');
-
-      activeFilters.add('''
-    FILTER NOT EXISTS { ?selectedInjury rehab:excludesExercise ?exercise }
-    FILTER NOT EXISTS { ?exercise rehab:hasContraindication ?selectedInjury }
-    FILTER NOT EXISTS { ?exercise rehab:hasContraindication/rehab:forCondition ?selectedInjury }
-      ''');
-    }
+  Future<List<Exercise>> fetchFilteredExercises(BodyPart bodyPart, Goal goal, List<String> injury, SkillLevel skillLevel) async {
+    String difficulty = _getDifficulties(skillLevel);
+    String goals = "rehab:${goal.labelEN}"; //Kann später zu mehr Goals erweitert werden
+    String bodyParts = "rehab:${bodyPart.labelEN}"; //Kann später zu mehr BodyParts erweitert werden
+    String injuries = injury.map((e) => "rehab:$e").join(" ");
 
     final query = '''
-SELECT ?exercise ?label ?comment WHERE {
-    ${valuesBlocks.join('\n    ')}
+      SELECT
+	?exercise 
+	?exerciseLabel
+	?difficultyLabel
+	# Verpack alle Values der Property in einem Value
+	(GROUP_CONCAT(DISTINCT ?contraindicationLabel; separator=", ") AS ?contraindications)
+	(GROUP_CONCAT(DISTINCT ?trainingsEffectLabel; separator=", ") AS ?trainingsEffects)
+	(GROUP_CONCAT(DISTINCT ?bodyPartLabel; separator=", ") AS ?bodyParts)
+WHERE {
+  	#rehab:Advanced -> keine Profi Übungen
+    VALUES ?difficulty { $difficulty }
+  	#rehab:Strength -> Übungen die kein Strength Ziel haben
+  	VALUES ?trainingsEffect { $goals }
+  	#rehab:UpperBack -> Übungen die den UpperBack nicht beanspruchen
+  	VALUES ?bodyPart { $bodyParts }
+  
+    ?exercise a/rdfs:subClassOf* rehab:Exercise ;
+              rehab:hasDifficultyLevel ?difficulty ;
+  			  rehab:hasContraindication ?contraindication;
+       		  rehab:improves ?trainingsEffect ;
+  			  rehab:engagedBodyPart ?bodyPart .
+	?contraindication a rehab:Injury .
+	?contraindication rdfs:label ?contraindicationLabel .
+  	?trainingsEffect a rehab:TrainingsEffect .
+  	?trainingsEffect rdfs:label ?trainingsEffectLabel .
+  	?bodyPart a rehab:BodyPart .
+  	?bodyPart rdfs:label ?bodyPartLabel .
 
-    ?exercise a/rdfs:subClassOf* rehab:Exercise .
-
-    ${activeFilters.join('\n    ')}
-
-    OPTIONAL { ?exercise rdfs:label ?label . }
-    OPTIONAL { ?exercise rdfs:comment ?comment . }
-}
+  	FILTER NOT EXISTS {
+    	VALUES ?selectedInjury { $injuries } # -> Übungen rausnehmen die diese Problemzonen beanspruchen würden
+    	?exercise rehab:hasContraindication ?selectedInjury
+  	}
+  
+    OPTIONAL { ?exercise rdfs:label ?exerciseLabel }
+  	#Erstelle aus einer URI ein Labelersatz: http://purl.org/PhysicalTherapy#Deadlift -> Deadlift 
+  	BIND(REPLACE(STR(?difficulty), "^.*[#/]", "") AS ?difficultyLabel)
+} GROUP BY ?exercise ?exerciseLabel ?difficultyLabel ?contraindications ?trainingsEffects ?bodyParts
     ''';
 
     try {
@@ -107,11 +101,7 @@ SELECT ?exercise ?label ?comment WHERE {
     }
   }
 
-  String _getDifficulties(SkillLevel skillLevel, int painLevel) {
-    if (painLevel > 3) {
-      return "rehab:Beginner";
-    }
-
+  String _getDifficulties(SkillLevel skillLevel) {
     switch (skillLevel) {
       case SkillLevel.beginner:
         return "rehab:Beginner";

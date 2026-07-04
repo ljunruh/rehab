@@ -314,7 +314,7 @@ class _UserSetupScreenState extends State<UserSetupScreen> {
       items: _allInjuries,
       filteredItems: _filteredInjuries,
       onSearch: _filterInjuries,
-      getId: (injury) => injury.name,
+      getId: (injury) => injury.labelEN,
       getTitle: (injury) => injury.label,
       getSubtitle: (injury) => injury.description,
       selectedIds: _selectedInjuryNames,

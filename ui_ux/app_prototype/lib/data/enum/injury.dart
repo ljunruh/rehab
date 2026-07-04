@@ -44,6 +44,35 @@ extension InjuryExt on Injury {
     }
   }
 
+  String get labelEN {
+    switch (this) {
+      case Injury.ankleIssue:
+        return "AnkleIssue";
+      case Injury.balanceIssue:
+        return "BalanceIssue";
+      case Injury.coreWeakness:
+        return "CoreWeakness";
+      case Injury.hamstringIssue:
+        return "HamstringIssue";
+      case Injury.hipIssue:
+        return "HipIssue";
+      case Injury.kneeIssue:
+        return "KneeIssue";
+      case Injury.lowerBackIssue:
+        return "LowerBackIssue";
+      case Injury.neckIssue:
+        return "NeckIssue";
+      case Injury.shoulderIssue:
+        return "ShoulderIssue";
+      case Injury.spineIssue:
+        return "SpineIssue";
+      case Injury.wristIssue:
+        return "WristIssue";
+      case Injury.none:
+        return "None";
+    }
+  }
+
   String get description {
     switch (this) {
       case Injury.ankleIssue:
@@ -75,27 +104,27 @@ extension InjuryExt on Injury {
 
   static Injury fromString(String value) {
     switch (value) {
-      case "ankleIssue":
+      case "AnkleIssue":
         return Injury.ankleIssue;
-      case "balanceIssue":
+      case "BalanceIssue":
         return Injury.balanceIssue;
-      case "coreWeakness":
+      case "CoreWeakness":
         return Injury.coreWeakness;
-      case "hamstringIssue":
+      case "HamstringIssue":
         return Injury.hamstringIssue;
-      case "hipIssue":
+      case "HipIssue":
         return Injury.hipIssue;
-      case "kneeIssue":
+      case "KneeIssue":
         return Injury.kneeIssue;
-      case "lowerBackIssue":
+      case "LowerBackIssue":
         return Injury.lowerBackIssue;
-      case "neckIssue":
+      case "NeckIssue":
         return Injury.neckIssue;
-      case "shoulderIssue":
+      case "ShoulderIssue":
         return Injury.shoulderIssue;
-      case "spineIssue":
+      case "SpineIssue":
         return Injury.spineIssue;
-      case "wristIssue":
+      case "WristIssue":
         return Injury.wristIssue;
       default:
         return Injury.none;

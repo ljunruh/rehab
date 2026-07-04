@@ -38,6 +38,32 @@ extension GoalExt on Goal {
     }
   }
 
+  //Wird für Mapping von Knowledge Graph Label Annotation genutzt
+  String get labelEN {
+    switch (this) {
+      case Goal.balance:
+        return "Balance";
+      case Goal.coordination:
+        return "Coordination";
+      case Goal.flexibility:
+        return "Flexibility";
+      case Goal.focus:
+        return "Focus";
+      case Goal.mobility:
+        return "Mobility";
+      case Goal.posture:
+        return "Posture";
+      case Goal.relaxation:
+        return "Relaxation";
+      case Goal.stability:
+        return "Stability";
+      case Goal.strength:
+        return "Strength";
+      case Goal.none:
+        return "None";
+    }
+  }
+
   static Goal fromString(String value) {
     switch (value) {
       case "balance":

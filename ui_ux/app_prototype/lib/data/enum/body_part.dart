@@ -86,6 +86,63 @@ extension BodyPartExt on BodyPart {
     }
   }
 
+  String get labelEN {
+    switch (this) {
+      case BodyPart.ankles:
+        return "Ankles";
+      case BodyPart.arms:
+        return "Arms";
+      case BodyPart.back:
+        return "Back";
+      case BodyPart.biceps:
+        return "Biceps";
+      case BodyPart.calves:
+        return "Calves";
+      case BodyPart.chest:
+        return "Chest";
+      case BodyPart.core:
+        return "Core";
+      case BodyPart.elbows:
+        return "Elbows";
+      case BodyPart.glutes:
+        return "Glutes";
+      case BodyPart.hamstrings:
+        return "Hamstrings";
+      case BodyPart.hip:
+        return "Hip";
+      case BodyPart.knees:
+        return "Knees";
+      case BodyPart.legs:
+        return "Legs";
+      case BodyPart.lowerBack:
+        return "LowerBack";
+      case BodyPart.neck:
+        return "Neck";
+      case BodyPart.obliques:
+        return "Obliques";
+      case BodyPart.pelvic:
+        return "Pelvic";
+      case BodyPart.psoas:
+        return "Psoas";
+      case BodyPart.quadriceps:
+        return "Quadriceps";
+      case BodyPart.shoulders:
+        return "Shoulders";
+      case BodyPart.spine:
+        return "Spine";
+      case BodyPart.thighs:
+        return "Thighs";
+      case BodyPart.triceps:
+        return "Triceps";
+      case BodyPart.upperBack:
+        return "UpperBack";
+      case BodyPart.wrists:
+        return "Wrists";
+      case BodyPart.none:
+        return "None";
+    }
+  }
+
   static BodyPart fromString(String value) {
     switch (value) {
       case "ankles":
