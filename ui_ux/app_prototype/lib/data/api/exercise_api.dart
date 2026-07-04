@@ -28,7 +28,21 @@ class ExerciseApi extends CoreApi {
       if (response.statusCode == 200) {
         final Map<String, dynamic> data = json.decode(response.body);
         final List<dynamic> bindings = data['results']['bindings'];
-        return bindings.map((json) => Exercise.fromSparqlJson(json)).toList();
+        try {
+          return bindings.map((json) {
+            try {
+              return Exercise.fromSparqlJson(json);
+            } catch (innerError, stackTrace) {
+              print('--- PARSE ERROR IN fetchAllExercises ---');
+              print('JSON: $json');
+              print('Error: $innerError');
+              print('Stacktrace:\n$stackTrace');
+              rethrow;
+            }
+          }).toList();
+        } catch (e) {
+          rethrow;
+        }
       } else {
         throw Exception('Fehler beim Laden der Daten: ${response.statusCode}');
       }
@@ -113,8 +127,23 @@ WHERE {
       if (response.statusCode == 200) {
         final Map<String, dynamic> data = json.decode(response.body);
         final List<dynamic> bindings = data['results']['bindings'];
-        List<Exercise> values = bindings.map((json) => Exercise.fromSparqlJson(json)).toList();
-        return values;
+        //TODO[API]: Prüfen warum das nur im try-catch funktioniert.
+        try {
+          List<Exercise> values = bindings.map((json) {
+            try {
+              return Exercise.fromSparqlJson(json);
+            } catch (innerError, stackTrace) {
+              print('--- PARSE ERROR IN fetchFilteredExercises ---');
+              print('JSON: $json');
+              print('Error: $innerError');
+              print('Stacktrace:\n$stackTrace');
+              rethrow;
+            }
+          }).toList();
+          return values;
+        } catch (e) {
+          rethrow;
+        }
       } else {
         throw Exception('Fehler beim Laden der Daten: ${response.statusCode}');
       }
