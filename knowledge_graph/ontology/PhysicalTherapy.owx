@@ -264,9 +264,6 @@
         <ObjectProperty IRI="#limb"/>
     </Declaration>
     <Declaration>
-        <ObjectProperty IRI="#mapstoTrainingLevel"/>
-    </Declaration>
-    <Declaration>
         <ObjectProperty IRI="#opens"/>
     </Declaration>
     <Declaration>
@@ -1131,12 +1128,6 @@
         <NamedIndividual IRI="#JumpingJacks"/>
     </Declaration>
     <Declaration>
-        <NamedIndividual IRI="#JumpingJacks_AnkleIssue"/>
-    </Declaration>
-    <Declaration>
-        <NamedIndividual IRI="#JumpingJacks_KneeIssue"/>
-    </Declaration>
-    <Declaration>
         <NamedIndividual IRI="#Karate"/>
     </Declaration>
     <Declaration>
@@ -1177,9 +1168,6 @@
     </Declaration>
     <Declaration>
         <NamedIndividual IRI="#KingDancer_Right_Leg"/>
-    </Declaration>
-    <Declaration>
-        <NamedIndividual IRI="#KingDancer_ShoulderIssue"/>
     </Declaration>
     <Declaration>
         <NamedIndividual IRI="#KingDancer_Torso"/>
@@ -11730,36 +11718,6 @@
         <NamedIndividual IRI="#None"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
-        <ObjectProperty IRI="#forCondition"/>
-        <NamedIndividual IRI="#JumpingJacks_AnkleIssue"/>
-        <NamedIndividual IRI="#AnkleIssue"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="#isContraindicationFor"/>
-        <NamedIndividual IRI="#JumpingJacks_AnkleIssue"/>
-        <NamedIndividual IRI="#JumpingJacks"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="#severity"/>
-        <NamedIndividual IRI="#JumpingJacks_AnkleIssue"/>
-        <NamedIndividual IRI="#MediumRisk"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="#forCondition"/>
-        <NamedIndividual IRI="#JumpingJacks_KneeIssue"/>
-        <NamedIndividual IRI="#KneeIssue"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="#isContraindicationFor"/>
-        <NamedIndividual IRI="#JumpingJacks_KneeIssue"/>
-        <NamedIndividual IRI="#JumpingJacks"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="#severity"/>
-        <NamedIndividual IRI="#JumpingJacks_KneeIssue"/>
-        <NamedIndividual IRI="#HighRisk"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
         <ObjectProperty IRI="#engagedBodyPart"/>
         <NamedIndividual IRI="#Katze-Kuh-Übung"/>
         <NamedIndividual IRI="#Abs"/>
@@ -12125,15 +12083,6 @@
     <ObjectPropertyAssertion>
         <Annotation>
             <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-            <Literal>This Contraindication should be considered for practitioners of KingDancer to avoid strain or injury.</Literal>
-        </Annotation>
-        <ObjectProperty IRI="#hasContraindication"/>
-        <NamedIndividual IRI="#KingDancer"/>
-        <NamedIndividual IRI="#KingDancer_ShoulderIssue"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <Annotation>
-            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
             <Literal>Indicates that the difficulty level of KingDancer is categorized as advanced.</Literal>
         </Annotation>
         <ObjectProperty IRI="#hasDifficultyLevel"/>
@@ -12481,24 +12430,6 @@
         <ObjectProperty IRI="#limb"/>
         <NamedIndividual IRI="#KingDancer_Right_Leg"/>
         <NamedIndividual IRI="#RightLeg"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <Annotation>
-            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-            <Literal>KingDancer_ShoulderIssue has a relationship with ShoulderIssue through property forCondition.</Literal>
-        </Annotation>
-        <ObjectProperty IRI="#forCondition"/>
-        <NamedIndividual IRI="#KingDancer_ShoulderIssue"/>
-        <NamedIndividual IRI="#ShoulderIssue"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <Annotation>
-            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-            <Literal>KingDancer_ShoulderIssue has a relationship with HighRisk through property severity.</Literal>
-        </Annotation>
-        <ObjectProperty IRI="#severity"/>
-        <NamedIndividual IRI="#KingDancer_ShoulderIssue"/>
-        <NamedIndividual IRI="#HighRisk"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <Annotation>
@@ -23170,6 +23101,11 @@
         <Literal>Stabilisationsübung für Rumpf, Gesäß und unteren Rücken im Vierfüßlerstand. Die Übung trainiert Kontrolle, Gleichgewicht und Beckenstabilität.</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
+        <DataProperty IRI="#hasDuration"/>
+        <NamedIndividual IRI="#AllFourswithLegExtension"/>
+        <Literal>3 Min</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
         <DataProperty IRI="#hasInstruction"/>
         <NamedIndividual IRI="#AllFourswithLegExtension"/>
         <Literal>1. In den Vierfüßlerstand kommen.
@@ -23206,6 +23142,11 @@
         <Literal>Eine einfache Mobilisationsübung für Schultergelenke, Schultergürtel und oberen Rücken. Die Übung verbessert die Beweglichkeit der Schultern und bereitet die Muskulatur auf weitere Bewegungen vor.</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
+        <DataProperty IRI="#hasDuration"/>
+        <NamedIndividual IRI="#Armkreisen"/>
+        <Literal>2 Min</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
         <DataProperty IRI="#hasInstruction"/>
         <NamedIndividual IRI="#Armkreisen"/>
         <Literal>1. Aufrecht stehen oder sitzen.
@@ -23229,6 +23170,11 @@
         <DataProperty IRI="#hasDescription"/>
         <NamedIndividual IRI="#AssistedShoulderRotation"/>
         <Literal>Sanfte Mobilisationsübung für die Schulterrotation mit Unterstützung durch die andere Hand, einen Stab oder ein Hilfsmittel. Sie verbessert die kontrollierte Beweglichkeit der Schulter.</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasDuration"/>
+        <NamedIndividual IRI="#AssistedShoulderRotation"/>
+        <Literal>2 Min</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="#hasInstruction"/>
@@ -23435,6 +23381,11 @@
         <DataProperty IRI="#hasDescription"/>
         <NamedIndividual IRI="#BrustwirbelsaeulenRotation"/>
         <Literal>Eine Mobilisationsübung für die Brustwirbelsäule und den oberen Rücken. Die kontrollierte Rotation kann die Beweglichkeit des Oberkörpers verbessern und Spannungen in der Schulterblatt- und Rückenregion reduzieren.</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasDuration"/>
+        <NamedIndividual IRI="#BrustwirbelsaeulenRotation"/>
+        <Literal>3 Min</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="#hasInstruction"/>
@@ -23735,6 +23686,11 @@
         <DataProperty IRI="#hasDescription"/>
         <NamedIndividual IRI="#Deadlift"/>
         <Literal>Kräftigungsübung für hintere Oberschenkelmuskulatur, Gesäß, Rückenstrecker und Rumpf. Der Fokus liegt auf der Hüftbeugebewegung und einer stabilen Wirbelsäule.</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasDuration"/>
+        <NamedIndividual IRI="#Deadlift"/>
+        <Literal>5 Min</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="#hasInstruction"/>
@@ -24130,6 +24086,11 @@
         <Literal>Eine Dehnübung für die Hüftbeugemuskulatur. Sie kann die Beweglichkeit der Hüfte unterstützen und Spannungsgefühle reduzieren, die beispielsweise durch langes Sitzen entstehen.</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
+        <DataProperty IRI="#hasDuration"/>
+        <NamedIndividual IRI="#HueftbeugerDehnung"/>
+        <Literal>2 Min</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
         <DataProperty IRI="#hasInstruction"/>
         <NamedIndividual IRI="#HueftbeugerDehnung"/>
         <Literal>1. In einen halben Kniestand kommen, wobei ein Knie am Boden liegt.
@@ -24185,6 +24146,11 @@
         <DataProperty IRI="#hasDescription"/>
         <NamedIndividual IRI="#Katze-Kuh-Übung"/>
         <Literal>Eine dynamische Mobilisationsübung für die Wirbelsäule. Durch den kontrollierten Wechsel zwischen Rundrücken und sanfter Streckung werden Rücken, Nacken und Rumpf bewegt und die Wahrnehmung der Wirbelsäulenposition verbessert.</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasDuration"/>
+        <NamedIndividual IRI="#Katze-Kuh-Übung"/>
+        <Literal>2 Min</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="#hasInstruction"/>
@@ -24336,6 +24302,11 @@
         <DataProperty IRI="#hasDescription"/>
         <NamedIndividual IRI="#LegRaise"/>
         <Literal>Kräftigungsübung für Bauchmuskulatur und Hüftbeuger. Die Übung trainiert die Kontrolle der Beckenposition und die Stabilität des unteren Rückens.</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasDuration"/>
+        <NamedIndividual IRI="#LegRaise"/>
+        <Literal>3 Min</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="#hasInstruction"/>
@@ -24503,6 +24474,11 @@ Langsam zur Mitte zurückkehren.
         <Literal>Dehnübung für die tiefe Gesäßmuskulatur, insbesondere den Piriformis. Sie kann Spannungen im Gesäßbereich reduzieren und die Hüftbeweglichkeit unterstützen.</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
+        <DataProperty IRI="#hasDuration"/>
+        <NamedIndividual IRI="#PiriformisStretch"/>
+        <Literal>2 Min</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
         <DataProperty IRI="#hasInstruction"/>
         <NamedIndividual IRI="#PiriformisStretch"/>
         <Literal>1. Auf den Rücken legen.
@@ -24527,6 +24503,11 @@ Langsam zur Mitte zurückkehren.
         <DataProperty IRI="#hasDescription"/>
         <NamedIndividual IRI="#Plank"/>
         <Literal>Statische Kräftigungsübung für Rumpf, Bauchmuskulatur, Schultern und Hüfte. Sie verbessert die Körperstabilität und die Kontrolle der Wirbelsäulenposition.</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasDuration"/>
+        <NamedIndividual IRI="#Plank"/>
+        <Literal>3 Min</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="#hasInstruction"/>
@@ -24600,6 +24581,11 @@ Langsam zur Mitte zurückkehren.
         <DataProperty IRI="#hasDescription"/>
         <NamedIndividual IRI="#PushUps"/>
         <Literal>Kräftigungsübung für Brust, Schultern, Trizeps und Rumpf. Klassische Liegestütze erfordern gute Körperspannung und Schulterkontrolle.</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasDuration"/>
+        <NamedIndividual IRI="#PushUps"/>
+        <Literal>4 Min</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="#hasInstruction"/>
@@ -24798,6 +24784,11 @@ Langsam zur Mitte zurückkehren.
         <Literal>Kräftigt die Muskulatur des oberen Rückens und der Schulterregion und kann helfen, Verspannungen durch langes Sitzen oder Bildschirmarbeit zu reduzieren.</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
+        <DataProperty IRI="#hasDuration"/>
+        <NamedIndividual IRI="#ScapulaRetraktion"/>
+        <Literal>3 Min</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
         <DataProperty IRI="#hasInstruction"/>
         <NamedIndividual IRI="#ScapulaRetraktion"/>
         <Literal>1. Aufrecht stehen und die Ellenbogen im 90-Grad-Winkel halten.
@@ -24850,6 +24841,11 @@ Langsam zur Mitte zurückkehren.
         <Literal>Mobilisations- und Dehnübung für die vordere Rumpfseite und die Wirbelsäulenstreckung. Die Übung wird häufig zur sanften Extension der Wirbelsäule genutzt.</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
+        <DataProperty IRI="#hasDuration"/>
+        <NamedIndividual IRI="#SealStretch"/>
+        <Literal>2 Min</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
         <DataProperty IRI="#hasInstruction"/>
         <NamedIndividual IRI="#SealStretch"/>
         <Literal>1. In Bauchlage starten.
@@ -24868,7 +24864,7 @@ Langsam zur Mitte zurückkehren.
     <DataPropertyAssertion>
         <DataProperty IRI="#duration"/>
         <NamedIndividual IRI="#Session0001"/>
-        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">60</Literal>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#int">60</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="#hasCommonMistake"/>
@@ -24884,6 +24880,11 @@ Langsam zur Mitte zurückkehren.
         <DataProperty IRI="#hasDescription"/>
         <NamedIndividual IRI="#ShoulderInternalExternalRotation"/>
         <Literal>Mobilisations- und Kontrollübung für Innen- und Außenrotation der Schulter. Die Übung verbessert die Bewegungswahrnehmung und unterstützt die funktionelle Schulterbeweglichkeit.</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasDuration"/>
+        <NamedIndividual IRI="#ShoulderInternalExternalRotation"/>
+        <Literal>3 Min</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="#hasInstruction"/>
@@ -25222,6 +25223,11 @@ Langsam zur Mitte zurückkehren.
         <Literal>Kontrollübung für Beckenposition und unteren Rücken. Sie verbessert die Wahrnehmung von Beckenkippung und kann helfen, die Lendenwirbelsäule besser zu kontrollieren.</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
+        <DataProperty IRI="#hasDuration"/>
+        <NamedIndividual IRI="#StandingPelvicTilts"/>
+        <Literal>2 Min</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
         <DataProperty IRI="#hasInstruction"/>
         <NamedIndividual IRI="#StandingPelvicTilts"/>
         <Literal>1. Aufrecht stehen, Füße etwa hüftbreit.
@@ -25296,6 +25302,11 @@ Langsam zur Mitte zurückkehren.
         <DataProperty IRI="#hasDescription"/>
         <NamedIndividual IRI="#Standing_sleeper_stretch"/>
         <Literal>Dehnübung für die hintere Schulterkapsel und die Innenrotation der Schulter. Sie kann die Beweglichkeit der Schulter verbessern, sollte aber sehr kontrolliert ausgeführt werden.</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasDuration"/>
+        <NamedIndividual IRI="#Standing_sleeper_stretch"/>
+        <Literal>2 Min</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="#hasInstruction"/>
@@ -25442,6 +25453,11 @@ Langsam zur Mitte zurückkehren.
         <DataProperty IRI="#hasDescription"/>
         <NamedIndividual IRI="#TherabandAussenrotation"/>
         <Literal>Kräftigungsübung für die Außenrotatoren der Schulter und die Rotatorenmanschette. Sie unterstützt die Schulterstabilität und kann bei kontrolliertem Training die Haltung des Schultergelenks verbessern.</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasDuration"/>
+        <NamedIndividual IRI="#TherabandAussenrotation"/>
+        <Literal>4 Min</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="#hasInstruction"/>
@@ -25640,6 +25656,11 @@ Langsam zur Mitte zurückkehren.
         <DataProperty IRI="#hasDescription"/>
         <NamedIndividual IRI="#WallPushUps"/>
         <Literal>Eine vereinfachte Liegestützvariante an der Wand. Die Übung kräftigt Brust, Schultern, Arme und Rumpf mit reduzierter Belastung im Vergleich zu klassischen Liegestützen.</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasDuration"/>
+        <NamedIndividual IRI="#WallPushUps"/>
+        <Literal>3 Min</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="#hasInstruction"/>
@@ -26382,6 +26403,11 @@ Langsam zur Mitte zurückkehren.
         <Literal>Back</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#BackPain</IRI>
+        <Literal>Rückenbeschwerden oder Rückenschmerz-bezogene Verletzungen</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#Backpacking</IRI>
         <Literal>Backpacking</Literal>
@@ -26568,6 +26594,21 @@ Langsam zur Mitte zurückkehren.
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Cardio</IRI>
+        <Literal>Übungen mit Schwerpunkt auf Herz-Kreislauf-Aktivität und Ausdauer.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Cardio</IRI>
+        <Literal>Ausdauerübung</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Cardio</IRI>
+        <Literal>Cardio</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
         <IRI>#CenterSplits</IRI>
         <Literal>Samakonasana</Literal>
     </AnnotationAssertion>
@@ -26694,7 +26735,12 @@ Langsam zur Mitte zurückkehren.
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
         <IRI>#Contraindication</IRI>
-        <Literal>A warning associated with a yoga pose for users with specific conditions.</Literal>
+        <Literal>A warning associated with a exercise for users with specific conditions.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Contraindication</IRI>
+        <Literal>Bedingungen oder Ausschlusskriterien, bei denen eine Übung nicht empfohlen wird.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
@@ -26872,6 +26918,16 @@ Langsam zur Mitte zurückkehren.
         <Literal>DeadBug_LowerBackIssue</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#DifficultyLevel</IRI>
+        <Literal>Schwierigkeitsstufen wie Beginner, Intermediate oder Advanced.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#DifficultyLevel</IRI>
+        <Literal>DifficultyLevel</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#Down</IRI>
         <Literal>Down</Literal>
@@ -26975,6 +27031,21 @@ Langsam zur Mitte zurückkehren.
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#Entspannung</IRI>
         <Literal>Entspannung</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Equipment</IRI>
+        <Literal>Hilfsmittel oder Materialien, die für eine Übung benötigt werden.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Exercise</IRI>
+        <Literal>Repräsentiert eine physiotherapeutische, sportliche oder mobilisierende Übung.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Exercise</IRI>
+        <Literal>Exercise</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
@@ -27105,6 +27176,11 @@ Langsam zur Mitte zurückkehren.
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#Forward</IRI>
         <Literal>Forward</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Fracture</IRI>
+        <Literal>Knochenbrüche oder frakturbezogene Verletzungen</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
@@ -27487,6 +27563,11 @@ Langsam zur Mitte zurückkehren.
         <Literal>HouseworkLight</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#HueftbeugerDehnung</IRI>
+        <Literal>Bekannt auch als Hip Flexor Stretch</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#HueftbeugerDehnung</IRI>
         <Literal>Hueftbeuger-Dehnung</Literal>
@@ -27525,6 +27606,11 @@ Langsam zur Mitte zurückkehren.
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#Joint</IRI>
         <Literal>Joint</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#JointInjury</IRI>
+        <Literal>Verletzungen oder Beschwerden im Gelenk Bereich</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
@@ -27610,11 +27696,6 @@ Langsam zur Mitte zurückkehren.
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#KingDancer_Right_Leg</IRI>
         <Literal>KingDancer_Right_Leg</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>#KingDancer_ShoulderIssue</IRI>
-        <Literal>KingDancer_ShoulderIssue</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
@@ -27734,7 +27815,7 @@ Langsam zur Mitte zurückkehren.
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#MobilisationStretching</IRI>
-        <Literal>Mobilisation/Dehnung</Literal>
+        <Literal>Mobilisation</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
@@ -27815,6 +27896,11 @@ Langsam zur Mitte zurückkehren.
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#Muschel_HipIssue</IRI>
         <Literal>Muschel_HipIssue</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#MuscleInjury</IRI>
+        <Literal>Verletzungen oder Beschwerden von Muskeln oder Muskelgruppen</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
@@ -28907,9 +28993,19 @@ Langsam zur Mitte zurückkehren.
         <Literal>Straight</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Strength</IRI>
+        <Literal>Übungen zur Kräftigung von Muskeln oder Muskelgruppen.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#Strength</IRI>
         <Literal>Strength</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Stretching</IRI>
+        <Literal>Übungen mit Schwerpunkt auf Flexibilität und Muskeldehnung.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
@@ -28952,6 +29048,11 @@ Langsam zur Mitte zurückkehren.
         <Literal>TaiChi</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#TendonInjury</IRI>
+        <Literal>Verletzungen oder Überlastungsbeschwerden von Sehnen.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#Tennis</IRI>
         <Literal>Tennis</Literal>
@@ -28989,7 +29090,7 @@ Langsam zur Mitte zurückkehren.
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
         <IRI>#TrainingsEffect</IRI>
-        <Literal>Class for benfits of Asana poses.</Literal>
+        <Literal>Ziele oder Effekte einer Übung so wie Mobilität, Kraft, Stabilität oder Entspannung.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
