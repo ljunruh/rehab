@@ -23399,22 +23399,22 @@
     <DataPropertyAssertion>
         <DataProperty IRI="#hasCommonMistake"/>
         <NamedIndividual IRI="#Bruecke"/>
-        <Literal xml:lang="de">Am häufigsten werden die Hüfte zu hoch gestreckt, der untere Rücken durchgedrückt und die Füße vom Boden abgehoben, wodurch die Gesäßmuskeln ausfallen und die Lendenwirbelsäule belastet wird.</Literal>
+        <Literal>Am häufigsten werden die Hüfte zu hoch gestreckt, der untere Rücken durchgedrückt und die Füße vom Boden abgehoben, wodurch die Gesäßmuskeln ausfallen und die Lendenwirbelsäule belastet wird.</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="#hasCorrectionGuidance"/>
         <NamedIndividual IRI="#Bruecke"/>
-        <Literal xml:lang="de">Füße hüftbreit lassen, Fersen in den Boden drücken, Rippen nach unten ziehen und die Bewegung bewusst aus dem Gesäß statt aus dem Rücken initiieren, bis Ohr, Schulter, Hüfte und Knie eine Linie bilden.</Literal>
+        <Literal>Füße hüftbreit lassen, Fersen in den Boden drücken, Rippen nach unten ziehen und die Bewegung bewusst aus dem Gesäß statt aus dem Rücken initiieren, bis Ohr, Schulter, Hüfte und Knie eine Linie bilden.</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="#hasDescription"/>
         <NamedIndividual IRI="#Bruecke"/>
-        <Literal xml:lang="de">Die Brücke ist eine Rückenlage-Übung, bei der du die Hüfte durch Anspannen des Gesäßes anhebst und so Gesäß, Beinrückseite und Rumpf stabilisierend trainierst.</Literal>
+        <Literal>Die Brücke ist eine Rückenlage-Übung, bei der du die Hüfte durch Anspannen des Gesäßes anhebst und so Gesäß, Beinrückseite und Rumpf stabilisierend trainierst.</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="#hasInstruction"/>
         <NamedIndividual IRI="#Bruecke"/>
-        <Literal xml:lang="de">1. Rückenlage, Knie angewinkelt, Füße hüftbreit und flach auf dem Boden.
+        <Literal>1. Rückenlage, Knie angewinkelt, Füße hüftbreit und flach auf dem Boden.
 2. Arme entspannt seitlich am Körper ablegen, Handflächen nach oben.
 3. Core aktivieren und den unteren Rücken sanft in den Boden drücken.
 4. Gesäß fest anspannen und die Hüfte kontrolliert nach oben schieben.
@@ -23556,22 +23556,22 @@
     <DataPropertyAssertion>
         <DataProperty IRI="#hasCommonMistake"/>
         <NamedIndividual IRI="#ChestDoorwayStretch"/>
-        <Literal xml:lang="de">Achte darauf, dass du bei der Bewegungsausführung nicht ins Hohlkreuz gelangst. Du darfst dein Kinn nicht nach vorne Schieben. Die Schultern dürfen hierbei nicht hochgezpgen werden. Die 90 Grad der Ellbogen müssen eingehalten werden, weil sonst die Belastung verschoben wird.</Literal>
+        <Literal>Achte darauf, dass du bei der Bewegungsausführung nicht ins Hohlkreuz gelangst. Du darfst dein Kinn nicht nach vorne Schieben. Die Schultern dürfen hierbei nicht hochgezpgen werden. Die 90 Grad der Ellbogen müssen eingehalten werden, weil sonst die Belastung verschoben wird.</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="#hasCorrectionGuidance"/>
         <NamedIndividual IRI="#ChestDoorwayStretch"/>
-        <Literal xml:lang="de">Lehne dich aus der Brust, nicht aus dem Rücken. Die Vorwärtsbewegung kommt aus dem Brustbein. Das Kinn bildet eine Linie mit dem Brustbein, du darfst kein Doppelkinn erzwingen. Beim langsamen Ausatmen kann sich das Brustbein besser senen und die Dehnung wird tiefer.</Literal>
+        <Literal>Lehne dich aus der Brust, nicht aus dem Rücken. Die Vorwärtsbewegung kommt aus dem Brustbein. Das Kinn bildet eine Linie mit dem Brustbein, du darfst kein Doppelkinn erzwingen. Beim langsamen Ausatmen kann sich das Brustbein besser senen und die Dehnung wird tiefer.</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="#hasDescription"/>
         <NamedIndividual IRI="#ChestDoorwayStretch"/>
-        <Literal xml:lang="de">Dehnübung, die mithilfe eines Türrahmens die Brustmuskulatur sowie die vordere Schulter dehnt. Die Übung öffnet die Körpervorderseite, wirkt die nach vorne gerollten Schultern entgegen und verbessert die Schulter- und Nackenmobilität.</Literal>
+        <Literal>Dehnübung, die mithilfe eines Türrahmens die Brustmuskulatur sowie die vordere Schulter dehnt. Die Übung öffnet die Körpervorderseite, wirkt die nach vorne gerollten Schultern entgegen und verbessert die Schulter- und Nackenmobilität.</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="#hasInstruction"/>
         <NamedIndividual IRI="#ChestDoorwayStretch"/>
-        <Literal xml:lang="de">1. Stelle dich aufrecht in einen offenen Türrahmen, Füße schulterbreit.
+        <Literal>1. Stelle dich aufrecht in einen offenen Türrahmen, Füße schulterbreit.
 2. Hebe beide Arme seitlich auf Schulterhöhe an und winke die Ellbogen im 90-Grad-Winkel ab, die Unterarme liegen flach am Türrahmen an, Handflächen zeigen nach vorne.
 3. Ziehe die Schulterblätter bewusst nach unten und hinten (nicht hochziehen).
 4. Mache einen kleinen Schritt mit einem Fuß nach vorne durch den Türrahmen.
@@ -25058,22 +25058,22 @@ Langsam zur Mitte zurückkehren.
     <DataPropertyAssertion>
         <DataProperty IRI="#hasCommonMistake"/>
         <NamedIndividual IRI="#StandingBackbend"/>
-        <Literal xml:lang="de">Das ruckartige Nach-hinten-Werfen des Kopfes mit Nackenkompression gilt es zu vermeiden, das Überstrecken nur im unteren Rücken (Hohlkreuz), das Hochziehen der Schultern, das Anwinkeln der Knie und ein schlaffer Bauch.</Literal>
+        <Literal>Das ruckartige Nach-hinten-Werfen des Kopfes mit Nackenkompression gilt es zu vermeiden, das Überstrecken nur im unteren Rücken (Hohlkreuz), das Hochziehen der Schultern, das Anwinkeln der Knie und ein schlaffer Bauch.</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="#hasCorrectionGuidance"/>
         <NamedIndividual IRI="#StandingBackbend"/>
-        <Literal xml:lang="de">Zur Korrektur das Kinn Richtung Mitte der Schlüsselbein ziehen, den Hinterkopf lang nach hinten führen, das Brustbein aktiv heben, das Becken nach vorn schieben und den Rumpf sowie die Beine durchgehend angespannt halten, sodass die Biegung gleichmäßig über die Brustwirbelsäule verteilt wird.</Literal>
+        <Literal>Zur Korrektur das Kinn Richtung Mitte der Schlüsselbein ziehen, den Hinterkopf lang nach hinten führen, das Brustbein aktiv heben, das Becken nach vorn schieben und den Rumpf sowie die Beine durchgehend angespannt halten, sodass die Biegung gleichmäßig über die Brustwirbelsäule verteilt wird.</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="#hasDescription"/>
         <NamedIndividual IRI="#StandingBackbend"/>
-        <Literal xml:lang="de">Die Standing Back Bend ist eine stehende Rückbeuge, die Brust und Körpervorderseite öffnet, die Wirbelsäule mobilisiert und gleichzeitig Rumpf, Gesäß und Beine aktiviert.</Literal>
+        <Literal>Die Standing Back Bend ist eine stehende Rückbeuge, die Brust und Körpervorderseite öffnet, die Wirbelsäule mobilisiert und gleichzeitig Rumpf, Gesäß und Beine aktiviert.</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="#hasInstruction"/>
         <NamedIndividual IRI="#StandingBackbend"/>
-        <Literal xml:lang="de">1. Stell dich hüftbreit und aufrecht hin, die Hände an die Hüften oder den unteren Rücken.
+        <Literal>1. Stell dich hüftbreit und aufrecht hin, die Hände an die Hüften oder den unteren Rücken.
 2. Aktivier den Core, die Oberschenkel und das Gesäß, und strecke die Wirbelsäule nach oben.
 3. Atme ein, heb das Brustbein an und zieh die Schultern bewusst nach unten und zurück.
 4. Schieb das Becken leicht nach vorn und lehn dich dann kontrolliert aus der Brustwirbelsäule nach hinten.
