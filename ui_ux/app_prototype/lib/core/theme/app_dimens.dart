@@ -34,8 +34,10 @@ class AppSpacing {
   /// Top-Header-Höhe (+ Statusleiste)
   static const double topHeaderHeight = 56;
 
-  /// Padding unter dem letzten scrollbaren Element
-  static const double scrollBottom = 24;
+  /// Padding unter dem letzten scrollbaren Element.
+  /// Muss die schwebende Navbar freihalten: 64 (Navbar) + 12 (Abstand
+  /// unten) + Luft — sonst verschwindet das Listenende hinter der Navbar.
+  static const double scrollBottom = 110;
 }
 
 /// Border-Radius — StyleGuide Abschnitt 5.

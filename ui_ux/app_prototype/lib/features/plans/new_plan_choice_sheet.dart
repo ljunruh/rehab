@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import '../../core/theme/app_theme.dart';
 import '../../core/widgets/widgets.dart';
 
@@ -28,6 +29,7 @@ class NewPlanChoiceSheet extends StatelessWidget {
       context: context,
       backgroundColor: AppColors.cream,
       isScrollControlled: true,
+      constraints: const BoxConstraints(maxWidth: 380),
       shape: const RoundedRectangleBorder(
         borderRadius: BorderRadius.vertical(top: Radius.circular(AppRadius.sheet)),
       ),
@@ -87,7 +89,8 @@ class NewPlanChoiceSheet extends StatelessWidget {
 
           // Option 1: Empfehlung
           _ChoiceCard(
-            icon: Icons.auto_awesome,
+            icon: SvgPicture.asset('assets/icons/other/stars.svg',
+                width: 22, height: 22),
             iconBg: AppColors.white,
             background: AppColors.sageLight,
             title: 'Plan-Empfehlung erhalten',
@@ -102,7 +105,8 @@ class NewPlanChoiceSheet extends StatelessWidget {
 
           // Option 2: Eigener Plan
           _ChoiceCard(
-            icon: Icons.edit_outlined,
+            icon: SvgPicture.asset('assets/icons/other/pen-green.svg',
+                width: 20, height: 20),
             iconBg: AppColors.mint,
             background: AppColors.white,
             title: 'Eigenen Plan erstellen',
@@ -120,7 +124,7 @@ class NewPlanChoiceSheet extends StatelessWidget {
 }
 
 class _ChoiceCard extends StatelessWidget {
-  final IconData icon;
+  final Widget icon;
   final Color iconBg;
   final Color background;
   final String title;
@@ -154,7 +158,7 @@ class _ChoiceCard extends StatelessWidget {
               color: iconBg,
               borderRadius: BorderRadius.circular(AppRadius.iconLarge),
             ),
-            child: Icon(icon, size: 20, color: AppColors.sageDeep),
+            child: icon,
           ),
           const SizedBox(width: AppSpacing.md),
           Expanded(

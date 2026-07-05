@@ -137,7 +137,7 @@ class RingsLegend extends StatelessWidget {
       children: [
         for (final r in rings)
           Padding(
-            padding: const EdgeInsets.only(bottom: 10),
+            padding: const EdgeInsets.only(bottom: 12),
             child: Row(
               children: [
                 Container(
@@ -148,10 +148,12 @@ class RingsLegend extends StatelessWidget {
                     shape: BoxShape.circle,
                   ),
                 ),
-                const SizedBox(width: 8),
-                Text(r.label, style: AppText.body),
-                const SizedBox(width: 6),
-                Text('${r.done}/${r.goal}', style: AppText.caption),
+                const SizedBox(width: 10),
+                Expanded(child: Text(r.label, style: AppText.body)),
+                const SizedBox(width: AppSpacing.base),
+                Text('${r.done}/${r.goal}',
+                    style: AppText.body
+                        .copyWith(color: AppColors.textSecondary)),
               ],
             ),
           ),

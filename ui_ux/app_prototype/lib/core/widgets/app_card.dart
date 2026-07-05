@@ -70,8 +70,9 @@ class _PressableScaleState extends State<_PressableScale> {
 class SectionTitle extends StatelessWidget {
   final String title;
   final Widget? action;
+  final TextStyle? style;
 
-  const SectionTitle(this.title, {super.key, this.action});
+  const SectionTitle(this.title, {super.key, this.action, this.style});
 
   @override
   Widget build(BuildContext context) {
@@ -81,7 +82,7 @@ class SectionTitle extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          Expanded(child: Text(title, style: AppText.sectionHeader)),
+          Expanded(child: Text(title, style: style ?? AppText.sectionHeader)),
           if (action != null) action!,
         ],
       ),

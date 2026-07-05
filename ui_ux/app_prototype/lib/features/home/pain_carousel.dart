@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:provider/provider.dart';
 import '../../core/theme/app_theme.dart';
 import '../../core/widgets/widgets.dart';
 import '../../state/ui_state.dart';
 import '../../data/models/models.dart';
+import 'pain_scale_sheet.dart';
 
 /// "Wie geht es dir heute?" — wischbares Schmerz-Erfassungs-Karussell.
 ///
@@ -24,10 +26,20 @@ class _PainCarouselState extends State<PainCarousel> {
   final Map<String, double> _values = {};
   final Map<String, String> _notes = {};
   final Map<String, bool> _noteOpen = {};
+  final Map<String, bool> _saved = {};
+  final Map<String, TextEditingController> _controllers = {};
+
+  TextEditingController _ctrlFor(String region) {
+    return _controllers.putIfAbsent(
+        region, () => TextEditingController(text: _notes[region] ?? ''));
+  }
 
   @override
   void dispose() {
     _controller.dispose();
+    for (final c in _controllers.values) {
+      c.dispose();
+    }
     super.dispose();
   }
 
@@ -42,7 +54,7 @@ class _PainCarouselState extends State<PainCarousel> {
     return Column(
       children: [
         SizedBox(
-          height: 270,
+          height: 340,
           child: PageView.builder(
             controller: _controller,
             itemCount: regions.length,
@@ -51,6 +63,8 @@ class _PainCarouselState extends State<PainCarousel> {
               final region = regions[i];
               final value = _values[region] ?? 4;
               final noteOpen = _noteOpen[region] ?? false;
+              final noteVal = _notes[region] ?? '';
+              final saved = _saved[region] ?? false;
 
               return Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 6),
@@ -70,18 +84,23 @@ class _PainCarouselState extends State<PainCarousel> {
                               style: AppText.cardTitle,
                             ),
                           ),
-                          Container(
-                            width: 26,
-                            height: 26,
-                            alignment: Alignment.center,
-                            decoration: BoxDecoration(
-                              color: AppColors.offwhite,
-                              shape: BoxShape.circle,
-                              border:
-                                  Border.all(color: AppColors.beige, width: 1),
+                          const SizedBox(width: AppSpacing.sm),
+                          GestureDetector(
+                            onTap: () => PainScaleSheet.show(context),
+                            child: Container(
+                              width: 28,
+                              height: 28,
+                              alignment: Alignment.center,
+                              decoration: BoxDecoration(
+                                color: AppColors.offwhite,
+                                shape: BoxShape.circle,
+                                border: Border.all(
+                                    color: AppColors.beige, width: 1),
+                              ),
+                              child: SvgPicture.asset(
+                                  'assets/icons/other/info-green.svg',
+                                  width: 14, height: 14),
                             ),
-                            child: const Icon(Icons.info_outline,
-                                size: 13, color: AppColors.sageDeep),
                           ),
                         ],
                       ),
@@ -125,43 +144,73 @@ class _PainCarouselState extends State<PainCarousel> {
                         ],
                       ),
                       const SizedBox(height: AppSpacing.md),
-                      if (noteOpen)
-                        TextField(
-                          minLines: 1,
-                          maxLines: 2,
-                          style: AppText.body,
-                          decoration: InputDecoration(
-                            hintText: 'Notiz (optional)',
-                            hintStyle: AppText.caption,
-                            contentPadding: const EdgeInsets.symmetric(
-                                horizontal: 14, vertical: 10),
-                            filled: true,
-                            fillColor: AppColors.offwhite,
-                            border: OutlineInputBorder(
-                              borderRadius:
-                                  BorderRadius.circular(AppRadius.input),
-                              borderSide:
-                                  const BorderSide(color: AppColors.beige),
-                            ),
-                            enabledBorder: OutlineInputBorder(
-                              borderRadius:
-                                  BorderRadius.circular(AppRadius.input),
-                              borderSide:
-                                  const BorderSide(color: AppColors.beige),
-                            ),
+                      Container(
+                        decoration: BoxDecoration(
+                          color: AppColors.offwhite,
+                          borderRadius:
+                              BorderRadius.circular(AppRadius.input),
+                          border: Border.all(
+                            color: noteOpen
+                                ? AppColors.sageDeep
+                                : AppColors.beige,
                           ),
-                          onChanged: (t) => _notes[region] = t,
-                        )
-                      else
-                        SecondaryButton(
-                          label: 'Notiz hinzufügen',
-                          icon: Icons.edit_outlined,
-                          onPressed: () =>
-                              setState(() => _noteOpen[region] = true),
                         ),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            GestureDetector(
+                              onTap: () => setState(
+                                  () => _noteOpen[region] = !noteOpen),
+                              behavior: HitTestBehavior.opaque,
+                              child: Padding(
+                                padding: const EdgeInsets.symmetric(
+                                    horizontal: 14, vertical: 12),
+                                child: Row(
+                                  children: [
+                                    Icon(Icons.edit_outlined,
+                                        size: 15,
+                                        color: AppColors.sageDeep),
+                                    const SizedBox(width: AppSpacing.sm),
+                                    Text(
+                                      noteOpen
+                                          ? 'Wie ging es dir?'
+                                          : noteVal.isNotEmpty
+                                              ? 'Notiz bearbeiten'
+                                              : 'Notiz hinzufügen',
+                                      style: AppText.caption.copyWith(
+                                          color: AppColors.sageDeep,
+                                          fontWeight: FontWeight.w600),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ),
+                            if (noteOpen)
+                              Padding(
+                                padding: const EdgeInsets.fromLTRB(
+                                    14, 0, 14, 14),
+                                child: TextField(
+                                  minLines: 2,
+                                  maxLines: 3,
+                                  style: AppText.body,
+                                  controller: _ctrlFor(region),
+                                  decoration: InputDecoration(
+                                    border: InputBorder.none,
+                                    isDense: true,
+                                    hintText: 'z.B. Morgens steif, nach '
+                                        'den Übungen lockerer …',
+                                    hintStyle: AppText.caption,
+                                  ),
+                                  onChanged: (t) => _notes[region] = t,
+                                ),
+                              ),
+                          ],
+                        ),
+                      ),
                       const SizedBox(height: AppSpacing.sm),
                       SecondaryButton(
-                        label: 'Eintrag sichern',
+                        label: saved ? 'Gespeichert ✓' : 'Eintrag sichern',
+                        borderColor: AppColors.sage,
                         onPressed: () {
                           final now = DateTime.now();
                           app.addPainLog(PainLog(
@@ -173,7 +222,13 @@ class _PainCarouselState extends State<PainCarousel> {
                           ));
                           setState(() {
                             _noteOpen[region] = false;
-                            _notes[region] = '';
+                            _saved[region] = true;
+                          });
+                          Future.delayed(
+                              const Duration(milliseconds: 2000), () {
+                            if (mounted) {
+                              setState(() => _saved[region] = false);
+                            }
                           });
                         },
                       ),

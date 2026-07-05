@@ -11,11 +11,16 @@ class AppChip extends StatelessWidget {
   final bool active;
   final VoidCallback? onTap;
 
+  /// true = aktive Chips bekommen eine dunkelgrüne Umrandung
+  /// (z.B. Verletzungs-Auswahl im Profil, Design-Feedback).
+  final bool activeBorder;
+
   const AppChip({
     super.key,
     required this.label,
     this.active = false,
     this.onTap,
+    this.activeBorder = false,
   });
 
   @override
@@ -30,7 +35,9 @@ class AppChip extends StatelessWidget {
           color: active ? AppColors.sageLight : AppColors.offwhite,
           borderRadius: BorderRadius.circular(AppRadius.pill),
           border: active
-              ? null
+              ? (activeBorder
+                  ? Border.all(color: AppColors.sageDeep, width: 1.5)
+                  : null)
               : Border.all(color: AppColors.beige, width: 1),
         ),
         child: Text(

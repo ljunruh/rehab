@@ -85,13 +85,10 @@ class _StarterCarouselState extends State<StarterCarousel> {
                           Container(
                             width: 52,
                             height: 52,
-                            alignment: Alignment.center,
                             decoration: const BoxDecoration(
                               color: AppColors.mint,
                               shape: BoxShape.circle,
                             ),
-                            child: Icon(rubrik.icon,
-                                color: AppColors.sageDeep, size: 24),
                           ),
                           const SizedBox(width: AppSpacing.md),
                           Expanded(

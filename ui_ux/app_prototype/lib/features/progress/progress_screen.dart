@@ -3,67 +3,259 @@ import 'package:provider/provider.dart';
 import '../../core/theme/app_theme.dart';
 import '../../core/widgets/widgets.dart';
 import '../../state/ui_state.dart';
-import '../../data/models/models.dart';
 import '../../navigation/screen_header.dart';
+import '../home/concentric_rings.dart';
+import 'calendar_widget.dart';
+import 'pain_history_carousel.dart';
 
 /// ┌──────────────────────────────────────────────────────────┐
-/// │  PERSON 3 — FORTSCHRITT & KALENDER                        │
-/// │  Verantwortlich für: ProgressScreen, Kalender-Widget,    │
-/// │  Vollbild-Kalender, Schmerz-Charts, Tagesdetail.         │
-/// │  Daten: app.painLogs, app.painHistory, app.calendarEvents│
+/// │  PERSON 3 — VERLAUF & KALENDER (wie Prototyp)             │
+/// │  Wochenserie-Banner, Fortschritt-Ringe, Kalender mit      │
+/// │  Tabs (Übungen/Schmerzen), Schmerzverlauf mit Diagramm.   │
 /// └──────────────────────────────────────────────────────────┘
-class ProgressScreen extends StatelessWidget {
+class ProgressScreen extends StatefulWidget {
   final VoidCallback onOpenProfile;
-  const ProgressScreen({super.key, required this.onOpenProfile});
+  final VoidCallback onOpenCalendar;
+  const ProgressScreen({
+    super.key,
+    required this.onOpenProfile,
+    required this.onOpenCalendar,
+  });
+
+  @override
+  State<ProgressScreen> createState() => _ProgressScreenState();
+}
+
+class _ProgressScreenState extends State<ProgressScreen> {
+  bool _ringsInfoOpen = false;
+
+  /// Rotiert durch 3 Nachrichten, wie im Prototyp (weeks % 3).
+  String _weeklyStreakMessage(int weeks) {
+    final w = weeks == 1 ? 'Woche' : 'Wochen';
+    final messages = [
+      'Super, du hältst dich schon $weeks $w in Folge an deine Ziele!',
+      '$weeks $w am Stück – das ist echte Kontinuität. Weiter so!',
+      'Beeindruckend: $weeks $w in Serie. Dein Körper dankt es dir.',
+    ];
+    return messages[weeks % messages.length];
+  }
 
   @override
   Widget build(BuildContext context) {
     final app = context.watch<UiState>();
-    final profile = app.profile;
+    final rings = app.weeklyRings;
+    final weeks = (app.streak / 7).floor().clamp(1, 999);
 
     return ListView(
-      padding: const EdgeInsets.only(bottom: AppSpacing.scrollBottom),
+      padding: const EdgeInsets.only(bottom: 110),
       children: [
         ScreenHeader(
-          greeting: 'Fortschritt',
-          subtitle: 'Dein Verlauf der letzten Wochen',
-          initials: profile.initials,
-          onAvatarTap: onOpenProfile,
+          greeting: 'Dein Verlauf',
+          initials: app.profile.initials,
+          onAvatarTap: widget.onOpenProfile,
         ),
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: AppSpacing.screenH),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              AppCard(
+              // ── Wochenserie-Banner (dunkel) ──
+              Container(
+                padding: const EdgeInsets.all(AppSpacing.base),
+                decoration: BoxDecoration(
+                  color: AppColors.sageDeep,
+                  borderRadius: BorderRadius.circular(AppRadius.card),
+                ),
                 child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
-                    _Metric(value: '${app.streak}', label: 'Tage am Stück'),
-                    _Divider(),
-                    _Metric(
-                      value: '${app.completedSessionsThisWeek}',
-                      label: 'diese Woche',
+                    Container(
+                      width: 44,
+                      height: 44,
+                      alignment: Alignment.center,
+                      decoration: BoxDecoration(
+                        color: AppColors.onDarkIconBg,
+                        shape: BoxShape.circle,
+                      ),
+                      child: const Text('🔥', style: TextStyle(fontSize: 20)),
                     ),
-                    _Divider(),
-                    _Metric(value: '${app.painLogs.length}', label: 'Einträge'),
+                    const SizedBox(width: AppSpacing.md),
+                    Expanded(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text('WOCHENSERIE',
+                              style: AppText.micro
+                                  .copyWith(color: AppColors.onDarkSecondary)),
+                          const SizedBox(height: 2),
+                          Text(
+                            _weeklyStreakMessage(weeks),
+                            style: AppText.caption.copyWith(
+                                color: AppColors.white, height: 1.4),
+                          ),
+                        ],
+                      ),
+                    ),
+                    const SizedBox(width: AppSpacing.sm),
+                    Text('$weeks',
+                        style: AppText.screenTitle.copyWith(
+                            color: AppColors.white, fontSize: 26)),
                   ],
                 ),
               ),
               const SizedBox(height: AppSpacing.sectionGap),
-              const SectionTitle('Schmerzverlauf'),
-              ...app.painHistory.entries.map(
-                (entry) => Padding(
-                  padding: const EdgeInsets.only(bottom: AppSpacing.itemGap),
-                  child: _PainSummaryCard(region: entry.key, logs: entry.value),
+
+              // ── Fortschritt dieser Woche (Ringe) ──
+              AppCard(
+                padding: const EdgeInsets.all(AppSpacing.lg),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text('DEIN FORTSCHRITT DIESER WOCHE',
+                            style: AppText.micro),
+                        GestureDetector(
+                          onTap: () => setState(
+                              () => _ringsInfoOpen = !_ringsInfoOpen),
+                          child: Container(
+                            width: 22,
+                            height: 22,
+                            alignment: Alignment.center,
+                            decoration: BoxDecoration(
+                              shape: BoxShape.circle,
+                              border: Border.all(
+                                  color: AppColors.beige, width: 1.5),
+                            ),
+                            child: Text('i',
+                                style: AppText.micro.copyWith(
+                                    color: AppColors.textMuted,
+                                    fontSize: 11)),
+                          ),
+                        ),
+                      ],
+                    ),
+                    if (_ringsInfoOpen) ...[
+                      const SizedBox(height: AppSpacing.base),
+                      Container(
+                        padding: const EdgeInsets.symmetric(
+                            horizontal: 14, vertical: 10),
+                        decoration: BoxDecoration(
+                          color: AppColors.offwhite,
+                          borderRadius: BorderRadius.circular(AppRadius.input),
+                          border: Border.all(color: AppColors.beige),
+                        ),
+                        child: Text(
+                          'Jeder Ring steht für einen deiner Trainingspläne. '
+                          'Je weiter ein Ring geschlossen ist, desto mehr '
+                          'Einheiten hast du diese Woche absolviert. Ein '
+                          'vollständiger Ring bedeutet: Wochenziel erreicht.',
+                          style: AppText.caption.copyWith(height: 1.5),
+                        ),
+                      ),
+                    ],
+                    const SizedBox(height: AppSpacing.base),
+                    rings.isEmpty
+                        ? Padding(
+                            padding: const EdgeInsets.symmetric(
+                                vertical: AppSpacing.lg),
+                            child: Center(
+                              child: Text('Noch keine aktiven Pläne.',
+                                  style: AppText.caption),
+                            ),
+                          )
+                        : Row(
+                            children: [
+                              ConcentricRings(rings: rings, size: 150),
+                              const SizedBox(width: AppSpacing.xl),
+                              Expanded(
+                                child: Column(
+                                  crossAxisAlignment:
+                                      CrossAxisAlignment.start,
+                                  children: [
+                                    for (final r in rings)
+                                      Padding(
+                                        padding: const EdgeInsets.only(
+                                            bottom: 12),
+                                        child: Row(
+                                          children: [
+                                            Container(
+                                              width: 12,
+                                              height: 12,
+                                              decoration: BoxDecoration(
+                                                color: r.color,
+                                                shape: BoxShape.circle,
+                                              ),
+                                            ),
+                                            const SizedBox(width: 10),
+                                            Expanded(
+                                              child: Text(r.label,
+                                                  style: AppText.body
+                                                      .copyWith(
+                                                          fontWeight:
+                                                              FontWeight
+                                                                  .w600)),
+                                            ),
+                                            if (r.done >= r.goal)
+                                              Icon(Icons.check,
+                                                  size: 16, color: r.color)
+                                            else
+                                              Text('${r.done}/${r.goal}',
+                                                  style: AppText.body
+                                                      .copyWith(
+                                                          color: AppColors
+                                                              .textSecondary,
+                                                          fontWeight:
+                                                              FontWeight
+                                                                  .w600)),
+                                          ],
+                                        ),
+                                      ),
+                                  ],
+                                ),
+                              ),
+                            ],
+                          ),
+                    if (rings.isNotEmpty &&
+                        rings.every((r) => r.done >= r.goal))
+                      Container(
+                        margin: const EdgeInsets.only(top: 14),
+                        padding: const EdgeInsets.only(top: 14),
+                        decoration: const BoxDecoration(
+                          border: Border(
+                              top: BorderSide(color: AppColors.beige)),
+                        ),
+                        child: Text(
+                          'Alle Bereiche diese Woche erfüllt – stark! 🎉',
+                          style: AppText.caption.copyWith(
+                              color: AppColors.sageDeep,
+                              fontWeight: FontWeight.w500,
+                              height: 1.5),
+                        ),
+                      ),
+                  ],
                 ),
               ),
-              const SizedBox(height: AppSpacing.sm),
-              const SectionTitle('Letzte Einträge'),
-              ...app.painLogs.take(4).map((l) => Padding(
-                    padding: const EdgeInsets.only(bottom: AppSpacing.sm),
-                    child: _PainLogRow(log: l),
-                  )),
+              const SizedBox(height: AppSpacing.sectionGap),
+
+              // ── Kalender mit Tabs ──
+              const SectionTitle('Kalender'),
+              _CalendarTabs(
+                mode: app.calendarMode,
+                onChange: app.setCalendarMode,
+              ),
+              const SizedBox(height: AppSpacing.md),
+              CalendarWidget(
+                onExpand: widget.onOpenCalendar,
+              ),
+              const SizedBox(height: AppSpacing.sectionGap),
+
+              // ── Schmerzverlauf ──
+              const SectionTitle('Schmerzverlauf'),
+              Text('Beobachte, wie sich deine Beschwerden über die Zeit entwickeln.',
+                  style: AppText.caption.copyWith(height: 1.5)),
+              const SizedBox(height: AppSpacing.base),
+              const PainHistoryCarousel(),
             ],
           ),
         ),
@@ -72,103 +264,49 @@ class ProgressScreen extends StatelessWidget {
   }
 }
 
-class _Metric extends StatelessWidget {
-  final String value;
-  final String label;
-  const _Metric({required this.value, required this.label});
+/// Tab-Umschalter "Übungen / Schmerzen" über dem Kalender.
+class _CalendarTabs extends StatelessWidget {
+  final String mode;
+  final ValueChanged<String> onChange;
+  const _CalendarTabs({required this.mode, required this.onChange});
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Text(value, style: AppText.screenTitle.copyWith(color: AppColors.sage)),
-        const SizedBox(height: 2),
-        Text(label, style: AppText.caption),
-      ],
-    );
-  }
-}
-
-class _Divider extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) =>
-      Container(width: 1, height: 36, color: AppColors.beige);
-}
-
-class _PainSummaryCard extends StatelessWidget {
-  final String region;
-  final List<PainLog> logs;
-  const _PainSummaryCard({required this.region, required this.logs});
-
-  @override
-  Widget build(BuildContext context) {
-    final first = logs.isNotEmpty ? logs.first.level : 0;
-    final last = logs.isNotEmpty ? logs.last.level : 0;
-    final improved = last < first;
-
-    return AppCard(
+    return Container(
+      padding: const EdgeInsets.all(4),
+      decoration: BoxDecoration(
+        color: AppColors.offwhite,
+        borderRadius: BorderRadius.circular(AppRadius.input),
+        border: Border.all(color: AppColors.beige),
+      ),
       child: Row(
         children: [
-          Expanded(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                AppTag(region, variant: TagVariant.region),
-                const SizedBox(height: AppSpacing.sm),
-                Text('Von $first → $last (Schmerzlevel)',
-                    style: AppText.caption),
-              ],
-            ),
-          ),
-          Icon(
-            improved ? Icons.trending_down : Icons.trending_flat,
-            color: improved ? AppColors.sage : AppColors.textMuted,
-            size: 28,
-          ),
+          _tab(context, 'exercises', 'Übungen'),
+          _tab(context, 'pain', 'Schmerzen'),
         ],
       ),
     );
   }
-}
 
-class _PainLogRow extends StatelessWidget {
-  final PainLog log;
-  const _PainLogRow({required this.log});
-
-  @override
-  Widget build(BuildContext context) {
-    return AppCard(
-      background: AppColors.offwhite,
-      padding: const EdgeInsets.all(AppSpacing.base),
-      child: Row(
-        children: [
-          Container(
-            width: 36,
-            height: 36,
-            alignment: Alignment.center,
-            decoration: BoxDecoration(
-              color: AppColors.sageLight,
-              borderRadius: BorderRadius.circular(AppRadius.iconSmall),
-            ),
-            child: Text('${log.level}',
-                style: AppText.cardTitle.copyWith(color: AppColors.sageDeep)),
+  Widget _tab(BuildContext context, String id, String label) {
+    final active = mode == id;
+    return Expanded(
+      child: GestureDetector(
+        onTap: () => onChange(id),
+        child: AnimatedContainer(
+          duration: AppMotion.standard,
+          padding: const EdgeInsets.symmetric(vertical: 10),
+          alignment: Alignment.center,
+          decoration: BoxDecoration(
+            color: active ? AppColors.white : Colors.transparent,
+            borderRadius: BorderRadius.circular(AppRadius.iconSmall),
           ),
-          const SizedBox(width: AppSpacing.md),
-          Expanded(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(log.region, style: AppText.cardTitle),
-                if (log.note.isNotEmpty)
-                  Text(log.note,
-                      maxLines: 1,
-                      overflow: TextOverflow.ellipsis,
-                      style: AppText.caption),
-              ],
-            ),
-          ),
-          Text(log.dateKey, style: AppText.micro),
-        ],
+          child: Text(label,
+              style: AppText.body.copyWith(
+                color: active ? AppColors.sageDeep : AppColors.textSecondary,
+                fontWeight: active ? FontWeight.w600 : FontWeight.w400,
+              )),
+        ),
       ),
     );
   }
