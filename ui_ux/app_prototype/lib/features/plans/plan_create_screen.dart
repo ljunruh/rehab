@@ -1,10 +1,14 @@
+import 'package:app_prototype/data/provider/exercise_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../../core/theme/app_theme.dart';
 import '../../core/widgets/widgets.dart';
 import '../../state/ui_state.dart';
 import '../../data/models/models.dart';
-import '../../data/demo/plan_options.dart';
+import '../../data/enum/body_part.dart';
+import '../../data/enum/goal.dart';
+import 'package:app_prototype/data/models/graph/exercise.dart' as graph;
+import '../profile/setup/selectable_accordion.dart';
 
 /// PERSON 2 — Plan-Erstellung als 3-Schritt-Wizard.
 ///
@@ -36,19 +40,23 @@ class _PlanCreateScreenState extends State<PlanCreateScreen> {
   int _step = 1;
 
   late final TextEditingController _nameCtrl;
-  late String _region;
-  String _goal = 'Mobilität';
+  late BodyPart _region;
+  Goal _goal = Goal.mobility;
   final Set<String> _selectedIds = {};
-  String _filterRegion = 'Alle';
+  List<graph.Exercise> _filteredExercises = [];
+  String _exerciseSearchQuery = "";
   Color _color = PlanColors.tuerkis;
   int _sessionsPerWeek = 3;
 
   @override
   void initState() {
     super.initState();
-    _region = widget.prefilledRegion ?? 'Knie';
-    _filterRegion = widget.prefilledRegion ?? 'Alle';
-    _nameCtrl = TextEditingController(text: '$_region-Plan');
+    _region = widget.prefilledRegion != null
+        ? BodyPart.values.firstWhere(
+            (e) => e.name == widget.prefilledRegion || e.label == widget.prefilledRegion,
+            orElse: () => BodyPart.knees)
+        : BodyPart.knees;
+    _nameCtrl = TextEditingController(text: '${_region.label}-Plan');
   }
 
   @override
@@ -57,14 +65,13 @@ class _PlanCreateScreenState extends State<PlanCreateScreen> {
     super.dispose();
   }
 
-  void _onRegionChange(String r) {
+  void _onRegionChange(BodyPart r) {
     setState(() {
       _region = r;
       // Namensvorschlag aktualisieren, wenn der Nutzer ihn nicht selbst änderte.
       if (_nameCtrl.text.endsWith('-Plan')) {
-        _nameCtrl.text = '$r-Plan';
+        _nameCtrl.text = '${r.label}-Plan';
       }
-      _filterRegion = r;
     });
   }
 
@@ -80,8 +87,8 @@ class _PlanCreateScreenState extends State<PlanCreateScreen> {
     final plan = TrainingPlan(
       id: 'plan_${DateTime.now().millisecondsSinceEpoch}',
       name: _nameCtrl.text.trim(),
-      region: _region,
-      goal: _goal,
+      region: _region.label,
+      goal: _goal.label,
       exerciseIds: _selectedIds.toList(),
       sessionsPerWeek: _sessionsPerWeek,
       source: 'eigen',
@@ -173,9 +180,9 @@ class _PlanCreateScreenState extends State<PlanCreateScreen> {
           spacing: AppSpacing.sm,
           runSpacing: AppSpacing.sm,
           children: [
-            for (final r in PlanOptions.regions.take(5))
+            for (final r in BodyPart.values.where((e) => e != BodyPart.none))
               AppChip(
-                label: r,
+                label: r.label,
                 active: _region == r,
                 onTap: () => _onRegionChange(r),
               ),
@@ -189,9 +196,9 @@ class _PlanCreateScreenState extends State<PlanCreateScreen> {
           spacing: AppSpacing.sm,
           runSpacing: AppSpacing.sm,
           children: [
-            for (final g in PlanOptions.goals)
+            for (final g in Goal.values.where((e) => e != Goal.none))
               AppChip(
-                label: g,
+                label: g.label,
                 active: _goal == g,
                 onTap: () => setState(() => _goal = g),
               ),
@@ -203,97 +210,46 @@ class _PlanCreateScreenState extends State<PlanCreateScreen> {
 
   // ── Schritt 2: Übungen auswählen ──
   Widget _buildStep2(BuildContext context) {
-    final app = context.watch<UiState>();
-    final library = _filterRegion == 'Alle'
-        ? app.library
-        : app.library.where((e) => e.region == _filterRegion).toList();
+    final exercises = context.watch<ExerciseProvider>().exercises;
+    if (_exerciseSearchQuery.isEmpty && _filteredExercises.isEmpty && exercises.isNotEmpty) {
+      _filteredExercises = exercises;
+    }
 
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Text('Wähle deine Übungen', style: AppText.screenTitle),
-        const SizedBox(height: AppSpacing.sm),
-        Text(
-          '${_selectedIds.length} ${_selectedIds.length == 1 ? 'Übung' : 'Übungen'} ausgewählt',
-          style: AppText.caption,
-        ),
-        const SizedBox(height: AppSpacing.base),
-
-        // Region-Filter
-        SizedBox(
-          height: 36,
-          child: ListView(
-            scrollDirection: Axis.horizontal,
-            children: [
-              for (final r in PlanOptions.regionFilter)
-                Padding(
-                  padding: const EdgeInsets.only(right: AppSpacing.sm),
-                  child: AppChip(
-                    label: r,
-                    active: _filterRegion == r,
-                    onTap: () => setState(() => _filterRegion = r),
-                  ),
-                ),
-            ],
-          ),
-        ),
-        const SizedBox(height: AppSpacing.base),
-
-        // Übungsliste
-        ...library.map((ex) {
-          final selected = _selectedIds.contains(ex.id);
-          return Padding(
-            padding: const EdgeInsets.only(bottom: AppSpacing.sm),
-            child: AppCard(
-              onTap: () => setState(() {
-                if (selected) {
-                  _selectedIds.remove(ex.id);
-                } else {
-                  _selectedIds.add(ex.id);
-                }
-              }),
-              padding: const EdgeInsets.all(AppSpacing.base),
-              child: Row(
-                children: [
-                  Container(
-                    width: 24,
-                    height: 24,
-                    decoration: BoxDecoration(
-                      color: selected ? AppColors.sage : Colors.transparent,
-                      borderRadius: BorderRadius.circular(7),
-                      border: Border.all(
-                        color: selected ? AppColors.sage : AppColors.beige,
-                        width: 1.5,
-                      ),
-                    ),
-                    child: selected
-                        ? const Icon(Icons.check,
-                            size: 16, color: AppColors.white)
-                        : null,
-                  ),
-                  const SizedBox(width: AppSpacing.md),
-                  Expanded(
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(ex.name, style: AppText.cardTitle),
-                        Text('${ex.region} · ${ex.duration} · ${ex.difficulty}',
-                            style: AppText.caption),
-                      ],
-                    ),
-                  ),
-                ],
-              ),
-            ),
-          );
-        }),
-        if (library.isEmpty)
-          Padding(
-            padding: const EdgeInsets.symmetric(vertical: AppSpacing.lg),
-            child: Text('Keine Übungen in dieser Region.',
-                style: AppText.caption),
-          ),
-      ],
+    return SelectableAccordion<graph.Exercise>(
+      title: 'Wähle deine Übungen',
+      summary: Text(
+        '${_selectedIds.length} ${_selectedIds.length == 1 ? 'Übung' : 'Übungen'} ausgewählt',
+        style: AppText.caption,
+      ),
+      items: exercises,
+      filteredItems: _filteredExercises,
+      onSearch: (query) {
+        setState(() {
+          _exerciseSearchQuery = query;
+          if (query.isEmpty) {
+            _filteredExercises = exercises;
+          } else {
+            _filteredExercises = exercises
+                .where((e) =>
+                    e.label.toLowerCase().contains(query.toLowerCase()) ||
+                    e.description.toLowerCase().contains(query.toLowerCase()))
+                .toList();
+          }
+        });
+      },
+      getId: (ex) => ex.id,
+      getTitle: (ex) => ex.label,
+      getSubtitle: (ex) => '${ex.difficulty} · ${ex.duration} Min',
+      selectedIds: _selectedIds,
+      onSelectionChanged: (id, selected) {
+        setState(() {
+          if (selected) {
+            _selectedIds.add(id);
+          } else {
+            _selectedIds.remove(id);
+          }
+        });
+      },
     );
   }
 
@@ -375,11 +331,11 @@ class _PlanCreateScreenState extends State<PlanCreateScreen> {
                     child: Text(_nameCtrl.text.trim(),
                         style: AppText.cardTitle),
                   ),
-                  AppTag(_region, variant: TagVariant.region),
+                  AppTag(_region.label, variant: TagVariant.region),
                 ],
               ),
               const SizedBox(height: AppSpacing.sm),
-              Text('Ziel: $_goal', style: AppText.caption),
+              Text('Ziel: ${_goal.label}', style: AppText.caption),
               Text(
                   '${_selectedIds.length} Übungen · $_sessionsPerWeek×/Woche',
                   style: AppText.caption),
@@ -392,11 +348,22 @@ class _PlanCreateScreenState extends State<PlanCreateScreen> {
 
   Widget _buildFooterButton() {
     if (_step == 1) {
+      //TODO: Test
       return PrimaryButton(
         label: 'Weiter',
         icon: Icons.arrow_forward,
         disabled: !_canStep1,
-        onPressed: _canStep1 ? _next : null,
+        onPressed: () async {
+          final provider = context.read<ExerciseProvider>();
+          await provider.loadAll(
+            bodyPart: _region,
+            goal: _goal,
+          );
+          setState(() {
+            _filteredExercises = provider.exercises;
+            _next();
+          });
+        },
       );
     }
     if (_step == 2) {
