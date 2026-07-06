@@ -54,6 +54,9 @@
         <Class IRI="#CoreMuscleInjury"/>
     </Declaration>
     <Declaration>
+        <Class IRI="#DailyRoutine"/>
+    </Declaration>
+    <Declaration>
         <Class IRI="#DifficultyLevel"/>
     </Declaration>
     <Declaration>
@@ -435,6 +438,9 @@
         <NamedIndividual IRI="#AllFourswithLegExtension"/>
     </Declaration>
     <Declaration>
+        <NamedIndividual IRI="#AlternateSittingAndStanding"/>
+    </Declaration>
+    <Declaration>
         <NamedIndividual IRI="#AnkleFracture"/>
     </Declaration>
     <Declaration>
@@ -465,7 +471,16 @@
         <NamedIndividual IRI="#Atemuebung478"/>
     </Declaration>
     <Declaration>
+        <NamedIndividual IRI="#AvoidForwardHeadPosture"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#AvoidLongSitting"/>
+    </Declaration>
+    <Declaration>
         <NamedIndividual IRI="#Back"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#BackFriendlyLifting"/>
     </Declaration>
     <Declaration>
         <NamedIndividual IRI="#BackIssue"/>
@@ -799,6 +814,9 @@
     </Declaration>
     <Declaration>
         <NamedIndividual IRI="#Elbows"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#ErgonomicSitting"/>
     </Declaration>
     <Declaration>
         <NamedIndividual IRI="#Erhöhung"/>
@@ -1497,6 +1515,9 @@
         <NamedIndividual IRI="#RearDeltoids"/>
     </Declaration>
     <Declaration>
+        <NamedIndividual IRI="#RegularMovementBreak"/>
+    </Declaration>
+    <Declaration>
         <NamedIndividual IRI="#Relaxation"/>
     </Declaration>
     <Declaration>
@@ -1645,6 +1666,9 @@
     </Declaration>
     <Declaration>
         <NamedIndividual IRI="#SkiingDownhill"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#SleepPositionAdjustment"/>
     </Declaration>
     <Declaration>
         <NamedIndividual IRI="#Snorkeling"/>
@@ -2098,6 +2122,9 @@
     </Declaration>
     <Declaration>
         <NamedIndividual IRI="#Upright"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#UseBackpackInsteadOfOneSideBag"/>
     </Declaration>
     <Declaration>
         <NamedIndividual IRI="#User0001"/>
@@ -2595,6 +2622,10 @@
         <NamedIndividual IRI="#AllFourswithLegExtension"/>
     </ClassAssertion>
     <ClassAssertion>
+        <Class IRI="#DailyRoutine"/>
+        <NamedIndividual IRI="#AlternateSittingAndStanding"/>
+    </ClassAssertion>
+    <ClassAssertion>
         <Class IRI="#AnkleFrac"/>
         <NamedIndividual IRI="#AnkleFracture"/>
     </ClassAssertion>
@@ -2635,8 +2666,20 @@
         <NamedIndividual IRI="#Atemuebung478"/>
     </ClassAssertion>
     <ClassAssertion>
+        <Class IRI="#DailyRoutine"/>
+        <NamedIndividual IRI="#AvoidForwardHeadPosture"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#DailyRoutine"/>
+        <NamedIndividual IRI="#AvoidLongSitting"/>
+    </ClassAssertion>
+    <ClassAssertion>
         <Class IRI="#BodyPart"/>
         <NamedIndividual IRI="#Back"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#DailyRoutine"/>
+        <NamedIndividual IRI="#BackFriendlyLifting"/>
     </ClassAssertion>
     <ClassAssertion>
         <Class IRI="#Contraindication"/>
@@ -2973,6 +3016,10 @@
     <ClassAssertion>
         <Class IRI="#BodyPart"/>
         <NamedIndividual IRI="#Elbows"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#DailyRoutine"/>
+        <NamedIndividual IRI="#ErgonomicSitting"/>
     </ClassAssertion>
     <ClassAssertion>
         <Class IRI="#Equipment"/>
@@ -3667,6 +3714,10 @@
         <NamedIndividual IRI="#RearDeltoids"/>
     </ClassAssertion>
     <ClassAssertion>
+        <Class IRI="#DailyRoutine"/>
+        <NamedIndividual IRI="#RegularMovementBreak"/>
+    </ClassAssertion>
+    <ClassAssertion>
         <Class IRI="#TrainingsEffect"/>
         <NamedIndividual IRI="#Relaxation"/>
     </ClassAssertion>
@@ -3841,6 +3892,10 @@
     <ClassAssertion>
         <Class IRI="#SportActivity"/>
         <NamedIndividual IRI="#SkiingDownhill"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#DailyRoutine"/>
+        <NamedIndividual IRI="#SleepPositionAdjustment"/>
     </ClassAssertion>
     <ClassAssertion>
         <Class IRI="#SportActivity"/>
@@ -4233,6 +4288,10 @@
     <ClassAssertion>
         <Class IRI="#Contraindication"/>
         <NamedIndividual IRI="#UpperBackIssue"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#DailyRoutine"/>
+        <NamedIndividual IRI="#UseBackpackInsteadOfOneSideBag"/>
     </ClassAssertion>
     <ClassAssertion>
         <Class IRI="#Patient"/>
@@ -23117,6 +23176,11 @@
 7. Die Seite wechseln und wiederholen.</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
+        <DataProperty IRI="#hasDailyLifeAdvice"/>
+        <NamedIndividual IRI="#AlternateSittingAndStanding"/>
+        <Literal xml:lang="de">Regelmäßiger Wechsel zwischen Sitzen und Stehen, um einseitige Belastungen zu reduzieren und die Wirbelsäule zu entlasten.</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
         <DataProperty IRI="#Calorie"/>
         <NamedIndividual IRI="#Archery"/>
         <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#decimal">250.0</Literal>
@@ -23211,6 +23275,21 @@
 4. Langsam durch den Mund ausatmen und dabei bis acht zählen.
 5. Kurz normal weiteratmen.
 6. Den Ablauf drei- bis viermal wiederholen.</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasDailyLifeAdvice"/>
+        <NamedIndividual IRI="#AvoidForwardHeadPosture"/>
+        <Literal xml:lang="de">Vermeidung einer nach vorne geschobenen Kopfhaltung, um Nacken- und Schulterbelastungen zu verringern.</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasDailyLifeAdvice"/>
+        <NamedIndividual IRI="#AvoidLongSitting"/>
+        <Literal xml:lang="de">Langes ununterbrochenes Sitzen vermeiden, da es Rücken, Hüfte und Kreislauf belasten kann.</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasDailyLifeAdvice"/>
+        <NamedIndividual IRI="#BackFriendlyLifting"/>
+        <Literal xml:lang="de">Rückenschonendes Heben durch Beugen der Knie, Halten der Last nah am Körper und Vermeiden von Rundrücken.</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="#Calorie"/>
@@ -23727,6 +23806,11 @@
         <DataProperty IRI="#angle"/>
         <NamedIndividual IRI="#Eagle_Torso"/>
         <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#decimal">0.0</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasDailyLifeAdvice"/>
+        <NamedIndividual IRI="#ErgonomicSitting"/>
+        <Literal xml:lang="de">Aufrechte, unterstützte Sitzhaltung mit angepasster Stuhl- und Tischhöhe zur Entlastung von Rücken, Nacken und Schultern.</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="#hasCommonMistake"/>
@@ -24679,6 +24763,11 @@ Langsam zur Mitte zurückkehren.
         <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#decimal">4.0</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
+        <DataProperty IRI="#hasDailyLifeAdvice"/>
+        <NamedIndividual IRI="#RegularMovementBreak"/>
+        <Literal xml:lang="de">Kurze regelmäßige Bewegungspausen im Alltag, um Verspannungen vorzubeugen und Mobilität zu fördern.</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
         <DataProperty IRI="#Calorie"/>
         <NamedIndividual IRI="#RollerSkating"/>
         <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#decimal">500.0</Literal>
@@ -24990,6 +25079,11 @@ Langsam zur Mitte zurückkehren.
         <DataProperty IRI="#MET"/>
         <NamedIndividual IRI="#SkiingDownhill"/>
         <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#decimal">6.0</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasDailyLifeAdvice"/>
+        <NamedIndividual IRI="#SleepPositionAdjustment"/>
+        <Literal xml:lang="de">Anpassung der Schlafposition, z.B. durch Kissenunterstützung, um Wirbelsäule, Nacken oder Gelenke zu entlasten.</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="#Calorie"/>
@@ -25529,6 +25623,11 @@ Langsam zur Mitte zurückkehren.
         <DataProperty IRI="#angle"/>
         <NamedIndividual IRI="#Triangle_Torso"/>
         <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#decimal">90.0</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasDailyLifeAdvice"/>
+        <NamedIndividual IRI="#UseBackpackInsteadOfOneSideBag"/>
+        <Literal xml:lang="de">Nutzung eines Rucksacks statt einer einseitigen Tasche, um asymmetrische Belastungen von Schulter, Rücken und Nacken zu vermeiden.</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="#hasMETScore"/>
