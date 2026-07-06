@@ -1,5 +1,5 @@
 import 'package:app_prototype/data/enum/gender.dart';
-import 'package:app_prototype/data/enum/injury.dart';
+import 'package:app_prototype/data/enum/contraindication.dart';
 import 'package:app_prototype/data/enum/skill_level.dart';
 import 'package:app_prototype/data/models/models.dart';
 import 'package:app_prototype/data/provider/user_provider.dart';
@@ -38,15 +38,15 @@ class _UserSetupScreenState extends State<UserSetupScreen> {
   Gender gender = Gender.male;
   SkillLevel skillLevel = SkillLevel.beginner;
 
-  List<Injury> _allInjuries = [];
-  List<Injury> _filteredInjuries = [];
+  List<Contraindication> _allInjuries = [];
+  List<Contraindication> _filteredInjuries = [];
   final Set<String> _selectedInjuryNames = {};
 
   @override
   void initState() {
     super.initState();
 
-    _allInjuries = Injury.values.where((i) => i != Injury.none).toList();
+    _allInjuries = Contraindication.values.where((i) => i != Contraindication.none).toList();
     _filteredInjuries = _allInjuries;
 
     if (widget.isEdit) {
@@ -81,7 +81,7 @@ class _UserSetupScreenState extends State<UserSetupScreen> {
 
       _selectedInjuryNames
         ..clear()
-        ..addAll(user.injuries);
+        ..addAll(user.contraindication);
     });
   }
 
@@ -308,7 +308,7 @@ class _UserSetupScreenState extends State<UserSetupScreen> {
   }
 
   Widget _buildInjuriesSection() {
-    return SelectableAccordion<Injury>(
+    return SelectableAccordion<Contraindication>(
       title: "Bestehende Verletzungen / Beschwerden",
       summary: _buildInjurySummary(),
       items: _allInjuries,

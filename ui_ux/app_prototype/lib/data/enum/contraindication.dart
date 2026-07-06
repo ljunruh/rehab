@@ -1,5 +1,5 @@
 // Kopie aus Graphen (Injury Class/Individuals)
-enum Injury {
+enum Contraindication {
   ankleIssue,
   balanceIssue,
   coreWeakness,
@@ -14,120 +14,120 @@ enum Injury {
   none
 }
 
-extension InjuryExt on Injury {
+extension InjuryExt on Contraindication {
   String get label {
     switch (this) {
-      case Injury.ankleIssue:
+      case Contraindication.ankleIssue:
         return "Sprunggelenksbeschwerden";
-      case Injury.balanceIssue:
+      case Contraindication.balanceIssue:
         return "Gleichgewichtsprobleme";
-      case Injury.coreWeakness:
+      case Contraindication.coreWeakness:
         return "Rumpfschwäche";
-      case Injury.hamstringIssue:
+      case Contraindication.hamstringIssue:
         return "Oberschenkelrückseite-Beschwerden (Hamstrings)";
-      case Injury.hipIssue:
+      case Contraindication.hipIssue:
         return "Hüftbeschwerden";
-      case Injury.kneeIssue:
+      case Contraindication.kneeIssue:
         return "Kniebeschwerden";
-      case Injury.lowerBackIssue:
+      case Contraindication.lowerBackIssue:
         return "Schmerzen im unteren Rücken";
-      case Injury.neckIssue:
+      case Contraindication.neckIssue:
         return "Nackenbeschwerden";
-      case Injury.shoulderIssue:
+      case Contraindication.shoulderIssue:
         return "Schulterbeschwerden";
-      case Injury.spineIssue:
+      case Contraindication.spineIssue:
         return "Wirbelsäulenprobleme";
-      case Injury.wristIssue:
+      case Contraindication.wristIssue:
         return "Handgelenksbeschwerden";
-      case Injury.none:
+      case Contraindication.none:
         return "Keine Einschränkungen";
     }
   }
 
   String get labelEN {
     switch (this) {
-      case Injury.ankleIssue:
+      case Contraindication.ankleIssue:
         return "AnkleIssue";
-      case Injury.balanceIssue:
+      case Contraindication.balanceIssue:
         return "BalanceIssue";
-      case Injury.coreWeakness:
+      case Contraindication.coreWeakness:
         return "CoreWeakness";
-      case Injury.hamstringIssue:
+      case Contraindication.hamstringIssue:
         return "HamstringIssue";
-      case Injury.hipIssue:
+      case Contraindication.hipIssue:
         return "HipIssue";
-      case Injury.kneeIssue:
+      case Contraindication.kneeIssue:
         return "KneeIssue";
-      case Injury.lowerBackIssue:
+      case Contraindication.lowerBackIssue:
         return "LowerBackIssue";
-      case Injury.neckIssue:
+      case Contraindication.neckIssue:
         return "NeckIssue";
-      case Injury.shoulderIssue:
+      case Contraindication.shoulderIssue:
         return "ShoulderIssue";
-      case Injury.spineIssue:
+      case Contraindication.spineIssue:
         return "SpineIssue";
-      case Injury.wristIssue:
+      case Contraindication.wristIssue:
         return "WristIssue";
-      case Injury.none:
+      case Contraindication.none:
         return "None";
     }
   }
 
   String get description {
     switch (this) {
-      case Injury.ankleIssue:
+      case Contraindication.ankleIssue:
         return _ankleIssueDesc;
-      case Injury.balanceIssue:
+      case Contraindication.balanceIssue:
         return _balanceIssueDesc;
-      case Injury.coreWeakness:
+      case Contraindication.coreWeakness:
         return _coreWeaknessDesc;
-      case Injury.hamstringIssue:
+      case Contraindication.hamstringIssue:
         return _hamstringIssueDesc;
-      case Injury.hipIssue:
+      case Contraindication.hipIssue:
         return _hipIssueDesc;
-      case Injury.kneeIssue:
+      case Contraindication.kneeIssue:
         return _kneeIssueDesc;
-      case Injury.lowerBackIssue:
+      case Contraindication.lowerBackIssue:
         return _lowerBackIssueDesc;
-      case Injury.neckIssue:
+      case Contraindication.neckIssue:
         return _neckIssueDesc;
-      case Injury.shoulderIssue:
+      case Contraindication.shoulderIssue:
         return _shoulderIssueDesc;
-      case Injury.spineIssue:
+      case Contraindication.spineIssue:
         return _spineIssueDesc;
-      case Injury.wristIssue:
+      case Contraindication.wristIssue:
         return _wristIssueDesc;
-      case Injury.none:
+      case Contraindication.none:
         return "";
     }
   }
 
-  static Injury fromString(String value) {
+  static Contraindication fromString(String value) {
     switch (value) {
       case "AnkleIssue":
-        return Injury.ankleIssue;
+        return Contraindication.ankleIssue;
       case "BalanceIssue":
-        return Injury.balanceIssue;
+        return Contraindication.balanceIssue;
       case "CoreWeakness":
-        return Injury.coreWeakness;
+        return Contraindication.coreWeakness;
       case "HamstringIssue":
-        return Injury.hamstringIssue;
+        return Contraindication.hamstringIssue;
       case "HipIssue":
-        return Injury.hipIssue;
+        return Contraindication.hipIssue;
       case "KneeIssue":
-        return Injury.kneeIssue;
+        return Contraindication.kneeIssue;
       case "LowerBackIssue":
-        return Injury.lowerBackIssue;
+        return Contraindication.lowerBackIssue;
       case "NeckIssue":
-        return Injury.neckIssue;
+        return Contraindication.neckIssue;
       case "ShoulderIssue":
-        return Injury.shoulderIssue;
+        return Contraindication.shoulderIssue;
       case "SpineIssue":
-        return Injury.spineIssue;
+        return Contraindication.spineIssue;
       case "WristIssue":
-        return Injury.wristIssue;
+        return Contraindication.wristIssue;
       default:
-        return Injury.none;
+        return Contraindication.none;
     }
   }
 }
