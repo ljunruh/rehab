@@ -3,6 +3,7 @@ import 'package:provider/provider.dart';
 import '../../core/theme/app_theme.dart';
 import '../../core/widgets/widgets.dart';
 import '../../data/demo/plan_options.dart';
+import '../../data/enum/gender.dart';
 import '../../state/ui_state.dart';
 import 'mobility_level_sheet.dart';
 
@@ -252,6 +253,8 @@ class _ProfileEditSheetState extends State<ProfileEditSheet> {
                       onChanged: (g) =>
                           app.updateProfile(profile.copyWith(gender: g)),
                     ),
+                    // _GenderField arbeitet jetzt direkt mit dem Gender-Enum
+                    // der API (statt mit einem String).
                   ),
                   const SizedBox(width: AppSpacing.sm),
                   Expanded(
@@ -487,16 +490,13 @@ class _NumberField extends StatelessWidget {
 }
 
 class _GenderField extends StatelessWidget {
-  final String value;
-  final ValueChanged<String> onChanged;
+  final Gender value;
+  final ValueChanged<Gender> onChanged;
 
   const _GenderField({required this.value, required this.onChanged});
 
-  static const _options = ['weiblich', 'männlich', 'divers'];
-
   @override
   Widget build(BuildContext context) {
-    final current = _options.contains(value) ? value : _options.first;
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -511,14 +511,15 @@ class _GenderField extends StatelessWidget {
             border: Border.all(color: AppColors.beige),
           ),
           child: DropdownButtonHideUnderline(
-            child: DropdownButton<String>(
-              value: current,
+            child: DropdownButton<Gender>(
+              value: value,
               isExpanded: true,
               icon: const Icon(Icons.expand_more,
                   size: 16, color: AppColors.textMuted),
               style: AppText.body,
-              items: _options
-                  .map((o) => DropdownMenuItem(value: o, child: Text(o)))
+              items: Gender.values
+                  .map((g) =>
+                      DropdownMenuItem(value: g, child: Text(g.label)))
                   .toList(),
               onChanged: (v) {
                 if (v != null) onChanged(v);
