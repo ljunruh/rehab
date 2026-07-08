@@ -1,3 +1,6 @@
+import 'package:app_prototype/data/provider/user_provider.dart';
+import 'package:app_prototype/data/service/user_service.dart';
+import 'package:app_prototype/features/profile/setup/profile_setup_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../core/theme/app_theme.dart';
@@ -7,6 +10,7 @@ import '../data/models/models.dart';
 import 'bottom_nav.dart';
 import '../features/home/home_screen.dart';
 import '../features/home/exercise_detail_screen.dart';
+import '../features/home/tip_screen.dart';
 import '../features/plans/plans_screen.dart';
 import '../features/plans/plan_detail_screen.dart';
 import '../features/plans/plan_training_screen.dart';
@@ -16,24 +20,23 @@ import '../features/plans/new_plan_choice_sheet.dart';
 import '../features/plans/add_exercise_screen.dart';
 import '../features/plans/exercises_screen.dart';
 import '../features/progress/progress_screen.dart';
-import '../features/progress/calendar_fullscreen.dart';
-import '../features/profile/profile_drawer.dart';
-import '../features/profile/profile_edit_sheet.dart';
-import '../features/profile/practice_screen.dart';
+import '../features/profile/profile_screen.dart';
 
 /// Unter-Ansichten, die über die Tabs hinausgehen (Detail-Screens).
 /// Person 4 erweitert dieses Routing, wenn neue Detail-Screens dazukommen.
 enum SubView {
   none,
+  userSetup,
+  profile,
+  profileEdit,
   exerciseDetail,
   planDetail,
   planTraining,
+  tip,
   planCreate,
   recommend,
   addExercise,
   library,
-  practice,
-  calendarFull,
 }
 
 /// App-Shell — hält Tab- und Sub-View-Zustand, rendert den aktiven Screen,
@@ -53,40 +56,40 @@ class _AppShellState extends State<AppShell> {
   AppTab _tab = AppTab.home;
   SubView _sub = SubView.none;
 
-  /// Ob der Profil-Drawer (Overlay von rechts) offen ist.
-  bool _drawerOpen = false;
-
   /// ID des aktuell geöffneten Elements (Übung oder Plan).
   String? _selectedId;
 
-  void _openProfile() => setState(() => _drawerOpen = true);
+  void _openProfile() => setState(() => _sub = SubView.profile);
+
+  void _openTip() => setState(() => _sub = SubView.tip);
+
   void _closeSub() => setState(() {
-        _sub = SubView.none;
-        _selectedId = null;
-      });
+    _sub = SubView.none;
+    _selectedId = null;
+  });
 
   // Öffnet die Übungs-Detailansicht. Bereit für eine antippbare Übungsliste
   // (Person 1) oder den Aufruf aus dem Plan-Detail (Person 2).
   // ignore: unused_element
   void _openExercise(String id) => setState(() {
-        _selectedId = id;
-        _sub = SubView.exerciseDetail;
-      });
+    _selectedId = id;
+    _sub = SubView.exerciseDetail;
+  });
 
   void _openPlan(String id) => setState(() {
-        _selectedId = id;
-        _sub = SubView.planDetail;
-      });
+    _selectedId = id;
+    _sub = SubView.planDetail;
+  });
 
   void _startTraining(String id) => setState(() {
-        _selectedId = id;
-        _sub = SubView.planTraining;
-      });
+    _selectedId = id;
+    _sub = SubView.planTraining;
+  });
 
   void _openAddExercise(String id) => setState(() {
-        _selectedId = id;
-        _sub = SubView.addExercise;
-      });
+    _selectedId = id;
+    _sub = SubView.addExercise;
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -101,8 +104,50 @@ class _AppShellState extends State<AppShell> {
 
     Widget screen;
     bool showNav = true;
+    final userProvider = context.watch<UserProvider>();
 
-    if (_sub == SubView.planCreate) {
+    if (!userProvider.userExists) {
+      screen = UserSetupScreen(
+        "Profil erstellen",
+        onFinished: () {
+          setState(() {
+            _tab = AppTab.home;
+            _sub = SubView.none;
+          });
+        },
+      );
+      showNav = false;
+    } else if (_sub == SubView.profileEdit) {
+      screen = UserSetupScreen(
+        "Profil bearbeiten",
+        isEdit: true,
+        onBack: () {
+          setState(() {
+            _sub = SubView.profile;
+          });
+        },
+        onFinished: () {
+          context.read<UserProvider>().init();
+          setState(() {
+            _sub = SubView.profile;
+          });
+        },
+      );
+      showNav = false;
+    } else if (_sub == SubView.profile) {
+      screen = ProfileScreen(
+        onBack: _closeSub,
+        onEdit: () {
+          setState(() {
+            _sub = SubView.profileEdit;
+          });
+        },
+      );
+      showNav = false;
+    } else if (_sub == SubView.tip) {
+      screen = TipScreen(onBack: _closeSub);
+      showNav = false;
+    } else if (_sub == SubView.planCreate) {
       screen = PlanCreateScreen(
         onBack: _closeSub,
         onSaved: () {
@@ -132,12 +177,6 @@ class _AppShellState extends State<AppShell> {
         onOpenProfile: _openProfile,
         onOpenExercise: _openExercise,
       );
-      showNav = false;
-    } else if (_sub == SubView.practice) {
-      screen = PracticeScreen(onBack: _closeSub);
-      showNav = false;
-    } else if (_sub == SubView.calendarFull) {
-      screen = CalendarFullscreen(onBack: _closeSub);
       showNav = false;
     } else if (_sub == SubView.exerciseDetail && _selectedId != null) {
       screen = ExerciseDetailScreen(
@@ -169,6 +208,7 @@ class _AppShellState extends State<AppShell> {
         case AppTab.home:
           screen = HomeScreen(
             onOpenProfile: _openProfile,
+            onOpenTip: _openTip,
             onStartRegion: (region) {
               // Sucht den ersten aktiven Plan dieser Region und startet ihn.
               final app = context.read<UiState>();
@@ -191,34 +231,28 @@ class _AppShellState extends State<AppShell> {
           screen = PlansScreen(
             onOpenProfile: _openProfile,
             onOpenPlan: _openPlan,
+            onOpenLibrary: () => setState(() => _sub = SubView.library),
           );
           break;
         case AppTab.progress:
-          screen = ProgressScreen(
-            onOpenProfile: _openProfile,
-            onOpenCalendar: () => setState(() => _sub = SubView.calendarFull),
-          );
+          screen = ProgressScreen(onOpenProfile: _openProfile);
           break;
       }
     }
 
-    return Stack(
-      children: [
-        Positioned.fill(
-          child: Stack(
-            children: [
-              Positioned.fill(child: screen),
-              if (app.toast != null) AppToast(message: app.toast!),
-            ],
+    return _PhoneFrame(
+      child: Column(
+        children: [
+          Expanded(
+            child: Stack(
+              children: [
+                Positioned.fill(child: screen),
+                if (app.toast != null) AppToast(message: app.toast!),
+              ],
+            ),
           ),
-        ),
-        // Schwebende Navbar als Overlay (kein eigener Hintergrund-Streifen)
-        if (showNav)
-          Positioned(
-            left: 0,
-            right: 0,
-            bottom: 0,
-            child: BottomNav(
+          if (showNav)
+            BottomNav(
               active: _tab,
               onChange: (t) => setState(() {
                 _tab = t;
@@ -227,30 +261,13 @@ class _AppShellState extends State<AppShell> {
               onAddPlan: () {
                 NewPlanChoiceSheet.show(
                   context,
-                  onRecommend: () =>
-                      setState(() => _sub = SubView.recommend),
-                  onManual: () =>
-                      setState(() => _sub = SubView.planCreate),
+                  onRecommend: () => setState(() => _sub = SubView.recommend),
+                  onManual: () => setState(() => _sub = SubView.planCreate),
                 );
               },
             ),
-          ),
-        // Profil-Drawer als Overlay über allem
-        if (_drawerOpen)
-          ProfileDrawer(
-            onClose: () => setState(() => _drawerOpen = false),
-            onEditProfile: () {
-              setState(() => _drawerOpen = false);
-              ProfileEditSheet.show(context);
-            },
-            onOpenPractice: () {
-              setState(() {
-                _drawerOpen = false;
-                _sub = SubView.practice;
-              });
-            },
-          ),
-      ],
+        ],
+      ),
     );
   }
 }
@@ -258,9 +275,10 @@ class _AppShellState extends State<AppShell> {
 /// Phone-Frame wie im JSX-Prototyp (für Web/Desktop-Vorschau).
 /// Auf einem echten Gerät kann dieser Rahmen entfallen — dann direkt
 /// das [child] in ein Scaffold setzen.
-class PhoneFrame extends StatelessWidget {
+class _PhoneFrame extends StatelessWidget {
   final Widget child;
-  const PhoneFrame({super.key, required this.child});
+
+  const _PhoneFrame({required this.child});
 
   @override
   Widget build(BuildContext context) {

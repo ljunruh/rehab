@@ -1,20 +1,19 @@
+import 'package:app_prototype/data/provider/exercise_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../../core/theme/app_theme.dart';
 import '../../core/widgets/widgets.dart';
 import '../../state/ui_state.dart';
 import '../../data/models/models.dart';
-import '../../data/demo/plan_options.dart';
+import '../../data/enum/body_part.dart';
+import '../../data/enum/goal.dart';
+import 'package:app_prototype/data/models/graph/exercise.dart' as graph;
+import '../profile/setup/selectable_accordion.dart';
 
 /// PERSON 2 — Plan-Erstellung als 3-Schritt-Wizard.
 ///
 /// Schritt 1: Name, Region, Ziel.
-/// Schritt 2: Übungen aus der Bibliothek der in Schritt 1 gewählten
-///            Region auswählen (Suchfeld, sortiert nach Schwierigkeit —
-///            kein Regionsfilter mehr nötig, kein "Eigene Übung
-///            anlegen" mehr: laut Team-Feedback ergab beides während
-///            der Plan-Erstellung keinen Sinn, da die Region schon
-///            in Schritt 1 feststeht).
+/// Schritt 2: Übungen aus der Bibliothek auswählen (mit Region-Filter).
 /// Schritt 3: Kalenderfarbe wählen + Zusammenfassung + Speichern.
 /// Entspricht PlanCreate im JSX-Prototyp.
 class PlanCreateScreen extends StatefulWidget {
@@ -41,16 +40,23 @@ class _PlanCreateScreenState extends State<PlanCreateScreen> {
   int _step = 1;
 
   late final TextEditingController _nameCtrl;
-  late String _region;
-  String _goal = 'Mobilität';
+  late BodyPart _region;
+  Goal _goal = Goal.mobility;
   final Set<String> _selectedIds = {};
-  String _searchQuery = '';
+  List<graph.Exercise> _filteredExercises = [];
+  String _exerciseSearchQuery = "";
+  Color _color = PlanColors.tuerkis;
+  int _sessionsPerWeek = 3;
 
   @override
   void initState() {
     super.initState();
-    _region = widget.prefilledRegion ?? 'Knie';
-    _nameCtrl = TextEditingController(text: '$_region-Plan');
+    _region = widget.prefilledRegion != null
+        ? BodyPart.values.firstWhere(
+            (e) => e.name == widget.prefilledRegion || e.label == widget.prefilledRegion,
+            orElse: () => BodyPart.knees)
+        : BodyPart.knees;
+    _nameCtrl = TextEditingController(text: '${_region.label}-Plan');
   }
 
   @override
@@ -59,12 +65,12 @@ class _PlanCreateScreenState extends State<PlanCreateScreen> {
     super.dispose();
   }
 
-  void _onRegionChange(String r) {
+  void _onRegionChange(BodyPart r) {
     setState(() {
       _region = r;
       // Namensvorschlag aktualisieren, wenn der Nutzer ihn nicht selbst änderte.
       if (_nameCtrl.text.endsWith('-Plan')) {
-        _nameCtrl.text = '$r-Plan';
+        _nameCtrl.text = '${r.label}-Plan';
       }
     });
   }
@@ -81,10 +87,12 @@ class _PlanCreateScreenState extends State<PlanCreateScreen> {
     final plan = TrainingPlan(
       id: 'plan_${DateTime.now().millisecondsSinceEpoch}',
       name: _nameCtrl.text.trim(),
-      region: _region,
-      goal: _goal,
+      region: _region.label,
+      goal: _goal.label,
       exerciseIds: _selectedIds.toList(),
+      sessionsPerWeek: _sessionsPerWeek,
       source: 'eigen',
+      color: _color,
     );
     app.savePlan(plan);
     widget.onSaved();
@@ -137,7 +145,7 @@ class _PlanCreateScreenState extends State<PlanCreateScreen> {
 
               if (_step == 1) _buildStep1(),
               if (_step == 2) _buildStep2(context),
-              if (_step == 3) _buildStep3(context),
+              if (_step == 3) _buildStep3(),
             ],
           ),
         ),
@@ -172,9 +180,9 @@ class _PlanCreateScreenState extends State<PlanCreateScreen> {
           spacing: AppSpacing.sm,
           runSpacing: AppSpacing.sm,
           children: [
-            for (final r in PlanOptions.regions.take(5))
+            for (final r in BodyPart.values.where((e) => e != BodyPart.none))
               AppChip(
-                label: r,
+                label: r.label,
                 active: _region == r,
                 onTap: () => _onRegionChange(r),
               ),
@@ -188,9 +196,9 @@ class _PlanCreateScreenState extends State<PlanCreateScreen> {
           spacing: AppSpacing.sm,
           runSpacing: AppSpacing.sm,
           children: [
-            for (final g in PlanOptions.goals)
+            for (final g in Goal.values.where((e) => e != Goal.none))
               AppChip(
-                label: g,
+                label: g.label,
                 active: _goal == g,
                 onTap: () => setState(() => _goal = g),
               ),
@@ -201,240 +209,136 @@ class _PlanCreateScreenState extends State<PlanCreateScreen> {
   }
 
   // ── Schritt 2: Übungen auswählen ──
-  IconData _regionIcon(String region) {
-    switch (region) {
-      case 'Schulter':
-        return Icons.accessibility_new;
-      case 'Knie':
-        return Icons.accessibility;
-      case 'Rücken':
-        return Icons.airline_seat_recline_normal;
-      case 'Nacken':
-        return Icons.face_outlined;
-      case 'Hüfte':
-        return Icons.accessibility_new;
-      case 'Morgen':
-        return Icons.wb_sunny_outlined;
-      case 'Abend':
-        return Icons.dark_mode_outlined;
-      case 'Büro':
-        return Icons.work_outline;
-      case 'Unterwegs':
-        return Icons.map_outlined;
-      default:
-        return Icons.fitness_center;
-    }
-  }
-
   Widget _buildStep2(BuildContext context) {
-    final app = context.watch<UiState>();
-
-    // Nur Übungen der in Schritt 1 gewählten Region (kein Regionsfilter
-    // mehr nötig, da Schritt 1 die Region bereits festlegt) + Suche +
-    // Sortierung nach Schwierigkeit (Leicht → Mittel → Anspruchsvoll).
-    var library = app.library.where((e) => e.region == _region).toList();
-    if (_searchQuery.trim().isNotEmpty) {
-      final q = _searchQuery.trim().toLowerCase();
-      library = library.where((e) => e.name.toLowerCase().contains(q)).toList();
+    final exercises = context.watch<ExerciseProvider>().exercises;
+    if (_exerciseSearchQuery.isEmpty && _filteredExercises.isEmpty && exercises.isNotEmpty) {
+      _filteredExercises = exercises;
     }
-    library.sort((a, b) {
-      final ia = PlanOptions.difficulties.indexOf(a.difficulty);
-      final ib = PlanOptions.difficulties.indexOf(b.difficulty);
-      return ia.compareTo(ib);
-    });
 
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Text('Wähle deine Übungen', style: AppText.screenTitle),
-        const SizedBox(height: AppSpacing.sm),
-        Text(
-          '${_selectedIds.length} ${_selectedIds.length == 1 ? 'Übung' : 'Übungen'} ausgewählt · Region: $_region',
-          style: AppText.caption,
-        ),
-        const SizedBox(height: AppSpacing.base),
-
-        // Suchfeld
-        Container(
-          padding: const EdgeInsets.symmetric(horizontal: 14),
-          decoration: BoxDecoration(
-            color: AppColors.white,
-            borderRadius: BorderRadius.circular(AppRadius.input),
-            border: Border.all(color: AppColors.beige),
-          ),
-          child: Row(
-            children: [
-              const Icon(Icons.search, size: 18, color: AppColors.textMuted),
-              const SizedBox(width: AppSpacing.sm),
-              Expanded(
-                child: TextField(
-                  style: AppText.body,
-                  decoration: InputDecoration(
-                    border: InputBorder.none,
-                    isDense: true,
-                    contentPadding:
-                        const EdgeInsets.symmetric(vertical: 12),
-                    hintText: 'Übung suchen …',
-                    hintStyle:
-                        AppText.body.copyWith(color: AppColors.textMuted),
-                  ),
-                  onChanged: (v) => setState(() => _searchQuery = v),
-                ),
-              ),
-            ],
-          ),
-        ),
-        const SizedBox(height: AppSpacing.base),
-
-        // Übungsliste (nach Schwierigkeit sortiert)
-        ...library.map((ex) {
-          final selected = _selectedIds.contains(ex.id);
-          return Padding(
-            padding: const EdgeInsets.only(bottom: AppSpacing.sm),
-            child: AppCard(
-              onTap: () => setState(() {
-                if (selected) {
-                  _selectedIds.remove(ex.id);
-                } else {
-                  _selectedIds.add(ex.id);
-                }
-              }),
-              padding: const EdgeInsets.all(AppSpacing.base),
-              child: Row(
-                children: [
-                  Container(
-                    width: 42,
-                    height: 42,
-                    alignment: Alignment.center,
-                    decoration: BoxDecoration(
-                      color: selected ? AppColors.sageLight : AppColors.mint,
-                      borderRadius: BorderRadius.circular(12),
-                    ),
-                    child: Icon(_regionIcon(ex.region),
-                        size: 20, color: AppColors.sageDeep),
-                  ),
-                  const SizedBox(width: AppSpacing.md),
-                  Expanded(
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(ex.name,
-                            style: AppText.cardTitle,
-                            overflow: TextOverflow.ellipsis),
-                        const SizedBox(height: 2),
-                        Text('${ex.duration} · ${ex.difficulty}',
-                            style: AppText.micro),
-                      ],
-                    ),
-                  ),
-                  const SizedBox(width: AppSpacing.sm),
-                  Container(
-                    width: 28,
-                    height: 28,
-                    alignment: Alignment.center,
-                    decoration: BoxDecoration(
-                      color: selected ? AppColors.sage : Colors.transparent,
-                      shape: BoxShape.circle,
-                      border: selected
-                          ? null
-                          : Border.all(color: AppColors.beige, width: 1.5),
-                    ),
-                    child: Icon(selected ? Icons.check : Icons.add,
-                        size: 14,
-                        color: selected
-                            ? AppColors.white
-                            : AppColors.textMuted),
-                  ),
-                ],
-              ),
-            ),
-          );
-        }),
-        if (library.isEmpty)
-          Padding(
-            padding: const EdgeInsets.symmetric(vertical: AppSpacing.lg),
-            child: Text(
-              _searchQuery.trim().isEmpty
-                  ? 'Keine Übungen für $_region verfügbar.'
-                  : 'Keine Übung gefunden für "$_searchQuery".',
-              style: AppText.caption,
-            ),
-          ),
-      ],
+    return SelectableAccordion<graph.Exercise>(
+      title: 'Wähle deine Übungen',
+      summary: Text(
+        '${_selectedIds.length} ${_selectedIds.length == 1 ? 'Übung' : 'Übungen'} ausgewählt',
+        style: AppText.caption,
+      ),
+      items: exercises,
+      filteredItems: _filteredExercises,
+      onSearch: (query) {
+        setState(() {
+          _exerciseSearchQuery = query;
+          if (query.isEmpty) {
+            _filteredExercises = exercises;
+          } else {
+            _filteredExercises = exercises
+                .where((e) =>
+                    e.label.toLowerCase().contains(query.toLowerCase()) ||
+                    e.description.toLowerCase().contains(query.toLowerCase()))
+                .toList();
+          }
+        });
+      },
+      getId: (ex) => ex.id,
+      getTitle: (ex) => ex.label,
+      getSubtitle: (ex) => '${ex.difficulty} · ${ex.duration} Min',
+      selectedIds: _selectedIds,
+      onSelectionChanged: (id, selected) {
+        setState(() {
+          if (selected) {
+            _selectedIds.add(id);
+          } else {
+            _selectedIds.remove(id);
+          }
+        });
+      },
     );
   }
 
-  // ── Schritt 3: Zusammenfassung ──
-  Widget _buildStep3(BuildContext context) {
-    final app = context.watch<UiState>();
-    final totalMinutes = _selectedIds.fold<int>(0, (sum, id) {
-      for (final e in app.library) {
-        if (e.id == id) {
-          return sum + (int.tryParse(e.duration.replaceAll(RegExp(r'[^0-9]'), '')) ?? 0);
-        }
-      }
-      return sum;
-    });
-
+  // ── Schritt 3: Farbe + Zusammenfassung ──
+  Widget _buildStep3() {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text('Alles bereit?', style: AppText.screenTitle),
+        Text('Fast geschafft', style: AppText.screenTitle),
+        const SizedBox(height: AppSpacing.sm),
+        Text('Wähle eine Farbe und prüfe deinen Plan.',
+            style: AppText.caption),
         const SizedBox(height: AppSpacing.lg),
+
+        Text('Kalenderfarbe', style: AppText.caption),
+        const SizedBox(height: AppSpacing.sm),
+        Wrap(
+          spacing: 10,
+          runSpacing: 10,
+          children: [
+            for (final c in PlanColors.all)
+              GestureDetector(
+                onTap: () => setState(() => _color = c),
+                child: Container(
+                  width: 40,
+                  height: 40,
+                  decoration: BoxDecoration(
+                    color: c,
+                    shape: BoxShape.circle,
+                    border: Border.all(
+                      color: _color == c ? AppColors.text : Colors.transparent,
+                      width: 2.5,
+                    ),
+                  ),
+                  child: _color == c
+                      ? const Icon(Icons.check, size: 18, color: AppColors.white)
+                      : null,
+                ),
+              ),
+          ],
+        ),
+        const SizedBox(height: AppSpacing.lg),
+
+        Text('Einheiten pro Woche', style: AppText.caption),
+        const SizedBox(height: AppSpacing.sm),
+        Row(
+          children: [
+            for (int n = 1; n <= 5; n++)
+              Padding(
+                padding: const EdgeInsets.only(right: AppSpacing.sm),
+                child: AppChip(
+                  label: '$n',
+                  active: _sessionsPerWeek == n,
+                  onTap: () => setState(() => _sessionsPerWeek = n),
+                ),
+              ),
+          ],
+        ),
+        const SizedBox(height: AppSpacing.lg),
+
+        // Zusammenfassung
         AppCard(
-          padding: const EdgeInsets.all(20),
+          background: AppColors.offwhite,
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text('PLAN', style: AppText.micro),
-              const SizedBox(height: 4),
-              Text(_nameCtrl.text.trim(),
-                  style: AppText.cardTitle.copyWith(fontSize: 18)),
-              const SizedBox(height: AppSpacing.md),
-              Wrap(
-                spacing: AppSpacing.sm,
-                runSpacing: AppSpacing.sm,
+              Row(
                 children: [
-                  AppTag(_region, variant: TagVariant.region),
-                  AppTag(_goal, variant: TagVariant.goal),
+                  Container(
+                    width: 12,
+                    height: 12,
+                    decoration: BoxDecoration(
+                      color: _color,
+                      shape: BoxShape.circle,
+                    ),
+                  ),
+                  const SizedBox(width: AppSpacing.sm),
+                  Expanded(
+                    child: Text(_nameCtrl.text.trim(),
+                        style: AppText.cardTitle),
+                  ),
+                  AppTag(_region.label, variant: TagVariant.region),
                 ],
               ),
-              const SizedBox(height: AppSpacing.md),
-              Container(
-                padding: const EdgeInsets.only(top: AppSpacing.md),
-                decoration: const BoxDecoration(
-                  border: Border(
-                      top: BorderSide(color: AppColors.beige, width: 1)),
-                ),
-                child: Row(
-                  children: [
-                    Expanded(
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text('ÜBUNGEN', style: AppText.micro),
-                          const SizedBox(height: 2),
-                          Text('${_selectedIds.length}',
-                              style: AppText.cardTitle.copyWith(
-                                  fontSize: 16, color: AppColors.sageDeep)),
-                        ],
-                      ),
-                    ),
-                    Expanded(
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text('DAUER', style: AppText.micro),
-                          const SizedBox(height: 2),
-                          Text('$totalMinutes Min',
-                              style: AppText.cardTitle.copyWith(
-                                  fontSize: 16, color: AppColors.sageDeep)),
-                        ],
-                      ),
-                    ),
-                  ],
-                ),
-              ),
+              const SizedBox(height: AppSpacing.sm),
+              Text('Ziel: ${_goal.label}', style: AppText.caption),
+              Text(
+                  '${_selectedIds.length} Übungen · $_sessionsPerWeek×/Woche',
+                  style: AppText.caption),
             ],
           ),
         ),
@@ -444,11 +348,22 @@ class _PlanCreateScreenState extends State<PlanCreateScreen> {
 
   Widget _buildFooterButton() {
     if (_step == 1) {
+      //TODO: Test
       return PrimaryButton(
         label: 'Weiter',
         icon: Icons.arrow_forward,
         disabled: !_canStep1,
-        onPressed: _canStep1 ? _next : null,
+        onPressed: () async {
+          final provider = context.read<ExerciseProvider>();
+          await provider.loadAll(
+            bodyPart: _region,
+            goal: _goal,
+          );
+          setState(() {
+            _filteredExercises = provider.exercises;
+            _next();
+          });
+        },
       );
     }
     if (_step == 2) {

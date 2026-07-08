@@ -1,5 +1,5 @@
 import 'package:app_prototype/data/enum/gender.dart';
-import 'package:app_prototype/data/enum/injury.dart';
+import 'package:app_prototype/data/enum/contraindication.dart';
 import 'package:app_prototype/data/enum/skill_level.dart';
 
 import '../models/models.dart';
@@ -20,7 +20,7 @@ class DemoData {
     age: 20,
     weight: 60,
     height: 170,
-    injuries: [Injury.kneeIssue.label],
+    contraindication: [Contraindication.kneeIssue.label],
     skillLevel: SkillLevel.intermediate,
     email: 'lena.mueller@email.de',
     goal: 'Beweglichkeit verbessern',

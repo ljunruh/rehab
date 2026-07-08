@@ -1,5 +1,5 @@
 import 'package:app_prototype/data/enum/gender.dart';
-import 'package:app_prototype/data/enum/injury.dart';
+import 'package:app_prototype/data/enum/contraindication.dart';
 import 'package:app_prototype/data/enum/skill_level.dart';
 import 'package:app_prototype/data/models/models.dart';
 import 'package:app_prototype/data/repository/user_repository.dart';
@@ -33,7 +33,7 @@ class UserProvider extends ChangeNotifier {
   String get skillLevelText => _user?.skillLevel.label ?? '—';
 
   List<String> get injuryLabels =>
-      _user?.injuries
+      _user?.contraindication
           .map((name) => InjuryExt.fromString(name).label)
           .toList() ??
           [];
@@ -74,7 +74,7 @@ class UserProvider extends ChangeNotifier {
       height: height,
       weight: weight,
       skillLevel: skillLevel,
-      injuries: injuries,
+      contraindication: injuries,
     );
 
     await repo.saveUser(newUser);

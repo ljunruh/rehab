@@ -4,7 +4,8 @@ import '../../core/theme/app_theme.dart';
 import '../../core/widgets/widgets.dart';
 import '../../state/ui_state.dart';
 import '../../data/models/models.dart';
-import '../../data/demo/plan_options.dart';
+import '../../data/enum/body_part.dart';
+import '../../data/enum/goal.dart';
 
 /// PERSON 2 — Geführter Empfehlungs-Flow.
 ///
@@ -27,8 +28,8 @@ class RecommendationFlow extends StatefulWidget {
 
 class _RecommendationFlowState extends State<RecommendationFlow> {
   int _step = 1; // 1: Region, 2: Ziel, 3: Vorschlag
-  String? _region;
-  String? _goal;
+  BodyPart? _region;
+  Goal? _goal;
 
   @override
   Widget build(BuildContext context) {
@@ -53,9 +54,9 @@ class _RecommendationFlowState extends State<RecommendationFlow> {
             spacing: AppSpacing.sm,
             runSpacing: AppSpacing.sm,
             children: [
-              for (final r in PlanOptions.regions)
+              for (final r in BodyPart.values.where((e) => e != BodyPart.none))
                 AppChip(
-                  label: r,
+                  label: r.label,
                   active: _region == r,
                   onTap: () => setState(() {
                     _region = r;
@@ -73,9 +74,9 @@ class _RecommendationFlowState extends State<RecommendationFlow> {
             spacing: AppSpacing.sm,
             runSpacing: AppSpacing.sm,
             children: [
-              for (final g in PlanOptions.goals)
+              for (final g in Goal.values.where((e) => e != Goal.none))
                 AppChip(
-                  label: g,
+                  label: g.label,
                   active: _goal == g,
                   onTap: () => setState(() {
                     _goal = g;
@@ -92,12 +93,15 @@ class _RecommendationFlowState extends State<RecommendationFlow> {
   }
 
   Widget _buildSuggestion(UiState app) {
-    final region = _region ?? 'Knie';
-    final goal = _goal ?? 'Mobilität';
+    final region = _region ?? BodyPart.knees;
+    final goal = _goal ?? Goal.mobility;
 
     // Passende Übungen aus der Bibliothek (nach Region, sonst erste 3).
-    final matching =
-        app.library.where((e) => e.region == region).take(3).toList();
+    final matching = app.library.where((e) {
+      final r1 = e.region.toLowerCase();
+      final r2 = region.label.toLowerCase();
+      return r1.contains(r2) || r2.contains(r1);
+    }).take(3).toList();
     final exercises = matching.isNotEmpty ? matching : app.library.take(3).toList();
 
     return Column(
@@ -105,7 +109,7 @@ class _RecommendationFlowState extends State<RecommendationFlow> {
       children: [
         Text('Dein empfohlener Plan', style: AppText.screenTitle),
         const SizedBox(height: AppSpacing.sm),
-        Text('Basierend auf $region · $goal', style: AppText.caption),
+        Text('Basierend auf ${region.label} · ${goal.label}', style: AppText.caption),
         const SizedBox(height: AppSpacing.lg),
 
         AppCard(
@@ -124,8 +128,8 @@ class _RecommendationFlowState extends State<RecommendationFlow> {
                   ),
                   const SizedBox(width: AppSpacing.sm),
                   Expanded(
-                      child: Text('$region-Plan', style: AppText.cardTitle)),
-                  AppTag(region, variant: TagVariant.region),
+                      child: Text('${region.label}-Plan', style: AppText.cardTitle)),
+                  AppTag(region.label, variant: TagVariant.region),
                 ],
               ),
               const SizedBox(height: AppSpacing.md),
@@ -153,9 +157,9 @@ class _RecommendationFlowState extends State<RecommendationFlow> {
           onPressed: () {
             final plan = TrainingPlan(
               id: 'plan_${DateTime.now().millisecondsSinceEpoch}',
-              name: '$region-Plan',
-              region: region,
-              goal: goal,
+              name: '${region.label}-Plan',
+              region: region.label,
+              goal: goal.label,
               exerciseIds: exercises.map((e) => e.id).toList(),
               sessionsPerWeek: 3,
               source: 'empfohlen',
