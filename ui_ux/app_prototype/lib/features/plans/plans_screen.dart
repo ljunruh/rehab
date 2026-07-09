@@ -188,10 +188,11 @@ class _PlansScreenState extends State<PlansScreen> {
                       child: _SwipeablePlanCard(
                         plan: p,
                         duration: p.duration,
-                        onOpen: () => widget.onOpenPlan(p.id),
-                        onArchive: () => app.archivePlan(p.id),
+                        //TODO[API]: DemoData ID, damit UI nicht kaputt geht. Wird später ersetzt p.id
+                        onOpen: () => widget.onOpenPlan('plan-knie'),
+                        onArchive: () => app.archivePlan('plan-knie'),
                         onRequestDelete: () =>
-                            setState(() => _confirmDeleteId = p.id),
+                            setState(() => _confirmDeleteId = 'plan-knie'),
                       ),
                     ),
                   ),
