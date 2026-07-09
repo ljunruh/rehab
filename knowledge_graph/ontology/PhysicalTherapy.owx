@@ -26405,9 +26405,19 @@ Langsam zur Mitte zurückkehren.
         <Datatype abbreviatedIRI="xsd:decimal"/>
     </DataPropertyRange>
     <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#ACLTear</IRI>
+        <Literal xml:lang="de">Riss des vorderen Kreuzbandes im Knie, häufig durch abrupte Dreh- oder Stoppbewegungen beim Sport.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#ACLTear</IRI>
         <Literal xml:lang="en">ACLTear</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Abs</IRI>
+        <Literal xml:lang="de">Bauchmuskulatur, die den Rumpf stabilisiert und die Körpermitte kräftigt.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
@@ -26415,9 +26425,19 @@ Langsam zur Mitte zurückkehren.
         <Literal xml:lang="en">Abs</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#AchillesTendinitis</IRI>
+        <Literal xml:lang="de">Reizung oder Entzündung der Achillessehne, meist durch Überlastung beim Laufen oder Springen.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#AchillesTendinitis</IRI>
         <Literal xml:lang="en">AchillesTendinitis</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#AcuteLowBackPain</IRI>
+        <Literal xml:lang="de">Plötzlich auftretende Schmerzen im Bereich der Lendenwirbelsäule, oft durch eine falsche Bewegung ausgelöst.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
@@ -26425,9 +26445,19 @@ Langsam zur Mitte zurückkehren.
         <Literal xml:lang="en">AcuteLowBackPain</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Adductors</IRI>
+        <Literal xml:lang="de">Adduktoren, die Muskelgruppe an der Innenseite des Oberschenkels.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#Adductors</IRI>
         <Literal xml:lang="en">Adductors</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Advanced</IRI>
+        <Literal xml:lang="de">Fortgeschrittenenstufe: geeignet für Geübte mit guter Körperbeherrschung und Ausdauer.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
@@ -26443,6 +26473,11 @@ Langsam zur Mitte zurückkehren.
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#AerobicStepping</IRI>
         <Literal xml:lang="en">AerobicStepping</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#AgeGroup</IRI>
+        <Literal xml:lang="de">Gruppe von Patienten, die durch gemeinsame Merkmale wie Alter oder Fitnessstand zusammengefasst werden.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
@@ -26515,6 +26550,11 @@ Langsam zur Mitte zurückkehren.
         <Literal xml:lang="en">Airplane_Torso</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#AllFourswithLegExtension</IRI>
+        <Literal xml:lang="de">Stabilisationsübung für Rumpf, Gesäß und unteren Rücken im Vierfüßlerstand.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#AllFourswithLegExtension</IRI>
         <Literal xml:lang="en">AllFourswithLegExtension</Literal>
@@ -26540,6 +26580,11 @@ Langsam zur Mitte zurückkehren.
         <Literal xml:lang="en">AnkleFrac</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#AnkleFracture</IRI>
+        <Literal xml:lang="de">Bruch eines oder mehrerer Knochen am Sprunggelenk, meist durch Umknicken oder Verdrehen.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#AnkleFracture</IRI>
         <Literal xml:lang="en">AnkleFracture</Literal>
@@ -26547,7 +26592,7 @@ Langsam zur Mitte zurückkehren.
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
         <IRI>#AnkleIssue</IRI>
-        <Literal>Instability, past injury, or pain in the ankle joints</Literal>
+        <Literal xml:lang="de">Instabilität, frühere Verletzung oder Schmerzen im Bereich der Sprunggelenke.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
@@ -26557,7 +26602,7 @@ Langsam zur Mitte zurückkehren.
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
         <IRI>#AnkleJoint</IRI>
-        <Literal>Sprunggelenk</Literal>
+        <Literal xml:lang="de">Sprunggelenk</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
@@ -26585,6 +26630,11 @@ Langsam zur Mitte zurückkehren.
         <Literal xml:lang="en">AnkleMuscleInjury</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Ankles</IRI>
+        <Literal xml:lang="de">Sprunggelenke als Körperregion, die das obere und untere Sprunggelenk umfasst.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#Ankles</IRI>
         <Literal xml:lang="en">Ankles</Literal>
@@ -26605,14 +26655,29 @@ Langsam zur Mitte zurückkehren.
         <Literal xml:lang="en">ArmMuscleInjury</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Armkreisen</IRI>
+        <Literal xml:lang="de">Einfache Mobilisationsübung für Schultergelenke, Schultergürtel und oberen Rücken.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#Armkreisen</IRI>
-        <Literal xml:lang="de">Armkreisen</Literal>
+        <Literal xml:lang="en">ArmCircles</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Armkreisen_ShoulderIssue</IRI>
+        <Literal xml:lang="de">Hinweis auf Schulter-Probleme, die bei den Armkreisen berücksichtigt werden sollten.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#Armkreisen_ShoulderIssue</IRI>
-        <Literal xml:lang="de">Armkreisen_ShoulderIssue</Literal>
+        <Literal xml:lang="en">ArmCircles_ShoulderIssue</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Arms</IRI>
+        <Literal xml:lang="de">Arme als Körperregion, die Oberarme, Unterarme und Hände einschließt.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
@@ -26630,9 +26695,9 @@ Langsam zur Mitte zurückkehren.
         <Literal xml:lang="en">Asana</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
         <IRI>#AssistedShoulderRotation</IRI>
-        <Literal>Assisted Shoulder Rotation</Literal>
+        <Literal xml:lang="de">Sanfte Mobilisationsübung für die Schulterrotation mit Unterstützung durch die andere Hand oder einen Stab.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
@@ -26640,14 +26705,14 @@ Langsam zur Mitte zurückkehren.
         <Literal xml:lang="en">AssistedShoulderRotation</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
         <IRI>#Atemuebung478</IRI>
-        <Literal>Atemuebung (4-7-8 Technik)</Literal>
+        <Literal xml:lang="de">Kontrollierte Atemübung zur Entspannung und bewussten Verlangsamung der Atmung.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#Atemuebung478</IRI>
-        <Literal xml:lang="de">Atemuebung478</Literal>
+        <Literal xml:lang="en">BreathingExercise478</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
@@ -26670,9 +26735,9 @@ Langsam zur Mitte zurückkehren.
         <Literal xml:lang="en">AvoidLongSitting</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>#AvoidLongSitting</IRI>
-        <Literal xml:lang="en">AvoidLongSittingen</Literal>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Back</IRI>
+        <Literal xml:lang="de">Rücken als hintere Körperregion vom Nacken bis zum Gesäß.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
@@ -26688,6 +26753,11 @@ Langsam zur Mitte zurückkehren.
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#BackFriendlyLifting</IRI>
         <Literal xml:lang="en">BackFriendlyLifting</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#BackIssue</IRI>
+        <Literal xml:lang="de">Beschwerden oder Verletzungen im Rückenbereich, die Übungen einschränken können.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
@@ -26720,6 +26790,11 @@ Langsam zur Mitte zurückkehren.
         <Literal xml:lang="en">Backpacking</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Backward</IRI>
+        <Literal xml:lang="de">Richtungsangabe nach hinten für die Ausrichtung von Übungen oder Bewegungen.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#Backward</IRI>
         <Literal xml:lang="en">Backward</Literal>
@@ -26730,6 +26805,11 @@ Langsam zur Mitte zurückkehren.
         <Literal xml:lang="en">Badminton</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Balance</IRI>
+        <Literal xml:lang="de">Gleichgewicht, also die Fähigkeit, den Körper stabil zu halten und gezielt zu bewegen.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#Balance</IRI>
         <Literal xml:lang="en">Balance</Literal>
@@ -26737,7 +26817,7 @@ Langsam zur Mitte zurückkehren.
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
         <IRI>#BalanceIssue</IRI>
-        <Literal>Difficulty maintaining equilibrium due to vestibular or muscular factors</Literal>
+        <Literal xml:lang="de">Schwierigkeiten, das Gleichgewicht zu halten, etwa durch Schwindel oder Muskelschwäche.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
@@ -26770,14 +26850,29 @@ Langsam zur Mitte zurückkehren.
         <Literal xml:lang="en">BeachVolleyball</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Beginner</IRI>
+        <Literal xml:lang="de">Anfängerstufe: geeignet für Einsteiger ohne oder mit wenig Vorerfahrung.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#Beginner</IRI>
         <Literal xml:lang="en">Beginner</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Biceps</IRI>
+        <Literal xml:lang="de">Bizeps, der große Beugemuskel an der Vorderseite des Oberarms.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#Biceps</IRI>
         <Literal xml:lang="en">Biceps</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#BicepsStrain</IRI>
+        <Literal xml:lang="de">Zerrung oder Riss des Bizepsmuskels, häufig durch Heben schwerer Lasten.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
@@ -26786,18 +26881,18 @@ Langsam zur Mitte zurückkehren.
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>#Bicycling12-13Mph</IRI>
-        <Literal xml:lang="en">Bicycling12-13Mph</Literal>
+        <IRI>#Bicycling12To13Mph</IRI>
+        <Literal xml:lang="en">Bicycling12To13Mph</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>#Bicycling14-15Mph</IRI>
-        <Literal xml:lang="en">Bicycling14-15Mph</Literal>
+        <IRI>#Bicycling14To15Mph</IRI>
+        <Literal xml:lang="en">Bicycling14To15Mph</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>#Bicycling16-19Mph</IRI>
-        <Literal xml:lang="en">Bicycling16-19Mph</Literal>
+        <IRI>#Bicycling16To19Mph</IRI>
+        <Literal xml:lang="en">Bicycling16To19Mph</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
@@ -26815,11 +26910,6 @@ Langsam zur Mitte zurückkehren.
         <Literal xml:lang="en">BodyPart</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-        <IRI>#Bouldering</IRI>
-        <Literal>Bouldering</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#Bouldering</IRI>
         <Literal xml:lang="en">Bouldering</Literal>
@@ -26830,39 +26920,54 @@ Langsam zur Mitte zurückkehren.
         <Literal xml:lang="en">Bowling</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
         <IRI>#Bruecke</IRI>
-        <Literal xml:lang="de">Bruecke</Literal>
+        <Literal xml:lang="de">Übung im Liegen, bei der das Becken angehoben wird, um Gesäß, hintere Oberschenkel und Rumpf zu kräftigen.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#Bruecke</IRI>
-        <Literal>Bruecke (Bridging)</Literal>
+        <Literal xml:lang="en">Bridge</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Bruecke_LowerBackIssue</IRI>
+        <Literal xml:lang="de">Hinweis auf Beschwerden im unteren Rücken, die bei der Brücke berücksichtigt werden sollten.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#Bruecke_LowerBackIssue</IRI>
-        <Literal xml:lang="de">Bruecke_LowerBackIssue</Literal>
+        <Literal xml:lang="en">Bridge_LowerBackIssue</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#BrustwirbelsaeulenRotation</IRI>
+        <Literal xml:lang="de">Mobilisationsübung für die Brustwirbelsäule mit sanften Drehbewegungen.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#BrustwirbelsaeulenRotation</IRI>
-        <Literal xml:lang="de">BrustwirbelsaeulenRotation</Literal>
+        <Literal xml:lang="en">ThoracicSpineRotation</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#BrustwirbelsaeulenRotation_SpineIssue</IRI>
+        <Literal xml:lang="de">Hinweis auf Wirbelsäulen-Probleme, die bei BrustwirbelsaeulenRotation berücksichtigt werden sollten.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#BrustwirbelsaeulenRotation_SpineIssue</IRI>
-        <Literal xml:lang="de">BrustwirbelsaeulenRotation_SpineIssue</Literal>
+        <Literal xml:lang="en">ThoracicSpineRotation_SpineIssue</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
         <IRI>#Cactus</IRI>
-        <Literal>Tadasana Cactus Arms</Literal>
+        <Literal xml:lang="en">Tadasana Cactus Arms</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
         <IRI>#Cactus</IRI>
-        <Literal>Often used as a preparatory pose for deeper backbends.</Literal>
+        <Literal xml:lang="en">Often used as a preparatory pose for deeper backbends.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
@@ -26910,6 +27015,11 @@ Langsam zur Mitte zurückkehren.
         <Literal xml:lang="en">Cactus_Torso</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#CalfStrain</IRI>
+        <Literal xml:lang="de">Zerrung oder Riss der Wadenmuskulatur, oft durch plötzliches Antreten oder Sprinten.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#CalfStrain</IRI>
         <Literal xml:lang="en">CalfStrain</Literal>
@@ -26920,9 +27030,19 @@ Langsam zur Mitte zurückkehren.
         <Literal xml:lang="en">Calisthenics</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Calorie</IRI>
+        <Literal xml:lang="de">Anzahl der Kalorien, die bei einer Aktivität ungefähr verbrannt werden.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#Calorie</IRI>
         <Literal xml:lang="en">Calorie</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Calves</IRI>
+        <Literal xml:lang="de">Waden, die Muskelgruppe an der Rückseite des Unterschenkels.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
@@ -27080,14 +27200,29 @@ Langsam zur Mitte zurückkehren.
         <Literal xml:lang="en">Chair_Torso</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Chest</IRI>
+        <Literal xml:lang="de">Brust als Körperregion, die den Brustkorb und die Brustmuskulatur umfasst.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#Chest</IRI>
         <Literal xml:lang="en">Chest</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#ChestDoorwayStretch</IRI>
+        <Literal xml:lang="de">Dehnübung für Brust und vordere Schulter im Türrahmen.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#ChestDoorwayStretch</IRI>
         <Literal xml:lang="en">ChestDoorwayStretch</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#ChestDoorwayStretch_ShoulderIssue</IRI>
+        <Literal xml:lang="de">Hinweis auf Schulter-Probleme, die bei ChestDoorwayStretch berücksichtigt werden sollten.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
@@ -27100,9 +27235,19 @@ Langsam zur Mitte zurückkehren.
         <Literal xml:lang="en">ChoppingWood</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#ChronicLowBackPain</IRI>
+        <Literal xml:lang="de">Länger andauernde Schmerzen im Bereich der Lendenwirbelsäule, die über Wochen oder Monate bestehen.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#ChronicLowBackPain</IRI>
         <Literal xml:lang="en">ChronicLowBackPain</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#ClavicleFracture</IRI>
+        <Literal xml:lang="de">Bruch des Schlüsselbeins, häufig durch Sturz auf die ausgestreckte Hand oder direkt auf die Schulter.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
@@ -27118,6 +27263,11 @@ Langsam zur Mitte zurückkehren.
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#Contraindication</IRI>
         <Literal xml:lang="en">Contraindication</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Coordination</IRI>
+        <Literal xml:lang="de">Koordination, das Zusammenspiel von Muskeln und Nerven für flüssige Bewegungen.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
@@ -27140,6 +27290,11 @@ Langsam zur Mitte zurückkehren.
         <Literal>Koordination/Beweglichkeit</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Core</IRI>
+        <Literal xml:lang="de">Rumpfmuskulatur, die den Körper stabilisiert und die Wirbelsäule schützt.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#Core</IRI>
         <Literal xml:lang="en">Core</Literal>
@@ -27157,7 +27312,7 @@ Langsam zur Mitte zurückkehren.
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
         <IRI>#CoreWeakness</IRI>
-        <Literal>Lack of abdominal and back muscle strength affecting balance or posture</Literal>
+        <Literal xml:lang="de">Schwäche der Rumpfmuskulatur, die Haltung und Stabilität beeinträchtigt.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
@@ -27305,9 +27460,9 @@ Langsam zur Mitte zurückkehren.
         <Literal xml:lang="en">DancingModern</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
         <IRI>#DeadBug</IRI>
-        <Literal>Dead Bug</Literal>
+        <Literal xml:lang="de">Übung im Liegen, bei der Arme und Beine gegenläufig bewegt werden, um die tiefe Rumpfmuskulatur zu trainieren.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
@@ -27315,9 +27470,19 @@ Langsam zur Mitte zurückkehren.
         <Literal xml:lang="en">DeadBug</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#DeadBug_LowerBackIssue</IRI>
+        <Literal xml:lang="de">Hinweis auf Beschwerden im unteren Rücken, die bei der Toten-Käfer-Übung berücksichtigt werden sollten.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#DeadBug_LowerBackIssue</IRI>
         <Literal xml:lang="en">DeadBug_LowerBackIssue</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Deadlift</IRI>
+        <Literal xml:lang="de">Kraftübung, bei der ein Gewicht vom Boden gehoben wird und Beine, Gesäß und Rücken gleichmäßig arbeiten.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
@@ -27335,9 +27500,19 @@ Langsam zur Mitte zurückkehren.
         <Literal xml:lang="en">DifficultyLevel</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#DislocatedShoulder</IRI>
+        <Literal xml:lang="de">Ausrenkung des Schultergelenks, bei der der Oberarmkopf aus der Gelenkpfanne rutscht.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#DislocatedShoulder</IRI>
         <Literal xml:lang="en">DislocatedShoulder</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Door</IRI>
+        <Literal xml:lang="de">Tür als Hilfsmittel, um Übungen wie Dehnungen an einem festen Rahmen auszuführen.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
@@ -27345,9 +27520,19 @@ Langsam zur Mitte zurückkehren.
         <Literal xml:lang="en">Door</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Down</IRI>
+        <Literal xml:lang="de">Richtungsangabe nach unten für die Ausrichtung von Übungen oder Bewegungen.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#Down</IRI>
         <Literal xml:lang="en">Down</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Dumble</IRI>
+        <Literal xml:lang="de">Kurzhantel als Trainingsgerät zur Kräftigung einzelner Muskelgruppen.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
@@ -27415,24 +27600,39 @@ Langsam zur Mitte zurückkehren.
         <Literal xml:lang="en">Eagle_Torso</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Einbeinstand</IRI>
+        <Literal xml:lang="de">Balanceübung, bei der auf einem Bein gestanden wird, um Stabilität und Beinkontrolle zu trainieren.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#Einbeinstand</IRI>
-        <Literal xml:lang="de">Einbeinstand</Literal>
+        <Literal xml:lang="en">SingleLegStand</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Einbeinstand_AnkleIssue</IRI>
+        <Literal xml:lang="de">Hinweis auf Sprunggelenk-Probleme, die bei dem Einbeinstand berücksichtigt werden sollten.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#Einbeinstand_AnkleIssue</IRI>
-        <Literal xml:lang="de">Einbeinstand_AnkleIssue</Literal>
+        <Literal xml:lang="en">SingleLegStand_AnkleIssue</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Einbeinstand_BalanceIssue</IRI>
+        <Literal xml:lang="de">Hinweis auf Gleichgewichts-Probleme, die bei dem Einbeinstand berücksichtigt werden sollten.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#Einbeinstand_BalanceIssue</IRI>
-        <Literal xml:lang="de">Einbeinstand_BalanceIssue</Literal>
+        <Literal xml:lang="en">SingleLegStand_BalanceIssue</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
         <IRI>#Elbow</IRI>
-        <Literal>Ellbogengelenk</Literal>
+        <Literal xml:lang="de">Ellbogengelenk</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
@@ -27458,6 +27658,11 @@ Langsam zur Mitte zurückkehren.
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#ElbowJointInjury</IRI>
         <Literal xml:lang="en">ElbowJointInjury</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Elbows</IRI>
+        <Literal xml:lang="de">Ellbogen als Körperregion, die das Ellenbogengelenk und die umliegenden Strukturen umfasst.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
@@ -27505,9 +27710,14 @@ Langsam zur Mitte zurückkehren.
         <Literal xml:lang="en">ErgonomicSitting</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Erhöhung</IRI>
+        <Literal xml:lang="de">Erhöhung oder Stufe, die als Trainingsgerät für Balance- und Kraftübungen dient.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#Erhöhung</IRI>
-        <Literal xml:lang="de">Erhöhung</Literal>
+        <Literal xml:lang="en">Elevation</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
@@ -27530,24 +27740,34 @@ Langsam zur Mitte zurückkehren.
         <Literal xml:lang="en">ExerciseProperties</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Faszienrolle</IRI>
+        <Literal xml:lang="de">Faszienrolle zur Massage und Lockerung von Muskeln und Bindegewebe.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#Faszienrolle</IRI>
-        <Literal xml:lang="de">Faszienrolle</Literal>
+        <Literal xml:lang="en">FasciaRoller</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#FaszienrolleRueckenWade</IRI>
+        <Literal xml:lang="de">Selbstmassage mit der Faszienrolle für Rücken und Waden zur Lockerung verspannter Muskulatur.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#FaszienrolleRueckenWade</IRI>
-        <Literal>Faszienrolle Ruecken/Wade</Literal>
+        <Literal xml:lang="en">FasciaRollerBackCalf</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>#FaszienrolleRueckenWade</IRI>
-        <Literal xml:lang="de">FaszienrolleRueckenWade</Literal>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#FaszienrolleRueckenWade_SpineIssue</IRI>
+        <Literal xml:lang="de">Hinweis auf Wirbelsäulen-Probleme, die bei FaszienrolleRueckenWade berücksichtigt werden sollten.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#FaszienrolleRueckenWade_SpineIssue</IRI>
-        <Literal xml:lang="de">FaszienrolleRueckenWade_SpineIssue</Literal>
+        <Literal xml:lang="en">FasciaRollerBackCalf_SpineIssue</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
@@ -27560,29 +27780,49 @@ Langsam zur Mitte zurückkehren.
         <Literal xml:lang="en">Fencing</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
         <IRI>#FerseZehenGang</IRI>
-        <Literal>Ferse-Zehen-Gang</Literal>
+        <Literal xml:lang="de">Gangübung, bei der abwechselnd auf Fersen und Zehen gegangen wird, um Unterschenkel und Balance zu stärken.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#FerseZehenGang</IRI>
-        <Literal xml:lang="de">FerseZehenGang</Literal>
+        <Literal xml:lang="en">HeelToeWalk</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#FerseZehenGang_AnkleIssue</IRI>
+        <Literal xml:lang="de">Hinweis auf Sprunggelenk-Probleme, die bei dem Ferse-Zehen-Gang berücksichtigt werden sollten.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#FerseZehenGang_AnkleIssue</IRI>
-        <Literal xml:lang="de">FerseZehenGang_AnkleIssue</Literal>
+        <Literal xml:lang="en">HeelToeWalk_AnkleIssue</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#FerseZehenGang_BalanceIssue</IRI>
+        <Literal xml:lang="de">Hinweis auf Gleichgewichts-Probleme, die bei dem Ferse-Zehen-Gang berücksichtigt werden sollten.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#FerseZehenGang_BalanceIssue</IRI>
-        <Literal xml:lang="de">FerseZehenGang_BalanceIssue</Literal>
+        <Literal xml:lang="en">HeelToeWalk_BalanceIssue</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#FigureFourStretch</IRI>
+        <Literal xml:lang="de">Dehnübung im Liegen, bei der ein Fuß über das gegenseitige Knie gelegt wird, um die Hüftaußenrotatoren zu dehnen.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#FigureFourStretch</IRI>
         <Literal xml:lang="en">FigureFourStretch</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#FigureFourStretch_KneeIssue</IRI>
+        <Literal xml:lang="de">Hinweis auf Knie-Probleme, die bei der Figure-Four-Dehnung berücksichtigt werden sollten.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
@@ -27660,9 +27900,19 @@ Langsam zur Mitte zurückkehren.
         <Literal xml:lang="en">Flamingo_Torso</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Flexibility</IRI>
+        <Literal xml:lang="de">Beweglichkeit, also der mögliche Bewegungsumfang von Gelenken und Muskeln.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#Flexibility</IRI>
         <Literal xml:lang="en">Flexibility</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Focus</IRI>
+        <Literal xml:lang="de">Konzentration und bewusste Aufmerksamkeit auf die Ausführung der Bewegung.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
@@ -27690,9 +27940,19 @@ Langsam zur Mitte zurückkehren.
         <Literal xml:lang="en">FootballTouchFlag</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#ForearmFlexors</IRI>
+        <Literal xml:lang="de">Beugemuskeln des Unterarms, die für das Greifen und Beugen im Handgelenk wichtig sind.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#ForearmFlexors</IRI>
         <Literal xml:lang="en">ForearmFlexors</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Forward</IRI>
+        <Literal xml:lang="de">Richtungsangabe nach vorne für die Ausrichtung von Übungen oder Bewegungen.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
@@ -27725,9 +27985,19 @@ Langsam zur Mitte zurückkehren.
         <Literal xml:lang="en">FrisbeeUltimate</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#FrontDeltoid</IRI>
+        <Literal xml:lang="de">Vordere Schultermuskulatur, die den Arm nach vorne hebt.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#FrontDeltoid</IRI>
         <Literal xml:lang="en">FrontDeltoid</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#FrozenShoulder</IRI>
+        <Literal xml:lang="de">Schultersteife mit schmerzhaft eingeschränkter Beweglichkeit des Schultergelenks.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
@@ -27800,39 +28070,59 @@ Langsam zur Mitte zurückkehren.
         <Literal xml:lang="en">Gate_Torso</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
         <IRI>#GewichtsverlagerungSeitlich</IRI>
-        <Literal>Gewichtsverlagerung seitlich</Literal>
+        <Literal xml:lang="de">Übung, bei der das Körpergewicht langsam von einem Bein auf das andere verlagert wird.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#GewichtsverlagerungSeitlich</IRI>
-        <Literal xml:lang="de">GewichtsverlagerungSeitlich</Literal>
+        <Literal xml:lang="en">LateralWeightShift</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#GewichtsverlagerungSeitlich_BalanceIssue</IRI>
+        <Literal xml:lang="de">Hinweis auf Gleichgewichts-Probleme, die bei der seitlichen Gewichtsverlagerung berücksichtigt werden sollten.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#GewichtsverlagerungSeitlich_BalanceIssue</IRI>
-        <Literal xml:lang="de">GewichtsverlagerungSeitlich_BalanceIssue</Literal>
+        <Literal xml:lang="en">LateralWeightShift_BalanceIssue</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#GleichgewichtInstabil</IRI>
+        <Literal xml:lang="de">Übung auf instabilem Untergrund, die Gleichgewicht und tiefe Stabilisationsmuskulatur anspricht.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#GleichgewichtInstabil</IRI>
-        <Literal>Gleichgewicht auf instabilem Untergrund</Literal>
+        <Literal xml:lang="en">UnstableBalance</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>#GleichgewichtInstabil</IRI>
-        <Literal xml:lang="de">GleichgewichtInstabil</Literal>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#GleichgewichtInstabil_AnkleIssue</IRI>
+        <Literal xml:lang="de">Hinweis auf Sprunggelenk-Probleme, die bei der Gleichgewichtsübung auf instabilem Untergrund berücksichtigt werden sollten.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#GleichgewichtInstabil_AnkleIssue</IRI>
-        <Literal xml:lang="de">GleichgewichtInstabil_AnkleIssue</Literal>
+        <Literal xml:lang="en">UnstableBalance_AnkleIssue</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#GleichgewichtInstabil_BalanceIssue</IRI>
+        <Literal xml:lang="de">Hinweis auf Gleichgewichts-Probleme, die bei der Gleichgewichtsübung auf instabilem Untergrund berücksichtigt werden sollten.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#GleichgewichtInstabil_BalanceIssue</IRI>
-        <Literal xml:lang="de">GleichgewichtInstabil_BalanceIssue</Literal>
+        <Literal xml:lang="en">UnstableBalance_BalanceIssue</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Glutes</IRI>
+        <Literal xml:lang="de">Gesäßmuskulatur, die für Stabilität und Bewegung von Hüfte und Becken wichtig ist.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
@@ -27987,7 +28277,7 @@ Langsam zur Mitte zurückkehren.
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
         <IRI>#HamstringIssue</IRI>
-        <Literal>Tightness or strain in the back thigh muscles</Literal>
+        <Literal xml:lang="de">Verspannung oder Schmerz in der hinteren Oberschenkelmuskulatur.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
@@ -27995,9 +28285,19 @@ Langsam zur Mitte zurückkehren.
         <Literal xml:lang="en">HamstringIssue</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#HamstringStrain</IRI>
+        <Literal xml:lang="de">Zerrung oder Riss der rückseitigen Oberschenkelmuskulatur, typisch beim Sprinten oder schnellen Stoppbewegungen.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#HamstringStrain</IRI>
         <Literal xml:lang="en">HamstringStrain</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#HamstringStretch</IRI>
+        <Literal xml:lang="de">Dehnübung für die rückseitige Oberschenkelmuskulatur.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
@@ -28005,9 +28305,19 @@ Langsam zur Mitte zurückkehren.
         <Literal xml:lang="en">HamstringStretch</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#HamstringStretch_HamstringIssue</IRI>
+        <Literal xml:lang="de">Hinweis auf Oberschenkel-Probleme, die bei der Oberschenkel-Dehnung berücksichtigt werden sollten.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#HamstringStretch_HamstringIssue</IRI>
         <Literal xml:lang="en">HamstringStretch_HamstringIssue</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Hamstrings</IRI>
+        <Literal xml:lang="de">Beinbeuger, die Muskelgruppe an der Rückseite des Oberschenkels.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
@@ -28090,6 +28400,11 @@ Langsam zur Mitte zurückkehren.
         <Literal xml:lang="en">HighLunge_LowerBackIssue</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#HighRisk</IRI>
+        <Literal xml:lang="de">Hohes Risiko: deutliche Einschränkung oder ernste Beschwerden, die Vorsicht erfordern.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#HighRisk</IRI>
         <Literal xml:lang="en">HighRisk</Literal>
@@ -28103,6 +28418,11 @@ Langsam zur Mitte zurückkehren.
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#HikingHills</IRI>
         <Literal xml:lang="en">HikingHills</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Hip</IRI>
+        <Literal xml:lang="de">Hüfte als Körperregion, die das Hüftgelenk und die umliegende Muskulatur umfasst.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
@@ -28120,6 +28440,11 @@ Langsam zur Mitte zurückkehren.
         <Literal xml:lang="en">HipFrac</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#HipFracture</IRI>
+        <Literal xml:lang="de">Bruch des Oberschenkelhalses, häufig durch Stürze bei älteren Menschen mit Osteoporose.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#HipFracture</IRI>
         <Literal xml:lang="en">HipFracture</Literal>
@@ -28127,7 +28452,7 @@ Langsam zur Mitte zurückkehren.
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
         <IRI>#HipIssue</IRI>
-        <Literal>Joint stiffness, misalignment, or discomfort in the hip region</Literal>
+        <Literal xml:lang="de">Steifigkeit, Fehlstellung oder Schmerzen im Bereich der Hüfte.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
@@ -28137,7 +28462,7 @@ Langsam zur Mitte zurückkehren.
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
         <IRI>#HipJoint</IRI>
-        <Literal>Hüftgelenk</Literal>
+        <Literal xml:lang="de">Hüftgelenk</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
@@ -28170,6 +28495,11 @@ Langsam zur Mitte zurückkehren.
         <Literal xml:lang="en">HockeyFieldOrIce</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Horizontally</IRI>
+        <Literal xml:lang="de">Horizontale Ausrichtung, parallel zum Boden.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#Horizontally</IRI>
         <Literal xml:lang="en">Horizontally</Literal>
@@ -28187,27 +28517,32 @@ Langsam zur Mitte zurückkehren.
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
         <IRI>#HueftbeugerDehnung</IRI>
-        <Literal>Bekannt auch als Hip Flexor Stretch</Literal>
+        <Literal xml:lang="de">Dehnübung für die Hüftbeugemuskulatur an der Vorderseite der Hüfte.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#HueftbeugerDehnung</IRI>
-        <Literal>Hueftbeuger-Dehnung</Literal>
+        <Literal xml:lang="en">HipFlexorStretch</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>#HueftbeugerDehnung</IRI>
-        <Literal xml:lang="de">HueftbeugerDehnung</Literal>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#HueftbeugerDehnung_HipIssue</IRI>
+        <Literal xml:lang="de">Hinweis auf Hüft-Probleme, die bei der Hüftbeuger-Dehnung berücksichtigt werden sollten.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#HueftbeugerDehnung_HipIssue</IRI>
-        <Literal xml:lang="de">HueftbeugerDehnung_HipIssue</Literal>
+        <Literal xml:lang="en">HipFlexorStretch_HipIssue</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#HueftbeugerDehnung_KneeIssue</IRI>
+        <Literal xml:lang="de">Hinweis auf Knie-Probleme, die bei der Hüftbeuger-Dehnung berücksichtigt werden sollten.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#HueftbeugerDehnung_KneeIssue</IRI>
-        <Literal xml:lang="de">HueftbeugerDehnung_KneeIssue</Literal>
+        <Literal xml:lang="en">HipFlexorStretch_KneeIssue</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
@@ -28223,6 +28558,11 @@ Langsam zur Mitte zurückkehren.
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#Injury</IRI>
         <Literal xml:lang="en">Injury</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Intermediate</IRI>
+        <Literal xml:lang="de">Mittelstufe: geeignet für Personen mit Grundkenntnissen und regelmäßiger Übungserfahrung.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
@@ -28255,6 +28595,11 @@ Langsam zur Mitte zurückkehren.
         <Literal xml:lang="en">Judo</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#JumpingJacks</IRI>
+        <Literal xml:lang="de">Hampelmann, eine klassische Aufwärmübung, die den gesamten Kreislauf aktiviert.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#JumpingJacks</IRI>
         <Literal xml:lang="en">JumpingJacks</Literal>
@@ -28265,14 +28610,14 @@ Langsam zur Mitte zurückkehren.
         <Literal xml:lang="en">Karate</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
         <IRI>#Katze-Kuh-Übung</IRI>
-        <Literal xml:lang="de">Katze-Kuh-Übung</Literal>
+        <Literal xml:lang="de">Mobilisationsübung für die Wirbelsäule im Vierfüßlerstand, die abwechselnd den Rücken rund und hohl macht.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#Katze-Kuh-Übung</IRI>
-        <Literal>KatzeKuh</Literal>
+        <Literal xml:lang="en">CatCow</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
@@ -28280,24 +28625,34 @@ Langsam zur Mitte zurückkehren.
         <Literal xml:lang="en">Kayaking</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
         <IRI>#Kindpose</IRI>
-        <Literal xml:lang="de">Kindpose</Literal>
+        <Literal xml:lang="de">Ruhestellung im Sitzen mit nach vorne geneigtem Oberkörper, die Rücken und Hüfte sanft dehnt.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#Kindpose</IRI>
-        <Literal>Kindpose (Child&apos;s Pose)</Literal>
+        <Literal xml:lang="en">ChildPose</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Kindpose_HipIssue</IRI>
+        <Literal xml:lang="de">Hinweis auf Hüft-Probleme, die bei der Kindhaltung berücksichtigt werden sollten.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#Kindpose_HipIssue</IRI>
-        <Literal xml:lang="de">Kindpose_HipIssue</Literal>
+        <Literal xml:lang="en">ChildPose_HipIssue</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Kindpose_KneeIssue</IRI>
+        <Literal xml:lang="de">Hinweis auf Knie-Probleme, die bei der Kindhaltung berücksichtigt werden sollten.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#Kindpose_KneeIssue</IRI>
-        <Literal xml:lang="de">Kindpose_KneeIssue</Literal>
+        <Literal xml:lang="en">ChildPose_KneeIssue</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
@@ -28365,6 +28720,11 @@ Langsam zur Mitte zurückkehren.
         <Literal xml:lang="en">KneeFrac</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#KneeFracture</IRI>
+        <Literal xml:lang="de">Knochenbruch im Bereich des Kniegelenks, etwa der Kniescheibe oder des Schienbeinkopfes.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#KneeFracture</IRI>
         <Literal xml:lang="en">KneeFracture</Literal>
@@ -28372,7 +28732,7 @@ Langsam zur Mitte zurückkehren.
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
         <IRI>#KneeIssue</IRI>
-        <Literal>Any injury, instability, or strain involving the knee joint</Literal>
+        <Literal xml:lang="de">Verletzung, Instabilität oder Belastung im Bereich des Kniegelenks.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
@@ -28382,7 +28742,7 @@ Langsam zur Mitte zurückkehren.
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
         <IRI>#KneeJoint</IRI>
-        <Literal>Kniegelenk</Literal>
+        <Literal xml:lang="de">Kniegelenk</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
@@ -28400,9 +28760,19 @@ Langsam zur Mitte zurückkehren.
         <Literal xml:lang="en">KneeJointInjury</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#KneeOsteoarthritis</IRI>
+        <Literal xml:lang="de">Verschleiß des Knorpels im Kniegelenk, der mit zunehmendem Alter Schmerzen und Steifigkeit verursacht.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#KneeOsteoarthritis</IRI>
         <Literal xml:lang="en">KneeOsteoarthritis</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Knees</IRI>
+        <Literal xml:lang="de">Knie als Körperregion, die das Kniegelenk und die umliegenden Strukturen einschließt.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
@@ -28410,24 +28780,24 @@ Langsam zur Mitte zurückkehren.
         <Literal xml:lang="en">Knees</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
         <IRI>#KniegelenkMobilisation</IRI>
-        <Literal xml:lang="de">Fersengleiten mit Handtuch</Literal>
+        <Literal xml:lang="de">Sanfte Mobilisationsübung zur Verbesserung der Beweglichkeit des Kniegelenks.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#KniegelenkMobilisation</IRI>
-        <Literal>Kniegelenk-Mobilisation</Literal>
+        <Literal xml:lang="en">KneeJointMobilisation</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>#KniegelenkMobilisation</IRI>
-        <Literal xml:lang="de">KniegelenkMobilisation</Literal>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#KniegelenkMobilisation_KneeIssue</IRI>
+        <Literal xml:lang="de">Hinweis auf Knie-Probleme, die bei der Kniegelenk-Mobilisation berücksichtigt werden sollten.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#KniegelenkMobilisation_KneeIssue</IRI>
-        <Literal xml:lang="de">KniegelenkMobilisation_KneeIssue</Literal>
+        <Literal xml:lang="en">KneeJointMobilisation_KneeIssue</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
@@ -28435,9 +28805,19 @@ Langsam zur Mitte zurückkehren.
         <Literal xml:lang="en">Lacrosse</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#LatStretch</IRI>
+        <Literal xml:lang="de">Dehnübung für den breiten Rückenmuskel, die die Beweglichkeit der Schulter verbessert.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#LatStretch</IRI>
         <Literal xml:lang="en">LatStretch</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#LatStretch_ShoulderIssue</IRI>
+        <Literal xml:lang="de">Hinweis auf Schulter-Probleme, die bei der Latissimus-Dehnung berücksichtigt werden sollten.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
@@ -28445,9 +28825,19 @@ Langsam zur Mitte zurückkehren.
         <Literal xml:lang="en">LatStretch_ShoulderIssue</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#LateralDeltoids</IRI>
+        <Literal xml:lang="de">Seitliche Schultermuskulatur, die den Arm seitlich anhebt.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#LateralDeltoids</IRI>
         <Literal xml:lang="en">LateralDeltoids</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Lats</IRI>
+        <Literal xml:lang="de">Breiter Rückenmuskel, der für die Arm- und Rumpfbewegung wichtig ist.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
@@ -28455,9 +28845,19 @@ Langsam zur Mitte zurückkehren.
         <Literal xml:lang="en">Lats</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Left</IRI>
+        <Literal xml:lang="de">Richtungsangabe nach links für die Ausrichtung von Übungen oder Bewegungen.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#Left</IRI>
         <Literal xml:lang="en">Left</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#LeftArm</IRI>
+        <Literal xml:lang="de">Linker Arm als Körperregion des Patienten.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
@@ -28465,9 +28865,19 @@ Langsam zur Mitte zurückkehren.
         <Literal xml:lang="en">LeftArm</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#LeftLeg</IRI>
+        <Literal xml:lang="de">Linkes Bein als Körperregion des Patienten.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#LeftLeg</IRI>
         <Literal xml:lang="en">LeftLeg</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#LegRaise</IRI>
+        <Literal xml:lang="de">Übung im Liegen, bei der die Beine angehoben werden, um die vordere Rumpf- und Hüftmuskulatur zu kräftigen.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
@@ -28475,9 +28885,19 @@ Langsam zur Mitte zurückkehren.
         <Literal xml:lang="en">LegRaise</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#LegRaise_LowerBackIssue</IRI>
+        <Literal xml:lang="de">Hinweis auf Beschwerden im unteren Rücken, die bei LegRaise berücksichtigt werden sollten.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#LegRaise_LowerBackIssue</IRI>
         <Literal xml:lang="en">LegRaise_LowerBackIssue</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Legs</IRI>
+        <Literal xml:lang="de">Beine als Körperregion von der Hüfte bis zu den Füßen.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
@@ -28505,9 +28925,19 @@ Langsam zur Mitte zurückkehren.
         <Literal xml:lang="en">LimbAlignment</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#LowRisk</IRI>
+        <Literal xml:lang="de">Geringes Risiko: leichte Beschwerden oder Einschränkungen, die kaum Probleme verursachen.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#LowRisk</IRI>
         <Literal xml:lang="en">LowRisk</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#LowerBack</IRI>
+        <Literal xml:lang="de">Unterer Rücken im Bereich der Lendenwirbelsäule.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
@@ -28517,7 +28947,7 @@ Langsam zur Mitte zurückkehren.
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
         <IRI>#LowerBackIssue</IRI>
-        <Literal>Discomfort or risk in the lumbar region of the spine</Literal>
+        <Literal xml:lang="de">Beschwerden oder Schmerzen im Bereich der Lendenwirbelsäule.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
@@ -28545,6 +28975,11 @@ Langsam zur Mitte zurückkehren.
         <Literal xml:lang="en">LowerLegMuscleInjury</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#LumbarDiscHerniation</IRI>
+        <Literal xml:lang="de">Bandscheibenvorfall im Bereich der Lendenwirbelsäule, bei dem Gewebe auf Nerven drückt und Schmerzen verursacht.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#LumbarDiscHerniation</IRI>
         <Literal xml:lang="en">LumbarDiscHerniation</Literal>
@@ -28560,9 +28995,19 @@ Langsam zur Mitte zurückkehren.
         <Literal xml:lang="en">LumbarSpinePain</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#LumbarStrain</IRI>
+        <Literal xml:lang="de">Zerrung der Rückenmuskulatur im Lendenbereich, oft durch Heben oder plötzliche Drehbewegungen.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#LumbarStrain</IRI>
         <Literal xml:lang="en">LumbarStrain</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#MCLSprain</IRI>
+        <Literal xml:lang="de">Verletzung des inneren Seitenbandes am Knie durch eine seitliche Krafteinwirkung auf das Gelenk.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
@@ -28570,9 +29015,19 @@ Langsam zur Mitte zurückkehren.
         <Literal xml:lang="en">MCLSprain</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#MET</IRI>
+        <Literal xml:lang="de">Wert zur Einschätzung der Intensität einer körperlichen Aktivität im Vergleich zum Ruhezustand.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#MET</IRI>
         <Literal xml:lang="en">MET</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Mat</IRI>
+        <Literal xml:lang="de">Turnmatte als weiche Unterlage für Übungen am Boden.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
@@ -28580,14 +29035,29 @@ Langsam zur Mitte zurückkehren.
         <Literal xml:lang="en">Mat</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#MediumRisk</IRI>
+        <Literal xml:lang="de">Mittleres Risiko: spürbare Beschwerden oder Einschränkungen, die Aufmerksamkeit erfordern.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#MediumRisk</IRI>
         <Literal xml:lang="en">MediumRisk</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#MeniscusTear</IRI>
+        <Literal xml:lang="de">Riss eines Meniskus im Knie, oft durch Drehbewegungen unter Belastung oder im Alter.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#MeniscusTear</IRI>
         <Literal xml:lang="en">MeniscusTear</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Mild</IRI>
+        <Literal xml:lang="de">Leichte Ausprägung: nur geringe Beschwerden oder Einschränkungen.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
@@ -28605,9 +29075,19 @@ Langsam zur Mitte zurückkehren.
         <Literal xml:lang="de">MobilisationStretching</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Mobility</IRI>
+        <Literal xml:lang="de">Mobilität, die Fähigkeit, sich frei und kontrolliert zu bewegen.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#Mobility</IRI>
         <Literal xml:lang="en">Mobility</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Moderate</IRI>
+        <Literal xml:lang="de">Mittlere Ausprägung: merkliche Beschwerden, die den Alltag beeinträchtigen können.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
@@ -28615,14 +29095,9 @@ Langsam zur Mitte zurückkehren.
         <Literal xml:lang="en">Moderate</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
         <IRI>#MonsterWalk</IRI>
-        <Literal xml:lang="en">Monster Walk</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>#MonsterWalk</IRI>
-        <Literal xml:lang="de">Monster Walk mit Widerstandsband</Literal>
+        <Literal xml:lang="de">Gangübung mit deutlich angehobenen Knien zur Kräftigung von Hüfte und Oberschenkeln.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
@@ -28645,9 +29120,19 @@ Langsam zur Mitte zurückkehren.
         <Literal xml:lang="en">Mountain</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#MountainClimber</IRI>
+        <Literal xml:lang="de">Dynamische Übung im Liegestütz, bei der die Beine abwechselnd zur Brust gezogen werden.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#MountainClimber</IRI>
         <Literal xml:lang="en">MountainClimber</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#MountainClimber_WristIssue</IRI>
+        <Literal xml:lang="de">Hinweis auf Handgelenk-Probleme, die bei der Bergsteiger-Übung berücksichtigt werden sollten.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
@@ -28695,19 +29180,24 @@ Langsam zur Mitte zurückkehren.
         <Literal xml:lang="en">MowingLawn</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
         <IRI>#Muschel</IRI>
-        <Literal xml:lang="de">Muschel</Literal>
+        <Literal xml:lang="de">Übung in Seitenlage, bei der das obere Knie wie eine Muschel geöffnet wird, um die Hüftaußenrotatoren zu kräftigen.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#Muschel</IRI>
-        <Literal>Muschel (Clamshell)</Literal>
+        <Literal xml:lang="en">ClamShell</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Muschel_HipIssue</IRI>
+        <Literal xml:lang="de">Hinweis auf Hüft-Probleme, die bei Muschel berücksichtigt werden sollten.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#Muschel_HipIssue</IRI>
-        <Literal xml:lang="de">Muschel_HipIssue</Literal>
+        <Literal xml:lang="en">ClamShell_HipIssue</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
@@ -28730,14 +29220,29 @@ Langsam zur Mitte zurückkehren.
         <Literal xml:lang="en">MuscleInjury</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Nackendehnungen</IRI>
+        <Literal xml:lang="de">Sanfte Dehnübungen für die Hals- und Nackenmuskulatur zur Lockerung von Verspannungen.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#Nackendehnungen</IRI>
-        <Literal xml:lang="de">Nackendehnungen</Literal>
+        <Literal xml:lang="en">NeckStretches</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Nackendehnungen_NeckIssue</IRI>
+        <Literal xml:lang="de">Hinweis auf Nacken-Probleme, die bei den Nackendehnungen berücksichtigt werden sollten.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#Nackendehnungen_NeckIssue</IRI>
-        <Literal xml:lang="de">Nackendehnungen_NeckIssue</Literal>
+        <Literal xml:lang="en">NeckStretches_NeckIssue</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Neck</IRI>
+        <Literal xml:lang="de">Hals und Nacken als Körperregion zwischen Kopf und Schultern.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
@@ -28747,7 +29252,7 @@ Langsam zur Mitte zurückkehren.
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
         <IRI>#NeckIssue</IRI>
-        <Literal>Tension, instability, or injury in the cervical spine or neck area</Literal>
+        <Literal xml:lang="de">Verspannung oder Schmerz im Bereich der Halswirbelsäule.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
@@ -28757,7 +29262,7 @@ Langsam zur Mitte zurückkehren.
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
         <IRI>#NeckJoint</IRI>
-        <Literal>Halswirbelsäulen-Bereich (Cervicalgelenke)</Literal>
+        <Literal xml:lang="de">Halswirbelsäulen-Bereich</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
@@ -28775,9 +29280,19 @@ Langsam zur Mitte zurückkehren.
         <Literal xml:lang="en">NeckMuscleInjury</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#NeckStiffness</IRI>
+        <Literal xml:lang="de">Verspannung oder Versteifung der Hals- und Nackenmuskulatur, oft durch Fehlhaltung oder Stress.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#NeckStiffness</IRI>
         <Literal xml:lang="en">NeckStiffness</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#None</IRI>
+        <Literal xml:lang="de">Kein Hilfsmittel erforderlich: die Übung wird ohne zusätzliches Gerät ausgeführt.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
@@ -28785,14 +29300,29 @@ Langsam zur Mitte zurückkehren.
         <Literal xml:lang="en">None</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Obliques</IRI>
+        <Literal xml:lang="de">Schräge Bauchmuskeln, die seitlich am Rumpf verlaufen und die Rotation unterstützen.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#Obliques</IRI>
         <Literal xml:lang="en">Obliques</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Orthogonal</IRI>
+        <Literal xml:lang="de">Rechtwinklige Ausrichtung, also senkrecht zueinander stehende Richtungen.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#Orthogonal</IRI>
         <Literal xml:lang="en">Orthogonal</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Pain</IRI>
+        <Literal xml:lang="de">Schmerzempfindung des Patienten, die je nach Ursache und Intensität unterschiedlich behandelt wird.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
@@ -28817,12 +29347,7 @@ Langsam zur Mitte zurückkehren.
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#ParadiseBirdInstruction</IRI>
-        <Literal>BirdInstruction</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>#ParadiseBirdInstruction</IRI>
-        <Literal xml:lang="en">ParadiseBirdInstruction</Literal>
+        <Literal xml:lang="en">BirdInstruction</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
@@ -28875,6 +29400,11 @@ Langsam zur Mitte zurückkehren.
         <Literal xml:lang="en">Patient</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Pelvic</IRI>
+        <Literal xml:lang="de">Beckenbereich als Körperregion, die das Becken und die umliegenden Strukturen umfasst.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#Pelvic</IRI>
         <Literal xml:lang="en">Pelvic</Literal>
@@ -28890,9 +29420,9 @@ Langsam zur Mitte zurückkehren.
         <Literal xml:lang="en">PhoneAtEyeLevel</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
         <IRI>#PigeonPose</IRI>
-        <Literal>Pigeon Pose</Literal>
+        <Literal xml:lang="de">Dehnübung im Sitzen, die die äußere Hüftmuskulatur und den Piriformis-Muskel gezielt dehnt.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
@@ -28900,9 +29430,19 @@ Langsam zur Mitte zurückkehren.
         <Literal xml:lang="en">PigeonPose</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#PigeonPose_HipIssue</IRI>
+        <Literal xml:lang="de">Hinweis auf Hüft-Probleme, die bei der Taubenstellung berücksichtigt werden sollten.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#PigeonPose_HipIssue</IRI>
         <Literal xml:lang="en">PigeonPose_HipIssue</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#PigeonPose_KneeIssue</IRI>
+        <Literal xml:lang="de">Hinweis auf Knie-Probleme, die bei der Taubenstellung berücksichtigt werden sollten.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
@@ -28910,9 +29450,19 @@ Langsam zur Mitte zurückkehren.
         <Literal xml:lang="en">PigeonPose_KneeIssue</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#PiriformisStretch</IRI>
+        <Literal xml:lang="de">Dehnübung für den Piriformis-Muskel in der tiefen Hüftmuskulatur.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#PiriformisStretch</IRI>
         <Literal xml:lang="en">PiriformisStretch</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#PiriformisStretch_KneeIssue</IRI>
+        <Literal xml:lang="de">Hinweis auf Knie-Probleme, die bei der Piriformis-Dehnung berücksichtigt werden sollten.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
@@ -28920,14 +29470,29 @@ Langsam zur Mitte zurückkehren.
         <Literal xml:lang="en">PiriformisStretch_KneeIssue</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Plank</IRI>
+        <Literal xml:lang="de">Statische Halteübung in Bauchlage auf Unterarmen und Zehen, die den gesamten Rumpf kräftigt.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#Plank</IRI>
         <Literal xml:lang="en">Plank</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Plank_WristIssue</IRI>
+        <Literal xml:lang="de">Hinweis auf Handgelenk-Probleme, die bei der Plank-Übung berücksichtigt werden sollten.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#Plank_WristIssue</IRI>
         <Literal xml:lang="en">Plank_WristIssue</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#PlantarFasciitis</IRI>
+        <Literal xml:lang="de">Schmerzhafte Reizung der Sehnenplatte an der Fußsohle, oft morgens oder nach langem Stehen spürbar.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
@@ -28945,19 +29510,29 @@ Langsam zur Mitte zurückkehren.
         <Literal xml:lang="en">PlayingPiano</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Posture</IRI>
+        <Literal xml:lang="de">Haltung, die aufrechte und entlastende Ausrichtung des Körpers.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#Posture</IRI>
         <Literal xml:lang="en">Posture</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
         <IRI>#ProgressiveMuskelentspannung</IRI>
-        <Literal>Progressive Muskelentspannung</Literal>
+        <Literal xml:lang="de">Entspannungsverfahren, bei dem Muskelgruppen nacheinander bewusst angespannt und wieder gelöst werden.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#ProgressiveMuskelentspannung</IRI>
-        <Literal xml:lang="de">ProgressiveMuskelentspannung</Literal>
+        <Literal xml:lang="en">ProgressiveMuscleRelaxation</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Psoas</IRI>
+        <Literal xml:lang="de">Hüftbeugemuskel, der tief im Bauchraum sitzt und die Hüfte beugt.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
@@ -28965,9 +29540,19 @@ Langsam zur Mitte zurückkehren.
         <Literal xml:lang="en">Psoas</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#PushUps</IRI>
+        <Literal xml:lang="de">Klassische Liegestützübung, die Brust, Schulter und Arme kräftigt.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#PushUps</IRI>
         <Literal xml:lang="en">PushUps</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#PushUps_WristIssue</IRI>
+        <Literal xml:lang="de">Hinweis auf Handgelenk-Probleme, die bei den Liegestützen berücksichtigt werden sollten.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
@@ -29040,14 +29625,29 @@ Langsam zur Mitte zurückkehren.
         <Literal xml:lang="en">Pyramid_Torso</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Quadriceps</IRI>
+        <Literal xml:lang="de">Quadrizeps, die große Muskelgruppe an der Vorderseite des Oberschenkels.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#Quadriceps</IRI>
         <Literal xml:lang="en">Quadriceps</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#QuadricepsStrain</IRI>
+        <Literal xml:lang="de">Zerrung oder Riss der vorderen Oberschenkelmuskulatur, oft durch abrupte Kicks oder Sprints.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#QuadricepsStrain</IRI>
         <Literal xml:lang="en">QuadricepsStrain</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Quads</IRI>
+        <Literal xml:lang="de">Quadrizeps, die große Muskelgruppe an der Vorderseite des Oberschenkels.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
@@ -29125,6 +29725,11 @@ Langsam zur Mitte zurückkehren.
         <Literal xml:lang="en">RakingTheLawn</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#RearDeltoids</IRI>
+        <Literal xml:lang="de">Hintere Schultermuskulatur, die den Arm nach hinten zieht.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#RearDeltoids</IRI>
         <Literal xml:lang="en">RearDeltoids</Literal>
@@ -29140,9 +29745,19 @@ Langsam zur Mitte zurückkehren.
         <Literal xml:lang="en">RegularMovementBreak</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Relaxation</IRI>
+        <Literal xml:lang="de">Entspannung als bewusste Reduzierung von Anspannung in Muskulatur und Geist.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#Relaxation</IRI>
         <Literal xml:lang="en">Relaxation</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Right</IRI>
+        <Literal xml:lang="de">Richtungsangabe nach rechts für die Ausrichtung von Übungen oder Bewegungen.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
@@ -29150,9 +29765,19 @@ Langsam zur Mitte zurückkehren.
         <Literal xml:lang="en">Right</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#RightArm</IRI>
+        <Literal xml:lang="de">Rechter Arm als Körperregion des Patienten.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#RightArm</IRI>
         <Literal xml:lang="en">RightArm</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#RightLeg</IRI>
+        <Literal xml:lang="de">Rechtes Bein als Körperregion des Patienten.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
@@ -29175,14 +29800,29 @@ Langsam zur Mitte zurückkehren.
         <Literal xml:lang="en">RopeSkippingSlow</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#RotatorCuffStrain</IRI>
+        <Literal xml:lang="de">Zerrung eines Muskels der Rotatorenmanschette, oft durch Überlastung oder plötzliche Krafteinwirkung.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#RotatorCuffStrain</IRI>
         <Literal xml:lang="en">RotatorCuffStrain</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#RotatorCuffTear</IRI>
+        <Literal xml:lang="de">Riss in einem oder mehreren Muskeln der Rotatorenmanschette der Schulter.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#RotatorCuffTear</IRI>
         <Literal xml:lang="en">RotatorCuffTear</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#RotatorCuffs</IRI>
+        <Literal xml:lang="de">Rotatorenmanschette, die Muskelgruppe rund um das Schultergelenk.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
@@ -29212,42 +29852,57 @@ Langsam zur Mitte zurückkehren.
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
         <IRI>#ScapulaRetraktion</IRI>
-        <Literal xml:lang="de">rdfs:comment → &quot;Übung zur Kräftigung und Stabilisierung der Schulterblattmuskulatur.&quot;@de</Literal>
+        <Literal xml:lang="de">Übung zur Kräftigung und Stabilisierung der Schulterblattmuskulatur.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#ScapulaRetraktion</IRI>
-        <Literal xml:lang="de">Scapula-Retraktion</Literal>
+        <Literal xml:lang="en">ScapulaRetraction</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>#ScapulaRetraktion</IRI>
-        <Literal xml:lang="de">ScapulaRetraktion</Literal>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#ScapulaRetraktion_ShoulderIssue</IRI>
+        <Literal xml:lang="de">Hinweis auf Schulter-Probleme, die bei der Schulterblatt-Retraktion berücksichtigt werden sollten.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#ScapulaRetraktion_ShoulderIssue</IRI>
-        <Literal xml:lang="de">ScapulaRetraktion_ShoulderIssue</Literal>
+        <Literal xml:lang="en">ScapulaRetraction_ShoulderIssue</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#SchulterNackenEntspannung</IRI>
+        <Literal xml:lang="de">Sanfte Übungen zur Lockerung verspannter Schulter- und Nackenmuskulatur.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#SchulterNackenEntspannung</IRI>
-        <Literal>Schulter-Nacken-Entspannung</Literal>
+        <Literal xml:lang="en">ShoulderNeckRelaxation</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>#SchulterNackenEntspannung</IRI>
-        <Literal xml:lang="de">SchulterNackenEntspannung</Literal>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#SchulterNackenEntspannung_NeckIssue</IRI>
+        <Literal xml:lang="de">Hinweis auf Nacken-Probleme, die bei der Schulter-Nacken-Entspannung berücksichtigt werden sollten.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#SchulterNackenEntspannung_NeckIssue</IRI>
-        <Literal xml:lang="de">SchulterNackenEntspannung_NeckIssue</Literal>
+        <Literal xml:lang="en">ShoulderNeckRelaxation_NeckIssue</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#SchulterNackenEntspannung_ShoulderIssue</IRI>
+        <Literal xml:lang="de">Hinweis auf Schulter-Probleme, die bei der Schulter-Nacken-Entspannung berücksichtigt werden sollten.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#SchulterNackenEntspannung_ShoulderIssue</IRI>
-        <Literal xml:lang="de">SchulterNackenEntspannung_ShoulderIssue</Literal>
+        <Literal xml:lang="en">ShoulderNeckRelaxation_ShoulderIssue</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Sciatica</IRI>
+        <Literal xml:lang="de">Schmerz entlang des Ischiasnervs vom unteren Rücken bis ins Bein, oft durch eine Nervenreizung verursacht.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
@@ -29255,9 +29910,9 @@ Langsam zur Mitte zurückkehren.
         <Literal xml:lang="en">Sciatica</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
         <IRI>#SealStretch</IRI>
-        <Literal xml:lang="en">Seal Stretch</Literal>
+        <Literal xml:lang="de">Dehnübung für Brust und vordere Schulter, die typische Sitzhaltungen ausgleicht.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
@@ -29265,9 +29920,19 @@ Langsam zur Mitte zurückkehren.
         <Literal xml:lang="en">SealStretch</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Session0001</IRI>
+        <Literal xml:lang="de">Einzelne Trainingseinheit eines Patienten mit Datum und den enthaltenen Übungen.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#Session0001</IRI>
         <Literal xml:lang="en">Session0001</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Severe</IRI>
+        <Literal xml:lang="de">Starke Ausprägung: ausgeprägte Beschwerden, die den Alltag deutlich einschränken.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
@@ -29285,6 +29950,11 @@ Langsam zur Mitte zurückkehren.
         <Literal xml:lang="en">SeverityLevel</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Shoulder</IRI>
+        <Literal xml:lang="de">Schulterregion, die Schultergelenk und umliegende Muskulatur umfasst.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#Shoulder</IRI>
         <Literal xml:lang="en">Shoulder</Literal>
@@ -29300,14 +29970,29 @@ Langsam zur Mitte zurückkehren.
         <Literal xml:lang="en">ShoulderFrac</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#ShoulderImpingement</IRI>
+        <Literal xml:lang="de">Einklemmung von Sehnen oder Schleimbeutel unter dem Schulterdach, die bei Armbewegungen Schmerzen verursacht.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#ShoulderImpingement</IRI>
         <Literal xml:lang="en">ShoulderImpingement</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#ShoulderInstability</IRI>
+        <Literal xml:lang="de">Instabilität des Schultergelenks, oft nach Ausrenkungen oder bei schwacher Gelenkführung.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#ShoulderInstability</IRI>
         <Literal xml:lang="en">ShoulderInstability</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#ShoulderInternalExternalRotation</IRI>
+        <Literal xml:lang="de">Mobilisationsübung für die Innen- und Außenrotation des Schultergelenks.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
@@ -29317,7 +30002,7 @@ Langsam zur Mitte zurückkehren.
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
         <IRI>#ShoulderIssue</IRI>
-        <Literal>Pain, tension, or mobility restriction in the shoulder area</Literal>
+        <Literal xml:lang="de">Schmerz, Verspannung oder Bewegungseinschränkung im Schulterbereich.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
@@ -29327,7 +30012,7 @@ Langsam zur Mitte zurückkehren.
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
         <IRI>#ShoulderJoint</IRI>
-        <Literal>Schultergelenk</Literal>
+        <Literal xml:lang="de">Schultergelenk</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
@@ -29353,6 +30038,11 @@ Langsam zur Mitte zurückkehren.
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#ShoulderMuscleInjury</IRI>
         <Literal xml:lang="en">ShoulderMuscleInjury</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Shoulders</IRI>
+        <Literal xml:lang="de">Schulter als Körperregion, die Schultergelenk und Schultergürtel umfasst.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
@@ -29425,14 +30115,9 @@ Langsam zur Mitte zurückkehren.
         <Literal xml:lang="en">SideAngle_Torso</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
         <IRI>#SingleLegBridge</IRI>
-        <Literal xml:lang="de">Einbeinige Brücke</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>#SingleLegBridge</IRI>
-        <Literal xml:lang="en">Single Leg Bridge</Literal>
+        <Literal xml:lang="de">Variante der Brücke, bei der ein Bein angehoben wird, um Gesäß und hintere Oberschenkel einseitig zu kräftigen.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
@@ -29445,19 +30130,24 @@ Langsam zur Mitte zurückkehren.
         <Literal xml:lang="en">Sitting</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
         <IRI>#SitzenStehen</IRI>
-        <Literal>Sit-to-Stand</Literal>
+        <Literal xml:lang="de">Übung, bei der aus dem Sitzen ohne Hilfe der Hände aufgestanden wird, um Bein- und Rumpfkraft zu trainieren.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#SitzenStehen</IRI>
-        <Literal xml:lang="de">SitzenStehen</Literal>
+        <Literal xml:lang="en">SitToStand</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#SitzenStehen_KneeIssue</IRI>
+        <Literal xml:lang="de">Hinweis auf Knie-Probleme, die bei der Aufsteh-Übung berücksichtigt werden sollten.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#SitzenStehen_KneeIssue</IRI>
-        <Literal xml:lang="de">SitzenStehen_KneeIssue</Literal>
+        <Literal xml:lang="en">SitToStand_KneeIssue</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
@@ -29530,6 +30220,11 @@ Langsam zur Mitte zurückkehren.
         <Literal xml:lang="en">Softball</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Spine</IRI>
+        <Literal xml:lang="de">Wirbelsäule als stabile Mittellinie des Rückens, die den Kopf und Rumpf trägt.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#Spine</IRI>
         <Literal xml:lang="en">Spine</Literal>
@@ -29547,7 +30242,7 @@ Langsam zur Mitte zurückkehren.
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
         <IRI>#SpineIssue</IRI>
-        <Literal>General spinal sensitivity or instability, e.g., scoliosis</Literal>
+        <Literal xml:lang="de">Allgemeine Empfindlichkeit oder Instabilität im Bereich der Wirbelsäule.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
@@ -29557,7 +30252,7 @@ Langsam zur Mitte zurückkehren.
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
         <IRI>#SpineJoint</IRI>
-        <Literal>Wirbelsäulen-Bereich (thoracal/lumbal)</Literal>
+        <Literal xml:lang="de">Wirbelsäulen-Bereich</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
@@ -29595,9 +30290,19 @@ Langsam zur Mitte zurückkehren.
         <Literal xml:lang="en">SportActivity</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#SprainedAnkle</IRI>
+        <Literal xml:lang="de">Verstauchung des Sprunggelenks durch Überdehnung oder Riss der Bänder nach einem Umknicken.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#SprainedAnkle</IRI>
         <Literal xml:lang="en">SprainedAnkle</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Squads</IRI>
+        <Literal xml:lang="de">Kniebeuge, eine Grundübung zur Kräftigung von Oberschenkeln, Gesäß und Rumpf.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
@@ -29605,9 +30310,19 @@ Langsam zur Mitte zurückkehren.
         <Literal xml:lang="en">Squads</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Squads_KneeIssue</IRI>
+        <Literal xml:lang="de">Hinweis auf Knie-Probleme, die bei der Kniebeuge berücksichtigt werden sollten.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#Squads_KneeIssue</IRI>
         <Literal xml:lang="en">Squads_KneeIssue</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Stability</IRI>
+        <Literal xml:lang="de">Stabilität, also die Fähigkeit, den Körper oder einzelne Gelenke ruhig zu halten.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
@@ -29685,9 +30400,19 @@ Langsam zur Mitte zurückkehren.
         <Literal xml:lang="en">StandingBackbend_Torso</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#StandingCalfStretch</IRI>
+        <Literal xml:lang="de">Dehnübung für die Wadenmuskulatur im Stehen.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#StandingCalfStretch</IRI>
         <Literal xml:lang="en">StandingCalfStretch</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#StandingCalfStretch_AnkleIssue</IRI>
+        <Literal xml:lang="de">Hinweis auf Sprunggelenk-Probleme, die bei der Waden-Dehnung im Stehen berücksichtigt werden sollten.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
@@ -29930,6 +30655,11 @@ Langsam zur Mitte zurückkehren.
         <Literal xml:lang="en">StandingLegRaise_Torso</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#StandingPelvicTilts</IRI>
+        <Literal xml:lang="de">Sanfte Übung im Stehen, die das Becken kippt und die Lendenwirbelsäule mobilisiert.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#StandingPelvicTilts</IRI>
         <Literal xml:lang="en">StandingPelvicTilts</Literal>
@@ -30055,34 +30785,29 @@ Langsam zur Mitte zurückkehren.
         <Literal xml:lang="en">StandingSplit_Torso</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
         <IRI>#Standing_sleeper_stretch</IRI>
-        <Literal xml:lang="de">Sleeper Stretch im Stehen</Literal>
+        <Literal xml:lang="de">Dehnübung im Liegen, die die Innenrotation der Schulter sanft verbessert.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#Standing_sleeper_stretch</IRI>
-        <Literal xml:lang="en">Standing Sleeper Stretch</Literal>
+        <Literal xml:lang="en">StandingSleeperStretch</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>#Standing_sleeper_stretch</IRI>
-        <Literal xml:lang="en">Standing_sleeper_stretch</Literal>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#StartingAnyPosition</IRI>
+        <Literal xml:lang="de">Flexible Startposition, die je nach Bedarf der Übung angepasst werden kann.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#StartingAnyPosition</IRI>
-        <Literal>AnyPosition</Literal>
+        <Literal xml:lang="en">AnyPosition</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>#StartingAnyPosition</IRI>
-        <Literal xml:lang="en">StartingAnyPosition</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
         <IRI>#StartingChairSitting</IRI>
-        <Literal>ChairSitting</Literal>
+        <Literal xml:lang="de">Startposition auf einem Stuhl sitzend, geeignet für Übungen im Sitzen.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
@@ -30090,9 +30815,9 @@ Langsam zur Mitte zurückkehren.
         <Literal xml:lang="en">StartingChairSitting</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
         <IRI>#StartingFloor</IRI>
-        <Literal>Floor</Literal>
+        <Literal xml:lang="de">Startposition am Boden, etwa im Sitzen, Liegen oder Vierfüßlerstand.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
@@ -30100,9 +30825,9 @@ Langsam zur Mitte zurückkehren.
         <Literal xml:lang="en">StartingFloor</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
         <IRI>#StartingKneeling</IRI>
-        <Literal>Kneeling</Literal>
+        <Literal xml:lang="de">Startposition im Kniestand, etwa für Übungen, die eine aufrechte Rumpfhaltung erfordern.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
@@ -30110,9 +30835,9 @@ Langsam zur Mitte zurückkehren.
         <Literal xml:lang="en">StartingKneeling</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
         <IRI>#StartingLaying</IRI>
-        <Literal>Laying</Literal>
+        <Literal xml:lang="de">Startposition in Rückenlage auf dem Boden.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
@@ -30120,9 +30845,9 @@ Langsam zur Mitte zurückkehren.
         <Literal xml:lang="en">StartingLaying</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
         <IRI>#StartingSideLaying</IRI>
-        <Literal>SideLaying</Literal>
+        <Literal xml:lang="de">Startposition in Seitenlage auf dem Boden.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
@@ -30130,9 +30855,9 @@ Langsam zur Mitte zurückkehren.
         <Literal xml:lang="en">StartingSideLaying</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
         <IRI>#StartingSitting</IRI>
-        <Literal>Sitting</Literal>
+        <Literal xml:lang="de">Startposition im Sitzen auf dem Boden oder einer erhöhten Fläche.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
@@ -30140,9 +30865,9 @@ Langsam zur Mitte zurückkehren.
         <Literal xml:lang="en">StartingSitting</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
         <IRI>#StartingSittingOrFloor</IRI>
-        <Literal>SittingOrFloor</Literal>
+        <Literal xml:lang="de">Startposition im Sitzen, die wahlweise auf einem Stuhl oder dem Boden eingenommen werden kann.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
@@ -30150,9 +30875,9 @@ Langsam zur Mitte zurückkehren.
         <Literal xml:lang="en">StartingSittingOrFloor</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
         <IRI>#StartingStanding</IRI>
-        <Literal>Standing</Literal>
+        <Literal xml:lang="de">Startposition im Stehen.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
@@ -30160,9 +30885,9 @@ Langsam zur Mitte zurückkehren.
         <Literal xml:lang="en">StartingStanding</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
         <IRI>#StartingStandingOnCushion</IRI>
-        <Literal>StandingOnCushion</Literal>
+        <Literal xml:lang="de">Startposition im Stehen auf einem weichen Kissen, das die Balance zusätzlich fordert.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
@@ -30180,9 +30905,19 @@ Langsam zur Mitte zurückkehren.
         <Literal xml:lang="en">StationaryCycling50Watts</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Stick</IRI>
+        <Literal xml:lang="de">Stab oder Stock als Hilfsmittel zur Unterstützung von Mobilisations- und Dehnübungen.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#Stick</IRI>
         <Literal xml:lang="en">Stick</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Straight</IRI>
+        <Literal xml:lang="de">Gerade Ausrichtung, die eine neutrale und unverdrehte Haltung beschreibt.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
@@ -30265,9 +31000,19 @@ Langsam zur Mitte zurückkehren.
         <Literal xml:lang="en">TennisDoubles</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#TennisElbow</IRI>
+        <Literal xml:lang="de">Schmerzhafte Reizung der Sehnenansätze am äußeren Ellenbogen, häufig durch einseitige Belastung.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#TennisElbow</IRI>
         <Literal xml:lang="en">TennisElbow</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Theraband</IRI>
+        <Literal xml:lang="de">Theraband als elastisches Band für Kräftigungs- und Mobilisationsübungen.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
@@ -30275,19 +31020,24 @@ Langsam zur Mitte zurückkehren.
         <Literal xml:lang="en">Theraband</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
         <IRI>#TherabandAussenrotation</IRI>
-        <Literal>Theraband-Aussenrotation</Literal>
+        <Literal xml:lang="de">Kräftigungsübung mit Theraband für die Außenrotatoren der Schulter.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#TherabandAussenrotation</IRI>
-        <Literal xml:lang="de">TherabandAussenrotation</Literal>
+        <Literal xml:lang="en">TherabandExternalRotation</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#TherabandAussenrotation_ShoulderIssue</IRI>
+        <Literal xml:lang="de">Hinweis auf Schulter-Probleme, die bei der Theraband-Außenrotation berücksichtigt werden sollten.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#TherabandAussenrotation_ShoulderIssue</IRI>
-        <Literal xml:lang="de">TherabandAussenrotation_ShoulderIssue</Literal>
+        <Literal xml:lang="en">TherabandExternalRotation_ShoulderIssue</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
@@ -30300,9 +31050,19 @@ Langsam zur Mitte zurückkehren.
         <Literal xml:lang="en">ThighMuscleInjury</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Thighs</IRI>
+        <Literal xml:lang="de">Oberschenkel als Körperregion zwischen Hüfte und Knie.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#Thighs</IRI>
         <Literal xml:lang="en">Thighs</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#ThoracicBackPain</IRI>
+        <Literal xml:lang="de">Schmerzen im Bereich der Brustwirbelsäule, oft verspannungsbedingt oder durch Fehlhaltung.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
@@ -30320,14 +31080,19 @@ Langsam zur Mitte zurückkehren.
         <Literal xml:lang="en">ThoracicSpinePain</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>#TomSpradau</IRI>
-        <Literal xml:lang="en">TomSpradau</Literal>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Torso</IRI>
+        <Literal xml:lang="de">Rumpf als zentraler Bereich des Körpers zwischen Hals und Hüfte.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#Torso</IRI>
         <Literal xml:lang="en">Torso</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Towel</IRI>
+        <Literal xml:lang="de">Handtuch als vielseitiges Hilfsmittel für Übungen und zur Unterstützung.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
@@ -30358,6 +31123,11 @@ Langsam zur Mitte zurückkehren.
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#Trampoline</IRI>
         <Literal xml:lang="en">Trampoline</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Trapezius</IRI>
+        <Literal xml:lang="de">Trapezmuskel, ein großer Muskel im oberen Rücken und Nacken, der die Schultern bewegt.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
@@ -30490,9 +31260,19 @@ Langsam zur Mitte zurückkehren.
         <Literal xml:lang="en">Triangle_Torso</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Triceps</IRI>
+        <Literal xml:lang="de">Trizeps, der Streckmuskel an der Rückseite des Oberarms.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#Triceps</IRI>
         <Literal xml:lang="en">Triceps</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#TricepsStretch</IRI>
+        <Literal xml:lang="de">Dehnübung für den Trizeps an der Rückseite des Oberarms.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
@@ -30500,9 +31280,19 @@ Langsam zur Mitte zurückkehren.
         <Literal xml:lang="en">TricepsStretch</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#TricepsStretch_ShoulderIssue</IRI>
+        <Literal xml:lang="de">Hinweis auf Schulter-Probleme, die bei der Trizeps-Dehnung berücksichtigt werden sollten.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#TricepsStretch_ShoulderIssue</IRI>
         <Literal xml:lang="en">TricepsStretch_ShoulderIssue</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Up</IRI>
+        <Literal xml:lang="de">Richtungsangabe nach oben für die Ausrichtung von Übungen oder Bewegungen.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
@@ -30510,9 +31300,19 @@ Langsam zur Mitte zurückkehren.
         <Literal xml:lang="en">Up</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#UpperBack</IRI>
+        <Literal xml:lang="de">Oberer Rücken im Bereich der Brustwirbelsäule und Schulterblätter.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#UpperBack</IRI>
         <Literal xml:lang="en">UpperBack</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#UpperBackIssue</IRI>
+        <Literal xml:lang="de">Beschwerden oder Schmerzen im Bereich der Brustwirbelsäule.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
@@ -30528,6 +31328,11 @@ Langsam zur Mitte zurückkehren.
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#UpperBackPain</IRI>
         <Literal xml:lang="en">UpperBackPain</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Upright</IRI>
+        <Literal xml:lang="de">Aufrechte Ausrichtung, die eine gerade Haltung des Körpers beschreibt.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
@@ -30555,6 +31360,11 @@ Langsam zur Mitte zurückkehren.
         <Literal xml:lang="en">UseStepStoolForOverheadWork</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#User0001</IRI>
+        <Literal xml:lang="de">Beispielhafter Patient innerhalb des Systems, anhand dessen Therapieempfehlungen veranschaulicht werden.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#User0001</IRI>
         <Literal xml:lang="en">User0001</Literal>
@@ -30565,14 +31375,24 @@ Langsam zur Mitte zurückkehren.
         <Literal xml:lang="en">Volleyball</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Wadendehnung</IRI>
+        <Literal xml:lang="de">Dehnübung für die Wadenmuskulatur, oft an einer Wand oder Stufe ausgeführt.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#Wadendehnung</IRI>
-        <Literal xml:lang="de">Wadendehnung</Literal>
+        <Literal xml:lang="en">CalfStretch</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Wadendehnung_AnkleIssue</IRI>
+        <Literal xml:lang="de">Hinweis auf Sprunggelenk-Probleme, die bei der Wadendehnung berücksichtigt werden sollten.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#Wadendehnung_AnkleIssue</IRI>
-        <Literal xml:lang="de">Wadendehnung_AnkleIssue</Literal>
+        <Literal xml:lang="en">CalfStretch_AnkleIssue</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
@@ -30610,9 +31430,19 @@ Langsam zur Mitte zurückkehren.
         <Literal xml:lang="en">WalkingUpStairs</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Wall</IRI>
+        <Literal xml:lang="de">Wand als stabile Fläche zur Unterstützung von Balance- und Mobilisationsübungen.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#Wall</IRI>
         <Literal xml:lang="en">Wall</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#WallPushUps</IRI>
+        <Literal xml:lang="de">Variante des Liegestützes an der Wand, die Brust und Arme sanft kräftigt.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
@@ -30620,19 +31450,24 @@ Langsam zur Mitte zurückkehren.
         <Literal xml:lang="en">WallPushUps</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
         <IRI>#Wandsitzen</IRI>
-        <Literal xml:lang="de">Wandsitzen</Literal>
+        <Literal xml:lang="de">Statische Halteübung an der Wand mit angewinkelten Beinen, die Oberschenkel kräftigt.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#Wandsitzen</IRI>
-        <Literal>Wandsitzen (Wall Sit)</Literal>
+        <Literal xml:lang="en">WallSit</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Wandsitzen_KneeIssue</IRI>
+        <Literal xml:lang="de">Hinweis auf Knie-Probleme, die bei dem Wandsitzen berücksichtigt werden sollten.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#Wandsitzen_KneeIssue</IRI>
-        <Literal xml:lang="de">Wandsitzen_KneeIssue</Literal>
+        <Literal xml:lang="en">WallSit_KneeIssue</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
@@ -30865,6 +31700,11 @@ Langsam zur Mitte zurückkehren.
         <Literal xml:lang="en">WristFrac</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#WristFracture</IRI>
+        <Literal xml:lang="de">Bruch der Speiche nahe am Handgelenk, die häufigste Fraktur beim Menschen und meist Folge eines Sturzes.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#WristFracture</IRI>
         <Literal xml:lang="en">WristFracture</Literal>
@@ -30872,7 +31712,7 @@ Langsam zur Mitte zurückkehren.
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
         <IRI>#WristIssue</IRI>
-        <Literal>Pain, weakness, or carpal instability in the wrist</Literal>
+        <Literal xml:lang="de">Schmerz, Schwäche oder Instabilität im Bereich des Handgelenks.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
@@ -30882,7 +31722,7 @@ Langsam zur Mitte zurückkehren.
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
         <IRI>#WristJoint</IRI>
-        <Literal>Handgelenk</Literal>
+        <Literal xml:lang="de">Handgelenk</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
@@ -30900,9 +31740,19 @@ Langsam zur Mitte zurückkehren.
         <Literal xml:lang="en">WristJointInjury</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#WristSprain</IRI>
+        <Literal xml:lang="de">Verstauchung des Handgelenks durch Überdehnung der Bänder, etwa nach einem Sturz auf die ausgestreckte Hand.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#WristSprain</IRI>
         <Literal xml:lang="en">WristSprain</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Wrists</IRI>
+        <Literal xml:lang="de">Handgelenke als Körperregion, die Unterarm und Hand verbinden.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
@@ -30920,24 +31770,24 @@ Langsam zur Mitte zurückkehren.
         <Literal xml:lang="en">Yoga</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
         <IRI>#Z-Sits</IRI>
-        <Literal xml:lang="en">Z-Sits</Literal>
+        <Literal xml:lang="de">Sitzposition mit zur Seite angewinkelten Beinen, die zur Mobilisation der Hüfte eingesetzt wird.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#Z-Sits</IRI>
-        <Literal xml:lang="de">Z-Sitz</Literal>
+        <Literal xml:lang="en">ZSits</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#ZSits</IRI>
+        <Literal xml:lang="en">ZSits</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
         <IRI>#angle</IRI>
-        <Literal>Limb angle in degrees</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>#angle</IRI>
-        <Literal>Angle</Literal>
+        <Literal xml:lang="de">Winkel in Grad, der die Stellung eines Gelenks oder Körperteils bei einer Übung beschreibt.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
@@ -30957,12 +31807,7 @@ Langsam zur Mitte zurückkehren.
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
         <IRI>#date</IRI>
-        <Literal>Date of the session</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>#date</IRI>
-        <Literal>Date</Literal>
+        <Literal xml:lang="de">Datum, an dem ein Ereignis stattgefunden hat oder geplant ist.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
@@ -30972,12 +31817,7 @@ Langsam zur Mitte zurückkehren.
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
         <IRI>#duration</IRI>
-        <Literal>Duration of the session in minutes</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>#duration</IRI>
-        <Literal>Duration</Literal>
+        <Literal xml:lang="de">Zeitliche Dauer einer Trainingseinheit oder eines anderen Ereignisses.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
@@ -31015,19 +31855,9 @@ Langsam zur Mitte zurückkehren.
         <Literal xml:lang="en">excludesExercise</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-        <IRI>#fitnessLevelScore</IRI>
-        <Literal>Calculated fitness level of an user</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
         <IRI>#fitnessLevelScore</IRI>
         <Literal>The Fitness Level Score (FLS) is the calculated fitness level of an user based on the sport activites (MET&apos;s), number of sessions per week and the session duration.</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>#fitnessLevelScore</IRI>
-        <Literal>FitnessLevelScore</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
@@ -31065,6 +31895,11 @@ Langsam zur Mitte zurückkehren.
         <Literal xml:lang="en">hasBreathingGuidance</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#hasCommonMistake</IRI>
+        <Literal xml:lang="de">Häufige Fehler, die bei der Ausführung einer Übung auftreten.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#hasCommonMistake</IRI>
         <Literal xml:lang="en">hasCommonMistake</Literal>
@@ -31080,9 +31915,19 @@ Langsam zur Mitte zurückkehren.
         <Literal xml:lang="en">hasContraindication</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#hasCorrectionGuidance</IRI>
+        <Literal xml:lang="de">Hinweise, wie typische Fehler bei einer Übung korrigiert werden können.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#hasCorrectionGuidance</IRI>
         <Literal xml:lang="en">hasCorrectionGuidance</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#hasDailyLifeAdvice</IRI>
+        <Literal xml:lang="de">Empfehlungen, wie gesündere Bewegungsmuster in den Alltag eingebaut werden können.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
@@ -31093,6 +31938,11 @@ Langsam zur Mitte zurückkehren.
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#hasDateOfOnset</IRI>
         <Literal xml:lang="en">hasDateOfOnset</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#hasDescription</IRI>
+        <Literal xml:lang="de">Kurze Beschreibung einer Übung mit Ziel und Wirkung.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
@@ -31108,6 +31958,11 @@ Langsam zur Mitte zurückkehren.
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#hasDifficultyLevel</IRI>
         <Literal xml:lang="en">hasDifficultyLevel</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#hasDuration</IRI>
+        <Literal xml:lang="de">Empfohlene Dauer, wie lange eine Übung ausgeführt werden soll.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
@@ -31145,6 +32000,11 @@ Langsam zur Mitte zurückkehren.
         <Literal xml:lang="en">hasInjury</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#hasInstruction</IRI>
+        <Literal xml:lang="de">Schritt-für-Schritt-Anleitung zur Durchführung einer Übung.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#hasInstruction</IRI>
         <Literal xml:lang="en">hasInstruction</Literal>
@@ -31163,6 +32023,11 @@ Langsam zur Mitte zurückkehren.
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#hasLimbAlignment</IRI>
         <Literal xml:lang="en">hasLimbAlignment</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#hasMETScore</IRI>
+        <Literal xml:lang="de">Intensitätswert einer Aktivität, ausgedrückt in metabolischen Äquivalenten.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
@@ -31198,11 +32063,6 @@ Langsam zur Mitte zurückkehren.
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#hasTrainingsLevel</IRI>
         <Literal xml:lang="en">hasTrainingsLevel</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-        <IRI>#hasVASvalue</IRI>
-        <Literal>Schmerzintensität auf der Visuellen Analogskala (0.0–10.0)</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
@@ -31407,17 +32267,12 @@ Langsam zur Mitte zurückkehren.
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
         <IRI>#severityScore</IRI>
-        <Literal>1.0 &gt;= high risk, 0.5 &gt;= medium risk, 0.2 &gt;= low risk</Literal>
+        <Literal xml:lang="de">Zahlenwert, der die Schwere eines Gesundheitsproblems beschreibt. Werte über 1,0 stehen für hohes Risiko, um 0,5 für mittleres Risiko und ab 0,2 für geringes Risiko.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
         <IRI>#severityScore</IRI>
-        <Literal>The severity score is used for measurement for condition risk intensity</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>#severityScore</IRI>
-        <Literal>SeverityScore</Literal>
+        <Literal xml:lang="en">The severity score is used for measurement for condition risk intensity</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
