@@ -71,12 +71,14 @@ class SecondaryButton extends StatelessWidget {
   final String label;
   final VoidCallback? onPressed;
   final IconData? icon;
+  final Color? borderColor;
 
   const SecondaryButton({
     super.key,
     required this.label,
     this.onPressed,
     this.icon,
+    this.borderColor,
   });
 
   @override
@@ -89,7 +91,7 @@ class SecondaryButton extends StatelessWidget {
         alignment: Alignment.center,
         decoration: BoxDecoration(
           color: Colors.transparent,
-          border: Border.all(color: AppColors.beige, width: 1),
+          border: Border.all(color: borderColor ?? AppColors.beige, width: 1),
           borderRadius: BorderRadius.circular(AppRadius.buttonSecondary),
         ),
         child: Row(

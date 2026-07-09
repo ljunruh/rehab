@@ -18,7 +18,6 @@ import 'tip_of_day_card.dart';
 /// └──────────────────────────────────────────────────────────┘
 class HomeScreen extends StatelessWidget {
   final VoidCallback onOpenProfile;
-  final VoidCallback onOpenTip;
 
   /// Startet das Training für eine Region (aus dem Starter-Karussell).
   final ValueChanged<String> onStartRegion;
@@ -26,7 +25,6 @@ class HomeScreen extends StatelessWidget {
   const HomeScreen({
     super.key,
     required this.onOpenProfile,
-    required this.onOpenTip,
     required this.onStartRegion,
   });
 
@@ -35,90 +33,172 @@ class HomeScreen extends StatelessWidget {
     final app = context.watch<UiState>();
     final profile = app.profile;
     final rings = app.weeklyRings;
-
-    // Tipp ist freigeschaltet, wenn diese Woche mindestens eine Einheit
-    // abgeschlossen wurde (Demo-Logik).
-    final tipUnlocked = app.completedSessionsThisWeek > 0;
     final tip = DemoData.tipForRegion(profile.region);
 
     return Container(
-      color: AppColors.cream,
-      child: SingleChildScrollView(
-        padding: EdgeInsets.zero,
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: [
-            // ── Dunkelgrüner Hero-Kopf ──
-            HomeHero(
-              firstName: profile.name.split(' ').first,
-              initials: profile.initials,
-              welcome: DemoData.welcomeOfToday(),
-              onAvatarTap: onOpenProfile,
-            ),
+      color: AppColors.sageMid,
+      child: Stack(
+        children: [
+          // ── Fester grüner Hero-Hintergrund (scrollt NICHT mit) ──
+          HomeHero(
+            firstName: profile.name.split(' ').first,
+            initials: profile.initials,
+            welcome: DemoData.welcomeOfToday(),
+            onAvatarTap: onOpenProfile,
+            showAvatar: false,
+          ),
 
-            // ── Cremefarbenes Sheet, gleitet über den Hero ──
-            Transform.translate(
-              offset: const Offset(0, -28),
-              child: Container(
-                decoration: const BoxDecoration(
-                  color: AppColors.cream,
-                  borderRadius:
-                      BorderRadius.vertical(top: Radius.circular(28)),
-                ),
-                padding: const EdgeInsets.fromLTRB(0, 22, 0, 102),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
+          // ── Scrollbarer Inhalt: creme Sheet gleitet über den Hero ──
+          SingleChildScrollView(
+            padding: EdgeInsets.zero,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: [
+                // Transparenter Platzhalter, gibt den Hero darunter frei.
+                // Höhe = ungefähre Hero-Höhe minus Überlappung (28).
+                SizedBox(height: 196 + MediaQuery.of(context).padding.top),
+
+                // Cremefarbenes Sheet
+                Container(
+                  decoration: const BoxDecoration(
+                    color: AppColors.cream,
+                    borderRadius:
+                        BorderRadius.vertical(top: Radius.circular(28)),
+                  ),
+                  padding: const EdgeInsets.fromLTRB(0, 22, 0, 102),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
                     // Starter-Karussell
-                    const Padding(
-                      padding: EdgeInsets.symmetric(
+                    Padding(
+                      padding: const EdgeInsets.symmetric(
                           horizontal: AppSpacing.screenH),
-                      child: SectionTitle('Womit fängst du heute an?'),
+                      child: SectionTitle('Womit fängst du heute an?',
+                          style: AppText.screenTitle.copyWith(
+                              fontSize: 20, fontWeight: FontWeight.w500)),
                     ),
                     StarterCarousel(onStartRegion: onStartRegion),
                     const SizedBox(height: AppSpacing.sectionGap),
 
                     // Schmerz-Karussell
-                    const Padding(
-                      padding: EdgeInsets.symmetric(
+                    Padding(
+                      padding: const EdgeInsets.symmetric(
                           horizontal: AppSpacing.screenH),
-                      child: SectionTitle('Wie geht es dir heute?'),
+                      child: SectionTitle('Wie geht es dir heute?',
+                          style: AppText.screenTitle.copyWith(
+                              fontSize: 20, fontWeight: FontWeight.w500)),
                     ),
                     const PainCarousel(),
                     const SizedBox(height: AppSpacing.sectionGap),
 
-                    // Wochen-Ringe
+                    // Wochenziel-Streifen (konzentrische Ringe pro Bereich)
                     Padding(
                       padding: const EdgeInsets.symmetric(
                           horizontal: AppSpacing.screenH),
                       child: AppCard(
-                        padding: const EdgeInsets.all(AppSpacing.lg),
+                        padding: const EdgeInsets.symmetric(
+                            horizontal: 18, vertical: 16),
                         child: rings.isEmpty
                             ? _EmptyRings()
-                            : Column(
-                                crossAxisAlignment:
-                                    CrossAxisAlignment.start,
+                            : Row(
+                                crossAxisAlignment: CrossAxisAlignment.center,
                                 children: [
-                                  Row(
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceBetween,
-                                    children: [
-                                      Text('Diese Woche',
-                                          style: AppText.sectionHeader),
-                                      Text('${app.streak} Tage Streak',
-                                          style: AppText.caption.copyWith(
-                                              color: AppColors.sage)),
-                                    ],
+                                  ConcentricRings(
+                                    rings: rings,
+                                    size: 66,
+                                    strokeWidth: 7,
+                                    gap: 3,
                                   ),
-                                  const SizedBox(height: AppSpacing.base),
-                                  Row(
-                                    children: [
-                                      ConcentricRings(
-                                          rings: rings, size: 150),
-                                      const SizedBox(width: AppSpacing.lg),
-                                      Expanded(
-                                          child: RingsLegend(rings: rings)),
-                                    ],
+                                  const SizedBox(width: AppSpacing.lg),
+                                  Expanded(
+                                    child: Column(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      mainAxisSize: MainAxisSize.min,
+                                      children: [
+                                        for (final r in rings)
+                                          Padding(
+                                            padding: const EdgeInsets.only(
+                                                bottom: 5),
+                                            child: Row(
+                                              children: [
+                                                Container(
+                                                  width: 9,
+                                                  height: 9,
+                                                  decoration: BoxDecoration(
+                                                    color: r.color,
+                                                    shape: BoxShape.circle,
+                                                  ),
+                                                ),
+                                                const SizedBox(width: 8),
+                                                Expanded(
+                                                  child: Text(
+                                                    r.label,
+                                                    style: AppText.caption
+                                                        .copyWith(
+                                                      fontSize: 12.5,
+                                                      color: AppColors.text,
+                                                      fontWeight:
+                                                          FontWeight.w500,
+                                                    ),
+                                                  ),
+                                                ),
+                                                Text(
+                                                  '${r.done}/${r.goal}',
+                                                  style: AppText.caption
+                                                      .copyWith(
+                                                    fontSize: 12.5,
+                                                    fontWeight:
+                                                        FontWeight.w600,
+                                                    color: r.done >= r.goal
+                                                        ? AppColors.sageDeep
+                                                        : AppColors
+                                                            .textSecondary,
+                                                  ),
+                                                ),
+                                              ],
+                                            ),
+                                          ),
+                                        Padding(
+                                          padding: const EdgeInsets.symmetric(
+                                              vertical: 4),
+                                          child: Divider(
+                                              color: AppColors.beige,
+                                              height: 1),
+                                        ),
+                                        const SizedBox(height: 6),
+                                        Builder(builder: (context) {
+                                          final weeks = (app.streak / 7)
+                                              .floor()
+                                              .clamp(1, 999);
+                                          final weekWord =
+                                              weeks == 1 ? 'Woche' : 'Wochen';
+                                          return RichText(
+                                            text: TextSpan(
+                                              style: AppText.caption.copyWith(
+                                                  color: AppColors
+                                                      .textSecondary),
+                                              children: [
+                                                TextSpan(
+                                                  text: '$weeks ',
+                                                  style: AppText.caption
+                                                      .copyWith(
+                                                    fontSize: 14,
+                                                    fontWeight:
+                                                        FontWeight.w700,
+                                                    color:
+                                                        AppColors.sageDeep,
+                                                  ),
+                                                ),
+                                                TextSpan(
+                                                    text:
+                                                        '$weekWord bist du schon dabei!'),
+                                              ],
+                                            ),
+                                          );
+                                        }),
+                                      ],
+                                    ),
                                   ),
                                 ],
                               ),
@@ -136,9 +216,8 @@ class HomeScreen extends StatelessWidget {
                           const SectionTitle('Tipp für heute'),
                           TipOfDayCard(
                             title: tip.title,
-                            body: tip.teaser,
-                            locked: !tipUnlocked,
-                            onTap: tipUnlocked ? onOpenTip : null,
+                            duration: tip.duration,
+                            body: tip.body,
                           ),
                         ],
                       ),
@@ -146,9 +225,20 @@ class HomeScreen extends StatelessWidget {
                   ],
                 ),
               ),
+              ],
             ),
-          ],
-        ),
+          ),
+
+          // ── Tappbarer Avatar oben rechts (immer klickbar) ──
+          Positioned(
+            top: MediaQuery.of(context).padding.top + 20,
+            right: 24,
+            child: HeaderAvatar(
+              initials: profile.initials,
+              onTap: onOpenProfile,
+            ),
+          ),
+        ],
       ),
     );
   }

@@ -103,10 +103,15 @@ class _NavItem extends StatelessWidget {
     final isActive = tab == active;
     final iconColor = isActive ? AppColors.sageDeep : AppColors.textMuted;
 
+    // Der Pfeil (Verlauf) wirkt optisch größer, da das SVG weniger Rand hat
+    // → etwas kleiner rendern, damit alle Icons gleich groß wirken.
+    final iconSize =
+        tab == AppTab.progress ? AppIconSize.nav - 5 : AppIconSize.nav;
+
     final icon = SvgPicture.asset(
       tab.asset,
-      width: AppIconSize.nav,
-      height: AppIconSize.nav,
+      width: iconSize,
+      height: iconSize,
       colorFilter: ColorFilter.mode(iconColor, BlendMode.srcIn),
     );
 
@@ -160,8 +165,8 @@ class _AddButton extends StatelessWidget {
         padding: const EdgeInsets.symmetric(horizontal: 8),
         child: SvgPicture.asset(
           'assets/icons/navbar/plus.svg',
-          width: 22,
-          height: 22,
+          width: 18,
+          height: 18,
           colorFilter: const ColorFilter.mode(
             AppColors.textMuted,
             BlendMode.srcIn,

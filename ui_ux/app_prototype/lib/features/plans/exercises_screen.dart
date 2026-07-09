@@ -5,6 +5,7 @@ import '../../core/widgets/widgets.dart';
 import '../../state/ui_state.dart';
 import '../../data/demo/plan_options.dart';
 import '../../navigation/screen_header.dart';
+import 'custom_exercise_form.dart';
 
 /// PERSON 2 — Übungs-Bibliothek.
 ///
@@ -102,6 +103,14 @@ class _ExercisesScreenState extends State<ExercisesScreen> {
                       ),
                   ],
                 ),
+              ),
+              const SizedBox(height: AppSpacing.base),
+
+              // Eigene Übung erstellen
+              SecondaryButton(
+                label: 'Eigene Übung erstellen',
+                icon: Icons.add,
+                onPressed: () => CustomExerciseForm.show(context),
               ),
               const SizedBox(height: AppSpacing.base),
 

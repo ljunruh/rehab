@@ -20,6 +20,7 @@ import '../features/plans/new_plan_choice_sheet.dart';
 import '../features/plans/add_exercise_screen.dart';
 import '../features/plans/exercises_screen.dart';
 import '../features/progress/progress_screen.dart';
+import '../features/progress/calendar_fullscreen.dart';
 import '../features/profile/profile_screen.dart';
 
 /// Unter-Ansichten, die über die Tabs hinausgehen (Detail-Screens).
@@ -37,6 +38,7 @@ enum SubView {
   recommend,
   addExercise,
   library,
+  calendarFull,
 }
 
 /// App-Shell — hält Tab- und Sub-View-Zustand, rendert den aktiven Screen,
@@ -178,6 +180,9 @@ class _AppShellState extends State<AppShell> {
         onOpenExercise: _openExercise,
       );
       showNav = false;
+    } else if (_sub == SubView.calendarFull) {
+      screen = CalendarFullscreen(onBack: _closeSub);
+      showNav = false;
     } else if (_sub == SubView.exerciseDetail && _selectedId != null) {
       screen = ExerciseDetailScreen(
         exerciseId: _selectedId!,
@@ -208,7 +213,6 @@ class _AppShellState extends State<AppShell> {
         case AppTab.home:
           screen = HomeScreen(
             onOpenProfile: _openProfile,
-            onOpenTip: _openTip,
             onStartRegion: (region) {
               // Sucht den ersten aktiven Plan dieser Region und startet ihn.
               final app = context.read<UiState>();
@@ -231,11 +235,14 @@ class _AppShellState extends State<AppShell> {
           screen = PlansScreen(
             onOpenProfile: _openProfile,
             onOpenPlan: _openPlan,
-            onOpenLibrary: () => setState(() => _sub = SubView.library),
           );
           break;
         case AppTab.progress:
-          screen = ProgressScreen(onOpenProfile: _openProfile);
+          screen = ProgressScreen(
+            onOpenProfile: _openProfile,
+            onOpenCalendar: () =>
+                setState(() => _sub = SubView.calendarFull),
+          );
           break;
       }
     }

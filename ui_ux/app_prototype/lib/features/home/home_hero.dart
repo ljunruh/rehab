@@ -12,6 +12,7 @@ class HomeHero extends StatelessWidget {
   final String initials;
   final String welcome;
   final VoidCallback onAvatarTap;
+  final bool showAvatar;
 
   const HomeHero({
     super.key,
@@ -19,6 +20,7 @@ class HomeHero extends StatelessWidget {
     required this.initials,
     required this.welcome,
     required this.onAvatarTap,
+    this.showAvatar = true,
   });
 
   @override
@@ -34,12 +36,15 @@ class HomeHero extends StatelessWidget {
         children: [
           Align(
             alignment: Alignment.centerRight,
-            child: HeaderAvatar(initials: initials, onTap: onAvatarTap),
+            child: showAvatar
+                ? HeaderAvatar(initials: initials, onTap: onAvatarTap)
+                : const SizedBox(height: 36),
           ),
           const SizedBox(height: AppSpacing.sm),
           Text(
             'Schön, dass du da bist,',
             style: AppText.greeting.copyWith(
+              fontSize: 25,
               color: AppColors.white,
               fontWeight: FontWeight.w600,
             ),
@@ -47,6 +52,7 @@ class HomeHero extends StatelessWidget {
           Text(
             firstName,
             style: AppText.greeting.copyWith(
+              fontSize: 25,
               color: AppColors.white,
               fontWeight: FontWeight.w700,
             ),
