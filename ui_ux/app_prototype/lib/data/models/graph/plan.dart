@@ -65,4 +65,8 @@ class Plan {
       description: description ?? this.description,
     );
   }
+
+  int get duration {
+    return exercises.fold(0, (sum, exercise) => sum + exercise.duration);
+  }
 }

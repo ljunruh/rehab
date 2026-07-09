@@ -27,39 +27,44 @@ const PlanSchema = CollectionSchema(
       name: r'completedSessions',
       type: IsarType.long,
     ),
-    r'exercises': PropertySchema(
+    r'duration': PropertySchema(
       id: 2,
+      name: r'duration',
+      type: IsarType.long,
+    ),
+    r'exercises': PropertySchema(
+      id: 3,
       name: r'exercises',
       type: IsarType.objectList,
       target: r'Exercise',
     ),
     r'goal': PropertySchema(
-      id: 3,
+      id: 4,
       name: r'goal',
       type: IsarType.string,
     ),
     r'id': PropertySchema(
-      id: 4,
+      id: 5,
       name: r'id',
       type: IsarType.string,
     ),
     r'name': PropertySchema(
-      id: 5,
+      id: 6,
       name: r'name',
       type: IsarType.string,
     ),
     r'region': PropertySchema(
-      id: 6,
+      id: 7,
       name: r'region',
       type: IsarType.string,
     ),
     r'sessionsPerWeek': PropertySchema(
-      id: 7,
+      id: 8,
       name: r'sessionsPerWeek',
       type: IsarType.long,
     ),
     r'source': PropertySchema(
-      id: 8,
+      id: 9,
       name: r'source',
       type: IsarType.string,
     )
@@ -108,18 +113,19 @@ void _planSerialize(
 ) {
   writer.writeBool(offsets[0], object.archived);
   writer.writeLong(offsets[1], object.completedSessions);
+  writer.writeLong(offsets[2], object.duration);
   writer.writeObjectList<Exercise>(
-    offsets[2],
+    offsets[3],
     allOffsets,
     ExerciseSchema.serialize,
     object.exercises,
   );
-  writer.writeString(offsets[3], object.goal);
-  writer.writeString(offsets[4], object.id);
-  writer.writeString(offsets[5], object.name);
-  writer.writeString(offsets[6], object.region);
-  writer.writeLong(offsets[7], object.sessionsPerWeek);
-  writer.writeString(offsets[8], object.source);
+  writer.writeString(offsets[4], object.goal);
+  writer.writeString(offsets[5], object.id);
+  writer.writeString(offsets[6], object.name);
+  writer.writeString(offsets[7], object.region);
+  writer.writeLong(offsets[8], object.sessionsPerWeek);
+  writer.writeString(offsets[9], object.source);
 }
 
 Plan _planDeserialize(
@@ -132,18 +138,18 @@ Plan _planDeserialize(
     archived: reader.readBoolOrNull(offsets[0]) ?? false,
     completedSessions: reader.readLongOrNull(offsets[1]) ?? 0,
     exercises: reader.readObjectList<Exercise>(
-          offsets[2],
+          offsets[3],
           ExerciseSchema.deserialize,
           allOffsets,
           Exercise(),
         ) ??
         const [],
-    goal: reader.readString(offsets[3]),
-    id: reader.readString(offsets[4]),
-    name: reader.readString(offsets[5]),
-    region: reader.readString(offsets[6]),
-    sessionsPerWeek: reader.readLongOrNull(offsets[7]) ?? 3,
-    source: reader.readStringOrNull(offsets[8]) ?? 'eigen',
+    goal: reader.readString(offsets[4]),
+    id: reader.readString(offsets[5]),
+    name: reader.readString(offsets[6]),
+    region: reader.readString(offsets[7]),
+    sessionsPerWeek: reader.readLongOrNull(offsets[8]) ?? 3,
+    source: reader.readStringOrNull(offsets[9]) ?? 'eigen',
   );
   object.isarId = id;
   return object;
@@ -161,6 +167,8 @@ P _planDeserializeProp<P>(
     case 1:
       return (reader.readLongOrNull(offset) ?? 0) as P;
     case 2:
+      return (reader.readLong(offset)) as P;
+    case 3:
       return (reader.readObjectList<Exercise>(
             offset,
             ExerciseSchema.deserialize,
@@ -168,8 +176,6 @@ P _planDeserializeProp<P>(
             Exercise(),
           ) ??
           const []) as P;
-    case 3:
-      return (reader.readString(offset)) as P;
     case 4:
       return (reader.readString(offset)) as P;
     case 5:
@@ -177,8 +183,10 @@ P _planDeserializeProp<P>(
     case 6:
       return (reader.readString(offset)) as P;
     case 7:
-      return (reader.readLongOrNull(offset) ?? 3) as P;
+      return (reader.readString(offset)) as P;
     case 8:
+      return (reader.readLongOrNull(offset) ?? 3) as P;
+    case 9:
       return (reader.readStringOrNull(offset) ?? 'eigen') as P;
     default:
       throw IsarError('Unknown property with id $propertyId');
@@ -327,6 +335,58 @@ extension PlanQueryFilter on QueryBuilder<Plan, Plan, QFilterCondition> {
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(FilterCondition.between(
         property: r'completedSessions',
+        lower: lower,
+        includeLower: includeLower,
+        upper: upper,
+        includeUpper: includeUpper,
+      ));
+    });
+  }
+
+  QueryBuilder<Plan, Plan, QAfterFilterCondition> durationEqualTo(int value) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.equalTo(
+        property: r'duration',
+        value: value,
+      ));
+    });
+  }
+
+  QueryBuilder<Plan, Plan, QAfterFilterCondition> durationGreaterThan(
+    int value, {
+    bool include = false,
+  }) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.greaterThan(
+        include: include,
+        property: r'duration',
+        value: value,
+      ));
+    });
+  }
+
+  QueryBuilder<Plan, Plan, QAfterFilterCondition> durationLessThan(
+    int value, {
+    bool include = false,
+  }) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.lessThan(
+        include: include,
+        property: r'duration',
+        value: value,
+      ));
+    });
+  }
+
+  QueryBuilder<Plan, Plan, QAfterFilterCondition> durationBetween(
+    int lower,
+    int upper, {
+    bool includeLower = true,
+    bool includeUpper = true,
+  }) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.between(
+        property: r'duration',
         lower: lower,
         includeLower: includeLower,
         upper: upper,
@@ -1201,6 +1261,18 @@ extension PlanQuerySortBy on QueryBuilder<Plan, Plan, QSortBy> {
     });
   }
 
+  QueryBuilder<Plan, Plan, QAfterSortBy> sortByDuration() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addSortBy(r'duration', Sort.asc);
+    });
+  }
+
+  QueryBuilder<Plan, Plan, QAfterSortBy> sortByDurationDesc() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addSortBy(r'duration', Sort.desc);
+    });
+  }
+
   QueryBuilder<Plan, Plan, QAfterSortBy> sortByGoal() {
     return QueryBuilder.apply(this, (query) {
       return query.addSortBy(r'goal', Sort.asc);
@@ -1296,6 +1368,18 @@ extension PlanQuerySortThenBy on QueryBuilder<Plan, Plan, QSortThenBy> {
   QueryBuilder<Plan, Plan, QAfterSortBy> thenByCompletedSessionsDesc() {
     return QueryBuilder.apply(this, (query) {
       return query.addSortBy(r'completedSessions', Sort.desc);
+    });
+  }
+
+  QueryBuilder<Plan, Plan, QAfterSortBy> thenByDuration() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addSortBy(r'duration', Sort.asc);
+    });
+  }
+
+  QueryBuilder<Plan, Plan, QAfterSortBy> thenByDurationDesc() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addSortBy(r'duration', Sort.desc);
     });
   }
 
@@ -1397,6 +1481,12 @@ extension PlanQueryWhereDistinct on QueryBuilder<Plan, Plan, QDistinct> {
     });
   }
 
+  QueryBuilder<Plan, Plan, QDistinct> distinctByDuration() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addDistinctBy(r'duration');
+    });
+  }
+
   QueryBuilder<Plan, Plan, QDistinct> distinctByGoal(
       {bool caseSensitive = true}) {
     return QueryBuilder.apply(this, (query) {
@@ -1455,6 +1545,12 @@ extension PlanQueryProperty on QueryBuilder<Plan, Plan, QQueryProperty> {
   QueryBuilder<Plan, int, QQueryOperations> completedSessionsProperty() {
     return QueryBuilder.apply(this, (query) {
       return query.addPropertyName(r'completedSessions');
+    });
+  }
+
+  QueryBuilder<Plan, int, QQueryOperations> durationProperty() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addPropertyName(r'duration');
     });
   }
 

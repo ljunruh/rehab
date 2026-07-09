@@ -24,7 +24,7 @@ class SelectableAccordion<T> extends StatefulWidget {
   final String Function(T item)? getSubtitle;
 
   /// Aktuell ausgewählte Objekte
-  final Set<T> selectedItems;
+  final List<T> selectedItems;
 
   /// Auswahl geändert (gibt jetzt das ganze Objekt zurück)
   final void Function(T item, bool selected) onSelectionChanged;

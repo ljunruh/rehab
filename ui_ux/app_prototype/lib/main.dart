@@ -2,10 +2,12 @@ import 'package:app_prototype/data/api/exercise_api.dart';
 import 'package:app_prototype/data/models/graph/plan.dart';
 import 'package:app_prototype/data/models/models.dart';
 import 'package:app_prototype/data/provider/exercise_provider.dart';
+import 'package:app_prototype/data/provider/plan_provider.dart';
 import 'package:app_prototype/data/provider/user_provider.dart';
 import 'package:app_prototype/data/repository/exercise_repository.dart';
+import 'package:app_prototype/data/repository/plan_repository.dart';
 import 'package:app_prototype/data/repository/user_repository.dart';
-import 'package:app_prototype/data/service/exercise_service.dart';
+import 'package:app_prototype/data/service/plan_service.dart';
 import 'package:flutter/material.dart';
 import 'package:isar/isar.dart';
 import 'package:path_provider/path_provider.dart';
@@ -31,12 +33,14 @@ void main() async {
 
   final userRepository = UserRepository(service: UserService(isar));
   final exerciseRepository = ExerciseRepository(api: ExerciseApi(), userRepository: userRepository);
+  final planRepository = PlanRepository(service: PlanService(isar));
 
   runApp(MultiProvider(
       providers: [
         ChangeNotifierProvider(create: (_) => UiState()),
         ChangeNotifierProvider(create: (_) => UserProvider(userRepository)..init()),
         ChangeNotifierProvider(create: (_) => ExerciseProvider(exerciseRepository)),
+        ChangeNotifierProvider(create: (_) => PlanProvider(planRepository)),
       ],
       child: RehaApp()));
 }

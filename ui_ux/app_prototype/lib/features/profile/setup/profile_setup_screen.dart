@@ -316,7 +316,7 @@ class _UserSetupScreenState extends State<UserSetupScreen> {
 
       getTitle: (injury) => injury.label,
       getSubtitle: (injury) => injury.description,
-      selectedItems: _selectedContraindications.toSet(), // Erwartet jetzt das Set<Contraindication>
+      selectedItems: _selectedContraindications, // Erwartet jetzt das Set<Contraindication>
       onSelectionChanged: (injury, selected) {
         setState(() {
           if (selected) {

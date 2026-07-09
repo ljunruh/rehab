@@ -1,4 +1,6 @@
+import 'package:app_prototype/data/models/graph/plan.dart';
 import 'package:app_prototype/data/provider/exercise_provider.dart';
+import 'package:app_prototype/data/provider/plan_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../../core/theme/app_theme.dart';
@@ -42,7 +44,7 @@ class _PlanCreateScreenState extends State<PlanCreateScreen> {
   late final TextEditingController _nameCtrl;
   late BodyPart _region;
   Goal _goal = Goal.mobility;
-  final Set<graph.Exercise> _selectedExercises = {};
+  final List<graph.Exercise> _selectedExercises = [];
   List<graph.Exercise> _filteredExercises = [];
   String _exerciseSearchQuery = "";
   Color _color = PlanColors.tuerkis;
@@ -83,18 +85,18 @@ class _PlanCreateScreenState extends State<PlanCreateScreen> {
   }
 
   void _save() {
-    final app = context.read<UiState>();
-    final plan = TrainingPlan(
+    final planProvider = context.read<PlanProvider>();
+    final plan = Plan(
       id: 'plan_${DateTime.now().millisecondsSinceEpoch}',
       name: _nameCtrl.text.trim(),
       region: _region.label,
       goal: _goal.label,
-      exerciseIds: _selectedExercises.map((exercise) => exercise.id).toList(),
+      exercises: _selectedExercises,
       sessionsPerWeek: _sessionsPerWeek,
       source: 'eigen',
       color: _color,
     );
-    app.savePlan(plan);
+    planProvider.savePlan(plan);
     widget.onSaved();
   }
 

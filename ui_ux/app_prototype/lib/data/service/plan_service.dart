@@ -6,6 +6,8 @@ class PlanService {
 
   PlanService(this.isar);
 
+  Future<List<Plan>> getAll() async => isar.plans.where().findAll();
+
   Future<Plan?> getPlan(Plan plan) async => isar.plans.get(plan.isarId);
 
   Future<void> savePlan(Plan plan) async {

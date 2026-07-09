@@ -15,9 +15,10 @@ class UserService {
     });
   }
 
+  // Löscht alle App-Daten!
   Future<void> deleteUser() async {
     await isar.writeTxn(() async {
-      await isar.users.clear();
+      await isar.clear();
     });
   }
 }
