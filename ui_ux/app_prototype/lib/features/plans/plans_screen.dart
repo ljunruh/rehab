@@ -1,3 +1,6 @@
+import 'package:app_prototype/data/models/graph/plan.dart';
+import 'package:app_prototype/data/provider/plan_provider.dart';
+import 'package:app_prototype/data/provider/user_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:provider/provider.dart';
@@ -45,6 +48,15 @@ class _PlansScreenState extends State<PlansScreen> {
   final Set<String> _savedGuideIds = {'sit-knie'};
   String? _confirmDeleteId;
 
+  @override
+  void initState() {
+    super.initState();
+
+    Future.microtask(() {
+      context.watch<PlanProvider>();
+    });
+  }
+
   void _reloadSitu() {
     if (_situSpin) return;
     setState(() => _situSpin = true);
@@ -67,9 +79,10 @@ class _PlansScreenState extends State<PlansScreen> {
     });
   }
 
-  int _planDuration(TrainingPlan plan, UiState app) {
+  /*
+  int _planDuration(Plan plan, UiState app) {
     var total = 0;
-    for (final id in plan.exerciseIds) {
+    for (final exercise in plan.exercises) {
       for (final e in app.library) {
         if (e.id == id) {
           total += int.tryParse(e.duration.replaceAll(RegExp(r'[^0-9]'), '')) ?? 0;
@@ -79,6 +92,7 @@ class _PlansScreenState extends State<PlansScreen> {
     }
     return total;
   }
+  */
 
   void _openGuide(BuildContext context, AlltagGuide guide) {
     showModalBottomSheet(
@@ -103,9 +117,14 @@ class _PlansScreenState extends State<PlansScreen> {
   @override
   Widget build(BuildContext context) {
     final app = context.watch<UiState>();
-    final profile = app.profile;
+    //[API]: LocalStorage Pläne eingefügt
+    //final profile = app.profile; // UI auskommentiert
+    final user = context.watch<UserProvider>();
+    final plan = context.watch<PlanProvider>();
+    final activePlans = plan.plans;
 
     // Anatomische Standard-Regionen zuerst, dann Lifestyle-Pläne.
+    /* UI auskommentiert
     const anatomicalRegions = ['Knie', 'Schulter', 'Rücken', 'Nacken', 'Hüfte'];
     final anatomicalPlans = [
       for (final r in anatomicalRegions)
@@ -116,6 +135,7 @@ class _PlansScreenState extends State<PlansScreen> {
         .where((p) => !p.archived && !anatomicalRegions.contains(p.region))
         .toList();
     final activePlans = [...anatomicalPlans, ...lifestylePlans];
+    */
 
     // Gespeicherte Schonungs-Situationskarten.
     final savedGuides = AlltagData.schonung
@@ -149,7 +169,7 @@ class _PlansScreenState extends State<PlansScreen> {
           children: [
             ScreenHeader(
               greeting: 'Trainingspläne',
-              initials: profile.initials,
+              initials: user.initials,
               onAvatarTap: widget.onOpenProfile,
             ),
             Padding(
@@ -158,6 +178,7 @@ class _PlansScreenState extends State<PlansScreen> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
+                  //[API]: LocalStorage Pläne eingefügt
                   Text('MEINE PLÄNE', style: AppText.micro),
                   const SizedBox(height: AppSpacing.sm),
                   ...activePlans.map(
@@ -166,11 +187,12 @@ class _PlansScreenState extends State<PlansScreen> {
                           const EdgeInsets.only(bottom: AppSpacing.sm),
                       child: _SwipeablePlanCard(
                         plan: p,
-                        duration: _planDuration(p, app),
-                        onOpen: () => widget.onOpenPlan(p.id),
-                        onArchive: () => app.archivePlan(p.id),
+                        duration: p.duration,
+                        //TODO[API]: DemoData ID, damit UI nicht kaputt geht. Wird später ersetzt p.id
+                        onOpen: () => widget.onOpenPlan('plan-knie'),
+                        onArchive: () => app.archivePlan('plan-knie'),
                         onRequestDelete: () =>
-                            setState(() => _confirmDeleteId = p.id),
+                            setState(() => _confirmDeleteId = 'plan-knie'),
                       ),
                     ),
                   ),
@@ -350,7 +372,7 @@ class _DashedBorderPainter extends CustomPainter {
 /// JSX-Prototyp exakt (Kreis-Avatar, Rubrik-Label, Region als Titel,
 /// "X Übungen · ca. Y Min").
 class _SwipeablePlanCard extends StatefulWidget {
-  final TrainingPlan plan;
+  final Plan plan;
   final int duration;
   final VoidCallback onOpen;
   final VoidCallback onArchive;
@@ -506,7 +528,7 @@ class _SwipeablePlanCardState extends State<_SwipeablePlanCard> {
                                 fontSize: 17, fontWeight: FontWeight.w700)),
                         const SizedBox(height: 2),
                         Text(
-                          '${widget.plan.exerciseIds.length} Übungen · ca. ${widget.duration} Min',
+                          '${widget.plan.exercises.length} Übungen · ca. ${widget.duration} Min',
                           style: AppText.micro,
                         ),
                       ],

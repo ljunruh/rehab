@@ -17,20 +17,17 @@ class SelectableAccordion<T> extends StatefulWidget {
   /// Suchfeld Callback
   final ValueChanged<String> onSearch;
 
-  /// Liefert die ID eines Eintrags
-  final String Function(T item) getId;
-
   /// Liefert den Titel eines Eintrags
   final String Function(T item) getTitle;
 
   /// Optionaler Untertitel
   final String Function(T item)? getSubtitle;
 
-  /// Aktuell ausgewählte IDs
-  final Set<String> selectedIds;
+  /// Aktuell ausgewählte Objekte
+  final List<T> selectedItems;
 
-  /// Auswahl geändert
-  final void Function(String id, bool selected) onSelectionChanged;
+  /// Auswahl geändert (gibt jetzt das ganze Objekt zurück)
+  final void Function(T item, bool selected) onSelectionChanged;
 
   const SelectableAccordion({
     super.key,
@@ -39,9 +36,8 @@ class SelectableAccordion<T> extends StatefulWidget {
     required this.items,
     required this.filteredItems,
     required this.onSearch,
-    required this.getId,
     required this.getTitle,
-    required this.selectedIds,
+    required this.selectedItems,
     required this.onSelectionChanged,
     this.getSubtitle,
   });
@@ -115,13 +111,13 @@ class _SelectableAccordionState<T>
                       prefixIcon: const Icon(Icons.search, color: AppColors.textSecondary, size: AppIconSize.defaultSize),
                       suffixIcon: _searchController.text.isNotEmpty
                           ? IconButton(
-                              icon: const Icon(Icons.clear, color: AppColors.textSecondary, size: AppIconSize.defaultSize),
-                              onPressed: () {
-                                _searchController.clear();
-                                widget.onSearch('');
-                                setState(() {});
-                              },
-                            )
+                        icon: const Icon(Icons.clear, color: AppColors.textSecondary, size: AppIconSize.defaultSize),
+                        onPressed: () {
+                          _searchController.clear();
+                          widget.onSearch('');
+                          setState(() {});
+                        },
+                      )
                           : null,
                       filled: true,
                       fillColor: AppColors.offwhite,
@@ -151,43 +147,44 @@ class _SelectableAccordionState<T>
                     height: 180,
                     child: widget.filteredItems.isEmpty
                         ? Center(
-                            child: Text(
-                              "Keine Einträge gefunden",
-                              style: AppText.caption.copyWith(color: AppColors.textMuted),
-                            ),
-                          )
+                      child: Text(
+                        "Keine Einträge gefunden",
+                        style: AppText.caption.copyWith(color: AppColors.textMuted),
+                      ),
+                    )
                         : ListView.builder(
-                            itemCount: widget.filteredItems.length,
-                            itemBuilder: (context, index) {
-                              final item = widget.filteredItems[index];
-                              final id = widget.getId(item);
-                              final selected = widget.selectedIds.contains(id);
+                      itemCount: widget.filteredItems.length,
+                      itemBuilder: (context, index) {
+                        final item = widget.filteredItems[index];
+                        // Prüft direkt, ob das Objekt im Set existiert
+                        final selected = widget.selectedItems.contains(item);
 
-                              return CheckboxListTile(
-                                value: selected,
-                                activeColor: AppColors.sage,
-                                checkColor: AppColors.white,
-                                title: Text(
-                                  widget.getTitle(item),
-                                  style: AppText.body.copyWith(fontWeight: FontWeight.w500),
-                                ),
-                                subtitle: widget.getSubtitle != null
-                                    ? Text(
-                                        widget.getSubtitle!(item),
-                                        style: AppText.caption,
-                                      )
-                                    : null,
-                                contentPadding: EdgeInsets.zero,
-                                controlAffinity: ListTileControlAffinity.leading,
-                                onChanged: (value) {
-                                  widget.onSelectionChanged(
-                                    id,
-                                    value ?? false,
-                                  );
-                                },
-                              );
-                            },
+                        return CheckboxListTile(
+                          value: selected,
+                          activeColor: AppColors.sage,
+                          checkColor: AppColors.white,
+                          title: Text(
+                            widget.getTitle(item),
+                            style: AppText.body.copyWith(fontWeight: FontWeight.w500),
                           ),
+                          subtitle: widget.getSubtitle != null
+                              ? Text(
+                            widget.getSubtitle!(item),
+                            style: AppText.caption,
+                          )
+                              : null,
+                          contentPadding: EdgeInsets.zero,
+                          controlAffinity: ListTileControlAffinity.leading,
+                          onChanged: (value) {
+                            // Gibt nun das ganze Objekt 'item' zurück
+                            widget.onSelectionChanged(
+                              item,
+                              value ?? false,
+                            );
+                          },
+                        );
+                      },
+                    ),
                   ),
                 ],
               ),

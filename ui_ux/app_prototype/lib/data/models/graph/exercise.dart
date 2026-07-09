@@ -2,26 +2,27 @@ import 'package:isar/isar.dart';
 
 part 'exercise.g.dart';
 
-@Collection()
+@Embedded()
 class Exercise {
-  Id isarId = Isar.autoIncrement;
   //Object Properties
-  final String id;
-  final String label;
-  final String difficulty;
+  late String id;
+  late String label;
+  late String difficulty;
   //TODO[API]: Hier String oder Enum nutzen?
-  final List<String> trainingsEffects;
-  final List<String> bodyParts;
+  late List<String> trainingsEffects;
+  late List<String> bodyParts;
   //Data Properties
-  final String description;
-  final int duration;
-  final String instruction;
+  late String description;
+  late int duration;
+  late String instruction;
   //TODO[API]: Hier String oder Enum nutzen?
-  final List<String> corrections;
-  final List<String> mistakes;
+  late List<String> corrections;
+  late List<String> mistakes;
 
+  //@Embedded() braucht leeren Konstruktor
+  Exercise();
 
-  Exercise({
+  Exercise.create({
     required this.id,
     required this.label,
     required this.difficulty,
@@ -34,8 +35,34 @@ class Exercise {
     required this.mistakes
   });
 
+  Exercise copyWith({
+    String? id,
+    String? label,
+    String? difficulty,
+    List<String>? trainingsEffects,
+    List<String>? bodyParts,
+    String? description,
+    int? duration,
+    String? instruction,
+    List<String>? corrections,
+    List<String>? mistakes,
+  }) {
+    return Exercise.create(
+      id: id ?? this.id,
+      label: label ?? this.label,
+      difficulty: difficulty ?? this.difficulty,
+      trainingsEffects: trainingsEffects ?? this.trainingsEffects,
+      bodyParts: bodyParts ?? this.bodyParts,
+      description: description ?? this.description,
+      duration: duration ?? this.duration,
+      instruction: instruction ?? this.instruction,
+      corrections: corrections ?? this.corrections,
+      mistakes: mistakes ?? this.mistakes,
+    );
+  }
+
   factory Exercise.fromSparqlJson(Map<String, dynamic> json) {
-    Exercise exercise = Exercise(
+    Exercise exercise = Exercise.create(
       id: json['exercise']?['value'] ?? '',
       label: json['exerciseLabel']?['value'] ?? '',
       difficulty: json['difficultyLabel']?['value'] ?? '',

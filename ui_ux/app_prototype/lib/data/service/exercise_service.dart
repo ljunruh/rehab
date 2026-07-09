@@ -2,6 +2,7 @@ import 'package:app_prototype/data/models/graph/exercise.dart';
 import 'package:isar/isar.dart';
 
 class ExerciseService {
+  /* TODO[API]: Hier wahrscheinlich kein Isar notwendig sondern nur Filter funktionen
   final Isar isar;
 
   ExerciseService(this.isar);
@@ -16,4 +17,5 @@ class ExerciseService {
       await isar.exercises.putAll(list);
     });
   }
+  */
 }

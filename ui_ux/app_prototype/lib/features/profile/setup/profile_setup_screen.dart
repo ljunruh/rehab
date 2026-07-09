@@ -1,15 +1,14 @@
-import 'package:app_prototype/data/enum/gender.dart';
 import 'package:app_prototype/data/enum/contraindication.dart';
+import 'package:app_prototype/data/enum/gender.dart';
 import 'package:app_prototype/data/enum/skill_level.dart';
-import 'package:app_prototype/data/models/models.dart';
 import 'package:app_prototype/data/provider/user_provider.dart';
 import 'package:flutter/material.dart';
-import 'package:isar/isar.dart';
 import 'package:provider/provider.dart';
-import 'selectable_accordion.dart';
+
 import '../../../core/theme/app_theme.dart';
 import '../../../core/widgets/widgets.dart';
 import '../../../state/ui_state.dart';
+import 'selectable_accordion.dart';
 
 class UserSetupScreen extends StatefulWidget {
   final VoidCallback onFinished;
@@ -38,16 +37,16 @@ class _UserSetupScreenState extends State<UserSetupScreen> {
   Gender gender = Gender.male;
   SkillLevel skillLevel = SkillLevel.beginner;
 
-  List<Contraindication> _allInjuries = [];
-  List<Contraindication> _filteredInjuries = [];
-  final Set<String> _selectedInjuryNames = {};
+  List<Contraindication> _allContraindications = [];
+  List<Contraindication> _filteredContraindications = [];
+  final List<Contraindication> _selectedContraindications= [];
 
   @override
   void initState() {
     super.initState();
 
-    _allInjuries = Contraindication.values.where((i) => i != Contraindication.none).toList();
-    _filteredInjuries = _allInjuries;
+    _allContraindications = Contraindication.values.where((i) => i != Contraindication.none).toList();
+    _filteredContraindications = _allContraindications;
 
     if (widget.isEdit) {
       _loadUser();
@@ -56,7 +55,7 @@ class _UserSetupScreenState extends State<UserSetupScreen> {
 
   void _filterInjuries(String query) {
     setState(() {
-      _filteredInjuries = _allInjuries
+      _filteredContraindications = _allContraindications
           .where((i) =>
               i.label.toLowerCase().contains(query.toLowerCase()) ||
               i.description.toLowerCase().contains(query.toLowerCase()))
@@ -79,9 +78,9 @@ class _UserSetupScreenState extends State<UserSetupScreen> {
       gender = user.gender;
       skillLevel = user.skillLevel;
 
-      _selectedInjuryNames
+      _selectedContraindications
         ..clear()
-        ..addAll(user.contraindication);
+        ..addAll(user.contraindication.map((contraindication) => ContraindicationExt.fromString(contraindication)));
     });
   }
 
@@ -111,7 +110,7 @@ class _UserSetupScreenState extends State<UserSetupScreen> {
       height: heightVal,
       weight: weightVal,
       skillLevel: skillLevel,
-      injuries: _selectedInjuryNames.toList(),
+      injuries: _selectedContraindications.map((contraindication) => contraindication.labelEN).toList(),
     );
 
     widget.onFinished();
@@ -269,7 +268,7 @@ class _UserSetupScreenState extends State<UserSetupScreen> {
   }
 
   Widget _buildInjurySummary() {
-    if (_selectedInjuryNames.isEmpty) {
+    if (_selectedContraindications.isEmpty) {
       return Text(
         "Keine Einschränkungen ausgewählt.",
         style: AppText.caption.copyWith(
@@ -282,8 +281,8 @@ class _UserSetupScreenState extends State<UserSetupScreen> {
     return Wrap(
       spacing: AppSpacing.sm,
       runSpacing: AppSpacing.xs,
-      children: _allInjuries
-          .where((i) => _selectedInjuryNames.contains(i.name))
+      children: _allContraindications
+          .where((i) => _selectedContraindications.contains(i.name))
           .map(
             (i) => Chip(
               label: Text(
@@ -298,7 +297,7 @@ class _UserSetupScreenState extends State<UserSetupScreen> {
               deleteIconColor: AppColors.sageDeep,
               onDeleted: () {
                 setState(() {
-                  _selectedInjuryNames.remove(i.name);
+                  _selectedContraindications.remove(i.name);
                 });
               },
             ),
@@ -311,19 +310,19 @@ class _UserSetupScreenState extends State<UserSetupScreen> {
     return SelectableAccordion<Contraindication>(
       title: "Bestehende Verletzungen / Beschwerden",
       summary: _buildInjurySummary(),
-      items: _allInjuries,
-      filteredItems: _filteredInjuries,
+      items: _allContraindications,
+      filteredItems: _filteredContraindications,
       onSearch: _filterInjuries,
-      getId: (injury) => injury.labelEN,
+
       getTitle: (injury) => injury.label,
       getSubtitle: (injury) => injury.description,
-      selectedIds: _selectedInjuryNames,
-      onSelectionChanged: (name, selected) {
+      selectedItems: _selectedContraindications, // Erwartet jetzt das Set<Contraindication>
+      onSelectionChanged: (injury, selected) {
         setState(() {
           if (selected) {
-            _selectedInjuryNames.add(name);
+            _selectedContraindications.add(injury);
           } else {
-            _selectedInjuryNames.remove(name);
+            _selectedContraindications.remove(injury);
           }
         });
       },

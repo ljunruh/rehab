@@ -1,4 +1,6 @@
+import 'package:app_prototype/data/models/graph/plan.dart';
 import 'package:app_prototype/data/provider/exercise_provider.dart';
+import 'package:app_prototype/data/provider/plan_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../../core/theme/app_theme.dart';
@@ -42,7 +44,7 @@ class _PlanCreateScreenState extends State<PlanCreateScreen> {
   late final TextEditingController _nameCtrl;
   late BodyPart _region;
   Goal _goal = Goal.mobility;
-  final Set<String> _selectedIds = {};
+  final List<graph.Exercise> _selectedExercises = [];
   List<graph.Exercise> _filteredExercises = [];
   String _exerciseSearchQuery = "";
   Color _color = PlanColors.tuerkis;
@@ -76,25 +78,25 @@ class _PlanCreateScreenState extends State<PlanCreateScreen> {
   }
 
   bool get _canStep1 => _nameCtrl.text.trim().isNotEmpty;
-  bool get _canStep2 => _selectedIds.isNotEmpty;
+  bool get _canStep2 => _selectedExercises.isNotEmpty;
 
   void _next() {
     if (_step < 3) setState(() => _step++);
   }
 
   void _save() {
-    final app = context.read<UiState>();
-    final plan = TrainingPlan(
+    final planProvider = context.read<PlanProvider>();
+    final plan = Plan(
       id: 'plan_${DateTime.now().millisecondsSinceEpoch}',
       name: _nameCtrl.text.trim(),
       region: _region.label,
       goal: _goal.label,
-      exerciseIds: _selectedIds.toList(),
+      exercises: _selectedExercises,
       sessionsPerWeek: _sessionsPerWeek,
       source: 'eigen',
       color: _color,
     );
-    app.savePlan(plan);
+    planProvider.savePlan(plan);
     widget.onSaved();
   }
 
@@ -218,7 +220,7 @@ class _PlanCreateScreenState extends State<PlanCreateScreen> {
     return SelectableAccordion<graph.Exercise>(
       title: 'Wähle deine Übungen',
       summary: Text(
-        '${_selectedIds.length} ${_selectedIds.length == 1 ? 'Übung' : 'Übungen'} ausgewählt',
+        '${_selectedExercises.length} ${_selectedExercises.length == 1 ? 'Übung' : 'Übungen'} ausgewählt',
         style: AppText.caption,
       ),
       items: exercises,
@@ -231,22 +233,22 @@ class _PlanCreateScreenState extends State<PlanCreateScreen> {
           } else {
             _filteredExercises = exercises
                 .where((e) =>
-                    e.label.toLowerCase().contains(query.toLowerCase()) ||
-                    e.description.toLowerCase().contains(query.toLowerCase()))
+            e.label.toLowerCase().contains(query.toLowerCase()) ||
+                e.description.toLowerCase().contains(query.toLowerCase()))
                 .toList();
           }
         });
       },
-      getId: (ex) => ex.id,
+      // getId wurde entfernt, da das Widget intern direkt mit dem Objekt arbeitet
       getTitle: (ex) => ex.label,
       getSubtitle: (ex) => '${ex.difficulty} · ${ex.duration} Min',
-      selectedIds: _selectedIds,
-      onSelectionChanged: (id, selected) {
+      selectedItems: _selectedExercises, // Übergibt das Set<graph.Exercise>
+      onSelectionChanged: (exercise, selected) {
         setState(() {
           if (selected) {
-            _selectedIds.add(id);
+            _selectedExercises.add(exercise); // Fügt das Objekt hinzu
           } else {
-            _selectedIds.remove(id);
+            _selectedExercises.remove(exercise); // Entfernt das Objekt
           }
         });
       },
@@ -337,7 +339,7 @@ class _PlanCreateScreenState extends State<PlanCreateScreen> {
               const SizedBox(height: AppSpacing.sm),
               Text('Ziel: ${_goal.label}', style: AppText.caption),
               Text(
-                  '${_selectedIds.length} Übungen · $_sessionsPerWeek×/Woche',
+                  '${_selectedExercises.length} Übungen · $_sessionsPerWeek×/Woche',
                   style: AppText.caption),
             ],
           ),

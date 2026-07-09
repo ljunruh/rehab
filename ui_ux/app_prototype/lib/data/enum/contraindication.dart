@@ -14,7 +14,7 @@ enum Contraindication {
   none
 }
 
-extension InjuryExt on Contraindication {
+extension ContraindicationExt on Contraindication {
   String get label {
     switch (this) {
       case Contraindication.ankleIssue:

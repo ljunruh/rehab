@@ -34,7 +34,7 @@ class UserProvider extends ChangeNotifier {
 
   List<String> get injuryLabels =>
       _user?.contraindication
-          .map((name) => InjuryExt.fromString(name).label)
+          .map((name) => ContraindicationExt.fromString(name).label)
           .toList() ??
           [];
 
