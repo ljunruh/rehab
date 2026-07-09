@@ -26620,6 +26620,11 @@ Langsam zur Mitte zurückkehren.
         <Literal xml:lang="en">Arms</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Asana</IRI>
+        <Literal xml:lang="de">Körperstellungen im Yoga, die bewusst eingenommen und gehalten werden, um Beweglichkeit, Kraft und Körperbeherrschung zu fördern.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#Asana</IRI>
         <Literal xml:lang="en">Asana</Literal>
@@ -26698,6 +26703,11 @@ Langsam zur Mitte zurückkehren.
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#BackMuscleInjury</IRI>
         <Literal xml:lang="en">BackMuscleInjury</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#BackPain</IRI>
+        <Literal xml:lang="de">Schmerzen im Bereich des Rückens bzw. der Wirbelsäule, die von Knochen, Muskeln, Nerven oder anderen Strukturen des Rückens ausgehen können.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
@@ -27315,6 +27325,11 @@ Langsam zur Mitte zurückkehren.
         <Literal xml:lang="en">Deadlift</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#DifficultyLevel</IRI>
+        <Literal xml:lang="de">Einstufung des Schwierigkeitsgrads einer Übung, die den Grad der körperlichen, koordinativen und konditionellen Anforderungen beschreibt.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#DifficultyLevel</IRI>
         <Literal xml:lang="en">DifficultyLevel</Literal>
@@ -27468,6 +27483,11 @@ Langsam zur Mitte zurückkehren.
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#Entspannung</IRI>
         <Literal xml:lang="de">Entspannung</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Equipment</IRI>
+        <Literal xml:lang="de">Trainingsgeräte und Hilfsmittel, die in Physiotherapie und Rehabilitation eingesetzt werden, um Übungen zu erleichtern oder Belastungen gezielt zu dosieren.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
@@ -27678,6 +27698,11 @@ Langsam zur Mitte zurückkehren.
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#Forward</IRI>
         <Literal xml:lang="en">Forward</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Fracture</IRI>
+        <Literal xml:lang="de">Knochenbruch als vollständige oder unvollständige Unterbrechung des Knochens, die durch direkte Gewalteinwirkung, Sturz oder wiederholte Überlastung entstehen kann.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
@@ -28470,6 +28495,11 @@ Langsam zur Mitte zurückkehren.
         <Literal xml:lang="en">Limb</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#LimbAlignment</IRI>
+        <Literal xml:lang="de">Beschreibung der räumlichen Ausrichtung von Gliedmaßen in Bezug auf den Körper oder auf benachbarte Gelenke.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#LimbAlignment</IRI>
         <Literal xml:lang="en">LimbAlignment</Literal>
@@ -29243,6 +29273,11 @@ Langsam zur Mitte zurückkehren.
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#Severe</IRI>
         <Literal xml:lang="en">Severe</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#SeverityLevel</IRI>
+        <Literal xml:lang="de">Stufe zur Einstufung der Schwere eines Risikos oder Zustands, etwa in abgestuften Klassen wie niedrig, mittel und hoch.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
@@ -30310,6 +30345,11 @@ Langsam zur Mitte zurückkehren.
         <Literal xml:lang="en">TrainingsEffect</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#TrainingsLevel</IRI>
+        <Literal xml:lang="de">Einstufung des sportlichen Leistungsstands einer Person, üblicherweise in Stufen wie Anfänger, Fortgeschritten und Profi.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#TrainingsLevel</IRI>
         <Literal xml:lang="en">TrainingsLevel</Literal>
@@ -30907,7 +30947,7 @@ Langsam zur Mitte zurückkehren.
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
         <IRI>#avoidsAsana</IRI>
-        <Literal>Avoided Asana from a user</Literal>
+        <Literal xml:lang="de">Yoga-Haltung, die von der Patientin oder dem Patienten gemieden wird.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
@@ -30947,7 +30987,7 @@ Langsam zur Mitte zurückkehren.
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
         <IRI>#engagedBodyPart</IRI>
-        <Literal>Specific body part that gets engaged while perfoming yoga pose</Literal>
+        <Literal xml:lang="de">Körperteil, das bei einer Übung aktiv beansprucht wird.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
@@ -30957,7 +30997,7 @@ Langsam zur Mitte zurückkehren.
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
         <IRI>#examinesJoint</IRI>
-        <Literal>Gelenk, das im Rahmen einer Bewegungsuntersuchung untersucht wird</Literal>
+        <Literal xml:lang="de">Gelenk, das im Rahmen einer Bewegungsuntersuchung untersucht wird</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
@@ -30967,7 +31007,7 @@ Langsam zur Mitte zurückkehren.
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
         <IRI>#excludesExercise</IRI>
-        <Literal>Schließt die Aufgaben aus, falls in diesem Bereich eine Verletzung gibt</Literal>
+        <Literal xml:lang="de">Schließt die Aufgaben aus, falls in diesem Bereich eine Verletzung gibt</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
@@ -30997,7 +31037,7 @@ Langsam zur Mitte zurückkehren.
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
         <IRI>#forCondition</IRI>
-        <Literal>Conditon of precuation</Literal>
+        <Literal xml:lang="de">Beschwerde oder körperliche Einschränkung, bei der dieses Ausschlusskriterium zu beachten ist.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
@@ -31017,7 +31057,7 @@ Langsam zur Mitte zurückkehren.
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
         <IRI>#hasBreathingGuidance</IRI>
-        <Literal>Breathing guidance while performing an asana</Literal>
+        <Literal xml:lang="de">Atemanleitung, die beim Ausführen der Yoga-Haltung beachtet werden soll.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
@@ -31032,7 +31072,7 @@ Langsam zur Mitte zurückkehren.
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
         <IRI>#hasContraindication</IRI>
-        <Literal>Contraindication of an user</Literal>
+        <Literal xml:lang="de">Ausschlusskriterium, das bei der Ausführung der Übung beachtet werden muss.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
@@ -31062,7 +31102,7 @@ Langsam zur Mitte zurückkehren.
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
         <IRI>#hasDifficultyLevel</IRI>
-        <Literal>Difficulty level of an specific asana</Literal>
+        <Literal xml:lang="de">Schwierigkeitsstufe der Übung.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
@@ -31077,7 +31117,7 @@ Langsam zur Mitte zurückkehren.
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
         <IRI>#hasFocusOn</IRI>
-        <Literal>Focus training effect of specific asana</Literal>
+        <Literal xml:lang="de">Trainingseffekt, auf den die Yoga-Haltung besonders abzielt.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
@@ -31097,7 +31137,7 @@ Langsam zur Mitte zurückkehren.
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
         <IRI>#hasInjury</IRI>
-        <Literal>Verknüpft eine Patientenakte mit einer Verletzung. Sub-Property von hasCondition.</Literal>
+        <Literal xml:lang="de">Verletzung, die bei der Patientin oder dem Patienten vorliegt.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
@@ -31117,7 +31157,7 @@ Langsam zur Mitte zurückkehren.
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
         <IRI>#hasLimbAlignment</IRI>
-        <Literal>Links a pose to alignment instruction</Literal>
+        <Literal xml:lang="de">Ausrichtung von Armen, Beinen oder Rumpf bei einer Yoga-Haltung.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
@@ -31140,6 +31180,11 @@ Langsam zur Mitte zurückkehren.
         <Literal xml:lang="en">hasSeverityScore</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#hasTrainingEffect</IRI>
+        <Literal xml:lang="de">Trainingseffekt, den die Übung erzielt.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#hasTrainingEffect</IRI>
         <Literal xml:lang="en">hasTrainingEffect</Literal>
@@ -31147,7 +31192,7 @@ Langsam zur Mitte zurückkehren.
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
         <IRI>#hasTrainingsLevel</IRI>
-        <Literal>Sport level of an User (Beginner, Intermediate or Advanced)</Literal>
+        <Literal xml:lang="de">Trainingsstand der Patientin oder des Patienten.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
@@ -31172,7 +31217,7 @@ Langsam zur Mitte zurückkehren.
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
         <IRI>#improves</IRI>
-        <Literal>improving an trainings effect while performing an asana</Literal>
+        <Literal xml:lang="de">Trainingseffekt, der durch die Übung verbessert wird.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
@@ -31182,7 +31227,7 @@ Langsam zur Mitte zurückkehren.
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
         <IRI>#includesAsana</IRI>
-        <Literal>Which Asana was practised in the session</Literal>
+        <Literal xml:lang="de">Yoga-Haltung, die in einer Trainingseinheit enthalten ist.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
@@ -31192,7 +31237,7 @@ Langsam zur Mitte zurückkehren.
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
         <IRI>#isContraindicationFor</IRI>
-        <Literal>Describes the inverse realtionship of hasContraindication object property</Literal>
+        <Literal xml:lang="de">Übung, bei der dieses Ausschlusskriterium beachtet werden muss.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
@@ -31202,12 +31247,17 @@ Langsam zur Mitte zurückkehren.
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
         <IRI>#isEngagedBy</IRI>
-        <Literal>Describes the inverse realtionship of engagedBodyPart object property</Literal>
+        <Literal xml:lang="de">Übung, die das Körperteil beansprucht.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#isEngagedBy</IRI>
         <Literal xml:lang="en">isEngagedBy</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#isExaminedBy</IRI>
+        <Literal xml:lang="de">Untersuchung oder Test, mit dem das Gelenk geprüft wird.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
@@ -31217,7 +31267,7 @@ Langsam zur Mitte zurückkehren.
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
         <IRI>#isFocusOf</IRI>
-        <Literal>Describes the inverse realtionship of hasFocusOn object property</Literal>
+        <Literal xml:lang="de">Übung, die diesen Trainingseffekt gezielt fördert.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
@@ -31227,7 +31277,7 @@ Langsam zur Mitte zurückkehren.
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
         <IRI>#isImprovedBy</IRI>
-        <Literal>Describes the inverse realtionship of improves object property</Literal>
+        <Literal xml:lang="de">Übung, die diesen Trainingseffekt verbessert.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
@@ -31235,9 +31285,19 @@ Langsam zur Mitte zurückkehren.
         <Literal xml:lang="en">isImprovedBy</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#isInjuryOf</IRI>
+        <Literal xml:lang="de">Patientin oder Patient, die oder der diese Verletzung hat.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#isInjuryOf</IRI>
         <Literal xml:lang="en">isInjuryOf</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#isRehabilitatedBy</IRI>
+        <Literal xml:lang="de">Übung, die das Körperteil gezielt wiederherstellt.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
@@ -31247,7 +31307,7 @@ Langsam zur Mitte zurückkehren.
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
         <IRI>#limb</IRI>
-        <Literal>Which limb is affected</Literal>
+        <Literal xml:lang="de">Körperglied (Arm oder Bein), auf das sich die Ausrichtung bezieht.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
@@ -31257,7 +31317,7 @@ Langsam zur Mitte zurückkehren.
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
         <IRI>#opens</IRI>
-        <Literal>stretching a body part while performing an asana</Literal>
+        <Literal xml:lang="de">Körperteil, das durch die Yoga-Haltung geöffnet und gedehnt wird.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
@@ -31270,6 +31330,11 @@ Langsam zur Mitte zurückkehren.
         <Literal xml:lang="en">painOnMotion</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#partOf</IRI>
+        <Literal xml:lang="de">Übergeordnetes Körperteil, dem dieses Körperteil angehört.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#partOf</IRI>
         <Literal xml:lang="en">partOf</Literal>
@@ -31280,9 +31345,19 @@ Langsam zur Mitte zurückkehren.
         <Literal xml:lang="en">rangeOfMotion</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#recommendedForInjury</IRI>
+        <Literal xml:lang="de">Verletzung, bei der diese Übung empfohlen wird.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#recommendedForInjury</IRI>
         <Literal xml:lang="en">recommendedForInjury</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#recommendsDifficultyLevel</IRI>
+        <Literal xml:lang="de">Schwierigkeitsstufe, die für den jeweiligen Trainingsstand empfohlen wird.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
@@ -31292,7 +31367,7 @@ Langsam zur Mitte zurückkehren.
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
         <IRI>#rehabilitates</IRI>
-        <Literal>Verknüpft eine Übung mit dem Körperteil (BodyPart), den sie therapeutisch rehabilitiert</Literal>
+        <Literal xml:lang="de">Verknüpft eine Übung mit dem Körperteil (BodyPart), den sie therapeutisch rehabilitiert</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
@@ -31300,9 +31375,19 @@ Langsam zur Mitte zurückkehren.
         <Literal xml:lang="en">rehabilitates</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#requiresEquipment</IRI>
+        <Literal xml:lang="de">Hilfsmittel, das für die Ausführung der Übung benötigt wird.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#requiresEquipment</IRI>
         <Literal xml:lang="en">requiresEquipment</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#requiresImprovementOf</IRI>
+        <Literal xml:lang="de">Körperteil, das bei dieser Verletzung verbessert oder wiederhergestellt werden soll.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
@@ -31312,7 +31397,7 @@ Langsam zur Mitte zurückkehren.
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
         <IRI>#severity</IRI>
-        <Literal>Severity level of risk</Literal>
+        <Literal xml:lang="de">Schweregrad, mit dem das Ausschlusskriterium ausgeprägt ist.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
@@ -31342,7 +31427,7 @@ Langsam zur Mitte zurückkehren.
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
         <IRI>#strengthens</IRI>
-        <Literal>strengthen a body part while performing an asana</Literal>
+        <Literal xml:lang="de">Körperteil, das durch die Übung gekräftigt wird.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
@@ -31352,7 +31437,7 @@ Langsam zur Mitte zurückkehren.
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
         <IRI>#stretches</IRI>
-        <Literal>stretching a body part while performing an asana</Literal>
+        <Literal xml:lang="de">Körperteil, das durch die Übung gedehnt wird.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
@@ -31363,46 +31448,6 @@ Langsam zur Mitte zurückkehren.
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#Bicycling20+Mph</IRI>
         <Literal xml:lang="en">Bicycling20+Mph</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-        <IRI>#BackPain</IRI>
-        <Literal xml:lang="de">Schmerzen im Bereich des Rückens bzw. der Wirbelsäule, die von Knochen, Muskeln, Nerven oder anderen Strukturen des Rückens ausgehen können.</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-        <IRI>#DifficultyLevel</IRI>
-        <Literal xml:lang="de">Einstufung des Schwierigkeitsgrads einer Übung, die den Grad der körperlichen, koordinativen und konditionellen Anforderungen beschreibt.</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-        <IRI>#Equipment</IRI>
-        <Literal xml:lang="de">Trainingsgeräte und Hilfsmittel, die in Physiotherapie und Rehabilitation eingesetzt werden, um Übungen zu erleichtern oder Belastungen gezielt zu dosieren.</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-        <IRI>#Fracture</IRI>
-        <Literal xml:lang="de">Knochenbruch als vollständige oder unvollständige Unterbrechung des Knochens, die durch direkte Gewalteinwirkung, Sturz oder wiederholte Überlastung entstehen kann.</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-        <IRI>#LimbAlignment</IRI>
-        <Literal xml:lang="de">Beschreibung der räumlichen Ausrichtung von Gliedmaßen in Bezug auf den Körper oder auf benachbarte Gelenke.</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-        <IRI>#TrainingsLevel</IRI>
-        <Literal xml:lang="de">Einstufung des sportlichen Leistungsstands einer Person, üblicherweise in Stufen wie Anfänger, Fortgeschritten und Profi.</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-        <IRI>#Asana</IRI>
-        <Literal xml:lang="de">Körperstellungen im Yoga, die bewusst eingenommen und gehalten werden, um Beweglichkeit, Kraft und Körperbeherrschung zu fördern.</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-        <IRI>#SeverityLevel</IRI>
-        <Literal xml:lang="de">Stufe zur Einstufung der Schwere eines Risikos oder Zustands, etwa in abgestuften Klassen wie niedrig, mittel und hoch.</Literal>
     </AnnotationAssertion>
 </Ontology>
 
