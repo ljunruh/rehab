@@ -7,7 +7,7 @@ class CoreApi {
   // Für den Android-Emulator nutzt man '10.0.22' statt 'localhost'.
   static final String _host = kIsWeb
       ? 'localhost:3030'
-      : (Platform.isAndroid ? '10.0.2.2:3030' : 'localhost:3030');
+      : (Platform.isAndroid ? '10.0.2.2:3030' : '127.0.0.1:3030');
 
   final String _fusekiUrl = 'http://$_host/rehab/query';
 
