@@ -7,7 +7,7 @@
      xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
      ontologyIRI="http://purl.org/PhysicalTherapy"
      versionIRI="http://purl.org/PhysicalTherapy/1.0">
-    <Prefix name="" IRI="http://www.w3.org/2002/07/owl#"/>
+    <Prefix name="" IRI="http://purl.org/PhysicalTherapy#"/>
     <Prefix name="owl" IRI="http://www.w3.org/2002/07/owl#"/>
     <Prefix name="rdf" IRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
     <Prefix name="xml" IRI="http://www.w3.org/XML/1998/namespace"/>
@@ -816,6 +816,9 @@
         <NamedIndividual IRI="#Elbows"/>
     </Declaration>
     <Declaration>
+        <NamedIndividual IRI="#EnBlocBedExit"/>
+    </Declaration>
+    <Declaration>
         <NamedIndividual IRI="#ErgonomicSitting"/>
     </Declaration>
     <Declaration>
@@ -1387,6 +1390,9 @@
     </Declaration>
     <Declaration>
         <NamedIndividual IRI="#Pelvic"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#PhoneAtEyeLevel"/>
     </Declaration>
     <Declaration>
         <NamedIndividual IRI="#PigeonPose"/>
@@ -2127,6 +2133,9 @@
         <NamedIndividual IRI="#UseBackpackInsteadOfOneSideBag"/>
     </Declaration>
     <Declaration>
+        <NamedIndividual IRI="#UseStepStoolForOverheadWork"/>
+    </Declaration>
+    <Declaration>
         <NamedIndividual IRI="#User0001"/>
     </Declaration>
     <Declaration>
@@ -2242,6 +2251,9 @@
     </Declaration>
     <Declaration>
         <NamedIndividual IRI="#WeightLifting"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#WeightShiftWhileStanding"/>
     </Declaration>
     <Declaration>
         <NamedIndividual IRI="#Wheel"/>
@@ -3019,6 +3031,10 @@
     </ClassAssertion>
     <ClassAssertion>
         <Class IRI="#DailyRoutine"/>
+        <NamedIndividual IRI="#EnBlocBedExit"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#DailyRoutine"/>
         <NamedIndividual IRI="#ErgonomicSitting"/>
     </ClassAssertion>
     <ClassAssertion>
@@ -3588,6 +3604,10 @@
     <ClassAssertion>
         <Class IRI="#BodyPart"/>
         <NamedIndividual IRI="#Pelvic"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#DailyRoutine"/>
+        <NamedIndividual IRI="#PhoneAtEyeLevel"/>
     </ClassAssertion>
     <ClassAssertion>
         <Class IRI="#MobilisationStretching"/>
@@ -4294,6 +4314,10 @@
         <NamedIndividual IRI="#UseBackpackInsteadOfOneSideBag"/>
     </ClassAssertion>
     <ClassAssertion>
+        <Class IRI="#DailyRoutine"/>
+        <NamedIndividual IRI="#UseStepStoolForOverheadWork"/>
+    </ClassAssertion>
+    <ClassAssertion>
         <Class IRI="#Patient"/>
         <NamedIndividual IRI="#User0001"/>
     </ClassAssertion>
@@ -4408,6 +4432,10 @@
     <ClassAssertion>
         <Class IRI="#SportActivity"/>
         <NamedIndividual IRI="#WeightLifting"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#DailyRoutine"/>
+        <NamedIndividual IRI="#WeightShiftWhileStanding"/>
     </ClassAssertion>
     <ClassAssertion>
         <Class IRI="#Asana"/>
@@ -23809,6 +23837,11 @@
     </DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="#hasDailyLifeAdvice"/>
+        <NamedIndividual IRI="#EnBlocBedExit"/>
+        <Literal xml:lang="de">Beim Aufstehen aus dem Bett zunächst auf die Seite rollen, dabei Schultern und Becken gleichzeitig drehen, dann die Beine über die Bettkante schieben und sich mit dem Arm abstützen, um Verdrehungen der Wirbelsäule zu vermeiden.</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasDailyLifeAdvice"/>
         <NamedIndividual IRI="#ErgonomicSitting"/>
         <Literal xml:lang="de">Aufrechte, unterstützte Sitzhaltung mit angepasster Stuhl- und Tischhöhe zur Entlastung von Rücken, Nacken und Schultern.</Literal>
     </DataPropertyAssertion>
@@ -24514,6 +24547,11 @@ Langsam zur Mitte zurückkehren.
         <DataProperty IRI="#angle"/>
         <NamedIndividual IRI="#ParadiseBird_Torso"/>
         <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#decimal">0.0</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasDailyLifeAdvice"/>
+        <NamedIndividual IRI="#PhoneAtEyeLevel"/>
+        <Literal xml:lang="de">Smartphone oder Tablet nahe am Körper auf Brusthöhe oder Augenhöhe halten, statt mit nach vorne geneigtem Kopf darauf herunterzublicken, um Nacken- und obere Rückenmuskulatur zu entlasten.</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="#hasCommonMistake"/>
@@ -25630,6 +25668,11 @@ Langsam zur Mitte zurückkehren.
         <Literal xml:lang="de">Nutzung eines Rucksacks statt einer einseitigen Tasche, um asymmetrische Belastungen von Schulter, Rücken und Nacken zu vermeiden.</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
+        <DataProperty IRI="#hasDailyLifeAdvice"/>
+        <NamedIndividual IRI="#UseStepStoolForOverheadWork"/>
+        <Literal xml:lang="de">Für Arbeiten über Schulterhöhe wie Staubwischen oder Einräumen einen Tritthocker oder eine Leiter benutzen, um Überkopfarbeit mit überstrecktem Nacken und angehobenen Armen zu vermeiden.</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
         <DataProperty IRI="#hasMETScore"/>
         <NamedIndividual IRI="#User0001"/>
         <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#decimal">10</Literal>
@@ -25861,6 +25904,11 @@ Langsam zur Mitte zurückkehren.
         <DataProperty IRI="#MET"/>
         <NamedIndividual IRI="#WeightLifting"/>
         <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#decimal">6.0</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasDailyLifeAdvice"/>
+        <NamedIndividual IRI="#WeightShiftWhileStanding"/>
+        <Literal xml:lang="de">Bei längerem Stehen regelmäßig das Gewicht von einem Bein auf das andere verlagern, die Position verändern und nach Möglichkeit einen Fuß auf eine Erhöhung stellen, um einseitige Belastungen von Wirbelsäule, Hüfte und Beinen zu reduzieren.</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="#angle"/>
@@ -26433,6 +26481,16 @@ Langsam zur Mitte zurückkehren.
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#AlternateSittingAndStanding</IRI>
+        <Literal xml:lang="de">Wechsle Sitzen und Stehen</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#AlternateSittingAndStanding</IRI>
+        <Literal xml:lang="en">AlternateSittingAndStanding</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
         <IRI>#AnkleIssue</IRI>
         <Literal>Instability, past injury, or pain in the ankle joints</Literal>
     </AnnotationAssertion>
@@ -26497,9 +26555,39 @@ Langsam zur Mitte zurückkehren.
         <Literal>Atemuebung (4-7-8 Technik)</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#AvoidForwardHeadPosture</IRI>
+        <Literal xml:lang="de">Vermeide eine nach vorne geschobene Kopfhaltung</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#AvoidForwardHeadPosture</IRI>
+        <Literal xml:lang="en">AvoidForwardHeadPosture</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#AvoidLongSitting</IRI>
+        <Literal xml:lang="de">Vermeide langes Sitzen</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#AvoidLongSitting</IRI>
+        <Literal xml:lang="en">AvoidLongSittingen</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#Back</IRI>
         <Literal>Back</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#BackFriendlyLifting</IRI>
+        <Literal xml:lang="de">Hebe aus den Knien</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#BackFriendlyLifting</IRI>
+        <Literal xml:lang="en">BackFriendlyLifting</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
@@ -26938,6 +27026,16 @@ Langsam zur Mitte zurückkehren.
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#DailyRoutine</IRI>
+        <Literal xml:lang="de">Schonung im Alltag</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#DailyRoutine</IRI>
+        <Literal>DailyRoutine</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
         <IRI>#Dancer</IRI>
         <Literal>Natarajasana</Literal>
     </AnnotationAssertion>
@@ -27123,6 +27221,16 @@ Langsam zur Mitte zurückkehren.
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#EnBlocBedExit</IRI>
+        <Literal xml:lang="de">Aufstehen aus dem Bett en bloc</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#EnBlocBedExit</IRI>
+        <Literal xml:lang="en">EnBlocBedExit</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
         <IRI>#Entspannung</IRI>
         <Literal>Übungen zur körperlichen und geistigen Entspannung</Literal>
     </AnnotationAssertion>
@@ -27135,6 +27243,16 @@ Langsam zur Mitte zurückkehren.
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
         <IRI>#Equipment</IRI>
         <Literal>Hilfsmittel oder Materialien, die für eine Übung benötigt werden.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#ErgonomicSitting</IRI>
+        <Literal xml:lang="de">Ergonomisches Sitzen</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#ErgonomicSitting</IRI>
+        <Literal xml:lang="en">ErgonomicSitting</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
@@ -28117,6 +28235,16 @@ Langsam zur Mitte zurückkehren.
         <Literal>Pelvic</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#PhoneAtEyeLevel</IRI>
+        <Literal xml:lang="de">Smartphone auf Augenhöhe</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#PhoneAtEyeLevel</IRI>
+        <Literal xml:lang="en">PhoneAtEyeLevel</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#PigeonPose</IRI>
         <Literal>Pigeon Pose</Literal>
@@ -28290,6 +28418,16 @@ Langsam zur Mitte zurückkehren.
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#RakingTheLawn</IRI>
         <Literal>RakingTheLawn</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#RegularMovementBreak</IRI>
+        <Literal xml:lang="de">Regelmäßige Bewegungspausen</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#RegularMovementBreak</IRI>
+        <Literal xml:lang="en">RegularMovementBreak</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
@@ -28525,6 +28663,16 @@ Langsam zur Mitte zurückkehren.
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#SkiingDownhill</IRI>
         <Literal>SkiingDownhill</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#SleepPositionAdjustment</IRI>
+        <Literal xml:lang="de">Anpassung der Schlafposition</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#SleepPositionAdjustment</IRI>
+        <Literal xml:lang="en">SleepPositionAdjustment</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
@@ -29352,6 +29500,26 @@ Langsam zur Mitte zurückkehren.
         <Literal>Upright</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#UseBackpackInsteadOfOneSideBag</IRI>
+        <Literal xml:lang="de">Nutze einen Rucksack statt einer Umhängetasche</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#UseBackpackInsteadOfOneSideBag</IRI>
+        <Literal xml:lang="en">UseBackpackInsteadOfOneSideBag</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#UseStepStoolForOverheadWork</IRI>
+        <Literal xml:lang="de">Tritthocker für Überkopfarbeit</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#UseStepStoolForOverheadWork</IRI>
+        <Literal xml:lang="en">UseStepStoolForOverheadWork</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#User0001</IRI>
         <Literal>User0001</Literal>
@@ -29555,6 +29723,16 @@ Langsam zur Mitte zurückkehren.
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#WeightLifting</IRI>
         <Literal>WeightLifting</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#WeightShiftWhileStanding</IRI>
+        <Literal xml:lang="de">Gewichtsverlagerung beim Stehen</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#WeightShiftWhileStanding</IRI>
+        <Literal xml:lang="en">WeightShiftWhileStanding</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
