@@ -1,4 +1,4 @@
-import 'package:flutter/foundation.dart';
+import 'package:flutter/material.dart';
 import '../core/theme/app_colors.dart';
 import '../data/models/models.dart';
 import '../data/demo/demo_data.dart';
@@ -222,6 +222,67 @@ class UiState extends ChangeNotifier {
   void addCalendarEvent(CalendarEvent event) {
     calendarEvents = [...calendarEvents, event];
     showToast('Termin gespeichert.');
+  }
+
+  /// Ändert gezielt die Kalenderfarbe eines Plans.
+  void updatePlanColor(String id, Color color) {
+    plans = [
+      for (final p in plans) p.id == id ? p.copyWith(color: color) : p
+    ];
+    showToast('Plan aktualisiert.');
+  }
+
+  /// Ändert gezielt die Übungsliste eines Plans (Hinzufügen/Entfernen/
+  /// Umsortieren) — ohne Toast, da das oft mehrfach hintereinander passiert.
+  void updatePlanExercises(String id, List<String> exerciseIds) {
+    plans = [
+      for (final p in plans)
+        p.id == id ? p.copyWith(exerciseIds: exerciseIds) : p
+    ];
+    notifyListeners();
+  }
+
+  // ── Kalender (Person 3) ─────────────────────────────────────
+  /// Kalender-Modus ("exercises" | "pain") — geteilt zwischen dem
+  /// kompakten Kalender-Widget und der Vollbildansicht.
+  String calendarMode = 'exercises';
+  void setCalendarMode(String mode) {
+    calendarMode = mode;
+    notifyListeners();
+  }
+
+  /// Alle Kalender-Ereignisse an einem Tag (dateKey = "2026-07-06").
+  List<CalendarEvent> eventsOn(String dateKey) =>
+      calendarEvents.where((e) => e.dateKey == dateKey).toList();
+
+  /// Alle Schmerz-Einträge an einem Tag.
+  List<PainLog> painOn(String dateKey) =>
+      painLogs.where((p) => p.dateKey == dateKey).toList();
+
+  /// Tage (dateKeys), an denen ein starker Schmerz (>= 7) erfasst wurde.
+  Set<String> get highPainDays =>
+      painLogs.where((p) => p.level >= 7).map((p) => p.dateKey).toSet();
+
+  /// Farbe einer Körperregion (für Kalender-Punkte/-Kreise). Nutzt die
+  /// Plan-Farbe der Region, sonst eine feste Zuordnung.
+  Color colorForRegion(String region) {
+    for (final p in activePlans) {
+      if (p.region == region && p.color != null) return p.color!;
+    }
+    switch (region) {
+      case 'Knie':
+        return AppColors.sage;
+      case 'Schulter':
+        return const Color(0xFFC99A3B);
+      case 'Rücken':
+        return const Color(0xFF9C6FB0);
+      case 'Nacken':
+        return const Color(0xFF6A8CAF);
+      case 'Hüfte':
+        return const Color(0xFFC46A52);
+      default:
+        return AppColors.sageMid;
+    }
   }
 
   // ── Profil (Person 4) ───────────────────────────────────────

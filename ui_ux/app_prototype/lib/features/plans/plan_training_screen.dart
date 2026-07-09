@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:provider/provider.dart';
 import '../../core/theme/app_theme.dart';
 import '../../core/widgets/widgets.dart';
@@ -9,7 +10,9 @@ import '../../data/models/models.dart';
 ///
 /// Führt Schritt für Schritt durch die Übungen, erfasst optional ein
 /// Schmerzlevel (0–10) pro Übung und zeigt am Ende einen Abschluss-Screen.
-/// Entspricht PlanTraining im JSX-Prototyp.
+/// Entspricht PlanTraining im JSX-Prototyp (V12) — inkl. Info-Toggle,
+/// aufklappbarer Ausführung/Korrekturen, aufklappbarem Schmerz-Logging,
+/// Warnkarte bei starken Schmerzen und Zurück/Überspringen-Zeile.
 class PlanTrainingScreen extends StatefulWidget {
   final String planId;
   final VoidCallback onExit;
@@ -32,11 +35,28 @@ class _PlanTrainingScreenState extends State<PlanTrainingScreen> {
   int _idx = 0;
   bool _done = false;
   final Map<int, int> _painLevels = {}; // Übungsindex -> Schmerzlevel
+  bool _painOpen = false;
+  bool _infoOpen = false;
+  bool _stepsOpen = true;
+  bool _safetyOpen = true;
 
   Color _painColor(int v) {
     if (v >= 7) return const Color(0xFFC5705D);
     if (v >= 4) return const Color(0xFFC99A3B);
     return AppColors.sage;
+  }
+
+  int _planDuration(TrainingPlan plan, UiState app) {
+    var total = 0;
+    for (final id in plan.exerciseIds) {
+      for (final e in app.library) {
+        if (e.id == id) {
+          total += int.tryParse(e.duration.replaceAll(RegExp(r'[^0-9]'), '')) ?? 0;
+          break;
+        }
+      }
+    }
+    return total;
   }
 
   @override
@@ -66,6 +86,7 @@ class _PlanTrainingScreenState extends State<PlanTrainingScreen> {
     if (_done) {
       return _CompletionView(
         exerciseCount: exercises.length,
+        duration: _planDuration(plan, app),
         onFinish: widget.onFinish,
       );
     }
@@ -73,6 +94,7 @@ class _PlanTrainingScreenState extends State<PlanTrainingScreen> {
     final current = exercises[_idx];
     final isLast = _idx == exercises.length - 1;
     final pain = _painLevels[_idx];
+    final severe = pain != null && pain >= 7;
 
     return ListView(
       padding: const EdgeInsets.fromLTRB(
@@ -91,6 +113,7 @@ class _PlanTrainingScreenState extends State<PlanTrainingScreen> {
               child: Container(
                 width: 40,
                 height: 40,
+                alignment: Alignment.center,
                 decoration: BoxDecoration(
                   color: AppColors.white,
                   borderRadius: BorderRadius.circular(AppRadius.input),
@@ -100,7 +123,7 @@ class _PlanTrainingScreenState extends State<PlanTrainingScreen> {
             ),
             Text(
               '${_idx + 1} von ${exercises.length}',
-              style: AppText.label.copyWith(color: AppColors.textSecondary),
+              style: AppText.caption.copyWith(fontWeight: FontWeight.w500),
             ),
           ],
         ),
@@ -116,12 +139,13 @@ class _PlanTrainingScreenState extends State<PlanTrainingScreen> {
             valueColor: const AlwaysStoppedAnimation(AppColors.sage),
           ),
         ),
-        const SizedBox(height: AppSpacing.xl),
+        const SizedBox(height: AppSpacing.lg),
 
-        // Visual
+        // Visual-Hero mit Play-Button und Dauer-Badge
         AspectRatio(
           aspectRatio: 16 / 10,
           child: Container(
+            clipBehavior: Clip.antiAlias,
             decoration: BoxDecoration(
               gradient: const LinearGradient(
                 begin: Alignment.topLeft,
@@ -130,126 +154,492 @@ class _PlanTrainingScreenState extends State<PlanTrainingScreen> {
               ),
               borderRadius: BorderRadius.circular(AppRadius.card),
             ),
-            child: const Center(
-              child: Icon(Icons.self_improvement,
-                  size: 48, color: AppColors.sageDeep),
+            child: Stack(
+              children: [
+                Positioned(
+                  top: -30,
+                  right: -20,
+                  child: Container(
+                    width: 120,
+                    height: 120,
+                    decoration: const BoxDecoration(
+                      color: Color(0x40FFFFFF),
+                      shape: BoxShape.circle,
+                    ),
+                  ),
+                ),
+                Center(
+                  child: Container(
+                    width: 64,
+                    height: 64,
+                    decoration: BoxDecoration(
+                      color: AppColors.white,
+                      shape: BoxShape.circle,
+                      boxShadow: [
+                        BoxShadow(
+                          color: AppColors.text.withOpacity(0.12),
+                          blurRadius: 16,
+                          offset: const Offset(0, 4),
+                        ),
+                      ],
+                    ),
+                    child: const Icon(Icons.play_arrow,
+                        size: 28, color: AppColors.sageDeep),
+                  ),
+                ),
+                Positioned(
+                  bottom: 14,
+                  right: 14,
+                  child: Container(
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: 10, vertical: 5),
+                    decoration: BoxDecoration(
+                      color: const Color(0xA61F2421),
+                      borderRadius: BorderRadius.circular(999),
+                    ),
+                    child: Row(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        const Icon(Icons.access_time,
+                            size: 11, color: AppColors.white),
+                        const SizedBox(width: 5),
+                        Text('${current.duration} Min',
+                            style: AppText.micro.copyWith(
+                                color: AppColors.white,
+                                fontWeight: FontWeight.w500)),
+                      ],
+                    ),
+                  ),
+                ),
+              ],
             ),
           ),
         ),
         const SizedBox(height: AppSpacing.lg),
 
-        Text(current.name, style: AppText.screenTitle),
-        const SizedBox(height: AppSpacing.sm),
-        Text(current.description, style: AppText.body),
-        const SizedBox(height: AppSpacing.lg),
+        // Titel + Info-Toggle
+        Row(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            Expanded(
+              child: Text(current.name,
+                  style: AppText.screenTitle.copyWith(fontSize: 24)),
+            ),
+            const SizedBox(width: AppSpacing.sm),
+            GestureDetector(
+              onTap: () => setState(() => _infoOpen = !_infoOpen),
+              child: Container(
+                width: 26,
+                height: 26,
+                alignment: Alignment.center,
+                decoration: BoxDecoration(
+                  color: _infoOpen ? AppColors.sageLight : AppColors.offwhite,
+                  shape: BoxShape.circle,
+                ),
+                child: SvgPicture.asset(
+                    _infoOpen
+                        ? 'assets/icons/other/info-green.svg'
+                        : 'assets/icons/other/info-gray.svg',
+                    width: 13, height: 13),
+              ),
+            ),
+          ],
+        ),
+        if (_infoOpen) ...[
+          const SizedBox(height: AppSpacing.sm),
+          Text(current.description,
+              style: AppText.caption.copyWith(height: 1.6)),
+        ],
+        const SizedBox(height: AppSpacing.md),
 
-        // Schritte
-        const SectionTitle('Schritt für Schritt'),
-        AppCard(
+        // Region- & Schwierigkeits-Tags
+        Wrap(
+          spacing: AppSpacing.sm,
+          runSpacing: AppSpacing.sm,
+          children: [
+            _Pill(current.region),
+            _Pill(current.difficulty),
+          ],
+        ),
+        const SizedBox(height: AppSpacing.base),
+
+        // Ausführung (Schritte) – aufklappbar
+        if (current.steps.isNotEmpty)
+          Padding(
+            padding: const EdgeInsets.only(bottom: AppSpacing.sm),
+            child: AppCard(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  GestureDetector(
+                    onTap: () => setState(() => _stepsOpen = !_stepsOpen),
+                    behavior: HitTestBehavior.opaque,
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text('AUSFÜHRUNG', style: AppText.micro),
+                        AnimatedRotation(
+                          turns: _stepsOpen ? 0.25 : 0,
+                          duration: AppMotion.standard,
+                          child: const Icon(Icons.chevron_right,
+                              size: 14, color: AppColors.text),
+                        ),
+                      ],
+                    ),
+                  ),
+                  if (_stepsOpen) ...[
+                    const SizedBox(height: AppSpacing.sm),
+                    for (int i = 0; i < current.steps.length; i++)
+                      Padding(
+                        padding: EdgeInsets.only(
+                          bottom:
+                              i == current.steps.length - 1 ? 0 : AppSpacing.sm,
+                        ),
+                        child: Row(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Container(
+                              width: 22,
+                              height: 22,
+                              alignment: Alignment.center,
+                              decoration: const BoxDecoration(
+                                color: AppColors.sage,
+                                shape: BoxShape.circle,
+                              ),
+                              child: Text('${i + 1}',
+                                  style: AppText.micro.copyWith(
+                                      color: AppColors.white,
+                                      fontWeight: FontWeight.w700)),
+                            ),
+                            const SizedBox(width: AppSpacing.sm),
+                            Expanded(
+                              child: Text(current.steps[i],
+                                  style: AppText.caption
+                                      .copyWith(color: AppColors.text, height: 1.55)),
+                            ),
+                          ],
+                        ),
+                      ),
+                  ],
+                ],
+              ),
+            ),
+          ),
+
+        // Korrekturen & Hinweise – aufklappbar, warme Farbe
+        if (current.safety.isNotEmpty)
+          Padding(
+            padding: const EdgeInsets.only(bottom: AppSpacing.base),
+            child: Container(
+              width: double.infinity,
+              padding: const EdgeInsets.all(16),
+              decoration: BoxDecoration(
+                color: const Color(0xFFFDF6F3),
+                borderRadius: BorderRadius.circular(AppRadius.card),
+                border: Border.all(color: const Color(0xFFEDD5C8)),
+              ),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  GestureDetector(
+                    onTap: () => setState(() => _safetyOpen = !_safetyOpen),
+                    behavior: HitTestBehavior.opaque,
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text('KORREKTUREN & HINWEISE',
+                            style: AppText.micro
+                                .copyWith(color: const Color(0xFFA05B45))),
+                        AnimatedRotation(
+                          turns: _safetyOpen ? 0.25 : 0,
+                          duration: AppMotion.standard,
+                          child: const Icon(Icons.chevron_right,
+                              size: 14, color: Color(0xFFA05B45)),
+                        ),
+                      ],
+                    ),
+                  ),
+                  if (_safetyOpen) ...[
+                    const SizedBox(height: AppSpacing.sm),
+                    for (int i = 0; i < current.safety.length; i++)
+                      Padding(
+                        padding: EdgeInsets.only(
+                          bottom: i == current.safety.length - 1
+                              ? 0
+                              : AppSpacing.sm,
+                        ),
+                        child: Row(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Container(
+                              margin: const EdgeInsets.only(top: 7),
+                              width: 5,
+                              height: 5,
+                              decoration: const BoxDecoration(
+                                color: Color(0xFFC47A5A),
+                                shape: BoxShape.circle,
+                              ),
+                            ),
+                            const SizedBox(width: AppSpacing.sm),
+                            Expanded(
+                              child: Text(current.safety[i],
+                                  style: AppText.caption.copyWith(
+                                      color: const Color(0xFF8F4631),
+                                      height: 1.55)),
+                            ),
+                          ],
+                        ),
+                      ),
+                  ],
+                ],
+              ),
+            ),
+          ),
+
+        // Optionales Schmerz-Logging – aufklappbarer Header
+        Padding(
+          padding: EdgeInsets.only(bottom: severe ? AppSpacing.sm : AppSpacing.base),
           child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              for (int i = 0; i < current.steps.length; i++)
-                Padding(
-                  padding: EdgeInsets.only(
-                    bottom: i == current.steps.length - 1 ? 0 : 12,
+              GestureDetector(
+                onTap: () => setState(() => _painOpen = !_painOpen),
+                behavior: HitTestBehavior.opaque,
+                child: Container(
+                  width: double.infinity,
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 14, vertical: 11),
+                  decoration: BoxDecoration(
+                    color: AppColors.white,
+                    borderRadius: BorderRadius.circular(13),
+                    border: Border.all(color: AppColors.beige),
                   ),
                   child: Row(
-                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Container(
-                        width: 22,
-                        height: 22,
-                        alignment: Alignment.center,
-                        decoration: const BoxDecoration(
-                          color: AppColors.sageLight,
-                          shape: BoxShape.circle,
+                      SvgPicture.asset('assets/icons/other/electrocardiogram.svg',
+                          width: 16, height: 16,
+                          colorFilter: const ColorFilter.mode(
+                              AppColors.sageDeep, BlendMode.srcIn)),
+                      const SizedBox(width: AppSpacing.sm),
+                      Text('Schmerzen dabei?',
+                          style: AppText.caption.copyWith(
+                              fontWeight: FontWeight.w500,
+                              color: AppColors.text)),
+                      const SizedBox(width: 6),
+                      Text('optional',
+                          style: AppText.micro),
+                      const Spacer(),
+                      if (pain != null)
+                        Container(
+                          padding: const EdgeInsets.symmetric(
+                              horizontal: 9, vertical: 3),
+                          decoration: BoxDecoration(
+                            color: AppColors.white,
+                            borderRadius: BorderRadius.circular(999),
+                            border: Border.all(color: AppColors.beige),
+                          ),
+                          child: Text('$pain/10',
+                              style: AppText.micro.copyWith(
+                                  fontWeight: FontWeight.w700,
+                                  color: _painColor(pain))),
                         ),
-                        child: Text('${i + 1}',
-                            style: AppText.label
-                                .copyWith(color: AppColors.sageDeep)),
+                      const SizedBox(width: 6),
+                      AnimatedRotation(
+                        turns: _painOpen ? 0.25 : 0,
+                        duration: AppMotion.standard,
+                        child: const Icon(Icons.chevron_right,
+                            size: 17, color: AppColors.textMuted),
                       ),
-                      const SizedBox(width: AppSpacing.md),
-                      Expanded(child: Text(current.steps[i], style: AppText.body)),
+                    ],
+                  ),
+                ),
+              ),
+              if (_painOpen)
+                Padding(
+                  padding: const EdgeInsets.fromLTRB(4, 14, 4, 2),
+                  child: Column(
+                    children: [
+                      Row(
+                        children: [
+                          for (int v = 0; v <= 10; v++) ...[
+                            if (v > 0) const SizedBox(width: 5),
+                            Expanded(
+                              child: GestureDetector(
+                                onTap: () =>
+                                    setState(() => _painLevels[_idx] = v),
+                                child: AspectRatio(
+                                  aspectRatio: 1,
+                                  child: Container(
+                                    alignment: Alignment.center,
+                                    decoration: BoxDecoration(
+                                      color: pain == v
+                                          ? _painColor(v)
+                                          : AppColors.offwhite,
+                                      borderRadius:
+                                          BorderRadius.circular(9),
+                                      border: pain == v
+                                          ? null
+                                          : Border.all(
+                                              color: AppColors.beige),
+                                    ),
+                                    child: Text('$v',
+                                        style: AppText.micro.copyWith(
+                                          fontWeight: FontWeight.w600,
+                                          color: pain == v
+                                              ? AppColors.white
+                                              : AppColors.textSecondary,
+                                        )),
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ],
+                        ],
+                      ),
+                      const SizedBox(height: AppSpacing.sm),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Text('kein Schmerz', style: AppText.micro),
+                          Text('sehr stark', style: AppText.micro),
+                        ],
+                      ),
                     ],
                   ),
                 ),
             ],
           ),
         ),
-        const SizedBox(height: AppSpacing.sectionGap),
 
-        // Schmerz-Erfassung
-        const SectionTitle('Wie fühlt sich die Übung an?'),
-        AppCard(
-          background: AppColors.offwhite,
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                pain == null
-                    ? 'Optional: Schmerzlevel angeben'
-                    : 'Schmerzlevel: $pain von 10',
-                style: AppText.caption,
+        // Warnkarte bei starken Schmerzen
+        if (severe)
+          Padding(
+            padding: const EdgeInsets.only(bottom: AppSpacing.base),
+            child: Container(
+              padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
+              decoration: BoxDecoration(
+                color: const Color(0xFFFAEDE8),
+                borderRadius: BorderRadius.circular(16),
+                border: Border.all(color: const Color(0xFFE8C7BC)),
               ),
-              const SizedBox(height: AppSpacing.sm),
-              Wrap(
-                spacing: 6,
-                runSpacing: 6,
-                children: List.generate(11, (level) {
-                  final selected = pain == level;
-                  return GestureDetector(
-                    onTap: () => setState(() => _painLevels[_idx] = level),
-                    child: Container(
-                      width: 28,
-                      height: 28,
-                      alignment: Alignment.center,
-                      decoration: BoxDecoration(
-                        color: selected ? _painColor(level) : AppColors.white,
-                        borderRadius: BorderRadius.circular(AppRadius.iconSmall),
-                        border: Border.all(
-                          color: selected ? _painColor(level) : AppColors.beige,
-                        ),
-                      ),
-                      child: Text(
-                        '$level',
-                        style: AppText.label.copyWith(
-                          color: selected ? AppColors.white : AppColors.textSecondary,
-                        ),
-                      ),
+              child: Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Container(
+                    width: 34,
+                    height: 34,
+                    alignment: Alignment.center,
+                    decoration: const BoxDecoration(
+                      color: AppColors.white,
+                      shape: BoxShape.circle,
                     ),
-                  );
-                }),
+                    child: const Icon(Icons.medical_services_outlined,
+                        size: 17, color: Color(0xFFB5573F)),
+                  ),
+                  const SizedBox(width: AppSpacing.md),
+                  Expanded(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text('Lieber pausieren',
+                            style: AppText.caption.copyWith(
+                                fontWeight: FontWeight.w600,
+                                color: const Color(0xFF8F4631))),
+                        const SizedBox(height: 3),
+                        Text(
+                          'Bei so starken Schmerzen brich die Übung lieber ab '
+                          'und sprich mit deinem Physio, bevor du weitermachst.',
+                          style: AppText.micro.copyWith(
+                              color: const Color(0xFFA05B45), height: 1.5),
+                        ),
+                        const SizedBox(height: AppSpacing.sm),
+                        GestureDetector(
+                          onTap: () => app.showToast(
+                              'Nachricht an die Praxis (Demo).'),
+                          child: Container(
+                            padding: const EdgeInsets.symmetric(
+                                horizontal: 13, vertical: 8),
+                            decoration: BoxDecoration(
+                              color: const Color(0xFFB5573F),
+                              borderRadius: BorderRadius.circular(10),
+                            ),
+                            child: Row(
+                              mainAxisSize: MainAxisSize.min,
+                              children: [
+                                const Icon(Icons.medical_services_outlined,
+                                    size: 14, color: AppColors.white),
+                                const SizedBox(width: 6),
+                                Text('Physio kontaktieren',
+                                    style: AppText.micro.copyWith(
+                                        color: AppColors.white,
+                                        fontWeight: FontWeight.w600)),
+                              ],
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
               ),
-              if (pain != null && pain >= 7) ...[
-                const SizedBox(height: AppSpacing.md),
-                Container(
-                  padding: const EdgeInsets.all(AppSpacing.md),
-                  decoration: BoxDecoration(
-                    color: AppColors.alertSoft.withOpacity(0.4),
-                    borderRadius: BorderRadius.circular(AppRadius.input),
-                  ),
-                  child: Text(
-                    'Bei starken Schmerzen: Übung abbrechen und ggf. mit deiner '
-                    'Therapeutin sprechen.',
-                    style: AppText.caption.copyWith(color: AppColors.text),
-                  ),
-                ),
-              ],
-            ],
+            ),
           ),
-        ),
-        const SizedBox(height: AppSpacing.xl),
 
         PrimaryButton(
-          label: isLast ? 'Training abschließen' : 'Nächste Übung',
+          label: isLast
+              ? 'Übung erledigt – Plan abschließen'
+              : 'Übung erledigt · Weiter',
           icon: isLast ? Icons.check : Icons.arrow_forward,
           onPressed: () => _handleNext(app, current, isLast),
+        ),
+        const SizedBox(height: AppSpacing.sm),
+        Row(
+          children: [
+            if (_idx > 0) ...[
+              Expanded(
+                child: SecondaryButton(
+                  label: 'Zurück',
+                  icon: Icons.chevron_left,
+                  onPressed: () => setState(() {
+                    _idx -= 1;
+                    _stepsOpen = true;
+                    _safetyOpen = true;
+                    _infoOpen = false;
+                    _painOpen = false;
+                  }),
+                ),
+              ),
+              const SizedBox(width: AppSpacing.sm),
+            ],
+            Expanded(
+              child: SecondaryButton(
+                label: isLast ? 'Pausieren' : 'Überspringen',
+                onPressed: () {
+                  if (_idx < exercises.length - 1) {
+                    setState(() {
+                      _idx += 1;
+                      _stepsOpen = true;
+                      _safetyOpen = true;
+                      _infoOpen = false;
+                      _painOpen = false;
+                    });
+                  }
+                },
+              ),
+            ),
+          ],
         ),
       ],
     );
   }
 
   void _handleNext(UiState app, Exercise current, bool isLast) {
+    setState(() {
+      _painOpen = false;
+      _infoOpen = false;
+      _stepsOpen = true;
+      _safetyOpen = true;
+    });
     final pain = _painLevels[_idx];
     if (pain != null) {
       final now = DateTime.now();
@@ -269,13 +659,34 @@ class _PlanTrainingScreenState extends State<PlanTrainingScreen> {
   }
 }
 
+class _Pill extends StatelessWidget {
+  final String label;
+  const _Pill(this.label);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 5),
+      decoration: BoxDecoration(
+        color: AppColors.offwhite,
+        borderRadius: BorderRadius.circular(999),
+        border: Border.all(color: AppColors.beige),
+      ),
+      child: Text(label,
+          style: AppText.caption.copyWith(color: AppColors.textSecondary)),
+    );
+  }
+}
+
 /// Abschluss-Screen nach dem letzten Schritt.
 class _CompletionView extends StatelessWidget {
   final int exerciseCount;
+  final int duration;
   final VoidCallback onFinish;
 
   const _CompletionView({
     required this.exerciseCount,
+    required this.duration,
     required this.onFinish,
   });
 
@@ -312,7 +723,7 @@ class _CompletionView extends StatelessWidget {
               children: [
                 Text('GESCHAFFT', style: AppText.micro),
                 const SizedBox(height: 4),
-                Text('$exerciseCount Übungen',
+                Text('$exerciseCount Übungen · $duration Min',
                     style: AppText.cardTitle.copyWith(fontSize: 16)),
               ],
             ),
