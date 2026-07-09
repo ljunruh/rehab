@@ -1,4 +1,5 @@
 import 'package:app_prototype/data/api/exercise_api.dart';
+import 'package:app_prototype/data/models/graph/plan.dart';
 import 'package:app_prototype/data/models/models.dart';
 import 'package:app_prototype/data/provider/exercise_provider.dart';
 import 'package:app_prototype/data/provider/user_provider.dart';
@@ -21,12 +22,15 @@ void main() async {
 
   final appDir = await getApplicationDocumentsDirectory();
   final isar = await Isar.open(
-    [UserSchema],
-    directory: appDir.path,
+    [
+      UserSchema,
+      PlanSchema
+    ],
+    directory: appDir.path
   );
 
   final userRepository = UserRepository(service: UserService(isar));
-  final exerciseRepository = ExerciseRepository(service: ExerciseService(isar), api: ExerciseApi(), userRepository: userRepository);
+  final exerciseRepository = ExerciseRepository(api: ExerciseApi(), userRepository: userRepository);
 
   runApp(MultiProvider(
       providers: [

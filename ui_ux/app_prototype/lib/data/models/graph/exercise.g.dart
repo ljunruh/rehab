@@ -3,17 +3,13 @@
 part of 'exercise.dart';
 
 // **************************************************************************
-// IsarCollectionGenerator
+// IsarEmbeddedGenerator
 // **************************************************************************
 
 // coverage:ignore-file
 // ignore_for_file: duplicate_ignore, non_constant_identifier_names, constant_identifier_names, invalid_use_of_protected_member, unnecessary_cast, prefer_const_constructors, lines_longer_than_80_chars, require_trailing_commas, inference_failure_on_function_invocation, unnecessary_parenthesis, unnecessary_raw_strings, unnecessary_null_checks, join_return_with_assignment, prefer_final_locals, avoid_js_rounded_ints, avoid_positional_boolean_parameters, always_specify_types
 
-extension GetExerciseCollection on Isar {
-  IsarCollection<Exercise> get exercises => this.collection();
-}
-
-const ExerciseSchema = CollectionSchema(
+const ExerciseSchema = Schema(
   name: r'Exercise',
   id: 2972066467915231902,
   properties: {
@@ -72,14 +68,6 @@ const ExerciseSchema = CollectionSchema(
   serialize: _exerciseSerialize,
   deserialize: _exerciseDeserialize,
   deserializeProp: _exerciseDeserializeProp,
-  idName: r'isarId',
-  indexes: {},
-  links: {},
-  embeddedSchemas: {},
-  getId: _exerciseGetId,
-  getLinks: _exerciseGetLinks,
-  attach: _exerciseAttach,
-  version: '3.1.0+1',
 );
 
 int _exerciseEstimateSize(
@@ -148,19 +136,17 @@ Exercise _exerciseDeserialize(
   List<int> offsets,
   Map<Type, List<int>> allOffsets,
 ) {
-  final object = Exercise(
-    bodyParts: reader.readStringList(offsets[0]) ?? [],
-    corrections: reader.readStringList(offsets[1]) ?? [],
-    description: reader.readString(offsets[2]),
-    difficulty: reader.readString(offsets[3]),
-    duration: reader.readLong(offsets[4]),
-    id: reader.readString(offsets[5]),
-    instruction: reader.readString(offsets[6]),
-    label: reader.readString(offsets[7]),
-    mistakes: reader.readStringList(offsets[8]) ?? [],
-    trainingsEffects: reader.readStringList(offsets[9]) ?? [],
-  );
-  object.isarId = id;
+  final object = Exercise();
+  object.bodyParts = reader.readStringList(offsets[0]) ?? [];
+  object.corrections = reader.readStringList(offsets[1]) ?? [];
+  object.description = reader.readString(offsets[2]);
+  object.difficulty = reader.readString(offsets[3]);
+  object.duration = reader.readLong(offsets[4]);
+  object.id = reader.readString(offsets[5]);
+  object.instruction = reader.readString(offsets[6]);
+  object.label = reader.readString(offsets[7]);
+  object.mistakes = reader.readStringList(offsets[8]) ?? [];
+  object.trainingsEffects = reader.readStringList(offsets[9]) ?? [];
   return object;
 }
 
@@ -193,95 +179,6 @@ P _exerciseDeserializeProp<P>(
       return (reader.readStringList(offset) ?? []) as P;
     default:
       throw IsarError('Unknown property with id $propertyId');
-  }
-}
-
-Id _exerciseGetId(Exercise object) {
-  return object.isarId;
-}
-
-List<IsarLinkBase<dynamic>> _exerciseGetLinks(Exercise object) {
-  return [];
-}
-
-void _exerciseAttach(IsarCollection<dynamic> col, Id id, Exercise object) {
-  object.isarId = id;
-}
-
-extension ExerciseQueryWhereSort on QueryBuilder<Exercise, Exercise, QWhere> {
-  QueryBuilder<Exercise, Exercise, QAfterWhere> anyIsarId() {
-    return QueryBuilder.apply(this, (query) {
-      return query.addWhereClause(const IdWhereClause.any());
-    });
-  }
-}
-
-extension ExerciseQueryWhere on QueryBuilder<Exercise, Exercise, QWhereClause> {
-  QueryBuilder<Exercise, Exercise, QAfterWhereClause> isarIdEqualTo(Id isarId) {
-    return QueryBuilder.apply(this, (query) {
-      return query.addWhereClause(IdWhereClause.between(
-        lower: isarId,
-        upper: isarId,
-      ));
-    });
-  }
-
-  QueryBuilder<Exercise, Exercise, QAfterWhereClause> isarIdNotEqualTo(
-      Id isarId) {
-    return QueryBuilder.apply(this, (query) {
-      if (query.whereSort == Sort.asc) {
-        return query
-            .addWhereClause(
-              IdWhereClause.lessThan(upper: isarId, includeUpper: false),
-            )
-            .addWhereClause(
-              IdWhereClause.greaterThan(lower: isarId, includeLower: false),
-            );
-      } else {
-        return query
-            .addWhereClause(
-              IdWhereClause.greaterThan(lower: isarId, includeLower: false),
-            )
-            .addWhereClause(
-              IdWhereClause.lessThan(upper: isarId, includeUpper: false),
-            );
-      }
-    });
-  }
-
-  QueryBuilder<Exercise, Exercise, QAfterWhereClause> isarIdGreaterThan(
-      Id isarId,
-      {bool include = false}) {
-    return QueryBuilder.apply(this, (query) {
-      return query.addWhereClause(
-        IdWhereClause.greaterThan(lower: isarId, includeLower: include),
-      );
-    });
-  }
-
-  QueryBuilder<Exercise, Exercise, QAfterWhereClause> isarIdLessThan(Id isarId,
-      {bool include = false}) {
-    return QueryBuilder.apply(this, (query) {
-      return query.addWhereClause(
-        IdWhereClause.lessThan(upper: isarId, includeUpper: include),
-      );
-    });
-  }
-
-  QueryBuilder<Exercise, Exercise, QAfterWhereClause> isarIdBetween(
-    Id lowerIsarId,
-    Id upperIsarId, {
-    bool includeLower = true,
-    bool includeUpper = true,
-  }) {
-    return QueryBuilder.apply(this, (query) {
-      return query.addWhereClause(IdWhereClause.between(
-        lower: lowerIsarId,
-        includeLower: includeLower,
-        upper: upperIsarId,
-        includeUpper: includeUpper,
-      ));
-    });
   }
 }
 
@@ -1313,59 +1210,6 @@ extension ExerciseQueryFilter
     });
   }
 
-  QueryBuilder<Exercise, Exercise, QAfterFilterCondition> isarIdEqualTo(
-      Id value) {
-    return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(FilterCondition.equalTo(
-        property: r'isarId',
-        value: value,
-      ));
-    });
-  }
-
-  QueryBuilder<Exercise, Exercise, QAfterFilterCondition> isarIdGreaterThan(
-    Id value, {
-    bool include = false,
-  }) {
-    return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(FilterCondition.greaterThan(
-        include: include,
-        property: r'isarId',
-        value: value,
-      ));
-    });
-  }
-
-  QueryBuilder<Exercise, Exercise, QAfterFilterCondition> isarIdLessThan(
-    Id value, {
-    bool include = false,
-  }) {
-    return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(FilterCondition.lessThan(
-        include: include,
-        property: r'isarId',
-        value: value,
-      ));
-    });
-  }
-
-  QueryBuilder<Exercise, Exercise, QAfterFilterCondition> isarIdBetween(
-    Id lower,
-    Id upper, {
-    bool includeLower = true,
-    bool includeUpper = true,
-  }) {
-    return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(FilterCondition.between(
-        property: r'isarId',
-        lower: lower,
-        includeLower: includeLower,
-        upper: upper,
-        includeUpper: includeUpper,
-      ));
-    });
-  }
-
   QueryBuilder<Exercise, Exercise, QAfterFilterCondition> labelEqualTo(
     String value, {
     bool caseSensitive = true,
@@ -1948,305 +1792,3 @@ extension ExerciseQueryFilter
 
 extension ExerciseQueryObject
     on QueryBuilder<Exercise, Exercise, QFilterCondition> {}
-
-extension ExerciseQueryLinks
-    on QueryBuilder<Exercise, Exercise, QFilterCondition> {}
-
-extension ExerciseQuerySortBy on QueryBuilder<Exercise, Exercise, QSortBy> {
-  QueryBuilder<Exercise, Exercise, QAfterSortBy> sortByDescription() {
-    return QueryBuilder.apply(this, (query) {
-      return query.addSortBy(r'description', Sort.asc);
-    });
-  }
-
-  QueryBuilder<Exercise, Exercise, QAfterSortBy> sortByDescriptionDesc() {
-    return QueryBuilder.apply(this, (query) {
-      return query.addSortBy(r'description', Sort.desc);
-    });
-  }
-
-  QueryBuilder<Exercise, Exercise, QAfterSortBy> sortByDifficulty() {
-    return QueryBuilder.apply(this, (query) {
-      return query.addSortBy(r'difficulty', Sort.asc);
-    });
-  }
-
-  QueryBuilder<Exercise, Exercise, QAfterSortBy> sortByDifficultyDesc() {
-    return QueryBuilder.apply(this, (query) {
-      return query.addSortBy(r'difficulty', Sort.desc);
-    });
-  }
-
-  QueryBuilder<Exercise, Exercise, QAfterSortBy> sortByDuration() {
-    return QueryBuilder.apply(this, (query) {
-      return query.addSortBy(r'duration', Sort.asc);
-    });
-  }
-
-  QueryBuilder<Exercise, Exercise, QAfterSortBy> sortByDurationDesc() {
-    return QueryBuilder.apply(this, (query) {
-      return query.addSortBy(r'duration', Sort.desc);
-    });
-  }
-
-  QueryBuilder<Exercise, Exercise, QAfterSortBy> sortById() {
-    return QueryBuilder.apply(this, (query) {
-      return query.addSortBy(r'id', Sort.asc);
-    });
-  }
-
-  QueryBuilder<Exercise, Exercise, QAfterSortBy> sortByIdDesc() {
-    return QueryBuilder.apply(this, (query) {
-      return query.addSortBy(r'id', Sort.desc);
-    });
-  }
-
-  QueryBuilder<Exercise, Exercise, QAfterSortBy> sortByInstruction() {
-    return QueryBuilder.apply(this, (query) {
-      return query.addSortBy(r'instruction', Sort.asc);
-    });
-  }
-
-  QueryBuilder<Exercise, Exercise, QAfterSortBy> sortByInstructionDesc() {
-    return QueryBuilder.apply(this, (query) {
-      return query.addSortBy(r'instruction', Sort.desc);
-    });
-  }
-
-  QueryBuilder<Exercise, Exercise, QAfterSortBy> sortByLabel() {
-    return QueryBuilder.apply(this, (query) {
-      return query.addSortBy(r'label', Sort.asc);
-    });
-  }
-
-  QueryBuilder<Exercise, Exercise, QAfterSortBy> sortByLabelDesc() {
-    return QueryBuilder.apply(this, (query) {
-      return query.addSortBy(r'label', Sort.desc);
-    });
-  }
-}
-
-extension ExerciseQuerySortThenBy
-    on QueryBuilder<Exercise, Exercise, QSortThenBy> {
-  QueryBuilder<Exercise, Exercise, QAfterSortBy> thenByDescription() {
-    return QueryBuilder.apply(this, (query) {
-      return query.addSortBy(r'description', Sort.asc);
-    });
-  }
-
-  QueryBuilder<Exercise, Exercise, QAfterSortBy> thenByDescriptionDesc() {
-    return QueryBuilder.apply(this, (query) {
-      return query.addSortBy(r'description', Sort.desc);
-    });
-  }
-
-  QueryBuilder<Exercise, Exercise, QAfterSortBy> thenByDifficulty() {
-    return QueryBuilder.apply(this, (query) {
-      return query.addSortBy(r'difficulty', Sort.asc);
-    });
-  }
-
-  QueryBuilder<Exercise, Exercise, QAfterSortBy> thenByDifficultyDesc() {
-    return QueryBuilder.apply(this, (query) {
-      return query.addSortBy(r'difficulty', Sort.desc);
-    });
-  }
-
-  QueryBuilder<Exercise, Exercise, QAfterSortBy> thenByDuration() {
-    return QueryBuilder.apply(this, (query) {
-      return query.addSortBy(r'duration', Sort.asc);
-    });
-  }
-
-  QueryBuilder<Exercise, Exercise, QAfterSortBy> thenByDurationDesc() {
-    return QueryBuilder.apply(this, (query) {
-      return query.addSortBy(r'duration', Sort.desc);
-    });
-  }
-
-  QueryBuilder<Exercise, Exercise, QAfterSortBy> thenById() {
-    return QueryBuilder.apply(this, (query) {
-      return query.addSortBy(r'id', Sort.asc);
-    });
-  }
-
-  QueryBuilder<Exercise, Exercise, QAfterSortBy> thenByIdDesc() {
-    return QueryBuilder.apply(this, (query) {
-      return query.addSortBy(r'id', Sort.desc);
-    });
-  }
-
-  QueryBuilder<Exercise, Exercise, QAfterSortBy> thenByInstruction() {
-    return QueryBuilder.apply(this, (query) {
-      return query.addSortBy(r'instruction', Sort.asc);
-    });
-  }
-
-  QueryBuilder<Exercise, Exercise, QAfterSortBy> thenByInstructionDesc() {
-    return QueryBuilder.apply(this, (query) {
-      return query.addSortBy(r'instruction', Sort.desc);
-    });
-  }
-
-  QueryBuilder<Exercise, Exercise, QAfterSortBy> thenByIsarId() {
-    return QueryBuilder.apply(this, (query) {
-      return query.addSortBy(r'isarId', Sort.asc);
-    });
-  }
-
-  QueryBuilder<Exercise, Exercise, QAfterSortBy> thenByIsarIdDesc() {
-    return QueryBuilder.apply(this, (query) {
-      return query.addSortBy(r'isarId', Sort.desc);
-    });
-  }
-
-  QueryBuilder<Exercise, Exercise, QAfterSortBy> thenByLabel() {
-    return QueryBuilder.apply(this, (query) {
-      return query.addSortBy(r'label', Sort.asc);
-    });
-  }
-
-  QueryBuilder<Exercise, Exercise, QAfterSortBy> thenByLabelDesc() {
-    return QueryBuilder.apply(this, (query) {
-      return query.addSortBy(r'label', Sort.desc);
-    });
-  }
-}
-
-extension ExerciseQueryWhereDistinct
-    on QueryBuilder<Exercise, Exercise, QDistinct> {
-  QueryBuilder<Exercise, Exercise, QDistinct> distinctByBodyParts() {
-    return QueryBuilder.apply(this, (query) {
-      return query.addDistinctBy(r'bodyParts');
-    });
-  }
-
-  QueryBuilder<Exercise, Exercise, QDistinct> distinctByCorrections() {
-    return QueryBuilder.apply(this, (query) {
-      return query.addDistinctBy(r'corrections');
-    });
-  }
-
-  QueryBuilder<Exercise, Exercise, QDistinct> distinctByDescription(
-      {bool caseSensitive = true}) {
-    return QueryBuilder.apply(this, (query) {
-      return query.addDistinctBy(r'description', caseSensitive: caseSensitive);
-    });
-  }
-
-  QueryBuilder<Exercise, Exercise, QDistinct> distinctByDifficulty(
-      {bool caseSensitive = true}) {
-    return QueryBuilder.apply(this, (query) {
-      return query.addDistinctBy(r'difficulty', caseSensitive: caseSensitive);
-    });
-  }
-
-  QueryBuilder<Exercise, Exercise, QDistinct> distinctByDuration() {
-    return QueryBuilder.apply(this, (query) {
-      return query.addDistinctBy(r'duration');
-    });
-  }
-
-  QueryBuilder<Exercise, Exercise, QDistinct> distinctById(
-      {bool caseSensitive = true}) {
-    return QueryBuilder.apply(this, (query) {
-      return query.addDistinctBy(r'id', caseSensitive: caseSensitive);
-    });
-  }
-
-  QueryBuilder<Exercise, Exercise, QDistinct> distinctByInstruction(
-      {bool caseSensitive = true}) {
-    return QueryBuilder.apply(this, (query) {
-      return query.addDistinctBy(r'instruction', caseSensitive: caseSensitive);
-    });
-  }
-
-  QueryBuilder<Exercise, Exercise, QDistinct> distinctByLabel(
-      {bool caseSensitive = true}) {
-    return QueryBuilder.apply(this, (query) {
-      return query.addDistinctBy(r'label', caseSensitive: caseSensitive);
-    });
-  }
-
-  QueryBuilder<Exercise, Exercise, QDistinct> distinctByMistakes() {
-    return QueryBuilder.apply(this, (query) {
-      return query.addDistinctBy(r'mistakes');
-    });
-  }
-
-  QueryBuilder<Exercise, Exercise, QDistinct> distinctByTrainingsEffects() {
-    return QueryBuilder.apply(this, (query) {
-      return query.addDistinctBy(r'trainingsEffects');
-    });
-  }
-}
-
-extension ExerciseQueryProperty
-    on QueryBuilder<Exercise, Exercise, QQueryProperty> {
-  QueryBuilder<Exercise, int, QQueryOperations> isarIdProperty() {
-    return QueryBuilder.apply(this, (query) {
-      return query.addPropertyName(r'isarId');
-    });
-  }
-
-  QueryBuilder<Exercise, List<String>, QQueryOperations> bodyPartsProperty() {
-    return QueryBuilder.apply(this, (query) {
-      return query.addPropertyName(r'bodyParts');
-    });
-  }
-
-  QueryBuilder<Exercise, List<String>, QQueryOperations> correctionsProperty() {
-    return QueryBuilder.apply(this, (query) {
-      return query.addPropertyName(r'corrections');
-    });
-  }
-
-  QueryBuilder<Exercise, String, QQueryOperations> descriptionProperty() {
-    return QueryBuilder.apply(this, (query) {
-      return query.addPropertyName(r'description');
-    });
-  }
-
-  QueryBuilder<Exercise, String, QQueryOperations> difficultyProperty() {
-    return QueryBuilder.apply(this, (query) {
-      return query.addPropertyName(r'difficulty');
-    });
-  }
-
-  QueryBuilder<Exercise, int, QQueryOperations> durationProperty() {
-    return QueryBuilder.apply(this, (query) {
-      return query.addPropertyName(r'duration');
-    });
-  }
-
-  QueryBuilder<Exercise, String, QQueryOperations> idProperty() {
-    return QueryBuilder.apply(this, (query) {
-      return query.addPropertyName(r'id');
-    });
-  }
-
-  QueryBuilder<Exercise, String, QQueryOperations> instructionProperty() {
-    return QueryBuilder.apply(this, (query) {
-      return query.addPropertyName(r'instruction');
-    });
-  }
-
-  QueryBuilder<Exercise, String, QQueryOperations> labelProperty() {
-    return QueryBuilder.apply(this, (query) {
-      return query.addPropertyName(r'label');
-    });
-  }
-
-  QueryBuilder<Exercise, List<String>, QQueryOperations> mistakesProperty() {
-    return QueryBuilder.apply(this, (query) {
-      return query.addPropertyName(r'mistakes');
-    });
-  }
-
-  QueryBuilder<Exercise, List<String>, QQueryOperations>
-      trainingsEffectsProperty() {
-    return QueryBuilder.apply(this, (query) {
-      return query.addPropertyName(r'trainingsEffects');
-    });
-  }
-}
