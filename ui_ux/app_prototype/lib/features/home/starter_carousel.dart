@@ -98,8 +98,9 @@ class _StarterCarouselState extends State<StarterCarousel> {
                                 Text(rubrik.label, style: AppText.micro),
                                 const SizedBox(height: 2),
                                 Text(region,
-                                    style: AppText.cardTitle
-                                        .copyWith(fontSize: 17)),
+                                    style: AppText.cardTitle.copyWith(
+                                        fontSize: 17,
+                                        fontWeight: FontWeight.w700)),
                                 const SizedBox(height: 2),
                                 Text(
                                   data.total == 0

@@ -68,7 +68,9 @@ class _PainCarouselState extends State<PainCarousel> {
 
               return Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 6),
-                child: AppCard(
+                child: Align(
+                  alignment: Alignment.topCenter,
+                  child: AppCard(
                   child: SingleChildScrollView(
                     physics: const NeverScrollableScrollPhysics(),
                     child: Column(
@@ -235,6 +237,7 @@ class _PainCarouselState extends State<PainCarousel> {
                     ],
                   ),
                   ),
+                ),
                 ),
               );
             },
