@@ -81,7 +81,7 @@ class SettingsSheet extends StatelessWidget {
           ),
           const SizedBox(height: 2),
           _SettingsRow(
-            icon: 'assets/icons/profile/info-green.svg',
+            icon: 'assets/icons/other/info-green.svg',
             label: 'Lizenzen',
             isLast: true,
             onTap: () =>
