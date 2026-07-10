@@ -80,6 +80,7 @@ flutter:
     - assets/icons/navbar/
     - assets/icons/tip/
     - assets/icons/profile/
+    - assets/icons/other/
 
   # ── Inter lokal einbinden (optional) ──────────────────────────
   # Wenn ihr die Inter-Schrift als Asset mitliefern wollt (offline-fähig,
