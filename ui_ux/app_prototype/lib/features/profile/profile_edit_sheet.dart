@@ -6,6 +6,7 @@ import '../../data/demo/plan_options.dart';
 import '../../data/enum/gender.dart';
 import '../../state/ui_state.dart';
 import 'mobility_level_sheet.dart';
+import 'body_map_selector.dart';
 
 /// PERSON 4 — Profil bearbeiten (Bottom-Sheet), wie im Prototyp.
 ///
@@ -16,7 +17,11 @@ import 'mobility_level_sheet.dart';
 /// Profil-bearbeiten-Sheet im JSX-Prototyp (verschachtelt im
 /// Profil-Drawer, kein 4-Fragen-Test).
 class ProfileEditSheet extends StatefulWidget {
-  const ProfileEditSheet({super.key});
+  /// Wenn gesetzt, wird beim Schließen/Speichern dieser Callback aufgerufen
+  /// (statt Navigator.pop) — nötig, wenn das Sheet als In-Frame-Overlay statt
+  /// als Wurzel-Modal gerendert wird.
+  final VoidCallback? onClose;
+  const ProfileEditSheet({super.key, this.onClose});
 
   static Future<void> show(BuildContext context) {
     return showModalBottomSheet(
@@ -97,7 +102,9 @@ class _ProfileEditSheetState extends State<ProfileEditSheet> {
                   Text('Profil bearbeiten',
                       style: AppText.screenTitle.copyWith(fontSize: 22)),
                   GestureDetector(
-                    onTap: () => Navigator.of(context).pop(),
+                    onTap: () => widget.onClose != null
+                        ? widget.onClose!()
+                        : Navigator.of(context).pop(),
                     child: Container(
                       width: 32,
                       height: 32,
@@ -271,26 +278,12 @@ class _ProfileEditSheetState extends State<ProfileEditSheet> {
               // VERLETZUNG(EN)
               Text('Verletzung(en)', style: AppText.caption),
               const SizedBox(height: AppSpacing.sm),
-              Wrap(
-                spacing: AppSpacing.sm,
-                runSpacing: AppSpacing.sm,
-                children: [
-                  for (final r in PlanOptions.regions)
-                    AppChip(
-                      label: r,
-                      active: profile.regions.contains(r),
-                      activeBorder: true,
-                      onTap: () {
-                        final next = List<String>.from(profile.regions);
-                        if (next.contains(r)) {
-                          next.remove(r);
-                        } else {
-                          next.add(r);
-                        }
-                        app.updateProfile(profile.copyWith(regions: next));
-                      },
-                    ),
-                ],
+              Center(
+                child: BodyMapSelector(
+                  selected: profile.regions,
+                  onChanged: (next) =>
+                      app.updateProfile(profile.copyWith(regions: next)),
+                ),
               ),
               const SizedBox(height: AppSpacing.lg),
 
@@ -368,7 +361,9 @@ class _ProfileEditSheetState extends State<ProfileEditSheet> {
                     height: int.tryParse(_heightCtrl.text),
                     weight: int.tryParse(_weightCtrl.text),
                   ));
-                  Navigator.of(context).pop();
+                  widget.onClose != null
+                      ? widget.onClose!()
+                      : Navigator.of(context).pop();
                 },
               ),
             ],
