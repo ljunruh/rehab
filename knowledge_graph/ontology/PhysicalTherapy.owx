@@ -32304,6 +32304,614 @@ Langsam zur Mitte zurückkehren.
         <IRI>#Bicycling20+Mph</IRI>
         <Literal xml:lang="en">Bicycling20+Mph</Literal>
     </AnnotationAssertion>
+<!-- ============================================================ -->
+<!-- ADDITIONS: generated 2026-07-11 to satisfy the schema        -->
+<!-- (hasDifficultyLevel, hasInstruction, hasDuration,           -->
+<!--  hasContraindication w/ label, improves w/ label,            -->
+<!--  engagedBodyPart w/ label) for the non-Yoga/Asana exercises -->
+<!-- that were missing values. All values sourced from the web:  -->
+<!-- Cleveland Clinic, Mayo Clinic, NHS, NASM, Healthline,        -->
+<!-- MedBridge, ACE, Physiopedia, peer-reviewed PT literature.   -->
+<!-- See chat log for the full citation trail per value.          -->
+<!-- ============================================================ -->
+
+
+<!-- New individual: RespiratoryIssue -->
+    <Declaration>
+        <NamedIndividual IRI="#RespiratoryIssue"/>
+    </Declaration>
+    <ClassAssertion>
+        <Class IRI="#Contraindication"/>
+        <NamedIndividual IRI="#RespiratoryIssue"/>
+    </ClassAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#RespiratoryIssue</IRI>
+        <Literal xml:lang="en">RespiratoryIssue</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#RespiratoryIssue</IRI>
+        <Literal xml:lang="de">Atemwegsproblem</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#RespiratoryIssue</IRI>
+        <Literal xml:lang="de">Vorsicht bei fortgeschrittenen Atemwegserkrankungen wie COPD oder Asthma, da längere Atempausen oder forcierte Atemmuster die Symptome verschlechtern können. Rücksprache mit einem Arzt wird empfohlen.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#RespiratoryIssue</IRI>
+        <Literal xml:lang="en">Caution for advanced respiratory conditions such as COPD or asthma, as extended breath holds or forced breathing patterns may worsen symptoms. Consulting a physician is recommended.</Literal>
+    </AnnotationAssertion>
+
+<!-- hasDuration additions -->
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasDuration"/>
+        <NamedIndividual IRI="#Atemuebung478"/>
+        <Literal>5 Min</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasDuration"/>
+        <NamedIndividual IRI="#Bruecke"/>
+        <Literal>3 Min</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasDuration"/>
+        <NamedIndividual IRI="#ChestDoorwayStretch"/>
+        <Literal>2 Min</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasDuration"/>
+        <NamedIndividual IRI="#DeadBug"/>
+        <Literal>3 Min</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasDuration"/>
+        <NamedIndividual IRI="#Einbeinstand"/>
+        <Literal>2 Min</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasDuration"/>
+        <NamedIndividual IRI="#FaszienrolleRueckenWade"/>
+        <Literal>2 Min</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasDuration"/>
+        <NamedIndividual IRI="#FerseZehenGang"/>
+        <Literal>2 Min</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasDuration"/>
+        <NamedIndividual IRI="#FigureFourStretch"/>
+        <Literal>2 Min</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasDuration"/>
+        <NamedIndividual IRI="#GewichtsverlagerungSeitlich"/>
+        <Literal>2 Min</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasDuration"/>
+        <NamedIndividual IRI="#GleichgewichtInstabil"/>
+        <Literal>2 Min</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasDuration"/>
+        <NamedIndividual IRI="#HamstringStretch"/>
+        <Literal>2 Min</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasDuration"/>
+        <NamedIndividual IRI="#JumpingJacks"/>
+        <Literal>2 Min</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasDuration"/>
+        <NamedIndividual IRI="#Kindpose"/>
+        <Literal>2 Min</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasDuration"/>
+        <NamedIndividual IRI="#KniegelenkMobilisation"/>
+        <Literal>2 Min</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasDuration"/>
+        <NamedIndividual IRI="#LatStretch"/>
+        <Literal>2 Min</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasDuration"/>
+        <NamedIndividual IRI="#MonsterWalk"/>
+        <Literal>2 Min</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasDuration"/>
+        <NamedIndividual IRI="#MountainClimber"/>
+        <Literal>2 Min</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasDuration"/>
+        <NamedIndividual IRI="#Muschel"/>
+        <Literal>2 Min</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasDuration"/>
+        <NamedIndividual IRI="#Nackendehnungen"/>
+        <Literal>2 Min</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasDuration"/>
+        <NamedIndividual IRI="#PigeonPose"/>
+        <Literal>2 Min</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasDuration"/>
+        <NamedIndividual IRI="#ProgressiveMuskelentspannung"/>
+        <Literal>5 Min</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasDuration"/>
+        <NamedIndividual IRI="#SchulterNackenEntspannung"/>
+        <Literal>2 Min</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasDuration"/>
+        <NamedIndividual IRI="#SingleLegBridge"/>
+        <Literal>2 Min</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasDuration"/>
+        <NamedIndividual IRI="#SitzenStehen"/>
+        <Literal>3 Min</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasDuration"/>
+        <NamedIndividual IRI="#Squads"/>
+        <Literal>3 Min</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasDuration"/>
+        <NamedIndividual IRI="#StandingCalfStretch"/>
+        <Literal>2 Min</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasDuration"/>
+        <NamedIndividual IRI="#TricepsStretch"/>
+        <Literal>2 Min</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasDuration"/>
+        <NamedIndividual IRI="#Wadendehnung"/>
+        <Literal>2 Min</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasDuration"/>
+        <NamedIndividual IRI="#Wandsitzen"/>
+        <Literal>2 Min</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasDuration"/>
+        <NamedIndividual IRI="#Z-Sits"/>
+        <Literal>2 Min</Literal>
+    </DataPropertyAssertion>
+
+<!-- hasInstruction additions -->
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasInstruction"/>
+        <NamedIndividual IRI="#Einbeinstand"/>
+        <Literal>1. Aufrecht mit hüftbreitem Stand auf einer stabilen, flachen Unterlage stehen.
+2. Das Standbein leicht beugen, das Knie dabei weich halten und nicht durchdrücken.
+3. Den Rumpf aufrichten, Schulterblätter nach unten ziehen, Blick auf einen festen Punkt vorne richten.
+4. Das andere Bein langsam vom Boden abheben, das Knie leicht gebeugt.
+5. Die Position 20 bis 30 Sekunden halten und dabei ruhig weiteratmen.
+6. Das Bein kontrolliert wieder abstellen und die Seite wechseln.
+7. Pro Seite 2 bis 3 Wiederholungen durchführen, bei Bedarf anfangs mit Fingerkontakt an einer Stuhllehne oder Wand.</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasInstruction"/>
+        <NamedIndividual IRI="#FerseZehenGang"/>
+        <Literal>1. Aufrecht stehen und die Arme seitlich ausstrecken, um das Gleichgewicht zu erleichtern.
+2. Den Blick nach vorne richten und den Rumpf stabil halten.
+3. Einen Fuß direkt vor den anderen setzen, sodass die Ferse des vorderen Fußes die Zehen des hinteren berührt.
+4. Langsam und bewusst vorwärts gehen, dabei die Füße in einer Linie halten.
+5. Beim Wenden große Schritte machen, damit sich die Beine nicht kreuzen.
+6. Die Übung idealerweise entlang einer Theke oder Wand durchführen, an der man sich bei Bedarf festhalten kann.
+7. Ungefähr zwei Minuten in der Linie vor- und zurückgehen.</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasInstruction"/>
+        <NamedIndividual IRI="#FigureFourStretch"/>
+        <Literal>1. Auf den Rücken legen, beide Knie anwinkeln und die Füße flach auf den Boden stellen.
+2. Den äußeren Knöchel eines Fußes auf das gegenüberliegende Knie legen, sodass die Beine eine Vier bilden.
+3. Die Hände hinter dem Oberschenkel des unten liegenden Beins verschränken.
+4. Das untere Bein langsam in Richtung Brust ziehen, bis eine sanfte Dehnung in Gesäß und Hüfte spürbar ist.
+5. Die Position 20 bis 30 Sekunden halten und gleichmäßig weiteratmen.
+6. Langsam in die Ausgangsposition zurückkehren und die Seite wechseln.
+7. Pro Seite 2 bis 3 Wiederholungen durchführen.</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasInstruction"/>
+        <NamedIndividual IRI="#GewichtsverlagerungSeitlich"/>
+        <Literal>1. Aufrecht stehen, Füße etwas mehr als hüftbreit auseinander, Hände seitlich an den Hüften.
+2. Den Blick nach vorne richten, Knie leicht gebeugt und Rumpf aufrecht halten.
+3. Das Gewicht langsam auf das rechte Bein verlagern, bis ungefähr 80 Prozent des Gewichts auf der rechten Seite lastet.
+4. Das rechte Knie dabei leicht beugen, ohne den Rumpf zur Seite zu neigen.
+5. Die Endposition kurz halten, dann langsam zur Mitte zurückkehren.
+6. Die Bewegung zur anderen Seite wiederholen.
+7. Pro Seite 8 bis 10 Wiederholungen mit bewussten Pausen durchführen.</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasInstruction"/>
+        <NamedIndividual IRI="#GleichgewichtInstabil"/>
+        <Literal>1. Eine weiche, instabile Unterlage wie ein Balancekissen oder Schaumstoffpad auf eine rutschfeste Fläche legen.
+2. Aufrecht neben einer stabilen Stütze wie einer Küchenzeile stehen und sich anfangs mit den Fingerspitzen festhalten.
+3. Beide Füße hüftbreit auf die Unterlage stellen, das Gewicht gleichmäßig verteilen.
+4. Rumpf aufrichten, Schultern entspannen, Blick geradeaus richten.
+5. Die Position 30 Sekunden halten und das Gleichgewicht halten.
+6. Kleine Gewichtsverlagerungen nach vorne, hinten und zur Seite ausprobieren, ohne den Stand zu verlieren.
+7. Mit zunehmender Sicherheit den Fingerkontakt lösen, später optional ein Bein anheben.
+8. Übung mit langen Pausen über zwei Minuten wiederholen.</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasInstruction"/>
+        <NamedIndividual IRI="#HamstringStretch"/>
+        <Literal>1. Auf den Rücken legen, beide Beine ausstrecken.
+2. Ein Handtuch oder einen Gurt um den Mittelfuß eines Beins legen.
+3. Das Bein am Handtuch hochheben und das Knie langsam strecken, bis eine sanfte Dehnung an der Oberschenkelrückseite spürbar ist.
+4. Das Knie dabei leicht gebeugt halten, falls die Dehnung zu intensiv wird.
+5. Die Position 20 bis 30 Sekunden halten und ruhig weiteratmen.
+6. Das Bein kontrolliert ablegen und die Seite wechseln.
+7. Pro Seite 2 bis 3 Wiederholungen durchführen.</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasInstruction"/>
+        <NamedIndividual IRI="#JumpingJacks"/>
+        <Literal>1. Aufrecht stehen, Füße zusammen, Arme seitlich am Körper.
+2. Mit beiden Füßen gleichzeitig etwas mehr als hüftbreit springen und die Arme in einem Bogen über den Kopf führen.
+3. Weich auf den Fußballen landen, die Knie dabei leicht gebeugt halten.
+4. Mit einem weiteren Sprung in die Ausgangsposition zurückkehren und die Arme senken.
+5. Die Knie während der gesamten Bewegung über den Fußspitzen ausrichten und den Rumpf stabil halten.
+6. Anfangs 20 bis 30 Sekunden in gemäßigtem Tempo durchführen, dann 30 bis 60 Sekunden steigern.
+7. Zwei bis drei Sätze mit jeweils 20 bis 30 Sekunden Pause absolvieren.</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasInstruction"/>
+        <NamedIndividual IRI="#MonsterWalk"/>
+        <Literal>1. Ein leichtes Theraband knapp über den Knien um beide Oberschenkel legen.
+2. Aufrecht in Schrittstellung hinstellen, die Füße etwas weiter als hüftbreit auseinander.
+3. Die Knie bewusst nach außen drücken, sodass das Band unter Spannung bleibt.
+4. Die Hüfte leicht beugen und das Gesäß anspannen.
+5. Mit kleinen, bewussten Schritten seitlich nach rechts gehen und dabei das Band gespannt halten.
+6. Eine bestimmte Strecke in eine Richtung gehen, dann wenden und zur anderen Seite laufen.
+7. Anschließend in Vor- und Rückwärtsrichtung mit kleinen Schritten wiederholen.
+8. Pro Richtung 10 bis 20 Schritte ausführen und das Band nicht zu leicht wählen.</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasInstruction"/>
+        <NamedIndividual IRI="#MountainClimber"/>
+        <Literal>1. In die Liegestützposition kommen, Hände unter den Schultern, Arme gestreckt.
+2. Den Rumpf stabilisieren, sodass Schultern, Hüfte und Knie eine Linie bilden.
+3. Ein Knie kontrolliert in Richtung Brust ziehen.
+4. Das Bein zügig, aber kontrolliert wieder in die Ausgangsposition bringen und gleichzeitig das andere Knie nach vorne ziehen.
+5. Die Beine in einem gleichmäßigen Rhythmus abwechseln, ohne dass das Becken stark nach oben oder unten schwingt.
+6. Anfangs 20 Sekunden arbeiten, 20 Sekunden Pause, insgesamt drei Sätze.
+7. Bei besserer Ausdauer auf 30 bis 45 Sekunden pro Satz steigern.</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasInstruction"/>
+        <NamedIndividual IRI="#Muschel"/>
+        <Literal>1. In Seitenlage auf eine Matte legen, Hüfte und Knie ungefähr 45 Grad angewinkelt.
+2. Die Füße übereinander halten, der untere Arm stützt den Kopf.
+3. Den oberen Arm locker vor die Brust legen und die obere Hand an der Hüfte positionieren.
+4. Die Beckenstellung kontrollieren: Hüfte und Schultern bleiben senkrecht übereinander.
+5. Das obere Knie langsam und kontrolliert anheben, die Füße bleiben dabei zusammen.
+6. Das Knie am oberen Punkt kurz halten, dann langsam wieder absenken.
+7. 10 bis 15 Wiederholungen pro Seite durchführen und die Seite wechseln.
+8. Optional ein Theraband knapp über den Knien anbringen, um die Intensität zu steigern.</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasInstruction"/>
+        <NamedIndividual IRI="#SingleLegBridge"/>
+        <Literal>1. Auf den Rücken legen, beide Knie anwinkeln und die Füße hüftbreit aufstellen.
+2. Ein Knie zur Brust ziehen, sodass der Oberschenkel senkrecht steht und der Unterschenkel parallel zum Boden bleibt.
+3. Die Bauchmuskulatur anspannen und das Becken in eine neutrale Position bringen.
+4. Über die Ferse des stehenden Beins das Becken kontrolliert anheben, bis Schulter, Hüfte und Knie eine Linie bilden.
+5. Das Gesäß am oberen Punkt kurz anspannen und die Hüfte waagerecht halten.
+6. Die Hüfte langsam wieder absenken, ohne den unteren Rücken ins Hohlkreuz fallen zu lassen.
+7. 10 bis 15 Wiederholungen pro Seite durchführen, dann die Seite wechseln.
+8. Pro Seite 2 bis 3 Sätze absolvieren.</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasInstruction"/>
+        <NamedIndividual IRI="#SitzenStehen"/>
+        <Literal>1. Aufrecht auf einen stabilen Stuhl ohne Armlehne setzen, Füße hüftbreit und flach auf dem Boden.
+2. Die Arme vor der Brust verschränken, um den Einsatz der Hände auszuschließen.
+3. Den Oberkörper leicht nach vorne lehnen, die Füße fest in den Boden drücken.
+4. Mit kontrolliertem Tempo aus dem Sitz aufstehen, bis die Beine vollständig gestreckt sind.
+5. Kurz aufrecht stehen bleiben, dann langsam und gleichmäßig wieder hinsetzen.
+6. Die Knie während der gesamten Bewegung in Richtung Fußspitzen halten.
+7. 8 bis 12 Wiederholungen als ein Satz durchführen, insgesamt drei Sätze mit etwa einer Minute Pause.</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasInstruction"/>
+        <NamedIndividual IRI="#Squads"/>
+        <Literal>1. Aufrecht hinstellen, Füße etwas mehr als hüftbreit, Zehen leicht nach außen gedreht.
+2. Den Blick nach vorne richten und den Rumpf aufrichten.
+3. Die Arme zur Stabilisation nach vorne strecken oder vor der Brust verschränken.
+4. Langsam die Knie beugen und die Hüfte nach hinten schieben, als würde man sich auf einen Stuhl setzen.
+5. Die Knie in Richtung Fußspitzen halten, den Rücken gerade lassen und nicht ins Hohlkreuz fallen.
+6. Soweit absenken, wie eine kontrollierte, schmerzfreie Bewegung möglich ist, und kurz halten.
+7. Über die Fersen kontrolliert wieder in den Stand aufrichten.
+8. 12 bis 15 Wiederholungen pro Satz durchführen, insgesamt zwei bis drei Sätze.</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasInstruction"/>
+        <NamedIndividual IRI="#StandingCalfStretch"/>
+        <Literal>1. Mit beiden Händen an einer Wand auf Schulterhöhe abstützen, Arme gestreckt.
+2. Ein Bein nach hinten setzen, das Knie des hinteren Beins gestreckt halten.
+3. Die Ferse des hinteren Fußes fest in den Boden drücken, die Zehen zeigen nach vorne.
+4. Das vordere Knie langsam beugen und das Becken nach vorne schieben.
+5. Die Dehnung in der Wade des hinteren Beins halten, ohne den Fuß nach außen zu drehen.
+6. Die Position 30 Sekunden halten und ruhig weiteratmen.
+7. Die Seite wechseln und pro Seite 2 bis 3 Wiederholungen durchführen.</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasInstruction"/>
+        <NamedIndividual IRI="#TricepsStretch"/>
+        <Literal>1. Aufrecht stehen oder aufrecht auf einem Stuhl sitzen, die Füße hüftbreit.
+2. Einen Arm seitlich am Körper hängen lassen, dann den Oberarm anheben und den Ellbogen beugen.
+3. Die Hand des angehobenen Arms auf den oberen Rücken legen, zwischen die Schulterblätter.
+4. Mit der anderen Hand sanft den angehobenen Ellbogen in Richtung Kopf ziehen.
+5. Den Nacken lang lassen, die Schulter entspannt nach unten halten und nicht hochziehen.
+6. Die Dehnung 20 bis 30 Sekunden halten und gleichmäßig weiteratmen.
+7. Den Arm langsam lösen und die Seite wechseln.
+8. Pro Seite 2 bis 3 Wiederholungen durchführen.</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasInstruction"/>
+        <NamedIndividual IRI="#Wandsitzen"/>
+        <Literal>1. Mit dem Rücken an eine Wand stellen, die Füße etwa schulterbreit auseinander und einen halben Schritt von der Wand entfernt.
+2. Den Rücken langsam an der Wand nach unten gleiten lassen, bis die Oberschenkel ungefähr parallel zum Boden sind.
+3. Die Knie ungefähr im rechten Winkel beugen, die Füße bleiben fest am Boden.
+4. Den Rücken vollständig an die Wand pressen, den Rumpf aufrichten und die Schultern entspannen.
+5. Die Arme locker seitlich an die Wand legen oder auf den Oberschenkeln ablegen.
+6. Die Position 20 bis 40 Sekunden halten und ruhig weiteratmen.
+7. Mit der Ferse gegen den Boden drücken, um die Oberschenkelmuskulatur zu aktivieren.
+8. Den Rücken an der Wand nach oben schieben, um die Position zu beenden.
+9. Zwei bis drei Sätze absolvieren und die Haltezeit langsam steigern.</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasInstruction"/>
+        <NamedIndividual IRI="#Z-Sits"/>
+        <Literal>1. Auf eine Matte oder ein gefaltetes Handtuch setzen, die Beine zunächst nach vorne ausstrecken.
+2. Das vordere Bein im rechten Winkel nach vorne beugen, den Unterschenkel senkrecht zum Körper halten.
+3. Das hintere Bein im rechten Winkel zur gegenüberliegenden Seite beugen, sodass beide Unterschenkel parallel zueinander stehen und die Beine zusammen ein Z bilden.
+4. Den Oberkörper aufrecht halten, das Brustbein anheben und die Schultern entspannen.
+5. Das Gewicht möglichst gleichmäßig auf beide Sitzknochen verteilen und den unteren Rücken nicht runden.
+6. Die Position 30 bis 60 Sekunden halten und ruhig weiteratmen.
+7. Die Beine langsam in die Ausgangsstellung zurückführen und die Seite wechseln.
+8. Pro Seite 2 bis 3 Wiederholungen durchführen, bei eingeschränkter Beweglichkeit ein Kissen unter die Hüfte legen.</Literal>
+    </DataPropertyAssertion>
+
+<!-- hasContraindication additions -->
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>This Contraindication should be considered for practitioners of Atemuebung478 to avoid strain or injury.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#hasContraindication"/>
+        <NamedIndividual IRI="#Atemuebung478"/>
+        <NamedIndividual IRI="#RespiratoryIssue"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>This Contraindication should be considered for practitioners of ChestDoorwayStretch to avoid strain or injury.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#hasContraindication"/>
+        <NamedIndividual IRI="#ChestDoorwayStretch"/>
+        <NamedIndividual IRI="#ShoulderIssue"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>This Contraindication should be considered for practitioners of FigureFourStretch to avoid strain or injury.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#hasContraindication"/>
+        <NamedIndividual IRI="#FigureFourStretch"/>
+        <NamedIndividual IRI="#HipIssue"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>This Contraindication should be considered for practitioners of FigureFourStretch to avoid strain or injury.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#hasContraindication"/>
+        <NamedIndividual IRI="#FigureFourStretch"/>
+        <NamedIndividual IRI="#KneeIssue"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>This Contraindication should be considered for practitioners of HamstringStretch to avoid strain or injury.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#hasContraindication"/>
+        <NamedIndividual IRI="#HamstringStretch"/>
+        <NamedIndividual IRI="#HamstringIssue"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>This Contraindication should be considered for practitioners of HamstringStretch to avoid strain or injury.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#hasContraindication"/>
+        <NamedIndividual IRI="#HamstringStretch"/>
+        <NamedIndividual IRI="#LowerBackIssue"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>This Contraindication should be considered for practitioners of JumpingJacks to avoid strain or injury.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#hasContraindication"/>
+        <NamedIndividual IRI="#JumpingJacks"/>
+        <NamedIndividual IRI="#KneeIssue"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>This Contraindication should be considered for practitioners of JumpingJacks to avoid strain or injury.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#hasContraindication"/>
+        <NamedIndividual IRI="#JumpingJacks"/>
+        <NamedIndividual IRI="#AnkleIssue"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>This Contraindication should be considered for practitioners of JumpingJacks to avoid strain or injury.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#hasContraindication"/>
+        <NamedIndividual IRI="#JumpingJacks"/>
+        <NamedIndividual IRI="#BackIssue"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>This Contraindication should be considered for practitioners of MonsterWalk to avoid strain or injury.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#hasContraindication"/>
+        <NamedIndividual IRI="#MonsterWalk"/>
+        <NamedIndividual IRI="#KneeIssue"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>This Contraindication should be considered for practitioners of MonsterWalk to avoid strain or injury.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#hasContraindication"/>
+        <NamedIndividual IRI="#MonsterWalk"/>
+        <NamedIndividual IRI="#HipIssue"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>This Contraindication should be considered for practitioners of MountainClimber to avoid strain or injury.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#hasContraindication"/>
+        <NamedIndividual IRI="#MountainClimber"/>
+        <NamedIndividual IRI="#BackIssue"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>This Contraindication should be considered for practitioners of MountainClimber to avoid strain or injury.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#hasContraindication"/>
+        <NamedIndividual IRI="#MountainClimber"/>
+        <NamedIndividual IRI="#ShoulderIssue"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>This Contraindication should be considered for practitioners of MountainClimber to avoid strain or injury.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#hasContraindication"/>
+        <NamedIndividual IRI="#MountainClimber"/>
+        <NamedIndividual IRI="#WristIssue"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>This Contraindication should be considered for practitioners of ProgressiveMuskelentspannung to avoid strain or injury.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#hasContraindication"/>
+        <NamedIndividual IRI="#ProgressiveMuskelentspannung"/>
+        <NamedIndividual IRI="#BackIssue"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>This Contraindication should be considered for practitioners of SingleLegBridge to avoid strain or injury.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#hasContraindication"/>
+        <NamedIndividual IRI="#SingleLegBridge"/>
+        <NamedIndividual IRI="#KneeIssue"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>This Contraindication should be considered for practitioners of SingleLegBridge to avoid strain or injury.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#hasContraindication"/>
+        <NamedIndividual IRI="#SingleLegBridge"/>
+        <NamedIndividual IRI="#LowerBackIssue"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>This Contraindication should be considered for practitioners of Squads to avoid strain or injury.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#hasContraindication"/>
+        <NamedIndividual IRI="#Squads"/>
+        <NamedIndividual IRI="#KneeIssue"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>This Contraindication should be considered for practitioners of Squads to avoid strain or injury.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#hasContraindication"/>
+        <NamedIndividual IRI="#Squads"/>
+        <NamedIndividual IRI="#LowerBackIssue"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>This Contraindication should be considered for practitioners of Squads to avoid strain or injury.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#hasContraindication"/>
+        <NamedIndividual IRI="#Squads"/>
+        <NamedIndividual IRI="#HipIssue"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>This Contraindication should be considered for practitioners of StandingCalfStretch to avoid strain or injury.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#hasContraindication"/>
+        <NamedIndividual IRI="#StandingCalfStretch"/>
+        <NamedIndividual IRI="#AnkleIssue"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>This Contraindication should be considered for practitioners of TricepsStretch to avoid strain or injury.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#hasContraindication"/>
+        <NamedIndividual IRI="#TricepsStretch"/>
+        <NamedIndividual IRI="#ShoulderIssue"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>This Contraindication should be considered for practitioners of Z-Sits to avoid strain or injury.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#hasContraindication"/>
+        <NamedIndividual IRI="#Z-Sits"/>
+        <NamedIndividual IRI="#KneeIssue"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>This Contraindication should be considered for practitioners of Z-Sits to avoid strain or injury.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#hasContraindication"/>
+        <NamedIndividual IRI="#Z-Sits"/>
+        <NamedIndividual IRI="#HipIssue"/>
+    </ObjectPropertyAssertion>
 </Ontology>
 
 
