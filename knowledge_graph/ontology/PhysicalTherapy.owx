@@ -32304,6 +32304,3838 @@ Langsam zur Mitte zurückkehren.
         <IRI>#Bicycling20+Mph</IRI>
         <Literal xml:lang="en">Bicycling20+Mph</Literal>
     </AnnotationAssertion>
+<!-- ============================================================ -->
+<!-- ADDITIONS: generated 2026-07-11 to satisfy the schema        -->
+<!-- (hasDifficultyLevel, hasInstruction, hasDuration,           -->
+<!--  hasContraindication w/ label, improves w/ label,            -->
+<!--  engagedBodyPart w/ label) for the non-Yoga/Asana exercises -->
+<!-- that were missing values. All values sourced from the web:  -->
+<!-- Cleveland Clinic, Mayo Clinic, NHS, NASM, Healthline,        -->
+<!-- MedBridge, ACE, Physiopedia, peer-reviewed PT literature.   -->
+<!-- See chat log for the full citation trail per value.          -->
+<!-- ============================================================ -->
+
+
+<!-- New individual: RespiratoryIssue -->
+    <Declaration>
+        <NamedIndividual IRI="#RespiratoryIssue"/>
+    </Declaration>
+    <ClassAssertion>
+        <Class IRI="#Contraindication"/>
+        <NamedIndividual IRI="#RespiratoryIssue"/>
+    </ClassAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#RespiratoryIssue</IRI>
+        <Literal xml:lang="en">RespiratoryIssue</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#RespiratoryIssue</IRI>
+        <Literal xml:lang="de">Atemwegsproblem</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#RespiratoryIssue</IRI>
+        <Literal xml:lang="de">Vorsicht bei fortgeschrittenen Atemwegserkrankungen wie COPD oder Asthma, da längere Atempausen oder forcierte Atemmuster die Symptome verschlechtern können. Rücksprache mit einem Arzt wird empfohlen.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#RespiratoryIssue</IRI>
+        <Literal xml:lang="en">Caution for advanced respiratory conditions such as COPD or asthma, as extended breath holds or forced breathing patterns may worsen symptoms. Consulting a physician is recommended.</Literal>
+    </AnnotationAssertion>
+
+<!-- hasDuration additions -->
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasDuration"/>
+        <NamedIndividual IRI="#Atemuebung478"/>
+        <Literal>5 Min</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasDuration"/>
+        <NamedIndividual IRI="#Bruecke"/>
+        <Literal>3 Min</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasDuration"/>
+        <NamedIndividual IRI="#ChestDoorwayStretch"/>
+        <Literal>2 Min</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasDuration"/>
+        <NamedIndividual IRI="#DeadBug"/>
+        <Literal>3 Min</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasDuration"/>
+        <NamedIndividual IRI="#Einbeinstand"/>
+        <Literal>2 Min</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasDuration"/>
+        <NamedIndividual IRI="#FaszienrolleRueckenWade"/>
+        <Literal>2 Min</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasDuration"/>
+        <NamedIndividual IRI="#FerseZehenGang"/>
+        <Literal>2 Min</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasDuration"/>
+        <NamedIndividual IRI="#FigureFourStretch"/>
+        <Literal>2 Min</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasDuration"/>
+        <NamedIndividual IRI="#GewichtsverlagerungSeitlich"/>
+        <Literal>2 Min</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasDuration"/>
+        <NamedIndividual IRI="#GleichgewichtInstabil"/>
+        <Literal>2 Min</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasDuration"/>
+        <NamedIndividual IRI="#HamstringStretch"/>
+        <Literal>2 Min</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasDuration"/>
+        <NamedIndividual IRI="#JumpingJacks"/>
+        <Literal>2 Min</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasDuration"/>
+        <NamedIndividual IRI="#Kindpose"/>
+        <Literal>2 Min</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasDuration"/>
+        <NamedIndividual IRI="#KniegelenkMobilisation"/>
+        <Literal>2 Min</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasDuration"/>
+        <NamedIndividual IRI="#LatStretch"/>
+        <Literal>2 Min</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasDuration"/>
+        <NamedIndividual IRI="#MonsterWalk"/>
+        <Literal>2 Min</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasDuration"/>
+        <NamedIndividual IRI="#MountainClimber"/>
+        <Literal>2 Min</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasDuration"/>
+        <NamedIndividual IRI="#Muschel"/>
+        <Literal>2 Min</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasDuration"/>
+        <NamedIndividual IRI="#Nackendehnungen"/>
+        <Literal>2 Min</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasDuration"/>
+        <NamedIndividual IRI="#PigeonPose"/>
+        <Literal>2 Min</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasDuration"/>
+        <NamedIndividual IRI="#ProgressiveMuskelentspannung"/>
+        <Literal>5 Min</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasDuration"/>
+        <NamedIndividual IRI="#SchulterNackenEntspannung"/>
+        <Literal>2 Min</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasDuration"/>
+        <NamedIndividual IRI="#SingleLegBridge"/>
+        <Literal>2 Min</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasDuration"/>
+        <NamedIndividual IRI="#SitzenStehen"/>
+        <Literal>3 Min</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasDuration"/>
+        <NamedIndividual IRI="#Squads"/>
+        <Literal>3 Min</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasDuration"/>
+        <NamedIndividual IRI="#StandingCalfStretch"/>
+        <Literal>2 Min</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasDuration"/>
+        <NamedIndividual IRI="#TricepsStretch"/>
+        <Literal>2 Min</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasDuration"/>
+        <NamedIndividual IRI="#Wadendehnung"/>
+        <Literal>2 Min</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasDuration"/>
+        <NamedIndividual IRI="#Wandsitzen"/>
+        <Literal>2 Min</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasDuration"/>
+        <NamedIndividual IRI="#Z-Sits"/>
+        <Literal>2 Min</Literal>
+    </DataPropertyAssertion>
+
+<!-- hasInstruction additions -->
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasInstruction"/>
+        <NamedIndividual IRI="#Einbeinstand"/>
+        <Literal>1. Aufrecht mit hüftbreitem Stand auf einer stabilen, flachen Unterlage stehen.
+2. Das Standbein leicht beugen, das Knie dabei weich halten und nicht durchdrücken.
+3. Den Rumpf aufrichten, Schulterblätter nach unten ziehen, Blick auf einen festen Punkt vorne richten.
+4. Das andere Bein langsam vom Boden abheben, das Knie leicht gebeugt.
+5. Die Position 20 bis 30 Sekunden halten und dabei ruhig weiteratmen.
+6. Das Bein kontrolliert wieder abstellen und die Seite wechseln.
+7. Pro Seite 2 bis 3 Wiederholungen durchführen, bei Bedarf anfangs mit Fingerkontakt an einer Stuhllehne oder Wand.</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasInstruction"/>
+        <NamedIndividual IRI="#FerseZehenGang"/>
+        <Literal>1. Aufrecht stehen und die Arme seitlich ausstrecken, um das Gleichgewicht zu erleichtern.
+2. Den Blick nach vorne richten und den Rumpf stabil halten.
+3. Einen Fuß direkt vor den anderen setzen, sodass die Ferse des vorderen Fußes die Zehen des hinteren berührt.
+4. Langsam und bewusst vorwärts gehen, dabei die Füße in einer Linie halten.
+5. Beim Wenden große Schritte machen, damit sich die Beine nicht kreuzen.
+6. Die Übung idealerweise entlang einer Theke oder Wand durchführen, an der man sich bei Bedarf festhalten kann.
+7. Ungefähr zwei Minuten in der Linie vor- und zurückgehen.</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasInstruction"/>
+        <NamedIndividual IRI="#FigureFourStretch"/>
+        <Literal>1. Auf den Rücken legen, beide Knie anwinkeln und die Füße flach auf den Boden stellen.
+2. Den äußeren Knöchel eines Fußes auf das gegenüberliegende Knie legen, sodass die Beine eine Vier bilden.
+3. Die Hände hinter dem Oberschenkel des unten liegenden Beins verschränken.
+4. Das untere Bein langsam in Richtung Brust ziehen, bis eine sanfte Dehnung in Gesäß und Hüfte spürbar ist.
+5. Die Position 20 bis 30 Sekunden halten und gleichmäßig weiteratmen.
+6. Langsam in die Ausgangsposition zurückkehren und die Seite wechseln.
+7. Pro Seite 2 bis 3 Wiederholungen durchführen.</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasInstruction"/>
+        <NamedIndividual IRI="#GewichtsverlagerungSeitlich"/>
+        <Literal>1. Aufrecht stehen, Füße etwas mehr als hüftbreit auseinander, Hände seitlich an den Hüften.
+2. Den Blick nach vorne richten, Knie leicht gebeugt und Rumpf aufrecht halten.
+3. Das Gewicht langsam auf das rechte Bein verlagern, bis ungefähr 80 Prozent des Gewichts auf der rechten Seite lastet.
+4. Das rechte Knie dabei leicht beugen, ohne den Rumpf zur Seite zu neigen.
+5. Die Endposition kurz halten, dann langsam zur Mitte zurückkehren.
+6. Die Bewegung zur anderen Seite wiederholen.
+7. Pro Seite 8 bis 10 Wiederholungen mit bewussten Pausen durchführen.</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasInstruction"/>
+        <NamedIndividual IRI="#GleichgewichtInstabil"/>
+        <Literal>1. Eine weiche, instabile Unterlage wie ein Balancekissen oder Schaumstoffpad auf eine rutschfeste Fläche legen.
+2. Aufrecht neben einer stabilen Stütze wie einer Küchenzeile stehen und sich anfangs mit den Fingerspitzen festhalten.
+3. Beide Füße hüftbreit auf die Unterlage stellen, das Gewicht gleichmäßig verteilen.
+4. Rumpf aufrichten, Schultern entspannen, Blick geradeaus richten.
+5. Die Position 30 Sekunden halten und das Gleichgewicht halten.
+6. Kleine Gewichtsverlagerungen nach vorne, hinten und zur Seite ausprobieren, ohne den Stand zu verlieren.
+7. Mit zunehmender Sicherheit den Fingerkontakt lösen, später optional ein Bein anheben.
+8. Übung mit langen Pausen über zwei Minuten wiederholen.</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasInstruction"/>
+        <NamedIndividual IRI="#HamstringStretch"/>
+        <Literal>1. Auf den Rücken legen, beide Beine ausstrecken.
+2. Ein Handtuch oder einen Gurt um den Mittelfuß eines Beins legen.
+3. Das Bein am Handtuch hochheben und das Knie langsam strecken, bis eine sanfte Dehnung an der Oberschenkelrückseite spürbar ist.
+4. Das Knie dabei leicht gebeugt halten, falls die Dehnung zu intensiv wird.
+5. Die Position 20 bis 30 Sekunden halten und ruhig weiteratmen.
+6. Das Bein kontrolliert ablegen und die Seite wechseln.
+7. Pro Seite 2 bis 3 Wiederholungen durchführen.</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasInstruction"/>
+        <NamedIndividual IRI="#JumpingJacks"/>
+        <Literal>1. Aufrecht stehen, Füße zusammen, Arme seitlich am Körper.
+2. Mit beiden Füßen gleichzeitig etwas mehr als hüftbreit springen und die Arme in einem Bogen über den Kopf führen.
+3. Weich auf den Fußballen landen, die Knie dabei leicht gebeugt halten.
+4. Mit einem weiteren Sprung in die Ausgangsposition zurückkehren und die Arme senken.
+5. Die Knie während der gesamten Bewegung über den Fußspitzen ausrichten und den Rumpf stabil halten.
+6. Anfangs 20 bis 30 Sekunden in gemäßigtem Tempo durchführen, dann 30 bis 60 Sekunden steigern.
+7. Zwei bis drei Sätze mit jeweils 20 bis 30 Sekunden Pause absolvieren.</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasInstruction"/>
+        <NamedIndividual IRI="#MonsterWalk"/>
+        <Literal>1. Ein leichtes Theraband knapp über den Knien um beide Oberschenkel legen.
+2. Aufrecht in Schrittstellung hinstellen, die Füße etwas weiter als hüftbreit auseinander.
+3. Die Knie bewusst nach außen drücken, sodass das Band unter Spannung bleibt.
+4. Die Hüfte leicht beugen und das Gesäß anspannen.
+5. Mit kleinen, bewussten Schritten seitlich nach rechts gehen und dabei das Band gespannt halten.
+6. Eine bestimmte Strecke in eine Richtung gehen, dann wenden und zur anderen Seite laufen.
+7. Anschließend in Vor- und Rückwärtsrichtung mit kleinen Schritten wiederholen.
+8. Pro Richtung 10 bis 20 Schritte ausführen und das Band nicht zu leicht wählen.</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasInstruction"/>
+        <NamedIndividual IRI="#MountainClimber"/>
+        <Literal>1. In die Liegestützposition kommen, Hände unter den Schultern, Arme gestreckt.
+2. Den Rumpf stabilisieren, sodass Schultern, Hüfte und Knie eine Linie bilden.
+3. Ein Knie kontrolliert in Richtung Brust ziehen.
+4. Das Bein zügig, aber kontrolliert wieder in die Ausgangsposition bringen und gleichzeitig das andere Knie nach vorne ziehen.
+5. Die Beine in einem gleichmäßigen Rhythmus abwechseln, ohne dass das Becken stark nach oben oder unten schwingt.
+6. Anfangs 20 Sekunden arbeiten, 20 Sekunden Pause, insgesamt drei Sätze.
+7. Bei besserer Ausdauer auf 30 bis 45 Sekunden pro Satz steigern.</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasInstruction"/>
+        <NamedIndividual IRI="#Muschel"/>
+        <Literal>1. In Seitenlage auf eine Matte legen, Hüfte und Knie ungefähr 45 Grad angewinkelt.
+2. Die Füße übereinander halten, der untere Arm stützt den Kopf.
+3. Den oberen Arm locker vor die Brust legen und die obere Hand an der Hüfte positionieren.
+4. Die Beckenstellung kontrollieren: Hüfte und Schultern bleiben senkrecht übereinander.
+5. Das obere Knie langsam und kontrolliert anheben, die Füße bleiben dabei zusammen.
+6. Das Knie am oberen Punkt kurz halten, dann langsam wieder absenken.
+7. 10 bis 15 Wiederholungen pro Seite durchführen und die Seite wechseln.
+8. Optional ein Theraband knapp über den Knien anbringen, um die Intensität zu steigern.</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasInstruction"/>
+        <NamedIndividual IRI="#SingleLegBridge"/>
+        <Literal>1. Auf den Rücken legen, beide Knie anwinkeln und die Füße hüftbreit aufstellen.
+2. Ein Knie zur Brust ziehen, sodass der Oberschenkel senkrecht steht und der Unterschenkel parallel zum Boden bleibt.
+3. Die Bauchmuskulatur anspannen und das Becken in eine neutrale Position bringen.
+4. Über die Ferse des stehenden Beins das Becken kontrolliert anheben, bis Schulter, Hüfte und Knie eine Linie bilden.
+5. Das Gesäß am oberen Punkt kurz anspannen und die Hüfte waagerecht halten.
+6. Die Hüfte langsam wieder absenken, ohne den unteren Rücken ins Hohlkreuz fallen zu lassen.
+7. 10 bis 15 Wiederholungen pro Seite durchführen, dann die Seite wechseln.
+8. Pro Seite 2 bis 3 Sätze absolvieren.</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasInstruction"/>
+        <NamedIndividual IRI="#SitzenStehen"/>
+        <Literal>1. Aufrecht auf einen stabilen Stuhl ohne Armlehne setzen, Füße hüftbreit und flach auf dem Boden.
+2. Die Arme vor der Brust verschränken, um den Einsatz der Hände auszuschließen.
+3. Den Oberkörper leicht nach vorne lehnen, die Füße fest in den Boden drücken.
+4. Mit kontrolliertem Tempo aus dem Sitz aufstehen, bis die Beine vollständig gestreckt sind.
+5. Kurz aufrecht stehen bleiben, dann langsam und gleichmäßig wieder hinsetzen.
+6. Die Knie während der gesamten Bewegung in Richtung Fußspitzen halten.
+7. 8 bis 12 Wiederholungen als ein Satz durchführen, insgesamt drei Sätze mit etwa einer Minute Pause.</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasInstruction"/>
+        <NamedIndividual IRI="#Squads"/>
+        <Literal>1. Aufrecht hinstellen, Füße etwas mehr als hüftbreit, Zehen leicht nach außen gedreht.
+2. Den Blick nach vorne richten und den Rumpf aufrichten.
+3. Die Arme zur Stabilisation nach vorne strecken oder vor der Brust verschränken.
+4. Langsam die Knie beugen und die Hüfte nach hinten schieben, als würde man sich auf einen Stuhl setzen.
+5. Die Knie in Richtung Fußspitzen halten, den Rücken gerade lassen und nicht ins Hohlkreuz fallen.
+6. Soweit absenken, wie eine kontrollierte, schmerzfreie Bewegung möglich ist, und kurz halten.
+7. Über die Fersen kontrolliert wieder in den Stand aufrichten.
+8. 12 bis 15 Wiederholungen pro Satz durchführen, insgesamt zwei bis drei Sätze.</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasInstruction"/>
+        <NamedIndividual IRI="#StandingCalfStretch"/>
+        <Literal>1. Mit beiden Händen an einer Wand auf Schulterhöhe abstützen, Arme gestreckt.
+2. Ein Bein nach hinten setzen, das Knie des hinteren Beins gestreckt halten.
+3. Die Ferse des hinteren Fußes fest in den Boden drücken, die Zehen zeigen nach vorne.
+4. Das vordere Knie langsam beugen und das Becken nach vorne schieben.
+5. Die Dehnung in der Wade des hinteren Beins halten, ohne den Fuß nach außen zu drehen.
+6. Die Position 30 Sekunden halten und ruhig weiteratmen.
+7. Die Seite wechseln und pro Seite 2 bis 3 Wiederholungen durchführen.</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasInstruction"/>
+        <NamedIndividual IRI="#TricepsStretch"/>
+        <Literal>1. Aufrecht stehen oder aufrecht auf einem Stuhl sitzen, die Füße hüftbreit.
+2. Einen Arm seitlich am Körper hängen lassen, dann den Oberarm anheben und den Ellbogen beugen.
+3. Die Hand des angehobenen Arms auf den oberen Rücken legen, zwischen die Schulterblätter.
+4. Mit der anderen Hand sanft den angehobenen Ellbogen in Richtung Kopf ziehen.
+5. Den Nacken lang lassen, die Schulter entspannt nach unten halten und nicht hochziehen.
+6. Die Dehnung 20 bis 30 Sekunden halten und gleichmäßig weiteratmen.
+7. Den Arm langsam lösen und die Seite wechseln.
+8. Pro Seite 2 bis 3 Wiederholungen durchführen.</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasInstruction"/>
+        <NamedIndividual IRI="#Wandsitzen"/>
+        <Literal>1. Mit dem Rücken an eine Wand stellen, die Füße etwa schulterbreit auseinander und einen halben Schritt von der Wand entfernt.
+2. Den Rücken langsam an der Wand nach unten gleiten lassen, bis die Oberschenkel ungefähr parallel zum Boden sind.
+3. Die Knie ungefähr im rechten Winkel beugen, die Füße bleiben fest am Boden.
+4. Den Rücken vollständig an die Wand pressen, den Rumpf aufrichten und die Schultern entspannen.
+5. Die Arme locker seitlich an die Wand legen oder auf den Oberschenkeln ablegen.
+6. Die Position 20 bis 40 Sekunden halten und ruhig weiteratmen.
+7. Mit der Ferse gegen den Boden drücken, um die Oberschenkelmuskulatur zu aktivieren.
+8. Den Rücken an der Wand nach oben schieben, um die Position zu beenden.
+9. Zwei bis drei Sätze absolvieren und die Haltezeit langsam steigern.</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasInstruction"/>
+        <NamedIndividual IRI="#Z-Sits"/>
+        <Literal>1. Auf eine Matte oder ein gefaltetes Handtuch setzen, die Beine zunächst nach vorne ausstrecken.
+2. Das vordere Bein im rechten Winkel nach vorne beugen, den Unterschenkel senkrecht zum Körper halten.
+3. Das hintere Bein im rechten Winkel zur gegenüberliegenden Seite beugen, sodass beide Unterschenkel parallel zueinander stehen und die Beine zusammen ein Z bilden.
+4. Den Oberkörper aufrecht halten, das Brustbein anheben und die Schultern entspannen.
+5. Das Gewicht möglichst gleichmäßig auf beide Sitzknochen verteilen und den unteren Rücken nicht runden.
+6. Die Position 30 bis 60 Sekunden halten und ruhig weiteratmen.
+7. Die Beine langsam in die Ausgangsstellung zurückführen und die Seite wechseln.
+8. Pro Seite 2 bis 3 Wiederholungen durchführen, bei eingeschränkter Beweglichkeit ein Kissen unter die Hüfte legen.</Literal>
+    </DataPropertyAssertion>
+
+<!-- hasContraindication additions -->
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>This Contraindication should be considered for practitioners of Atemuebung478 to avoid strain or injury.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#hasContraindication"/>
+        <NamedIndividual IRI="#Atemuebung478"/>
+        <NamedIndividual IRI="#RespiratoryIssue"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>This Contraindication should be considered for practitioners of ChestDoorwayStretch to avoid strain or injury.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#hasContraindication"/>
+        <NamedIndividual IRI="#ChestDoorwayStretch"/>
+        <NamedIndividual IRI="#ShoulderIssue"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>This Contraindication should be considered for practitioners of FigureFourStretch to avoid strain or injury.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#hasContraindication"/>
+        <NamedIndividual IRI="#FigureFourStretch"/>
+        <NamedIndividual IRI="#HipIssue"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>This Contraindication should be considered for practitioners of FigureFourStretch to avoid strain or injury.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#hasContraindication"/>
+        <NamedIndividual IRI="#FigureFourStretch"/>
+        <NamedIndividual IRI="#KneeIssue"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>This Contraindication should be considered for practitioners of HamstringStretch to avoid strain or injury.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#hasContraindication"/>
+        <NamedIndividual IRI="#HamstringStretch"/>
+        <NamedIndividual IRI="#HamstringIssue"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>This Contraindication should be considered for practitioners of HamstringStretch to avoid strain or injury.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#hasContraindication"/>
+        <NamedIndividual IRI="#HamstringStretch"/>
+        <NamedIndividual IRI="#LowerBackIssue"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>This Contraindication should be considered for practitioners of JumpingJacks to avoid strain or injury.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#hasContraindication"/>
+        <NamedIndividual IRI="#JumpingJacks"/>
+        <NamedIndividual IRI="#KneeIssue"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>This Contraindication should be considered for practitioners of JumpingJacks to avoid strain or injury.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#hasContraindication"/>
+        <NamedIndividual IRI="#JumpingJacks"/>
+        <NamedIndividual IRI="#AnkleIssue"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>This Contraindication should be considered for practitioners of JumpingJacks to avoid strain or injury.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#hasContraindication"/>
+        <NamedIndividual IRI="#JumpingJacks"/>
+        <NamedIndividual IRI="#BackIssue"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>This Contraindication should be considered for practitioners of MonsterWalk to avoid strain or injury.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#hasContraindication"/>
+        <NamedIndividual IRI="#MonsterWalk"/>
+        <NamedIndividual IRI="#KneeIssue"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>This Contraindication should be considered for practitioners of MonsterWalk to avoid strain or injury.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#hasContraindication"/>
+        <NamedIndividual IRI="#MonsterWalk"/>
+        <NamedIndividual IRI="#HipIssue"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>This Contraindication should be considered for practitioners of MountainClimber to avoid strain or injury.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#hasContraindication"/>
+        <NamedIndividual IRI="#MountainClimber"/>
+        <NamedIndividual IRI="#BackIssue"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>This Contraindication should be considered for practitioners of MountainClimber to avoid strain or injury.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#hasContraindication"/>
+        <NamedIndividual IRI="#MountainClimber"/>
+        <NamedIndividual IRI="#ShoulderIssue"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>This Contraindication should be considered for practitioners of MountainClimber to avoid strain or injury.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#hasContraindication"/>
+        <NamedIndividual IRI="#MountainClimber"/>
+        <NamedIndividual IRI="#WristIssue"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>This Contraindication should be considered for practitioners of ProgressiveMuskelentspannung to avoid strain or injury.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#hasContraindication"/>
+        <NamedIndividual IRI="#ProgressiveMuskelentspannung"/>
+        <NamedIndividual IRI="#BackIssue"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>This Contraindication should be considered for practitioners of SingleLegBridge to avoid strain or injury.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#hasContraindication"/>
+        <NamedIndividual IRI="#SingleLegBridge"/>
+        <NamedIndividual IRI="#KneeIssue"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>This Contraindication should be considered for practitioners of SingleLegBridge to avoid strain or injury.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#hasContraindication"/>
+        <NamedIndividual IRI="#SingleLegBridge"/>
+        <NamedIndividual IRI="#LowerBackIssue"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>This Contraindication should be considered for practitioners of Squads to avoid strain or injury.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#hasContraindication"/>
+        <NamedIndividual IRI="#Squads"/>
+        <NamedIndividual IRI="#KneeIssue"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>This Contraindication should be considered for practitioners of Squads to avoid strain or injury.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#hasContraindication"/>
+        <NamedIndividual IRI="#Squads"/>
+        <NamedIndividual IRI="#LowerBackIssue"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>This Contraindication should be considered for practitioners of Squads to avoid strain or injury.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#hasContraindication"/>
+        <NamedIndividual IRI="#Squads"/>
+        <NamedIndividual IRI="#HipIssue"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>This Contraindication should be considered for practitioners of StandingCalfStretch to avoid strain or injury.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#hasContraindication"/>
+        <NamedIndividual IRI="#StandingCalfStretch"/>
+        <NamedIndividual IRI="#AnkleIssue"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>This Contraindication should be considered for practitioners of TricepsStretch to avoid strain or injury.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#hasContraindication"/>
+        <NamedIndividual IRI="#TricepsStretch"/>
+        <NamedIndividual IRI="#ShoulderIssue"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>This Contraindication should be considered for practitioners of Z-Sits to avoid strain or injury.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#hasContraindication"/>
+        <NamedIndividual IRI="#Z-Sits"/>
+        <NamedIndividual IRI="#KneeIssue"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>This Contraindication should be considered for practitioners of Z-Sits to avoid strain or injury.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#hasContraindication"/>
+        <NamedIndividual IRI="#Z-Sits"/>
+        <NamedIndividual IRI="#HipIssue"/>
+    </ObjectPropertyAssertion>
+<!-- ============================================================ -->
+<!-- ADDITIONS: rdfs:label (de) for every NamedIndividual          -->
+<!-- Generated 2026-07-11. Source: standard German medical,       -->
+<!-- anatomical, PT, yoga (verified), and sport terminology       -->
+<!-- (verified via de.wiki, Babbel, PowerYoga Vienna, Gelernt-     -->
+<!-- mit-Bernd, Viva Language Services, dict.cc). Display label,   -->
+<!-- not the technical identifier (so 'Brücke', not 'Bruecke').    -->
+<!-- ============================================================ -->
+
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#ACLTear</IRI>
+        <Literal xml:lang="de">Riss des vorderen Kreuzbandes</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Abs</IRI>
+        <Literal xml:lang="de">Bauchmuskulatur</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#AchillesTendinitis</IRI>
+        <Literal xml:lang="de">Achillessehnenentzündung</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#AcuteLowBackPain</IRI>
+        <Literal xml:lang="de">Akute Kreuzschmerzen</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Adductors</IRI>
+        <Literal xml:lang="de">Adduktoren</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Advanced</IRI>
+        <Literal xml:lang="de">Fortgeschritten</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#AerobicDance</IRI>
+        <Literal xml:lang="de">Aerobic-Tanz</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#AerobicStepping</IRI>
+        <Literal xml:lang="de">Step-Aerobic</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#AgeGroup</IRI>
+        <Literal xml:lang="de">Altersgruppe</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Airplane</IRI>
+        <Literal xml:lang="de">Flugzeug</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#AirplaneInstruction</IRI>
+        <Literal xml:lang="de">Anleitung für Flugzeug</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Airplane_BalanceIssue</IRI>
+        <Literal xml:lang="de">Flugzeug: Gleichgewichtsproblem</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Airplane_CoreIssue</IRI>
+        <Literal xml:lang="de">Flugzeug: Rumpfmuskulatur-Problem</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Airplane_HipIssue</IRI>
+        <Literal xml:lang="de">Flugzeug: Hüftproblem</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Airplane_KneeIssue</IRI>
+        <Literal xml:lang="de">Flugzeug: Knieschmerzen</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Airplane_Left_Arm</IRI>
+        <Literal xml:lang="de">Linker Arm</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Airplane_Left_Leg</IRI>
+        <Literal xml:lang="de">Linkes Bein</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Airplane_Right_Arm</IRI>
+        <Literal xml:lang="de">Rechter Arm</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Airplane_Right_Leg</IRI>
+        <Literal xml:lang="de">Rechtes Bein</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Airplane_Torso</IRI>
+        <Literal xml:lang="de">Rumpf</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#AllFourswithLegExtension</IRI>
+        <Literal xml:lang="de">Vierfüßlerstand mit Beinstreckung</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#AlternateSittingAndStanding</IRI>
+        <Literal xml:lang="de">Abwechselnd Sitzen und Stehen</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#AnkleFracture</IRI>
+        <Literal xml:lang="de">Sprunggelenkfraktur</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#AnkleIssue</IRI>
+        <Literal xml:lang="de">Sprunggelenkprobleme</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#AnkleJoint</IRI>
+        <Literal xml:lang="de">Sprunggelenk</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Ankles</IRI>
+        <Literal xml:lang="de">Sprunggelenke</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Archery</IRI>
+        <Literal xml:lang="de">Bogenschießen</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Armkreisen</IRI>
+        <Literal xml:lang="de">Armkreisen</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Armkreisen_ShoulderIssue</IRI>
+        <Literal xml:lang="de">Armkreisen: Schulterproblem</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Arms</IRI>
+        <Literal xml:lang="de">Arme</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#AssistedShoulderRotation</IRI>
+        <Literal xml:lang="de">Assistierte Schulterrotation</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Atemuebung478</IRI>
+        <Literal xml:lang="de">Atemübung (4-7-8)</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#AvoidForwardHeadPosture</IRI>
+        <Literal xml:lang="de">Vermeide nach vorne geschobene Kopfhaltung</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#AvoidLongSitting</IRI>
+        <Literal xml:lang="de">Vermeide langes Sitzen</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Back</IRI>
+        <Literal xml:lang="de">Rücken</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#BackFriendlyLifting</IRI>
+        <Literal xml:lang="de">Rückengerechtes Heben</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#BackIssue</IRI>
+        <Literal xml:lang="de">Rückenprobleme</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Backpacking</IRI>
+        <Literal xml:lang="de">Wandern mit Rucksack</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Backward</IRI>
+        <Literal xml:lang="de">Rückwärts</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Badminton</IRI>
+        <Literal xml:lang="de">Badminton</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Balance</IRI>
+        <Literal xml:lang="de">Gleichgewicht</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#BalanceIssue</IRI>
+        <Literal xml:lang="de">Gleichgewichtsprobleme</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Ballet</IRI>
+        <Literal xml:lang="de">Ballett</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Baseball</IRI>
+        <Literal xml:lang="de">Baseball</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#BasketballGame</IRI>
+        <Literal xml:lang="de">Basketballspiel</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#BasketballShootingBaskets</IRI>
+        <Literal xml:lang="de">Basketball-Korbwurf</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#BeachVolleyball</IRI>
+        <Literal xml:lang="de">Beachvolleyball</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Beginner</IRI>
+        <Literal xml:lang="de">Anfänger</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Biceps</IRI>
+        <Literal xml:lang="de">Bizeps</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#BicepsStrain</IRI>
+        <Literal xml:lang="de">Bizepszerrung</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Bicycling20+Mph</IRI>
+        <Literal xml:lang="de">Radfahren über 32 km/h</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#BicyclingLeisurely</IRI>
+        <Literal xml:lang="de">Gemütliches Radfahren</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Bouldering</IRI>
+        <Literal xml:lang="de">Bouldern</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Bowling</IRI>
+        <Literal xml:lang="de">Bowling</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Bruecke</IRI>
+        <Literal xml:lang="de">Brücke</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Bruecke_LowerBackIssue</IRI>
+        <Literal xml:lang="de">Brücke: Problem im unteren Rücken</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#BrustwirbelsaeulenRotation</IRI>
+        <Literal xml:lang="de">Brustwirbelsäulen-Rotation</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#BrustwirbelsaeulenRotation_SpineIssue</IRI>
+        <Literal xml:lang="de">Brustwirbelsäulen-Rotation: Wirbelsäulenproblem</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Cactus</IRI>
+        <Literal xml:lang="de">Kaktus</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#CactusInstruction</IRI>
+        <Literal xml:lang="de">Anleitung für Kaktus</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Cactus_BalanceIssue</IRI>
+        <Literal xml:lang="de">Kaktus: Gleichgewichtsproblem</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Cactus_Left_Arm</IRI>
+        <Literal xml:lang="de">Linker Arm</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Cactus_Left_Leg</IRI>
+        <Literal xml:lang="de">Linkes Bein</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Cactus_Right_Arm</IRI>
+        <Literal xml:lang="de">Rechter Arm</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Cactus_Right_Leg</IRI>
+        <Literal xml:lang="de">Rechtes Bein</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Cactus_ShoulderIssue</IRI>
+        <Literal xml:lang="de">Kaktus: Schulterproblem</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Cactus_Torso</IRI>
+        <Literal xml:lang="de">Rumpf</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#CalfStrain</IRI>
+        <Literal xml:lang="de">Wadenzerrung</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Calisthenics</IRI>
+        <Literal xml:lang="de">Calisthenics</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Calves</IRI>
+        <Literal xml:lang="de">Waden</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Canoeing3Mph</IRI>
+        <Literal xml:lang="de">Kanu fahren 5 km/h</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Canoeing5Mph</IRI>
+        <Literal xml:lang="de">Kanu fahren 8 km/h</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#CenterSplits</IRI>
+        <Literal xml:lang="de">Mittelspaltung</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#CenterSplitsInstruction</IRI>
+        <Literal xml:lang="de">Anleitung für Mittelspaltung</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#CenterSplits_BalanceIssue</IRI>
+        <Literal xml:lang="de">Mittelspaltung: Gleichgewichtsproblem</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#CenterSplits_HipIssue</IRI>
+        <Literal xml:lang="de">Mittelspaltung: Hüftproblem</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#CenterSplits_Left_Arm</IRI>
+        <Literal xml:lang="de">Linker Arm</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#CenterSplits_Left_Leg</IRI>
+        <Literal xml:lang="de">Linkes Bein</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#CenterSplits_NeckIssue</IRI>
+        <Literal xml:lang="de">Mittelspaltung: Nackenproblem</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#CenterSplits_Right_Arm</IRI>
+        <Literal xml:lang="de">Rechter Arm</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#CenterSplits_Right_Leg</IRI>
+        <Literal xml:lang="de">Rechtes Bein</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#CenterSplits_Torso</IRI>
+        <Literal xml:lang="de">Rumpf</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Chair</IRI>
+        <Literal xml:lang="de">Stuhl</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#ChairInstruction</IRI>
+        <Literal xml:lang="de">Anleitung für Stuhl</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Chair_AnkleIssue</IRI>
+        <Literal xml:lang="de">Stuhl: Sprunggelenkproblem</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Chair_KneeIssue</IRI>
+        <Literal xml:lang="de">Stuhl: Knieschmerzen</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Chair_Left_Arm</IRI>
+        <Literal xml:lang="de">Linker Arm</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Chair_Left_Leg</IRI>
+        <Literal xml:lang="de">Linkes Bein</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Chair_LowerBackIssue</IRI>
+        <Literal xml:lang="de">Stuhl: Problem im unteren Rücken</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Chair_Right_Arm</IRI>
+        <Literal xml:lang="de">Rechter Arm</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Chair_Right_Leg</IRI>
+        <Literal xml:lang="de">Rechtes Bein</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Chair_Torso</IRI>
+        <Literal xml:lang="de">Rumpf</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Chest</IRI>
+        <Literal xml:lang="de">Brust</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#ChestDoorwayStretch</IRI>
+        <Literal xml:lang="de">Brustdehnung im Türrahmen</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#ChestDoorwayStretch_ShoulderIssue</IRI>
+        <Literal xml:lang="de">Brustdehnung im Türrahmen: Schulterproblem</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#ChoppingWood</IRI>
+        <Literal xml:lang="de">Holzhacken</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#ChronicLowBackPain</IRI>
+        <Literal xml:lang="de">Chronische Kreuzschmerzen</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#ClavicleFracture</IRI>
+        <Literal xml:lang="de">Schlüsselbeinbruch</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Coordination</IRI>
+        <Literal xml:lang="de">Koordination</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Core</IRI>
+        <Literal xml:lang="de">Rumpf</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#CoreWeakness</IRI>
+        <Literal xml:lang="de">Rumpfmuskelschwäche</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Crab</IRI>
+        <Literal xml:lang="de">Krabbe</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#CrabInstruction</IRI>
+        <Literal xml:lang="de">Anleitung für Krabbe</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Crab_Left_Arm</IRI>
+        <Literal xml:lang="de">Linker Arm</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Crab_Left_Leg</IRI>
+        <Literal xml:lang="de">Linkes Bein</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Crab_LowerBackIssue</IRI>
+        <Literal xml:lang="de">Krabbe: Problem im unteren Rücken</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Crab_Right_Arm</IRI>
+        <Literal xml:lang="de">Rechter Arm</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Crab_Right_Leg</IRI>
+        <Literal xml:lang="de">Rechtes Bein</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Crab_ShoulderIssue</IRI>
+        <Literal xml:lang="de">Krabbe: Schulterproblem</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Crab_Torso</IRI>
+        <Literal xml:lang="de">Rumpf</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Crab_WristIssue</IRI>
+        <Literal xml:lang="de">Krabbe: Handgelenkproblem</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Dancer</IRI>
+        <Literal xml:lang="de">Tänzer</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#DancerInstruction</IRI>
+        <Literal xml:lang="de">Anleitung für Tänzer</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Dancer_BalanceIssue</IRI>
+        <Literal xml:lang="de">Tänzer: Gleichgewichtsproblem</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Dancer_KneeIssue</IRI>
+        <Literal xml:lang="de">Tänzer: Knieschmerzen</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Dancer_Left_Arm</IRI>
+        <Literal xml:lang="de">Linker Arm</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Dancer_Left_Leg</IRI>
+        <Literal xml:lang="de">Linkes Bein</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Dancer_Right_Arm</IRI>
+        <Literal xml:lang="de">Rechter Arm</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Dancer_Right_Leg</IRI>
+        <Literal xml:lang="de">Rechtes Bein</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Dancer_ShoulderIssue</IRI>
+        <Literal xml:lang="de">Tänzer: Schulterproblem</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Dancer_Torso</IRI>
+        <Literal xml:lang="de">Rumpf</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#DancingAerobic</IRI>
+        <Literal xml:lang="de">Aerobic-Tanz</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#DancingModern</IRI>
+        <Literal xml:lang="de">Moderner Tanz</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#DeadBug</IRI>
+        <Literal xml:lang="de">Toter Käfer</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#DeadBug_LowerBackIssue</IRI>
+        <Literal xml:lang="de">Toter Käfer: Problem im unteren Rücken</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Deadlift</IRI>
+        <Literal xml:lang="de">Kreuzheben</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#DislocatedShoulder</IRI>
+        <Literal xml:lang="de">Schulterluxation</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Door</IRI>
+        <Literal xml:lang="de">Türrahmen</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Down</IRI>
+        <Literal xml:lang="de">Unten</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Dumble</IRI>
+        <Literal xml:lang="de">Kurzhantel</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Eagle</IRI>
+        <Literal xml:lang="de">Adler</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#EagleInstruction</IRI>
+        <Literal xml:lang="de">Anleitung für Adler</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Eagle_BalanceIssue</IRI>
+        <Literal xml:lang="de">Adler: Gleichgewichtsproblem</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Eagle_KneeIssue</IRI>
+        <Literal xml:lang="de">Adler: Knieschmerzen</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Eagle_Left_Arm</IRI>
+        <Literal xml:lang="de">Linker Arm</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Eagle_Left_Leg</IRI>
+        <Literal xml:lang="de">Linkes Bein</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Eagle_Right_Arm</IRI>
+        <Literal xml:lang="de">Rechter Arm</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Eagle_Right_Leg</IRI>
+        <Literal xml:lang="de">Rechtes Bein</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Eagle_ShoulderIssue</IRI>
+        <Literal xml:lang="de">Adler: Schulterproblem</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Eagle_Torso</IRI>
+        <Literal xml:lang="de">Rumpf</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Einbeinstand</IRI>
+        <Literal xml:lang="de">Einbeinstand</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Einbeinstand_AnkleIssue</IRI>
+        <Literal xml:lang="de">Einbeinstand: Sprunggelenkproblem</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Einbeinstand_BalanceIssue</IRI>
+        <Literal xml:lang="de">Einbeinstand: Gleichgewichtsproblem</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Elbow</IRI>
+        <Literal xml:lang="de">Ellbogengelenk</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Elbows</IRI>
+        <Literal xml:lang="de">Ellbogen</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#EnBlocBedExit</IRI>
+        <Literal xml:lang="de">Aufstehen aus dem Bett en bloc</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#ErgonomicSitting</IRI>
+        <Literal xml:lang="de">Ergonomisches Sitzen</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Erhöhung</IRI>
+        <Literal xml:lang="de">Erhöhung</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Faszienrolle</IRI>
+        <Literal xml:lang="de">Faszienrolle</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#FaszienrolleRueckenWade</IRI>
+        <Literal xml:lang="de">Faszienrolle für Rücken und Waden</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#FaszienrolleRueckenWade_SpineIssue</IRI>
+        <Literal xml:lang="de">Faszienrolle für Rücken und Waden: Wirbelsäulenproblem</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#FellingTrees</IRI>
+        <Literal xml:lang="de">Bäume fällen</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Fencing</IRI>
+        <Literal xml:lang="de">Fechten</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#FerseZehenGang</IRI>
+        <Literal xml:lang="de">Ferse-Zehen-Gang</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#FerseZehenGang_AnkleIssue</IRI>
+        <Literal xml:lang="de">Ferse-Zehen-Gang: Sprunggelenkproblem</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#FerseZehenGang_BalanceIssue</IRI>
+        <Literal xml:lang="de">Ferse-Zehen-Gang: Gleichgewichtsproblem</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#FigureFourStretch</IRI>
+        <Literal xml:lang="de">Vierer-Dehnung</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#FigureFourStretch_KneeIssue</IRI>
+        <Literal xml:lang="de">Vierer-Dehnung: Knieschmerzen</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#FishingInStream</IRI>
+        <Literal xml:lang="de">Angeln im Bach</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#FishingStanding</IRI>
+        <Literal xml:lang="de">Angeln im Stehen</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Flamingo</IRI>
+        <Literal xml:lang="de">Flamingo</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#FlamingoInstruction</IRI>
+        <Literal xml:lang="de">Anleitung für Flamingo</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Flamingo_AnkleIssue</IRI>
+        <Literal xml:lang="de">Flamingo: Sprunggelenkproblem</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Flamingo_BalanceIssue</IRI>
+        <Literal xml:lang="de">Flamingo: Gleichgewichtsproblem</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Flamingo_KneeIssue</IRI>
+        <Literal xml:lang="de">Flamingo: Knieschmerzen</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Flamingo_Left_Arm</IRI>
+        <Literal xml:lang="de">Linker Arm</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Flamingo_Left_Leg</IRI>
+        <Literal xml:lang="de">Linkes Bein</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Flamingo_Right_Arm</IRI>
+        <Literal xml:lang="de">Rechter Arm</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Flamingo_Right_Leg</IRI>
+        <Literal xml:lang="de">Rechtes Bein</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Flamingo_Torso</IRI>
+        <Literal xml:lang="de">Rumpf</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Flexibility</IRI>
+        <Literal xml:lang="de">Beweglichkeit</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Focus</IRI>
+        <Literal xml:lang="de">Konzentration</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#FootballCompetitive</IRI>
+        <Literal xml:lang="de">Wettkampf-Fußball</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#FootballTouchFlag</IRI>
+        <Literal xml:lang="de">Flag Football</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#ForearmFlexors</IRI>
+        <Literal xml:lang="de">Unterarmbeuger</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Forward</IRI>
+        <Literal xml:lang="de">Vorwärts</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Freeski</IRI>
+        <Literal xml:lang="de">Freestyle-Ski</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#FrisbeeUltimate</IRI>
+        <Literal xml:lang="de">Ultimate Frisbee</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#FrontDeltoid</IRI>
+        <Literal xml:lang="de">Vorderer Deltamuskel</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#FrozenShoulder</IRI>
+        <Literal xml:lang="de">Schultersteife</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Gardening</IRI>
+        <Literal xml:lang="de">Gartenarbeit</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Gate</IRI>
+        <Literal xml:lang="de">Tor</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#GateInstruction</IRI>
+        <Literal xml:lang="de">Anleitung für Tor</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Gate_CoreIssue</IRI>
+        <Literal xml:lang="de">Tor: Rumpfmuskulatur-Problem</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Gate_HipIssue</IRI>
+        <Literal xml:lang="de">Tor: Hüftproblem</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Gate_Left_Arm</IRI>
+        <Literal xml:lang="de">Linker Arm</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Gate_Left_Leg</IRI>
+        <Literal xml:lang="de">Linkes Bein</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Gate_LowerBackIssue</IRI>
+        <Literal xml:lang="de">Tor: Problem im unteren Rücken</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Gate_Right_Arm</IRI>
+        <Literal xml:lang="de">Rechter Arm</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Gate_Right_Leg</IRI>
+        <Literal xml:lang="de">Rechtes Bein</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Gate_Torso</IRI>
+        <Literal xml:lang="de">Rumpf</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#GewichtsverlagerungSeitlich</IRI>
+        <Literal xml:lang="de">Seitliche Gewichtsverlagerung</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#GewichtsverlagerungSeitlich_BalanceIssue</IRI>
+        <Literal xml:lang="de">Seitliche Gewichtsverlagerung: Gleichgewichtsproblem</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#GleichgewichtInstabil</IRI>
+        <Literal xml:lang="de">Gleichgewicht auf instabilem Untergrund</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#GleichgewichtInstabil_AnkleIssue</IRI>
+        <Literal xml:lang="de">Gleichgewicht auf instabilem Untergrund: Sprunggelenkproblem</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#GleichgewichtInstabil_BalanceIssue</IRI>
+        <Literal xml:lang="de">Gleichgewicht auf instabilem Untergrund: Gleichgewichtsproblem</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Glutes</IRI>
+        <Literal xml:lang="de">Gesäß</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Goddess</IRI>
+        <Literal xml:lang="de">Göttin</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#GoddessInstruction</IRI>
+        <Literal xml:lang="de">Anleitung für Göttin</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Goddess_AnkleIssue</IRI>
+        <Literal xml:lang="de">Göttin: Sprunggelenkproblem</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Goddess_HipIssue</IRI>
+        <Literal xml:lang="de">Göttin: Hüftproblem</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Goddess_KneeIssue</IRI>
+        <Literal xml:lang="de">Göttin: Knieschmerzen</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Goddess_Left_Arm</IRI>
+        <Literal xml:lang="de">Linker Arm</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Goddess_Left_Leg</IRI>
+        <Literal xml:lang="de">Linkes Bein</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Goddess_LowerBackIssue</IRI>
+        <Literal xml:lang="de">Göttin: Problem im unteren Rücken</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Goddess_Right_Arm</IRI>
+        <Literal xml:lang="de">Rechter Arm</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Goddess_Right_Leg</IRI>
+        <Literal xml:lang="de">Rechtes Bein</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Goddess_Torso</IRI>
+        <Literal xml:lang="de">Rumpf</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Golf</IRI>
+        <Literal xml:lang="de">Golf</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#GolfWithCart</IRI>
+        <Literal xml:lang="de">Golf mit Cart</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Gymnastics</IRI>
+        <Literal xml:lang="de">Turnen</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#HackySack</IRI>
+        <Literal xml:lang="de">Hacky Sack</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#HalfMoon</IRI>
+        <Literal xml:lang="de">Halbmond</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#HalfMoonInstruction</IRI>
+        <Literal xml:lang="de">Anleitung für Halbmond</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#HalfMoon_BalanceIssue</IRI>
+        <Literal xml:lang="de">Halbmond: Gleichgewichtsproblem</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#HalfMoon_HamstringIssue</IRI>
+        <Literal xml:lang="de">Halbmond: Oberschenkelrückseiten-Problem</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#HalfMoon_HipIssue</IRI>
+        <Literal xml:lang="de">Halbmond: Hüftproblem</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#HalfMoon_Left_Arm</IRI>
+        <Literal xml:lang="de">Linker Arm</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#HalfMoon_Left_Leg</IRI>
+        <Literal xml:lang="de">Linkes Bein</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#HalfMoon_Right_Arm</IRI>
+        <Literal xml:lang="de">Rechter Arm</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#HalfMoon_Right_Leg</IRI>
+        <Literal xml:lang="de">Rechtes Bein</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#HalfMoon_Torso</IRI>
+        <Literal xml:lang="de">Rumpf</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#HamstringIssue</IRI>
+        <Literal xml:lang="de">Oberschenkelrückseiten-Beschwerden</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#HamstringStrain</IRI>
+        <Literal xml:lang="de">Oberschenkelrückseiten-Zerrung</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#HamstringStretch</IRI>
+        <Literal xml:lang="de">Oberschenkelrückseiten-Dehnung</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#HamstringStretch_HamstringIssue</IRI>
+        <Literal xml:lang="de">Oberschenkelrückseiten-Dehnung: Oberschenkelrückseiten-Problem</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Hamstrings</IRI>
+        <Literal xml:lang="de">Oberschenkelrückseite</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#HighLunge</IRI>
+        <Literal xml:lang="de">Hoher Ausfallschritt</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#HighLungeInstruction</IRI>
+        <Literal xml:lang="de">Anleitung für Hoher Ausfallschritt</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#HighLungePose_Left_Arm</IRI>
+        <Literal xml:lang="de">Linker Arm</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#HighLungePose_Left_Leg</IRI>
+        <Literal xml:lang="de">Linkes Bein</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#HighLungePose_Right_Arm</IRI>
+        <Literal xml:lang="de">Rechter Arm</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#HighLungePose_Right_Leg</IRI>
+        <Literal xml:lang="de">Rechtes Bein</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#HighLungePose_Torso</IRI>
+        <Literal xml:lang="de">Rumpf</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#HighLunge_BalanceIssue</IRI>
+        <Literal xml:lang="de">Hoher Ausfallschritt: Gleichgewichtsproblem</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#HighLunge_HipIssue</IRI>
+        <Literal xml:lang="de">Hoher Ausfallschritt: Hüftproblem</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#HighLunge_KneeIssue</IRI>
+        <Literal xml:lang="de">Hoher Ausfallschritt: Knieschmerzen</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#HighLunge_LowerBackIssue</IRI>
+        <Literal xml:lang="de">Hoher Ausfallschritt: Problem im unteren Rücken</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#HighRisk</IRI>
+        <Literal xml:lang="de">Hohes Risiko</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#HikingCrossCountry</IRI>
+        <Literal xml:lang="de">Querfeld-Wandern</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#HikingHills</IRI>
+        <Literal xml:lang="de">Bergwandern</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Hip</IRI>
+        <Literal xml:lang="de">Hüfte</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#HipFracture</IRI>
+        <Literal xml:lang="de">Hüftfraktur</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#HipIssue</IRI>
+        <Literal xml:lang="de">Hüftprobleme</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#HipJoint</IRI>
+        <Literal xml:lang="de">Hüftgelenk</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#HockeyFieldOrIce</IRI>
+        <Literal xml:lang="de">Hockey (Feld oder Eis)</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Horizontally</IRI>
+        <Literal xml:lang="de">Horizontal</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#HorsebackRiding</IRI>
+        <Literal xml:lang="de">Reiten</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#HouseworkLight</IRI>
+        <Literal xml:lang="de">Leichte Hausarbeit</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#HueftbeugerDehnung</IRI>
+        <Literal xml:lang="de">Hüftbeuger-Dehnung</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#HueftbeugerDehnung_HipIssue</IRI>
+        <Literal xml:lang="de">Hüftbeuger-Dehnung: Hüftproblem</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#HueftbeugerDehnung_KneeIssue</IRI>
+        <Literal xml:lang="de">Hüftbeuger-Dehnung: Knieschmerzen</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#IceSkating</IRI>
+        <Literal xml:lang="de">Eislaufen</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Intermediate</IRI>
+        <Literal xml:lang="de">Mittelstufe</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Judo</IRI>
+        <Literal xml:lang="de">Judo</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#JumpingJacks</IRI>
+        <Literal xml:lang="de">Hampelmann</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Karate</IRI>
+        <Literal xml:lang="de">Karate</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Katze-Kuh-Übung</IRI>
+        <Literal xml:lang="de">Katze-Kuh-Übung</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Kayaking</IRI>
+        <Literal xml:lang="de">Kajakfahren</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Kindpose</IRI>
+        <Literal xml:lang="de">Kindhaltung</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Kindpose_HipIssue</IRI>
+        <Literal xml:lang="de">Kindhaltung: Hüftproblem</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Kindpose_KneeIssue</IRI>
+        <Literal xml:lang="de">Kindhaltung: Knieschmerzen</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#KingDancer</IRI>
+        <Literal xml:lang="de">Königstänzer</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#KingDancerInstruction</IRI>
+        <Literal xml:lang="de">Anleitung für Königstänzer</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#KingDancer_BalanceIssue</IRI>
+        <Literal xml:lang="de">Königstänzer: Gleichgewichtsproblem</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#KingDancer_KneeIssue</IRI>
+        <Literal xml:lang="de">Königstänzer: Knieschmerzen</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#KingDancer_Left_Arm</IRI>
+        <Literal xml:lang="de">Linker Arm</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#KingDancer_Left_Leg</IRI>
+        <Literal xml:lang="de">Linkes Bein</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#KingDancer_Right_Arm</IRI>
+        <Literal xml:lang="de">Rechter Arm</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#KingDancer_Right_Leg</IRI>
+        <Literal xml:lang="de">Rechtes Bein</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#KingDancer_Torso</IRI>
+        <Literal xml:lang="de">Rumpf</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#KneeFracture</IRI>
+        <Literal xml:lang="de">Kniefraktur</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#KneeIssue</IRI>
+        <Literal xml:lang="de">Knieschmerzen</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#KneeJoint</IRI>
+        <Literal xml:lang="de">Kniegelenk</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#KneeOsteoarthritis</IRI>
+        <Literal xml:lang="de">Kniearthrose</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Knees</IRI>
+        <Literal xml:lang="de">Knie</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#KniegelenkMobilisation</IRI>
+        <Literal xml:lang="de">Kniegelenk-Mobilisation</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#KniegelenkMobilisation_KneeIssue</IRI>
+        <Literal xml:lang="de">Kniegelenk-Mobilisation: Knieschmerzen</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Lacrosse</IRI>
+        <Literal xml:lang="de">Lacrosse</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#LatStretch</IRI>
+        <Literal xml:lang="de">Latissimus-Dehnung</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#LatStretch_ShoulderIssue</IRI>
+        <Literal xml:lang="de">Latissimus-Dehnung: Schulterproblem</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#LateralDeltoids</IRI>
+        <Literal xml:lang="de">Seitliche Deltamuskeln</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Lats</IRI>
+        <Literal xml:lang="de">Latissimus</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Left</IRI>
+        <Literal xml:lang="de">Links</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#LeftArm</IRI>
+        <Literal xml:lang="de">Linker Arm</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#LeftLeg</IRI>
+        <Literal xml:lang="de">Linkes Bein</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#LegRaise</IRI>
+        <Literal xml:lang="de">Beinheben</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#LegRaise_LowerBackIssue</IRI>
+        <Literal xml:lang="de">Beinheben: Problem im unteren Rücken</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Legs</IRI>
+        <Literal xml:lang="de">Beine</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#LowRisk</IRI>
+        <Literal xml:lang="de">Geringes Risiko</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#LowerBack</IRI>
+        <Literal xml:lang="de">Unterer Rücken</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#LowerBackIssue</IRI>
+        <Literal xml:lang="de">Probleme im unteren Rücken</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#LowerBackPain</IRI>
+        <Literal xml:lang="de">Kreuzschmerzen</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#LumbarDiscHerniation</IRI>
+        <Literal xml:lang="de">Bandscheibenvorfall (Lendenwirbelsäule)</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#LumbarStrain</IRI>
+        <Literal xml:lang="de">Lendenwirbelzerrung</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#MCLSprain</IRI>
+        <Literal xml:lang="de">Innenbandverletzung am Knie</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Mat</IRI>
+        <Literal xml:lang="de">Turnmatte</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#MediumRisk</IRI>
+        <Literal xml:lang="de">Mittleres Risiko</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#MeniscusTear</IRI>
+        <Literal xml:lang="de">Meniskusriss</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Mild</IRI>
+        <Literal xml:lang="de">Leicht</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Mobility</IRI>
+        <Literal xml:lang="de">Mobilität</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Moderate</IRI>
+        <Literal xml:lang="de">Mittel</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#MonsterWalk</IRI>
+        <Literal xml:lang="de">Monster-Walk</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Mountain</IRI>
+        <Literal xml:lang="de">Berg</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#MountainClimber</IRI>
+        <Literal xml:lang="de">Bergsteiger</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#MountainClimber_WristIssue</IRI>
+        <Literal xml:lang="de">Bergsteiger: Handgelenkproblem</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#MountainClimbing</IRI>
+        <Literal xml:lang="de">Bergsteigen</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#MountainInstruction</IRI>
+        <Literal xml:lang="de">Anleitung für Berg</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Mountain_Left_Arm</IRI>
+        <Literal xml:lang="de">Linker Arm</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Mountain_Left_Leg</IRI>
+        <Literal xml:lang="de">Linkes Bein</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Mountain_Right_Arm</IRI>
+        <Literal xml:lang="de">Rechter Arm</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Mountain_Right_Leg</IRI>
+        <Literal xml:lang="de">Rechtes Bein</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Mountain_Torso</IRI>
+        <Literal xml:lang="de">Rumpf</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#MowingLawn</IRI>
+        <Literal xml:lang="de">Rasen mähen</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Muschel</IRI>
+        <Literal xml:lang="de">Muschel</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Muschel_HipIssue</IRI>
+        <Literal xml:lang="de">Muschel: Hüftproblem</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Nackendehnungen</IRI>
+        <Literal xml:lang="de">Nackendehnungen</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Nackendehnungen_NeckIssue</IRI>
+        <Literal xml:lang="de">Nackendehnungen: Nackenproblem</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Neck</IRI>
+        <Literal xml:lang="de">Nacken</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#NeckIssue</IRI>
+        <Literal xml:lang="de">Nackenprobleme</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#NeckJoint</IRI>
+        <Literal xml:lang="de">Halswirbelsäule</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#NeckStiffness</IRI>
+        <Literal xml:lang="de">Nackenverspannung</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#None</IRI>
+        <Literal xml:lang="de">Keine</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Obliques</IRI>
+        <Literal xml:lang="de">Schräge Bauchmuskeln</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Orthogonal</IRI>
+        <Literal xml:lang="de">Rechtwinklig</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Pain</IRI>
+        <Literal xml:lang="de">Schmerz</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#ParadiseBird</IRI>
+        <Literal xml:lang="de">Paradiesvogel</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#ParadiseBirdInstruction</IRI>
+        <Literal xml:lang="de">Anleitung für Paradiesvogel</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#ParadiseBird_BalanceIssue</IRI>
+        <Literal xml:lang="de">Paradiesvogel: Gleichgewichtsproblem</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#ParadiseBird_Left_Arm</IRI>
+        <Literal xml:lang="de">Linker Arm</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#ParadiseBird_Left_Leg</IRI>
+        <Literal xml:lang="de">Linkes Bein</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#ParadiseBird_Right_Arm</IRI>
+        <Literal xml:lang="de">Rechter Arm</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#ParadiseBird_Right_Leg</IRI>
+        <Literal xml:lang="de">Rechtes Bein</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#ParadiseBird_ShoulderIssue</IRI>
+        <Literal xml:lang="de">Paradiesvogel: Schulterproblem</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#ParadiseBird_Torso</IRI>
+        <Literal xml:lang="de">Rumpf</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#ParadiseBird_WristIssue</IRI>
+        <Literal xml:lang="de">Paradiesvogel: Handgelenkproblem</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Pelvic</IRI>
+        <Literal xml:lang="de">Becken</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#PhoneAtEyeLevel</IRI>
+        <Literal xml:lang="de">Telefon auf Augenhöhe</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#PigeonPose</IRI>
+        <Literal xml:lang="de">Taube</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#PigeonPose_HipIssue</IRI>
+        <Literal xml:lang="de">Taube: Hüftproblem</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#PigeonPose_KneeIssue</IRI>
+        <Literal xml:lang="de">Taube: Knieschmerzen</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#PiriformisStretch</IRI>
+        <Literal xml:lang="de">Piriformis-Dehnung</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#PiriformisStretch_KneeIssue</IRI>
+        <Literal xml:lang="de">Piriformis-Dehnung: Knieschmerzen</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Plank</IRI>
+        <Literal xml:lang="de">Unterarmstütz</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Plank_WristIssue</IRI>
+        <Literal xml:lang="de">Unterarmstütz: Handgelenkproblem</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#PlantarFasciitis</IRI>
+        <Literal xml:lang="de">Plantarfasziitis</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#PlayingCatch</IRI>
+        <Literal xml:lang="de">Ballwerfen</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#PlayingPiano</IRI>
+        <Literal xml:lang="de">Klavierspielen</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Posture</IRI>
+        <Literal xml:lang="de">Körperhaltung</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#ProgressiveMuskelentspannung</IRI>
+        <Literal xml:lang="de">Progressive Muskelentspannung</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Psoas</IRI>
+        <Literal xml:lang="de">Hüftbeuger</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#PushUps</IRI>
+        <Literal xml:lang="de">Liegestütz</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#PushUps_WristIssue</IRI>
+        <Literal xml:lang="de">Liegestütz: Handgelenkproblem</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Pyramid</IRI>
+        <Literal xml:lang="de">Pyramide</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#PyramidInstruction</IRI>
+        <Literal xml:lang="de">Anleitung für Pyramide</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Pyramid_AnkleIssue</IRI>
+        <Literal xml:lang="de">Pyramide: Sprunggelenkproblem</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Pyramid_BalanceIssue</IRI>
+        <Literal xml:lang="de">Pyramide: Gleichgewichtsproblem</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Pyramid_HamstringIssue</IRI>
+        <Literal xml:lang="de">Pyramide: Oberschenkelrückseiten-Problem</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Pyramid_Left_Arm</IRI>
+        <Literal xml:lang="de">Linker Arm</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Pyramid_Left_Leg</IRI>
+        <Literal xml:lang="de">Linkes Bein</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Pyramid_LowerBackIssue</IRI>
+        <Literal xml:lang="de">Pyramide: Problem im unteren Rücken</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Pyramid_Right_Arm</IRI>
+        <Literal xml:lang="de">Rechter Arm</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Pyramid_Right_Leg</IRI>
+        <Literal xml:lang="de">Rechtes Bein</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Pyramid_Torso</IRI>
+        <Literal xml:lang="de">Rumpf</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Quadriceps</IRI>
+        <Literal xml:lang="de">Quadrizeps</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#QuadricepsStrain</IRI>
+        <Literal xml:lang="de">Quadrizepszerrung</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Quads</IRI>
+        <Literal xml:lang="de">Quadrizeps</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#RaceWalking</IRI>
+        <Literal xml:lang="de">Gehsport</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Racquetball</IRI>
+        <Literal xml:lang="de">Racquetball</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#RaisedArms_Left_Arm</IRI>
+        <Literal xml:lang="de">Linker Arm</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#RaisedArms_Left_Leg</IRI>
+        <Literal xml:lang="de">Linkes Bein</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#RaisedArms_NeckIssue</IRI>
+        <Literal xml:lang="de">Erhobene Arme: Nackenproblem</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#RaisedArms_Right_Arm</IRI>
+        <Literal xml:lang="de">Rechter Arm</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#RaisedArms_Right_Leg</IRI>
+        <Literal xml:lang="de">Rechtes Bein</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#RaisedArms_ShoulderIssue</IRI>
+        <Literal xml:lang="de">Erhobene Arme: Schulterproblem</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#RaisedArms_Torso</IRI>
+        <Literal xml:lang="de">Rumpf</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#RaisedHands</IRI>
+        <Literal xml:lang="de">Erhobene Hände</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#RaisedHandsInstruction</IRI>
+        <Literal xml:lang="de">Anleitung für Erhobene Hände</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#RakingTheLawn</IRI>
+        <Literal xml:lang="de">Laub harken</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#RearDeltoids</IRI>
+        <Literal xml:lang="de">Hintere Deltamuskeln</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#RegularMovementBreak</IRI>
+        <Literal xml:lang="de">Regelmäßige Bewegungspausen</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Relaxation</IRI>
+        <Literal xml:lang="de">Entspannung</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Right</IRI>
+        <Literal xml:lang="de">Rechts</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#RightArm</IRI>
+        <Literal xml:lang="de">Rechter Arm</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#RightLeg</IRI>
+        <Literal xml:lang="de">Rechtes Bein</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#RollerSkating</IRI>
+        <Literal xml:lang="de">Rollschuhlaufen</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#RopeSkippingFast</IRI>
+        <Literal xml:lang="de">Seilspringen schnell</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#RopeSkippingSlow</IRI>
+        <Literal xml:lang="de">Seilspringen langsam</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#RotatorCuffStrain</IRI>
+        <Literal xml:lang="de">Rotatorenmanschettenzerrung</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#RotatorCuffTear</IRI>
+        <Literal xml:lang="de">Riss der Rotatorenmanschette</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#RotatorCuffs</IRI>
+        <Literal xml:lang="de">Rotatorenmanschetten</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Running6MinMile</IRI>
+        <Literal xml:lang="de">Laufen 6 Min/Meile</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Running7MinMile</IRI>
+        <Literal xml:lang="de">Laufen 7 Min/Meile</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Running8MinMile</IRI>
+        <Literal xml:lang="de">Laufen 8 Min/Meile</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Running9MinMile</IRI>
+        <Literal xml:lang="de">Laufen 9 Min/Meile</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#ScapulaRetraktion</IRI>
+        <Literal xml:lang="de">Skapula-Retraktion</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#ScapulaRetraktion_ShoulderIssue</IRI>
+        <Literal xml:lang="de">Skapula-Retraktion: Schulterproblem</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#SchulterNackenEntspannung</IRI>
+        <Literal xml:lang="de">Schulter-Nacken-Entspannung</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#SchulterNackenEntspannung_NeckIssue</IRI>
+        <Literal xml:lang="de">Schulter-Nacken-Entspannung: Nackenproblem</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#SchulterNackenEntspannung_ShoulderIssue</IRI>
+        <Literal xml:lang="de">Schulter-Nacken-Entspannung: Schulterproblem</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Sciatica</IRI>
+        <Literal xml:lang="de">Ischias</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#SealStretch</IRI>
+        <Literal xml:lang="de">Robben-Dehnung</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Session0001</IRI>
+        <Literal xml:lang="de">Trainingseinheit 0001</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Severe</IRI>
+        <Literal xml:lang="de">Schwer</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Shoulder</IRI>
+        <Literal xml:lang="de">Schulter</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#ShoulderImpingement</IRI>
+        <Literal xml:lang="de">Schulter-Impingement</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#ShoulderInstability</IRI>
+        <Literal xml:lang="de">Schulterinstabilität</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#ShoulderInternalExternalRotation</IRI>
+        <Literal xml:lang="de">Innen- und Außenrotation der Schulter</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#ShoulderIssue</IRI>
+        <Literal xml:lang="de">Schulterprobleme</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#ShoulderJoint</IRI>
+        <Literal xml:lang="de">Schultergelenk</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Shoulders</IRI>
+        <Literal xml:lang="de">Schultern</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#ShovelingSnow</IRI>
+        <Literal xml:lang="de">Schnee schippen</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#SideAngle</IRI>
+        <Literal xml:lang="de">Seitlicher Winkel</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#SideAngleInstruction</IRI>
+        <Literal xml:lang="de">Anleitung für Seitlicher Winkel</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#SideAngle_HipIssue</IRI>
+        <Literal xml:lang="de">Seitlicher Winkel: Hüftproblem</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#SideAngle_KneeIssue</IRI>
+        <Literal xml:lang="de">Seitlicher Winkel: Knieschmerzen</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#SideAngle_Left_Arm</IRI>
+        <Literal xml:lang="de">Linker Arm</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#SideAngle_Left_Leg</IRI>
+        <Literal xml:lang="de">Linkes Bein</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#SideAngle_LowerBackIssue</IRI>
+        <Literal xml:lang="de">Seitlicher Winkel: Problem im unteren Rücken</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#SideAngle_Right_Arm</IRI>
+        <Literal xml:lang="de">Rechter Arm</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#SideAngle_Right_Leg</IRI>
+        <Literal xml:lang="de">Rechtes Bein</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#SideAngle_Torso</IRI>
+        <Literal xml:lang="de">Rumpf</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#SingleLegBridge</IRI>
+        <Literal xml:lang="de">Einbein-Brücke</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Sitting</IRI>
+        <Literal xml:lang="de">Sitzen</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#SitzenStehen</IRI>
+        <Literal xml:lang="de">Hinsetzen-Aufstehen</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#SitzenStehen_KneeIssue</IRI>
+        <Literal xml:lang="de">Hinsetzen-Aufstehen: Knieschmerzen</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Skateboarding</IRI>
+        <Literal xml:lang="de">Skateboarden</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#SkateborardingContest</IRI>
+        <Literal xml:lang="de">Skateboard-Wettkampf</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#SkiDiving</IRI>
+        <Literal xml:lang="de">Skifliegen</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#SkiingCrossCountry</IRI>
+        <Literal xml:lang="de">Skilanglauf</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#SkiingDownhill</IRI>
+        <Literal xml:lang="de">Abfahrtsski</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#SleepPositionAdjustment</IRI>
+        <Literal xml:lang="de">Anpassung der Schlafposition</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Snorkeling</IRI>
+        <Literal xml:lang="de">Schnorcheln</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#SnowShoeing</IRI>
+        <Literal xml:lang="de">Schneeschuhwandern</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Snowboarding</IRI>
+        <Literal xml:lang="de">Snowboarden</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#SoccerCasual</IRI>
+        <Literal xml:lang="de">Freizeit-Fußball</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#SoccerCompetitive</IRI>
+        <Literal xml:lang="de">Wettkampf-Fußball</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Softball</IRI>
+        <Literal xml:lang="de">Softball</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Spine</IRI>
+        <Literal xml:lang="de">Wirbelsäule</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#SpineIssue</IRI>
+        <Literal xml:lang="de">Wirbelsäulenprobleme</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#SpineJoint</IRI>
+        <Literal xml:lang="de">Wirbelsäulengelenke</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#SprainedAnkle</IRI>
+        <Literal xml:lang="de">Verstauchtes Sprunggelenk</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Squads</IRI>
+        <Literal xml:lang="de">Kniebeugen</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Squads_KneeIssue</IRI>
+        <Literal xml:lang="de">Kniebeugen: Knieschmerzen</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Stability</IRI>
+        <Literal xml:lang="de">Stabilität</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#StandingBackBend_LowerBackIssue</IRI>
+        <Literal xml:lang="de">Rückbeuge im Stehen: Problem im unteren Rücken</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#StandingBackBend_NeckIssue</IRI>
+        <Literal xml:lang="de">Rückbeuge im Stehen: Nackenproblem</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#StandingBackBend_ShoulderIssue</IRI>
+        <Literal xml:lang="de">Rückbeuge im Stehen: Schulterproblem</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#StandingBackBend_SpineIssue</IRI>
+        <Literal xml:lang="de">Rückbeuge im Stehen: Wirbelsäulenproblem</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#StandingBackbend</IRI>
+        <Literal xml:lang="de">Rückbeuge im Stehen</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#StandingBackbendInstruction</IRI>
+        <Literal xml:lang="de">Anleitung für Rückbeuge im Stehen</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#StandingBackbend_Left_Arm</IRI>
+        <Literal xml:lang="de">Linker Arm</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#StandingBackbend_Left_Leg</IRI>
+        <Literal xml:lang="de">Linkes Bein</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#StandingBackbend_Right_Arm</IRI>
+        <Literal xml:lang="de">Rechter Arm</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#StandingBackbend_Right_Leg</IRI>
+        <Literal xml:lang="de">Rechtes Bein</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#StandingBackbend_Torso</IRI>
+        <Literal xml:lang="de">Rumpf</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#StandingCalfStretch</IRI>
+        <Literal xml:lang="de">Wadendehnung im Stehen</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#StandingCalfStretch_AnkleIssue</IRI>
+        <Literal xml:lang="de">Wadendehnung im Stehen: Sprunggelenkproblem</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#StandingCompass</IRI>
+        <Literal xml:lang="de">Stehender Kompass</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#StandingCompassInstruction</IRI>
+        <Literal xml:lang="de">Anleitung für Stehender Kompass</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#StandingCompass_BalanceIssue</IRI>
+        <Literal xml:lang="de">Stehender Kompass: Gleichgewichtsproblem</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#StandingCompass_CoreIssue</IRI>
+        <Literal xml:lang="de">Stehender Kompass: Rumpfmuskulatur-Problem</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#StandingCompass_Left_Arm</IRI>
+        <Literal xml:lang="de">Linker Arm</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#StandingCompass_Left_Leg</IRI>
+        <Literal xml:lang="de">Linkes Bein</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#StandingCompass_Right_Arm</IRI>
+        <Literal xml:lang="de">Rechter Arm</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#StandingCompass_Right_Leg</IRI>
+        <Literal xml:lang="de">Rechtes Bein</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#StandingCompass_Torso</IRI>
+        <Literal xml:lang="de">Rumpf</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#StandingFirefly</IRI>
+        <Literal xml:lang="de">Stehender Feuerfalter</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#StandingFireflyInstruction</IRI>
+        <Literal xml:lang="de">Anleitung für Stehender Feuerfalter</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#StandingFirefly_BalanceIssue</IRI>
+        <Literal xml:lang="de">Stehender Feuerfalter: Gleichgewichtsproblem</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#StandingFirefly_CoreIssue</IRI>
+        <Literal xml:lang="de">Stehender Feuerfalter: Rumpfmuskulatur-Problem</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#StandingFirefly_Left_Arm</IRI>
+        <Literal xml:lang="de">Linker Arm</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#StandingFirefly_Left_Leg</IRI>
+        <Literal xml:lang="de">Linkes Bein</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#StandingFirefly_Right_Arm</IRI>
+        <Literal xml:lang="de">Rechter Arm</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#StandingFirefly_Right_Leg</IRI>
+        <Literal xml:lang="de">Rechtes Bein</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#StandingFirefly_ShoulderIssue</IRI>
+        <Literal xml:lang="de">Stehender Feuerfalter: Schulterproblem</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#StandingFirefly_Torso</IRI>
+        <Literal xml:lang="de">Rumpf</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#StandingForwardBend</IRI>
+        <Literal xml:lang="de">Vorbeuge im Stehen</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#StandingForwardBendInstruction</IRI>
+        <Literal xml:lang="de">Anleitung für Vorbeuge im Stehen</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#StandingForwardBend_BalanceIssue</IRI>
+        <Literal xml:lang="de">Vorbeuge im Stehen: Gleichgewichtsproblem</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#StandingForwardBend_HamstringIssue</IRI>
+        <Literal xml:lang="de">Vorbeuge im Stehen: Oberschenkelrückseiten-Problem</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#StandingForwardBend_Left_Arm</IRI>
+        <Literal xml:lang="de">Linker Arm</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#StandingForwardBend_Left_Leg</IRI>
+        <Literal xml:lang="de">Linkes Bein</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#StandingForwardBend_LowerBackIssue</IRI>
+        <Literal xml:lang="de">Vorbeuge im Stehen: Problem im unteren Rücken</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#StandingForwardBend_Right_Arm</IRI>
+        <Literal xml:lang="de">Rechter Arm</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#StandingForwardBend_Right_Leg</IRI>
+        <Literal xml:lang="de">Rechtes Bein</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#StandingForwardBend_Torso</IRI>
+        <Literal xml:lang="de">Rumpf</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#StandingLegRaise</IRI>
+        <Literal xml:lang="de">Beinheben im Stehen</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#StandingLegRaiseInstruction</IRI>
+        <Literal xml:lang="de">Anleitung für Beinheben im Stehen</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#StandingLegRaise_BalanceIssue</IRI>
+        <Literal xml:lang="de">Beinheben im Stehen: Gleichgewichtsproblem</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#StandingLegRaise_HamstringIssue</IRI>
+        <Literal xml:lang="de">Beinheben im Stehen: Oberschenkelrückseiten-Problem</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#StandingLegRaise_HipIssue</IRI>
+        <Literal xml:lang="de">Beinheben im Stehen: Hüftproblem</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#StandingLegRaise_Left_Arm</IRI>
+        <Literal xml:lang="de">Linker Arm</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#StandingLegRaise_Left_Leg</IRI>
+        <Literal xml:lang="de">Linkes Bein</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#StandingLegRaise_Right_Arm</IRI>
+        <Literal xml:lang="de">Rechter Arm</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#StandingLegRaise_Right_Leg</IRI>
+        <Literal xml:lang="de">Rechtes Bein</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#StandingLegRaise_Torso</IRI>
+        <Literal xml:lang="de">Rumpf</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#StandingPelvicTilts</IRI>
+        <Literal xml:lang="de">Beckenkippen im Stehen</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#StandingSideBend</IRI>
+        <Literal xml:lang="de">Seitbeuge im Stehen</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#StandingSideBend_BalanceIssue</IRI>
+        <Literal xml:lang="de">Seitbeuge im Stehen: Gleichgewichtsproblem</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#StandingSideBend_HipIssue</IRI>
+        <Literal xml:lang="de">Seitbeuge im Stehen: Hüftproblem</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#StandingSideBend_Left_Arm</IRI>
+        <Literal xml:lang="de">Linker Arm</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#StandingSideBend_Left_Leg</IRI>
+        <Literal xml:lang="de">Linkes Bein</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#StandingSideBend_LowerBackIssue</IRI>
+        <Literal xml:lang="de">Seitbeuge im Stehen: Problem im unteren Rücken</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#StandingSideBend_Right_Arm</IRI>
+        <Literal xml:lang="de">Rechter Arm</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#StandingSideBend_Right_Leg</IRI>
+        <Literal xml:lang="de">Rechtes Bein</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#StandingSideBend_Torso</IRI>
+        <Literal xml:lang="de">Rumpf</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#StandingSideStretchInstruction</IRI>
+        <Literal xml:lang="de">Anleitung für Seitliche Dehnung im Stehen</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#StandingSplit</IRI>
+        <Literal xml:lang="de">Stehender Spagat</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#StandingSplitInstruction</IRI>
+        <Literal xml:lang="de">Anleitung für Stehender Spagat</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#StandingSplit_BalanceIssue</IRI>
+        <Literal xml:lang="de">Stehender Spagat: Gleichgewichtsproblem</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#StandingSplit_HamstringIssue</IRI>
+        <Literal xml:lang="de">Stehender Spagat: Oberschenkelrückseiten-Problem</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#StandingSplit_HipIssue</IRI>
+        <Literal xml:lang="de">Stehender Spagat: Hüftproblem</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#StandingSplit_Left_Arm</IRI>
+        <Literal xml:lang="de">Linker Arm</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#StandingSplit_Left_Leg</IRI>
+        <Literal xml:lang="de">Linkes Bein</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#StandingSplit_Right_Arm</IRI>
+        <Literal xml:lang="de">Rechter Arm</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#StandingSplit_Right_Leg</IRI>
+        <Literal xml:lang="de">Rechtes Bein</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#StandingSplit_Torso</IRI>
+        <Literal xml:lang="de">Rumpf</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Standing_sleeper_stretch</IRI>
+        <Literal xml:lang="de">Sleeper-Stretch im Stehen</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#StartingAnyPosition</IRI>
+        <Literal xml:lang="de">Beliebige Startposition</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#StartingChairSitting</IRI>
+        <Literal xml:lang="de">Sitzend auf einem Stuhl</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#StartingFloor</IRI>
+        <Literal xml:lang="de">Auf dem Boden</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#StartingKneeling</IRI>
+        <Literal xml:lang="de">Im Kniestand</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#StartingLaying</IRI>
+        <Literal xml:lang="de">In Rückenlage</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#StartingSideLaying</IRI>
+        <Literal xml:lang="de">In Seitenlage</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#StartingSitting</IRI>
+        <Literal xml:lang="de">Im Sitzen</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#StartingSittingOrFloor</IRI>
+        <Literal xml:lang="de">Sitzend (Stuhl oder Boden)</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#StartingStanding</IRI>
+        <Literal xml:lang="de">Im Stehen</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#StartingStandingOnCushion</IRI>
+        <Literal xml:lang="de">Im Stehen auf einem Kissen</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#StationaryCycling100Watts</IRI>
+        <Literal xml:lang="de">Ergometer 100 Watt</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#StationaryCycling50Watts</IRI>
+        <Literal xml:lang="de">Ergometer 50 Watt</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Stick</IRI>
+        <Literal xml:lang="de">Stock</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Straight</IRI>
+        <Literal xml:lang="de">Gerade</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Strength</IRI>
+        <Literal xml:lang="de">Kraft</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Stretching</IRI>
+        <Literal xml:lang="de">Dehnen</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Surfing</IRI>
+        <Literal xml:lang="de">Surfen</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#SwimmingLapsFast</IRI>
+        <Literal xml:lang="de">Bahnschwimmen schnell</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#SwimmingLapsSidestroke</IRI>
+        <Literal xml:lang="de">Bahnschwimmen Seitenschwimmen</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#SwimmingSlow</IRI>
+        <Literal xml:lang="de">Langsames Schwimmen</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#TableTennis</IRI>
+        <Literal xml:lang="de">Tischtennis</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#TaeKwanDo</IRI>
+        <Literal xml:lang="de">Taekwondo</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#TaiChi</IRI>
+        <Literal xml:lang="de">Tai-Chi</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Tennis</IRI>
+        <Literal xml:lang="de">Tennis</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#TennisDoubles</IRI>
+        <Literal xml:lang="de">Tennis-Doppel</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#TennisElbow</IRI>
+        <Literal xml:lang="de">Tennisarm</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Theraband</IRI>
+        <Literal xml:lang="de">Theraband</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#TherabandAussenrotation</IRI>
+        <Literal xml:lang="de">Außenrotation mit Theraband</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#TherabandAussenrotation_ShoulderIssue</IRI>
+        <Literal xml:lang="de">Außenrotation mit Theraband: Schulterproblem</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Thighs</IRI>
+        <Literal xml:lang="de">Oberschenkel</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#ThoracicBackPain</IRI>
+        <Literal xml:lang="de">Brustwirbelsäulen-Schmerzen</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Torso</IRI>
+        <Literal xml:lang="de">Rumpf</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Towel</IRI>
+        <Literal xml:lang="de">Handtuch</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Trampoline</IRI>
+        <Literal xml:lang="de">Trampolin</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Trapezius</IRI>
+        <Literal xml:lang="de">Trapezmuskel</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Tree</IRI>
+        <Literal xml:lang="de">Baum</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#TreeInstruction</IRI>
+        <Literal xml:lang="de">Anleitung für Baum</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Tree_AnkleIssue</IRI>
+        <Literal xml:lang="de">Baum: Sprunggelenkproblem</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Tree_BalanceIssue</IRI>
+        <Literal xml:lang="de">Baum: Gleichgewichtsproblem</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Tree_KneeIssue</IRI>
+        <Literal xml:lang="de">Baum: Knieschmerzen</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Tree_Left_Arm</IRI>
+        <Literal xml:lang="de">Linker Arm</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Tree_Left_Leg</IRI>
+        <Literal xml:lang="de">Linkes Bein</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Tree_Right_Arm</IRI>
+        <Literal xml:lang="de">Rechter Arm</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Tree_Right_Leg</IRI>
+        <Literal xml:lang="de">Rechtes Bein</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Tree_Torso</IRI>
+        <Literal xml:lang="de">Rumpf</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Triangle</IRI>
+        <Literal xml:lang="de">Dreieck</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#TriangleInstruction</IRI>
+        <Literal xml:lang="de">Anleitung für Dreieck</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Triangle_HamstringIssue</IRI>
+        <Literal xml:lang="de">Dreieck: Oberschenkelrückseiten-Problem</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Triangle_HipIssue</IRI>
+        <Literal xml:lang="de">Dreieck: Hüftproblem</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Triangle_KneeIssue</IRI>
+        <Literal xml:lang="de">Dreieck: Knieschmerzen</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Triangle_Left_Arm</IRI>
+        <Literal xml:lang="de">Linker Arm</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Triangle_Left_Leg</IRI>
+        <Literal xml:lang="de">Linkes Bein</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Triangle_LowerBackIssue</IRI>
+        <Literal xml:lang="de">Dreieck: Problem im unteren Rücken</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Triangle_Right_Arm</IRI>
+        <Literal xml:lang="de">Rechter Arm</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Triangle_Right_Leg</IRI>
+        <Literal xml:lang="de">Rechtes Bein</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Triangle_Torso</IRI>
+        <Literal xml:lang="de">Rumpf</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Triceps</IRI>
+        <Literal xml:lang="de">Trizeps</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#TricepsStretch</IRI>
+        <Literal xml:lang="de">Trizepsdehnung</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#TricepsStretch_ShoulderIssue</IRI>
+        <Literal xml:lang="de">Trizepsdehnung: Schulterproblem</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Up</IRI>
+        <Literal xml:lang="de">Oben</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#UpperBack</IRI>
+        <Literal xml:lang="de">Oberer Rücken</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#UpperBackIssue</IRI>
+        <Literal xml:lang="de">Probleme im oberen Rücken</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Upright</IRI>
+        <Literal xml:lang="de">Aufrecht</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#UseBackpackInsteadOfOneSideBag</IRI>
+        <Literal xml:lang="de">Rucksack statt einseitiger Tasche</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#UseStepStoolForOverheadWork</IRI>
+        <Literal xml:lang="de">Tritthocker für Überkopfarbeit</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#User0001</IRI>
+        <Literal xml:lang="de">Beispielpatient 0001</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Volleyball</IRI>
+        <Literal xml:lang="de">Volleyball</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Wadendehnung</IRI>
+        <Literal xml:lang="de">Wadendehnung</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Wadendehnung_AnkleIssue</IRI>
+        <Literal xml:lang="de">Wadendehnung: Sprunggelenkproblem</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Walking11MinMile</IRI>
+        <Literal xml:lang="de">Gehen 11 Min/Meile</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Walking15MinMile</IRI>
+        <Literal xml:lang="de">Gehen 15 Min/Meile</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Walking17MinMile</IRI>
+        <Literal xml:lang="de">Gehen 17 Min/Meile</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Walking2Mph</IRI>
+        <Literal xml:lang="de">Gehen 3 km/h</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Walking3Mph</IRI>
+        <Literal xml:lang="de">Gehen 5 km/h</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#WalkingUpHill</IRI>
+        <Literal xml:lang="de">Bergauf gehen</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#WalkingUpStairs</IRI>
+        <Literal xml:lang="de">Treppensteigen</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Wall</IRI>
+        <Literal xml:lang="de">Wand</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#WallPushUps</IRI>
+        <Literal xml:lang="de">Wandliegestütz</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Wandsitzen</IRI>
+        <Literal xml:lang="de">Wandsitzen</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Wandsitzen_KneeIssue</IRI>
+        <Literal xml:lang="de">Wandsitzen: Knieschmerzen</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Warrior1</IRI>
+        <Literal xml:lang="de">Krieger 1</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Warrior1Instruction</IRI>
+        <Literal xml:lang="de">Anleitung für Krieger 1</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Warrior1_BalanceIssue</IRI>
+        <Literal xml:lang="de">Krieger 1: Gleichgewichtsproblem</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Warrior1_CoreIssue</IRI>
+        <Literal xml:lang="de">Krieger 1: Rumpfmuskulatur-Problem</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Warrior1_KneeIssue</IRI>
+        <Literal xml:lang="de">Krieger 1: Knieschmerzen</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Warrior1_Left_Arm</IRI>
+        <Literal xml:lang="de">Linker Arm</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Warrior1_Left_Leg</IRI>
+        <Literal xml:lang="de">Linkes Bein</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Warrior1_Right_Arm</IRI>
+        <Literal xml:lang="de">Rechter Arm</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Warrior1_Right_Leg</IRI>
+        <Literal xml:lang="de">Rechtes Bein</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Warrior1_Torso</IRI>
+        <Literal xml:lang="de">Rumpf</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Warrior2</IRI>
+        <Literal xml:lang="de">Krieger 2</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Warrior2_AnkleIssue</IRI>
+        <Literal xml:lang="de">Krieger 2: Sprunggelenkproblem</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Warrior2_HipIssue</IRI>
+        <Literal xml:lang="de">Krieger 2: Hüftproblem</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Warrior2_KneeIssue</IRI>
+        <Literal xml:lang="de">Krieger 2: Knieschmerzen</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Warrior2_Left_Arm</IRI>
+        <Literal xml:lang="de">Linker Arm</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Warrior2_Left_Leg</IRI>
+        <Literal xml:lang="de">Linkes Bein</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Warrior2_Right_Arm</IRI>
+        <Literal xml:lang="de">Rechter Arm</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Warrior2_Right_Leg</IRI>
+        <Literal xml:lang="de">Rechtes Bein</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Warrior2_Torso</IRI>
+        <Literal xml:lang="de">Rumpf</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#WarriorInstruction</IRI>
+        <Literal xml:lang="de">Anleitung für Krieger</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#WaterJogging</IRI>
+        <Literal xml:lang="de">Wasserjogging</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#WaterPolo</IRI>
+        <Literal xml:lang="de">Wasserball</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#WaterSkiing</IRI>
+        <Literal xml:lang="de">Wasserski</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#WeightLifting</IRI>
+        <Literal xml:lang="de">Gewichtheben</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#WeightShiftWhileStanding</IRI>
+        <Literal xml:lang="de">Gewichtsverlagerung im Stehen</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Wheel</IRI>
+        <Literal xml:lang="de">Rad</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#WheelInstruction</IRI>
+        <Literal xml:lang="de">Anleitung für Rad</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Wheel_Left_Arm</IRI>
+        <Literal xml:lang="de">Linker Arm</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Wheel_Left_Leg</IRI>
+        <Literal xml:lang="de">Linkes Bein</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Wheel_LowerBackIssue</IRI>
+        <Literal xml:lang="de">Rad: Problem im unteren Rücken</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Wheel_NeckIssue</IRI>
+        <Literal xml:lang="de">Rad: Nackenproblem</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Wheel_Right_Arm</IRI>
+        <Literal xml:lang="de">Rechter Arm</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Wheel_Right_Leg</IRI>
+        <Literal xml:lang="de">Rechtes Bein</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Wheel_ShoulderIssue</IRI>
+        <Literal xml:lang="de">Rad: Schulterproblem</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Wheel_Torso</IRI>
+        <Literal xml:lang="de">Rumpf</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Wheel_WristIssue</IRI>
+        <Literal xml:lang="de">Rad: Handgelenkproblem</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Wrestling</IRI>
+        <Literal xml:lang="de">Ringen</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#WristFracture</IRI>
+        <Literal xml:lang="de">Handgelenkfraktur</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#WristIssue</IRI>
+        <Literal xml:lang="de">Handgelenkprobleme</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#WristJoint</IRI>
+        <Literal xml:lang="de">Handgelenk</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#WristSprain</IRI>
+        <Literal xml:lang="de">Handgelenkverstauchung</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Wrists</IRI>
+        <Literal xml:lang="de">Handgelenke</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Yoga</IRI>
+        <Literal xml:lang="de">Yoga</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Z-Sits</IRI>
+        <Literal xml:lang="de">Z-Sitz</Literal>
+    </AnnotationAssertion>
 </Ontology>
 
 
