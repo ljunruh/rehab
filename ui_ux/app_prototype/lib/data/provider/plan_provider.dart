@@ -1,4 +1,5 @@
-import 'package:app_prototype/data/models/graph/plan.dart';
+import 'package:app_prototype/data/models/api/exercise.dart';
+import 'package:app_prototype/data/models/api/plan.dart';
 import 'package:app_prototype/data/repository/plan_repository.dart';
 import 'package:flutter/material.dart';
 
@@ -11,6 +12,8 @@ class PlanProvider extends ChangeNotifier {
 
   List<Plan> _plans = [];
   List<Plan> get plans => _plans;
+  Plan? _selectedPlan = null;
+  Plan? get plan => _selectedPlan;
 
   Future<void> savePlan(Plan plan) async {
     await repo.savePlan(plan);
@@ -18,8 +21,22 @@ class PlanProvider extends ChangeNotifier {
     notifyListeners();
   }
 
+  Future<Plan?> getPlan(String id) async {
+    _selectedPlan = await repo.getPlanById(id);
+    notifyListeners();
+    return _selectedPlan ?? null;
+  }
+
   Future<void> loadPlans() async {
     _plans = await repo.getAll();
+    notifyListeners();
+  }
+
+  Future<void> updatePlanExercises(List<Exercise> exercises) async {
+    if (_selectedPlan == null) return;
+    final updatedPlan = _selectedPlan!.copyWith(exercises: exercises);
+    await repo.savePlan(updatedPlan);
+    _selectedPlan = updatedPlan;
     notifyListeners();
   }
 }

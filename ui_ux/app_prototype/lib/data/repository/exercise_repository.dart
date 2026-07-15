@@ -1,9 +1,9 @@
 import 'package:app_prototype/data/api/exercise_api.dart';
 import 'package:app_prototype/data/enum/body_part.dart';
-import 'package:app_prototype/data/enum/goal.dart';
 import 'package:app_prototype/data/enum/contraindication.dart';
+import 'package:app_prototype/data/enum/goal.dart';
 import 'package:app_prototype/data/enum/skill_level.dart';
-import 'package:app_prototype/data/models/graph/exercise.dart';
+import 'package:app_prototype/data/models/api/exercise.dart';
 import 'package:app_prototype/data/repository/user_repository.dart';
 import 'package:app_prototype/data/service/exercise_service.dart';
 

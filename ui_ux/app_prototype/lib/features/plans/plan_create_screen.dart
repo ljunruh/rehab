@@ -1,4 +1,6 @@
-import 'package:app_prototype/data/models/graph/plan.dart';
+import 'dart:math';
+
+import 'package:app_prototype/data/models/api/plan.dart';
 import 'package:app_prototype/data/provider/exercise_provider.dart';
 import 'package:app_prototype/data/provider/plan_provider.dart';
 import 'package:flutter/material.dart';
@@ -9,7 +11,7 @@ import '../../state/ui_state.dart';
 import '../../data/models/models.dart';
 import '../../data/enum/body_part.dart';
 import '../../data/enum/goal.dart';
-import 'package:app_prototype/data/models/graph/exercise.dart' as graph;
+import 'package:app_prototype/data/models/api/exercise.dart' as api;
 import '../profile/setup/selectable_accordion.dart';
 
 /// PERSON 2 — Plan-Erstellung als 3-Schritt-Wizard.
@@ -44,8 +46,8 @@ class _PlanCreateScreenState extends State<PlanCreateScreen> {
   late final TextEditingController _nameCtrl;
   late BodyPart _region;
   Goal _goal = Goal.mobility;
-  final List<graph.Exercise> _selectedExercises = [];
-  List<graph.Exercise> _filteredExercises = [];
+  final List<api.Exercise> _selectedExercises = [];
+  List<api.Exercise> _filteredExercises = [];
   String _exerciseSearchQuery = "";
   Color _color = PlanColors.tuerkis;
   int _sessionsPerWeek = 3;
@@ -87,7 +89,7 @@ class _PlanCreateScreenState extends State<PlanCreateScreen> {
   void _save() {
     final planProvider = context.read<PlanProvider>();
     final plan = Plan(
-      id: 'plan_${DateTime.now().millisecondsSinceEpoch}',
+      id: 'plan_${DateTime.now().microsecondsSinceEpoch}_${Random().nextInt(99999)}',
       name: _nameCtrl.text.trim(),
       region: _region.label,
       goal: _goal.label,
@@ -217,7 +219,7 @@ class _PlanCreateScreenState extends State<PlanCreateScreen> {
       _filteredExercises = exercises;
     }
 
-    return SelectableAccordion<graph.Exercise>(
+    return SelectableAccordion<api.Exercise>(
       title: 'Wähle deine Übungen',
       summary: Text(
         '${_selectedExercises.length} ${_selectedExercises.length == 1 ? 'Übung' : 'Übungen'} ausgewählt',

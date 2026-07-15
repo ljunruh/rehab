@@ -6,7 +6,7 @@ import 'package:app_prototype/data/enum/goal.dart';
 import 'package:app_prototype/data/enum/contraindication.dart';
 import 'package:app_prototype/data/enum/skill_level.dart';
 
-import '../models/graph/exercise.dart';
+import '../models/api/exercise.dart';
 
 class ExerciseApi extends CoreApi {
   /**

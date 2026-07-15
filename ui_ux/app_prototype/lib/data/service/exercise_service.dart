@@ -1,4 +1,4 @@
-import 'package:app_prototype/data/models/graph/exercise.dart';
+import 'package:app_prototype/data/models/api/exercise.dart';
 import 'package:isar/isar.dart';
 
 class ExerciseService {
