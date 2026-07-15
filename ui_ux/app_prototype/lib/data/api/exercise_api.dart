@@ -54,11 +54,9 @@ WHERE {
     ?contraindication rdfs:label ?contraindicationLabel .
     ?trainingsEffect rdfs:label ?trainingsEffectLabel .
     ?bodyPart rdfs:label ?bodyPartLabel .
-    ?exercise rehab:hasInstruction ?instruction .
-
-    # Aktuell optionale Felder (sollen später Pflichtfelder werden)
-    OPTIONAL { ?exercise rehab:duration ?duration }
-    OPTIONAL { ?exercise rdfs:label ?exerciseLabel }
+    ?exercise rehab:hasInstruction ?instruction ;
+              rehab:hasDuration ?duration ;
+              rdfs:label ?exerciseLabel .
 
     # Optionale Zusatzinformationen
     OPTIONAL { ?exercise rehab:hasCorrectionGuidance ?correction }
@@ -161,11 +159,9 @@ WHERE {
     ?contraindication rdfs:label ?contraindicationLabel .
     ?trainingsEffect rdfs:label ?trainingsEffectLabel .
     ?bodyPart rdfs:label ?bodyPartLabel .
-    ?exercise rehab:hasInstruction ?instruction .
-    
-    # Aktuell optionale Felder (sollen später Pflichtfelder werden)
-    OPTIONAL { ?exercise rehab:duration ?duration }
-    OPTIONAL { ?exercise rdfs:label ?exerciseLabel }
+    ?exercise rehab:hasInstruction ?instruction ;
+              rehab:hasDuration ?duration ;
+              rdfs:label ?exerciseLabel .
 
     # Optionale Zusatzinformationen
     OPTIONAL { ?exercise rehab:hasCorrectionGuidance ?correction }
