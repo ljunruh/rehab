@@ -15,6 +15,7 @@ import 'package:provider/provider.dart';
 
 import 'core/theme/app_theme.dart';
 import 'data/service/user_service.dart';
+import 'features/intro/intro_screen.dart';
 import 'navigation/app_shell.dart';
 import 'state/ui_state.dart';
 
@@ -59,7 +60,32 @@ class RehaApp extends StatelessWidget {
       title: 'Reha App',
       debugShowCheckedModeBanner: false,
       theme: AppTheme.light,
-      home: AppShell(),
+      home: const _RootGate(),
+    );
+  }
+}
+
+/// Zeigt beim Start das animierte Intro und blendet danach sanft zur App.
+class _RootGate extends StatefulWidget {
+  const _RootGate();
+
+  @override
+  State<_RootGate> createState() => _RootGateState();
+}
+
+class _RootGateState extends State<_RootGate> {
+  bool _ready = false;
+
+  @override
+  Widget build(BuildContext context) {
+    return AnimatedSwitcher(
+      duration: const Duration(milliseconds: 600),
+      child: _ready
+          ? AppShell(key: const ValueKey('app'))
+          : IntroScreen(
+              key: const ValueKey('intro'),
+              onDone: () => setState(() => _ready = true),
+            ),
     );
   }
 }
