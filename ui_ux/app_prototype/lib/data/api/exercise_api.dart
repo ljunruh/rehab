@@ -55,8 +55,15 @@ WHERE {
     ?trainingsEffect rdfs:label ?trainingsEffectLabel .
     ?bodyPart rdfs:label ?bodyPartLabel .
     ?exercise rehab:hasInstruction ?instruction ;
-              rehab:hasDuration ?duration ;
-              rdfs:label ?exerciseLabel .
+  			  rehab:hasDuration ?duration ;
+    		  rdfs:label ?exerciseLabel .
+  
+  	FILTER(
+    LANGMATCHES(LANG(?contraindicationLabel), "en")	&&
+    LANGMATCHES(LANG(?trainingsEffectLabel), "en") &&
+    LANGMATCHES(LANG(?bodyPartLabel), "en") &&
+    LANGMATCHES(LANG(?exerciseLabel), "de")
+  )
 
     # Optionale Zusatzinformationen
     OPTIONAL { ?exercise rehab:hasCorrectionGuidance ?correction }
@@ -160,8 +167,15 @@ WHERE {
     ?trainingsEffect rdfs:label ?trainingsEffectLabel .
     ?bodyPart rdfs:label ?bodyPartLabel .
     ?exercise rehab:hasInstruction ?instruction ;
-              rehab:hasDuration ?duration ;
-              rdfs:label ?exerciseLabel .
+  			  rehab:hasDuration ?duration ;
+    		  rdfs:label ?exerciseLabel .
+  
+  	FILTER(
+    LANGMATCHES(LANG(?contraindicationLabel), "en")	&&
+    LANGMATCHES(LANG(?trainingsEffectLabel), "en") &&
+    LANGMATCHES(LANG(?bodyPartLabel), "en") &&
+    LANGMATCHES(LANG(?exerciseLabel), "de")
+  )
 
     # Optionale Zusatzinformationen
     OPTIONAL { ?exercise rehab:hasCorrectionGuidance ?correction }
