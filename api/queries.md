@@ -315,7 +315,6 @@ SELECT
     ?difficultyLabel
     ?duration
     ?instruction
-
     # Verpackt alle Values der Property in einem Value
     (GROUP_CONCAT(DISTINCT ?contraindicationLabel; separator=" | ") AS ?contraindications)
     (GROUP_CONCAT(DISTINCT ?trainingsEffectLabel; separator=" | ") AS ?trainingsEffects)
@@ -324,15 +323,12 @@ SELECT
     (GROUP_CONCAT(DISTINCT ?mistake; separator=" | ") AS ?mistakes)
 
 WHERE {
-
     # Filterparameter (werden zur Laufzeit übergeben)
-
     # Trainingslevel
     VALUES ?difficulty {
         rehab:Beginner
         rehab:Intermediate
     }
-
     # Gewünschte Trainingseffekte
     VALUES ?trainingsEffect {
         rehab:Balance
@@ -345,7 +341,6 @@ WHERE {
         rehab:Stability
         rehab:Strength
     }
-
     # Gewünschte Körperbereiche
     VALUES ?bodyPart {
         rehab:Ankles rehab:Arms rehab:Back rehab:Biceps rehab:Calves
@@ -362,7 +357,6 @@ WHERE {
               rehab:hasContraindication ?contraindication ;
               rehab:improves ?trainingsEffect ;
               rehab:engagedBodyPart ?bodyPart .
-
     ?contraindication a rehab:Contraindication .
     ?trainingsEffect a rehab:TrainingsEffect .
     ?bodyPart a rehab:BodyPart .
@@ -380,11 +374,16 @@ WHERE {
     ?contraindication rdfs:label ?contraindicationLabel .
     ?trainingsEffect rdfs:label ?trainingsEffectLabel .
     ?bodyPart rdfs:label ?bodyPartLabel .
-    ?exercise rehab:hasInstruction ?instruction .
-
-    # Aktuell optionale Felder (sollen später Pflichtfelder werden)
-    OPTIONAL { ?exercise rehab:duration ?duration }
-    OPTIONAL { ?exercise rdfs:label ?exerciseLabel }
+    ?exercise rehab:hasInstruction ?instruction ;
+  			  rehab:hasDuration ?duration ;
+    		  rdfs:label ?exerciseLabel .
+  
+  	FILTER(
+    LANGMATCHES(LANG(?contraindicationLabel), "en")	&&
+    LANGMATCHES(LANG(?trainingsEffectLabel), "en") &&
+    LANGMATCHES(LANG(?bodyPartLabel), "en") &&
+    LANGMATCHES(LANG(?exerciseLabel), "de")
+  )
 
     # Optionale Zusatzinformationen
     OPTIONAL { ?exercise rehab:hasCorrectionGuidance ?correction }

@@ -1,3 +1,5 @@
+import 'package:app_prototype/data/provider/plan_provider.dart';
+import 'package:app_prototype/data/models/api/api_models.dart' as api;
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:provider/provider.dart';
@@ -41,6 +43,15 @@ class _PlanDetailScreenState extends State<PlanDetailScreen> {
     ['Entspannung', 'Ruhe', 'Entspannung'],
   ];
 
+  @override
+  void initState() {
+    super.initState();
+
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      context.read<PlanProvider>().getPlan(widget.planId);
+    });
+  }
+
   String _rubrikLabel(String goal) {
     for (final entry in _rubrikMap) {
       final keys = entry.sublist(0, entry.length - 1);
@@ -49,7 +60,7 @@ class _PlanDetailScreenState extends State<PlanDetailScreen> {
     return 'Mobilisation';
   }
 
-  Future<void> _confirmDelete(UiState app, TrainingPlan plan) async {
+  Future<void> _confirmDelete(UiState app, api.Plan plan) async {
     final confirmed = await showModalBottomSheet<bool>(
       context: context,
       backgroundColor: AppColors.cream,
@@ -125,13 +136,19 @@ class _PlanDetailScreenState extends State<PlanDetailScreen> {
   @override
   Widget build(BuildContext context) {
     final app = context.watch<UiState>();
-    final plan = app.planById(widget.planId);
+    final planProvider = context.watch<PlanProvider>();
+    final plan = planProvider.plan;
+    final exercises = plan?.exercises ?? [];
+    final planDuration = plan?.duration;
+    //final plan = app.planById(widget.planId);
 
     if (plan == null) {
       return Center(child: Text('Plan nicht gefunden.', style: AppText.body));
     }
 
+    // UI DemoData auskommentieren
     // Übungen des Plans aus der Bibliothek auflösen (in exerciseIds-Reihenfolge).
+    /*
     final exercises = <Exercise>[];
     for (final id in plan.exerciseIds) {
       for (final e in app.library) {
@@ -146,6 +163,7 @@ class _PlanDetailScreenState extends State<PlanDetailScreen> {
       final m = int.tryParse(e.duration.replaceAll(RegExp(r'[^0-9]'), '')) ?? 0;
       return sum + m;
     });
+    */
 
     final accent = plan.color ?? AppColors.sage;
 
@@ -224,7 +242,7 @@ class _PlanDetailScreenState extends State<PlanDetailScreen> {
             children: [
               _StatBlock(label: 'ÜBUNGEN', value: '${exercises.length}'),
               const SizedBox(width: 28),
-              _StatBlock(label: 'GESAMTDAUER', value: '$totalMinutes Min'),
+              _StatBlock(label: 'GESAMTDAUER', value: '$planDuration Min'),
               const Spacer(),
               _StatBlock(
                 label: 'ABGESCHLOSSEN',
@@ -349,13 +367,13 @@ class _PlanDetailScreenState extends State<PlanDetailScreen> {
             shrinkWrap: true,
             physics: const NeverScrollableScrollPhysics(),
             buildDefaultDragHandles: false,
-            onReorder: (oldIndex, newIndex) {
-              final ids = List<String>.from(plan.exerciseIds);
-              if (newIndex > oldIndex) newIndex -= 1;
-              final moved = ids.removeAt(oldIndex);
-              ids.insert(newIndex, moved);
-              app.updatePlanExercises(plan.id, ids);
-            },
+              onReorder: (oldIndex, newIndex) {
+                final exercises = List<api.Exercise>.from(plan.exercises);
+                if (newIndex > oldIndex) newIndex -= 1;
+                final movedExercise = exercises.removeAt(oldIndex);
+                exercises.insert(newIndex, movedExercise);
+                planProvider.updatePlanExercises(exercises);
+              },
             children: [
               for (int i = 0; i < exercises.length; i++)
                 Padding(
@@ -370,9 +388,9 @@ class _PlanDetailScreenState extends State<PlanDetailScreen> {
                       child: const _DragDots(),
                     ),
                     onRemove: () {
-                      final ids = List<String>.from(plan.exerciseIds)
-                        ..remove(exercises[i].id);
-                      app.updatePlanExercises(plan.id, ids);
+                      final exercises = List<api.Exercise>.from(plan.exercises);
+                      exercises.remove(exercises[i]);
+                      planProvider.updatePlanExercises(exercises);
                     },
                   ),
                 ),
@@ -559,7 +577,7 @@ class _DragDots extends StatelessWidget {
 
 class _PlanExerciseRow extends StatelessWidget {
   final int index;
-  final Exercise exercise;
+  final api.Exercise exercise;
   final bool editing;
   final Widget? dragHandle;
   final VoidCallback? onRemove;
@@ -599,7 +617,7 @@ class _PlanExerciseRow extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(exercise.name,
+                Text(exercise.label,
                     style: AppText.caption.copyWith(
                         fontWeight: FontWeight.w600, color: AppColors.text)),
                 const SizedBox(height: 2),

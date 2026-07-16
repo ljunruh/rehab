@@ -1,5 +1,5 @@
 import 'package:app_prototype/data/api/exercise_api.dart';
-import 'package:app_prototype/data/models/graph/plan.dart';
+import 'package:app_prototype/data/models/api/plan.dart';
 import 'package:app_prototype/data/models/models.dart';
 import 'package:app_prototype/data/provider/exercise_provider.dart';
 import 'package:app_prototype/data/provider/plan_provider.dart';

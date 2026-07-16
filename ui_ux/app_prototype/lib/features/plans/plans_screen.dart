@@ -1,4 +1,4 @@
-import 'package:app_prototype/data/models/graph/plan.dart';
+import 'package:app_prototype/data/models/api/plan.dart';
 import 'package:app_prototype/data/provider/plan_provider.dart';
 import 'package:app_prototype/data/provider/user_provider.dart';
 import 'package:flutter/material.dart';
@@ -189,7 +189,7 @@ class _PlansScreenState extends State<PlansScreen> {
                         plan: p,
                         duration: p.duration,
                         //TODO[API]: DemoData ID, damit UI nicht kaputt geht. Wird später ersetzt p.id
-                        onOpen: () => widget.onOpenPlan('plan-knie'),
+                        onOpen: () => widget.onOpenPlan(p.id),
                         onArchive: () => app.archivePlan('plan-knie'),
                         onRequestDelete: () =>
                             setState(() => _confirmDeleteId = 'plan-knie'),
