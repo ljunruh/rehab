@@ -1,0 +1,86 @@
+# Fixed version of api/queries.md Query 07 (🟢 PROD).
+#
+# Same issues as Query 06: GROUP_CONCAT ueber unbound OPTIONAL-Variable,
+# GROUP BY mit Aggregat-Aliasen. Plus: LANGMATCHES-Filter, der ueberhaupt
+# keine Results liefert, weil viele Labels in der Ontology nur deutsch
+# oder nur englisch vorliegen. Filter ist hier entschaerft: entweder
+# die erwartete Sprache ODER keine Sprachannotation.
+
+PREFIX rehab: <http://purl.org/PhysicalTherapy#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+SELECT
+    ?exercise
+    ?exerciseLabel
+    ?difficultyLabel
+    ?duration
+    ?instruction
+    (GROUP_CONCAT(DISTINCT IF(BOUND(?contraindicationLabel), ?contraindicationLabel, ""); separator=" | ") AS ?contraindications)
+    (GROUP_CONCAT(DISTINCT IF(BOUND(?trainingsEffectLabel), ?trainingsEffectLabel, ""); separator=" | ") AS ?trainingsEffects)
+    (GROUP_CONCAT(DISTINCT IF(BOUND(?bodyPartLabel), ?bodyPartLabel, ""); separator=" | ") AS ?bodyParts)
+    (GROUP_CONCAT(DISTINCT IF(BOUND(?correction), ?correction, ""); separator=" | ") AS ?corrections)
+    (GROUP_CONCAT(DISTINCT IF(BOUND(?mistake), ?mistake, ""); separator=" | ") AS ?mistakes)
+WHERE {
+    VALUES ?difficulty {
+        rehab:Beginner
+        rehab:Intermediate
+    }
+    VALUES ?trainingsEffect {
+        rehab:Balance
+        rehab:Coordination
+        rehab:Flexibility
+        rehab:Focus
+        rehab:Mobility
+        rehab:Posture
+        rehab:Relaxation
+        rehab:Stability
+        rehab:Strength
+    }
+    VALUES ?bodyPart {
+        rehab:Ankles rehab:Arms rehab:Back rehab:Biceps rehab:Calves
+        rehab:Chest rehab:Core rehab:Elbows rehab:Glutes rehab:Hamstrings
+        rehab:Hip rehab:Knees rehab:Legs rehab:LowerBack rehab:Neck
+        rehab:Obliques rehab:Pelvic rehab:Psoas rehab:Quadriceps
+        rehab:Shoulders rehab:Spine rehab:Thighs rehab:Triceps rehab:Wrists
+        rehab:UpperBack
+    }
+
+    ?exercise a/rdfs:subClassOf* rehab:Exercise ;
+              rehab:hasDifficultyLevel ?difficulty ;
+              rehab:hasContraindication ?contraindication ;
+              rehab:improves ?trainingsEffect ;
+              rehab:engagedBodyPart ?bodyPart .
+    ?contraindication a rehab:Contraindication .
+    ?trainingsEffect a rehab:TrainingsEffect .
+    ?bodyPart a rehab:BodyPart .
+
+    FILTER NOT EXISTS {
+        VALUES ?selectedContraindication {
+            rehab:AnkleIssue
+            rehab:NeckIssue
+        }
+        ?exercise rehab:hasContraindication ?selectedContraindication
+    }
+
+    ?contraindication rdfs:label ?contraindicationLabel .
+    ?trainingsEffect rdfs:label ?trainingsEffectLabel .
+    ?bodyPart rdfs:label ?bodyPartLabel .
+    ?exercise rehab:hasInstruction ?instruction ;
+              rehab:hasDuration ?duration ;
+              rdfs:label ?exerciseLabel .
+
+    # Weicher Sprachfilter: wenn ein Sprach-Tag existiert, muss er passen;
+    # ohne Sprach-Tag wird akzeptiert.
+    FILTER(
+        (!BOUND(?contraindicationLabel) || !LANGMATCHES(LANG(?contraindicationLabel), "*") || LANGMATCHES(LANG(?contraindicationLabel), "en") || LANG(?contraindicationLabel) = "")
+        && (!BOUND(?trainingsEffectLabel) || !LANGMATCHES(LANG(?trainingsEffectLabel), "*") || LANGMATCHES(LANG(?trainingsEffectLabel), "en") || LANG(?trainingsEffectLabel) = "")
+        && (!BOUND(?bodyPartLabel) || !LANGMATCHES(LANG(?bodyPartLabel), "*") || LANGMATCHES(LANG(?bodyPartLabel), "en") || LANG(?bodyPartLabel) = "")
+        && (!BOUND(?exerciseLabel) || !LANGMATCHES(LANG(?exerciseLabel), "*") || LANGMATCHES(LANG(?exerciseLabel), "de") || LANG(?exerciseLabel) = "")
+    )
+
+    OPTIONAL { ?exercise rehab:hasCorrectionGuidance ?correction }
+    OPTIONAL { ?exercise rehab:hasCommonMistake ?mistake }
+
+    BIND(REPLACE(STR(?difficulty), "^.*[#/]", "") AS ?difficultyLabel)
+}
+GROUP BY ?exercise ?exerciseLabel ?difficultyLabel ?duration ?instruction

@@ -1,0 +1,56 @@
+# Fixed version of api/queries.md Query 05.
+# Same GROUP_CONCAT + GROUP BY fixes as Query 06/07.
+
+PREFIX rehab: <http://purl.org/PhysicalTherapy#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+SELECT
+    ?exercise
+    ?exerciseLabel
+    ?difficultyLabel
+    (GROUP_CONCAT(DISTINCT IF(BOUND(?contraindicationLabel), ?contraindicationLabel, ""); separator=" | ") AS ?contraindications)
+    (GROUP_CONCAT(DISTINCT IF(BOUND(?trainingsEffectLabel), ?trainingsEffectLabel, ""); separator=" | ") AS ?trainingsEffects)
+    (GROUP_CONCAT(DISTINCT IF(BOUND(?bodyPartLabel), ?bodyPartLabel, ""); separator=" | ") AS ?bodyParts)
+    ?description
+    ?duration
+    ?instruction
+    (GROUP_CONCAT(DISTINCT IF(BOUND(?correction), ?correction, ""); separator=" | ") AS ?corrections)
+    (GROUP_CONCAT(DISTINCT IF(BOUND(?mistake), ?mistake, ""); separator=" | ") AS ?mistakes)
+WHERE {
+    VALUES ?difficulty { rehab:Beginner rehab:Intermediate rehab:Advanced }
+    VALUES ?trainingsEffect { rehab:Balance rehab:Coordination rehab:Flexibility rehab:Focus rehab:Mobility rehab:Posture rehab:Relaxation rehab:Stability }
+    VALUES ?bodyPart {
+        rehab:Ankles rehab:Arms rehab:Back rehab:Biceps rehab:Calves rehab:Chest
+        rehab:Core rehab:Elbows rehab:Glutes rehab:Hamstrings rehab:Hip rehab:Knees
+        rehab:Legs rehab:LowerBack rehab:Neck rehab:Obliques rehab:Pelvic
+        rehab:Psoas rehab:Quadriceps rehab:Shoulders rehab:Spine rehab:Thighs
+        rehab:Triceps rehab:Wrists
+    }
+
+    ?exercise a/rdfs:subClassOf* rehab:Exercise ;
+              rehab:hasDifficultyLevel ?difficulty ;
+              rehab:hasContraindication ?contraindication ;
+              rehab:improves ?trainingsEffect ;
+              rehab:engagedBodyPart ?bodyPart .
+    ?contraindication a rehab:Contraindication .
+    ?contraindication rdfs:label ?contraindicationLabel .
+    ?trainingsEffect a rehab:TrainingsEffect .
+    ?trainingsEffect rdfs:label ?trainingsEffectLabel .
+    ?bodyPart a rehab:BodyPart .
+    ?bodyPart rdfs:label ?bodyPartLabel .
+
+    FILTER NOT EXISTS {
+        VALUES ?selectedContraindication { rehab:ShoulderIssue }
+        ?exercise rehab:hasContraindication ?selectedContraindication
+    }
+
+    OPTIONAL { ?exercise rdfs:label ?exerciseLabel }
+    OPTIONAL { ?exercise rehab:hasDescription ?description }
+    OPTIONAL { ?exercise rehab:hasDuration ?duration }
+    OPTIONAL { ?exercise rehab:hasInstruction ?instruction }
+    OPTIONAL { ?exercise rehab:hasCorrectionGuidance ?correction }
+    OPTIONAL { ?exercise rehab:hasCommonMistake ?mistake }
+
+    BIND(REPLACE(STR(?difficulty), "^.*[#/]", "") AS ?difficultyLabel)
+}
+GROUP BY ?exercise ?exerciseLabel ?difficultyLabel ?description ?duration ?instruction

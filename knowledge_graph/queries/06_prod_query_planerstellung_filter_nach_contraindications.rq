@@ -1,0 +1,68 @@
+# Extracted from api/queries.md
+# Heading: 🟢 PROD QUERY – Planerstellung – Filter nach Contraindications
+# Source offset in queries.md: 9440
+
+SELECT
+    ?exercise
+    ?exerciseLabel
+    ?difficultyLabel
+    ?duration
+    ?instruction
+    # Verpackt alle Values der Property in einem Value
+    (GROUP_CONCAT(DISTINCT ?contraindicationLabel; separator=" | ") AS ?contraindications)
+    (GROUP_CONCAT(DISTINCT ?trainingsEffectLabel; separator=" | ") AS ?trainingsEffects)
+    (GROUP_CONCAT(DISTINCT ?bodyPartLabel; separator=" | ") AS ?bodyParts)
+    (GROUP_CONCAT(DISTINCT ?correction; separator=" | ") AS ?corrections)
+    (GROUP_CONCAT(DISTINCT ?mistake; separator=" | ") AS ?mistakes)
+WHERE {
+
+    # Filter für alle Übungen, die diese Object Properties besitzen müssen.
+    # Übungen ohne diese Properties führen in der App zu unvollständigen Daten.
+    ?exercise a/rdfs:subClassOf* rehab:Exercise ;
+              rehab:hasDifficultyLevel ?difficulty ;
+              rehab:hasContraindication ?contraindication ;
+              rehab:improves ?trainingsEffect ;
+              rehab:engagedBodyPart ?bodyPart .
+
+    ?contraindication a rehab:Contraindication .
+    ?trainingsEffect a rehab:TrainingsEffect .
+    ?bodyPart a rehab:BodyPart .
+
+    # Entfernt Übungen, deren Kontraindikationen mit den
+    # vom Benutzer angegebenen Einschränkungen kollidieren.
+    FILTER NOT EXISTS {
+        VALUES ?selectedContraindication {
+            rehab:AnkleIssue
+            rehab:NeckIssue
+        }
+        ?exercise rehab:hasContraindication ?selectedContraindication
+    }
+
+    # Pflichtfelder
+    ?contraindication rdfs:label ?contraindicationLabel .
+    ?trainingsEffect rdfs:label ?trainingsEffectLabel .
+    ?bodyPart rdfs:label ?bodyPartLabel .
+    ?exercise rehab:hasInstruction ?instruction .
+
+    # Aktuell optionale Felder (sollen später Pflichtfelder werden)
+    OPTIONAL { ?exercise rehab:hasDuration ?duration }
+    OPTIONAL { ?exercise rdfs:label ?exerciseLabel }
+
+    # Optionale Zusatzinformationen
+    OPTIONAL { ?exercise rehab:hasCorrectionGuidance ?correction }
+    OPTIONAL { ?exercise rehab:hasCommonMistake ?mistake }
+
+    # Extrahiert den lokalen Namen der Difficulty-URI
+    BIND(REPLACE(STR(?difficulty), "^.*[#/]", "") AS ?difficultyLabel)
+}
+GROUP BY
+    ?exercise
+    ?exerciseLabel
+    ?difficultyLabel
+    ?contraindications
+    ?trainingsEffects
+    ?bodyParts
+    ?duration
+    ?instruction
+    ?corrections
+    ?mistakes

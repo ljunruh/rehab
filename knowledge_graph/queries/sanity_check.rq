@@ -1,0 +1,7 @@
+PREFIX rehab: <http://purl.org/PhysicalTherapy#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+SELECT DISTINCT ?exercise ?label WHERE {
+  ?exercise a/rdfs:subClassOf* rehab:Stretching .
+  OPTIONAL { ?exercise rdfs:label ?label }
+}
+ORDER BY ?exercise

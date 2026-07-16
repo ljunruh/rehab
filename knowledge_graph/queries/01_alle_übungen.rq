@@ -1,0 +1,9 @@
+# Extracted from api/queries.md
+# Heading: Alle Übungen
+# Source offset in queries.md: 425
+
+SELECT DISTINCT ?exercise ?label ?comment WHERE {
+    ?exercise a/rdfs:subClassOf* rehab:Exercise .
+    OPTIONAL { ?exercise rdfs:label ?label . }
+    OPTIONAL { ?exercise rdfs:comment ?comment . }
+}

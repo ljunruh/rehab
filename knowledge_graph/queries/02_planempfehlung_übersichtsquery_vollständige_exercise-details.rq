@@ -1,0 +1,24 @@
+# Extracted from api/queries.md
+# Heading: Planempfehlung – Übersichtsquery (vollständige Exercise-Details)
+# Source offset in queries.md: 979
+
+SELECT DISTINCT ?exercise ?difficulty ?label ?clabel ?tlabel ?blabel
+WHERE {
+    ?exercise a/rdfs:subClassOf* rehab:Exercise ;
+              rehab:hasDifficultyLevel ?difficulty ;
+              rehab:hasContraindication ?contra ;
+              rehab:improves ?trainingsEffect ;
+              rehab:engagedBodyPart ?bodyPart .
+
+    ?contra a rehab:Injury .
+    ?contra rdfs:label ?clabel .
+
+    ?trainingsEffect a rehab:TrainingsEffect .
+    ?trainingsEffect rdfs:label ?tlabel .
+
+    ?bodyPart a rehab:BodyPart .
+    ?bodyPart rdfs:label ?blabel .
+
+    OPTIONAL { ?exercise rdfs:label ?label }
+    OPTIONAL { ?exercise rdfs:comment ?comment }
+}

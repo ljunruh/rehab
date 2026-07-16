@@ -1,0 +1,57 @@
+# Fixed version of api/queries.md Query 06 (🟢 PROD).
+#
+# Issues addressed:
+#   1. Tippfehler `rehab:duration` -> `rehab:hasDuration`
+#   2. GROUP_CONCAT(DISTINCT ?correction) ueber unbound OPTIONAL-Variable
+#      wirft NotBoundError. Loesung: IF(BOUND(?x), ?x, "") + GROUP_CONCAT
+#      ohne DISTINCT (GROUP_CONCAT toleriert leere Strings).
+#   3. GROUP BY enthaelt Aggregat-Aliase (?corrections, ?mistakes); in
+#      strikten SPARQL-Engines unzulaessig. Original-Variablen beibehalten,
+#      Aliase raus.
+
+PREFIX rehab: <http://purl.org/PhysicalTherapy#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+SELECT
+    ?exercise
+    ?exerciseLabel
+    ?difficultyLabel
+    ?duration
+    ?instruction
+    (GROUP_CONCAT(DISTINCT IF(BOUND(?contraindicationLabel), ?contraindicationLabel, ""); separator=" | ") AS ?contraindications)
+    (GROUP_CONCAT(DISTINCT IF(BOUND(?trainingsEffectLabel), ?trainingsEffectLabel, ""); separator=" | ") AS ?trainingsEffects)
+    (GROUP_CONCAT(DISTINCT IF(BOUND(?bodyPartLabel), ?bodyPartLabel, ""); separator=" | ") AS ?bodyParts)
+    (GROUP_CONCAT(DISTINCT IF(BOUND(?correction), ?correction, ""); separator=" | ") AS ?corrections)
+    (GROUP_CONCAT(DISTINCT IF(BOUND(?mistake), ?mistake, ""); separator=" | ") AS ?mistakes)
+WHERE {
+    ?exercise a/rdfs:subClassOf* rehab:Exercise ;
+              rehab:hasDifficultyLevel ?difficulty ;
+              rehab:hasContraindication ?contraindication ;
+              rehab:improves ?trainingsEffect ;
+              rehab:engagedBodyPart ?bodyPart .
+
+    ?contraindication a rehab:Contraindication .
+    ?trainingsEffect a rehab:TrainingsEffect .
+    ?bodyPart a rehab:BodyPart .
+
+    FILTER NOT EXISTS {
+        VALUES ?selectedContraindication {
+            rehab:AnkleIssue
+            rehab:NeckIssue
+        }
+        ?exercise rehab:hasContraindication ?selectedContraindication
+    }
+
+    ?contraindication rdfs:label ?contraindicationLabel .
+    ?trainingsEffect rdfs:label ?trainingsEffectLabel .
+    ?bodyPart rdfs:label ?bodyPartLabel .
+    ?exercise rehab:hasInstruction ?instruction .
+
+    OPTIONAL { ?exercise rehab:hasDuration ?duration }
+    OPTIONAL { ?exercise rdfs:label ?exerciseLabel }
+    OPTIONAL { ?exercise rehab:hasCorrectionGuidance ?correction }
+    OPTIONAL { ?exercise rehab:hasCommonMistake ?mistake }
+
+    BIND(REPLACE(STR(?difficulty), "^.*[#/]", "") AS ?difficultyLabel)
+}
+GROUP BY ?exercise ?exerciseLabel ?difficultyLabel ?duration ?instruction

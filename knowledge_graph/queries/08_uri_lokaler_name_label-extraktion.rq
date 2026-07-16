@@ -1,0 +1,5 @@
+# Extracted from api/queries.md
+# Heading: URI → lokaler Name (Label-Extraktion)
+# Source offset in queries.md: 15857
+
+BIND(REPLACE(STR(?exercise), "^.*[#/]", "") AS ?localName)
