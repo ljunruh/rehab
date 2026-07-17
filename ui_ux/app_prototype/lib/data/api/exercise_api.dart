@@ -6,7 +6,7 @@ import 'package:app_prototype/data/enum/goal.dart';
 import 'package:app_prototype/data/enum/contraindication.dart';
 import 'package:app_prototype/data/enum/skill_level.dart';
 
-import '../models/graph/exercise.dart';
+import '../models/api/exercise.dart';
 
 class ExerciseApi extends CoreApi {
   /**
@@ -54,11 +54,16 @@ WHERE {
     ?contraindication rdfs:label ?contraindicationLabel .
     ?trainingsEffect rdfs:label ?trainingsEffectLabel .
     ?bodyPart rdfs:label ?bodyPartLabel .
-    ?exercise rehab:hasInstruction ?instruction .
-
-    # Aktuell optionale Felder (sollen später Pflichtfelder werden)
-    OPTIONAL { ?exercise rehab:duration ?duration }
-    OPTIONAL { ?exercise rdfs:label ?exerciseLabel }
+    ?exercise rehab:hasInstruction ?instruction ;
+  			  rehab:hasDuration ?duration ;
+    		  rdfs:label ?exerciseLabel .
+  
+  	FILTER(
+    LANGMATCHES(LANG(?contraindicationLabel), "en")	&&
+    LANGMATCHES(LANG(?trainingsEffectLabel), "en") &&
+    LANGMATCHES(LANG(?bodyPartLabel), "en") &&
+    LANGMATCHES(LANG(?exerciseLabel), "de")
+  )
 
     # Optionale Zusatzinformationen
     OPTIONAL { ?exercise rehab:hasCorrectionGuidance ?correction }
@@ -161,11 +166,16 @@ WHERE {
     ?contraindication rdfs:label ?contraindicationLabel .
     ?trainingsEffect rdfs:label ?trainingsEffectLabel .
     ?bodyPart rdfs:label ?bodyPartLabel .
-    ?exercise rehab:hasInstruction ?instruction .
-    
-    # Aktuell optionale Felder (sollen später Pflichtfelder werden)
-    OPTIONAL { ?exercise rehab:duration ?duration }
-    OPTIONAL { ?exercise rdfs:label ?exerciseLabel }
+    ?exercise rehab:hasInstruction ?instruction ;
+  			  rehab:hasDuration ?duration ;
+    		  rdfs:label ?exerciseLabel .
+  
+  	FILTER(
+    LANGMATCHES(LANG(?contraindicationLabel), "en")	&&
+    LANGMATCHES(LANG(?trainingsEffectLabel), "en") &&
+    LANGMATCHES(LANG(?bodyPartLabel), "en") &&
+    LANGMATCHES(LANG(?exerciseLabel), "de")
+  )
 
     # Optionale Zusatzinformationen
     OPTIONAL { ?exercise rehab:hasCorrectionGuidance ?correction }

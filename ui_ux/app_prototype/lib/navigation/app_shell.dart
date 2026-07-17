@@ -86,6 +86,7 @@ class _AppShellState extends State<AppShell> {
     _sub = SubView.exerciseDetail;
   });
 
+  //TODO[API]: Detailansicht anzeigen
   void _openPlan(String id) => setState(() {
     _selectedId = id;
     _sub = SubView.planDetail;

@@ -69,9 +69,7 @@ class Exercise {
       trainingsEffects: _toStringList(json['trainingsEffects']?['value']),
       bodyParts: _toStringList(json['bodyParts']?['value']),
       description: json['description']?['value'] ?? '',
-      duration: json['duration']?['value'] is int
-          ? json['duration']['value'] as int
-          : int.tryParse(json['duration']?['value']?.toString() ?? '') ?? 0,
+      duration: _parseDuration(json['duration']?['value']),
       instruction: json['instruction']?['value'] ?? '',
       corrections: _toStringList(json['corrections']?['value']),
       mistakes: _toStringList(json['mistakes']?['value']),
@@ -87,5 +85,17 @@ class Exercise {
         .map((e) => e.trim())
         .where((e) => e.isNotEmpty)
         .toList();
+  }
+
+  static int _parseDuration(dynamic value) {
+    if (value == null) return 0;
+    if (value is int) return value;
+    if (value is String) {
+      final match = RegExp(r'\d+').firstMatch(value);
+      if (match != null) {
+        return int.parse(match.group(0)!);
+      }
+    }
+    return 0;
   }
 }

@@ -1,6 +1,6 @@
 import 'package:app_prototype/data/enum/body_part.dart';
 import 'package:app_prototype/data/enum/goal.dart';
-import 'package:app_prototype/data/models/graph/exercise.dart';
+import 'package:app_prototype/data/models/api/exercise.dart';
 import 'package:app_prototype/data/service/exercise_service.dart';
 import 'package:flutter_test/flutter_test.dart';
 

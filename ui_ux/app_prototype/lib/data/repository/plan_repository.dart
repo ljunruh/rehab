@@ -1,4 +1,4 @@
-import 'package:app_prototype/data/models/graph/plan.dart';
+import 'package:app_prototype/data/models/api/plan.dart';
 import 'package:app_prototype/data/service/plan_service.dart';
 
 //TODO[API]: Prüfen ob Nutzung von Service ohne Repo ausreicht
@@ -10,6 +10,8 @@ class PlanRepository {
   Future<List<Plan>> getAll() => service.getAll();
 
   Future<Plan?> getPlan(Plan plan) => service.getPlan(plan);
+
+  Future<Plan?> getPlanById(String id) => service.getPlanById(id);
 
   Future<void> savePlan(Plan plan) => service.savePlan(plan);
 

@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:provider/provider.dart';
 import '../../core/theme/app_theme.dart';
 import '../../core/widgets/widgets.dart';
+import '../../core/region_icons.dart';
 import '../../state/ui_state.dart';
 
 /// "Womit fängst du heute an?" — wischbares Karussell mit Trainings-Startern
@@ -82,14 +84,7 @@ class _StarterCarouselState extends State<StarterCarousel> {
                     children: [
                       Row(
                         children: [
-                          Container(
-                            width: 52,
-                            height: 52,
-                            decoration: const BoxDecoration(
-                              color: AppColors.mint,
-                              shape: BoxShape.circle,
-                            ),
-                          ),
+                          _RegionBadge(region: region),
                           const SizedBox(width: AppSpacing.md),
                           Expanded(
                             child: Column(
@@ -155,6 +150,29 @@ class _StarterCarouselState extends State<StarterCarousel> {
           _Dots(count: regions.length, active: _index),
         ],
       ],
+    );
+  }
+}
+
+/// Runder Region-Badge: zeigt Sophias Region-Icon (falls vorhanden),
+/// sonst einen neutralen mint-Kreis.
+class _RegionBadge extends StatelessWidget {
+  final String region;
+  const _RegionBadge({required this.region});
+
+  @override
+  Widget build(BuildContext context) {
+    final icon = RegionIcons.of(region);
+    if (icon != null) {
+      return SvgPicture.asset(icon, width: 52, height: 52);
+    }
+    return Container(
+      width: 52,
+      height: 52,
+      decoration: const BoxDecoration(
+        color: AppColors.mint,
+        shape: BoxShape.circle,
+      ),
     );
   }
 }

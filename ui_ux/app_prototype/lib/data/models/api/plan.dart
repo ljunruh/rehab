@@ -1,4 +1,4 @@
-import 'package:app_prototype/data/models/graph/exercise.dart';
+import 'package:app_prototype/data/models/api/exercise.dart';
 import 'package:flutter/material.dart';
 import 'package:isar/isar.dart';
 
@@ -6,7 +6,9 @@ part 'plan.g.dart';
 
 @Collection()
 class Plan {
+  //TODO[API]: Brauchen wir die isarId noch?
   Id isarId = Isar.autoIncrement;
+  @Index(unique: true)
   final String id;
   final String name;
   final String region;

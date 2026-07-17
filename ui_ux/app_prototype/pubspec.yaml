@@ -81,6 +81,8 @@ flutter:
     - assets/icons/tip/
     - assets/icons/profile/
     - assets/icons/other/
+    - assets/icons/regions/
+    - assets/logo/
 
   # ── Inter lokal einbinden (optional) ──────────────────────────
   # Wenn ihr die Inter-Schrift als Asset mitliefern wollt (offline-fähig,
