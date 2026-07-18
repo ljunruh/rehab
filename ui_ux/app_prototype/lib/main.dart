@@ -7,15 +7,12 @@ import 'package:app_prototype/data/provider/user_provider.dart';
 import 'package:app_prototype/data/repository/exercise_repository.dart';
 import 'package:app_prototype/data/repository/plan_repository.dart';
 import 'package:app_prototype/data/repository/user_repository.dart';
-import 'package:app_prototype/data/service/plan_service.dart';
 import 'package:flutter/material.dart';
 import 'package:fvp/fvp.dart' as fvp;
 import 'package:isar/isar.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:provider/provider.dart';
-
 import 'core/theme/app_theme.dart';
-import 'data/service/user_service.dart';
 import 'features/intro/intro_screen.dart';
 import 'navigation/app_shell.dart';
 import 'state/ui_state.dart';
@@ -35,9 +32,9 @@ void main() async {
     directory: appDir.path
   );
 
-  final userRepository = UserRepository(service: UserService(isar));
+  final userRepository = UserRepository(isar);
   final exerciseRepository = ExerciseRepository(api: ExerciseApi(), userRepository: userRepository);
-  final planRepository = PlanRepository(service: PlanService(isar));
+  final planRepository = PlanRepository(isar);
 
   runApp(MultiProvider(
       providers: [

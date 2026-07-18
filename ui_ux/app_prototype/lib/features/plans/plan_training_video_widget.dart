@@ -33,8 +33,6 @@ class _PlanTrainingVideoWidgetState extends State<PlanTrainingVideoWidget> {
   }
 
   void _initVideo() {
-    _controller?.pause();
-    _controller?.dispose();
     _controller = VideoPlayerController.asset(widget.assetPath);
     _initializeVideoPlayerFuture = _controller!.initialize().then((_) {
       _controller!.setLooping(true);

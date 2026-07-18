@@ -1,5 +1,4 @@
 import 'package:app_prototype/data/provider/user_provider.dart';
-import 'package:app_prototype/data/service/user_service.dart';
 import 'package:app_prototype/features/profile/setup/profile_setup_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';

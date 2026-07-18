@@ -1,15 +1,25 @@
 import 'package:app_prototype/data/models/models.dart';
-import 'package:app_prototype/data/service/user_service.dart';
+import 'package:isar/isar.dart';
 
 //TODO[API]: Prüfen ob Nutzung von Service ohne Repo ausreicht
 class UserRepository {
-  final UserService service;
+  final Isar isar;
 
-  UserRepository({required this.service});
+  UserRepository(this.isar);
 
-  Future<User?> getUser() => service.getUser();
+  Future<User?> getUser() async => isar.users.where().findFirst();
 
-  Future<void> saveUser(User user) => service.saveUser(user);
+  Future<void> saveUser(User user) async {
+    await isar.writeTxn(() async {
+      await isar.users.clear();
+      await isar.users.put(user);
+    });
+  }
 
-  Future<void> deleteUser() => service.deleteUser();
+  // Löscht alle App-Daten!
+  Future<void> deleteUser() async {
+    await isar.writeTxn(() async {
+      await isar.clear();
+    });
+  }
 }
