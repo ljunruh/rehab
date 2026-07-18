@@ -1,10 +1,13 @@
 import 'package:app_prototype/data/api/exercise_api.dart';
+import 'package:app_prototype/data/models/api/pain_log.dart';
 import 'package:app_prototype/data/models/api/plan.dart';
 import 'package:app_prototype/data/models/models.dart';
 import 'package:app_prototype/data/provider/exercise_provider.dart';
+import 'package:app_prototype/data/provider/pain_log_provider.dart';
 import 'package:app_prototype/data/provider/plan_provider.dart';
 import 'package:app_prototype/data/provider/user_provider.dart';
 import 'package:app_prototype/data/repository/exercise_repository.dart';
+import 'package:app_prototype/data/repository/pain_log_repository.dart';
 import 'package:app_prototype/data/repository/plan_repository.dart';
 import 'package:app_prototype/data/repository/user_repository.dart';
 import 'package:flutter/material.dart';
@@ -27,7 +30,8 @@ void main() async {
   final isar = await Isar.open(
     [
       UserSchema,
-      PlanSchema
+      PlanSchema,
+      PainLogSchema
     ],
     directory: appDir.path
   );
@@ -35,6 +39,7 @@ void main() async {
   final userRepository = UserRepository(isar);
   final exerciseRepository = ExerciseRepository(api: ExerciseApi(), userRepository: userRepository);
   final planRepository = PlanRepository(isar);
+  final painLogRepository = PainLogRepository(isar);
 
   runApp(MultiProvider(
       providers: [
@@ -42,6 +47,7 @@ void main() async {
         ChangeNotifierProvider(create: (_) => UserProvider(userRepository)..init()),
         ChangeNotifierProvider(create: (_) => ExerciseProvider(exerciseRepository)),
         ChangeNotifierProvider(create: (_) => PlanProvider(planRepository)),
+        ChangeNotifierProvider(create: (_) => PainLogProvider(painLogRepository)),
       ],
       child: RehaApp()));
 }

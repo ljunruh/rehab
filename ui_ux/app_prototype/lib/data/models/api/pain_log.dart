@@ -16,7 +16,7 @@ class PainLog {
   @Index()
   String dateKey = '';
 
-  @Index(unique: true)
+  @Index()
   String? planId;
 
   @Index()
@@ -28,9 +28,10 @@ class PainLog {
     this.note = '',
     required this.date,
     required this.dateKey,
+    this.planId,
+    this.exerciseId,
   });
 
-  /// Hilfsfunktion: erzeugt den Datums-Schlüssel "YYYY-MM-DD".
   static String keyOf(DateTime d) =>
       '${d.year}-${d.month.toString().padLeft(2, '0')}-${d.day.toString().padLeft(2, '0')}';
 

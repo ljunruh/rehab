@@ -50,6 +50,8 @@ dependencies:
   video_player: ^2.9.0
   # Fügt Desktop-Unterstützung hinzu da Video-Player-Paket nur für Apps funktioniert
   fvp: ^0.37.3
+  # Um Eindeutige IDs für Isar zu generieren
+  uuid: ^4.6.0
 
 dev_dependencies:
   flutter_test:

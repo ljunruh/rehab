@@ -88,7 +88,7 @@ const PainLogSchema = CollectionSchema(
     r'planId': IndexSchema(
       id: 7282644713036731817,
       name: r'planId',
-      unique: true,
+      unique: false,
       replace: false,
       properties: [
         IndexPropertySchema(
@@ -168,13 +168,13 @@ PainLog _painLogDeserialize(
   final object = PainLog(
     date: reader.readDateTime(offsets[0]),
     dateKey: reader.readString(offsets[1]),
+    exerciseId: reader.readStringOrNull(offsets[2]),
     level: reader.readLong(offsets[3]),
     note: reader.readStringOrNull(offsets[4]) ?? '',
+    planId: reader.readStringOrNull(offsets[5]),
     region: reader.readString(offsets[6]),
   );
-  object.exerciseId = reader.readStringOrNull(offsets[2]);
   object.id = id;
-  object.planId = reader.readStringOrNull(offsets[5]);
   return object;
 }
 
@@ -214,60 +214,6 @@ List<IsarLinkBase<dynamic>> _painLogGetLinks(PainLog object) {
 
 void _painLogAttach(IsarCollection<dynamic> col, Id id, PainLog object) {
   object.id = id;
-}
-
-extension PainLogByIndex on IsarCollection<PainLog> {
-  Future<PainLog?> getByPlanId(String? planId) {
-    return getByIndex(r'planId', [planId]);
-  }
-
-  PainLog? getByPlanIdSync(String? planId) {
-    return getByIndexSync(r'planId', [planId]);
-  }
-
-  Future<bool> deleteByPlanId(String? planId) {
-    return deleteByIndex(r'planId', [planId]);
-  }
-
-  bool deleteByPlanIdSync(String? planId) {
-    return deleteByIndexSync(r'planId', [planId]);
-  }
-
-  Future<List<PainLog?>> getAllByPlanId(List<String?> planIdValues) {
-    final values = planIdValues.map((e) => [e]).toList();
-    return getAllByIndex(r'planId', values);
-  }
-
-  List<PainLog?> getAllByPlanIdSync(List<String?> planIdValues) {
-    final values = planIdValues.map((e) => [e]).toList();
-    return getAllByIndexSync(r'planId', values);
-  }
-
-  Future<int> deleteAllByPlanId(List<String?> planIdValues) {
-    final values = planIdValues.map((e) => [e]).toList();
-    return deleteAllByIndex(r'planId', values);
-  }
-
-  int deleteAllByPlanIdSync(List<String?> planIdValues) {
-    final values = planIdValues.map((e) => [e]).toList();
-    return deleteAllByIndexSync(r'planId', values);
-  }
-
-  Future<Id> putByPlanId(PainLog object) {
-    return putByIndex(r'planId', object);
-  }
-
-  Id putByPlanIdSync(PainLog object, {bool saveLinks = true}) {
-    return putByIndexSync(r'planId', object, saveLinks: saveLinks);
-  }
-
-  Future<List<Id>> putAllByPlanId(List<PainLog> objects) {
-    return putAllByIndex(r'planId', objects);
-  }
-
-  List<Id> putAllByPlanIdSync(List<PainLog> objects, {bool saveLinks = true}) {
-    return putAllByIndexSync(r'planId', objects, saveLinks: saveLinks);
-  }
 }
 
 extension PainLogQueryWhereSort on QueryBuilder<PainLog, PainLog, QWhere> {

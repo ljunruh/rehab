@@ -53,7 +53,7 @@ class _PlansScreenState extends State<PlansScreen> {
     super.initState();
 
     Future.microtask(() {
-      context.watch<PlanProvider>();
+      context.read<PlanProvider>();
     });
   }
 

@@ -1,6 +1,7 @@
 import 'package:app_prototype/data/enum/body_part.dart';
 import 'package:app_prototype/data/enum/skill_level.dart';
 import 'package:app_prototype/data/models/api/api_models.dart' as api;
+import 'package:app_prototype/data/provider/pain_log_provider.dart';
 import 'package:app_prototype/data/provider/plan_provider.dart';
 import 'package:app_prototype/features/plans/plan_training_video_widget.dart';
 import 'package:flutter/material.dart';
@@ -546,7 +547,7 @@ class _PlanTrainingScreenState extends State<PlanTrainingScreen> {
               ? 'Übung erledigt – Plan abschließen'
               : 'Übung erledigt · Weiter',
           icon: isLast ? Icons.check : Icons.arrow_forward,
-          onPressed: () => _handleNext(app, current, isLast),
+          onPressed: () => _handleNext(plan.id, current, isLast),
         ),
         const SizedBox(height: AppSpacing.sm),
         Row(
@@ -589,7 +590,7 @@ class _PlanTrainingScreenState extends State<PlanTrainingScreen> {
     );
   }
 
-  void _handleNext(UiState app, api.Exercise current, bool isLast) {
+  void _handleNext(String planId, api.Exercise current, bool isLast) {
     setState(() {
       _painOpen = false;
       _infoOpen = false;
@@ -599,13 +600,14 @@ class _PlanTrainingScreenState extends State<PlanTrainingScreen> {
     final pain = _painLevels[_idx];
     if (pain != null) {
       final now = DateTime.now();
-      app.addPainLog(PainLog(
+      context.read<PainLogProvider>().addPainLog(
         level: pain,
         region: BodyPartExt.fromString(current.bodyParts[0].toLowerCase()).label, //TODO[API]: Magic Number -> Prüfen ob hier aktuell immer nur ein BodyPart steht
         note: '',
         date: now,
-        dateKey: PainLog.keyOf(now),
-      ));
+        planId: planId,
+        exerciseId: current.id
+      );
     }
     if (isLast) {
       setState(() => _done = true);
