@@ -202,6 +202,7 @@ class _AppShellState extends State<AppShell> {
       screen = PlanDetailScreen(
         planId: _selectedId!,
         onBack: _closeSub,
+        //TODO[API]: Training starten
         onStartTraining: _startTraining,
         onAddExercise: _openAddExercise,
       );
@@ -210,6 +211,7 @@ class _AppShellState extends State<AppShell> {
       screen = PlanTrainingScreen(
         planId: _selectedId!,
         onExit: _closeSub,
+        //TODO[API]: Training starten
         onFinish: () {
           context.read<UiState>().finishTraining(_selectedId!);
           _closeSub();

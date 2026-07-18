@@ -494,6 +494,7 @@ class _PlanDetailScreenState extends State<PlanDetailScreen> {
           PrimaryButton(
             label: 'Training starten',
             icon: Icons.play_arrow,
+            //TODO[API]: Training starten
             onPressed:
                 exercises.isEmpty ? null : () => widget.onStartTraining(plan.id),
           ),

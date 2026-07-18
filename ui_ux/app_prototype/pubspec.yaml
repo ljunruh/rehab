@@ -46,6 +46,10 @@ dependencies:
   # Alternativ die Inter-Schriftdateien lokal einbinden (siehe fonts: unten,
   # auskommentiert) und google_fonts entfernen.
   google_fonts: ^6.2.1
+  # Video-Player-Paket
+  video_player: ^2.9.0
+  # Fügt Desktop-Unterstützung hinzu da Video-Player-Paket nur für Apps funktioniert
+  fvp: ^0.37.3
 
 dev_dependencies:
   flutter_test:
@@ -83,6 +87,7 @@ flutter:
     - assets/icons/other/
     - assets/icons/regions/
     - assets/logo/
+    - assets/demo_video/
 
   # ── Inter lokal einbinden (optional) ──────────────────────────
   # Wenn ihr die Inter-Schrift als Asset mitliefern wollt (offline-fähig,

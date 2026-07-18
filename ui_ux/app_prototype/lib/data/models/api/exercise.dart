@@ -14,10 +14,15 @@ class Exercise {
   //Data Properties
   late String description;
   late int duration;
-  late String instruction;
+  late List<String> instructions;
   //TODO[API]: Hier String oder Enum nutzen?
   late List<String> corrections;
   late List<String> mistakes;
+  late String video;
+
+  List<String> get hints {
+    return [...corrections, ...mistakes];
+  }
 
   //@Embedded() braucht leeren Konstruktor
   Exercise();
@@ -30,9 +35,10 @@ class Exercise {
     required this.bodyParts,
     required this.description,
     required this.duration,
-    required this.instruction,
+    required this.instructions,
     required this.corrections,
-    required this.mistakes
+    required this.mistakes,
+    required this.video
   });
 
   Exercise copyWith({
@@ -43,9 +49,10 @@ class Exercise {
     List<String>? bodyParts,
     String? description,
     int? duration,
-    String? instruction,
+    List<String>? instruction,
     List<String>? corrections,
     List<String>? mistakes,
+    String? video
   }) {
     return Exercise.create(
       id: id ?? this.id,
@@ -55,9 +62,10 @@ class Exercise {
       bodyParts: bodyParts ?? this.bodyParts,
       description: description ?? this.description,
       duration: duration ?? this.duration,
-      instruction: instruction ?? this.instruction,
+      instructions: instruction ?? this.instructions,
       corrections: corrections ?? this.corrections,
       mistakes: mistakes ?? this.mistakes,
+      video: video ?? this.video,
     );
   }
 
@@ -70,9 +78,10 @@ class Exercise {
       bodyParts: _toStringList(json['bodyParts']?['value']),
       description: json['description']?['value'] ?? '',
       duration: _parseDuration(json['duration']?['value']),
-      instruction: json['instruction']?['value'] ?? '',
+      instructions: _splitTextByNumbers(json['instruction']?['value']),
       corrections: _toStringList(json['corrections']?['value']),
       mistakes: _toStringList(json['mistakes']?['value']),
+      video: 'assets/demo_video/Bodyweight_Squat_placeholder.mp4' //TODO[API]: Parsen wenn Onotlogie URL gesetzt hat
     );
     return exercise;
   }
@@ -97,5 +106,15 @@ class Exercise {
       }
     }
     return 0;
+  }
+
+  static List<String> _splitTextByNumbers(String? value) {
+    if (value == null) return [];
+    final regex = RegExp(r'\d+\.\s');
+    return value
+        .split(regex)
+        .where((item) => item.trim().isNotEmpty)
+        .map((item) => item.trim())
+        .toList();
   }
 }

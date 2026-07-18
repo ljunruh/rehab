@@ -9,6 +9,7 @@ import 'package:app_prototype/data/repository/plan_repository.dart';
 import 'package:app_prototype/data/repository/user_repository.dart';
 import 'package:app_prototype/data/service/plan_service.dart';
 import 'package:flutter/material.dart';
+import 'package:fvp/fvp.dart' as fvp;
 import 'package:isar/isar.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:provider/provider.dart';
@@ -20,8 +21,10 @@ import 'navigation/app_shell.dart';
 import 'state/ui_state.dart';
 
 void main() async {
-  // Stellen Sie sicher, dass Flutter-Bindings initialisiert sind
   WidgetsFlutterBinding.ensureInitialized();
+
+  // Diese Zeile schaltet den Linux/Windows Support für den video_player frei
+  fvp.registerWith(options: {'platforms': ['windows', 'macos', 'linux']});
 
   final appDir = await getApplicationDocumentsDirectory();
   final isar = await Isar.open(
