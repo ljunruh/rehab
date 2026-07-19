@@ -1,3 +1,4 @@
+import 'package:app_prototype/data/enum/body_part.dart';
 import 'package:app_prototype/data/models/api/exercise.dart';
 import 'package:app_prototype/data/models/api/plan.dart';
 import 'package:app_prototype/data/repository/plan_repository.dart';
@@ -14,6 +15,9 @@ class PlanProvider extends ChangeNotifier {
   List<Plan> get plans => _plans;
   Plan? _selectedPlan = null;
   Plan? get plan => _selectedPlan;
+
+  List<BodyPart> _activeRegions = [];
+  List<BodyPart> get activeRegions => _activeRegions;
 
   Future<void> savePlan(Plan plan) async {
     await repo.savePlan(plan);
@@ -38,5 +42,11 @@ class PlanProvider extends ChangeNotifier {
     await repo.savePlan(updatedPlan);
     _selectedPlan = updatedPlan;
     notifyListeners();
+  }
+
+  Future<List<BodyPart>> loadActiveTrainedRegions() async {
+    _activeRegions = await repo.getActiveTrainedRegions();
+    notifyListeners();
+    return _activeRegions;
   }
 }

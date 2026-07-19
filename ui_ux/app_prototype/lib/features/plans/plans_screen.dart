@@ -1,3 +1,5 @@
+import 'package:app_prototype/data/enum/body_part.dart';
+import 'package:app_prototype/data/enum/goal.dart';
 import 'package:app_prototype/data/models/api/plan.dart';
 import 'package:app_prototype/data/provider/plan_provider.dart';
 import 'package:app_prototype/data/provider/user_provider.dart';
@@ -520,10 +522,10 @@ class _SwipeablePlanCardState extends State<_SwipeablePlanCard> {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text(_rubrikLabel(widget.plan.goal).toUpperCase(),
+                        Text(_rubrikLabel(widget.plan.goal.label).toUpperCase(),
                             style: AppText.micro),
                         const SizedBox(height: 2),
-                        Text(widget.plan.region,
+                        Text(widget.plan.region.label,
                             style: AppText.cardTitle.copyWith(
                                 fontSize: 17, fontWeight: FontWeight.w700)),
                         const SizedBox(height: 2),

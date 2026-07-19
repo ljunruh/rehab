@@ -1,3 +1,4 @@
+import 'package:app_prototype/data/enum/body_part.dart';
 import 'package:app_prototype/data/models/api/plan.dart';
 import 'package:isar/isar.dart';
 
@@ -24,7 +25,7 @@ class PlanRepository {
     });
   }
 
-  Future<List<String>> getActiveTrainedRegions() async {
+  Future<List<BodyPart>> getActiveTrainedRegions() async {
     final activePlans = await isar.plans
         .filter()
         .archivedEqualTo(false)

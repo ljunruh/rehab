@@ -1,3 +1,4 @@
+import 'package:app_prototype/data/enum/body_part.dart';
 import 'package:app_prototype/data/models/api/pain_log.dart';
 import 'package:app_prototype/data/repository/pain_log_repository.dart';
 import 'package:flutter/material.dart';
@@ -46,23 +47,24 @@ class PainLogProvider extends ChangeNotifier {
   /// Fügt einen neuen Schmerzeintrag hinzu
   Future<void> addPainLog({
     required int level,
-    required String region,
+    required BodyPart region,
     required String note,
-    required DateTime date,
-    required String? planId,
-    required String? exerciseId,
+    required DateTime date
   }) async {
+    final dateKey = PainLog.keyOf(date);
+    final existingLog = await _repository.findLogByDateAndRegion(dateKey, region);
+
     // 1. Isar-Entität erstellen und befüllen
     final entity = PainLog(
       level: level,
       region: region,
       note: note,
       date: date,
-      dateKey: PainLog.keyOf(date), // Erzeugt automatisch "YYYY-MM-DD"
+      dateKey: dateKey, // Erzeugt automatisch "YYYY-MM-DD"
     );
 
     // 2. Im Repository speichern
-    await _repository.savePainLog(entity);
+    await _repository.saveOrUpdatePainLog(entity);
 
     // 3. Lokalen State neu laden (aktualisiert die Listen und die Map automatisch)
     await loadLogs();

@@ -1,3 +1,5 @@
+import 'package:app_prototype/data/enum/body_part.dart';
+import 'package:app_prototype/data/enum/goal.dart';
 import 'package:app_prototype/data/provider/plan_provider.dart';
 import 'package:app_prototype/data/models/api/api_models.dart' as api;
 import 'package:flutter/material.dart';
@@ -179,7 +181,7 @@ class _PlanDetailScreenState extends State<PlanDetailScreen> {
         const SizedBox(height: AppSpacing.base),
 
         // Cover (zentriert)
-        Center(child: _PlanCover(region: plan.region)),
+        Center(child: _PlanCover(region: plan.region.label)),
         const SizedBox(height: AppSpacing.lg),
 
         // Titel + Bearbeiten-Toggle
@@ -197,8 +199,8 @@ class _PlanDetailScreenState extends State<PlanDetailScreen> {
                     runSpacing: AppSpacing.sm,
                     crossAxisAlignment: WrapCrossAlignment.center,
                     children: [
-                      AppTag(plan.region, variant: TagVariant.region),
-                      AppTag(_rubrikLabel(plan.goal), variant: TagVariant.goal),
+                      AppTag(plan.region.label, variant: TagVariant.region),
+                      AppTag(_rubrikLabel(plan.goal.label), variant: TagVariant.goal),
                       Container(
                         padding: const EdgeInsets.symmetric(
                             horizontal: 12, vertical: 6),

@@ -1,3 +1,4 @@
+import 'package:app_prototype/data/enum/body_part.dart';
 import 'package:app_prototype/data/models/api/pain_log_exercise.dart';
 import 'package:app_prototype/data/repository/pain_log_exercise_repository.dart';
 import 'package:flutter/material.dart';
@@ -46,7 +47,7 @@ class PainLogExerciseProvider extends ChangeNotifier {
   /// Fügt einen neuen Schmerzeintrag hinzu
   Future<void> addPainLog({
     required int level,
-    required String region,
+    required BodyPart region,
     required DateTime date,
     required String? planId,
     required String? exerciseId,

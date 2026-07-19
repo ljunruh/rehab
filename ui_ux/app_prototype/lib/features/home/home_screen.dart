@@ -34,10 +34,9 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final app = context.watch<UiState>();
     final userProvider = context.watch<UserProvider>();
-    final planProvider = context.watch<PlanProvider>();
-    final profile = app.profile;
+    final user = userProvider.user!; // Ist zu dem Zeitpunkt schon vorhanden
     final rings = app.weeklyRings;
-    final tip = DemoData.tipForRegion(profile.region);
+    final tip = DemoData.tipForRegion(user.region);
 
     return Container(
       color: AppColors.sageMid,
@@ -45,8 +44,8 @@ class HomeScreen extends StatelessWidget {
         children: [
           // ── Fester grüner Hero-Hintergrund (scrollt NICHT mit) ──
           HomeHero(
-            firstName: profile.name.split(' ').first,
-            initials: profile.initials,
+            firstName: user.name.split(' ').first,
+            initials: user.initials,
             welcome: DemoData.welcomeOfToday(),
             onAvatarTap: onOpenProfile,
             showAvatar: false,
@@ -238,7 +237,7 @@ class HomeScreen extends StatelessWidget {
             top: MediaQuery.of(context).padding.top + 20,
             right: 24,
             child: HeaderAvatar(
-              initials: profile.initials,
+              initials: user.initials,
               onTap: onOpenProfile,
             ),
           ),

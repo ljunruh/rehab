@@ -1,10 +1,12 @@
+import 'package:app_prototype/data/enum/body_part.dart';
+import 'package:app_prototype/data/provider/pain_log_provider.dart';
+import 'package:app_prototype/data/provider/plan_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:provider/provider.dart';
 import '../../core/theme/app_theme.dart';
 import '../../core/widgets/widgets.dart';
 import '../../state/ui_state.dart';
-import '../../data/models/models.dart';
 import 'pain_scale_sheet.dart';
 
 /// "Wie geht es dir heute?" — wischbares Schmerz-Erfassungs-Karussell.
@@ -35,6 +37,15 @@ class _PainCarouselState extends State<PainCarousel> {
   }
 
   @override
+  void initState() {
+    super.initState();
+
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      context.read<PlanProvider>().loadActiveTrainedRegions();
+    });
+  }
+
+  @override
   void dispose() {
     _controller.dispose();
     for (final c in _controllers.values) {
@@ -43,13 +54,11 @@ class _PainCarouselState extends State<PainCarousel> {
     super.dispose();
   }
 
-  String _article(String region) =>
-      ['Schulter', 'Hüfte', 'Wade'].contains(region) ? 'deiner' : 'deinem';
-
   @override
   Widget build(BuildContext context) {
     final app = context.watch<UiState>();
-    final regions = app.activeRegions;
+    final planProvider = context.watch<PlanProvider>();
+    final regions = planProvider.activeRegions;
 
     return Column(
       children: [
@@ -82,7 +91,7 @@ class _PainCarouselState extends State<PainCarousel> {
                         children: [
                           Expanded(
                             child: Text(
-                              "Wie geht's ${_article(region)} $region?",
+                              "Wie geht's ${region.article} ${region.label}?",
                               style: AppText.cardTitle,
                             ),
                           ),
@@ -135,7 +144,7 @@ class _PainCarouselState extends State<PainCarousel> {
                           min: 0,
                           max: 10,
                           onChanged: (v) =>
-                              setState(() => _values[region] = v.roundToDouble()),
+                              setState(() => _values[region.label] = v.roundToDouble()),
                         ),
                       ),
                       Row(
@@ -162,7 +171,7 @@ class _PainCarouselState extends State<PainCarousel> {
                           children: [
                             GestureDetector(
                               onTap: () => setState(
-                                  () => _noteOpen[region] = !noteOpen),
+                                  () => _noteOpen[region.label] = !noteOpen),
                               behavior: HitTestBehavior.opaque,
                               child: Padding(
                                 padding: const EdgeInsets.symmetric(
@@ -195,7 +204,7 @@ class _PainCarouselState extends State<PainCarousel> {
                                   minLines: 2,
                                   maxLines: 3,
                                   style: AppText.body,
-                                  controller: _ctrlFor(region),
+                                  controller: _ctrlFor(region.label),
                                   decoration: InputDecoration(
                                     border: InputBorder.none,
                                     isDense: true,
@@ -203,7 +212,7 @@ class _PainCarouselState extends State<PainCarousel> {
                                         'den Übungen lockerer …',
                                     hintStyle: AppText.caption,
                                   ),
-                                  onChanged: (t) => _notes[region] = t,
+                                  onChanged: (t) => _notes[region.label] = t,
                                 ),
                               ),
                           ],
@@ -215,21 +224,20 @@ class _PainCarouselState extends State<PainCarousel> {
                         borderColor: AppColors.sage,
                         onPressed: () {
                           final now = DateTime.now();
-                          app.addPainLog(PainLog(
-                            level: value.round(),
-                            region: region,
-                            note: _notes[region] ?? '',
-                            date: now,
-                            dateKey: PainLog.keyOf(now),
-                          ));
+                          context.read<PainLogProvider>().addPainLog(
+                              level: value.round(),
+                              region: region,
+                              note: _notes[region.label] ?? '',
+                              date: now
+                          );
                           setState(() {
-                            _noteOpen[region] = false;
-                            _saved[region] = true;
+                            _noteOpen[region.label] = false;
+                            _saved[region.label] = true;
                           });
                           Future.delayed(
                               const Duration(milliseconds: 2000), () {
                             if (mounted) {
-                              setState(() => _saved[region] = false);
+                              setState(() => _saved[region.label] = false);
                             }
                           });
                         },

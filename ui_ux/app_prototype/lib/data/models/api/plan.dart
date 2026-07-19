@@ -1,3 +1,5 @@
+import 'package:app_prototype/data/enum/body_part.dart';
+import 'package:app_prototype/data/enum/goal.dart';
 import 'package:app_prototype/data/models/api/exercise.dart';
 import 'package:flutter/material.dart';
 import 'package:isar/isar.dart';
@@ -11,8 +13,10 @@ class Plan {
   @Index(unique: true)
   final String id;
   final String name;
-  final String region;
-  final String goal;
+  @enumerated
+  final BodyPart region;
+  @enumerated
+  final Goal goal;
   final List<Exercise> exercises;
   final int sessionsPerWeek;
   final int completedSessions;
@@ -43,8 +47,8 @@ class Plan {
 
   Plan copyWith({
     String? name,
-    String? region,
-    String? goal,
+    BodyPart? region,
+    Goal? goal,
     List<Exercise>? exercises,
     int? sessionsPerWeek,
     int? completedSessions,

@@ -1,13 +1,16 @@
+import 'package:app_prototype/data/enum/body_part.dart';
 import 'package:isar/isar.dart';
 
 part 'pain_log.g.dart';
 
 @Collection()
 class PainLog {
-  Id id = Isar.autoIncrement;
+  Id id;
 
   int level = 0;
-  String region = '';
+  @enumerated
+  @Index()
+  BodyPart region;
   String note = '';
 
   @Index()
@@ -17,6 +20,7 @@ class PainLog {
   String dateKey = '';
 
   PainLog({
+    this.id = Isar.autoIncrement,
     required this.level,
     required this.region,
     this.note = '',

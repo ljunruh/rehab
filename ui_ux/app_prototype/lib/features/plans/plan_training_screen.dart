@@ -215,7 +215,7 @@ class _PlanTrainingScreenState extends State<PlanTrainingScreen> {
           spacing: AppSpacing.sm,
           runSpacing: AppSpacing.sm,
           children: [
-            _Pill(BodyPartExt.fromString(current.bodyParts[0].toLowerCase()).label), //TODO[API]: Magic Number -> Prüfen ob hier aktuell immer nur ein BodyPart steht
+            _Pill(BodyPartExt.fromString(current.bodyParts[0]).label), //TODO[API]: Magic Number -> Prüfen ob hier aktuell immer nur ein BodyPart steht
             _Pill(SkillLevelExt.fromString(current.difficulty).label),
           ],
         ),
@@ -603,7 +603,7 @@ class _PlanTrainingScreenState extends State<PlanTrainingScreen> {
       final now = DateTime.now();
       context.read<PainLogExerciseProvider>().addPainLog(
         level: pain,
-        region: BodyPartExt.fromString(current.bodyParts[0].toLowerCase()).label, //TODO[API]: Magic Number -> Prüfen ob hier aktuell immer nur ein BodyPart steht
+        region: BodyPartExt.fromString(current.bodyParts[0]), //TODO[API]: Magic Number -> Prüfen ob hier aktuell immer nur ein BodyPart steht
         date: now,
         planId: planId,
         exerciseId: current.id

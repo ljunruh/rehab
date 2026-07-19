@@ -1,3 +1,4 @@
+import 'package:app_prototype/data/enum/body_part.dart';
 import 'package:isar/isar.dart';
 
 part 'pain_log_exercise.g.dart';
@@ -7,7 +8,9 @@ class PainLogExercise {
   Id id = Isar.autoIncrement;
 
   int level = 0;
-  String region = '';
+  @enumerated
+  @Index()
+  BodyPart region;
 
   @Index()
   DateTime date = DateTime.now();
