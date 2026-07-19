@@ -16,20 +16,12 @@ class PainLog {
   @Index()
   String dateKey = '';
 
-  @Index()
-  String? planId;
-
-  @Index()
-  String? exerciseId;
-
   PainLog({
     required this.level,
     required this.region,
     this.note = '',
     required this.date,
     required this.dateKey,
-    this.planId,
-    this.exerciseId,
   });
 
   static String keyOf(DateTime d) =>

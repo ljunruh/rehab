@@ -1,6 +1,7 @@
 import 'package:app_prototype/data/enum/body_part.dart';
 import 'package:app_prototype/data/enum/skill_level.dart';
 import 'package:app_prototype/data/models/api/api_models.dart' as api;
+import 'package:app_prototype/data/provider/pain_log_exercise_provider.dart';
 import 'package:app_prototype/data/provider/pain_log_provider.dart';
 import 'package:app_prototype/data/provider/plan_provider.dart';
 import 'package:app_prototype/features/plans/plan_training_video_widget.dart';
@@ -600,10 +601,9 @@ class _PlanTrainingScreenState extends State<PlanTrainingScreen> {
     final pain = _painLevels[_idx];
     if (pain != null) {
       final now = DateTime.now();
-      context.read<PainLogProvider>().addPainLog(
+      context.read<PainLogExerciseProvider>().addPainLog(
         level: pain,
         region: BodyPartExt.fromString(current.bodyParts[0].toLowerCase()).label, //TODO[API]: Magic Number -> Prüfen ob hier aktuell immer nur ein BodyPart steht
-        note: '',
         date: now,
         planId: planId,
         exerciseId: current.id

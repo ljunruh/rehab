@@ -59,8 +59,6 @@ class PainLogProvider extends ChangeNotifier {
       note: note,
       date: date,
       dateKey: PainLog.keyOf(date), // Erzeugt automatisch "YYYY-MM-DD"
-      planId: planId,
-      exerciseId: exerciseId,
     );
 
     // 2. Im Repository speichern

@@ -23,4 +23,14 @@ class PlanRepository {
       await isar.plans.delete(plan.isarId);
     });
   }
+
+  Future<List<String>> getActiveTrainedRegions() async {
+    final activePlans = await isar.plans
+        .filter()
+        .archivedEqualTo(false)
+        .findAll();
+
+    // Regionen extrahieren und Duplikate entfernen
+    return activePlans.map((plan) => plan.region).toSet().toList();
+  }
 }

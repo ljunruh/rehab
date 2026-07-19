@@ -1,8 +1,5 @@
 import 'package:app_prototype/data/models/api/pain_log.dart';
 import 'package:isar/isar.dart';
-// Importiere hier deine PainLogEntity und dein PainLog UI-Modell
-
-import 'package:isar/isar.dart';
 
 class PainLogRepository {
   final Isar _isar;
@@ -20,9 +17,7 @@ class PainLogRepository {
       region: painLog.region,
       note: painLog.note,
       date: painLog.date,
-      dateKey: painLog.dateKey,
-      planId: painLog.planId,
-      exerciseId: painLog.exerciseId,
+      dateKey: painLog.dateKey
     )).toList();
   }
 
@@ -37,7 +32,7 @@ class PainLogRepository {
   Future<List<PainLog>> getLogsForExercise(String exerciseId) async {
     final entities = await _isar.painLogs
         .where()
-        .exerciseIdEqualTo(exerciseId)
+        //.exerciseIdEqualTo(exerciseId)
         .sortByDateDesc()
         .findAll();
 
@@ -46,9 +41,7 @@ class PainLogRepository {
       region: entity.region,
       note: entity.note,
       date: entity.date,
-      dateKey: entity.dateKey,
-      planId: entity.planId,
-      exerciseId: entity.exerciseId,
+      dateKey: entity.dateKey
     )).toList();
   }
 }

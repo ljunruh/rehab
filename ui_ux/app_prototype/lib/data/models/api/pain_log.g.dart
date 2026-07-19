@@ -27,28 +27,18 @@ const PainLogSchema = CollectionSchema(
       name: r'dateKey',
       type: IsarType.string,
     ),
-    r'exerciseId': PropertySchema(
-      id: 2,
-      name: r'exerciseId',
-      type: IsarType.string,
-    ),
     r'level': PropertySchema(
-      id: 3,
+      id: 2,
       name: r'level',
       type: IsarType.long,
     ),
     r'note': PropertySchema(
-      id: 4,
+      id: 3,
       name: r'note',
       type: IsarType.string,
     ),
-    r'planId': PropertySchema(
-      id: 5,
-      name: r'planId',
-      type: IsarType.string,
-    ),
     r'region': PropertySchema(
-      id: 6,
+      id: 4,
       name: r'region',
       type: IsarType.string,
     )
@@ -84,32 +74,6 @@ const PainLogSchema = CollectionSchema(
           caseSensitive: true,
         )
       ],
-    ),
-    r'planId': IndexSchema(
-      id: 7282644713036731817,
-      name: r'planId',
-      unique: false,
-      replace: false,
-      properties: [
-        IndexPropertySchema(
-          name: r'planId',
-          type: IndexType.hash,
-          caseSensitive: true,
-        )
-      ],
-    ),
-    r'exerciseId': IndexSchema(
-      id: -5431545612219001672,
-      name: r'exerciseId',
-      unique: false,
-      replace: false,
-      properties: [
-        IndexPropertySchema(
-          name: r'exerciseId',
-          type: IndexType.hash,
-          caseSensitive: true,
-        )
-      ],
     )
   },
   links: {},
@@ -127,19 +91,7 @@ int _painLogEstimateSize(
 ) {
   var bytesCount = offsets.last;
   bytesCount += 3 + object.dateKey.length * 3;
-  {
-    final value = object.exerciseId;
-    if (value != null) {
-      bytesCount += 3 + value.length * 3;
-    }
-  }
   bytesCount += 3 + object.note.length * 3;
-  {
-    final value = object.planId;
-    if (value != null) {
-      bytesCount += 3 + value.length * 3;
-    }
-  }
   bytesCount += 3 + object.region.length * 3;
   return bytesCount;
 }
@@ -152,11 +104,9 @@ void _painLogSerialize(
 ) {
   writer.writeDateTime(offsets[0], object.date);
   writer.writeString(offsets[1], object.dateKey);
-  writer.writeString(offsets[2], object.exerciseId);
-  writer.writeLong(offsets[3], object.level);
-  writer.writeString(offsets[4], object.note);
-  writer.writeString(offsets[5], object.planId);
-  writer.writeString(offsets[6], object.region);
+  writer.writeLong(offsets[2], object.level);
+  writer.writeString(offsets[3], object.note);
+  writer.writeString(offsets[4], object.region);
 }
 
 PainLog _painLogDeserialize(
@@ -168,11 +118,9 @@ PainLog _painLogDeserialize(
   final object = PainLog(
     date: reader.readDateTime(offsets[0]),
     dateKey: reader.readString(offsets[1]),
-    exerciseId: reader.readStringOrNull(offsets[2]),
-    level: reader.readLong(offsets[3]),
-    note: reader.readStringOrNull(offsets[4]) ?? '',
-    planId: reader.readStringOrNull(offsets[5]),
-    region: reader.readString(offsets[6]),
+    level: reader.readLong(offsets[2]),
+    note: reader.readStringOrNull(offsets[3]) ?? '',
+    region: reader.readString(offsets[4]),
   );
   object.id = id;
   return object;
@@ -190,14 +138,10 @@ P _painLogDeserializeProp<P>(
     case 1:
       return (reader.readString(offset)) as P;
     case 2:
-      return (reader.readStringOrNull(offset)) as P;
-    case 3:
       return (reader.readLong(offset)) as P;
-    case 4:
+    case 3:
       return (reader.readStringOrNull(offset) ?? '') as P;
-    case 5:
-      return (reader.readStringOrNull(offset)) as P;
-    case 6:
+    case 4:
       return (reader.readString(offset)) as P;
     default:
       throw IsarError('Unknown property with id $propertyId');
@@ -431,136 +375,6 @@ extension PainLogQueryWhere on QueryBuilder<PainLog, PainLog, QWhereClause> {
       }
     });
   }
-
-  QueryBuilder<PainLog, PainLog, QAfterWhereClause> planIdIsNull() {
-    return QueryBuilder.apply(this, (query) {
-      return query.addWhereClause(IndexWhereClause.equalTo(
-        indexName: r'planId',
-        value: [null],
-      ));
-    });
-  }
-
-  QueryBuilder<PainLog, PainLog, QAfterWhereClause> planIdIsNotNull() {
-    return QueryBuilder.apply(this, (query) {
-      return query.addWhereClause(IndexWhereClause.between(
-        indexName: r'planId',
-        lower: [null],
-        includeLower: false,
-        upper: [],
-      ));
-    });
-  }
-
-  QueryBuilder<PainLog, PainLog, QAfterWhereClause> planIdEqualTo(
-      String? planId) {
-    return QueryBuilder.apply(this, (query) {
-      return query.addWhereClause(IndexWhereClause.equalTo(
-        indexName: r'planId',
-        value: [planId],
-      ));
-    });
-  }
-
-  QueryBuilder<PainLog, PainLog, QAfterWhereClause> planIdNotEqualTo(
-      String? planId) {
-    return QueryBuilder.apply(this, (query) {
-      if (query.whereSort == Sort.asc) {
-        return query
-            .addWhereClause(IndexWhereClause.between(
-              indexName: r'planId',
-              lower: [],
-              upper: [planId],
-              includeUpper: false,
-            ))
-            .addWhereClause(IndexWhereClause.between(
-              indexName: r'planId',
-              lower: [planId],
-              includeLower: false,
-              upper: [],
-            ));
-      } else {
-        return query
-            .addWhereClause(IndexWhereClause.between(
-              indexName: r'planId',
-              lower: [planId],
-              includeLower: false,
-              upper: [],
-            ))
-            .addWhereClause(IndexWhereClause.between(
-              indexName: r'planId',
-              lower: [],
-              upper: [planId],
-              includeUpper: false,
-            ));
-      }
-    });
-  }
-
-  QueryBuilder<PainLog, PainLog, QAfterWhereClause> exerciseIdIsNull() {
-    return QueryBuilder.apply(this, (query) {
-      return query.addWhereClause(IndexWhereClause.equalTo(
-        indexName: r'exerciseId',
-        value: [null],
-      ));
-    });
-  }
-
-  QueryBuilder<PainLog, PainLog, QAfterWhereClause> exerciseIdIsNotNull() {
-    return QueryBuilder.apply(this, (query) {
-      return query.addWhereClause(IndexWhereClause.between(
-        indexName: r'exerciseId',
-        lower: [null],
-        includeLower: false,
-        upper: [],
-      ));
-    });
-  }
-
-  QueryBuilder<PainLog, PainLog, QAfterWhereClause> exerciseIdEqualTo(
-      String? exerciseId) {
-    return QueryBuilder.apply(this, (query) {
-      return query.addWhereClause(IndexWhereClause.equalTo(
-        indexName: r'exerciseId',
-        value: [exerciseId],
-      ));
-    });
-  }
-
-  QueryBuilder<PainLog, PainLog, QAfterWhereClause> exerciseIdNotEqualTo(
-      String? exerciseId) {
-    return QueryBuilder.apply(this, (query) {
-      if (query.whereSort == Sort.asc) {
-        return query
-            .addWhereClause(IndexWhereClause.between(
-              indexName: r'exerciseId',
-              lower: [],
-              upper: [exerciseId],
-              includeUpper: false,
-            ))
-            .addWhereClause(IndexWhereClause.between(
-              indexName: r'exerciseId',
-              lower: [exerciseId],
-              includeLower: false,
-              upper: [],
-            ));
-      } else {
-        return query
-            .addWhereClause(IndexWhereClause.between(
-              indexName: r'exerciseId',
-              lower: [exerciseId],
-              includeLower: false,
-              upper: [],
-            ))
-            .addWhereClause(IndexWhereClause.between(
-              indexName: r'exerciseId',
-              lower: [],
-              upper: [exerciseId],
-              includeUpper: false,
-            ));
-      }
-    });
-  }
 }
 
 extension PainLogQueryFilter
@@ -743,152 +557,6 @@ extension PainLogQueryFilter
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(FilterCondition.greaterThan(
         property: r'dateKey',
-        value: '',
-      ));
-    });
-  }
-
-  QueryBuilder<PainLog, PainLog, QAfterFilterCondition> exerciseIdIsNull() {
-    return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(const FilterCondition.isNull(
-        property: r'exerciseId',
-      ));
-    });
-  }
-
-  QueryBuilder<PainLog, PainLog, QAfterFilterCondition> exerciseIdIsNotNull() {
-    return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(const FilterCondition.isNotNull(
-        property: r'exerciseId',
-      ));
-    });
-  }
-
-  QueryBuilder<PainLog, PainLog, QAfterFilterCondition> exerciseIdEqualTo(
-    String? value, {
-    bool caseSensitive = true,
-  }) {
-    return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(FilterCondition.equalTo(
-        property: r'exerciseId',
-        value: value,
-        caseSensitive: caseSensitive,
-      ));
-    });
-  }
-
-  QueryBuilder<PainLog, PainLog, QAfterFilterCondition> exerciseIdGreaterThan(
-    String? value, {
-    bool include = false,
-    bool caseSensitive = true,
-  }) {
-    return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(FilterCondition.greaterThan(
-        include: include,
-        property: r'exerciseId',
-        value: value,
-        caseSensitive: caseSensitive,
-      ));
-    });
-  }
-
-  QueryBuilder<PainLog, PainLog, QAfterFilterCondition> exerciseIdLessThan(
-    String? value, {
-    bool include = false,
-    bool caseSensitive = true,
-  }) {
-    return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(FilterCondition.lessThan(
-        include: include,
-        property: r'exerciseId',
-        value: value,
-        caseSensitive: caseSensitive,
-      ));
-    });
-  }
-
-  QueryBuilder<PainLog, PainLog, QAfterFilterCondition> exerciseIdBetween(
-    String? lower,
-    String? upper, {
-    bool includeLower = true,
-    bool includeUpper = true,
-    bool caseSensitive = true,
-  }) {
-    return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(FilterCondition.between(
-        property: r'exerciseId',
-        lower: lower,
-        includeLower: includeLower,
-        upper: upper,
-        includeUpper: includeUpper,
-        caseSensitive: caseSensitive,
-      ));
-    });
-  }
-
-  QueryBuilder<PainLog, PainLog, QAfterFilterCondition> exerciseIdStartsWith(
-    String value, {
-    bool caseSensitive = true,
-  }) {
-    return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(FilterCondition.startsWith(
-        property: r'exerciseId',
-        value: value,
-        caseSensitive: caseSensitive,
-      ));
-    });
-  }
-
-  QueryBuilder<PainLog, PainLog, QAfterFilterCondition> exerciseIdEndsWith(
-    String value, {
-    bool caseSensitive = true,
-  }) {
-    return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(FilterCondition.endsWith(
-        property: r'exerciseId',
-        value: value,
-        caseSensitive: caseSensitive,
-      ));
-    });
-  }
-
-  QueryBuilder<PainLog, PainLog, QAfterFilterCondition> exerciseIdContains(
-      String value,
-      {bool caseSensitive = true}) {
-    return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(FilterCondition.contains(
-        property: r'exerciseId',
-        value: value,
-        caseSensitive: caseSensitive,
-      ));
-    });
-  }
-
-  QueryBuilder<PainLog, PainLog, QAfterFilterCondition> exerciseIdMatches(
-      String pattern,
-      {bool caseSensitive = true}) {
-    return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(FilterCondition.matches(
-        property: r'exerciseId',
-        wildcard: pattern,
-        caseSensitive: caseSensitive,
-      ));
-    });
-  }
-
-  QueryBuilder<PainLog, PainLog, QAfterFilterCondition> exerciseIdIsEmpty() {
-    return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(FilterCondition.equalTo(
-        property: r'exerciseId',
-        value: '',
-      ));
-    });
-  }
-
-  QueryBuilder<PainLog, PainLog, QAfterFilterCondition> exerciseIdIsNotEmpty() {
-    return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(FilterCondition.greaterThan(
-        property: r'exerciseId',
         value: '',
       ));
     });
@@ -1129,152 +797,6 @@ extension PainLogQueryFilter
     });
   }
 
-  QueryBuilder<PainLog, PainLog, QAfterFilterCondition> planIdIsNull() {
-    return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(const FilterCondition.isNull(
-        property: r'planId',
-      ));
-    });
-  }
-
-  QueryBuilder<PainLog, PainLog, QAfterFilterCondition> planIdIsNotNull() {
-    return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(const FilterCondition.isNotNull(
-        property: r'planId',
-      ));
-    });
-  }
-
-  QueryBuilder<PainLog, PainLog, QAfterFilterCondition> planIdEqualTo(
-    String? value, {
-    bool caseSensitive = true,
-  }) {
-    return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(FilterCondition.equalTo(
-        property: r'planId',
-        value: value,
-        caseSensitive: caseSensitive,
-      ));
-    });
-  }
-
-  QueryBuilder<PainLog, PainLog, QAfterFilterCondition> planIdGreaterThan(
-    String? value, {
-    bool include = false,
-    bool caseSensitive = true,
-  }) {
-    return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(FilterCondition.greaterThan(
-        include: include,
-        property: r'planId',
-        value: value,
-        caseSensitive: caseSensitive,
-      ));
-    });
-  }
-
-  QueryBuilder<PainLog, PainLog, QAfterFilterCondition> planIdLessThan(
-    String? value, {
-    bool include = false,
-    bool caseSensitive = true,
-  }) {
-    return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(FilterCondition.lessThan(
-        include: include,
-        property: r'planId',
-        value: value,
-        caseSensitive: caseSensitive,
-      ));
-    });
-  }
-
-  QueryBuilder<PainLog, PainLog, QAfterFilterCondition> planIdBetween(
-    String? lower,
-    String? upper, {
-    bool includeLower = true,
-    bool includeUpper = true,
-    bool caseSensitive = true,
-  }) {
-    return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(FilterCondition.between(
-        property: r'planId',
-        lower: lower,
-        includeLower: includeLower,
-        upper: upper,
-        includeUpper: includeUpper,
-        caseSensitive: caseSensitive,
-      ));
-    });
-  }
-
-  QueryBuilder<PainLog, PainLog, QAfterFilterCondition> planIdStartsWith(
-    String value, {
-    bool caseSensitive = true,
-  }) {
-    return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(FilterCondition.startsWith(
-        property: r'planId',
-        value: value,
-        caseSensitive: caseSensitive,
-      ));
-    });
-  }
-
-  QueryBuilder<PainLog, PainLog, QAfterFilterCondition> planIdEndsWith(
-    String value, {
-    bool caseSensitive = true,
-  }) {
-    return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(FilterCondition.endsWith(
-        property: r'planId',
-        value: value,
-        caseSensitive: caseSensitive,
-      ));
-    });
-  }
-
-  QueryBuilder<PainLog, PainLog, QAfterFilterCondition> planIdContains(
-      String value,
-      {bool caseSensitive = true}) {
-    return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(FilterCondition.contains(
-        property: r'planId',
-        value: value,
-        caseSensitive: caseSensitive,
-      ));
-    });
-  }
-
-  QueryBuilder<PainLog, PainLog, QAfterFilterCondition> planIdMatches(
-      String pattern,
-      {bool caseSensitive = true}) {
-    return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(FilterCondition.matches(
-        property: r'planId',
-        wildcard: pattern,
-        caseSensitive: caseSensitive,
-      ));
-    });
-  }
-
-  QueryBuilder<PainLog, PainLog, QAfterFilterCondition> planIdIsEmpty() {
-    return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(FilterCondition.equalTo(
-        property: r'planId',
-        value: '',
-      ));
-    });
-  }
-
-  QueryBuilder<PainLog, PainLog, QAfterFilterCondition> planIdIsNotEmpty() {
-    return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(FilterCondition.greaterThan(
-        property: r'planId',
-        value: '',
-      ));
-    });
-  }
-
   QueryBuilder<PainLog, PainLog, QAfterFilterCondition> regionEqualTo(
     String value, {
     bool caseSensitive = true,
@@ -1437,18 +959,6 @@ extension PainLogQuerySortBy on QueryBuilder<PainLog, PainLog, QSortBy> {
     });
   }
 
-  QueryBuilder<PainLog, PainLog, QAfterSortBy> sortByExerciseId() {
-    return QueryBuilder.apply(this, (query) {
-      return query.addSortBy(r'exerciseId', Sort.asc);
-    });
-  }
-
-  QueryBuilder<PainLog, PainLog, QAfterSortBy> sortByExerciseIdDesc() {
-    return QueryBuilder.apply(this, (query) {
-      return query.addSortBy(r'exerciseId', Sort.desc);
-    });
-  }
-
   QueryBuilder<PainLog, PainLog, QAfterSortBy> sortByLevel() {
     return QueryBuilder.apply(this, (query) {
       return query.addSortBy(r'level', Sort.asc);
@@ -1470,18 +980,6 @@ extension PainLogQuerySortBy on QueryBuilder<PainLog, PainLog, QSortBy> {
   QueryBuilder<PainLog, PainLog, QAfterSortBy> sortByNoteDesc() {
     return QueryBuilder.apply(this, (query) {
       return query.addSortBy(r'note', Sort.desc);
-    });
-  }
-
-  QueryBuilder<PainLog, PainLog, QAfterSortBy> sortByPlanId() {
-    return QueryBuilder.apply(this, (query) {
-      return query.addSortBy(r'planId', Sort.asc);
-    });
-  }
-
-  QueryBuilder<PainLog, PainLog, QAfterSortBy> sortByPlanIdDesc() {
-    return QueryBuilder.apply(this, (query) {
-      return query.addSortBy(r'planId', Sort.desc);
     });
   }
 
@@ -1524,18 +1022,6 @@ extension PainLogQuerySortThenBy
     });
   }
 
-  QueryBuilder<PainLog, PainLog, QAfterSortBy> thenByExerciseId() {
-    return QueryBuilder.apply(this, (query) {
-      return query.addSortBy(r'exerciseId', Sort.asc);
-    });
-  }
-
-  QueryBuilder<PainLog, PainLog, QAfterSortBy> thenByExerciseIdDesc() {
-    return QueryBuilder.apply(this, (query) {
-      return query.addSortBy(r'exerciseId', Sort.desc);
-    });
-  }
-
   QueryBuilder<PainLog, PainLog, QAfterSortBy> thenById() {
     return QueryBuilder.apply(this, (query) {
       return query.addSortBy(r'id', Sort.asc);
@@ -1572,18 +1058,6 @@ extension PainLogQuerySortThenBy
     });
   }
 
-  QueryBuilder<PainLog, PainLog, QAfterSortBy> thenByPlanId() {
-    return QueryBuilder.apply(this, (query) {
-      return query.addSortBy(r'planId', Sort.asc);
-    });
-  }
-
-  QueryBuilder<PainLog, PainLog, QAfterSortBy> thenByPlanIdDesc() {
-    return QueryBuilder.apply(this, (query) {
-      return query.addSortBy(r'planId', Sort.desc);
-    });
-  }
-
   QueryBuilder<PainLog, PainLog, QAfterSortBy> thenByRegion() {
     return QueryBuilder.apply(this, (query) {
       return query.addSortBy(r'region', Sort.asc);
@@ -1612,13 +1086,6 @@ extension PainLogQueryWhereDistinct
     });
   }
 
-  QueryBuilder<PainLog, PainLog, QDistinct> distinctByExerciseId(
-      {bool caseSensitive = true}) {
-    return QueryBuilder.apply(this, (query) {
-      return query.addDistinctBy(r'exerciseId', caseSensitive: caseSensitive);
-    });
-  }
-
   QueryBuilder<PainLog, PainLog, QDistinct> distinctByLevel() {
     return QueryBuilder.apply(this, (query) {
       return query.addDistinctBy(r'level');
@@ -1629,13 +1096,6 @@ extension PainLogQueryWhereDistinct
       {bool caseSensitive = true}) {
     return QueryBuilder.apply(this, (query) {
       return query.addDistinctBy(r'note', caseSensitive: caseSensitive);
-    });
-  }
-
-  QueryBuilder<PainLog, PainLog, QDistinct> distinctByPlanId(
-      {bool caseSensitive = true}) {
-    return QueryBuilder.apply(this, (query) {
-      return query.addDistinctBy(r'planId', caseSensitive: caseSensitive);
     });
   }
 
@@ -1667,12 +1127,6 @@ extension PainLogQueryProperty
     });
   }
 
-  QueryBuilder<PainLog, String?, QQueryOperations> exerciseIdProperty() {
-    return QueryBuilder.apply(this, (query) {
-      return query.addPropertyName(r'exerciseId');
-    });
-  }
-
   QueryBuilder<PainLog, int, QQueryOperations> levelProperty() {
     return QueryBuilder.apply(this, (query) {
       return query.addPropertyName(r'level');
@@ -1682,12 +1136,6 @@ extension PainLogQueryProperty
   QueryBuilder<PainLog, String, QQueryOperations> noteProperty() {
     return QueryBuilder.apply(this, (query) {
       return query.addPropertyName(r'note');
-    });
-  }
-
-  QueryBuilder<PainLog, String?, QQueryOperations> planIdProperty() {
-    return QueryBuilder.apply(this, (query) {
-      return query.addPropertyName(r'planId');
     });
   }
 

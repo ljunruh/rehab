@@ -1,3 +1,5 @@
+import 'package:app_prototype/data/provider/plan_provider.dart';
+import 'package:app_prototype/data/provider/user_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../../core/theme/app_theme.dart';
@@ -31,6 +33,8 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final app = context.watch<UiState>();
+    final userProvider = context.watch<UserProvider>();
+    final planProvider = context.watch<PlanProvider>();
     final profile = app.profile;
     final rings = app.weeklyRings;
     final tip = DemoData.tipForRegion(profile.region);
