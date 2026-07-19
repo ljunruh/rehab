@@ -6,7 +6,6 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:provider/provider.dart';
 import '../../core/theme/app_theme.dart';
 import '../../core/widgets/widgets.dart';
-import '../../state/ui_state.dart';
 import 'pain_scale_sheet.dart';
 
 /// "Wie geht es dir heute?" — wischbares Schmerz-Erfassungs-Karussell.
@@ -25,13 +24,13 @@ class _PainCarouselState extends State<PainCarousel> {
   int _index = 0;
 
   // Lokaler Eingabe-Zustand je Region (Wert, Notiz-Text, Notiz offen?).
-  final Map<String, double> _values = {};
-  final Map<String, String> _notes = {};
-  final Map<String, bool> _noteOpen = {};
-  final Map<String, bool> _saved = {};
-  final Map<String, TextEditingController> _controllers = {};
+  final Map<BodyPart, double> _values = {};
+  final Map<BodyPart, String> _notes = {};
+  final Map<BodyPart, bool> _noteOpen = {};
+  final Map<BodyPart, bool> _saved = {};
+  final Map<BodyPart, TextEditingController> _controllers = {};
 
-  TextEditingController _ctrlFor(String region) {
+  TextEditingController _ctrlFor(BodyPart region) {
     return _controllers.putIfAbsent(
         region, () => TextEditingController(text: _notes[region] ?? ''));
   }
@@ -56,7 +55,6 @@ class _PainCarouselState extends State<PainCarousel> {
 
   @override
   Widget build(BuildContext context) {
-    final app = context.watch<UiState>();
     final planProvider = context.watch<PlanProvider>();
     final regions = planProvider.activeRegions;
 
@@ -144,7 +142,7 @@ class _PainCarouselState extends State<PainCarousel> {
                           min: 0,
                           max: 10,
                           onChanged: (v) =>
-                              setState(() => _values[region.label] = v.roundToDouble()),
+                              setState(() => _values[region] = v.roundToDouble()),
                         ),
                       ),
                       Row(
@@ -171,7 +169,7 @@ class _PainCarouselState extends State<PainCarousel> {
                           children: [
                             GestureDetector(
                               onTap: () => setState(
-                                  () => _noteOpen[region.label] = !noteOpen),
+                                  () => _noteOpen[region] = !noteOpen),
                               behavior: HitTestBehavior.opaque,
                               child: Padding(
                                 padding: const EdgeInsets.symmetric(
@@ -204,7 +202,7 @@ class _PainCarouselState extends State<PainCarousel> {
                                   minLines: 2,
                                   maxLines: 3,
                                   style: AppText.body,
-                                  controller: _ctrlFor(region.label),
+                                  controller: _ctrlFor(region),
                                   decoration: InputDecoration(
                                     border: InputBorder.none,
                                     isDense: true,
@@ -212,7 +210,7 @@ class _PainCarouselState extends State<PainCarousel> {
                                         'den Übungen lockerer …',
                                     hintStyle: AppText.caption,
                                   ),
-                                  onChanged: (t) => _notes[region.label] = t,
+                                  onChanged: (t) => _notes[region] = t,
                                 ),
                               ),
                           ],
@@ -227,17 +225,17 @@ class _PainCarouselState extends State<PainCarousel> {
                           context.read<PainLogProvider>().addPainLog(
                               level: value.round(),
                               region: region,
-                              note: _notes[region.label] ?? '',
+                              note: _notes[region] ?? '',
                               date: now
                           );
                           setState(() {
-                            _noteOpen[region.label] = false;
-                            _saved[region.label] = true;
+                            _noteOpen[region] = false;
+                            _saved[region] = true;
                           });
                           Future.delayed(
                               const Duration(milliseconds: 2000), () {
                             if (mounted) {
-                              setState(() => _saved[region.label] = false);
+                              setState(() => _saved[region] = false);
                             }
                           });
                         },
