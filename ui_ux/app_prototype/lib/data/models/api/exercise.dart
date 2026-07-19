@@ -4,14 +4,14 @@ part 'exercise.g.dart';
 
 @Embedded()
 class Exercise {
-  //Object Properties
+  // Onotlogie Object Properties
   late String id;
   late String label;
   late String difficulty;
   //TODO[API]: Hier String oder Enum nutzen?
   late List<String> trainingsEffects;
   late List<String> bodyParts;
-  //Data Properties
+  // Onotlogie Data Properties
   late String description;
   late int duration;
   late List<String> instructions;

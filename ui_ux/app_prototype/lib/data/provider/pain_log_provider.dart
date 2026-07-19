@@ -6,42 +6,17 @@ import 'package:flutter/material.dart';
 class PainLogProvider extends ChangeNotifier {
   final PainLogRepository _repository;
 
-  // Interne States
   List<PainLog> _allPainLogs = [];
-  Map<String, List<PainLog>> _logsByDay = {};
-  bool _isLoading = false;
-
-  // Getter für die UI
   List<PainLog> get allPainLogs => _allPainLogs;
-  Map<String, List<PainLog>> get logsByDay => _logsByDay;
-  bool get isLoading => _isLoading;
 
   PainLogProvider(this._repository) {
-    // Automatisch beim Erstellen des Providers die Daten laden
     loadLogs();
   }
 
   /// Lädt alle Schmerzeinträge und bereitet sie für den Kalender vor
   Future<void> loadLogs() async {
-    _isLoading = true;
+    _allPainLogs = await _repository.getAllPainLogs();
     notifyListeners();
-
-    try {
-      _allPainLogs = await _repository.getAllPainLogs();
-
-      // Gruppierung nach dem Datumsschlüssel (dateKey) vornehmen
-      final Map<String, List<PainLog>> grouped = {};
-      for (var log in _allPainLogs) {
-        grouped.putIfAbsent(log.dateKey, () => []).add(log);
-      }
-
-      _logsByDay = grouped;
-    } catch (e) {
-      debugPrint("Fehler beim Laden der PainLogs: $e");
-    } finally {
-      _isLoading = false;
-      notifyListeners();
-    }
   }
 
   /// Fügt einen neuen Schmerzeintrag hinzu
@@ -51,8 +26,6 @@ class PainLogProvider extends ChangeNotifier {
     required String note,
     required DateTime date
   }) async {
-    final dateKey = PainLog.keyOf(date);
-    final existingLog = await _repository.findLogByDateAndRegion(dateKey, region);
 
     // 1. Isar-Entität erstellen und befüllen
     final entity = PainLog(
@@ -60,7 +33,7 @@ class PainLogProvider extends ChangeNotifier {
       region: region,
       note: note,
       date: date,
-      dateKey: dateKey, // Erzeugt automatisch "YYYY-MM-DD"
+      dateKey: PainLog.keyOf(date), // Erzeugt automatisch "YYYY-MM-DD"
     );
 
     // 2. Im Repository speichern
@@ -68,5 +41,11 @@ class PainLogProvider extends ChangeNotifier {
 
     // 3. Lokalen State neu laden (aktualisiert die Listen und die Map automatisch)
     await loadLogs();
+  }
+
+  /// Holt alle Einträge von heute direkt aus der geladenen Liste
+  List<PainLog> get todayPainLogs {
+    final todayKey = PainLog.keyOf(DateTime.now());
+    return _allPainLogs.where((log) => log.dateKey == todayKey).toList();
   }
 }

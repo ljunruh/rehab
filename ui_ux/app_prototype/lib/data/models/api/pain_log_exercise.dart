@@ -7,10 +7,11 @@ part 'pain_log_exercise.g.dart';
 class PainLogExercise {
   Id id = Isar.autoIncrement;
 
-  int level = 0;
   @enumerated
   @Index()
   BodyPart region;
+
+  int level = 0;
 
   @Index()
   DateTime date = DateTime.now();

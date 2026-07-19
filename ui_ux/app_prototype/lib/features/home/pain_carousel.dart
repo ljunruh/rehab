@@ -1,4 +1,5 @@
 import 'package:app_prototype/data/enum/body_part.dart';
+import 'package:app_prototype/data/models/api/pain_log.dart';
 import 'package:app_prototype/data/provider/pain_log_provider.dart';
 import 'package:app_prototype/data/provider/plan_provider.dart';
 import 'package:flutter/material.dart';
@@ -30,9 +31,9 @@ class _PainCarouselState extends State<PainCarousel> {
   final Map<BodyPart, bool> _saved = {};
   final Map<BodyPart, TextEditingController> _controllers = {};
 
-  TextEditingController _ctrlFor(BodyPart region) {
+  TextEditingController _ctrlFor(BodyPart region, String initialText) {
     return _controllers.putIfAbsent(
-        region, () => TextEditingController(text: _notes[region] ?? ''));
+        region, () => TextEditingController(text: _notes[region] ?? initialText));
   }
 
   @override
@@ -57,6 +58,8 @@ class _PainCarouselState extends State<PainCarousel> {
   Widget build(BuildContext context) {
     final planProvider = context.watch<PlanProvider>();
     final regions = planProvider.activeRegions;
+    final painLogProvider = context.watch<PainLogProvider>();
+    final savedPainLogs = painLogProvider.todayPainLogs;
 
     return Column(
       children: [
@@ -68,10 +71,15 @@ class _PainCarouselState extends State<PainCarousel> {
             onPageChanged: (i) => setState(() => _index = i),
             itemBuilder: (context, i) {
               final region = regions[i];
-              final value = _values[region] ?? 4;
+              // Prüfen, ob für diese Region heute bereits ein Log in Isar existiert
+              final existingLog = savedPainLogs.cast<PainLog?>().firstWhere(
+                    (log) => log?.region == region,
+                orElse: () => null,
+              );
+              final value = _values[region] ?? (existingLog?.level.toDouble() ?? 4.0);
+              final noteVal = _notes[region] ?? (existingLog?.note ?? '');
+              final saved = _saved[region] ?? (existingLog != null);
               final noteOpen = _noteOpen[region] ?? false;
-              final noteVal = _notes[region] ?? '';
-              final saved = _saved[region] ?? false;
 
               return Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 6),
@@ -202,7 +210,7 @@ class _PainCarouselState extends State<PainCarousel> {
                                   minLines: 2,
                                   maxLines: 3,
                                   style: AppText.body,
-                                  controller: _ctrlFor(region),
+                                  controller: _ctrlFor(region, noteVal),
                                   decoration: InputDecoration(
                                     border: InputBorder.none,
                                     isDense: true,

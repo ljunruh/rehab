@@ -10,11 +10,14 @@ part 'plan.g.dart';
 class Plan {
   //TODO[API]: Brauchen wir die isarId noch?
   Id isarId = Isar.autoIncrement;
+
   @Index(unique: true)
   final String id;
   final String name;
+
   @enumerated
   final BodyPart region;
+
   @enumerated
   final Goal goal;
   final List<Exercise> exercises;
@@ -23,11 +26,9 @@ class Plan {
   final String source; // "empfohlen" | "eigen"
   final bool archived;
 
-  /// Kalenderfarbe des Plans (StyleGuide §11). Optional.
   @ignore
   final Color? color;
 
-  /// Optionale Beschreibung (bei Empfehlungsplänen vorhanden).
   @ignore
   final String? description;
 

@@ -7,10 +7,10 @@ part 'pain_log.g.dart';
 class PainLog {
   Id id;
 
-  int level = 0;
   @enumerated
   @Index()
   BodyPart region;
+  int level = 0;
   String note = '';
 
   @Index()
