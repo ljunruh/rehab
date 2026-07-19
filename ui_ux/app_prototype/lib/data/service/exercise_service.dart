@@ -21,7 +21,7 @@ class ExerciseService {
   }
   */
 
-  /// Filtert eine Liste von Übungen lokal nach Körperregion, Trainingsziel und Suchbegriff (Ra.T).
+  /// Filtert eine Liste von Übungen lokal nach Körperregion, Trainingsziel und Suchbegriff .
   List<Exercise> filterExercises(
     List<Exercise> all, {
     required BodyPart bodyPart,
