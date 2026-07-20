@@ -9,6 +9,7 @@ import 'starter_carousel.dart';
 import 'pain_carousel.dart';
 import 'concentric_rings.dart';
 import 'tip_of_day_card.dart';
+import 'package:app_prototype/data/provider/user_provider.dart'; // NEU: Import für den echten UserProvider
 
 /// ┌──────────────────────────────────────────────────────────┐
 /// │  PERSON 1 — HOME & TIPPS                                  │
@@ -30,10 +31,23 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // 1. NEU: Echten UserProvider für persistierte Nutzerdaten beobachten
+    final userProvider = context.watch<UserProvider>();
+    final dbUser = userProvider.user;
+
+    // 2. UI-State für Ringe und Streaks beibehalten
     final app = context.watch<UiState>();
-    final profile = app.profile;
+    final uiProfile = app.profile;
     final rings = app.weeklyRings;
-    final tip = DemoData.tipForRegion(profile.region);
+
+    // Tipp-Fallback, falls aus Isar noch keine Region kommt, nimmt er die UI-Mock-Region
+    final currentRegion = (dbUser?.contraindication != null && dbUser!.contraindication.isNotEmpty)
+        ? dbUser.contraindication.first
+        : uiProfile.region;
+    final tip = DemoData.tipForRegion(currentRegion);
+
+    // Berechne den Vornamen dynamisch aus Isar
+    final userFirstName = dbUser?.name.split(' ').first ?? 'Gast';
 
     return Container(
       color: AppColors.sageMid,
@@ -41,8 +55,8 @@ class HomeScreen extends StatelessWidget {
         children: [
           // ── Fester grüner Hero-Hintergrund (scrollt NICHT mit) ──
           HomeHero(
-            firstName: profile.name.split(' ').first,
-            initials: profile.initials,
+            firstName: userFirstName, // Dynamisch aus Isar
+            initials: userProvider.initials, // Dynamisch aus Isar
             welcome: DemoData.welcomeOfToday(),
             onAvatarTap: onOpenProfile,
             showAvatar: false,
@@ -63,168 +77,168 @@ class HomeScreen extends StatelessWidget {
                   decoration: const BoxDecoration(
                     color: AppColors.cream,
                     borderRadius:
-                        BorderRadius.vertical(top: Radius.circular(28)),
+                    BorderRadius.vertical(top: Radius.circular(28)),
                   ),
                   padding: const EdgeInsets.fromLTRB(0, 22, 0, 102),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                    // Starter-Karussell
-                    Padding(
-                      padding: const EdgeInsets.symmetric(
-                          horizontal: AppSpacing.screenH),
-                      child: SectionTitle('Womit fängst du heute an?',
-                          style: AppText.screenTitle.copyWith(
-                              fontSize: 20, fontWeight: FontWeight.w500)),
-                    ),
-                    StarterCarousel(onStartRegion: onStartRegion),
-                    const SizedBox(height: AppSpacing.sectionGap),
-
-                    // Schmerz-Karussell
-                    Padding(
-                      padding: const EdgeInsets.symmetric(
-                          horizontal: AppSpacing.screenH),
-                      child: SectionTitle('Wie geht es dir heute?',
-                          style: AppText.screenTitle.copyWith(
-                              fontSize: 20, fontWeight: FontWeight.w500)),
-                    ),
-                    const PainCarousel(),
-                    const SizedBox(height: AppSpacing.sectionGap),
-
-                    // Wochenziel-Streifen (konzentrische Ringe pro Bereich)
-                    Padding(
-                      padding: const EdgeInsets.symmetric(
-                          horizontal: AppSpacing.screenH),
-                      child: AppCard(
+                      // Starter-Karussell
+                      Padding(
                         padding: const EdgeInsets.symmetric(
-                            horizontal: 18, vertical: 16),
-                        child: rings.isEmpty
-                            ? _EmptyRings()
-                            : Row(
-                                crossAxisAlignment: CrossAxisAlignment.center,
-                                children: [
-                                  ConcentricRings(
-                                    rings: rings,
-                                    size: 66,
-                                    strokeWidth: 7,
-                                    gap: 3,
-                                  ),
-                                  const SizedBox(width: AppSpacing.lg),
-                                  Expanded(
-                                    child: Column(
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.start,
-                                      mainAxisSize: MainAxisSize.min,
-                                      children: [
-                                        for (final r in rings)
-                                          Padding(
-                                            padding: const EdgeInsets.only(
-                                                bottom: 5),
-                                            child: Row(
-                                              children: [
-                                                Container(
-                                                  width: 9,
-                                                  height: 9,
-                                                  decoration: BoxDecoration(
-                                                    color: r.color,
-                                                    shape: BoxShape.circle,
-                                                  ),
-                                                ),
-                                                const SizedBox(width: 8),
-                                                Expanded(
-                                                  child: Text(
-                                                    r.label,
-                                                    style: AppText.caption
-                                                        .copyWith(
-                                                      fontSize: 12.5,
-                                                      color: AppColors.text,
-                                                      fontWeight:
-                                                          FontWeight.w500,
-                                                    ),
-                                                  ),
-                                                ),
-                                                Text(
-                                                  '${r.done}/${r.goal}',
-                                                  style: AppText.caption
-                                                      .copyWith(
-                                                    fontSize: 12.5,
-                                                    fontWeight:
-                                                        FontWeight.w600,
-                                                    color: r.done >= r.goal
-                                                        ? AppColors.sageDeep
-                                                        : AppColors
-                                                            .textSecondary,
-                                                  ),
-                                                ),
-                                              ],
-                                            ),
-                                          ),
-                                        Padding(
-                                          padding: const EdgeInsets.symmetric(
-                                              vertical: 4),
-                                          child: Divider(
-                                              color: AppColors.beige,
-                                              height: 1),
-                                        ),
-                                        const SizedBox(height: 6),
-                                        Builder(builder: (context) {
-                                          final weeks = (app.streak / 7)
-                                              .floor()
-                                              .clamp(1, 999);
-                                          final weekWord =
-                                              weeks == 1 ? 'Woche' : 'Wochen';
-                                          return RichText(
-                                            text: TextSpan(
-                                              style: AppText.caption.copyWith(
-                                                  color: AppColors
-                                                      .textSecondary),
-                                              children: [
-                                                TextSpan(
-                                                  text: '$weeks ',
-                                                  style: AppText.caption
-                                                      .copyWith(
-                                                    fontSize: 14,
-                                                    fontWeight:
-                                                        FontWeight.w700,
-                                                    color:
-                                                        AppColors.sageDeep,
-                                                  ),
-                                                ),
-                                                TextSpan(
-                                                    text:
-                                                        '$weekWord bist du schon dabei!'),
-                                              ],
-                                            ),
-                                          );
-                                        }),
-                                      ],
-                                    ),
-                                  ),
-                                ],
-                              ),
+                            horizontal: AppSpacing.screenH),
+                        child: SectionTitle('Womit fängst du heute an?',
+                            style: AppText.screenTitle.copyWith(
+                                fontSize: 20, fontWeight: FontWeight.w500)),
                       ),
-                    ),
-                    const SizedBox(height: AppSpacing.sectionGap),
+                      StarterCarousel(onStartRegion: onStartRegion),
+                      const SizedBox(height: AppSpacing.sectionGap),
 
-                    // Tipp für heute
-                    Padding(
-                      padding: const EdgeInsets.symmetric(
-                          horizontal: AppSpacing.screenH),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          const SectionTitle('Tipp für heute'),
-                          TipOfDayCard(
-                            title: tip.title,
-                            duration: tip.duration,
-                            body: tip.body,
-                          ),
-                        ],
+                      // Schmerz-Karussell
+                      Padding(
+                        padding: const EdgeInsets.symmetric(
+                            horizontal: AppSpacing.screenH),
+                        child: SectionTitle('Wie geht es dir heute?',
+                            style: AppText.screenTitle.copyWith(
+                                fontSize: 20, fontWeight: FontWeight.w500)),
                       ),
-                    ),
-                  ],
+                      const PainCarousel(),
+                      const SizedBox(height: AppSpacing.sectionGap),
+
+                      // Wochenziel-Streifen (konzentrische Ringe pro Bereich)
+                      Padding(
+                        padding: const EdgeInsets.symmetric(
+                            horizontal: AppSpacing.screenH),
+                        child: AppCard(
+                          padding: const EdgeInsets.symmetric(
+                              horizontal: 18, vertical: 16),
+                          child: rings.isEmpty
+                              ? _EmptyRings()
+                              : Row(
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: [
+                              ConcentricRings(
+                                rings: rings,
+                                size: 66,
+                                strokeWidth: 7,
+                                gap: 3,
+                              ),
+                              const SizedBox(width: AppSpacing.lg),
+                              Expanded(
+                                child: Column(
+                                  crossAxisAlignment:
+                                  CrossAxisAlignment.start,
+                                  mainAxisSize: MainAxisSize.min,
+                                  children: [
+                                    for (final r in rings)
+                                      Padding(
+                                        padding: const EdgeInsets.only(
+                                            bottom: 5),
+                                        child: Row(
+                                          children: [
+                                            Container(
+                                              width: 9,
+                                              height: 9,
+                                              decoration: BoxDecoration(
+                                                color: r.color,
+                                                shape: BoxShape.circle,
+                                              ),
+                                            ),
+                                            const SizedBox(width: 8),
+                                            Expanded(
+                                              child: Text(
+                                                r.label,
+                                                style: AppText.caption
+                                                    .copyWith(
+                                                  fontSize: 12.5,
+                                                  color: AppColors.text,
+                                                  fontWeight:
+                                                  FontWeight.w500,
+                                                ),
+                                              ),
+                                            ),
+                                            Text(
+                                              '${r.done}/${r.goal}',
+                                              style: AppText.caption
+                                                  .copyWith(
+                                                fontSize: 12.5,
+                                                fontWeight:
+                                                FontWeight.w600,
+                                                color: r.done >= r.goal
+                                                    ? AppColors.sageDeep
+                                                    : AppColors
+                                                    .textSecondary,
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+                                    Padding(
+                                      padding: const EdgeInsets.symmetric(
+                                          vertical: 4),
+                                      child: Divider(
+                                          color: AppColors.beige,
+                                          height: 1),
+                                    ),
+                                    const SizedBox(height: 6),
+                                    Builder(builder: (context) {
+                                      final weeks = (app.streak / 7)
+                                          .floor()
+                                          .clamp(1, 999);
+                                      final weekWord =
+                                      weeks == 1 ? 'Woche' : 'Wochen';
+                                      return RichText(
+                                        text: TextSpan(
+                                          style: AppText.caption.copyWith(
+                                              color: AppColors
+                                                  .textSecondary),
+                                          children: [
+                                            TextSpan(
+                                              text: '$weeks ',
+                                              style: AppText.caption
+                                                  .copyWith(
+                                                fontSize: 14,
+                                                fontWeight:
+                                                FontWeight.w700,
+                                                color:
+                                                AppColors.sageDeep,
+                                              ),
+                                            ),
+                                            TextSpan(
+                                                text:
+                                                '$weekWord bist du schon dabei!'),
+                                          ],
+                                        ),
+                                      );
+                                    }),
+                                  ],
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                      const SizedBox(height: AppSpacing.sectionGap),
+
+                      // Tipp für heute
+                      Padding(
+                        padding: const EdgeInsets.symmetric(
+                            horizontal: AppSpacing.screenH),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            const SectionTitle('Tipp für heute'),
+                            TipOfDayCard(
+                              title: tip.title,
+                              duration: tip.duration,
+                              body: tip.body,
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
-              ),
               ],
             ),
           ),
@@ -234,7 +248,7 @@ class HomeScreen extends StatelessWidget {
             top: MediaQuery.of(context).padding.top + 20,
             right: 24,
             child: HeaderAvatar(
-              initials: profile.initials,
+              initials: userProvider.initials, // Dynamisch aus Isar
               onTap: onOpenProfile,
             ),
           ),

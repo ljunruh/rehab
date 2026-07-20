@@ -8,15 +8,9 @@ import 'mobility_level_sheet.dart';
 import 'notifications_sheet.dart';
 import 'past_tips_sheet.dart';
 import 'settings_sheet.dart';
+import 'package:app_prototype/data/provider/user_provider.dart'; // NEU: Import für den echten Provider
 
 /// PERSON 4 — Profil-Drawer (fährt von rechts ein).
-///
-/// Zeigt Profil-Kopf, schnelle Aktionen (Profil bearbeiten, Praxis,
-/// Einstellungen), das Archiv (archivierte Pläne mit Wiederherstellen/
-/// Löschen) und Abmelden. Entspricht ProfileDrawer im JSX-Prototyp.
-///
-/// Wird als Overlay über die App gelegt (siehe app_shell). Die Animation
-/// (Slide-in + Overlay-Fade) übernimmt ein AnimationController.
 class ProfileDrawer extends StatefulWidget {
   final VoidCallback onClose;
   final VoidCallback onEditProfile;
@@ -65,8 +59,13 @@ class _ProfileDrawerState extends State<ProfileDrawer>
 
   @override
   Widget build(BuildContext context) {
+    // 1. NEU: Echten UserProvider für Persistenz beobachten
+    final userProvider = context.watch<UserProvider>();
+    final dbUser = userProvider.user;
+
+    // 2. Bestehenden UI-State für Archivierte Pläne & Mobilität beobachten
     final app = context.watch<UiState>();
-    final profile = app.profile;
+    final uiProfile = app.profile;
     final archived = app.plans.where((p) => p.archived).toList();
 
     return AnimatedBuilder(
@@ -113,7 +112,7 @@ class _ProfileDrawerState extends State<ProfileDrawer>
                               decoration: BoxDecoration(
                                 color: AppColors.white,
                                 borderRadius:
-                                    BorderRadius.circular(AppRadius.input),
+                                BorderRadius.circular(AppRadius.input),
                               ),
                               child: const Icon(Icons.close,
                                   size: 18, color: AppColors.text),
@@ -126,7 +125,7 @@ class _ProfileDrawerState extends State<ProfileDrawer>
                         child: ListView(
                           padding: const EdgeInsets.fromLTRB(20, 0, 20, 24),
                           children: [
-                            // ── Profil-Kopf: großer Avatar zentriert ──
+                            // ── Profil-Kopf: Echte Daten statt Mock-Daten ──
                             Center(
                               child: Column(
                                 children: [
@@ -145,14 +144,14 @@ class _ProfileDrawerState extends State<ProfileDrawer>
                                         ),
                                       ],
                                     ),
-                                    child: Text(profile.initials,
+                                    child: Text(userProvider.initials, // Aus Isar
                                         style: AppText.screenTitle.copyWith(
                                             color: AppColors.sageDeep,
                                             fontSize: 30,
                                             fontWeight: FontWeight.w700)),
                                   ),
                                   const SizedBox(height: AppSpacing.md),
-                                  Text(profile.name,
+                                  Text(dbUser?.name ?? 'Name eingeben', // Aus Isar
                                       style: AppText.screenTitle
                                           .copyWith(fontSize: 20)),
                                 ],
@@ -172,10 +171,12 @@ class _ProfileDrawerState extends State<ProfileDrawer>
                                     spacing: AppSpacing.sm,
                                     runSpacing: AppSpacing.sm,
                                     children: [
-                                      for (final r in (profile.regions.isNotEmpty
-                                          ? profile.regions
-                                          : [profile.region]))
-                                        AppTag(r, variant: TagVariant.goal),
+                                      // Lädt die lesbaren Labels (z.B. "Knie") direkt aus Isar via Provider
+                                      if (userProvider.injuryLabels.isEmpty)
+                                        AppTag('Keine Einschränkungen', variant: TagVariant.goal)
+                                      else
+                                        for (final label in userProvider.injuryLabels)
+                                          AppTag(label, variant: TagVariant.goal),
                                     ],
                                   ),
                                   const SizedBox(height: AppSpacing.base),
@@ -187,7 +188,7 @@ class _ProfileDrawerState extends State<ProfileDrawer>
                                   const SizedBox(height: AppSpacing.sm),
                                   AppTag(
                                       MobilityLevelMeta.labelFor(
-                                          profile.mobility),
+                                          uiProfile.mobility),
                                       variant: TagVariant.goal),
                                 ],
                               ),
@@ -215,7 +216,7 @@ class _ProfileDrawerState extends State<ProfileDrawer>
                                     icon: 'assets/icons/profile/archivebox-green.svg',
                                     label: 'Archivierte Pläne (${archived.length})',
                                     onTap: () => setState(
-                                        () => _archiveOpen = !_archiveOpen),
+                                            () => _archiveOpen = !_archiveOpen),
                                     trailing: Icon(
                                       _archiveOpen
                                           ? Icons.expand_less
@@ -254,77 +255,105 @@ class _ProfileDrawerState extends State<ProfileDrawer>
                                 )
                               else
                                 ...archived.map((p) => Padding(
-                                      padding: const EdgeInsets.only(
-                                          bottom: AppSpacing.sm),
-                                      child: AppCard(
-                                        background: AppColors.offwhite,
-                                        padding: const EdgeInsets.all(
-                                            AppSpacing.md),
-                                        child: Row(
-                                          children: [
-                                            Container(
-                                              width: 10,
-                                              height: 10,
-                                              decoration: BoxDecoration(
-                                                color:
-                                                    p.color ?? AppColors.sage,
-                                                shape: BoxShape.circle,
-                                              ),
-                                            ),
-                                            const SizedBox(
-                                                width: AppSpacing.sm),
-                                            Expanded(
-                                              child: Text(p.name,
-                                                  style: AppText.body),
-                                            ),
-                                            GestureDetector(
-                                              onTap: () =>
-                                                  app.restorePlan(p.id),
-                                              child: const Icon(
-                                                  Icons.restore,
-                                                  size: 18,
-                                                  color: AppColors.sage),
-                                            ),
-                                            const SizedBox(width: 14),
-                                            GestureDetector(
-                                              onTap: () =>
-                                                  app.deletePlan(p.id),
-                                              child: const Icon(
-                                                  Icons.delete_outline,
-                                                  size: 18,
-                                                  color: AppColors.textMuted),
-                                            ),
-                                          ],
+                                  padding: const EdgeInsets.only(
+                                      bottom: AppSpacing.sm),
+                                  child: AppCard(
+                                    background: AppColors.offwhite,
+                                    padding: const EdgeInsets.all(
+                                        AppSpacing.md),
+                                    child: Row(
+                                      children: [
+                                        Container(
+                                          width: 10,
+                                          height: 10,
+                                          decoration: BoxDecoration(
+                                            color:
+                                            p.color ?? AppColors.sage,
+                                            shape: BoxShape.circle,
+                                          ),
                                         ),
-                                      ),
-                                    )),
+                                        const SizedBox(
+                                            width: AppSpacing.sm),
+                                        Expanded(
+                                          child: Text(p.name,
+                                              style: AppText.body),
+                                        ),
+                                        GestureDetector(
+                                          onTap: () =>
+                                              app.restorePlan(p.id),
+                                          child: const Icon(
+                                              Icons.restore,
+                                              size: 18,
+                                              color: AppColors.sage),
+                                        ),
+                                        const SizedBox(width: 14),
+                                        GestureDetector(
+                                          onTap: () =>
+                                              app.deletePlan(p.id),
+                                          child: const Icon(
+                                              Icons.delete_outline,
+                                              size: 18,
+                                              color: AppColors.textMuted),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                )),
                             ],
 
                             const SizedBox(height: AppSpacing.base),
 
-                            // ── Ausloggen ──
+                            // ── NEU: Akzeptanzkriterium 3: "Ausloggen" wird durch "Profil löschen" ersetzt ──
                             GestureDetector(
-                              onTap: () => app.showToast('Abgemeldet (Demo).'),
+                              onTap: () {
+                                showDialog(
+                                  context: context,
+                                  builder: (dialogContext) => AlertDialog(
+                                    title: const Text('Profil unwiderruflich löschen?'),
+                                    content: const Text(
+                                      'Möchtest du dein Profil und alle Trainingsdaten wirklich '
+                                          'aus der App und vom Server löschen?',
+                                    ),
+                                    actions: [
+                                      TextButton(
+                                        onPressed: () => Navigator.pop(dialogContext),
+                                        child: const Text('Abbrechen'),
+                                      ),
+                                      TextButton(
+                                        onPressed: () async {
+                                          Navigator.pop(dialogContext);
+
+                                          // Trigger Isar-Löschung + API-Update
+                                          await userProvider.deleteUser();
+
+                                          // Drawer schließen
+                                          _close();
+                                        },
+                                        child: const Text('Löschen', style: TextStyle(color: Colors.red)),
+                                      ),
+                                    ],
+                                  ),
+                                );
+                              },
                               behavior: HitTestBehavior.opaque,
                               child: Container(
                                 width: double.infinity,
-                                padding: const EdgeInsets.symmetric(
-                                    vertical: 14),
+                                padding: const EdgeInsets.symmetric(vertical: 14),
                                 alignment: Alignment.center,
                                 decoration: BoxDecoration(
                                   color: AppColors.white,
-                                  borderRadius:
-                                      BorderRadius.circular(AppRadius.card),
+                                  borderRadius: BorderRadius.circular(AppRadius.card),
                                 ),
                                 child: Row(
                                   mainAxisAlignment: MainAxisAlignment.center,
                                   children: [
-                                    const Icon(Icons.logout,
+                                    const Icon(Icons.delete_forever,
                                         size: 18, color: PlanColors.koralle),
                                     const SizedBox(width: AppSpacing.sm),
-                                    Text('Ausloggen',
+                                    Text('Profil löschen',
                                         style: AppText.cardTitle.copyWith(
-                                            color: PlanColors.koralle)),
+                                            color: PlanColors.koralle,
+                                            fontWeight: FontWeight.bold)),
                                   ],
                                 ),
                               ),
@@ -345,7 +374,7 @@ class _ProfileDrawerState extends State<ProfileDrawer>
 }
 
 class _MenuItem extends StatelessWidget {
-  final String icon; // SVG-Asset-Pfad
+  final String icon;
   final String label;
   final VoidCallback onTap;
   final Widget? trailing;
@@ -367,7 +396,6 @@ class _MenuItem extends StatelessWidget {
             vertical: 12, horizontal: AppSpacing.base),
         child: Row(
           children: [
-            // Viereckige Hinterlegung um das Icon (Design-Feedback)
             Container(
               width: 34,
               height: 34,

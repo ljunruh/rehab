@@ -4,22 +4,14 @@ import '../../core/theme/app_theme.dart';
 import '../../core/widgets/widgets.dart';
 import '../../data/demo/plan_options.dart';
 import '../../data/enum/gender.dart';
+import '../../data/enum/skill_level.dart';
 import '../../state/ui_state.dart';
 import 'mobility_level_sheet.dart';
 import 'body_map_selector.dart';
+import 'package:app_prototype/data/provider/user_provider.dart';
 
 /// PERSON 4 — Profil bearbeiten (Bottom-Sheet), wie im Prototyp.
-///
-/// Datenschutz-Hinweis, Avatar, Name (änderbar), Stammdaten (Alter,
-/// Größe, Geschlecht, Gewicht), Verletzung(en) (Körperregionen,
-/// Mehrfachauswahl) und Mobilitätslevel mit "Level wählen/ändern"
-/// (öffnet die Selbsteinschätzung). Entspricht dem
-/// Profil-bearbeiten-Sheet im JSX-Prototyp (verschachtelt im
-/// Profil-Drawer, kein 4-Fragen-Test).
 class ProfileEditSheet extends StatefulWidget {
-  /// Wenn gesetzt, wird beim Schließen/Speichern dieser Callback aufgerufen
-  /// (statt Navigator.pop) — nötig, wenn das Sheet als In-Frame-Overlay statt
-  /// als Wurzel-Modal gerendert wird.
   final VoidCallback? onClose;
   const ProfileEditSheet({super.key, this.onClose});
 
@@ -31,7 +23,7 @@ class ProfileEditSheet extends StatefulWidget {
       constraints: const BoxConstraints(maxWidth: 380),
       shape: const RoundedRectangleBorder(
         borderRadius:
-            BorderRadius.vertical(top: Radius.circular(AppRadius.sheet)),
+        BorderRadius.vertical(top: Radius.circular(AppRadius.sheet)),
       ),
       builder: (_) => const ProfileEditSheet(),
     );
@@ -51,13 +43,13 @@ class _ProfileEditSheetState extends State<ProfileEditSheet> {
   @override
   void initState() {
     super.initState();
-    final profile = context.read<UiState>().profile;
-    _nameCtrl = TextEditingController(text: profile.name);
-    _ageCtrl = TextEditingController(text: profile.age?.toString() ?? '');
-    _heightCtrl =
-        TextEditingController(text: profile.height?.toString() ?? '');
-    _weightCtrl =
-        TextEditingController(text: profile.weight?.toString() ?? '');
+    final userProvider = context.read<UserProvider>();
+    final dbUser = userProvider.user;
+
+    _nameCtrl = TextEditingController(text: dbUser?.name ?? 'Name eingeben');
+    _ageCtrl = TextEditingController(text: dbUser?.age.toString() ?? '');
+    _heightCtrl = TextEditingController(text: dbUser?.height.toString() ?? '');
+    _weightCtrl = TextEditingController(text: dbUser?.weight.toString() ?? '');
   }
 
   @override
@@ -69,11 +61,58 @@ class _ProfileEditSheetState extends State<ProfileEditSheet> {
     super.dispose();
   }
 
+  // 1. Übersetzt geladene DB-Werte (egal ob ID oder Freitext) in das deutsche Wort für das Männchen-UI
+  String _convertToGermanTerm(String input) {
+    final clean = input.trim().toLowerCase();
+
+    if (clean.contains('gleichgewicht') || clean.contains('balance')) return 'Gleichgewicht';
+    if (clean.contains('sprunggelenk') || clean.contains('ankle')) return 'Sprunggelenk';
+    if (clean.contains('rumpf') || clean.contains('core')) return 'Rumpf';
+    if (clean.contains('knie') || clean.contains('knee')) return 'Knie';
+    if (clean.contains('handgelenk') || clean.contains('wrist')) return 'Handgelenk';
+    if (clean.contains('hüfte') || clean.contains('huefte') || clean.contains('hip')) return 'Hüfte';
+    if (clean.contains('schulter') || clean.contains('shoulder')) return 'Schulter';
+    if (clean.contains('nacken') || clean.contains('neck')) return 'Nacken';
+    if (clean.contains('unterer rücken') || clean.contains('lowerback')) return 'Unterer Rücken';
+    if (clean.contains('oberer rücken') || clean.contains('upperback')) return 'Oberer Rücken';
+    if (clean.contains('wirbelsäule') || clean.contains('spine')) return 'Wirbelsäule';
+    if (clean.contains('hamstring') || clean.contains('oberschenkel')) return 'Oberschenkel';
+    if (clean.contains('gesäß') || clean.contains('glute')) return 'Gesäß';
+
+    return input;
+  }
+
+  // 2. NEU: Mappt deutsche Begriffe vor dem Speichern in die exakten IDs, die die Ontologie/API braucht!
+  String _convertToOntologyId(String input) {
+    final clean = input.trim().toLowerCase();
+
+    if (clean.contains('gleichgewicht') || clean.contains('balance')) return 'BalanceIssue';
+    if (clean.contains('sprunggelenk') || clean.contains('ankle')) return 'AnkleIssue';
+    if (clean.contains('rumpf') || clean.contains('core')) return 'CoreWeakness';
+    if (clean.contains('knie') || clean.contains('knee')) return 'KneesIssue';
+    if (clean.contains('handgelenk') || clean.contains('wrist')) return 'WristIssue';
+    if (clean.contains('hüfte') || clean.contains('huefte') || clean.contains('hip')) return 'HipIssue';
+    if (clean.contains('schulter') || clean.contains('shoulder')) return 'ShoulderIssue';
+    if (clean.contains('nacken') || clean.contains('neck')) return 'NeckIssue';
+    if (clean.contains('unterer rücken') || clean.contains('lowerback')) return 'LowerBackIssue';
+    if (clean.contains('oberer rücken') || clean.contains('upperback')) return 'UpperBackIssue';
+    if (clean.contains('wirbelsäule') || clean.contains('spine')) return 'SpineIssue';
+    if (clean.contains('hamstring') || clean.contains('oberschenkel')) return 'HamstringIssue';
+    if (clean.contains('gesäß') || clean.contains('glute')) return 'GlutesIssue';
+
+    return input;
+  }
+
   @override
   Widget build(BuildContext context) {
+    final userProvider = context.watch<UserProvider>();
+    final dbUser = userProvider.user;
+
     final app = context.watch<UiState>();
-    final profile = app.profile;
+    final uiProfile = app.profile;
+
     final bottomInset = MediaQuery.of(context).viewInsets.bottom;
+    final userInitials = userProvider.initials;
 
     return Padding(
       padding: EdgeInsets.only(bottom: bottomInset),
@@ -121,7 +160,6 @@ class _ProfileEditSheetState extends State<ProfileEditSheet> {
               ),
               const SizedBox(height: AppSpacing.base),
 
-              // Datenschutz-Hinweis
               Container(
                 padding: const EdgeInsets.all(AppSpacing.base),
                 decoration: BoxDecoration(
@@ -136,7 +174,7 @@ class _ProfileEditSheetState extends State<ProfileEditSheet> {
                     Expanded(
                       child: Text(
                         'Deine Daten verlassen nie dein Gerät. Alles wird '
-                        'lokal gespeichert – sicher und privat.',
+                            'lokal gespeichert – sicher und privat.',
                         style: AppText.caption
                             .copyWith(color: AppColors.sageDeep, height: 1.4),
                       ),
@@ -146,7 +184,6 @@ class _ProfileEditSheetState extends State<ProfileEditSheet> {
               ),
               const SizedBox(height: AppSpacing.lg),
 
-              // Avatar mit Stift
               Center(
                 child: Stack(
                   children: [
@@ -158,7 +195,7 @@ class _ProfileEditSheetState extends State<ProfileEditSheet> {
                         color: AppColors.sageLight,
                         shape: BoxShape.circle,
                       ),
-                      child: Text(profile.initials,
+                      child: Text(userInitials,
                           style: AppText.screenTitle.copyWith(
                               color: AppColors.sageDeep, fontSize: 26)),
                     ),
@@ -182,7 +219,6 @@ class _ProfileEditSheetState extends State<ProfileEditSheet> {
               ),
               const SizedBox(height: AppSpacing.lg),
 
-              // NAME
               Text('NAME', style: AppText.micro),
               const SizedBox(height: AppSpacing.sm),
               Container(
@@ -198,26 +234,22 @@ class _ProfileEditSheetState extends State<ProfileEditSheet> {
                     Expanded(
                       child: _editingName
                           ? TextField(
-                              controller: _nameCtrl,
-                              autofocus: true,
-                              style: AppText.body,
-                              decoration: const InputDecoration(
-                                border: InputBorder.none,
-                                isDense: true,
-                              ),
-                            )
+                        controller: _nameCtrl,
+                        autofocus: true,
+                        style: AppText.body,
+                        decoration: const InputDecoration(
+                          border: InputBorder.none,
+                          isDense: true,
+                        ),
+                      )
                           : Padding(
-                              padding:
-                                  const EdgeInsets.symmetric(vertical: 12),
-                              child: Text(_nameCtrl.text, style: AppText.body),
-                            ),
+                        padding:
+                        const EdgeInsets.symmetric(vertical: 12),
+                        child: Text(_nameCtrl.text, style: AppText.body),
+                      ),
                     ),
                     GestureDetector(
                       onTap: () {
-                        if (_editingName) {
-                          app.updateProfile(
-                              profile.copyWith(name: _nameCtrl.text.trim()));
-                        }
                         setState(() => _editingName = !_editingName);
                       },
                       child: Text(_editingName ? 'Fertig' : 'Ändern',
@@ -229,7 +261,6 @@ class _ProfileEditSheetState extends State<ProfileEditSheet> {
               ),
               const SizedBox(height: AppSpacing.lg),
 
-              // STAMMDATEN
               Text('STAMMDATEN', style: AppText.micro),
               const SizedBox(height: AppSpacing.sm),
               Row(
@@ -256,12 +287,11 @@ class _ProfileEditSheetState extends State<ProfileEditSheet> {
                 children: [
                   Expanded(
                     child: _GenderField(
-                      value: profile.gender,
-                      onChanged: (g) =>
-                          app.updateProfile(profile.copyWith(gender: g)),
+                      value: dbUser?.gender ?? Gender.diverse,
+                      onChanged: (g) {
+                        setState(() {});
+                      },
                     ),
-                    // _GenderField arbeitet jetzt direkt mit dem Gender-Enum
-                    // der API (statt mit einem String).
                   ),
                   const SizedBox(width: AppSpacing.sm),
                   Expanded(
@@ -275,14 +305,64 @@ class _ProfileEditSheetState extends State<ProfileEditSheet> {
               ),
               const SizedBox(height: AppSpacing.lg),
 
-              // VERLETZUNG(EN)
+
+              // KÖRPERKARTE: UI auf Deutsch, Daten-Ebene auf Englisch
               Text('Verletzung(en)', style: AppText.caption),
               const SizedBox(height: AppSpacing.sm),
               Center(
                 child: BodyMapSelector(
-                  selected: profile.regions,
-                  onChanged: (next) =>
-                      app.updateProfile(profile.copyWith(regions: next)),
+                  // 1. ANZEIGE (Für das Männchen): Wir übersetzen die englischen IDs aus der DB
+                  // live ins Deutsche, damit das Männchen leuchtet und deutsche Tags anzeigt.
+                  selected: (dbUser?.contraindication ?? []).map((e) {
+                    final clean = e.trim().toLowerCase();
+                    if (clean == 'balanceissue') return 'Gleichgewicht';
+                    if (clean == 'ankleissue') return 'Sprunggelenk';
+                    if (clean == 'coreweakness') return 'Rumpf';
+                    if (clean == 'kneesissue') return 'Knie';
+                    if (clean == 'wristissue') return 'Handgelenk';
+                    if (clean == 'hipissue') return 'Hüfte';
+                    if (clean == 'shoulderissue') return 'Schulter';
+                    if (clean == 'neckissue') return 'Nacken';
+                    if (clean == 'lowerbackissue') return 'Unterer Rücken';
+                    if (clean == 'upperbackissue') return 'Oberer Rücken';
+                    if (clean == 'spineissue') return 'Wirbelsäule';
+                    if (clean == 'hamstringissue') return 'Oberschenkel';
+                    if (clean == 'glutesissue') return 'Gesäß';
+                    return e; // Fallback, falls schon Text drin steht
+                  }).toSet().toList(),
+
+                  // 2. SPEICHERN (Für Isar & API): Wenn der Nutzer tippt, übersetzen wir das
+                  // deutsche Wort sofort wieder zurück in die korrekte englische ID!
+                  onChanged: (nextInjuries) {
+                    final uniqueOntologyIds = nextInjuries.map((e) {
+                      final clean = e.trim().toLowerCase();
+                      if (clean.contains('gleichgewicht')) return 'BalanceIssue';
+                      if (clean.contains('sprunggelenk')) return 'AnkleIssue';
+                      if (clean.contains('rumpf')) return 'CoreWeakness';
+                      if (clean.contains('knie')) return 'KneesIssue';
+                      if (clean.contains('handgelenk')) return 'WristIssue';
+                      if (clean.contains('hüfte') || clean.contains('huefte')) return 'HipIssue';
+                      if (clean.contains('schulter')) return 'ShoulderIssue';
+                      if (clean.contains('nacken')) return 'NeckIssue';
+                      if (clean.contains('unterer rücken')) return 'LowerBackIssue';
+                      if (clean.contains('oberer rücken')) return 'UpperBackIssue';
+                      if (clean.contains('wirbelsäule')) return 'SpineIssue';
+                      if (clean.contains('oberschenkel')) return 'HamstringIssue';
+                      if (clean.contains('gesäß')) return 'GlutesIssue';
+                      return e;
+                    }).toSet().toList();
+
+                    // Speichert den sauberen Originalzustand (Englisch) in Isar
+                    userProvider.saveUser(
+                      name: _nameCtrl.text.trim(),
+                      gender: dbUser?.gender ?? Gender.diverse,
+                      age: int.tryParse(_ageCtrl.text) ?? dbUser?.age ?? 0,
+                      height: int.tryParse(_heightCtrl.text) ?? dbUser?.height ?? 0,
+                      weight: int.tryParse(_weightCtrl.text) ?? dbUser?.weight ?? 0,
+                      skillLevel: dbUser?.skillLevel ?? SkillLevel.beginner,
+                      injuries: uniqueOntologyIds,
+                    );
+                  },
                 ),
               ),
               const SizedBox(height: AppSpacing.lg),
@@ -290,8 +370,7 @@ class _ProfileEditSheetState extends State<ProfileEditSheet> {
               // MOBILITÄTSLEVEL
               Container(
                 width: double.infinity,
-                padding:
-                    const EdgeInsets.fromLTRB(16, 18, 16, 16),
+                padding: const EdgeInsets.fromLTRB(16, 18, 16, 16),
                 decoration: BoxDecoration(
                   color: AppColors.sageLight,
                   borderRadius: BorderRadius.circular(20),
@@ -306,12 +385,11 @@ class _ProfileEditSheetState extends State<ProfileEditSheet> {
                     const SizedBox(height: AppSpacing.sm),
                     Text(
                       'Schätz dich selbst ein – wähle die Stufe, die am '
-                      'besten zu dir passt.',
+                          'besten zu dir passt.',
                       style: AppText.caption.copyWith(
                           height: 1.55, color: AppColors.text),
                     ),
-                    if (MobilityLevelMeta.forKey(profile.mobility) !=
-                        null) ...[
+                    if (MobilityLevelMeta.forKey(uiProfile.mobility) != null) ...[
                       const SizedBox(height: AppSpacing.md),
                       Container(
                         padding: const EdgeInsets.symmetric(
@@ -319,7 +397,7 @@ class _ProfileEditSheetState extends State<ProfileEditSheet> {
                         decoration: BoxDecoration(
                           color: AppColors.white,
                           borderRadius:
-                              BorderRadius.circular(AppRadius.input),
+                          BorderRadius.circular(AppRadius.input),
                         ),
                         child: Row(
                           children: [
@@ -328,7 +406,7 @@ class _ProfileEditSheetState extends State<ProfileEditSheet> {
                                     .copyWith(color: AppColors.text)),
                             const SizedBox(width: AppSpacing.sm),
                             Text(
-                              MobilityLevelMeta.labelFor(profile.mobility),
+                              MobilityLevelMeta.labelFor(uiProfile.mobility),
                               style: AppText.cardTitle.copyWith(
                                   color: AppColors.sageDeep,
                                   fontWeight: FontWeight.w700),
@@ -339,8 +417,7 @@ class _ProfileEditSheetState extends State<ProfileEditSheet> {
                     ],
                     const SizedBox(height: AppSpacing.md),
                     _DarkButton(
-                      label: MobilityLevelMeta.forKey(profile.mobility) !=
-                              null
+                      label: MobilityLevelMeta.forKey(uiProfile.mobility) != null
                           ? 'Level ändern'
                           : 'Level wählen',
                       icon: Icons.bolt,
@@ -351,19 +428,74 @@ class _ProfileEditSheetState extends State<ProfileEditSheet> {
               ),
               const SizedBox(height: AppSpacing.xl),
 
+              // Speichern Button
               PrimaryButton(
                 label: 'Änderungen speichern',
                 icon: Icons.check,
-                onPressed: () {
-                  app.updateProfile(profile.copyWith(
+                onPressed: () async {
+                  // Mappt die Liste final in korrekte IDs um
+                  final finalOntologyInjuries = (dbUser?.contraindication ?? [])
+                      .map((e) => _convertToOntologyId(e))
+                      .toSet()
+                      .toList();
+
+                  await userProvider.saveUser(
                     name: _nameCtrl.text.trim(),
-                    age: int.tryParse(_ageCtrl.text),
-                    height: int.tryParse(_heightCtrl.text),
-                    weight: int.tryParse(_weightCtrl.text),
-                  ));
+                    gender: dbUser?.gender ?? Gender.diverse,
+                    age: int.tryParse(_ageCtrl.text) ?? dbUser?.age ?? 0,
+                    height: int.tryParse(_heightCtrl.text) ?? dbUser?.height ?? 0,
+                    weight: int.tryParse(_weightCtrl.text) ?? dbUser?.weight ?? 0,
+                    skillLevel: dbUser?.skillLevel ?? SkillLevel.beginner,
+                    injuries: finalOntologyInjuries,
+                  );
+
                   widget.onClose != null
                       ? widget.onClose!()
                       : Navigator.of(context).pop();
+                },
+              ),
+              const SizedBox(height: AppSpacing.md),
+
+              // Löschen Button
+              TextButton.icon(
+                style: TextButton.styleFrom(
+                  minimumSize: const Size(double.infinity, 44),
+                  foregroundColor: Colors.red,
+                ),
+                icon: const Icon(Icons.delete_forever, size: 18),
+                label: const Text('Profil löschen', style: TextStyle(fontWeight: FontWeight.bold)),
+                onPressed: () {
+                  showDialog(
+                    context: context,
+                    builder: (dialogContext) => AlertDialog(
+                      title: const Text('Profil unwiderruflich löschen?'),
+                      content: const Text(
+                        'Möchtest du dein Profil und alle Trainingsdaten wirklich '
+                            'aus der App und vom Server löschen?',
+                      ),
+                      actions: [
+                        TextButton(
+                          onPressed: () => Navigator.pop(dialogContext),
+                          child: const Text('Abbrechen'),
+                        ),
+                        TextButton(
+                          onPressed: () async {
+                            Navigator.pop(dialogContext);
+                            await context.read<UserProvider>().deleteUser();
+                            if (widget.onClose != null) {
+                              widget.onClose!();
+                            } else {
+                              Navigator.of(context).pop();
+                            }
+                            if (Navigator.of(context).canPop()) {
+                              Navigator.of(context).pop();
+                            }
+                          },
+                          child: const Text('Löschen', style: TextStyle(color: Colors.red)),
+                        ),
+                      ],
+                    ),
+                  );
                 },
               ),
             ],
@@ -374,8 +506,6 @@ class _ProfileEditSheetState extends State<ProfileEditSheet> {
   }
 }
 
-/// Dunkelgrüner (sageDeep) Voll-Button — für das Mobilitätslevel-Widget,
-/// wo der normale Primär-Button laut Design-Feedback zu blass war.
 class _DarkButton extends StatelessWidget {
   final String label;
   final IconData icon;
@@ -460,7 +590,6 @@ class _NumberField extends StatelessWidget {
               ),
               Text(suffix, style: AppText.micro),
               const SizedBox(width: 6),
-              // Stepper-Pfeile (hoch/runter), wie im Prototyp
               Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
@@ -514,7 +643,7 @@ class _GenderField extends StatelessWidget {
               style: AppText.body,
               items: Gender.values
                   .map((g) =>
-                      DropdownMenuItem(value: g, child: Text(g.label)))
+                  DropdownMenuItem(value: g, child: Text(g.label)))
                   .toList(),
               onChanged: (v) {
                 if (v != null) onChanged(v);
