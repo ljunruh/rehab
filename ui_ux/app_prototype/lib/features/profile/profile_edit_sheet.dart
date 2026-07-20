@@ -61,44 +61,50 @@ class _ProfileEditSheetState extends State<ProfileEditSheet> {
     super.dispose();
   }
 
-  // 1. Übersetzt geladene DB-Werte (egal ob ID oder Freitext) in das deutsche Wort für das Männchen-UI
+  // 1. ANZEIGE-MAPPER: Extrem toleranter Parser, der jeden Isar-Mischmasch
+  // in das exakte deutsche Wort für das Männchen-Widget verwandelt.
   String _convertToGermanTerm(String input) {
     final clean = input.trim().toLowerCase();
 
-    if (clean.contains('gleichgewicht') || clean.contains('balance')) return 'Gleichgewicht';
-    if (clean.contains('sprunggelenk') || clean.contains('ankle')) return 'Sprunggelenk';
-    if (clean.contains('rumpf') || clean.contains('core')) return 'Rumpf';
-    if (clean.contains('knie') || clean.contains('knee')) return 'Knie';
-    if (clean.contains('handgelenk') || clean.contains('wrist')) return 'Handgelenk';
-    if (clean.contains('hüfte') || clean.contains('huefte') || clean.contains('hip')) return 'Hüfte';
-    if (clean.contains('schulter') || clean.contains('shoulder')) return 'Schulter';
-    if (clean.contains('nacken') || clean.contains('neck')) return 'Nacken';
-    if (clean.contains('unterer rücken') || clean.contains('lowerback')) return 'Unterer Rücken';
-    if (clean.contains('oberer rücken') || clean.contains('upperback')) return 'Oberer Rücken';
-    if (clean.contains('wirbelsäule') || clean.contains('spine')) return 'Wirbelsäule';
-    if (clean.contains('hamstring') || clean.contains('oberschenkel')) return 'Oberschenkel';
-    if (clean.contains('gesäß') || clean.contains('glute')) return 'Gesäß';
+    if (clean.contains('balance') || clean.contains('gleichgewicht')) return 'Gleichgewicht';
+    if (clean.contains('ankle') || clean.contains('sprunggelenk')) return 'Sprunggelenk';
+    if (clean.contains('core') || clean.contains('rumpf')) return 'Rumpf';
+    if (clean.contains('wrist') || clean.contains('handgelenk')) return 'Handgelenk';
+    if (clean.contains('hip') || clean.contains('hüfte') || clean.contains('huefte')) return 'Hüfte';
+    if (clean.contains('shoulder') || clean.contains('schulter')) return 'Schulter';
+    if (clean.contains('neck') || clean.contains('nacken')) return 'Nacken';
 
-    return input;
+    if (clean.contains('lowerback') || clean.contains('unterer rücken') || clean.contains('untererrücken')) {
+      return 'Unterer Rücken';
+    }
+    if (clean.contains('upperback') || clean.contains('oberer rücken') || clean.contains('obererrücken')) {
+      return 'Oberer Rücken';
+    }
+    if (clean.contains('glute') || clean.contains('gesäß') || clean.contains('gesaess')) return 'Gesäß';
+    if (clean.contains('spine') || clean.contains('wirbelsäule')) return 'Wirbelsäule';
+    if (clean.contains('hamstring') || clean.contains('oberschenkel')) return 'Oberschenkel';
+    if (clean.contains('knee') || clean.contains('knie')) return 'Knie';
+
+    return input; // Fallback
   }
 
-  // 2. NEU: Mappt deutsche Begriffe vor dem Speichern in die exakten IDs, die die Ontologie/API braucht!
+  // 2. SPEICHER-MAPPER: Übersetzt die sauberen deutschen Begriffe zurück in die Ontologie-IDs
   String _convertToOntologyId(String input) {
     final clean = input.trim().toLowerCase();
 
-    if (clean.contains('gleichgewicht') || clean.contains('balance')) return 'BalanceIssue';
-    if (clean.contains('sprunggelenk') || clean.contains('ankle')) return 'AnkleIssue';
-    if (clean.contains('rumpf') || clean.contains('core')) return 'CoreWeakness';
-    if (clean.contains('knie') || clean.contains('knee')) return 'KneesIssue';
-    if (clean.contains('handgelenk') || clean.contains('wrist')) return 'WristIssue';
-    if (clean.contains('hüfte') || clean.contains('huefte') || clean.contains('hip')) return 'HipIssue';
-    if (clean.contains('schulter') || clean.contains('shoulder')) return 'ShoulderIssue';
-    if (clean.contains('nacken') || clean.contains('neck')) return 'NeckIssue';
-    if (clean.contains('unterer rücken') || clean.contains('lowerback')) return 'LowerBackIssue';
-    if (clean.contains('oberer rücken') || clean.contains('upperback')) return 'UpperBackIssue';
-    if (clean.contains('wirbelsäule') || clean.contains('spine')) return 'SpineIssue';
-    if (clean.contains('hamstring') || clean.contains('oberschenkel')) return 'HamstringIssue';
-    if (clean.contains('gesäß') || clean.contains('glute')) return 'GlutesIssue';
+    if (clean.contains('gleichgewicht')) return 'BalanceIssue';
+    if (clean.contains('sprunggelenk')) return 'AnkleIssue';
+    if (clean.contains('rumpf')) return 'CoreWeakness';
+    if (clean.contains('handgelenk')) return 'WristIssue';
+    if (clean.contains('hüfte') || clean.contains('huefte')) return 'HipIssue';
+    if (clean.contains('schulter')) return 'ShoulderIssue';
+    if (clean.contains('nacken')) return 'NeckIssue';
+    if (clean.contains('unterer rücken')) return 'LowerBackIssue';
+    if (clean.contains('oberer rücken')) return 'UpperBackIssue';
+    if (clean.contains('gesäß') || clean.contains('gesaess')) return 'GlutesIssue';
+    if (clean.contains('wirbelsäule')) return 'SpineIssue';
+    if (clean.contains('oberschenkel')) return 'HamstringIssue';
+    if (clean == 'knie') return 'KneesIssue';
 
     return input;
   }
@@ -305,54 +311,22 @@ class _ProfileEditSheetState extends State<ProfileEditSheet> {
               ),
               const SizedBox(height: AppSpacing.lg),
 
-
               // KÖRPERKARTE: UI auf Deutsch, Daten-Ebene auf Englisch
               Text('Verletzung(en)', style: AppText.caption),
               const SizedBox(height: AppSpacing.sm),
               Center(
                 child: BodyMapSelector(
-                  // 1. ANZEIGE (Für das Männchen): Wir übersetzen die englischen IDs aus der DB
-                  // live ins Deutsche, damit das Männchen leuchtet und deutsche Tags anzeigt.
+                  // 1. ANZEIGE (Für das Männchen): Nutzen des extrem toleranten Mappers (.contains)
                   selected: (dbUser?.contraindication ?? []).map((e) {
-                    final clean = e.trim().toLowerCase();
-                    if (clean == 'balanceissue') return 'Gleichgewicht';
-                    if (clean == 'ankleissue') return 'Sprunggelenk';
-                    if (clean == 'coreweakness') return 'Rumpf';
-                    if (clean == 'kneesissue') return 'Knie';
-                    if (clean == 'wristissue') return 'Handgelenk';
-                    if (clean == 'hipissue') return 'Hüfte';
-                    if (clean == 'shoulderissue') return 'Schulter';
-                    if (clean == 'neckissue') return 'Nacken';
-                    if (clean == 'lowerbackissue') return 'Unterer Rücken';
-                    if (clean == 'upperbackissue') return 'Oberer Rücken';
-                    if (clean == 'spineissue') return 'Wirbelsäule';
-                    if (clean == 'hamstringissue') return 'Oberschenkel';
-                    if (clean == 'glutesissue') return 'Gesäß';
-                    return e; // Fallback, falls schon Text drin steht
+                    return _convertToGermanTerm(e);
                   }).toSet().toList(),
 
-                  // 2. SPEICHERN (Für Isar & API): Wenn der Nutzer tippt, übersetzen wir das
-                  // deutsche Wort sofort wieder zurück in die korrekte englische ID!
+                  // 2. TAPPING-UPDATE: Übersetzt deutsche UI-Klicks live in DB-IDs
                   onChanged: (nextInjuries) {
                     final uniqueOntologyIds = nextInjuries.map((e) {
-                      final clean = e.trim().toLowerCase();
-                      if (clean.contains('gleichgewicht')) return 'BalanceIssue';
-                      if (clean.contains('sprunggelenk')) return 'AnkleIssue';
-                      if (clean.contains('rumpf')) return 'CoreWeakness';
-                      if (clean.contains('knie')) return 'KneesIssue';
-                      if (clean.contains('handgelenk')) return 'WristIssue';
-                      if (clean.contains('hüfte') || clean.contains('huefte')) return 'HipIssue';
-                      if (clean.contains('schulter')) return 'ShoulderIssue';
-                      if (clean.contains('nacken')) return 'NeckIssue';
-                      if (clean.contains('unterer rücken')) return 'LowerBackIssue';
-                      if (clean.contains('oberer rücken')) return 'UpperBackIssue';
-                      if (clean.contains('wirbelsäule')) return 'SpineIssue';
-                      if (clean.contains('oberschenkel')) return 'HamstringIssue';
-                      if (clean.contains('gesäß')) return 'GlutesIssue';
-                      return e;
+                      return _convertToOntologyId(e);
                     }).toSet().toList();
 
-                    // Speichert den sauberen Originalzustand (Englisch) in Isar
                     userProvider.saveUser(
                       name: _nameCtrl.text.trim(),
                       gender: dbUser?.gender ?? Gender.diverse,
@@ -433,9 +407,9 @@ class _ProfileEditSheetState extends State<ProfileEditSheet> {
                 label: 'Änderungen speichern',
                 icon: Icons.check,
                 onPressed: () async {
-                  // Mappt die Liste final in korrekte IDs um
+                  // Mappt alle aktuell in Isar stehenden Alt-Leichen/Begriffe final auf saubere Ontologie-IDs um
                   final finalOntologyInjuries = (dbUser?.contraindication ?? [])
-                      .map((e) => _convertToOntologyId(e))
+                      .map((e) => _convertToOntologyId(_convertToGermanTerm(e)))
                       .toSet()
                       .toList();
 
