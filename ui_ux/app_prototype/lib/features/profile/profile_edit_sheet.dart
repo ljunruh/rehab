@@ -430,7 +430,7 @@ class _ProfileEditSheetState extends State<ProfileEditSheet> {
               ),
               const SizedBox(height: AppSpacing.md),
 
-              // Löschen Button
+// Löschen Button
               TextButton.icon(
                 style: TextButton.styleFrom(
                   minimumSize: const Size(double.infinity, 44),
@@ -454,15 +454,14 @@ class _ProfileEditSheetState extends State<ProfileEditSheet> {
                         ),
                         TextButton(
                           onPressed: () async {
-                            Navigator.pop(dialogContext);
+                            // 1. Profil im Provider löschen
                             await context.read<UserProvider>().deleteUser();
-                            if (widget.onClose != null) {
-                              widget.onClose!();
-                            } else {
-                              Navigator.of(context).pop();
-                            }
-                            if (Navigator.of(context).canPop()) {
-                              Navigator.of(context).pop();
+
+                            // 2. Navigation komplett resetten und zurück zur Root-Route (AppShell)
+                            if (context.mounted) {
+                              // Schließt den Dialog und navigiert zur Root.
+                              // Die AppShell erkennt dann, dass kein User da ist.
+                              Navigator.of(context).pushNamedAndRemoveUntil('/', (route) => false);
                             }
                           },
                           child: const Text('Löschen', style: TextStyle(color: Colors.red)),
