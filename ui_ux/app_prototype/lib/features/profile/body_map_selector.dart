@@ -39,8 +39,7 @@ class _Region {
   const _Region(this.label, {this.back = false, required this.parts});
 }
 
-/// Regionen + Positionen (Labels = deutsche Körperregionen aus Sophias
-/// Knowledge-Graph-Übersetzung).
+/// Regionen + Positionen
 const List<_Region> _kRegions = [
   // ── Vorderseite ──
   _Region('Nacken', parts: [_Part(106, 70, 28, 15, 8)]),
@@ -55,9 +54,9 @@ const List<_Region> _kRegions = [
   // ── Rückseite ──
   _Region('Nacken', back: true, parts: [_Part(106, 70, 28, 15, 8)]),
   _Region('Schulter', back: true, parts: [_Part(66, 90, 32, 28, 14), _Part(142, 90, 32, 28, 14)]),
-  _Region('Oberer Rücken', back: true, parts: [_Part(92, 128, 56, 40, 18)]),
+  _Region('Wirbelsäule', back: true, parts: [_Part(92, 128, 56, 40, 18)]),   // HIER KORRIGIERT (War vorher Oberer Rücken)
   _Region('Unterer Rücken', back: true, parts: [_Part(92, 172, 56, 40, 18)]),
-  _Region('Gesäß', back: true, parts: [_Part(90, 216, 60, 34, 18)]),
+  _Region('Oberschenkel', back: true, parts: [_Part(90, 216, 60, 34, 18)]), // HIER KORRIGIERT (War vorher Gesäß)
   _Region('Handgelenk', back: true, parts: [_Part(52, 196, 24, 24, 12), _Part(164, 196, 24, 24, 12)]),
   _Region('Knie', back: true, parts: [_Part(78, 300, 28, 28, 14), _Part(134, 300, 28, 28, 14)]),
   _Region('Sprunggelenk', back: true, parts: [_Part(80, 360, 24, 18, 9), _Part(136, 360, 24, 18, 9)]),
