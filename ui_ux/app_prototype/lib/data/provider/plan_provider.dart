@@ -13,6 +13,7 @@ class PlanProvider extends ChangeNotifier {
 
   List<Plan> _plans = [];
   List<Plan> get plans => _plans;
+  List<Plan> get activePlans => _plans.where((p) => !p.archived).toList();
   Plan? _selectedPlan = null;
   Plan? get plan => _selectedPlan;
 
@@ -48,5 +49,19 @@ class PlanProvider extends ChangeNotifier {
     _activeRegions = await repo.getActiveTrainedRegions();
     notifyListeners();
     return _activeRegions;
+  }
+
+  Future<void> incrementCompletedSessions(String planId) async {
+    final index = _plans.indexWhere((p) => p.id == planId);
+    if (index != -1) {
+      final currentPlan = _plans[index];
+      final updatedPlan = currentPlan.copyWith(
+        completedSessions: currentPlan.completedSessions + 1,
+      );
+
+      await repo.savePlan(updatedPlan);
+      _plans[index] = updatedPlan;
+      notifyListeners();
+    }
   }
 }

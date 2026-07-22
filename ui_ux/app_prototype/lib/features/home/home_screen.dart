@@ -1,15 +1,15 @@
-import 'package:app_prototype/data/provider/plan_provider.dart';
+import 'package:app_prototype/data/models/api/plan.dart';
 import 'package:app_prototype/data/provider/user_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../../core/theme/app_theme.dart';
 import '../../core/widgets/widgets.dart';
-import '../../state/ui_state.dart';
 import '../../data/demo/demo_data.dart';
-import 'home_hero.dart';
-import 'starter_carousel.dart';
-import 'pain_carousel.dart';
+import '../../state/ui_state.dart';
 import 'concentric_rings.dart';
+import 'home_hero.dart';
+import 'pain_carousel.dart';
+import 'starter_carousel.dart';
 import 'tip_of_day_card.dart';
 
 /// ┌──────────────────────────────────────────────────────────┐
@@ -22,12 +22,12 @@ class HomeScreen extends StatelessWidget {
   final VoidCallback onOpenProfile;
 
   /// Startet das Training für eine Region (aus dem Starter-Karussell).
-  final ValueChanged<String> onStartRegion;
+  final ValueChanged<Plan> onStartTraining;
 
   const HomeScreen({
     super.key,
     required this.onOpenProfile,
-    required this.onStartRegion,
+    required this.onStartTraining,
   });
 
   @override
@@ -80,7 +80,8 @@ class HomeScreen extends StatelessWidget {
                           style: AppText.screenTitle.copyWith(
                               fontSize: 20, fontWeight: FontWeight.w500)),
                     ),
-                    StarterCarousel(onStartRegion: onStartRegion),
+                    //TODO[API]
+                    StarterCarousel(onStartTraining: onStartTraining),
                     const SizedBox(height: AppSpacing.sectionGap),
 
                     // Schmerz-Karussell

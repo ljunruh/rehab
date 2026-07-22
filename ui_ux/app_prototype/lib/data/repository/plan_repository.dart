@@ -25,6 +25,10 @@ class PlanRepository {
     });
   }
 
+  Future<List<Plan>> getActivePlans() async {
+    return isar.plans.filter().archivedEqualTo(false).findAll();
+  }
+
   Future<List<BodyPart>> getActiveTrainedRegions() async {
     final activePlans = await isar.plans
         .filter()

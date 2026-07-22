@@ -223,22 +223,7 @@ class _AppShellState extends State<AppShell> {
         case AppTab.home:
           screen = HomeScreen(
             onOpenProfile: _openProfile,
-            onStartRegion: (region) {
-              // Sucht den ersten aktiven Plan dieser Region und startet ihn.
-              final app = context.read<UiState>();
-              TrainingPlan? match;
-              for (final p in app.activePlans) {
-                if (p.region == region) {
-                  match = p;
-                  break;
-                }
-              }
-              if (match != null) {
-                _startTraining(match.id);
-              } else {
-                app.showToast('Für $region gibt es noch keinen Plan.');
-              }
-            },
+            onStartTraining: (plan) => _startTraining(plan.id)
           );
           break;
         case AppTab.plans:

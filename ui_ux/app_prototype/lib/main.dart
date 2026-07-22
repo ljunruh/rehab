@@ -1,15 +1,18 @@
 import 'package:app_prototype/data/api/exercise_api.dart';
 import 'package:app_prototype/data/models/api/pain_log.dart';
 import 'package:app_prototype/data/models/api/plan.dart';
+import 'package:app_prototype/data/models/api/plan_log_exercise.dart';
 import 'package:app_prototype/data/models/models.dart';
 import 'package:app_prototype/data/provider/exercise_provider.dart';
 import 'package:app_prototype/data/provider/pain_log_exercise_provider.dart';
 import 'package:app_prototype/data/provider/pain_log_provider.dart';
+import 'package:app_prototype/data/provider/plan_log_exercise_provider.dart';
 import 'package:app_prototype/data/provider/plan_provider.dart';
 import 'package:app_prototype/data/provider/user_provider.dart';
 import 'package:app_prototype/data/repository/exercise_repository.dart';
 import 'package:app_prototype/data/repository/pain_log_exercise_repository.dart';
 import 'package:app_prototype/data/repository/pain_log_repository.dart';
+import 'package:app_prototype/data/repository/plan_log_exercise_repository.dart';
 import 'package:app_prototype/data/repository/plan_repository.dart';
 import 'package:app_prototype/data/repository/user_repository.dart';
 import 'package:flutter/material.dart';
@@ -35,7 +38,8 @@ void main() async {
       UserSchema,
       PlanSchema,
       PainLogSchema,
-      PainLogExerciseSchema
+      PainLogExerciseSchema,
+      PlanLogExerciseSchema,
     ],
     directory: appDir.path
   );
@@ -45,6 +49,7 @@ void main() async {
   final planRepository = PlanRepository(isar);
   final painLogRepository = PainLogRepository(isar);
   final painLogExerciseRepository = PainLogExerciseRepository(isar);
+  final planLogExerciseRepository = PlanLogExerciseRepository(isar);
 
   runApp(MultiProvider(
       providers: [
@@ -54,6 +59,7 @@ void main() async {
         ChangeNotifierProvider(create: (_) => PlanProvider(planRepository)),
         ChangeNotifierProvider(create: (_) => PainLogProvider(painLogRepository)),
         ChangeNotifierProvider(create: (_) => PainLogExerciseProvider(painLogExerciseRepository)),
+        ChangeNotifierProvider(create: (_) => PlanLogExerciseProvider(planLogExerciseRepository)),
       ],
       child: RehaApp()));
 }

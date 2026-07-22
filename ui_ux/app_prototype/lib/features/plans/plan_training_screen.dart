@@ -3,6 +3,7 @@ import 'package:app_prototype/data/enum/skill_level.dart';
 import 'package:app_prototype/data/models/api/api_models.dart' as api;
 import 'package:app_prototype/data/provider/pain_log_exercise_provider.dart';
 import 'package:app_prototype/data/provider/pain_log_provider.dart';
+import 'package:app_prototype/data/provider/plan_log_exercise_provider.dart';
 import 'package:app_prototype/data/provider/plan_provider.dart';
 import 'package:app_prototype/features/plans/plan_training_video_widget.dart';
 import 'package:flutter/material.dart';
@@ -571,6 +572,7 @@ class _PlanTrainingScreenState extends State<PlanTrainingScreen> {
             ],
             Expanded(
               child: SecondaryButton(
+                //TODO: Fehlt -> Wenn Pausieren gedrückt wird, dann Training schließen und zurück zur Planübersicht
                 label: isLast ? 'Pausieren' : 'Überspringen',
                 onPressed: () {
                   if (_idx < exercises.length - 1) {
@@ -609,7 +611,13 @@ class _PlanTrainingScreenState extends State<PlanTrainingScreen> {
         exerciseId: current.id
       );
     }
+
+    context.read<PlanLogExerciseProvider>().logExercise(
+      planId: planId,
+      exerciseId: current.id,
+    );
     if (isLast) {
+      context.read<PlanProvider>().incrementCompletedSessions(planId);
       setState(() => _done = true);
     } else {
       setState(() => _idx += 1);

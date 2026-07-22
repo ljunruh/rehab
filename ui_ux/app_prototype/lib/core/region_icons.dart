@@ -7,6 +7,7 @@
 class RegionIcons {
   RegionIcons._();
 
+  //TODO: Für alle Golas Icons anlegen
   static const Map<String, String> _byRegion = {
     'Schulter': 'assets/icons/regions/schulter.svg',
     'Rücken': 'assets/icons/regions/ruecken.svg',
