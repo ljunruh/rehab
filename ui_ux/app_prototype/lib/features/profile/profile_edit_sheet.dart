@@ -40,7 +40,10 @@ class _ProfileEditSheetState extends State<ProfileEditSheet> {
   late TextEditingController _ageCtrl;
   late TextEditingController _heightCtrl;
   late TextEditingController _weightCtrl;
-  late List<String> _selectedInjuries; // NEU
+  late Gender _selectedGender;
+
+  // LOKALE ZWISCHENSPEICHER
+  late List<String> _selectedInjuries;
   bool _editingName = false;
 
   @override
@@ -53,7 +56,9 @@ class _ProfileEditSheetState extends State<ProfileEditSheet> {
     _ageCtrl = TextEditingController(text: dbUser?.age.toString() ?? '');
     _heightCtrl = TextEditingController(text: dbUser?.height.toString() ?? '');
     _weightCtrl = TextEditingController(text: dbUser?.weight.toString() ?? '');
-    _selectedInjuries = List.from(dbUser?.contraindication ?? []); // NEU
+    _selectedGender = dbUser?.gender ?? Gender.diverse;
+
+    _selectedInjuries = List.from(dbUser?.contraindication ?? []);
   }
 
   @override
@@ -65,45 +70,43 @@ class _ProfileEditSheetState extends State<ProfileEditSheet> {
     super.dispose();
   }
 
-  // 1. ANZEIGE-MAPPER: Extrem toleranter Parser, der jeden Isar-Mischmasch
-  // in das exakte deutsche Wort für das Männchen-Widget verwandelt.
+  // Zentraler Mapper: Holt das exakte Label aus dem UI und wandelt es um
+  SkillLevel _resolveSkillLevel(String mobilityRaw, UiState app) {
+    // Versuche das offizielle Label aus der Meta zu holen (z.B. "Geübt", "Anfänger", etc.)
+    String label = '';
+    try {
+      label = MobilityLevelMeta.labelFor(mobilityRaw).toLowerCase();
+    } catch (_) {
+      label = mobilityRaw.toLowerCase();
+    }
+
+    if (label.contains('fortgeschritten') || label.contains('profi') || label.contains('advanced') || label.contains('experte')) {
+      return SkillLevel.advanced;
+    }
+    if (label.contains('geübt') || label.contains('moderat') || label.contains('intermediate') || label.contains('mittel')) {
+      return SkillLevel.intermediate;
+    }
+    return SkillLevel.beginner;
+  }
+
   String _convertToGermanTerm(String input) {
     final clean = input.trim().toLowerCase();
-    if (clean.contains('balance') || clean.contains('gleichgewicht'))
-      return 'Gleichgewicht';
-    if (clean.contains('ankle') || clean.contains('sprunggelenk'))
-      return 'Sprunggelenk';
+    if (clean.contains('balance') || clean.contains('gleichgewicht')) return 'Gleichgewicht';
+    if (clean.contains('ankle') || clean.contains('sprunggelenk')) return 'Sprunggelenk';
     if (clean.contains('core') || clean.contains('rumpf')) return 'Rumpf';
-    if (clean.contains('wrist') || clean.contains('handgelenk'))
-      return 'Handgelenk';
-    if (clean.contains('hip') ||
-        clean.contains('hüfte') ||
-        clean.contains('huefte'))
-      return 'Hüfte';
-    if (clean.contains('shoulder') || clean.contains('schulter'))
-      return 'Schulter';
+    if (clean.contains('wrist') || clean.contains('handgelenk')) return 'Handgelenk';
+    if (clean.contains('hip') || clean.contains('hüfte') || clean.contains('huefte')) return 'Hüfte';
+    if (clean.contains('shoulder') || clean.contains('schulter')) return 'Schulter';
     if (clean.contains('neck') || clean.contains('nacken')) return 'Nacken';
-    if (clean.contains('lowerback') ||
-        clean.contains('unterer rücken') ||
-        clean.contains('untererrücken'))
-      return 'Unterer Rücken';
-    if (clean.contains('upperback') ||
-        clean.contains('oberer rücken') ||
-        clean.contains('obererrücken'))
-      return 'Oberer Rücken';
-    if (clean.contains('glute') ||
-        clean.contains('gesäß') ||
-        clean.contains('gesaess'))
-      return 'Gesäß';
-    if (clean.contains('spine') || clean.contains('wirbelsäule'))
-      return 'Wirbelsäule';
-    if (clean.contains('hamstring') || clean.contains('oberschenkel'))
-      return 'Oberschenkel';
+    if (clean.contains('lowerback') || clean.contains('unterer rücken') || clean.contains('untererrücken')) return 'Unterer Rücken';
+    if (clean.contains('upperback') || clean.contains('oberer rücken') || clean.contains('obererrücken')) return 'Oberer Rücken';
+    if (clean.contains('glute') || clean.contains('gesäß') || clean.contains('gesaess')) return 'Gesäß';
+    if (clean.contains('spine') || clean.contains('wirbelsäule')) return 'Wirbelsäule';
+    if (clean.contains('hamstring') || clean.contains('oberschenkel')) return 'Oberschenkel';
     if (clean.contains('knee') || clean.contains('knie')) return 'Knie';
     return input;
   }
 
-  // 2. SPEICHER-MAPPER: Übersetzt die sauberen deutschen Begriffe zurück in die Ontologie-IDs
   String _convertToOntologyId(String input) {
     final clean = input.trim().toLowerCase();
     if (clean.contains('gleichgewicht')) return 'BalanceIssue';
@@ -115,8 +118,7 @@ class _ProfileEditSheetState extends State<ProfileEditSheet> {
     if (clean.contains('nacken')) return 'NeckIssue';
     if (clean.contains('unterer rücken')) return 'LowerBackIssue';
     if (clean.contains('oberer rücken')) return 'UpperBackIssue';
-    if (clean.contains('gesäß') || clean.contains('gesaess'))
-      return 'GlutesIssue';
+    if (clean.contains('gesäß') || clean.contains('gesaess')) return 'GlutesIssue';
     if (clean.contains('wirbelsäule')) return 'SpineIssue';
     if (clean.contains('oberschenkel')) return 'HamstringIssue';
     if (clean == 'knie') return 'KneesIssue';
@@ -273,18 +275,18 @@ class _ProfileEditSheetState extends State<ProfileEditSheet> {
                     Expanded(
                       child: _editingName
                           ? TextField(
-                              controller: _nameCtrl,
-                              autofocus: true,
-                              style: AppText.body,
-                              decoration: const InputDecoration(
-                                border: InputBorder.none,
-                                isDense: true,
-                              ),
-                            )
+                        controller: _nameCtrl,
+                        autofocus: true,
+                        style: AppText.body,
+                        decoration: const InputDecoration(
+                          border: InputBorder.none,
+                          isDense: true,
+                        ),
+                      )
                           : Padding(
-                              padding: const EdgeInsets.symmetric(vertical: 12),
-                              child: Text(_nameCtrl.text, style: AppText.body),
-                            ),
+                        padding: const EdgeInsets.symmetric(vertical: 12),
+                        child: Text(_nameCtrl.text, style: AppText.body),
+                      ),
                     ),
                     GestureDetector(
                       onTap: () => setState(() => _editingName = !_editingName),
@@ -323,8 +325,8 @@ class _ProfileEditSheetState extends State<ProfileEditSheet> {
                 children: [
                   Expanded(
                     child: _GenderField(
-                      value: dbUser?.gender ?? Gender.diverse,
-                      onChanged: (g) => setState(() {}),
+                      value: _selectedGender,
+                      onChanged: (g) => setState(() => _selectedGender = g),
                     ),
                   ),
                   const SizedBox(width: AppSpacing.sm),
@@ -348,7 +350,6 @@ class _ProfileEditSheetState extends State<ProfileEditSheet> {
                       .toSet()
                       .toList(),
                   onChanged: (nextInjuries) {
-                    // NUR LOKAL SPEICHERN
                     setState(() {
                       _selectedInjuries = nextInjuries
                           .map((e) => _convertToOntologyId(e))
@@ -418,7 +419,7 @@ class _ProfileEditSheetState extends State<ProfileEditSheet> {
                     const SizedBox(height: AppSpacing.md),
                     _DarkButton(
                       label:
-                          MobilityLevelMeta.forKey(uiProfile.mobility) != null
+                      MobilityLevelMeta.forKey(uiProfile.mobility) != null
                           ? 'Level ändern'
                           : 'Level wählen',
                       icon: Icons.bolt,
@@ -434,18 +435,17 @@ class _ProfileEditSheetState extends State<ProfileEditSheet> {
                 label: 'Änderungen speichern',
                 icon: Icons.check,
                 onPressed: () async {
-                  // Mappt alle aktuell in Isar stehenden Alt-Leichen/Begriffe final auf saubere Ontologie-IDs um
+                  // Holt direkt den UI-Wert und löst ihn sicher auf
+                  final resolvedSkillLevel = _resolveSkillLevel(uiProfile.mobility, app);
+
                   await userProvider.saveUser(
                     name: _nameCtrl.text.trim(),
-                    gender: dbUser?.gender ?? Gender.diverse,
+                    gender: _selectedGender,
                     age: int.tryParse(_ageCtrl.text) ?? dbUser?.age ?? 0,
-                    height:
-                        int.tryParse(_heightCtrl.text) ?? dbUser?.height ?? 0,
-                    weight:
-                        int.tryParse(_weightCtrl.text) ?? dbUser?.weight ?? 0,
-                    skillLevel: dbUser?.skillLevel ?? SkillLevel.beginner,
-                    injuries:
-                        _selectedInjuries, // Hier wird die lokale Liste übergeben
+                    height: int.tryParse(_heightCtrl.text) ?? dbUser?.height ?? 0,
+                    weight: int.tryParse(_weightCtrl.text) ?? dbUser?.weight ?? 0,
+                    skillLevel: resolvedSkillLevel,
+                    injuries: _selectedInjuries,
                   );
                   widget.onClose != null
                       ? widget.onClose!()
@@ -454,7 +454,7 @@ class _ProfileEditSheetState extends State<ProfileEditSheet> {
               ),
               const SizedBox(height: AppSpacing.md),
 
-// Löschen Button
+              // Löschen Button
               TextButton.icon(
                 style: TextButton.styleFrom(
                   minimumSize: const Size(double.infinity, 44),
@@ -477,11 +477,7 @@ class _ProfileEditSheetState extends State<ProfileEditSheet> {
                         ),
                         TextButton(
                           onPressed: () async {
-                            // 1. Profil im Provider löschen
                             await context.read<UserProvider>().deleteUser();
-                            // 2. Navigation komplett resetten und zurück zur Root-Route (AppShell)
-                              // Schließt den Dialog und navigiert zur Root.
-                              // Die AppShell erkennt dann, dass kein User da ist.
                             if (context.mounted)
                               Navigator.of(
                                 ctx,
