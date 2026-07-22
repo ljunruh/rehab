@@ -70,11 +70,11 @@ class _StarterCarouselState extends State<StarterCarousel> {
 
               final String statusText;
               if (isLimitReached) {
-                statusText = 'Wochenziel erreicht 🎉';
+                statusText = 'Wochenziel erreicht';
               } else if (total == 0) {
                 statusText = 'Heute nichts geplant';
               } else if (done == total) {
-                statusText = 'Alles erledigt ✓';
+                statusText = 'Alles erledigt';
               } else if (done > 0) {
                 statusText = '$done von $total erledigt';
               } else {

@@ -39,4 +39,35 @@ class PlanLogExerciseProvider extends ChangeNotifier {
 
     return (done: done, total: total);
   }
+
+  /// Prüft, ob eine bestimmte Übung eines Plans heute bereits absolviert wurde
+  bool isExerciseCompletedToday(String planId, String exerciseId) {
+    return _todayLogs.any((log) => log.planId == planId && log.exerciseId == exerciseId);
+  }
+
+  /// Prüft, ob alle Übungen eines Plans heute bereits absolviert wurden
+  bool areAllExercisesCompletedToday(Plan plan) {
+    if (plan.exercises.isEmpty) return false;
+    return plan.exercises.every((ex) => isExerciseCompletedToday(plan.id, ex.id));
+  }
+
+  /// Prüft, ob der nächste Klick auf eine Übung den Plan vollständig abschließt
+  bool willCompleteAllWithThisClick(Plan plan, String currentExerciseId) {
+    if (areAllExercisesCompletedToday(plan)) return true;
+
+    final isCurrentDone = isExerciseCompletedToday(plan.id, currentExerciseId);
+    if (isCurrentDone) return false;
+
+    final completedCount = plan.exercises
+        .where((ex) => isExerciseCompletedToday(plan.id, ex.id))
+        .length;
+
+    // Wenn aktuell genau (Anzahl - 1) Übungen fertig sind, schließt dieser Klick alles ab
+    return completedCount + 1 == plan.exercises.length;
+  }
+
+  /// Liefert den Index der ersten Übung, die heute noch nicht erledigt wurde (-1 wenn alle fertig sind)
+  int getNextOpenExerciseIndex(Plan plan) {
+    return plan.exercises.indexWhere((ex) => !isExerciseCompletedToday(plan.id, ex.id));
+  }
 }

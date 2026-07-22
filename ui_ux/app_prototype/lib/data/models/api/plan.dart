@@ -8,8 +8,7 @@ part 'plan.g.dart';
 
 @Collection()
 class Plan {
-  //TODO[API]: Brauchen wir die isarId noch?
-  Id isarId = Isar.autoIncrement;
+  Id isarId;
 
   @Index(unique: true)
   final String id;
@@ -33,6 +32,7 @@ class Plan {
   final String? description;
 
   Plan({
+    this.isarId = Isar.autoIncrement,
     required this.id,
     required this.name,
     required this.region,
@@ -47,6 +47,8 @@ class Plan {
   });
 
   Plan copyWith({
+    Id? isarId,
+    String? id,
     String? name,
     BodyPart? region,
     Goal? goal,
@@ -59,7 +61,8 @@ class Plan {
     String? description,
   }) {
     return Plan(
-      id: id,
+      isarId: isarId ?? this.isarId,
+      id: id ?? this.id,
       name: name ?? this.name,
       region: region ?? this.region,
       goal: goal ?? this.goal,

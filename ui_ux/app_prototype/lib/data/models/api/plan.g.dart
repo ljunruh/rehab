@@ -161,13 +161,13 @@ Plan _planDeserialize(
     goal: _PlangoalValueEnumMap[reader.readByteOrNull(offsets[4])] ??
         Goal.balance,
     id: reader.readString(offsets[5]),
+    isarId: id,
     name: reader.readString(offsets[6]),
     region: _PlanregionValueEnumMap[reader.readByteOrNull(offsets[7])] ??
         BodyPart.ankles,
     sessionsPerWeek: reader.readLongOrNull(offsets[8]) ?? 3,
     source: reader.readStringOrNull(offsets[9]) ?? 'eigen',
   );
-  object.isarId = id;
   return object;
 }
 

@@ -1,6 +1,7 @@
 import 'package:app_prototype/data/enum/body_part.dart';
 import 'package:app_prototype/data/enum/skill_level.dart';
 import 'package:app_prototype/data/models/api/api_models.dart' as api;
+import 'package:app_prototype/data/models/api/plan.dart';
 import 'package:app_prototype/data/provider/pain_log_exercise_provider.dart';
 import 'package:app_prototype/data/provider/pain_log_provider.dart';
 import 'package:app_prototype/data/provider/plan_log_exercise_provider.dart';
@@ -56,6 +57,7 @@ class _PlanTrainingScreenState extends State<PlanTrainingScreen> {
 
     WidgetsBinding.instance.addPostFrameCallback((_) {
       context.read<PlanProvider>().getPlan(widget.planId);
+      context.read<PlanLogExerciseProvider>().loadTodayLogs();
     });
   }
 
@@ -65,54 +67,18 @@ class _PlanTrainingScreenState extends State<PlanTrainingScreen> {
     return AppColors.sage;
   }
 
-  /*
-  int _planDuration(TrainingPlan plan, UiState app) {
-    var total = 0;
-    for (final id in plan.exerciseIds) {
-      for (final e in app.library) {
-        if (e.id == id) {
-          total += int.tryParse(e.duration.replaceAll(RegExp(r'[^0-9]'), '')) ?? 0;
-          break;
-        }
-      }
-    }
-    return total;
-  }
-  */
-
   @override
   Widget build(BuildContext context) {
     final app = context.watch<UiState>();
     final planProvider = context.watch<PlanProvider>();
+    final logProvider = context.watch<PlanLogExerciseProvider>();
+
     final plan = planProvider.plan;
     final exercises = plan?.exercises ?? [];
     final planDuration = plan?.duration ?? 0;
 
-
-    //final plan = app.planById(widget.planId);
-    if (plan == null) {
-      return Center(child: Text('Plan nicht gefunden.', style: AppText.body));
-    }
-
-    // UI DemoData auskommentieren
-    // Übungen des Plans aus der Bibliothek auflösen (in exerciseIds-Reihenfolge).
-    /*
-    final exercises = <Exercise>[];
-    for (final id in plan.exerciseIds) {
-      for (final e in app.library) {
-        if (e.id == id) {
-          exercises.add(e);
-          break;
-        }
-      }
-    }
-    */
-
-    if (exercises.isEmpty) {
-      return Center(
-        child: Text('Dieser Plan enthält keine Übungen.', style: AppText.body),
-      );
-    }
+    if (plan == null) return Center(child: Text('Plan nicht gefunden.', style: AppText.body));
+    if (exercises.isEmpty) return Center(child: Text('Dieser Plan enthält keine Übungen.', style: AppText.body));
 
     if (_done) {
       return _CompletionView(
@@ -123,9 +89,18 @@ class _PlanTrainingScreenState extends State<PlanTrainingScreen> {
     }
 
     final api.Exercise current = exercises[_idx];
-    final isLast = _idx == exercises.length - 1;
+    final isLastIndex = _idx == exercises.length - 1;
     final pain = _painLevels[_idx];
     final severe = pain != null && pain >= 7;
+
+    final isCurrentCompleted = logProvider.isExerciseCompletedToday(plan.id, current.id);
+    final willCompleteAll = logProvider.willCompleteAllWithThisClick(plan, current.id);
+
+    final String primaryButtonLabel = isCurrentCompleted
+        ? 'Übung bereits heute erledigt'
+        : (willCompleteAll
+        ? 'Übung erledigt – Plan abschließen'
+        : 'Übung erledigt · Weiter');
 
     return ListView(
       padding: const EdgeInsets.fromLTRB(
@@ -216,7 +191,7 @@ class _PlanTrainingScreenState extends State<PlanTrainingScreen> {
           spacing: AppSpacing.sm,
           runSpacing: AppSpacing.sm,
           children: [
-            _Pill(BodyPartExt.fromString(current.bodyParts[0]).label), //TODO[API]: Magic Number -> Prüfen ob hier aktuell immer nur ein BodyPart steht
+            _Pill(BodyPartExt.fromString(current.bodyParts[0]).label),
             _Pill(SkillLevelExt.fromString(current.difficulty).label),
           ],
         ),
@@ -252,7 +227,7 @@ class _PlanTrainingScreenState extends State<PlanTrainingScreen> {
                       Padding(
                         padding: EdgeInsets.only(
                           bottom:
-                              i == current.instructions.length - 1 ? 0 : AppSpacing.sm,
+                          i == current.instructions.length - 1 ? 0 : AppSpacing.sm,
                         ),
                         child: Row(
                           crossAxisAlignment: CrossAxisAlignment.start,
@@ -285,7 +260,7 @@ class _PlanTrainingScreenState extends State<PlanTrainingScreen> {
             ),
           ),
 
-        // Korrekturen & Hinweise – aufklappbar, warme Farbe
+        // Korrekturen & Hinweise – aufklappbar
         if (current.instructions.isNotEmpty)
           Padding(
             padding: const EdgeInsets.only(bottom: AppSpacing.base),
@@ -367,7 +342,7 @@ class _PlanTrainingScreenState extends State<PlanTrainingScreen> {
                 child: Container(
                   width: double.infinity,
                   padding:
-                      const EdgeInsets.symmetric(horizontal: 14, vertical: 11),
+                  const EdgeInsets.symmetric(horizontal: 14, vertical: 11),
                   decoration: BoxDecoration(
                     color: AppColors.white,
                     borderRadius: BorderRadius.circular(13),
@@ -385,8 +360,7 @@ class _PlanTrainingScreenState extends State<PlanTrainingScreen> {
                               fontWeight: FontWeight.w500,
                               color: AppColors.text)),
                       const SizedBox(width: 6),
-                      Text('optional',
-                          style: AppText.micro),
+                      Text('optional', style: AppText.micro),
                       const Spacer(),
                       if (pain != null)
                         Container(
@@ -435,11 +409,11 @@ class _PlanTrainingScreenState extends State<PlanTrainingScreen> {
                                           ? _painColor(v)
                                           : AppColors.offwhite,
                                       borderRadius:
-                                          BorderRadius.circular(9),
+                                      BorderRadius.circular(9),
                                       border: pain == v
                                           ? null
                                           : Border.all(
-                                              color: AppColors.beige),
+                                          color: AppColors.beige),
                                     ),
                                     child: Text('$v',
                                         style: AppText.micro.copyWith(
@@ -507,7 +481,7 @@ class _PlanTrainingScreenState extends State<PlanTrainingScreen> {
                         const SizedBox(height: 3),
                         Text(
                           'Bei so starken Schmerzen brich die Übung lieber ab '
-                          'und sprich mit deinem Physio, bevor du weitermachst.',
+                              'und sprich mit deinem Physio, bevor du weitermachst.',
                           style: AppText.micro.copyWith(
                               color: const Color(0xFFA05B45), height: 1.5),
                         ),
@@ -545,11 +519,17 @@ class _PlanTrainingScreenState extends State<PlanTrainingScreen> {
           ),
 
         PrimaryButton(
-          label: isLast
-              ? 'Übung erledigt – Plan abschließen'
-              : 'Übung erledigt · Weiter',
-          icon: isLast ? Icons.check : Icons.arrow_forward,
-          onPressed: () => _handleNext(plan.id, current, isLast),
+          label: primaryButtonLabel,
+          icon: isCurrentCompleted || willCompleteAll ? Icons.check : Icons.arrow_forward,
+          disabled: isCurrentCompleted,
+          onPressed: isCurrentCompleted
+              ? null
+              : () => _handleNext(
+            plan: plan,
+            current: current,
+            isLastIndex: isLastIndex,
+            willCompleteAll: willCompleteAll,
+          ),
         ),
         const SizedBox(height: AppSpacing.sm),
         Row(
@@ -561,10 +541,7 @@ class _PlanTrainingScreenState extends State<PlanTrainingScreen> {
                   icon: Icons.chevron_left,
                   onPressed: () => setState(() {
                     _idx -= 1;
-                    _stepsOpen = true;
-                    _safetyOpen = true;
-                    _infoOpen = false;
-                    _painOpen = false;
+                    _resetToggles();
                   }),
                 ),
               ),
@@ -572,17 +549,17 @@ class _PlanTrainingScreenState extends State<PlanTrainingScreen> {
             ],
             Expanded(
               child: SecondaryButton(
-                //TODO: Fehlt -> Wenn Pausieren gedrückt wird, dann Training schließen und zurück zur Planübersicht
-                label: isLast ? 'Pausieren' : 'Überspringen',
+                label: isLastIndex
+                    ? 'Training beenden'
+                    : (isCurrentCompleted ? 'Weiter' : 'Überspringen'),
                 onPressed: () {
                   if (_idx < exercises.length - 1) {
                     setState(() {
                       _idx += 1;
-                      _stepsOpen = true;
-                      _safetyOpen = true;
-                      _infoOpen = false;
-                      _painOpen = false;
+                      _resetToggles();
                     });
+                  } else {
+                    widget.onExit();
                   }
                 },
               ),
@@ -593,35 +570,54 @@ class _PlanTrainingScreenState extends State<PlanTrainingScreen> {
     );
   }
 
-  void _handleNext(String planId, api.Exercise current, bool isLast) {
-    setState(() {
-      _painOpen = false;
-      _infoOpen = false;
-      _stepsOpen = true;
-      _safetyOpen = true;
-    });
+  void _handleNext({
+    required Plan plan,
+    required api.Exercise current,
+    required bool isLastIndex,
+    required bool willCompleteAll,
+  }) {
+    _resetToggles();
+
+    // Schmerz verarbeiten
     final pain = _painLevels[_idx];
     if (pain != null) {
-      final now = DateTime.now();
       context.read<PainLogExerciseProvider>().addPainLog(
         level: pain,
-        region: BodyPartExt.fromString(current.bodyParts[0]), //TODO[API]: Magic Number -> Prüfen ob hier aktuell immer nur ein BodyPart steht
-        date: now,
-        planId: planId,
-        exerciseId: current.id
+        region: BodyPartExt.fromString(current.bodyParts[0]),
+        date: DateTime.now(),
+        planId: plan.id,
+        exerciseId: current.id,
       );
     }
 
+    // Übung in Isar loggen
     context.read<PlanLogExerciseProvider>().logExercise(
-      planId: planId,
+      planId: plan.id,
       exerciseId: current.id,
     );
-    if (isLast) {
-      context.read<PlanProvider>().incrementCompletedSessions(planId);
+
+    // Weiterleitung entscheiden
+    if (willCompleteAll) {
+      context.read<PlanProvider>().incrementCompletedSessions(plan.id);
       setState(() => _done = true);
-    } else {
+    } else if (!isLastIndex) {
       setState(() => _idx += 1);
+    } else {
+      // Falls am Ende der Liste noch Übungen offen sind: Zur nächsten offenen springen
+      final nextOpenIdx = context.read<PlanLogExerciseProvider>().getNextOpenExerciseIndex(plan);
+      if (nextOpenIdx != -1) {
+        setState(() => _idx = nextOpenIdx);
+      } else {
+        widget.onExit();
+      }
     }
+  }
+
+  void _resetToggles() {
+    _painOpen = false;
+    _infoOpen = false;
+    _stepsOpen = true;
+    _safetyOpen = true;
   }
 }
 

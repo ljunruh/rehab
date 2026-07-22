@@ -9,7 +9,7 @@ class PlanRepository {
 
   Future<List<Plan>> getAll() async => isar.plans.where().findAll();
 
-  Future<Plan?> getPlan(Plan plan) async => isar.plans.get(plan.isarId);
+  Future<Plan?> getPlan(Plan plan) async => isar.plans.getById(plan.id);
 
   Future<Plan?> getPlanById(String id) async => isar.plans.where().idEqualTo(id).findFirst();
 
@@ -21,7 +21,7 @@ class PlanRepository {
 
   Future<void> deletePlan(Plan plan) async {
     await isar.writeTxn(() async {
-      await isar.plans.delete(plan.isarId);
+      await isar.plans.deleteById(plan.id);
     });
   }
 
