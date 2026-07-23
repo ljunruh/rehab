@@ -20,9 +20,11 @@ class ExerciseApi extends CoreApi {
 SELECT
     ?exercise
     ?exerciseLabel
+    ?description
     ?difficultyLabel
     ?duration
     ?instruction
+    ?video
     # Verpackt alle Values der Property in einem Value
     (GROUP_CONCAT(DISTINCT ?contraindicationLabel; separator=" | ") AS ?contraindications)
     (GROUP_CONCAT(DISTINCT ?trainingsEffectLabel; separator=" | ") AS ?trainingsEffects)
@@ -56,18 +58,21 @@ WHERE {
     ?bodyPart rdfs:label ?bodyPartLabel .
     ?exercise rehab:hasInstruction ?instruction ;
   			  rehab:hasDuration ?duration ;
-    		  rdfs:label ?exerciseLabel .
+    		  rdfs:label ?exerciseLabel ;
+    		  rdfs:comment ?description .
   
   	FILTER(
     LANGMATCHES(LANG(?contraindicationLabel), "en")	&&
     LANGMATCHES(LANG(?trainingsEffectLabel), "en") &&
     LANGMATCHES(LANG(?bodyPartLabel), "en") &&
-    LANGMATCHES(LANG(?exerciseLabel), "de")
+    LANGMATCHES(LANG(?exerciseLabel), "de") &&
+    LANGMATCHES(LANG(?description), "de")
   )
 
     # Optionale Zusatzinformationen
     OPTIONAL { ?exercise rehab:hasCorrectionGuidance ?correction }
     OPTIONAL { ?exercise rehab:hasCommonMistake ?mistake }
+    OPTIONAL { ?exercise rehab:hasVideoUrl ?video }
 
     # Extrahiert den lokalen Namen der Difficulty-URI
     BIND(REPLACE(STR(?difficulty), "^.*[#/]", "") AS ?difficultyLabel)
@@ -75,6 +80,7 @@ WHERE {
 GROUP BY
     ?exercise
     ?exerciseLabel
+    ?description
     ?difficultyLabel
     ?contraindications
     ?trainingsEffects
@@ -83,6 +89,7 @@ GROUP BY
     ?instruction
     ?corrections
     ?mistakes
+    ?video
     ''';
 
     try {
@@ -127,9 +134,11 @@ GROUP BY
 SELECT
     ?exercise
     ?exerciseLabel
+    ?description
     ?difficultyLabel
     ?duration
     ?instruction
+    ?video
     # Verpackt alle Values der Property in einem Value
     (GROUP_CONCAT(DISTINCT ?contraindicationLabel; separator=" | ") AS ?contraindications)
     (GROUP_CONCAT(DISTINCT ?trainingsEffectLabel; separator=" | ") AS ?trainingsEffects)
@@ -168,18 +177,21 @@ WHERE {
     ?bodyPart rdfs:label ?bodyPartLabel .
     ?exercise rehab:hasInstruction ?instruction ;
   			  rehab:hasDuration ?duration ;
-    		  rdfs:label ?exerciseLabel .
+    		  rdfs:label ?exerciseLabel ;
+    		  rdfs:comment ?description .
   
   	FILTER(
     LANGMATCHES(LANG(?contraindicationLabel), "en")	&&
     LANGMATCHES(LANG(?trainingsEffectLabel), "en") &&
     LANGMATCHES(LANG(?bodyPartLabel), "en") &&
-    LANGMATCHES(LANG(?exerciseLabel), "de")
+    LANGMATCHES(LANG(?exerciseLabel), "de") &&
+    LANGMATCHES(LANG(?description), "de")
   )
 
     # Optionale Zusatzinformationen
     OPTIONAL { ?exercise rehab:hasCorrectionGuidance ?correction }
     OPTIONAL { ?exercise rehab:hasCommonMistake ?mistake }
+    OPTIONAL { ?exercise rehab:hasVideoUrl ?video }
 
     # Extrahiert den lokalen Namen der Difficulty-URI
     BIND(REPLACE(STR(?difficulty), "^.*[#/]", "") AS ?difficultyLabel)
@@ -188,6 +200,7 @@ WHERE {
 GROUP BY
     ?exercise
     ?exerciseLabel
+    ?description
     ?difficultyLabel
     ?contraindications
     ?trainingsEffects
@@ -196,6 +209,7 @@ GROUP BY
     ?instruction
     ?corrections
     ?mistakes
+    ?video
     ''';
 
     try {
