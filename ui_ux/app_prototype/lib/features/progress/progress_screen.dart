@@ -1,3 +1,6 @@
+import 'package:app_prototype/data/provider/plan_log_exercise_provider.dart';
+import 'package:app_prototype/data/provider/plan_provider.dart';
+import 'package:app_prototype/data/provider/user_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../../core/theme/app_theme.dart';
@@ -43,15 +46,25 @@ class _ProgressScreenState extends State<ProgressScreen> {
   @override
   Widget build(BuildContext context) {
     final app = context.watch<UiState>();
-    final rings = app.weeklyRings;
-    final weeks = (app.streak / 7).floor().clamp(1, 999);
+    final userProvider = context.watch<UserProvider>();
+    final planProvider = context.watch<PlanProvider>();
+    final planLogExerciseProvider = context.watch<PlanLogExerciseProvider>();
+
+    // Lauscht auf Log-Änderungen für automatische Reaktivität bei Übungsabschluss
+    context.watch<PlanLogExerciseProvider>();
+
+    final user = userProvider.user;
+
+    // Echte Ringe & Wochenanzahl aus deinem PlanProvider!
+    final rings = planProvider.weeklyRings;
+    final weeks = planLogExerciseProvider.weeklyStreak;
 
     return ListView(
       padding: const EdgeInsets.only(bottom: 110),
       children: [
         ScreenHeader(
           greeting: 'Dein Verlauf',
-          initials: app.profile.initials,
+          initials: user?.initials ?? '??',
           onAvatarTap: widget.onOpenProfile,
         ),
         Padding(
@@ -72,7 +85,7 @@ class _ProgressScreenState extends State<ProgressScreen> {
                       width: 44,
                       height: 44,
                       alignment: Alignment.center,
-                      decoration: BoxDecoration(
+                      decoration: const BoxDecoration(
                         color: AppColors.onDarkIconBg,
                         shape: BoxShape.circle,
                       ),
@@ -117,7 +130,7 @@ class _ProgressScreenState extends State<ProgressScreen> {
                             style: AppText.micro),
                         GestureDetector(
                           onTap: () => setState(
-                              () => _ringsInfoOpen = !_ringsInfoOpen),
+                                  () => _ringsInfoOpen = !_ringsInfoOpen),
                           child: Container(
                             width: 22,
                             height: 22,
@@ -147,9 +160,9 @@ class _ProgressScreenState extends State<ProgressScreen> {
                         ),
                         child: Text(
                           'Jeder Ring steht für einen deiner Trainingspläne. '
-                          'Je weiter ein Ring geschlossen ist, desto mehr '
-                          'Einheiten hast du diese Woche absolviert. Ein '
-                          'vollständiger Ring bedeutet: Wochenziel erreicht.',
+                              'Je weiter ein Ring geschlossen ist, desto mehr '
+                              'Einheiten hast du diese Woche absolviert. Ein '
+                              'vollständiger Ring bedeutet: Wochenziel erreicht.',
                           style: AppText.caption.copyWith(height: 1.5),
                         ),
                       ),
@@ -157,65 +170,65 @@ class _ProgressScreenState extends State<ProgressScreen> {
                     const SizedBox(height: AppSpacing.base),
                     rings.isEmpty
                         ? Padding(
-                            padding: const EdgeInsets.symmetric(
-                                vertical: AppSpacing.lg),
-                            child: Center(
-                              child: Text('Noch keine aktiven Pläne.',
-                                  style: AppText.caption),
-                            ),
-                          )
+                      padding: const EdgeInsets.symmetric(
+                          vertical: AppSpacing.lg),
+                      child: Center(
+                        child: Text('Noch keine aktiven Pläne.',
+                            style: AppText.caption),
+                      ),
+                    )
                         : Row(
+                      children: [
+                        ConcentricRings(rings: rings, size: 150),
+                        const SizedBox(width: AppSpacing.xl),
+                        Expanded(
+                          child: Column(
+                            crossAxisAlignment:
+                            CrossAxisAlignment.start,
                             children: [
-                              ConcentricRings(rings: rings, size: 150),
-                              const SizedBox(width: AppSpacing.xl),
-                              Expanded(
-                                child: Column(
-                                  crossAxisAlignment:
-                                      CrossAxisAlignment.start,
-                                  children: [
-                                    for (final r in rings)
-                                      Padding(
-                                        padding: const EdgeInsets.only(
-                                            bottom: 12),
-                                        child: Row(
-                                          children: [
-                                            Container(
-                                              width: 12,
-                                              height: 12,
-                                              decoration: BoxDecoration(
-                                                color: r.color,
-                                                shape: BoxShape.circle,
-                                              ),
-                                            ),
-                                            const SizedBox(width: 10),
-                                            Expanded(
-                                              child: Text(r.label,
-                                                  style: AppText.body
-                                                      .copyWith(
-                                                          fontWeight:
-                                                              FontWeight
-                                                                  .w600)),
-                                            ),
-                                            if (r.done >= r.goal)
-                                              Icon(Icons.check,
-                                                  size: 16, color: r.color)
-                                            else
-                                              Text('${r.done}/${r.goal}',
-                                                  style: AppText.body
-                                                      .copyWith(
-                                                          color: AppColors
-                                                              .textSecondary,
-                                                          fontWeight:
-                                                              FontWeight
-                                                                  .w600)),
-                                          ],
+                              for (final r in rings)
+                                Padding(
+                                  padding: const EdgeInsets.only(
+                                      bottom: 12),
+                                  child: Row(
+                                    children: [
+                                      Container(
+                                        width: 12,
+                                        height: 12,
+                                        decoration: BoxDecoration(
+                                          color: r.color,
+                                          shape: BoxShape.circle,
                                         ),
                                       ),
-                                  ],
+                                      const SizedBox(width: 10),
+                                      Expanded(
+                                        child: Text(r.label,
+                                            style: AppText.body
+                                                .copyWith(
+                                                fontWeight:
+                                                FontWeight
+                                                    .w600)),
+                                      ),
+                                      if (r.done >= r.goal)
+                                        Icon(Icons.check,
+                                            size: 16, color: r.color)
+                                      else
+                                        Text('${r.done}/${r.goal}',
+                                            style: AppText.body
+                                                .copyWith(
+                                                color: AppColors
+                                                    .textSecondary,
+                                                fontWeight:
+                                                FontWeight
+                                                    .w600)),
+                                    ],
+                                  ),
                                 ),
-                              ),
                             ],
                           ),
+                        ),
+                      ],
+                    ),
                     if (rings.isNotEmpty &&
                         rings.every((r) => r.done >= r.goal))
                       Container(

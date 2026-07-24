@@ -1,5 +1,6 @@
 import 'dart:math';
 
+import 'package:app_prototype/data/models/api/exercise.dart' as api;
 import 'package:app_prototype/data/models/api/plan.dart';
 import 'package:app_prototype/data/provider/exercise_provider.dart';
 import 'package:app_prototype/data/provider/plan_provider.dart';
@@ -7,11 +8,8 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../../core/theme/app_theme.dart';
 import '../../core/widgets/widgets.dart';
-import '../../state/ui_state.dart';
-import '../../data/models/models.dart';
 import '../../data/enum/body_part.dart';
 import '../../data/enum/goal.dart';
-import 'package:app_prototype/data/models/api/exercise.dart' as api;
 import '../profile/setup/selectable_accordion.dart';
 
 /// PERSON 2 — Plan-Erstellung als 3-Schritt-Wizard.
@@ -49,7 +47,7 @@ class _PlanCreateScreenState extends State<PlanCreateScreen> {
   final List<api.Exercise> _selectedExercises = [];
   List<api.Exercise> _filteredExercises = [];
   String _exerciseSearchQuery = "";
-  Color _color = PlanColors.tuerkis;
+  late Color _color; // Dynamische Initialisierung statt starrer Vorgabe
   int _sessionsPerWeek = 3;
 
   @override
@@ -57,10 +55,34 @@ class _PlanCreateScreenState extends State<PlanCreateScreen> {
     super.initState();
     _region = widget.prefilledRegion != null
         ? BodyPart.values.firstWhere(
-            (e) => e.name == widget.prefilledRegion || e.label == widget.prefilledRegion,
-            orElse: () => BodyPart.knees)
+            (e) =>
+        e.name == widget.prefilledRegion ||
+            e.label == widget.prefilledRegion,
+        orElse: () => BodyPart.knees)
         : BodyPart.knees;
     _nameCtrl = TextEditingController(text: '${_region.label}-Plan');
+
+    // Farbe dynamisch basierend auf bereits vorhandenen Plänen wählen
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      _assignInitialColor();
+    });
+  }
+
+  /// Wählt als Erstbelegung eine Farbe, die idealerweise noch nicht vergeben ist
+  void _assignInitialColor() {
+    final planProvider = context.read<PlanProvider>();
+    final usedColors = planProvider.activePlans.map((p) => p.color).toList();
+
+    // Suche die erste verfügbare Farbe aus PlanColors.all, die noch nicht genutzt wird
+    final availableColor = PlanColors.all.firstWhere(
+          (c) => !usedColors.contains(c),
+      orElse: () => PlanColors.all[
+      planProvider.activePlans.length % PlanColors.all.length],
+    );
+
+    setState(() {
+      _color = availableColor;
+    });
   }
 
   @override
@@ -96,7 +118,7 @@ class _PlanCreateScreenState extends State<PlanCreateScreen> {
       exercises: _selectedExercises,
       sessionsPerWeek: _sessionsPerWeek,
       source: 'eigen',
-      color: _color,
+      color: _color, // Verwendet die ausgewählte bzw. zugewiesene Farbe
     );
     planProvider.savePlan(plan);
     widget.onSaved();
@@ -175,7 +197,10 @@ class _PlanCreateScreenState extends State<PlanCreateScreen> {
 
         Text('Planname', style: AppText.caption),
         const SizedBox(height: AppSpacing.sm),
-        _TextField(controller: _nameCtrl, hint: 'z. B. Knie Routine', onChanged: (_) => setState(() {})),
+        _TextField(
+            controller: _nameCtrl,
+            hint: 'z. B. Knie Routine',
+            onChanged: (_) => setState(() {})),
         const SizedBox(height: AppSpacing.lg),
 
         Text('Körperregion', style: AppText.caption),
@@ -215,7 +240,9 @@ class _PlanCreateScreenState extends State<PlanCreateScreen> {
   // ── Schritt 2: Übungen auswählen ──
   Widget _buildStep2(BuildContext context) {
     final exercises = context.watch<ExerciseProvider>().exercises;
-    if (_exerciseSearchQuery.isEmpty && _filteredExercises.isEmpty && exercises.isNotEmpty) {
+    if (_exerciseSearchQuery.isEmpty &&
+        _filteredExercises.isEmpty &&
+        exercises.isNotEmpty) {
       _filteredExercises = exercises;
     }
 
@@ -241,16 +268,15 @@ class _PlanCreateScreenState extends State<PlanCreateScreen> {
           }
         });
       },
-      // getId wurde entfernt, da das Widget intern direkt mit dem Objekt arbeitet
       getTitle: (ex) => ex.label,
       getSubtitle: (ex) => '${ex.difficulty} · ${ex.duration} Min',
-      selectedItems: _selectedExercises, // Übergibt das Set<graph.Exercise>
+      selectedItems: _selectedExercises,
       onSelectionChanged: (exercise, selected) {
         setState(() {
           if (selected) {
-            _selectedExercises.add(exercise); // Fügt das Objekt hinzu
+            _selectedExercises.add(exercise);
           } else {
-            _selectedExercises.remove(exercise); // Entfernt das Objekt
+            _selectedExercises.remove(exercise);
           }
         });
       },
@@ -264,8 +290,7 @@ class _PlanCreateScreenState extends State<PlanCreateScreen> {
       children: [
         Text('Fast geschafft', style: AppText.screenTitle),
         const SizedBox(height: AppSpacing.sm),
-        Text('Wähle eine Farbe und prüfe deinen Plan.',
-            style: AppText.caption),
+        Text('Wähle eine Farbe und prüfe deinen Plan.', style: AppText.caption),
         const SizedBox(height: AppSpacing.lg),
 
         Text('Kalenderfarbe', style: AppText.caption),
@@ -289,7 +314,8 @@ class _PlanCreateScreenState extends State<PlanCreateScreen> {
                     ),
                   ),
                   child: _color == c
-                      ? const Icon(Icons.check, size: 18, color: AppColors.white)
+                      ? const Icon(Icons.check,
+                      size: 18, color: AppColors.white)
                       : null,
                 ),
               ),
@@ -332,8 +358,8 @@ class _PlanCreateScreenState extends State<PlanCreateScreen> {
                   ),
                   const SizedBox(width: AppSpacing.sm),
                   Expanded(
-                    child: Text(_nameCtrl.text.trim(),
-                        style: AppText.cardTitle),
+                    child:
+                    Text(_nameCtrl.text.trim(), style: AppText.cardTitle),
                   ),
                   AppTag(_region.label, variant: TagVariant.region),
                 ],
@@ -352,7 +378,6 @@ class _PlanCreateScreenState extends State<PlanCreateScreen> {
 
   Widget _buildFooterButton() {
     if (_step == 1) {
-      //TODO: Test
       return PrimaryButton(
         label: 'Weiter',
         icon: Icons.arrow_forward,
@@ -409,8 +434,8 @@ class _TextField extends StatelessWidget {
         hintStyle: AppText.body.copyWith(color: AppColors.textMuted),
         filled: true,
         fillColor: AppColors.offwhite,
-        contentPadding: const EdgeInsets.symmetric(
-            horizontal: 14, vertical: 14),
+        contentPadding:
+        const EdgeInsets.symmetric(horizontal: 14, vertical: 14),
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(AppRadius.input),
           borderSide: const BorderSide(color: AppColors.beige),

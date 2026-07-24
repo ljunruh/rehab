@@ -12,16 +12,19 @@ class PlanLogExerciseProvider extends ChangeNotifier {
 
   List<PlanLogExercise> _todayLogs = [];
   List<PlanLogExercise> get todayLogs => _todayLogs;
+  int _weeklyStreak = 1;
+  int get weeklyStreak => _weeklyStreak;
 
   Future<void> loadTodayLogs() async {
     _todayLogs = await repo.getLogsForDate(DateTime.now());
+    _weeklyStreak = await repo.getWeeklyStreak();
     notifyListeners();
   }
 
   /// Wird aufgerufen, wenn eine Übung im Trainings-Flow abgeschlossen wird
   Future<void> logExercise({required String planId, required String exerciseId}) async {
     await repo.saveLog(planId, exerciseId);
-    await loadTodayLogs(); // UI aktualisieren
+    await loadTodayLogs();
   }
 
   /// Berechnet den Fortschritt eines Plans für HEUTE

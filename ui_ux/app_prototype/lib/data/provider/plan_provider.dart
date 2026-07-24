@@ -1,8 +1,10 @@
 import 'package:app_prototype/data/enum/body_part.dart';
 import 'package:app_prototype/data/models/api/exercise.dart';
 import 'package:app_prototype/data/models/api/plan.dart';
+import 'package:app_prototype/data/models/weekly_ring.dart';
 import 'package:app_prototype/data/repository/plan_repository.dart';
 import 'package:flutter/material.dart';
+import 'package:app_prototype/core/theme/app_colors.dart';
 
 class PlanProvider extends ChangeNotifier {
   final PlanRepository repo;
@@ -63,5 +65,27 @@ class PlanProvider extends ChangeNotifier {
       _plans[index] = updatedPlan;
       notifyListeners();
     }
+  }
+
+  /// Erstellt die Liste der konzentrischen Wochenringe für alle aktiven Pläne
+  List<WeeklyRing> get weeklyRings {
+    final active = activePlans;
+    final List<WeeklyRing> rings = [];
+
+    for (int i = 0; i < active.length; i++) {
+      final plan = active[i];
+
+      // Nimm die Farbe direkt vom Plan (mit Fallback auf eine Standardfarbe)
+      final Color ringColor = plan.color ?? AppColors.sageDeep;
+
+      rings.add(WeeklyRing(
+        label: plan.name.isNotEmpty ? plan.name : plan.region.label,
+        done: plan.completedSessions,
+        goal: plan.sessionsPerWeek,
+        color: ringColor,
+      ));
+    }
+
+    return rings;
   }
 }
