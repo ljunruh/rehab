@@ -53,8 +53,8 @@ class PlanProvider extends ChangeNotifier {
   // generiert eine Planempfehlung aus den  Übergebenen Übungen und benachrichtigt UI
   void generateRecommandedPlan(
     List<Exercise> exercises,
-    String region,
-    String goal,
+    BodyPart region,
+    Goal goal,
   ) {
     _recommendedPlan = repo.createRecomendedPlan(
       exercises,
