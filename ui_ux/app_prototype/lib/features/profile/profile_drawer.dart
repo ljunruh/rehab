@@ -8,7 +8,8 @@ import 'mobility_level_sheet.dart';
 import 'notifications_sheet.dart';
 import 'past_tips_sheet.dart';
 import 'settings_sheet.dart';
-import 'package:app_prototype/data/provider/user_provider.dart'; // NEU: Import für den echten Provider
+import 'package:app_prototype/data/provider/user_provider.dart';
+import 'package:app_prototype/data/enum/skill_level.dart';
 
 /// PERSON 4 — Profil-Drawer (fährt von rechts ein).
 class ProfileDrawer extends StatefulWidget {
@@ -187,9 +188,12 @@ class _ProfileDrawerState extends State<ProfileDrawer>
                                       style: AppText.caption),
                                   const SizedBox(height: AppSpacing.sm),
                                   AppTag(
-                                      MobilityLevelMeta.labelFor(
-                                          uiProfile.mobility),
-                                      variant: TagVariant.goal),
+                                      dbUser?.skillLevel == SkillLevel.advanced
+                                          ? 'Fortgeschritten'
+                                          : dbUser?.skillLevel == SkillLevel.intermediate
+                                          ? 'Geübt'
+                                          : 'Anfänger',
+                                      variant: TagVariant.goal)
                                 ],
                               ),
                             ),

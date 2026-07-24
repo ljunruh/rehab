@@ -41,8 +41,7 @@ class _ProfileEditSheetState extends State<ProfileEditSheet> {
   late TextEditingController _heightCtrl;
   late TextEditingController _weightCtrl;
   late Gender _selectedGender;
-
-  // LOKALE ZWISCHENSPEICHER
+  late SkillLevel _selectedSkillLevel;
   late List<String> _selectedInjuries;
   bool _editingName = false;
 
@@ -57,6 +56,7 @@ class _ProfileEditSheetState extends State<ProfileEditSheet> {
     _heightCtrl = TextEditingController(text: dbUser?.height.toString() ?? '');
     _weightCtrl = TextEditingController(text: dbUser?.weight.toString() ?? '');
     _selectedGender = dbUser?.gender ?? Gender.diverse;
+    _selectedSkillLevel = dbUser?.skillLevel ?? SkillLevel.beginner;
 
     _selectedInjuries = List.from(dbUser?.contraindication ?? []);
   }
@@ -70,24 +70,7 @@ class _ProfileEditSheetState extends State<ProfileEditSheet> {
     super.dispose();
   }
 
-  // Zentraler Mapper: Holt das exakte Label aus dem UI und wandelt es um
-  SkillLevel _resolveSkillLevel(String mobilityRaw, UiState app) {
-    // Versuche das offizielle Label aus der Meta zu holen (z.B. "Geübt", "Anfänger", etc.)
-    String label = '';
-    try {
-      label = MobilityLevelMeta.labelFor(mobilityRaw).toLowerCase();
-    } catch (_) {
-      label = mobilityRaw.toLowerCase();
-    }
-
-    if (label.contains('fortgeschritten') || label.contains('profi') || label.contains('advanced') || label.contains('experte')) {
-      return SkillLevel.advanced;
-    }
-    if (label.contains('geübt') || label.contains('moderat') || label.contains('intermediate') || label.contains('mittel')) {
-      return SkillLevel.intermediate;
-    }
-    return SkillLevel.beginner;
-  }
+  // _resolveSkillLevel wurde hier komplett entfernt, da nicht mehr benötigt!
 
   String _convertToGermanTerm(String input) {
     final clean = input.trim().toLowerCase();
@@ -129,8 +112,6 @@ class _ProfileEditSheetState extends State<ProfileEditSheet> {
   Widget build(BuildContext context) {
     final userProvider = context.watch<UserProvider>();
     final dbUser = userProvider.user;
-    final app = context.watch<UiState>();
-    final uiProfile = app.profile;
     final bottomInset = MediaQuery.of(context).viewInsets.bottom;
     final userInitials = userProvider.initials;
 
@@ -384,46 +365,66 @@ class _ProfileEditSheetState extends State<ProfileEditSheet> {
                         color: AppColors.text,
                       ),
                     ),
-                    if (MobilityLevelMeta.forKey(uiProfile.mobility) !=
-                        null) ...[
-                      const SizedBox(height: AppSpacing.md),
-                      Container(
-                        padding: const EdgeInsets.symmetric(
-                          horizontal: 14,
-                          vertical: 11,
-                        ),
-                        decoration: BoxDecoration(
-                          color: AppColors.white,
-                          borderRadius: BorderRadius.circular(AppRadius.input),
-                        ),
-                        child: Row(
-                          children: [
-                            Text(
-                              'Aktuelles Level',
-                              style: AppText.caption.copyWith(
-                                color: AppColors.text,
-                              ),
-                            ),
-                            const SizedBox(width: AppSpacing.sm),
-                            Text(
-                              MobilityLevelMeta.labelFor(uiProfile.mobility),
-                              style: AppText.cardTitle.copyWith(
-                                color: AppColors.sageDeep,
-                                fontWeight: FontWeight.w700,
-                              ),
-                            ),
-                          ],
-                        ),
+                    const SizedBox(height: AppSpacing.md),
+                    Container(
+                      padding: const EdgeInsets.symmetric(
+                        horizontal: 14,
+                        vertical: 11,
                       ),
-                    ],
+                      decoration: BoxDecoration(
+                        color: AppColors.white,
+                        borderRadius: BorderRadius.circular(AppRadius.input),
+                      ),
+                      child: Row(
+                        children: [
+                          Text(
+                            'Aktuelles Level',
+                            style: AppText.caption.copyWith(
+                              color: AppColors.text,
+                            ),
+                          ),
+                          const SizedBox(width: AppSpacing.sm),
+                          Text(
+                            // Einheitliche Anzeige direkt aus dem State-Enum (_selectedSkillLevel)
+                            _selectedSkillLevel == SkillLevel.advanced
+                                ? 'Fortgeschritten'
+                                : _selectedSkillLevel == SkillLevel.intermediate
+                                ? 'Geübt'
+                                : 'Anfänger',
+                            style: AppText.cardTitle.copyWith(
+                              color: AppColors.sageDeep,
+                              fontWeight: FontWeight.w700,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
                     const SizedBox(height: AppSpacing.md),
                     _DarkButton(
-                      label:
-                      MobilityLevelMeta.forKey(uiProfile.mobility) != null
-                          ? 'Level ändern'
-                          : 'Level wählen',
+                      label: 'Level ändern',
                       icon: Icons.bolt,
-                      onPressed: () => MobilityLevelSheet.show(context),
+                      onPressed: () async {
+                        final app = context.read<UiState>();
+                        String initialKey = 'Niedrig';
+                        if (_selectedSkillLevel == SkillLevel.advanced) initialKey = 'Hoch';
+                        if (_selectedSkillLevel == SkillLevel.intermediate) initialKey = 'Mittel';
+                        app.updateProfile(app.profile.copyWith(mobility: initialKey));
+
+                        await MobilityLevelSheet.show(context);
+
+                        if (context.mounted) {
+                          final key = app.profile.mobility;
+                          setState(() {
+                            if (key == 'Hoch') {
+                              _selectedSkillLevel = SkillLevel.advanced;
+                            } else if (key == 'Mittel') {
+                              _selectedSkillLevel = SkillLevel.intermediate;
+                            } else {
+                              _selectedSkillLevel = SkillLevel.beginner;
+                            }
+                          });
+                        }
+                      },
                     ),
                   ],
                 ),
@@ -435,16 +436,13 @@ class _ProfileEditSheetState extends State<ProfileEditSheet> {
                 label: 'Änderungen speichern',
                 icon: Icons.check,
                 onPressed: () async {
-                  // Holt direkt den UI-Wert und löst ihn sicher auf
-                  final resolvedSkillLevel = _resolveSkillLevel(uiProfile.mobility, app);
-
                   await userProvider.saveUser(
                     name: _nameCtrl.text.trim(),
                     gender: _selectedGender,
                     age: int.tryParse(_ageCtrl.text) ?? dbUser?.age ?? 0,
                     height: int.tryParse(_heightCtrl.text) ?? dbUser?.height ?? 0,
                     weight: int.tryParse(_weightCtrl.text) ?? dbUser?.weight ?? 0,
-                    skillLevel: resolvedSkillLevel,
+                    skillLevel: _selectedSkillLevel,
                     injuries: _selectedInjuries,
                   );
                   widget.onClose != null
@@ -501,6 +499,7 @@ class _ProfileEditSheetState extends State<ProfileEditSheet> {
   }
 }
 
+// Kleinere Hilfs-Widgets (_DarkButton, _NumberField, _GenderField) bleiben exakt wie gehabt...
 class _DarkButton extends StatelessWidget {
   final String label;
   final IconData icon;
