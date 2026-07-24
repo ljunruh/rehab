@@ -93,22 +93,28 @@ class _RingsPainter extends CustomPainter {
     final center = Offset(size.width / 2, size.height / 2);
     final count = rings.length;
 
-    // Dynamische Berechnung von Ringdicke und Lücke,
-    // damit egal wie viele Pläne vorhanden sind, alle Ringe passen.
+    // Radius, der für alle Ringe inklusive Lücken zur Verfügung steht (mit 2px Rand außen)
+    final maxAvailableRadius = (size.width / 2) - 2;
+
+    // Berechnung:
+    // Wir teilen den verfügbaren Radius dynamisch auf die Anzahl der Ringe auf.
+    // Jedes Ring-Segment besteht aus 1x strokeWidth + 0.35x gap.
+    final calculatedStroke = maxAvailableRadius / (count * 1.35);
+
     final double strokeWidth = overrideStrokeWidth ??
-        (count <= 3
+        (count <= 3 && size.width >= 100
             ? 13.0
-            : (size.width / (count * 3.2)).clamp(6.0, 12.0));
+            : calculatedStroke.clamp(2.5, 12.0)); // min auf 2.5 runtergesetzt für kleine Container
 
-    final double gap = overrideGap ?? (strokeWidth * 0.35).clamp(2.0, 5.0);
+    final double gap = overrideGap ?? (strokeWidth * 0.35).clamp(1.0, 4.0);
 
-    final outerRadius = size.width / 2 - strokeWidth / 2;
+    final outerRadius = size.width / 2 - strokeWidth / 2 - 1;
 
     for (int i = 0; i < count; i++) {
       final ring = rings[i];
       final radius = outerRadius - i * (strokeWidth + gap);
 
-      // Falls es bei extremer Anzahl zu eng wird
+      // Verhindert Zeichnen, falls der Radius das Zentrum erreicht
       if (radius < strokeWidth / 2) break;
 
       // Hintergrund-Ring (beige)

@@ -1,12 +1,10 @@
 import 'package:app_prototype/data/enum/body_part.dart';
-import 'package:app_prototype/data/models/api/exercise.dart';
-import 'package:app_prototype/data/models/api/plan.dart';
+import 'package:app_prototype/data/models/api/api_models.dart';
 import 'package:app_prototype/data/models/weekly_ring.dart';
 import 'package:app_prototype/data/repository/plan_repository.dart';
 import 'package:flutter/material.dart';
 import 'package:app_prototype/core/theme/app_colors.dart';
 import '../enum/goal.dart';
-import '../models/api/api_models.dart';
 
 class PlanProvider extends ChangeNotifier {
   final PlanRepository repo;

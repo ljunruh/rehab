@@ -1,3 +1,4 @@
+import 'package:app_prototype/data/provider/plan_log_exercise_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../../core/theme/app_theme.dart';
@@ -191,11 +192,18 @@ class _RecommendationFlowState extends State<RecommendationFlow> {
           label: 'Diesen Plan übernehmen',
           icon: Icons.check,
           onPressed: () async {
-            // Speichert den bereits generierten empfohlenen Plan in Isar
+            final planProvider = context.read<PlanProvider>();
+            final planLogExerciseProvider = context.read<PlanLogExerciseProvider>();
+
+            // 1. Speichern im Repository & Neuladen der Pläne
             await planProvider.savePlan(plan);
 
-            // Bringt den Nutzer zurück zur Plan-Übersicht
-            widget.onSaved();
+            // 2. Logs & Streak basierend auf den neuen aktiven Plänen abgleichen
+            await planLogExerciseProvider.loadTodayLogs(activePlans: planProvider.activePlans);
+
+            if (context.mounted) {
+              widget.onSaved();
+            }
           },
         ),
 
