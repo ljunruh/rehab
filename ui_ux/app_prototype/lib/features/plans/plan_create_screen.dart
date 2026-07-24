@@ -118,7 +118,7 @@ class _PlanCreateScreenState extends State<PlanCreateScreen> {
       exercises: _selectedExercises,
       sessionsPerWeek: _sessionsPerWeek,
       source: 'eigen',
-      color: _color, // Verwendet die ausgewählte bzw. zugewiesene Farbe
+      colorValue: _color.toARGB32(), // Verwendet die ausgewählte bzw. zugewiesene Farbe
     );
     planProvider.savePlan(plan);
     widget.onSaved();

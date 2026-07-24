@@ -56,8 +56,9 @@ class _PlanTrainingScreenState extends State<PlanTrainingScreen> {
     super.initState();
 
     WidgetsBinding.instance.addPostFrameCallback((_) {
-      context.read<PlanProvider>().getPlan(widget.planId);
-      context.read<PlanLogExerciseProvider>().loadTodayLogs();
+      final planProvider = context.read<PlanProvider>();
+      planProvider.getPlan(widget.planId);
+      context.read<PlanLogExerciseProvider>().loadTodayLogs(activePlans: planProvider.activePlans);
     });
   }
 

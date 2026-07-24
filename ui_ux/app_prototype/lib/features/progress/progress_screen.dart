@@ -32,6 +32,15 @@ class ProgressScreen extends StatefulWidget {
 class _ProgressScreenState extends State<ProgressScreen> {
   bool _ringsInfoOpen = false;
 
+  @override
+  void initState() {
+    super.initState();
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      final activePlans = context.read<PlanProvider>().activePlans;
+      context.read<PlanLogExerciseProvider>().loadTodayLogs(activePlans: activePlans);
+    });
+  }
+
   /// Rotiert durch 3 Nachrichten, wie im Prototyp (weeks % 3).
   String _weeklyStreakMessage(int weeks) {
     final w = weeks == 1 ? 'Woche' : 'Wochen';
@@ -49,9 +58,6 @@ class _ProgressScreenState extends State<ProgressScreen> {
     final userProvider = context.watch<UserProvider>();
     final planProvider = context.watch<PlanProvider>();
     final planLogExerciseProvider = context.watch<PlanLogExerciseProvider>();
-
-    // Lauscht auf Log-Änderungen für automatische Reaktivität bei Übungsabschluss
-    context.watch<PlanLogExerciseProvider>();
 
     final user = userProvider.user;
 

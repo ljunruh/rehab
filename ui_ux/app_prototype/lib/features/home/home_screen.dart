@@ -243,6 +243,12 @@ class HomeScreen extends StatelessWidget {
               onTap: onOpenProfile,
             ),
           ),
+    //TODO[API]: Test um WeeklyStreak zu simulieren und Fake Daten dafür anzulegen
+          /*
+    ElevatedButton(
+    onPressed: () => context.read<PlanLogExerciseProvider>().seedTestData(4, activePlans: context.read<PlanProvider>().activePlans),
+    child: const Text('4 Wochen Streak simulieren'),
+    )    */
         ],
       ),
     );
