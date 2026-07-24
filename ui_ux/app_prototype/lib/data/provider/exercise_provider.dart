@@ -9,11 +9,34 @@ class ExerciseProvider extends ChangeNotifier {
 
   ExerciseProvider(this.repo);
 
+  /// Lokaler In-Memory-Cache für alle geladenen Übungen, um doppelte API-Abfragen zu verhindern
+  List<Exercise> _allExercises = [];
+
+  /// Liste der aktuell gefilterten Übungen, die im UI angezeigt werden.
   List<Exercise> _exercises = [];
   List<Exercise> get exercises => _exercises;
 
-  Future<void> loadAll({BodyPart bodyPart = BodyPart.none, Goal goal = Goal.none}) async {
-    _exercises = await repo.getFilterdExcercises(bodyPart, goal) ?? [];
+  /// Lädt alle Übungen (einmalig in den Cache) und filtert sie lokal über das ExerciseRepository.
+  /// Verhindert wiederholte SPARQL-Netzwerkanfragen bei Filteränderungen im UI .
+  Future<void> loadAll({
+    BodyPart bodyPart = BodyPart.none,
+    Goal goal = Goal.none,
+    String query = '',
+  }) async {
+    // 1. Daten nur laden, wenn der Cache noch leer ist
+    if (_allExercises.isEmpty) {
+      _allExercises = await repo.getAll() ?? [];
+    }
+
+    // 2. Filterung lokal im Arbeitsspeicher über das Repository ausführen
+    _exercises = repo.filterExercises(
+      _allExercises,
+      bodyPart: bodyPart,
+      goal: goal,
+      query: query,
+    );
+
+    // 3. UI benachrichtigen, dass sich die Daten geändert haben
     notifyListeners();
   }
 }

@@ -5,6 +5,8 @@ import 'package:app_prototype/data/models/weekly_ring.dart';
 import 'package:app_prototype/data/repository/plan_repository.dart';
 import 'package:flutter/material.dart';
 import 'package:app_prototype/core/theme/app_colors.dart';
+import '../enum/goal.dart';
+import '../models/api/api_models.dart';
 
 class PlanProvider extends ChangeNotifier {
   final PlanRepository repo;
@@ -21,6 +23,23 @@ class PlanProvider extends ChangeNotifier {
 
   List<BodyPart> _activeRegions = [];
   List<BodyPart> get activeRegions => _activeRegions;
+
+  // haltet die aktuell generierte  Empfehlung im Arbeitsspeicher
+  Plan? _recommendedPlan;
+  Plan? get recommendedPlan => _recommendedPlan;
+  // generiert eine Planempfehlung aus den  Übergebenen Übungen und benachrichtigt UI
+  void generateRecommandedPlan(
+      List<Exercise> exercises,
+      BodyPart region,
+      Goal goal,
+      ) {
+    _recommendedPlan = repo.createRecomendedPlan(
+      exercises,
+      region,
+      goal,
+    );
+    notifyListeners();
+  }
 
   Future<void> savePlan(Plan plan) async {
     await repo.savePlan(plan);
