@@ -96,8 +96,8 @@ class _RecommendationFlowState extends State<RecommendationFlow> {
                     final planProvider = context.read<PlanProvider>();
                     planProvider.generateRecommandedPlan(
                       exerciseProvider.exercises,
-                      _region!.label,
-                      g.label,
+                      _region!,
+                      g,
                     );
                   },
                 ),
@@ -130,7 +130,7 @@ class _RecommendationFlowState extends State<RecommendationFlow> {
         const SizedBox(height: AppSpacing.sm),
         Text(
           // 1. Hier nutzen wir plan.region und plan.goal direkt
-          'Basierend auf ${plan.region} · ${plan.goal}',
+          'Basierend auf ${plan.region.label} · ${plan.goal.label}',
           style: AppText.caption,
         ),
         const SizedBox(height: AppSpacing.lg),
@@ -153,12 +153,12 @@ class _RecommendationFlowState extends State<RecommendationFlow> {
                   Expanded(
                     child: Text(
                       // 2. Hier nutzen wir plan.region
-                      '${plan.region}-Plan',
+                      '${plan.region.label}-Plan',
                       style: AppText.cardTitle,
                     ),
                   ),
                   // 2. Hier ebenfalls plan.region
-                  AppTag(plan.region, variant: TagVariant.region),
+                  AppTag(plan.region.label, variant: TagVariant.region),
                 ],
               ),
               const SizedBox(height: AppSpacing.md),
