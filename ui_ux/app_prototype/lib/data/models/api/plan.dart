@@ -3,6 +3,7 @@ import 'package:app_prototype/data/enum/goal.dart';
 import 'package:app_prototype/data/models/api/exercise.dart';
 import 'package:flutter/material.dart';
 import 'package:isar/isar.dart';
+import 'package:app_prototype/core/theme/app_colors.dart';
 
 part 'plan.g.dart';
 
@@ -25,8 +26,12 @@ class Plan {
   final String source; // "empfohlen" | "eigen"
   final bool archived;
 
+  /// Speicherung als Integer für Isar
+  final int colorValue;
+
+  /// Bequemes Color-Getter für den Rest der App
   @ignore
-  final Color? color;
+  Color get color => Color(colorValue);
 
   @ignore
   final String? description;
@@ -42,7 +47,7 @@ class Plan {
     this.completedSessions = 0,
     this.source = 'eigen',
     this.archived = false,
-    this.color,
+    this.colorValue = 0xFF1F4E47, // Default-Wert als int (AppColors.sageDeep)
     this.description,
   });
 
@@ -58,6 +63,7 @@ class Plan {
     String? source,
     bool? archived,
     Color? color,
+    int? colorValue,
     String? description,
   }) {
     return Plan(
@@ -71,7 +77,7 @@ class Plan {
       completedSessions: completedSessions ?? this.completedSessions,
       source: source ?? this.source,
       archived: archived ?? this.archived,
-      color: color ?? this.color,
+      colorValue: colorValue ?? (color != null ? color.toARGB32() : this.colorValue),
       description: description ?? this.description,
     );
   }

@@ -12,16 +12,24 @@ class PlanLogExerciseProvider extends ChangeNotifier {
 
   List<PlanLogExercise> _todayLogs = [];
   List<PlanLogExercise> get todayLogs => _todayLogs;
+  int _weeklyStreak = 1;
+  int get weeklyStreak => _weeklyStreak;
 
-  Future<void> loadTodayLogs() async {
+  /// Lädt die heutigen Logs und berechnet den Streak basierend auf den aktiven Plänen neu
+  Future<void> loadTodayLogs({List<Plan> activePlans = const []}) async {
     _todayLogs = await repo.getLogsForDate(DateTime.now());
+    _weeklyStreak = await repo.getWeeklyStreak(activePlans); // 👈 Hier übergeben
     notifyListeners();
   }
 
   /// Wird aufgerufen, wenn eine Übung im Trainings-Flow abgeschlossen wird
-  Future<void> logExercise({required String planId, required String exerciseId}) async {
+  Future<void> logExercise({
+    required String planId,
+    required String exerciseId,
+    List<Plan> activePlans = const [],
+  }) async {
     await repo.saveLog(planId, exerciseId);
-    await loadTodayLogs(); // UI aktualisieren
+    await loadTodayLogs(activePlans: activePlans);
   }
 
   /// Berechnet den Fortschritt eines Plans für HEUTE
@@ -69,5 +77,11 @@ class PlanLogExerciseProvider extends ChangeNotifier {
   /// Liefert den Index der ersten Übung, die heute noch nicht erledigt wurde (-1 wenn alle fertig sind)
   int getNextOpenExerciseIndex(Plan plan) {
     return plan.exercises.indexWhere((ex) => !isExerciseCompletedToday(plan.id, ex.id));
+  }
+
+  //TODO[API]: Test um WeeklyStreak zu simulieren und Fake Daten dafür anzulegen
+  Future<void> seedTestData(int weeks, {List<Plan> activePlans = const []}) async {
+    await repo.insertFakeHistoricalLogs(weeks, activePlans);
+    await loadTodayLogs(activePlans: activePlans); // Berechnet den Streak neu
   }
 }

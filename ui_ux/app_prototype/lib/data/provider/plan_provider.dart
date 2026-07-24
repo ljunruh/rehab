@@ -1,11 +1,10 @@
 import 'package:app_prototype/data/enum/body_part.dart';
-import 'package:app_prototype/data/models/api/exercise.dart';
-import 'package:app_prototype/data/models/api/plan.dart';
+import 'package:app_prototype/data/models/api/api_models.dart';
+import 'package:app_prototype/data/models/weekly_ring.dart';
 import 'package:app_prototype/data/repository/plan_repository.dart';
 import 'package:flutter/material.dart';
-
+import 'package:app_prototype/core/theme/app_colors.dart';
 import '../enum/goal.dart';
-import '../models/api/api_models.dart';
 
 class PlanProvider extends ChangeNotifier {
   final PlanRepository repo;
@@ -22,6 +21,23 @@ class PlanProvider extends ChangeNotifier {
 
   List<BodyPart> _activeRegions = [];
   List<BodyPart> get activeRegions => _activeRegions;
+
+  // haltet die aktuell generierte  Empfehlung im Arbeitsspeicher
+  Plan? _recommendedPlan;
+  Plan? get recommendedPlan => _recommendedPlan;
+  // generiert eine Planempfehlung aus den  Übergebenen Übungen und benachrichtigt UI
+  void generateRecommandedPlan(
+      List<Exercise> exercises,
+      BodyPart region,
+      Goal goal,
+      ) {
+    _recommendedPlan = repo.createRecomendedPlan(
+      exercises,
+      region,
+      goal,
+    );
+    notifyListeners();
+  }
 
   Future<void> savePlan(Plan plan) async {
     await repo.savePlan(plan);
@@ -47,22 +63,6 @@ class PlanProvider extends ChangeNotifier {
     _selectedPlan = updatedPlan;
     notifyListeners();
   }
-  // haltet die aktuell generierte  Empfehlung im Arbeitsspeicher
-  Plan? _recommendedPlan;
-  Plan? get recommendedPlan => _recommendedPlan;
-  // generiert eine Planempfehlung aus den  Übergebenen Übungen und benachrichtigt UI
-  void generateRecommandedPlan(
-    List<Exercise> exercises,
-    BodyPart region,
-    Goal goal,
-  ) {
-    _recommendedPlan = repo.createRecomendedPlan(
-      exercises,
-      region,
-      goal,
-    );
-    notifyListeners();
-  }
 
   Future<List<BodyPart>> loadActiveTrainedRegions() async {
     _activeRegions = await repo.getActiveTrainedRegions();
@@ -82,5 +82,27 @@ class PlanProvider extends ChangeNotifier {
       _plans[index] = updatedPlan;
       notifyListeners();
     }
+  }
+
+  /// Erstellt die Liste der konzentrischen Wochenringe für alle aktiven Pläne
+  List<WeeklyRing> get weeklyRings {
+    final active = activePlans;
+    final List<WeeklyRing> rings = [];
+
+    for (int i = 0; i < active.length; i++) {
+      final plan = active[i];
+
+      // Nimm die Farbe direkt vom Plan (mit Fallback auf eine Standardfarbe)
+      final Color ringColor = plan.color ?? AppColors.sageDeep;
+
+      rings.add(WeeklyRing(
+        label: plan.name.isNotEmpty ? plan.name : plan.region.label,
+        done: plan.completedSessions,
+        goal: plan.sessionsPerWeek,
+        color: ringColor,
+      ));
+    }
+
+    return rings;
   }
 }
