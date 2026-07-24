@@ -91,8 +91,8 @@ class _PlanCreateScreenState extends State<PlanCreateScreen> {
     final plan = Plan(
       id: 'plan_${DateTime.now().microsecondsSinceEpoch}_${Random().nextInt(99999)}',
       name: _nameCtrl.text.trim(),
-      region: _region.label,
-      goal: _goal.label,
+      region: _region,
+      goal: _goal,
       exercises: _selectedExercises,
       sessionsPerWeek: _sessionsPerWeek,
       source: 'eigen',

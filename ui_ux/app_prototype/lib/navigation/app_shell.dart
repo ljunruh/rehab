@@ -1,5 +1,4 @@
 import 'package:app_prototype/data/provider/user_provider.dart';
-import 'package:app_prototype/data/service/user_service.dart';
 import 'package:app_prototype/features/profile/setup/profile_setup_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -202,6 +201,7 @@ class _AppShellState extends State<AppShell> {
       screen = PlanDetailScreen(
         planId: _selectedId!,
         onBack: _closeSub,
+        //TODO[API]: Training starten
         onStartTraining: _startTraining,
         onAddExercise: _openAddExercise,
       );
@@ -210,6 +210,7 @@ class _AppShellState extends State<AppShell> {
       screen = PlanTrainingScreen(
         planId: _selectedId!,
         onExit: _closeSub,
+        //TODO[API]: Training starten
         onFinish: () {
           context.read<UiState>().finishTraining(_selectedId!);
           _closeSub();
@@ -222,22 +223,7 @@ class _AppShellState extends State<AppShell> {
         case AppTab.home:
           screen = HomeScreen(
             onOpenProfile: _openProfile,
-            onStartRegion: (region) {
-              // Sucht den ersten aktiven Plan dieser Region und startet ihn.
-              final app = context.read<UiState>();
-              TrainingPlan? match;
-              for (final p in app.activePlans) {
-                if (p.region == region) {
-                  match = p;
-                  break;
-                }
-              }
-              if (match != null) {
-                _startTraining(match.id);
-              } else {
-                app.showToast('Für $region gibt es noch keinen Plan.');
-              }
-            },
+            onStartTraining: (plan) => _startTraining(plan.id)
           );
           break;
         case AppTab.plans:

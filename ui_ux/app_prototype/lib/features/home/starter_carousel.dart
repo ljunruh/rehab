@@ -1,3 +1,8 @@
+import 'package:app_prototype/data/enum/body_part.dart';
+import 'package:app_prototype/data/enum/goal.dart';
+import 'package:app_prototype/data/models/api/plan.dart';
+import 'package:app_prototype/data/provider/plan_log_exercise_provider.dart';
+import 'package:app_prototype/data/provider/plan_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:provider/provider.dart';
@@ -11,8 +16,8 @@ import '../../state/ui_state.dart';
 /// Status-Fortschritt und ein "<Region>-Training starten"-Button.
 /// Entspricht dem Today-Regions-Slider im JSX-Prototyp.
 class StarterCarousel extends StatefulWidget {
-  final ValueChanged<String> onStartRegion;
-  const StarterCarousel({super.key, required this.onStartRegion});
+  final ValueChanged<Plan> onStartTraining;
+  const StarterCarousel({super.key, required this.onStartTraining});
 
   @override
   State<StarterCarousel> createState() => _StarterCarouselState();
@@ -28,51 +33,54 @@ class _StarterCarouselState extends State<StarterCarousel> {
     super.dispose();
   }
 
-  /// Rubrik (Kraft/Mobilisation/Koordination/Entspannung) aus dem Ziel ableiten.
-  ({String label, IconData icon}) _rubrik(String goal) {
-    final g = goal.toLowerCase();
-    if (g.contains('kraft') || g.contains('kräftig')) {
-      return (label: 'KRAFT', icon: Icons.bolt);
-    }
-    if (g.contains('koordin') ||
-        g.contains('stabil') ||
-        g.contains('gleichgewicht') ||
-        g.contains('haltung')) {
-      return (label: 'KOORDINATION', icon: Icons.gps_fixed);
-    }
-    if (g.contains('entspann') || g.contains('ruhe')) {
-      return (label: 'ENTSPANNUNG', icon: Icons.spa);
-    }
-    return (label: 'MOBILISATION', icon: Icons.waves);
-  }
-
   @override
   Widget build(BuildContext context) {
-    final app = context.watch<UiState>();
-    final regions = app.activeRegions;
+    final planProvider = context.watch<PlanProvider>();
+    final planLogExerciseProvider = context.watch<PlanLogExerciseProvider>();
+    final plans = planProvider.activePlans;
+
+    if (plans.isEmpty) {
+      return const SizedBox.shrink();
+    }
 
     return Column(
       children: [
         SizedBox(
-          height: 210,
+          height: 220,
           child: PageView.builder(
             controller: _controller,
-            itemCount: regions.length,
+            itemCount: plans.length,
             onPageChanged: (i) => setState(() => _index = i),
             itemBuilder: (context, i) {
-              final region = regions[i];
-              final data = app.starterFor(region);
+              final plan = plans[i];
               final isActive = i == _index;
-              final rubrik = _rubrik(data.goal);
+              final rubrik = plan.goal.rubrik;
 
-              final statusText = data.total == 0
-                  ? 'Heute nichts geplant'
-                  : data.done == data.total
-                      ? 'Alles erledigt'
-                      : data.done == 0
-                          ? 'Noch offen'
-                          : '${data.done} von ${data.total} erledigt';
-              final pct = data.total > 0 ? data.done / data.total : 0.0;
+              // -----------------------------------------------------------------
+              // NEU: Präzise Fortschritts- & Statusberechnung
+              // -----------------------------------------------------------------
+              final isLimitReached = plan.completedSessions >= plan.sessionsPerWeek;
+              final progress = planLogExerciseProvider.getTodayProgress(plan);
+
+              final int done = progress.done;
+              final int total = progress.total;
+              final int durationMinutes = plan.duration;
+
+              final bool isFullyDone = isLimitReached || (total > 0 && done == total);
+
+              final String statusText;
+              if (isLimitReached) {
+                statusText = 'Wochenziel erreicht';
+              } else if (total == 0) {
+                statusText = 'Heute nichts geplant';
+              } else if (done == total) {
+                statusText = 'Alles erledigt';
+              } else if (done > 0) {
+                statusText = '$done von $total erledigt';
+              } else {
+                statusText = 'Noch offen';
+              }
+              final double pct = isLimitReached ? 1.0 : (total > 0 ? done / total : 0.0);
 
               return Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 6),
@@ -84,7 +92,7 @@ class _StarterCarouselState extends State<StarterCarousel> {
                     children: [
                       Row(
                         children: [
-                          _RegionBadge(region: region),
+                          _RegionBadge(region: plan.region),
                           const SizedBox(width: AppSpacing.md),
                           Expanded(
                             child: Column(
@@ -92,15 +100,17 @@ class _StarterCarouselState extends State<StarterCarousel> {
                               children: [
                                 Text(rubrik.label, style: AppText.micro),
                                 const SizedBox(height: 2),
-                                Text(region,
-                                    style: AppText.cardTitle.copyWith(
-                                        fontSize: 17,
-                                        fontWeight: FontWeight.w700)),
+                                Text(
+                                  plan.name.isNotEmpty ? plan.name : plan.region.label,
+                                  style: AppText.cardTitle.copyWith(
+                                      fontSize: 17,
+                                      fontWeight: FontWeight.w700),
+                                ),
                                 const SizedBox(height: 2),
                                 Text(
-                                  data.total == 0
+                                  total == 0
                                       ? 'Keine Übungen'
-                                      : '${data.total} ${data.total == 1 ? 'Übung' : 'Übungen'} · ca. ${data.minutes} Min.',
+                                      : '$total ${total == 1 ? 'Übung' : 'Übungen'} · ca. $durationMinutes Min.',
                                   style: AppText.caption,
                                 ),
                               ],
@@ -113,9 +123,12 @@ class _StarterCarouselState extends State<StarterCarousel> {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Text('STATUS', style: AppText.micro),
-                          Text(statusText,
-                              style: AppText.label
-                                  .copyWith(color: AppColors.sageDeep)),
+                          Text(
+                            statusText,
+                            style: AppText.label.copyWith(
+                              color: isFullyDone ? AppColors.sageDeep : AppColors.text,
+                            ),
+                          ),
                         ],
                       ),
                       const SizedBox(height: AppSpacing.sm),
@@ -125,18 +138,23 @@ class _StarterCarouselState extends State<StarterCarousel> {
                           value: pct,
                           minHeight: 5,
                           backgroundColor: AppColors.beige,
-                          valueColor: const AlwaysStoppedAnimation(
-                              AppColors.sageMid),
+                          valueColor: AlwaysStoppedAnimation(
+                            isFullyDone ? AppColors.sageDeep : AppColors.sageMid,
+                          ),
                         ),
                       ),
                       const SizedBox(height: AppSpacing.base),
                       PrimaryButton(
-                        label: '$region-Training starten',
-                        icon: Icons.arrow_forward,
-                        disabled: data.total == 0,
-                        onPressed: data.total == 0
+                        label: isFullyDone
+                            ? 'Heute erledigt'
+                            : done > 0
+                            ? 'Weiter trainieren'
+                            : '${plan.region.label}-Training starten',
+                        icon: isFullyDone ? Icons.check : Icons.arrow_forward,
+                        disabled: isFullyDone || total == 0,
+                        onPressed: (isFullyDone || total == 0)
                             ? null
-                            : () => widget.onStartRegion(region),
+                            : () => widget.onStartTraining(plan),
                       ),
                     ],
                   ),
@@ -145,39 +163,27 @@ class _StarterCarouselState extends State<StarterCarousel> {
             },
           ),
         ),
-        if (regions.length > 1) ...[
+        if (plans.length > 1) ...[
           const SizedBox(height: AppSpacing.md),
-          _Dots(count: regions.length, active: _index),
+          _Dots(count: plans.length, active: _index),
         ],
       ],
     );
   }
 }
 
-/// Runder Region-Badge: zeigt Sophias Region-Icon (falls vorhanden),
-/// sonst einen neutralen mint-Kreis.
+/// Rendert das geforderte SvgPicture.asset für alle BodyParts
 class _RegionBadge extends StatelessWidget {
-  final String region;
+  final BodyPart region;
   const _RegionBadge({required this.region});
 
   @override
   Widget build(BuildContext context) {
-    final icon = RegionIcons.of(region);
-    if (icon != null) {
-      return SvgPicture.asset(icon, width: 52, height: 52);
-    }
-    return Container(
-      width: 52,
-      height: 52,
-      decoration: const BoxDecoration(
-        color: AppColors.mint,
-        shape: BoxShape.circle,
-      ),
-    );
+    final icon = RegionIcons.of(region.name) ?? 'assets/icons/regions/ruecken.svg';
+    return SvgPicture.asset(icon, width: 52, height: 52);
   }
 }
 
-/// Pagination-Punkte (aktiver Punkt ist breiter).
 class _Dots extends StatelessWidget {
   final int count;
   final int active;

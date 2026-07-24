@@ -1,3 +1,5 @@
+import 'package:app_prototype/data/enum/body_part.dart';
+import 'package:app_prototype/data/enum/goal.dart';
 import 'package:app_prototype/data/models/api/exercise.dart';
 import 'package:flutter/material.dart';
 import 'package:isar/isar.dart';
@@ -6,28 +8,31 @@ part 'plan.g.dart';
 
 @Collection()
 class Plan {
-  //TODO[API]: Brauchen wir die isarId noch?
-  Id isarId = Isar.autoIncrement;
+  Id isarId;
+
   @Index(unique: true)
   final String id;
   final String name;
-  final String region;
-  final String goal;
+
+  @enumerated
+  final BodyPart region;
+
+  @enumerated
+  final Goal goal;
   final List<Exercise> exercises;
   final int sessionsPerWeek;
   final int completedSessions;
   final String source; // "empfohlen" | "eigen"
   final bool archived;
 
-  /// Kalenderfarbe des Plans (StyleGuide §11). Optional.
   @ignore
   final Color? color;
 
-  /// Optionale Beschreibung (bei Empfehlungsplänen vorhanden).
   @ignore
   final String? description;
 
   Plan({
+    this.isarId = Isar.autoIncrement,
     required this.id,
     required this.name,
     required this.region,
@@ -42,9 +47,11 @@ class Plan {
   });
 
   Plan copyWith({
+    Id? isarId,
+    String? id,
     String? name,
-    String? region,
-    String? goal,
+    BodyPart? region,
+    Goal? goal,
     List<Exercise>? exercises,
     int? sessionsPerWeek,
     int? completedSessions,
@@ -54,7 +61,8 @@ class Plan {
     String? description,
   }) {
     return Plan(
-      id: id,
+      isarId: isarId ?? this.isarId,
+      id: id ?? this.id,
       name: name ?? this.name,
       region: region ?? this.region,
       goal: goal ?? this.goal,

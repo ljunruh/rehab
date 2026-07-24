@@ -12,8 +12,11 @@ import 'settings_sheet.dart';
 /// PERSON 4 — Profil-Drawer (fährt von rechts ein).
 ///
 /// Zeigt Profil-Kopf, schnelle Aktionen (Profil bearbeiten, Praxis,
-/// Einstellungen), das Archiv (archivierte Pläne mit Wiederherstellen/
-/// Löschen) und Abmelden. Entspricht ProfileDrawer im JSX-Prototyp.
+/// Einstellungen) und das Archiv (archivierte Pläne mit Wiederherstellen/
+/// Löschen). Entspricht ProfileDrawer im JSX-Prototyp.
+///
+/// Kein Login/Abmelden: Die App hat bewusst keine Anmeldung (Team-Entscheidung),
+/// es werden keine Login-Daten gespeichert.
 ///
 /// Wird als Overlay über die App gelegt (siehe app_shell). Die Animation
 /// (Slide-in + Overlay-Fade) übernimmt ein AnimationController.
@@ -300,35 +303,6 @@ class _ProfileDrawerState extends State<ProfileDrawer>
                                     )),
                             ],
 
-                            const SizedBox(height: AppSpacing.base),
-
-                            // ── Ausloggen ──
-                            GestureDetector(
-                              onTap: () => app.showToast('Abgemeldet (Demo).'),
-                              behavior: HitTestBehavior.opaque,
-                              child: Container(
-                                width: double.infinity,
-                                padding: const EdgeInsets.symmetric(
-                                    vertical: 14),
-                                alignment: Alignment.center,
-                                decoration: BoxDecoration(
-                                  color: AppColors.white,
-                                  borderRadius:
-                                      BorderRadius.circular(AppRadius.card),
-                                ),
-                                child: Row(
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  children: [
-                                    const Icon(Icons.logout,
-                                        size: 18, color: PlanColors.koralle),
-                                    const SizedBox(width: AppSpacing.sm),
-                                    Text('Ausloggen',
-                                        style: AppText.cardTitle.copyWith(
-                                            color: PlanColors.koralle)),
-                                  ],
-                                ),
-                              ),
-                            ),
                           ],
                         ),
                       ),

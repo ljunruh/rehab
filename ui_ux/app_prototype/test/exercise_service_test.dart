@@ -1,12 +1,20 @@
+import 'package:app_prototype/data/api/exercise_api.dart';
 import 'package:app_prototype/data/enum/body_part.dart';
 import 'package:app_prototype/data/enum/goal.dart';
 import 'package:app_prototype/data/models/api/exercise.dart';
-import 'package:app_prototype/data/service/exercise_service.dart';
+import 'package:app_prototype/data/repository/exercise_repository.dart';
+import 'package:app_prototype/data/repository/user_repository.dart';
 import 'package:flutter_test/flutter_test.dart';
 
+class FakeExerciseApi extends Fake implements ExerciseApi {}
+class FakeUserRepository extends Fake implements UserRepository {}
+
 void main() {
-  group('ExerciseService Tests', () {
-    final service = ExerciseService();
+  group('ExerciseRepository Filter Tests', () {
+    final repository = ExerciseRepository(
+      api: FakeExerciseApi(),
+      userRepository: FakeUserRepository(),
+    );
 
     final List<Exercise> testExercises = [
       Exercise.create(
@@ -17,9 +25,10 @@ void main() {
         bodyParts: const ['knees', 'legs'],
         description: 'Eine Kniebeuge',
         duration: 5,
-        instruction: 'In die Hocke gehen',
+        instructions: const ['In die Hocke gehen'],
         corrections: const [],
         mistakes: const [],
+        video: '',
       ),
       Exercise.create(
         id: '2',
@@ -29,9 +38,10 @@ void main() {
         bodyParts: const ['shoulders'],
         description: 'Arme kreisen',
         duration: 3,
-        instruction: 'Schultern bewegen',
+        instructions: const ['Schultern bewegen'],
         corrections: const [],
         mistakes: const [],
+        video: '',
       ),
       Exercise.create(
         id: '3',
@@ -41,14 +51,15 @@ void main() {
         bodyParts: const ['back', 'core'],
         description: 'Rumpf dehnen',
         duration: 4,
-        instruction: 'Nach vorne beugen',
+        instructions: const ['Nach vorne beugen'],
         corrections: const [],
         mistakes: const [],
+        video: '',
       ),
     ];
 
     test('should filter by body part', () {
-      final results = service.filterExercises(
+      final results = repository.filterExercises(
         testExercises,
         bodyPart: BodyPart.knees,
         goal: Goal.none,
@@ -59,7 +70,7 @@ void main() {
     });
 
     test('should filter by goal', () {
-      final results = service.filterExercises(
+      final results = repository.filterExercises(
         testExercises,
         bodyPart: BodyPart.none,
         goal: Goal.mobility,
@@ -70,7 +81,7 @@ void main() {
     });
 
     test('should filter by both body part and goal', () {
-      final results = service.filterExercises(
+      final results = repository.filterExercises(
         testExercises,
         bodyPart: BodyPart.back,
         goal: Goal.stability,
@@ -81,7 +92,7 @@ void main() {
     });
 
     test('should filter by search query', () {
-      final results = service.filterExercises(
+      final results = repository.filterExercises(
         testExercises,
         bodyPart: BodyPart.none,
         goal: Goal.none,
@@ -93,7 +104,7 @@ void main() {
     });
 
     test('should return empty list if no matches', () {
-      final results = service.filterExercises(
+      final results = repository.filterExercises(
         testExercises,
         bodyPart: BodyPart.elbows,
         goal: Goal.relaxation,

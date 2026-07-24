@@ -1527,7 +1527,7 @@ xsd:date rdf:type rdfs:Datatype .
 ###  http://purl.org/PhysicalTherapy#AlternateSittingAndStanding
 :AlternateSittingAndStanding rdf:type owl:NamedIndividual ,
                                       :DailyRoutine ;
-                             :hasDailyLifeAdvice "Regelmäßiger Wechsel zwischen Sitzen und Stehen, um einseitige Belastungen zu reduzieren und die Wirbelsäule zu entlasten."@de ;
+                             :hasDailyLifeAdvice "Regelmäßiger Wechsel zwischen Sitzen und Stehen, um einseitige Belastungen zu reduzieren und die Wirbelsäule zu entlasten." ;
                              rdfs:comment "Wechsle Sitzen und Stehen"@de ;
                              rdfs:label "Abwechselnd Sitzen und Stehen"@de ,
                                         "AlternateSittingAndStanding"@en .
@@ -1579,17 +1579,44 @@ xsd:date rdf:type rdfs:Datatype .
                     "Bogenschießen"@de .
 
 
+###  http://purl.org/PhysicalTherapy#ArmhebenImVierfuesslerstand
+:ArmhebenImVierfuesslerstand rdf:type owl:NamedIndividual ,
+                                      :CoordinationMobility ;
+                             :engagedBodyPart :Core ,
+                                              :Hip ,
+                                              :LowerBack ,
+                                              :Obliques ;
+                             :hasContraindication :BackIssue ;
+                             :hasDifficultyLevel :Beginner ;
+                             :improves :Coordination ,
+                                       :Mobility ,
+                                       :Stability ;
+                             :requiresEquipment :None ;
+                             :hasCommonMistake "Vermeide hektische Ausgleichsbewegungen. Versuche stattdessen, ruhig und kontrolliert gegenzusteuern, um das Gleichgewicht zu halten." ;
+                             :hasCorrectionGuidance "Führe die Bewegung langsam und kontrolliert aus. Fixiere dabei einen festen Punkt und nutze bei Bedarf eine Wand oder einen Stuhl als Unterstützung." ;
+                             :hasDescription "Koordinations- und Gleichgewichtsübung zur Verbesserung der Körperkontrolle im Bereich Rumpf." ;
+                             :hasDuration "2 Min" ;
+                             :hasInstruction """1. Gehe in den Vierfüßlerstand.
+2. Spanne deinen Rumpf an und halte den Rücken stabil.
+3. Strecke einen Arm, ein Bein oder beides langsam und kontrolliert aus.
+4. Führe Arm und Bein zurück, ohne das Becken zur Seite zu drehen.""" ;
+                             rdfs:comment "Eine Übung im Vierfüßlerstand zur Verbesserung der Rumpfstabilität, Körperkontrolle und Koordination durch das kontrollierte Strecken von Arm und Bein."@de ;
+                             rdfs:label "Armheben im Vierfüßlerstand"@de ,
+                                        "Quadruped Arm Reach"@en .
+
+
 ###  http://purl.org/PhysicalTherapy#Armkreisen
 :Armkreisen rdf:type owl:NamedIndividual ,
                      :CoordinationMobility ;
             :engagedBodyPart :Chest ,
+                             :Glutes ,
                              :RotatorCuffs ,
                              :ShoulderJoint ,
                              :Shoulders ,
                              :Trapezius ,
                              :UpperBack ;
             :hasContraindication :ShoulderIssue ;
-            :hasDifficultyLevel :Beginner ;
+            :hasDifficultyLevel :Intermediate ;
             :improves :Balance ,
                       :Coordination ,
                       :Mobility ;
@@ -1675,7 +1702,8 @@ xsd:date rdf:type rdfs:Datatype .
                :hasCommonMistake "Die Luft wird mit Kraft angehalten, die Schultern werden beim Einatmen hochgezogen oder die Atemphasen werden zu schnell ausgeführt." ;
                :hasCorrectionGuidance "Nur so tief einatmen und so lange pausieren, wie es angenehm möglich ist. Schultern und Gesicht entspannt lassen. Bei Schwierigkeiten kann zunächst ein kürzerer Rhythmus verwendet werden." ;
                :hasDescription "Eine kontrollierte Atemübung zur Entspannung und zur bewussten Verlangsamung der Atmung. Die Übung lenkt die Aufmerksamkeit auf einen gleichmäßigen Atemrhythmus und kann im Sitzen oder Liegen durchgeführt werden." ;
-               :hasDuration "5 Min" ;
+               :hasDuration "3 Min" ,
+                            "5 Min" ;
                :hasInstruction """1. Eine bequeme Sitz- oder Liegeposition einnehmen und die Schultern entspannen.
 2. Ruhig durch die Nase einatmen und dabei bis vier zählen.
 3. Den Atem ohne starkes Pressen halten und bis sieben zählen.
@@ -1697,7 +1725,7 @@ xsd:date rdf:type rdfs:Datatype .
 ###  http://purl.org/PhysicalTherapy#AvoidForwardHeadPosture
 :AvoidForwardHeadPosture rdf:type owl:NamedIndividual ,
                                   :DailyRoutine ;
-                         :hasDailyLifeAdvice "Vermeidung einer nach vorne geschobenen Kopfhaltung, um Nacken- und Schulterbelastungen zu verringern."@de ;
+                         :hasDailyLifeAdvice "Vermeidung einer nach vorne geschobenen Kopfhaltung, um Nacken- und Schulterbelastungen zu verringern." ;
                          rdfs:comment "Vermeide eine nach vorne geschobene Kopfhaltung"@de ;
                          rdfs:label "AvoidForwardHeadPosture"@en ,
                                     "Vermeide nach vorne geschobene Kopfhaltung"@de .
@@ -1706,7 +1734,7 @@ xsd:date rdf:type rdfs:Datatype .
 ###  http://purl.org/PhysicalTherapy#AvoidLongSitting
 :AvoidLongSitting rdf:type owl:NamedIndividual ,
                            :DailyRoutine ;
-                  :hasDailyLifeAdvice "Langes ununterbrochenes Sitzen vermeiden, da es Rücken, Hüfte und Kreislauf belasten kann."@de ;
+                  :hasDailyLifeAdvice "Langes ununterbrochenes Sitzen vermeiden, da es Rücken, Hüfte und Kreislauf belasten kann." ;
                   rdfs:comment "Vermeide langes Sitzen"@de ;
                   rdfs:label "AvoidLongSitting"@en ,
                              "Vermeide langes Sitzen"@de .
@@ -1727,7 +1755,7 @@ xsd:date rdf:type rdfs:Datatype .
 ###  http://purl.org/PhysicalTherapy#BackFriendlyLifting
 :BackFriendlyLifting rdf:type owl:NamedIndividual ,
                               :DailyRoutine ;
-                     :hasDailyLifeAdvice "Rückenschonendes Heben durch Beugen der Knie, Halten der Last nah am Körper und Vermeiden von Rundrücken."@de ;
+                     :hasDailyLifeAdvice "Rückenschonendes Heben durch Beugen der Knie, Halten der Last nah am Körper und Vermeiden von Rundrücken." ;
                      rdfs:comment "Hebe aus den Knien"@de ;
                      rdfs:label "BackFriendlyLifting"@en ,
                                 "Rückengerechtes Heben"@de .
@@ -1768,6 +1796,52 @@ xsd:date rdf:type rdfs:Datatype .
                       "Badminton"@en .
 
 
+###  http://purl.org/PhysicalTherapy#Baerenlauf
+:Baerenlauf rdf:type owl:NamedIndividual ,
+                     :CoordinationMobility ;
+            :engagedBodyPart :Core ,
+                             :LowerBack ;
+            :hasContraindication :WristIssue ;
+            :hasDifficultyLevel :Advanced ;
+            :improves :Balance ,
+                      :Coordination ,
+                      :Stability ;
+            :requiresEquipment :None ;
+            :hasCommonMistake "Vermeide hektische Ausgleichsbewegungen. Steuere stattdessen ruhig und kontrolliert gegen, um dein Gleichgewicht zu halten." ;
+            :hasCorrectionGuidance "Verlangsame die Bewegung, fixiere einen festen Punkt und nutze bei Bedarf eine Wand oder einen Stuhl als Stütze." ;
+            :hasDescription "Koordinations- und Gleichgewichtsübung zur Verbesserung der Körperkontrolle im Bereich Rumpf." ;
+            :hasDuration "3 Min" ;
+            :hasInstruction """1. Vierfüßlerstand einnehmen.
+2. Knie knapp anheben.
+3. Gegengleichen Arm und Fuß versetzen.
+4. Rumpf stabil halten.""" ;
+            rdfs:label "Bear Crawl"@en ,
+                       "Bärenlauf"@de .
+
+
+###  http://purl.org/PhysicalTherapy#Baerenstuetz
+:Baerenstuetz rdf:type owl:NamedIndividual ,
+                       :CoordinationMobility ;
+              :engagedBodyPart :Core ,
+                               :LowerBack ;
+              :hasContraindication :WristIssue ;
+              :hasDifficultyLevel :Intermediate ;
+              :improves :Balance ,
+                        :Coordination ,
+                        :Stability ;
+              :requiresEquipment :None ;
+              :hasCommonMistake "Vermeide hektische Ausgleichsbewegungen. Steuere stattdessen ruhig und kontrolliert gegen, um dein Gleichgewicht zu halten." ;
+              :hasCorrectionGuidance "Verlangsame die Bewegung, fixiere einen festen Punkt und nutze bei Bedarf eine Wand oder einen Stuhl als Stütze." ;
+              :hasDescription "Koordinations- und Gleichgewichtsübung zur Verbesserung der Körperkontrolle im Bereich Rumpf." ;
+              :hasDuration "3 Min" ;
+              :hasInstruction """1. Stützposition einnehmen.
+2. Bauch und Gesäß anspannen.
+3. Körper in einer stabilen Linie halten.
+4. Ruhig atmen und kontrolliert lösen.""" ;
+              rdfs:label "Bear Hold"@en ,
+                         "Bärenstütz"@de .
+
+
 ###  http://purl.org/PhysicalTherapy#Balance
 :Balance rdf:type owl:NamedIndividual ,
                   :TrainingsEffect ;
@@ -1784,6 +1858,13 @@ xsd:date rdf:type rdfs:Datatype .
                          "Gleichgewichtsprobleme"@de .
 
 
+###  http://purl.org/PhysicalTherapy#Ball
+:Ball rdf:type owl:NamedIndividual ,
+               :Equipment ;
+      rdfs:label "Ball"@de ,
+                 "Ball"@en .
+
+
 ###  http://purl.org/PhysicalTherapy#Ballet
 :Ballet rdf:type owl:NamedIndividual ,
                  :SportActivity ;
@@ -1791,6 +1872,30 @@ xsd:date rdf:type rdfs:Datatype .
         :MET 6.0 ;
         rdfs:label "Ballet"@en ,
                    "Ballett"@de .
+
+
+###  http://purl.org/PhysicalTherapy#BallkreisenAnDerWand
+:BallkreisenAnDerWand rdf:type owl:NamedIndividual ,
+                               :CoordinationMobility ;
+                      :engagedBodyPart :Back ,
+                                       :Spine ;
+                      :hasContraindication :BackIssue ;
+                      :hasDifficultyLevel :Intermediate ;
+                      :improves :Balance ,
+                                :Coordination ,
+                                :Stability ;
+                      :requiresEquipment :Ball ,
+                                         :Erhöhung ;
+                      :hasCommonMistake "Vermeide hektische Ausgleichsbewegungen. Steuere stattdessen ruhig und kontrolliert gegen, um dein Gleichgewicht zu halten." ;
+                      :hasCorrectionGuidance "Verlangsame die Bewegung, fixiere einen festen Punkt und nutze bei Bedarf eine Wand oder einen Stuhl als Stütze." ;
+                      :hasDescription "Koordinations- und Gleichgewichtsübung zur Verbesserung der Körperkontrolle im Bereich Rücken." ;
+                      :hasDuration "3 Min" ;
+                      :hasInstruction """1. Ball mit der Hand an die Wand drücken.
+2. Schulter stabilisieren.
+3. Kleine Kreise zeichnen.
+4. Richtung und Seite wechseln.""" ;
+                      rdfs:label "Ball on Wall Circles"@en ,
+                                 "Ballkreisen an der Wand"@de .
 
 
 ###  http://purl.org/PhysicalTherapy#Baseball
@@ -1820,6 +1925,51 @@ xsd:date rdf:type rdfs:Datatype .
                                       "BasketballShootingBaskets"@en .
 
 
+###  http://purl.org/PhysicalTherapy#BauchatmungInBauchlage
+:BauchatmungInBauchlage rdf:type owl:NamedIndividual ,
+                                 :Entspannung ;
+                        :engagedBodyPart :Back ,
+                                         :Core ;
+                        :hasContraindication :RespiratoryIssue ;
+                        :hasDifficultyLevel :Beginner ;
+                        :improves :Focus ,
+                                  :Relaxation ;
+                        :requiresEquipment :None ;
+                        :hasCommonMistake "Vermeide eine schnelle und flache Atmung in den Brustkorb. Atme stattdessen bewusst und ruhig in den Bauch." ;
+                        :hasCorrectionGuidance "Verlangsame bewusst das Tempo und lasse die Ausatmung etwas länger werden als die Einatmung." ;
+                        :hasDescription "Bauchatmung in Bauchlage ist eine ruhige Atemübung, die Entspannung, Körperwahrnehmung und eine bewusste Atemkontrolle fördert." ;
+                        :hasDuration "5 Min" ;
+                        :hasInstruction """1. In Bauchlage legen.
+2. Stirn auf den Händen ablegen.
+3. In den Bauch und die Flanken atmen.
+4. Langsam ausatmen.""" ;
+                        rdfs:label "Bauchatmung in Bauchlage"@de ,
+                                   "Crocodile Breathing"@en .
+
+
+###  http://purl.org/PhysicalTherapy#BauchlageKobra
+:BauchlageKobra rdf:type owl:NamedIndividual ,
+                         :Strength ;
+                :engagedBodyPart :Core ,
+                                 :LowerBack ;
+                :hasContraindication :BackIssue ;
+                :hasDifficultyLevel :Intermediate ;
+                :improves :Posture ,
+                          :Stability ,
+                          :Strength ;
+                :requiresEquipment :None ;
+                :hasCommonMistake "Vermeide es, die Rumpfspannung zu verlieren oder die Bewegung mit Schwung auszuführen. Halte deinen Rumpf stabil und bewege dich langsam und kontrolliert." ;
+                :hasCorrectionGuidance "Verlangsame das Tempo, richte deine Wirbelsäule neutral aus und steigere die Belastung erst, wenn du die Technik sauber ausführen kannst." ;
+                :hasDescription "Kräftigungsübung zum gezielten Aufbau von kraft im Bereich Rumpf." ;
+                :hasDuration "4 Min" ;
+                :hasInstruction """1. In Bauchlage gehen.
+2. Rumpf und Gesäß leicht anspannen.
+3. Brustbein kontrolliert anheben.
+4. Nacken neutral halten und absenken.""" ;
+                rdfs:label "Bauchlage-Kobra"@de ,
+                           "Prone Cobra"@en .
+
+
 ###  http://purl.org/PhysicalTherapy#BeachVolleyball
 :BeachVolleyball rdf:type owl:NamedIndividual ,
                           :SportActivity ;
@@ -1829,6 +1979,75 @@ xsd:date rdf:type rdfs:Datatype .
                             "Beachvolleyball"@de .
 
 
+###  http://purl.org/PhysicalTherapy#Beckenkippen
+:Beckenkippen rdf:type owl:NamedIndividual ,
+                       :MobilisationStretching ;
+              :engagedBodyPart :Hip ,
+                               :Pelvic ;
+              :hasContraindication :HipIssue ;
+              :hasDifficultyLevel :Beginner ;
+              :improves :Flexibility ,
+                        :Mobility ,
+                        :Posture ;
+              :requiresEquipment :None ;
+              :hasCommonMistake "Vermeide zu große oder schwungvolle Bewegungen. Führe die Bewegung stattdessen kontrolliert Wirbel für Wirbel oder Grad für Grad aus." ;
+              :hasCorrectionGuidance "Verkleinere den Bewegungsradius, drossle das Tempo und halte deinen Rumpf dabei ruhig und stabil." ;
+              :hasDescription "Mobilisationsübung zur sanften Bewegungserweiterung im Bereich Hüfte mit Schwerpunkt auf mobilität." ;
+              :hasDuration "2 Min" ;
+              :hasInstruction """1. Rückenlage oder Stand einnehmen.
+2. Bauch leicht anspannen.
+3. Becken vor- und zurückkippen.
+4. Bewegung klein und kontrolliert ausführen.""" ;
+              rdfs:label "Beckenkippen"@de ,
+                         "Pelvic Tilt"@en .
+
+
+###  http://purl.org/PhysicalTherapy#BeckenkontrollUebung
+:BeckenkontrollUebung rdf:type owl:NamedIndividual ,
+                               :CoordinationMobility ;
+                      :engagedBodyPart :Hip ,
+                                       :Pelvic ;
+                      :hasContraindication :HipIssue ;
+                      :hasDifficultyLevel :Beginner ;
+                      :improves :Coordination ,
+                                :Mobility ,
+                                :Stability ;
+                      :requiresEquipment :None ;
+                      :hasCommonMistake "Vermeide hektische Ausgleichsbewegungen. Steuere stattdessen ruhig und kontrolliert gegen, um dein Gleichgewicht zu halten." ;
+                      :hasCorrectionGuidance "Verlangsame die Bewegung, fixiere einen festen Punkt und nutze bei Bedarf eine Wand oder einen Stuhl als Stütze." ;
+                      :hasDescription "Koordinations- und Gleichgewichtsübung zur Verbesserung der Körperkontrolle im Bereich Hüfte." ;
+                      :hasDuration "2 Min" ;
+                      :hasInstruction """1. Ausgangsposition sicher einnehmen.
+2. Bewegung langsam und kontrolliert ausführen.
+3. Ruhig atmen.
+4. Bei Schmerzen abbrechen.""" ;
+                      rdfs:label "Beckenkontroll-Übung"@de ,
+                                 "Pelvic Control Drill"@en .
+
+
+###  http://purl.org/PhysicalTherapy#Beckenuhr
+:Beckenuhr rdf:type owl:NamedIndividual ,
+                    :MobilisationStretching ;
+           :engagedBodyPart :Hip ,
+                            :Pelvic ;
+           :hasContraindication :HipIssue ;
+           :hasDifficultyLevel :Beginner ;
+           :improves :Flexibility ,
+                     :Mobility ,
+                     :Posture ;
+           :requiresEquipment :None ;
+           :hasCommonMistake "Vermeide zu große oder schwungvolle Bewegungen. Führe die Bewegung stattdessen kontrolliert Wirbel für Wirbel oder Grad für Grad aus." ;
+           :hasCorrectionGuidance "Verkleinere den Bewegungsradius, drossle das Tempo und halte deinen Rumpf dabei ruhig und stabil." ;
+           :hasDescription "Mobilisationsübung zur sanften Bewegungserweiterung im Bereich Hüfte mit Schwerpunkt auf mobilität." ;
+           :hasDuration "2 Min" ;
+           :hasInstruction """1. In Rückenlage die Beine aufstellen.
+2. Das Becken wie auf einem Zifferblatt bewegen.
+3. Nacheinander 12, 3, 6 und 9 Uhr ansteuern.
+4. Kreise verbinden.""" ;
+           rdfs:label "Beckenuhr"@de ,
+                      "Pelvic Clock"@en .
+
+
 ###  http://purl.org/PhysicalTherapy#Beginner
 :Beginner rdf:type owl:NamedIndividual ,
                    :DifficultyLevel ,
@@ -1836,6 +2055,51 @@ xsd:date rdf:type rdfs:Datatype .
           rdfs:comment "Anfängerstufe: geeignet für Einsteiger ohne oder mit wenig Vorerfahrung."@de ;
           rdfs:label "Anfänger"@de ,
                      "Beginner"@en .
+
+
+###  http://purl.org/PhysicalTherapy#BeideKnieZurBrust
+:BeideKnieZurBrust rdf:type owl:NamedIndividual ,
+                            :MobilisationStretching ;
+                   :engagedBodyPart :Back ,
+                                    :Spine ;
+                   :hasContraindication :BackIssue ;
+                   :hasDifficultyLevel :Beginner ;
+                   :improves :Flexibility ,
+                             :Mobility ;
+                   :requiresEquipment :None ;
+                   :hasCommonMistake "Vermeide federnde Bewegungen und halte nicht die Luft an. Dehne nur so weit, wie es angenehm bleibt und keine Schmerzen verursacht." ;
+                   :hasCorrectionGuidance "Atme ruhig weiter und halte die Position nur so weit, wie du ein deutliches, aber angenehmes Ziehen spürst." ;
+                   :hasDescription "Dehnübung zur gezielten Verbesserung der Beweglichkeit im Bereich Rücken." ;
+                   :hasDuration "2 Min" ;
+                   :hasInstruction """1. Geeignete Ausgangsposition einnehmen.
+2. Zielbereich langsam bis zu einem deutlichen, schmerzfreien Zug bewegen.
+3. Position halten.
+4. Langsam lösen und Seite wechseln.""" ;
+                   rdfs:label "Beide Knie zur Brust"@de ,
+                              "Double Knee to Chest"@en .
+
+
+###  http://purl.org/PhysicalTherapy#BeinhebenImVierfuesslerstand
+:BeinhebenImVierfuesslerstand rdf:type owl:NamedIndividual ,
+                                       :CoordinationMobility ;
+                              :engagedBodyPart :Core ,
+                                               :LowerBack ;
+                              :hasContraindication :BalanceIssue ;
+                              :hasDifficultyLevel :Beginner ;
+                              :improves :Coordination ,
+                                        :Mobility ,
+                                        :Stability ;
+                              :requiresEquipment :None ;
+                              :hasCommonMistake "Vermeide hektische Ausgleichsbewegungen. Steuere stattdessen ruhig und kontrolliert gegen, um dein Gleichgewicht zu halten." ;
+                              :hasCorrectionGuidance "Verlangsame die Bewegung, fixiere einen festen Punkt und nutze bei Bedarf eine Wand oder einen Stuhl als Stütze." ;
+                              :hasDescription "Koordinations- und Gleichgewichtsübung zur Verbesserung der Körperkontrolle im Bereich Rumpf." ;
+                              :hasDuration "2 Min" ;
+                              :hasInstruction """1. In den Vierfüßlerstand kommen.
+2. Rumpf stabilisieren.
+3. Arm und/oder Bein kontrolliert strecken.
+4. Ohne Beckenrotation zurückführen.""" ;
+                              rdfs:label "Beinheben im Vierfüßlerstand"@de ,
+                                         "Quadruped Leg Reach"@en .
 
 
 ###  http://purl.org/PhysicalTherapy#Biceps
@@ -1891,6 +2155,76 @@ xsd:date rdf:type rdfs:Datatype .
                     :MET 3.5 ;
                     rdfs:label "BicyclingLeisurely"@en ,
                                "Gemütliches Radfahren"@de .
+
+
+###  http://purl.org/PhysicalTherapy#BirdDogAufDemGymnastikball
+:BirdDogAufDemGymnastikball rdf:type owl:NamedIndividual ,
+                                     :CoordinationMobility ;
+                            :engagedBodyPart :Core ,
+                                             :LowerBack ;
+                            :hasContraindication :BackIssue ;
+                            :hasDifficultyLevel :Advanced ;
+                            :improves :Balance ,
+                                      :Coordination ,
+                                      :Stability ;
+                            :requiresEquipment :Ball ,
+                                               :Erhöhung ;
+                            :hasCommonMistake "Vermeide hektische Ausgleichsbewegungen. Steuere stattdessen ruhig und kontrolliert gegen, um dein Gleichgewicht zu halten." ;
+                            :hasCorrectionGuidance "Verlangsame die Bewegung, fixiere einen festen Punkt und nutze bei Bedarf eine Wand oder einen Stuhl als Stütze." ;
+                            :hasDescription "Koordinations- und Gleichgewichtsübung zur Verbesserung der Körperkontrolle im Bereich Rumpf." ;
+                            :hasDuration "3 Min" ;
+                            :hasInstruction """1. In den Vierfüßlerstand kommen.
+2. Rumpf stabilisieren.
+3. Arm und/oder Bein kontrolliert strecken.
+4. Ohne Beckenrotation zurückführen.""" ;
+                            rdfs:label "Bird Dog auf dem Gymnastikball"@de ,
+                                       "Swiss Ball Bird Dog"@en .
+
+
+###  http://purl.org/PhysicalTherapy#BirdDogHalteuebung
+:BirdDogHalteuebung rdf:type owl:NamedIndividual ,
+                             :CoordinationMobility ;
+                    :engagedBodyPart :Back ,
+                                     :Spine ;
+                    :hasContraindication :BackIssue ;
+                    :hasDifficultyLevel :Beginner ;
+                    :improves :Coordination ,
+                              :Mobility ,
+                              :Stability ;
+                    :requiresEquipment :None ;
+                    :hasCommonMistake "Vermeide hektische Ausgleichsbewegungen. Steuere stattdessen ruhig und kontrolliert gegen, um dein Gleichgewicht zu halten." ;
+                    :hasCorrectionGuidance "Verlangsame die Bewegung, fixiere einen festen Punkt und nutze bei Bedarf eine Wand oder einen Stuhl als Stütze." ;
+                    :hasDescription "Koordinations- und Gleichgewichtsübung zur Verbesserung der Körperkontrolle im Bereich Rücken." ;
+                    :hasDuration "2 Min" ;
+                    :hasInstruction """1. Ausgangsposition sicher einnehmen.
+2. Bewegung langsam und kontrolliert ausführen.
+3. Ruhig atmen.
+4. Bei Schmerzen abbrechen.""" ;
+                    rdfs:label "Bird Dog Hold"@en ,
+                               "Bird-Dog-Halteübung"@de .
+
+
+###  http://purl.org/PhysicalTherapy#BizepsDehnung
+:BizepsDehnung rdf:type owl:NamedIndividual ,
+                        :MobilisationStretching ;
+               :engagedBodyPart :Arms ,
+                                :Biceps ,
+                                :Shoulders ;
+               :hasContraindication :ShoulderIssue ;
+               :hasDifficultyLevel :Beginner ;
+               :improves :Flexibility ,
+                         :Mobility ;
+               :requiresEquipment :None ;
+               :hasCommonMistake "Vermeide federnde Bewegungen und halte nicht die Luft an. Dehne nur so weit, wie es angenehm bleibt und keine Schmerzen verursacht." ;
+               :hasCorrectionGuidance "Atme ruhig weiter und halte die Position nur so weit, wie du ein deutliches, aber angenehmes Ziehen spürst." ;
+               :hasDescription "Dehnübung zur gezielten Verbesserung der Beweglichkeit im Bereich Bizeps." ;
+               :hasDuration "2 Min" ;
+               :hasInstruction """1. Geeignete Ausgangsposition einnehmen.
+2. Zielbereich langsam bis zu einem deutlichen, schmerzfreien Zug bewegen.
+3. Position halten.
+4. Langsam lösen und Seite wechseln.""" ;
+               rdfs:label "Biceps Stretch"@en ,
+                          "Bizeps-Dehnung"@de .
 
 
 ###  http://purl.org/PhysicalTherapy#Bouldering
@@ -1952,6 +2286,95 @@ xsd:date rdf:type rdfs:Datatype .
                                    "Brücke: Problem im unteren Rücken"@de .
 
 
+###  http://purl.org/PhysicalTherapy#BrustdehnungAnDerWand
+:BrustdehnungAnDerWand rdf:type owl:NamedIndividual ,
+                                :MobilisationStretching ;
+                       :engagedBodyPart :Chest ,
+                                        :Shoulders ;
+                       :hasContraindication :BackIssue ;
+                       :hasDifficultyLevel :Beginner ;
+                       :improves :Flexibility ,
+                                 :Mobility ;
+                       :requiresEquipment :Wall ;
+                       :hasCommonMistake "Vermeide federnde Bewegungen und halte nicht die Luft an. Dehne nur so weit, wie es angenehm bleibt und keine Schmerzen verursacht." ;
+                       :hasCorrectionGuidance "Atme ruhig weiter und halte die Position nur so weit, wie du ein deutliches, aber angenehmes Ziehen spürst." ;
+                       :hasDescription "Dehnübung zur gezielten Verbesserung der Beweglichkeit im Bereich Brust." ;
+                       :hasDuration "1 Min" ;
+                       :hasInstruction """1. Geeignete Ausgangsposition einnehmen.
+2. Zielbereich langsam bis zu einem deutlichen, schmerzfreien Zug bewegen.
+3. Position halten.
+4. Langsam lösen und Seite wechseln.""" ;
+                       rdfs:label "Brustdehnung an der Wand"@de ,
+                                  "Wall Chest Stretch"@en .
+
+
+###  http://purl.org/PhysicalTherapy#BrustmuskelmassageMitBall
+:BrustmuskelmassageMitBall rdf:type owl:NamedIndividual ,
+                                    :Entspannung ;
+                           :engagedBodyPart :Chest ,
+                                            :Shoulders ;
+                           :hasContraindication :ShoulderIssue ;
+                           :hasDifficultyLevel :Intermediate ;
+                           :improves :Mobility ,
+                                     :Relaxation ;
+                           :requiresEquipment :Ball ,
+                                              :Erhöhung ;
+                           :hasCommonMistake "Vermeide zu starken Druck und rolle nicht direkt über Knochen und Gelenke." ;
+                           :hasCorrectionGuidance "Reduziere den Druck, arbeite langsam und spare empfindliche Strukturen wie Knochen und Gelenke gezielt aus." ;
+                           :hasDescription "Selbstmassage zur Lockerung und Durchblutungsförderung im Bereich Brust." ;
+                           :hasDuration "4 Min" ;
+                           :hasInstruction """1. Zielbereich bequem positionieren.
+2. Mit Hand, Ball oder Rolle langsamen Druck ausüben.
+3. Empfindliche Punkte kurz halten.
+4. Bei stechendem Schmerz abbrechen.""" ;
+                           rdfs:label "Brustmuskelmassage mit Ball"@de ,
+                                      "Pectoralis Minor Release Ball"@en .
+
+
+###  http://purl.org/PhysicalTherapy#BrustwirbelsaeulenDehnung
+:BrustwirbelsaeulenDehnung rdf:type owl:NamedIndividual ,
+                                    :MobilisationStretching ;
+                           :engagedBodyPart :Spine ,
+                                            :UpperBack ;
+                           :hasContraindication :BackIssue ;
+                           :hasDifficultyLevel :Intermediate ;
+                           :improves :Flexibility ,
+                                     :Mobility ;
+                           :requiresEquipment :None ;
+                           :hasCommonMistake "Vermeide federnde Bewegungen und halte nicht die Luft an. Dehne nur so weit, wie es angenehm bleibt und keine Schmerzen verursacht." ;
+                           :hasCorrectionGuidance "Atme ruhig weiter und halte die Position nur so weit, wie du ein deutliches, aber angenehmes Ziehen spürst." ;
+                           :hasDescription "Dehnübung zur gezielten Verbesserung der Beweglichkeit im Bereich Oberer Rücken." ;
+                           :hasDuration "2 Min" ;
+                           :hasInstruction """1. Geeignete Ausgangsposition einnehmen.
+2. Zielbereich langsam bis zu einem deutlichen, schmerzfreien Zug bewegen.
+3. Position halten.
+4. Langsam lösen und Seite wechseln.""" ;
+                           rdfs:label "Brustwirbelsäulen-Dehnung"@de ,
+                                      "Thoracic Extension Stretch"@en .
+
+
+###  http://purl.org/PhysicalTherapy#BrustwirbelsaeulenMassageMitDerFaszienrolle
+:BrustwirbelsaeulenMassageMitDerFaszienrolle rdf:type owl:NamedIndividual ,
+                                                      :Entspannung ;
+                                             :engagedBodyPart :Spine ,
+                                                              :UpperBack ;
+                                             :hasContraindication :BackIssue ;
+                                             :hasDifficultyLevel :Intermediate ;
+                                             :improves :Mobility ,
+                                                       :Relaxation ;
+                                             :requiresEquipment :Faszienrolle ;
+                                             :hasCommonMistake "Vermeide zu starken Druck und rolle nicht direkt über Knochen und Gelenke." ;
+                                             :hasCorrectionGuidance "Reduziere den Druck, arbeite langsam und spare empfindliche Strukturen wie Knochen und Gelenke gezielt aus." ;
+                                             :hasDescription "Selbstmassage zur Lockerung und Durchblutungsförderung im Bereich Oberer Rücken." ;
+                                             :hasDuration "4 Min" ;
+                                             :hasInstruction """1. Zielbereich bequem positionieren.
+2. Mit Hand, Ball oder Rolle langsamen Druck ausüben.
+3. Empfindliche Punkte kurz halten.
+4. Bei stechendem Schmerz abbrechen.""" ;
+                                             rdfs:label "Brustwirbelsäulen-Massage mit der Faszienrolle"@de ,
+                                                        "Thoracic Foam Rolling"@en .
+
+
 ###  http://purl.org/PhysicalTherapy#BrustwirbelsaeulenRotation
 :BrustwirbelsaeulenRotation rdf:type owl:NamedIndividual ,
                                      :MobilisationStretching ;
@@ -1987,11 +2410,80 @@ xsd:date rdf:type rdfs:Datatype .
                                        "ThoracicSpineRotation"@en .
 
 
+###  http://purl.org/PhysicalTherapy#BrustwirbelsaeulenRotationImVierfuesslerstand
+:BrustwirbelsaeulenRotationImVierfuesslerstand rdf:type owl:NamedIndividual ,
+                                                        :MobilisationStretching ;
+                                               :engagedBodyPart :Spine ,
+                                                                :UpperBack ;
+                                               :hasContraindication :BackIssue ;
+                                               :hasDifficultyLevel :Intermediate ;
+                                               :improves :Flexibility ,
+                                                         :Mobility ,
+                                                         :Posture ;
+                                               :requiresEquipment :None ;
+                                               :hasCommonMistake "Vermeide zu große oder schwungvolle Bewegungen. Führe die Bewegung stattdessen kontrolliert Wirbel für Wirbel oder Grad für Grad aus." ;
+                                               :hasCorrectionGuidance "Verkleinere den Bewegungsradius, drossle das Tempo und halte deinen Rumpf dabei ruhig und stabil." ;
+                                               :hasDescription "Mobilisationsübung zur sanften Bewegungserweiterung im Bereich Oberer Rücken mit Schwerpunkt auf mobilität." ;
+                                               :hasDuration "2 Min" ;
+                                               :hasInstruction """1. Ausgangsposition stabil einnehmen.
+2. Oberkörper langsam rotieren.
+3. Becken möglichst ruhig halten.
+4. Kontrolliert zur Mitte zurückkehren.""" ;
+                                               rdfs:label "Brustwirbelsäulen-Rotation im Vierfüßlerstand"@de ,
+                                                          "Quadruped Thoracic Rotation"@en .
+
+
 ###  http://purl.org/PhysicalTherapy#BrustwirbelsaeulenRotation_SpineIssue
 :BrustwirbelsaeulenRotation_SpineIssue rdf:type owl:NamedIndividual ;
                                        rdfs:comment "Hinweis auf Wirbelsäulen-Probleme, die bei BrustwirbelsaeulenRotation berücksichtigt werden sollten."@de ;
                                        rdfs:label "Brustwirbelsäulen-Rotation: Wirbelsäulenproblem"@de ,
                                                   "ThoracicSpineRotation_SpineIssue"@en .
+
+
+###  http://purl.org/PhysicalTherapy#BrustwirbelsaeulenstreckungUeberDerFaszienrolle
+:BrustwirbelsaeulenstreckungUeberDerFaszienrolle rdf:type owl:NamedIndividual ,
+                                                          :MobilisationStretching ;
+                                                 :engagedBodyPart :Spine ,
+                                                                  :UpperBack ;
+                                                 :hasContraindication :BackIssue ;
+                                                 :hasDifficultyLevel :Intermediate ;
+                                                 :improves :Flexibility ,
+                                                           :Mobility ,
+                                                           :Posture ;
+                                                 :requiresEquipment :Faszienrolle ;
+                                                 :hasCommonMistake "Vermeide zu große oder schwungvolle Bewegungen. Führe die Bewegung stattdessen kontrolliert Wirbel für Wirbel oder Grad für Grad aus." ;
+                                                 :hasCorrectionGuidance "Verkleinere den Bewegungsradius, drossle das Tempo und halte deinen Rumpf dabei ruhig und stabil." ;
+                                                 :hasDescription "Mobilisationsübung zur sanften Bewegungserweiterung im Bereich Oberer Rücken mit Schwerpunkt auf mobilität." ;
+                                                 :hasDuration "2 Min" ;
+                                                 :hasInstruction """1. Ausgangsposition sicher einnehmen.
+2. Bewegung langsam und kontrolliert ausführen.
+3. Ruhig atmen.
+4. Bei Schmerzen abbrechen.""" ;
+                                                 rdfs:label "Brustwirbelsäulenstreckung über der Faszienrolle"@de ,
+                                                            "Thoracic Extension over Foam Roller"@en .
+
+
+###  http://purl.org/PhysicalTherapy#Buchoeffner
+:Buchoeffner rdf:type owl:NamedIndividual ,
+                      :MobilisationStretching ;
+             :engagedBodyPart :Spine ,
+                              :UpperBack ;
+             :hasContraindication :BackIssue ;
+             :hasDifficultyLevel :Beginner ;
+             :improves :Flexibility ,
+                       :Mobility ,
+                       :Posture ;
+             :requiresEquipment :None ;
+             :hasCommonMistake "Vermeide zu große oder schwungvolle Bewegungen. Führe die Bewegung stattdessen kontrolliert Wirbel für Wirbel oder Grad für Grad aus." ;
+             :hasCorrectionGuidance "Verkleinere den Bewegungsradius, drossle das Tempo und halte deinen Rumpf dabei ruhig und stabil." ;
+             :hasDescription "Mobilisationsübung zur sanften Bewegungserweiterung im Bereich Oberer Rücken mit Schwerpunkt auf mobilität." ;
+             :hasDuration "2 Min" ;
+             :hasInstruction """1. Ausgangsposition stabil einnehmen.
+2. Oberkörper langsam rotieren.
+3. Becken möglichst ruhig halten.
+4. Kontrolliert zur Mitte zurückkehren.""" ;
+             rdfs:label "Buchöffner"@de ,
+                        "Open Book"@en .
 
 
 ###  http://purl.org/PhysicalTherapy#Cactus
@@ -4609,6 +5101,117 @@ xsd:date rdf:type rdfs:Datatype .
                      "Kreuzheben"@de .
 
 
+###  http://purl.org/PhysicalTherapy#DehnungDerHinterenOberschenkelmuskulatur
+:DehnungDerHinterenOberschenkelmuskulatur rdf:type owl:NamedIndividual ,
+                                                   :MobilisationStretching ;
+                                          :engagedBodyPart :Hamstrings ,
+                                                           :Legs ;
+                                          :hasContraindication :BackIssue ;
+                                          :hasDifficultyLevel :Beginner ;
+                                          :improves :Flexibility ,
+                                                    :Mobility ;
+                                          :requiresEquipment :None ;
+                                          :hasCommonMistake "Vermeide federnde Bewegungen und halte nicht die Luft an. Dehne nur so weit, wie es angenehm bleibt und keine Schmerzen verursacht." ;
+                                          :hasCorrectionGuidance "Atme ruhig weiter und halte die Position nur so weit, wie du ein deutliches, aber angenehmes Ziehen spürst." ;
+                                          :hasDescription "Dehnübung zur gezielten Verbesserung der Beweglichkeit im Bereich Oberschenkelrückseite." ;
+                                          :hasDuration "2 Min" ;
+                                          :hasInstruction """1. Geeignete Ausgangsposition einnehmen.
+2. Zielbereich langsam bis zu einem deutlichen, schmerzfreien Zug bewegen.
+3. Position halten.
+4. Langsam lösen und Seite wechseln.""" ;
+                                          rdfs:label "Dehnung der hinteren Oberschenkelmuskulatur"@de ,
+                                                     "Hamstring Stretch"@en .
+
+
+###  http://purl.org/PhysicalTherapy#DehnungDerHinterenSchulterkapsel
+:DehnungDerHinterenSchulterkapsel rdf:type owl:NamedIndividual ,
+                                           :MobilisationStretching ;
+                                  :engagedBodyPart :Shoulders ,
+                                                   :UpperBack ;
+                                  :hasContraindication :ShoulderIssue ;
+                                  :hasDifficultyLevel :Beginner ;
+                                  :improves :Flexibility ,
+                                            :Mobility ;
+                                  :requiresEquipment :None ;
+                                  :hasCommonMistake "Vermeide federnde Bewegungen und halte nicht die Luft an. Dehne nur so weit, wie es angenehm bleibt und keine Schmerzen verursacht." ;
+                                  :hasCorrectionGuidance "Atme ruhig weiter und halte die Position nur so weit, wie du ein deutliches, aber angenehmes Ziehen spürst." ;
+                                  :hasDescription "Dehnübung zur gezielten Verbesserung der Beweglichkeit im Bereich Schultern." ;
+                                  :hasDuration "1 Min" ;
+                                  :hasInstruction """1. Geeignete Ausgangsposition einnehmen.
+2. Zielbereich langsam bis zu einem deutlichen, schmerzfreien Zug bewegen.
+3. Position halten.
+4. Langsam lösen und Seite wechseln.""" ;
+                                  rdfs:label "Dehnung der hinteren Schulterkapsel"@de ,
+                                             "Posterior Capsule Stretch"@en .
+
+
+###  http://purl.org/PhysicalTherapy#DehnungDerLendenwirbelsaeule
+:DehnungDerLendenwirbelsaeule rdf:type owl:NamedIndividual ,
+                                       :MobilisationStretching ;
+                              :engagedBodyPart :Core ,
+                                               :LowerBack ;
+                              :hasContraindication :LowerBackIssue ;
+                              :hasDifficultyLevel :Beginner ;
+                              :improves :Flexibility ,
+                                        :Mobility ;
+                              :requiresEquipment :None ;
+                              :hasCommonMistake "Vermeide federnde Bewegungen und halte nicht die Luft an. Dehne nur so weit, wie es angenehm bleibt und keine Schmerzen verursacht." ;
+                              :hasCorrectionGuidance "Atme ruhig weiter und halte die Position nur so weit, wie du ein deutliches, aber angenehmes Ziehen spürst." ;
+                              :hasDescription "Dehnübung zur gezielten Verbesserung der Beweglichkeit im Bereich Unterer Rücken." ;
+                              :hasDuration "1 Min" ;
+                              :hasInstruction """1. Geeignete Ausgangsposition einnehmen.
+2. Zielbereich langsam bis zu einem deutlichen, schmerzfreien Zug bewegen.
+3. Position halten.
+4. Langsam lösen und Seite wechseln.""" ;
+                              rdfs:label "Dehnung der Lendenwirbelsäule"@de ,
+                                         "Lumbar Flexion Stretch"@en .
+
+
+###  http://purl.org/PhysicalTherapy#DehnungDesSchulterblatthebers
+:DehnungDesSchulterblatthebers rdf:type owl:NamedIndividual ,
+                                        :MobilisationStretching ;
+                               :engagedBodyPart :Neck ,
+                                                :Shoulders ;
+                               :hasContraindication :ShoulderIssue ;
+                               :hasDifficultyLevel :Beginner ;
+                               :improves :Flexibility ,
+                                         :Mobility ;
+                               :requiresEquipment :None ;
+                               :hasCommonMistake "Vermeide federnde Bewegungen und halte nicht die Luft an. Dehne nur so weit, wie es angenehm bleibt und keine Schmerzen verursacht." ;
+                               :hasCorrectionGuidance "Atme ruhig weiter und halte die Position nur so weit, wie du ein deutliches, aber angenehmes Ziehen spürst." ;
+                               :hasDescription "Dehnübung zur gezielten Verbesserung der Beweglichkeit im Bereich Nacken." ;
+                               :hasDuration "3 Min" ;
+                               :hasInstruction """1. Geeignete Ausgangsposition einnehmen.
+2. Zielbereich langsam bis zu einem deutlichen, schmerzfreien Zug bewegen.
+3. Position halten.
+4. Langsam lösen und Seite wechseln.""" ;
+                               rdfs:label "Dehnung des Schulterblatthebers"@de ,
+                                          "Levator Scapulae Stretch"@en .
+
+
+###  http://purl.org/PhysicalTherapy#DiagonalesArmUndBeinhebenImVierfuesslerstand
+:DiagonalesArmUndBeinhebenImVierfuesslerstand rdf:type owl:NamedIndividual ,
+                                                       :CoordinationMobility ;
+                                              :engagedBodyPart :Core ,
+                                                               :LowerBack ;
+                                              :hasContraindication :BalanceIssue ;
+                                              :hasDifficultyLevel :Intermediate ;
+                                              :improves :Coordination ,
+                                                        :Mobility ,
+                                                        :Stability ;
+                                              :requiresEquipment :None ;
+                                              :hasCommonMistake "Vermeide hektische Ausgleichsbewegungen. Steuere stattdessen ruhig und kontrolliert gegen, um dein Gleichgewicht zu halten." ;
+                                              :hasCorrectionGuidance "Verlangsame die Bewegung, fixiere einen festen Punkt und nutze bei Bedarf eine Wand oder einen Stuhl als Stütze." ;
+                                              :hasDescription "Koordinations- und Gleichgewichtsübung zur Verbesserung der Körperkontrolle im Bereich Rumpf." ;
+                                              :hasDuration "3 Min" ;
+                                              :hasInstruction """1. In den Vierfüßlerstand kommen.
+2. Rumpf stabilisieren.
+3. Arm und/oder Bein kontrolliert strecken.
+4. Ohne Beckenrotation zurückführen.""" ;
+                                              rdfs:label "Diagonales Arm- und Beinheben im Vierfüßlerstand"@de ,
+                                                         "Quadruped Arm-Leg Reach"@en .
+
+
 ###  http://purl.org/PhysicalTherapy#DislocatedShoulder
 :DislocatedShoulder rdf:type owl:NamedIndividual ,
                              :ShoulderJointInjury ;
@@ -4648,6 +5251,29 @@ xsd:date rdf:type rdfs:Datatype .
         rdfs:comment "Kurzhantel als Trainingsgerät zur Kräftigung einzelner Muskelgruppen."@de ;
         rdfs:label "Dumble"@en ,
                    "Kurzhantel"@de .
+
+
+###  http://purl.org/PhysicalTherapy#DynamischeUmarmung
+:DynamischeUmarmung rdf:type owl:NamedIndividual ,
+                             :CoordinationMobility ;
+                    :engagedBodyPart :Chest ,
+                                     :Shoulders ;
+                    :hasContraindication :BackIssue ;
+                    :hasDifficultyLevel :Intermediate ;
+                    :improves :Coordination ,
+                              :Mobility ,
+                              :Stability ;
+                    :requiresEquipment :None ;
+                    :hasCommonMistake "Vermeide hektische Ausgleichsbewegungen. Steuere stattdessen ruhig und kontrolliert gegen, um dein Gleichgewicht zu halten." ;
+                    :hasCorrectionGuidance "Verlangsame die Bewegung, fixiere einen festen Punkt und nutze bei Bedarf eine Wand oder einen Stuhl als Stütze." ;
+                    :hasDescription "Koordinations- und Gleichgewichtsübung zur Verbesserung der Körperkontrolle im Bereich Brust." ;
+                    :hasDuration "3 Min" ;
+                    :hasInstruction """1. Theraband hinter dem Rücken führen.
+2. Arme leicht gebeugt halten.
+3. Hände wie bei einer Umarmung nach vorn führen.
+4. Langsam öffnen.""" ;
+                    rdfs:label "Dynamic Hug"@en ,
+                               "Dynamische Umarmung"@de .
 
 
 ###  http://purl.org/PhysicalTherapy#Eagle
@@ -5155,6 +5781,31 @@ xsd:date rdf:type rdfs:Datatype .
  ] .
 
 
+###  http://purl.org/PhysicalTherapy#EinarmigerFarmerSWalk
+:EinarmigerFarmerSWalk rdf:type owl:NamedIndividual ,
+                                :CoordinationMobility ;
+                       :engagedBodyPart :Back ,
+                                        :Core ,
+                                        :Legs ,
+                                        :Shoulders ;
+                       :hasContraindication :BalanceIssue ;
+                       :hasDifficultyLevel :Advanced ;
+                       :improves :Balance ,
+                                 :Coordination ,
+                                 :Stability ;
+                       :requiresEquipment :Dumble ;
+                       :hasCommonMistake "Das Gleichgewicht durch hektische Ausgleichsbewegungen verlieren, statt ruhig gegenzusteuern." ;
+                       :hasCorrectionGuidance "Die Bewegung verlangsamen, einen festen Punkt fixieren und bei Bedarf eine Wand oder einen Stuhl als Stütze nutzen." ;
+                       :hasDescription "Koordinations- und Gleichgewichtsübung zur Verbesserung der Körperkontrolle im Bereich Rumpf." ;
+                       :hasDuration "3 Min" ;
+                       :hasInstruction """1. Gewicht sicher aufnehmen.
+2. Aufrecht stehen.
+3. Mit stabilem Rumpf kontrolliert gehen.
+4. Gewicht sicher absetzen.""" ;
+                       rdfs:label "Einarmiger Farmer Laufen"@de ,
+                                  "Single Arm Farmer Carry"@en .
+
+
 ###  http://purl.org/PhysicalTherapy#Einbeinstand
 :Einbeinstand rdf:type owl:NamedIndividual ,
                        :CoordinationMobility ;
@@ -5170,6 +5821,9 @@ xsd:date rdf:type rdfs:Datatype .
                         :Focus ,
                         :Stability ;
               :requiresEquipment :None ;
+              :hasCommonMistake "Vermeide hektische Ausgleichsbewegungen. Steuere stattdessen ruhig und kontrolliert gegen, um dein Gleichgewicht zu halten." ;
+              :hasCorrectionGuidance "Verlangsame die Bewegung, fixiere einen festen Punkt und nutze bei Bedarf eine Wand oder einen Stuhl als Stütze." ;
+              :hasDescription "Koordinations- und Gleichgewichtsübung zur Verbesserung der Körperkontrolle im Bereich Beine." ;
               :hasDuration "2 Min" ;
               :hasInstruction """1. Aufrecht mit hüftbreitem Stand auf einer stabilen, flachen Unterlage stehen.
 2. Das Standbein leicht beugen, das Knie dabei weich halten und nicht durchdrücken.
@@ -5221,16 +5875,62 @@ xsd:date rdf:type rdfs:Datatype .
 ###  http://purl.org/PhysicalTherapy#EnBlocBedExit
 :EnBlocBedExit rdf:type owl:NamedIndividual ,
                         :DailyRoutine ;
-               :hasDailyLifeAdvice "Beim Aufstehen aus dem Bett zunächst auf die Seite rollen, dabei Schultern und Becken gleichzeitig drehen, dann die Beine über die Bettkante schieben und sich mit dem Arm abstützen, um Verdrehungen der Wirbelsäule zu vermeiden."@de ;
-               rdfs:comment "Aufstehen aus dem Bett en bloc"@de ;
-               rdfs:label "Aufstehen aus dem Bett en bloc"@de ,
+               :hasDailyLifeAdvice "Beim Aufstehen aus dem Bett zunächst auf die Seite rollen, dabei Schultern und Becken gleichzeitig drehen, dann die Beine über die Bettkante schieben und sich mit dem Arm abstützen, um Verdrehungen der Wirbelsäule zu vermeiden." ;
+               rdfs:comment "Aufstehen aus dem Bett"@de ;
+               rdfs:label "Aufstehen aus dem Bett"@de ,
+                          "Aufstehen aus dem Bett en bloc"@de ,
                           "EnBlocBedExit"@en .
+
+
+###  http://purl.org/PhysicalTherapy#EntspannungInDerKindhaltung
+:EntspannungInDerKindhaltung rdf:type owl:NamedIndividual ,
+                                      :Entspannung ;
+                             :engagedBodyPart :Back ,
+                                              :Hip ,
+                                              :Shoulders ;
+                             :hasContraindication :BackIssue ;
+                             :hasDifficultyLevel :Beginner ;
+                             :improves :Mobility ,
+                                       :Relaxation ;
+                             :requiresEquipment :None ;
+                             :hasCommonMistake "Vermeide es, die Schultern hochzuziehen oder die Luft anzuhalten. Lasse stattdessen bewusst los." ;
+                             :hasCorrectionGuidance "Atme bewusst in die Position hinein und lasse die Schultern aktiv nach unten sinken." ;
+                             :hasDescription "Entspannung in der Kindhaltung ist eine entspannende Ruheposition zur bewussten Wahrnehmung von Körper und Atmung im Bereich Rücken, Schultern, Hüfte." ;
+                             :hasDuration "2 Min" ;
+                             :hasInstruction """1. In den Kniestand kommen.
+2. Gesäß Richtung Fersen absenken.
+3. Arme nach vorn ablegen.
+4. Ruhig atmen.""" ;
+                             rdfs:label "Child's Pose Relaxation"@en ,
+                                        "Entspannung in der Kindhaltung"@de .
+
+
+###  http://purl.org/PhysicalTherapy#EntspannungslageInRueckenlage
+:EntspannungslageInRueckenlage rdf:type owl:NamedIndividual ,
+                                        :Entspannung ;
+                               :engagedBodyPart :Back ,
+                                                :Core ;
+                               :hasContraindication :BackIssue ;
+                               :hasDifficultyLevel :Beginner ;
+                               :improves :Focus ,
+                                         :Relaxation ;
+                               :requiresEquipment :None ;
+                               :hasCommonMistake "Vermeide es, die Schultern hochzuziehen oder die Luft anzuhalten. Lasse stattdessen bewusst los." ;
+                               :hasCorrectionGuidance "Atme bewusst in die Position hinein und lasse die Schultern aktiv nach unten sinken." ;
+                               :hasDescription "Entspannungslage in Rückenlage ist eine entspannende Ruheposition zur bewussten Wahrnehmung von Körper und Atmung im Bereich Rumpf, Rücken." ;
+                               :hasDuration "2 Min" ;
+                               :hasInstruction """1. Auf den Rücken legen.
+2. Beine bequem aufstellen oder unterlagern.
+3. Schultern lösen.
+4. Ruhig und gleichmäßig atmen.""" ;
+                               rdfs:label "Entspannungslage in Rückenlage"@de ,
+                                          "Supine Relaxation Position"@en .
 
 
 ###  http://purl.org/PhysicalTherapy#ErgonomicSitting
 :ErgonomicSitting rdf:type owl:NamedIndividual ,
                            :DailyRoutine ;
-                  :hasDailyLifeAdvice "Aufrechte, unterstützte Sitzhaltung mit angepasster Stuhl- und Tischhöhe zur Entlastung von Rücken, Nacken und Schultern."@de ;
+                  :hasDailyLifeAdvice "Aufrechte, unterstützte Sitzhaltung mit angepasster Stuhl- und Tischhöhe zur Entlastung von Rücken, Nacken und Schultern." ;
                   rdfs:comment "Ergonomisches Sitzen"@de ;
                   rdfs:label "ErgonomicSitting"@en ,
                              "Ergonomisches Sitzen"@de .
@@ -5242,6 +5942,77 @@ xsd:date rdf:type rdfs:Datatype .
           rdfs:comment "Erhöhung oder Stufe, die als Trainingsgerät für Balance- und Kraftübungen dient."@de ;
           rdfs:label "Elevation"@en ,
                      "Erhöhung"@de .
+
+
+###  http://purl.org/PhysicalTherapy#FacePullMitTheraband
+:FacePullMitTheraband rdf:type owl:NamedIndividual ,
+                               :Strength ;
+                      :engagedBodyPart :Shoulders ,
+                                       :UpperBack ;
+                      :hasContraindication :ShoulderIssue ;
+                      :hasDifficultyLevel :Intermediate ;
+                      :improves :Posture ,
+                                :Stability ,
+                                :Strength ;
+                      :requiresEquipment :Theraband ;
+                      :hasCommonMistake "Vermeide es, die Rumpfspannung zu verlieren oder die Bewegung mit Schwung auszuführen. Halte deinen Rumpf stabil und bewege dich langsam und kontrolliert." ;
+                      :hasCorrectionGuidance "Verlangsame das Tempo, richte deine Wirbelsäule neutral aus und steigere die Belastung erst, wenn du die Technik sauber ausführen kannst." ;
+                      :hasDescription "Kräftigungsübung zum gezielten Aufbau von kraft im Bereich Schultern." ;
+                      :hasDuration "4 Min" ;
+                      :hasInstruction """1. Theraband sicher befestigen.
+2. Rumpf aufrecht halten.
+3. Band kontrolliert zum Körper ziehen.
+4. Schulterblätter zusammenführen und langsam lösen.""" ;
+                      rdfs:label "Face Pull"@en ,
+                                 "Face Pull mit Theraband"@de .
+
+
+###  http://purl.org/PhysicalTherapy#FadenDurchDieNadel
+:FadenDurchDieNadel rdf:type owl:NamedIndividual ,
+                             :MobilisationStretching ;
+                    :engagedBodyPart :Spine ,
+                                     :UpperBack ;
+                    :hasContraindication :BackIssue ;
+                    :hasDifficultyLevel :Intermediate ;
+                    :improves :Flexibility ,
+                              :Mobility ,
+                              :Posture ;
+                    :requiresEquipment :None ;
+                    :hasCommonMistake "Vermeide zu große oder schwungvolle Bewegungen. Führe die Bewegung stattdessen kontrolliert Wirbel für Wirbel oder Grad für Grad aus." ;
+                    :hasCorrectionGuidance "Verkleinere den Bewegungsradius, drossle das Tempo und halte deinen Rumpf dabei ruhig und stabil." ;
+                    :hasDescription "Mobilisationsübung zur sanften Bewegungserweiterung im Bereich Oberer Rücken mit Schwerpunkt auf mobilität." ;
+                    :hasDuration "2 Min" ;
+                    :hasInstruction """1. Ausgangsposition stabil einnehmen.
+2. Oberkörper langsam rotieren.
+3. Becken möglichst ruhig halten.
+4. Kontrolliert zur Mitte zurückkehren.""" ;
+                    rdfs:label "Faden-durch-die-Nadel"@de ,
+                               "Thread the Needle"@en .
+
+
+###  http://purl.org/PhysicalTherapy#FarmerSWalk
+:FarmerSWalk rdf:type owl:NamedIndividual ,
+                      :Strength ;
+             :engagedBodyPart :Back ,
+                              :Core ,
+                              :Legs ,
+                              :Shoulders ;
+             :hasContraindication :BalanceIssue ;
+             :hasDifficultyLevel :Advanced ;
+             :improves :Posture ,
+                       :Stability ,
+                       :Strength ;
+             :requiresEquipment :Dumble ;
+             :hasCommonMistake "Vermeide es, die Rumpfspannung zu verlieren oder die Bewegung mit Schwung auszuführen. Halte deinen Rumpf stabil und bewege dich langsam und kontrolliert." ;
+             :hasCorrectionGuidance "Verlangsame das Tempo, richte deine Wirbelsäule neutral aus und steigere die Belastung erst, wenn du die Technik sauber ausführen kannst." ;
+             :hasDescription "Kräftigungsübung zum gezielten Aufbau von kraft im Bereich Rumpf." ;
+             :hasDuration "3 Min" ;
+             :hasInstruction """1. Gewicht sicher aufnehmen.
+2. Aufrecht stehen.
+3. Mit stabilem Rumpf kontrolliert gehen.
+4. Gewicht sicher absetzen.""" ;
+             rdfs:label "Farmer Carry"@en ,
+                        "Farmer's Walk"@de .
 
 
 ###  http://purl.org/PhysicalTherapy#Faszienrolle
@@ -6435,6 +7206,28 @@ xsd:date rdf:type rdfs:Datatype .
  ] .
 
 
+###  http://purl.org/PhysicalTherapy#GebetshaltungDehnung
+:GebetshaltungDehnung rdf:type owl:NamedIndividual ,
+                               :MobilisationStretching ;
+                      :engagedBodyPart :Back ,
+                                       :Spine ;
+                      :hasContraindication :BackIssue ;
+                      :hasDifficultyLevel :Beginner ;
+                      :improves :Flexibility ,
+                                :Mobility ;
+                      :requiresEquipment :None ;
+                      :hasCommonMistake "Vermeide federnde Bewegungen und halte nicht die Luft an. Dehne nur so weit, wie es angenehm bleibt und keine Schmerzen verursacht." ;
+                      :hasCorrectionGuidance "Atme ruhig weiter und halte die Position nur so weit, wie du ein deutliches, aber angenehmes Ziehen spürst." ;
+                      :hasDescription "Dehnübung zur gezielten Verbesserung der Beweglichkeit im Bereich Rücken." ;
+                      :hasDuration "2 Min" ;
+                      :hasInstruction """1. Geeignete Ausgangsposition einnehmen.
+2. Zielbereich langsam bis zu einem deutlichen, schmerzfreien Zug bewegen.
+3. Position halten.
+4. Langsam lösen und Seite wechseln.""" ;
+                      rdfs:label "Gebetshaltung-Dehnung"@de ,
+                                 "Prayer Stretch"@en .
+
+
 ###  http://purl.org/PhysicalTherapy#GewichtsverlagerungSeitlich
 :GewichtsverlagerungSeitlich rdf:type owl:NamedIndividual ,
                                       :CoordinationMobility ;
@@ -7062,6 +7855,30 @@ xsd:date rdf:type rdfs:Datatype .
             :MET 4.0 ;
             rdfs:label "Gymnastics"@en ,
                        "Turnen"@de .
+
+
+###  http://purl.org/PhysicalTherapy#GymnastikballRollout
+:GymnastikballRollout rdf:type owl:NamedIndividual ,
+                               :CoordinationMobility ;
+                      :engagedBodyPart :Core ,
+                                       :LowerBack ;
+                      :hasContraindication :LowerBackIssue ;
+                      :hasDifficultyLevel :Advanced ;
+                      :improves :Balance ,
+                                :Coordination ,
+                                :Stability ;
+                      :requiresEquipment :Ball ,
+                                         :Erhöhung ;
+                      :hasCommonMistake "Vermeide hektische Ausgleichsbewegungen. Steuere stattdessen ruhig und kontrolliert gegen, um dein Gleichgewicht zu halten." ;
+                      :hasCorrectionGuidance "Verlangsame die Bewegung, fixiere einen festen Punkt und nutze bei Bedarf eine Wand oder einen Stuhl als Stütze." ;
+                      :hasDescription "Koordinations- und Gleichgewichtsübung zur Verbesserung der Körperkontrolle im Bereich Rumpf." ;
+                      :hasDuration "2–3 Min" ;
+                      :hasInstruction """1. Stützposition einnehmen.
+2. Bauch und Gesäß anspannen.
+3. Körper in einer stabilen Linie halten.
+4. Ruhig atmen und kontrolliert lösen.""" ;
+                      rdfs:label "Gymnastikball-Rollout"@de ,
+                                 "Stability Ball Rollout"@en .
 
 
 ###  http://purl.org/PhysicalTherapy#HackySack
@@ -8252,6 +9069,29 @@ xsd:date rdf:type rdfs:Datatype .
                            "Leichte Hausarbeit"@de .
 
 
+###  http://purl.org/PhysicalTherapy#HueftbeugeMitGerademRueckenGoodMorning
+:HueftbeugeMitGerademRueckenGoodMorning rdf:type owl:NamedIndividual ,
+                                                 :Strength ;
+                                        :engagedBodyPart :Hip ,
+                                                         :Pelvic ;
+                                        :hasContraindication :HipIssue ;
+                                        :hasDifficultyLevel :Intermediate ;
+                                        :improves :Posture ,
+                                                  :Stability ,
+                                                  :Strength ;
+                                        :requiresEquipment :None ;
+                                        :hasCommonMistake "Vermeide es, die Rumpfspannung zu verlieren oder die Bewegung mit Schwung auszuführen. Halte deinen Rumpf stabil und bewege dich langsam und kontrolliert." ;
+                                        :hasCorrectionGuidance "Verlangsame das Tempo, richte deine Wirbelsäule neutral aus und steigere die Belastung erst, wenn du die Technik sauber ausführen kannst." ;
+                                        :hasDescription "Kräftigungsübung zum gezielten Aufbau von kraft im Bereich Hüfte." ;
+                                        :hasDuration "3 Min" ;
+                                        :hasInstruction """1. Hüftbreit stehen.
+2. Rücken neutral halten.
+3. Hüfte nach hinten schieben.
+4. Über Gesäß und hintere Kette aufrichten.""" ;
+                                        rdfs:label "Good Morning (Bodyweight)"@en ,
+                                                   "Hüftbeuge mit geradem Rücken (Good Morning)"@de .
+
+
 ###  http://purl.org/PhysicalTherapy#HueftbeugerDehnung
 :HueftbeugerDehnung rdf:type owl:NamedIndividual ,
                              :MobilisationStretching ;
@@ -8334,6 +9174,29 @@ xsd:date rdf:type rdfs:Datatype .
                                          "Hüftbeuger-Dehnung: Knieschmerzen"@de .
 
 
+###  http://purl.org/PhysicalTherapy#IYTHebenInBauchlage
+:IYTHebenInBauchlage rdf:type owl:NamedIndividual ,
+                              :Strength ;
+                     :engagedBodyPart :Shoulders ,
+                                      :UpperBack ;
+                     :hasContraindication :ShoulderIssue ;
+                     :hasDifficultyLevel :Advanced ;
+                     :improves :Posture ,
+                               :Stability ,
+                               :Strength ;
+                     :requiresEquipment :None ;
+                     :hasCommonMistake "Vermeide es, die Rumpfspannung zu verlieren oder die Bewegung mit Schwung auszuführen. Halte deinen Rumpf stabil und bewege dich langsam und kontrolliert." ;
+                     :hasCorrectionGuidance "Verlangsame das Tempo, richte deine Wirbelsäule neutral aus und steigere die Belastung erst, wenn du die Technik sauber ausführen kannst." ;
+                     :hasDescription "Kräftigungsübung zum gezielten Aufbau von kraft im Bereich Schultern." ;
+                     :hasDuration "4 Min" ;
+                     :hasInstruction """1. In Bauchlage oder leichter Vorbeuge starten.
+2. Schulterblätter stabilisieren.
+3. Arme in der vorgegebenen Form anheben.
+4. Langsam absenken.""" ;
+                     rdfs:label "I-Y-T-Heben in Bauchlage"@de ,
+                                "Prone I-Y-T"@en .
+
+
 ###  http://purl.org/PhysicalTherapy#IceSkating
 :IceSkating rdf:type owl:NamedIndividual ,
                      :SportActivity ;
@@ -8341,6 +9204,29 @@ xsd:date rdf:type rdfs:Datatype .
             :MET 5.5 ;
             rdfs:label "Eislaufen"@de ,
                        "IceSkating"@en .
+
+
+###  http://purl.org/PhysicalTherapy#InnenrotationMitTheraband
+:InnenrotationMitTheraband rdf:type owl:NamedIndividual ,
+                                    :Strength ;
+                           :engagedBodyPart :Back ,
+                                            :Spine ;
+                           :hasContraindication :BackIssue ;
+                           :hasDifficultyLevel :Beginner ;
+                           :improves :Posture ,
+                                     :Stability ,
+                                     :Strength ;
+                           :requiresEquipment :Theraband ;
+                           :hasCommonMistake "Vermeide es, die Rumpfspannung zu verlieren oder die Bewegung mit Schwung auszuführen. Halte deinen Rumpf stabil und bewege dich langsam und kontrolliert." ;
+                           :hasCorrectionGuidance "Verlangsame das Tempo, richte deine Wirbelsäule neutral aus und steigere die Belastung erst, wenn du die Technik sauber ausführen kannst." ;
+                           :hasDescription "Kräftigungsübung zum gezielten Aufbau von kraft im Bereich Rücken." ;
+                           :hasDuration "4 min" ;
+                           :hasInstruction """1. Ausgangsposition stabil einnehmen.
+2. Oberkörper langsam rotieren.
+3. Becken möglichst ruhig halten.
+4. Kontrolliert zur Mitte zurückkehren.""" ;
+                           rdfs:label "Innenrotation mit Theraband"@de ,
+                                      "Internal Rotation Band"@en .
 
 
 ###  http://purl.org/PhysicalTherapy#Intermediate
@@ -8420,6 +9306,29 @@ xsd:date rdf:type rdfs:Datatype .
         :MET 10.0 ;
         rdfs:label "Karate"@de ,
                    "Karate"@en .
+
+
+###  http://purl.org/PhysicalTherapy#Kastenatmung4444Atmung
+:Kastenatmung4444Atmung rdf:type owl:NamedIndividual ,
+                                 :Entspannung ;
+                        :engagedBodyPart :Back ,
+                                         :Core ;
+                        :hasContraindication :RespiratoryIssue ;
+                        :hasDifficultyLevel :Beginner ;
+                        :improves :Focus ,
+                                  :Relaxation ;
+                        :requiresEquipment :None ;
+                        :hasCommonMistake "Zu schnell oder nur flach in den Brustkorb atmen, statt den Atem bewusst in den Bauch fließen zu lassen." ;
+                        :hasCorrectionGuidance "Das Tempo bewusst verlangsamen und die Ausatmung etwas länger werden lassen als die Einatmung." ;
+                        :hasDescription "Kastenatmung (4-4-4-4-Atmung) ist eine ruhige Atemübung, die Entspannung, Körperwahrnehmung und eine bewusste Atemkontrolle fördert." ;
+                        :hasDuration "3 Min" ;
+                        :hasInstruction """1. Aufrecht sitzen.
+2. Vier Sekunden einatmen.
+3. Vier Sekunden halten.
+4. Vier Sekunden ausatmen.
+5. Vier Sekunden pausieren.""" ;
+                        rdfs:label "Box Breathing"@en ,
+                                   "Kastenatmung (4-4-4-4-Atmung)"@de .
 
 
 ###  http://purl.org/PhysicalTherapy#Katze-Kuh-Übung
@@ -9117,6 +10026,28 @@ xsd:date rdf:type rdfs:Datatype .
                   "Knie"@de .
 
 
+###  http://purl.org/PhysicalTherapy#KnieZurBrustDehnung
+:KnieZurBrustDehnung rdf:type owl:NamedIndividual ,
+                              :MobilisationStretching ;
+                     :engagedBodyPart :Back ,
+                                      :Spine ;
+                     :hasContraindication :BackIssue ;
+                     :hasDifficultyLevel :Beginner ;
+                     :improves :Flexibility ,
+                               :Mobility ;
+                     :requiresEquipment :None ;
+                     :hasCommonMistake "Vermeide federnde Bewegungen und halte nicht die Luft an. Dehne nur so weit, wie es angenehm bleibt und keine Schmerzen verursacht." ;
+                     :hasCorrectionGuidance "Atme ruhig weiter und halte die Position nur so weit, wie du ein deutliches, aber angenehmes Ziehen spürst." ;
+                     :hasDescription "Dehnübung zur gezielten Verbesserung der Beweglichkeit im Bereich Rücken." ;
+                     :hasDuration "2 Min" ;
+                     :hasInstruction """1. Geeignete Ausgangsposition einnehmen.
+2. Zielbereich langsam bis zu einem deutlichen, schmerzfreien Zug bewegen.
+3. Position halten.
+4. Langsam lösen und Seite wechseln.""" ;
+                     rdfs:label "Knee to Chest Stretch"@en ,
+                                "Knie-zur-Brust-Dehnung"@de .
+
+
 ###  http://purl.org/PhysicalTherapy#KniegelenkMobilisation
 :KniegelenkMobilisation rdf:type owl:NamedIndividual ,
                                  :MobilisationStretching ;
@@ -9155,6 +10086,29 @@ xsd:date rdf:type rdfs:Datatype .
                                   rdfs:comment "Hinweis auf Knie-Probleme, die bei der Kniegelenk-Mobilisation berücksichtigt werden sollten."@de ;
                                   rdfs:label "KneeJointMobilisation_KneeIssue"@en ,
                                              "Kniegelenk-Mobilisation: Knieschmerzen"@de .
+
+
+###  http://purl.org/PhysicalTherapy#KubanischeRotation
+:KubanischeRotation rdf:type owl:NamedIndividual ,
+                             :Strength ;
+                    :engagedBodyPart :Shoulders ,
+                                     :UpperBack ;
+                    :hasContraindication :ShoulderIssue ;
+                    :hasDifficultyLevel :Advanced ;
+                    :improves :Posture ,
+                              :Stability ,
+                              :Strength ;
+                    :requiresEquipment :None ;
+                    :hasCommonMistake "Vermeide es, die Rumpfspannung zu verlieren oder die Bewegung mit Schwung auszuführen. Halte deinen Rumpf stabil und bewege dich langsam und kontrolliert." ;
+                    :hasCorrectionGuidance "Verlangsame das Tempo, richte deine Wirbelsäule neutral aus und steigere die Belastung erst, wenn du die Technik sauber ausführen kannst." ;
+                    :hasDescription "Kräftigungsübung zum gezielten Aufbau von kraft im Bereich Schultern." ;
+                    :hasDuration "3 Min" ;
+                    :hasInstruction """1. Ausgangsposition stabil einnehmen.
+2. Oberkörper langsam rotieren.
+3. Becken möglichst ruhig halten.
+4. Kontrolliert zur Mitte zurückkehren.""" ;
+                    rdfs:label "Cuban Rotation"@en ,
+                               "Kubanische Rotation"@de .
 
 
 ###  http://purl.org/PhysicalTherapy#Lacrosse
@@ -9224,6 +10178,28 @@ xsd:date rdf:type rdfs:Datatype .
                  rdfs:comment "Seitliche Schultermuskulatur, die den Arm seitlich anhebt."@de ;
                  rdfs:label "LateralDeltoids"@en ,
                             "Seitliche Deltamuskeln"@de .
+
+
+###  http://purl.org/PhysicalTherapy#LatissimusMassageMitDerFaszienrolle
+:LatissimusMassageMitDerFaszienrolle rdf:type owl:NamedIndividual ,
+                                              :Entspannung ;
+                                     :engagedBodyPart :Shoulders ,
+                                                      :UpperBack ;
+                                     :hasContraindication :ShoulderIssue ;
+                                     :hasDifficultyLevel :Intermediate ;
+                                     :improves :Mobility ,
+                                               :Relaxation ;
+                                     :requiresEquipment :Faszienrolle ;
+                                     :hasCommonMistake "Vermeide zu starken Druck und rolle nicht direkt über Knochen und Gelenke." ;
+                                     :hasCorrectionGuidance "Reduziere den Druck, arbeite langsam und spare empfindliche Strukturen wie Knochen und Gelenke gezielt aus." ;
+                                     :hasDescription "Selbstmassage zur Lockerung und Durchblutungsförderung im Bereich Oberer Rücken." ;
+                                     :hasDuration "4 Min" ;
+                                     :hasInstruction """1. Zielbereich bequem positionieren.
+2. Mit Hand, Ball oder Rolle langsamen Druck ausüben.
+3. Empfindliche Punkte kurz halten.
+4. Bei stechendem Schmerz abbrechen.""" ;
+                                     rdfs:label "Latissimus Foam Rolling"@en ,
+                                                "Latissimus-Massage mit der Faszienrolle"@de .
 
 
 ###  http://purl.org/PhysicalTherapy#Lats
@@ -9314,6 +10290,52 @@ xsd:date rdf:type rdfs:Datatype .
       rdfs:comment "Beine als Körperregion von der Hüfte bis zu den Füßen."@de ;
       rdfs:label "Beine"@de ,
                  "Legs"@en .
+
+
+###  http://purl.org/PhysicalTherapy#LendenwirbelsaeulenRotation
+:LendenwirbelsaeulenRotation rdf:type owl:NamedIndividual ,
+                                      :MobilisationStretching ;
+                             :engagedBodyPart :Core ,
+                                              :LowerBack ;
+                             :hasContraindication :LowerBackIssue ;
+                             :hasDifficultyLevel :Beginner ;
+                             :improves :Flexibility ,
+                                       :Mobility ,
+                                       :Posture ;
+                             :requiresEquipment :None ;
+                             :hasCommonMistake "Vermeide zu große oder schwungvolle Bewegungen. Führe die Bewegung stattdessen kontrolliert Wirbel für Wirbel oder Grad für Grad aus." ;
+                             :hasCorrectionGuidance "Verkleinere den Bewegungsradius, drossle das Tempo und halte deinen Rumpf dabei ruhig und stabil." ;
+                             :hasDescription "Mobilisationsübung zur sanften Bewegungserweiterung im Bereich Unterer Rücken mit Schwerpunkt auf mobilität." ;
+                             :hasDuration "2 Min" ;
+                             :hasInstruction """1. Ausgangsposition stabil einnehmen.
+2. Oberkörper langsam rotieren.
+3. Becken möglichst ruhig halten.
+4. Kontrolliert zur Mitte zurückkehren.""" ;
+                             rdfs:label "Lendenwirbelsäulen-Rotation"@de ,
+                                        "Lumbar Rotation"@en .
+
+
+###  http://purl.org/PhysicalTherapy#LiegestuetzPlus
+:LiegestuetzPlus rdf:type owl:NamedIndividual ,
+                          :Strength ;
+                 :engagedBodyPart :Back ,
+                                  :Spine ;
+                 :hasContraindication :WristIssue ;
+                 :hasDifficultyLevel :Intermediate ;
+                 :improves :Posture ,
+                           :Stability ,
+                           :Strength ;
+                 :requiresEquipment :None ;
+                 :hasCommonMistake "Vermeide es, die Rumpfspannung zu verlieren oder die Bewegung mit Schwung auszuführen. Halte deinen Rumpf stabil und bewege dich langsam und kontrolliert." ;
+                 :hasCorrectionGuidance "Verlangsame das Tempo, richte deine Wirbelsäule neutral aus und steigere die Belastung erst, wenn du die Technik sauber ausführen kannst." ;
+                 :hasDescription "Kräftigungsübung zum gezielten Aufbau von kraft im Bereich Rücken." ;
+                 :hasDuration "5 min" ;
+                 :hasInstruction """1. Stützposition einnehmen.
+2. Bauch und Gesäß anspannen.
+3. Körper in einer stabilen Linie halten.
+4. Ruhig atmen und kontrolliert lösen.""" ;
+                 rdfs:label "Liegestütz Plus"@de ,
+                            "Push-up Plus"@en .
 
 
 ###  http://purl.org/PhysicalTherapy#LowRisk
@@ -9995,6 +11017,29 @@ Langsam zur Mitte zurückkehren.
                  "None"@en .
 
 
+###  http://purl.org/PhysicalTherapy#OberkoerperrotationImStand
+:OberkoerperrotationImStand rdf:type owl:NamedIndividual ,
+                                     :MobilisationStretching ;
+                            :engagedBodyPart :Spine ,
+                                             :UpperBack ;
+                            :hasContraindication :BackIssue ;
+                            :hasDifficultyLevel :Beginner ;
+                            :improves :Flexibility ,
+                                      :Mobility ,
+                                      :Posture ;
+                            :requiresEquipment :None ;
+                            :hasCommonMistake "Vermeide zu große oder schwungvolle Bewegungen. Führe die Bewegung stattdessen kontrolliert Wirbel für Wirbel oder Grad für Grad aus." ;
+                            :hasCorrectionGuidance "Verkleinere den Bewegungsradius, drossle das Tempo und halte deinen Rumpf dabei ruhig und stabil." ;
+                            :hasDescription "Mobilisationsübung zur sanften Bewegungserweiterung im Bereich Oberer Rücken mit Schwerpunkt auf mobilität." ;
+                            :hasDuration "2 Min" ;
+                            :hasInstruction """1. Ausgangsposition stabil einnehmen.
+2. Oberkörper langsam rotieren.
+3. Becken möglichst ruhig halten.
+4. Kontrolliert zur Mitte zurückkehren.""" ;
+                            rdfs:label "Oberkörperrotation im Stand"@de ,
+                                       "Standing Trunk Rotation"@en .
+
+
 ###  http://purl.org/PhysicalTherapy#Obliques
 :Obliques rdf:type owl:NamedIndividual ,
                    :BodyPart ,
@@ -10495,7 +11540,7 @@ Langsam zur Mitte zurückkehren.
 ###  http://purl.org/PhysicalTherapy#PhoneAtEyeLevel
 :PhoneAtEyeLevel rdf:type owl:NamedIndividual ,
                           :DailyRoutine ;
-                 :hasDailyLifeAdvice "Smartphone oder Tablet nahe am Körper auf Brusthöhe oder Augenhöhe halten, statt mit nach vorne geneigtem Kopf darauf herunterzublicken, um Nacken- und obere Rückenmuskulatur zu entlasten."@de ;
+                 :hasDailyLifeAdvice "Smartphone oder Tablet nahe am Körper auf Brusthöhe oder Augenhöhe halten, statt mit nach vorne geneigtem Kopf darauf herunterzublicken, um Nacken- und obere Rückenmuskulatur zu entlasten." ;
                  rdfs:comment "Smartphone auf Augenhöhe"@de ;
                  rdfs:label "PhoneAtEyeLevel"@en ,
                             "Telefon auf Augenhöhe"@de .
@@ -11782,7 +12827,7 @@ Langsam zur Mitte zurückkehren.
 ###  http://purl.org/PhysicalTherapy#RegularMovementBreak
 :RegularMovementBreak rdf:type owl:NamedIndividual ,
                                :DailyRoutine ;
-                      :hasDailyLifeAdvice "Kurze regelmäßige Bewegungspausen im Alltag, um Verspannungen vorzubeugen und Mobilität zu fördern."@de ;
+                      :hasDailyLifeAdvice "Kurze regelmäßige Bewegungspausen im Alltag, um Verspannungen vorzubeugen und Mobilität zu fördern." ;
                       rdfs:comment "Regelmäßige Bewegungspausen"@de ;
                       rdfs:label "Regelmäßige Bewegungspausen"@de ,
                                  "RegularMovementBreak"@en .
@@ -11904,6 +12949,75 @@ Langsam zur Mitte zurückkehren.
                          "Rotatorenmanschetten"@de .
 
 
+###  http://purl.org/PhysicalTherapy#RotatorenmanschettenMassageMitBall
+:RotatorenmanschettenMassageMitBall rdf:type owl:NamedIndividual ,
+                                             :Entspannung ;
+                                    :engagedBodyPart :Back ,
+                                                     :Spine ;
+                                    :hasContraindication :BackIssue ;
+                                    :hasDifficultyLevel :Advanced ;
+                                    :improves :Mobility ,
+                                              :Relaxation ;
+                                    :requiresEquipment :Ball ,
+                                                       :Erhöhung ;
+                                    :hasCommonMistake "Vermeide zu starken Druck und rolle nicht direkt über Knochen und Gelenke." ;
+                                    :hasCorrectionGuidance "Reduziere den Druck, arbeite langsam und spare empfindliche Strukturen wie Knochen und Gelenke gezielt aus." ;
+                                    :hasDescription "Selbstmassage zur Lockerung und Durchblutungsförderung im Bereich Rücken." ;
+                                    :hasDuration "3 Min" ;
+                                    :hasInstruction """1. Zielbereich bequem positionieren.
+2. Mit Hand, Ball oder Rolle langsamen Druck ausüben.
+3. Empfindliche Punkte kurz halten.
+4. Bei stechendem Schmerz abbrechen.""" ;
+                                    rdfs:label "Rotator Cuff Ball Release"@en ,
+                                               "Rotatorenmanschetten-Massage mit Ball"@de .
+
+
+###  http://purl.org/PhysicalTherapy#RudernMitTheraband
+:RudernMitTheraband rdf:type owl:NamedIndividual ,
+                             :Strength ;
+                    :engagedBodyPart :Back ,
+                                     :Spine ;
+                    :hasContraindication :BackIssue ;
+                    :hasDifficultyLevel :Beginner ;
+                    :improves :Posture ,
+                              :Stability ,
+                              :Strength ;
+                    :requiresEquipment :Theraband ;
+                    :hasCommonMistake "Vermeide es, die Rumpfspannung zu verlieren oder die Bewegung mit Schwung auszuführen. Halte deinen Rumpf stabil und bewege dich langsam und kontrolliert." ;
+                    :hasCorrectionGuidance "Verlangsame das Tempo, richte deine Wirbelsäule neutral aus und steigere die Belastung erst, wenn du die Technik sauber ausführen kannst." ;
+                    :hasDescription "Kräftigungsübung zum gezielten Aufbau von kraft im Bereich Rücken." ;
+                    :hasDuration "5 Min" ;
+                    :hasInstruction """1. Theraband sicher befestigen.
+2. Rumpf aufrecht halten.
+3. Band kontrolliert zum Körper ziehen.
+4. Schulterblätter zusammenführen und langsam lösen.""" ;
+                    rdfs:label "Resistance Band Row"@en ,
+                               "Rudern mit Theraband"@de .
+
+
+###  http://purl.org/PhysicalTherapy#Rueckenstrecker
+:Rueckenstrecker rdf:type owl:NamedIndividual ,
+                          :Strength ;
+                 :engagedBodyPart :Core ,
+                                  :LowerBack ;
+                 :hasContraindication :LowerBackIssue ;
+                 :hasDifficultyLevel :Intermediate ;
+                 :improves :Posture ,
+                           :Stability ,
+                           :Strength ;
+                 :requiresEquipment :None ;
+                 :hasCommonMistake "Vermeide es, die Rumpfspannung zu verlieren oder die Bewegung mit Schwung auszuführen. Halte deinen Rumpf stabil und bewege dich langsam und kontrolliert." ;
+                 :hasCorrectionGuidance "Verlangsame das Tempo, richte deine Wirbelsäule neutral aus und steigere die Belastung erst, wenn du die Technik sauber ausführen kannst." ;
+                 :hasDescription "Kräftigungsübung zum gezielten Aufbau von kraft im Bereich Rumpf." ;
+                 :hasDuration "5 Min" ;
+                 :hasInstruction """1. In Bauchlage gehen.
+2. Rumpf und Gesäß leicht anspannen.
+3. Brustbein kontrolliert anheben.
+4. Nacken neutral halten und absenken.""" ;
+                 rdfs:label "Back Extension"@en ,
+                            "Rückenstrecker"@de .
+
+
 ###  http://purl.org/PhysicalTherapy#Running6MinMile
 :Running6MinMile rdf:type owl:NamedIndividual ,
                           :SportActivity ;
@@ -11994,6 +13108,29 @@ Langsam zur Mitte zurückkehren.
                                             "Skapula-Retraktion: Schulterproblem"@de .
 
 
+###  http://purl.org/PhysicalTherapy#SchulterAlphabet
+:SchulterAlphabet rdf:type owl:NamedIndividual ,
+                           :CoordinationMobility ;
+                  :engagedBodyPart :Shoulders ,
+                                   :UpperBack ;
+                  :hasContraindication :ShoulderIssue ;
+                  :hasDifficultyLevel :Intermediate ;
+                  :improves :Coordination ,
+                            :Mobility ,
+                            :Stability ;
+                  :requiresEquipment :None ;
+                  :hasCommonMistake "Vermeide hektische Ausgleichsbewegungen. Steuere stattdessen ruhig und kontrolliert gegen, um dein Gleichgewicht zu halten." ;
+                  :hasCorrectionGuidance "Verlangsame die Bewegung, fixiere einen festen Punkt und nutze bei Bedarf eine Wand oder einen Stuhl als Stütze." ;
+                  :hasDescription "Koordinations- und Gleichgewichtsübung zur Verbesserung der Körperkontrolle im Bereich Schultern." ;
+                  :hasDuration "3 Min" ;
+                  :hasInstruction """1. Arm kontrolliert anheben.
+2. Mit der Hand kleine Buchstaben in die Luft zeichnen.
+3. Schulter tief halten.
+4. Bei Ermüdung pausieren.""" ;
+                  rdfs:label "Schulter-Alphabet"@de ,
+                             "Shoulder Alphabet"@en .
+
+
 ###  http://purl.org/PhysicalTherapy#SchulterNackenEntspannung
 :SchulterNackenEntspannung rdf:type owl:NamedIndividual ,
                                     :Entspannung ;
@@ -12044,6 +13181,212 @@ Langsam zur Mitte zurückkehren.
                                          rdfs:comment "Hinweis auf Schulter-Probleme, die bei der Schulter-Nacken-Entspannung berücksichtigt werden sollten."@de ;
                                          rdfs:label "Schulter-Nacken-Entspannung: Schulterproblem"@de ,
                                                     "ShoulderNeckRelaxation_ShoulderIssue"@en .
+
+
+###  http://purl.org/PhysicalTherapy#SchulterabduktionMitStab
+:SchulterabduktionMitStab rdf:type owl:NamedIndividual ,
+                                   :MobilisationStretching ;
+                          :engagedBodyPart :Shoulders ,
+                                           :UpperBack ;
+                          :hasContraindication :ShoulderIssue ;
+                          :hasDifficultyLevel :Beginner ;
+                          :improves :Flexibility ,
+                                    :Mobility ,
+                                    :Posture ;
+                          :requiresEquipment :Stick ;
+                          :hasCommonMistake "Vermeide zu große oder schwungvolle Bewegungen. Führe die Bewegung stattdessen kontrolliert Wirbel für Wirbel oder Grad für Grad aus." ;
+                          :hasCorrectionGuidance "Verkleinere den Bewegungsradius, drossle das Tempo und halte deinen Rumpf dabei ruhig und stabil." ;
+                          :hasDescription "Mobilisationsübung zur sanften Bewegungserweiterung im Bereich Schultern mit Schwerpunkt auf mobilität." ;
+                          :hasDuration "2 Min" ;
+                          :hasInstruction """1. Stab mit beiden Händen halten.
+2. Der gesunde Arm führt die Bewegung.
+3. Arm langsam anheben.
+4. Ohne Schmerz zurückführen.""" ;
+                          rdfs:label "Schulterabduktion mit Stab"@de ,
+                                     "Wand Assisted Abduction"@en .
+
+
+###  http://purl.org/PhysicalTherapy#SchulterabduktionMitTheraband
+:SchulterabduktionMitTheraband rdf:type owl:NamedIndividual ,
+                                        :Strength ;
+                               :engagedBodyPart :Shoulders ,
+                                                :UpperBack ;
+                               :hasContraindication :ShoulderIssue ;
+                               :hasDifficultyLevel :Intermediate ;
+                               :improves :Posture ,
+                                         :Stability ,
+                                         :Strength ;
+                               :requiresEquipment :Theraband ;
+                               :hasCommonMistake "Vermeide es, die Rumpfspannung zu verlieren oder die Bewegung mit Schwung auszuführen. Halte deinen Rumpf stabil und bewege dich langsam und kontrolliert." ;
+                               :hasCorrectionGuidance "Verlangsame das Tempo, richte deine Wirbelsäule neutral aus und steigere die Belastung erst, wenn du die Technik sauber ausführen kannst." ;
+                               :hasDescription "Kräftigungsübung zum gezielten Aufbau von kraft im Bereich Schultern." ;
+                               :hasDuration "4 Min" ;
+                               :hasInstruction """1. Theraband sicher fixieren.
+2. Schulter tief halten.
+3. Arm kontrolliert nach vorn oder seitlich anheben.
+4. Langsam absenken.""" ;
+                               rdfs:label "Schulterabduktion mit Theraband"@de ,
+                                          "Shoulder Abduction Band"@en .
+
+
+###  http://purl.org/PhysicalTherapy#SchulterblattKontrolluebung
+:SchulterblattKontrolluebung rdf:type owl:NamedIndividual ,
+                                      :CoordinationMobility ;
+                             :engagedBodyPart :Shoulders ,
+                                              :UpperBack ;
+                             :hasContraindication :ShoulderIssue ;
+                             :hasDifficultyLevel :Beginner ;
+                             :improves :Coordination ,
+                                       :Mobility ,
+                                       :Stability ;
+                             :requiresEquipment :None ;
+                             :hasCommonMistake "Vermeide hektische Ausgleichsbewegungen. Steuere stattdessen ruhig und kontrolliert gegen, um dein Gleichgewicht zu halten." ;
+                             :hasCorrectionGuidance "Verlangsame die Bewegung, fixiere einen festen Punkt und nutze bei Bedarf eine Wand oder einen Stuhl als Stütze." ;
+                             :hasDescription "Koordinations- und Gleichgewichtsübung zur Verbesserung der Körperkontrolle im Bereich Schultern." ;
+                             :hasDuration "2 Min" ;
+                             :hasInstruction """1. Aufrecht stehen oder sitzen.
+2. Schultern locker lassen.
+3. Schulterblätter gezielt in verschiedene Richtungen bewegen.
+4. Rumpf ruhig halten.""" ;
+                             rdfs:label "Scapular Setting"@en ,
+                                        "Schulterblatt-Kontrollübung"@de .
+
+
+###  http://purl.org/PhysicalTherapy#SchulterblattUhr_2
+:SchulterblattUhr_2 rdf:type owl:NamedIndividual ,
+                             :CoordinationMobility ;
+                    :engagedBodyPart :Shoulders ,
+                                     :UpperBack ;
+                    :hasContraindication :ShoulderIssue ;
+                    :hasDifficultyLevel :Intermediate ;
+                    :improves :Coordination ,
+                              :Mobility ,
+                              :Stability ;
+                    :requiresEquipment :None ;
+                    :hasCommonMistake "Vermeide hektische Ausgleichsbewegungen. Steuere stattdessen ruhig und kontrolliert gegen, um dein Gleichgewicht zu halten." ;
+                    :hasCorrectionGuidance "Verlangsame die Bewegung, fixiere einen festen Punkt und nutze bei Bedarf eine Wand oder einen Stuhl als Stütze." ;
+                    :hasDescription "Koordinations- und Gleichgewichtsübung zur Verbesserung der Körperkontrolle im Bereich Schultern." ;
+                    :hasDuration "3 Min" ;
+                    :hasInstruction """1. Aufrecht stehen oder sitzen.
+2. Schultern locker lassen.
+3. Schulterblätter gezielt in verschiedene Richtungen bewegen.
+4. Rumpf ruhig halten.""" ;
+                    rdfs:label "Scapular Clock"@en ,
+                               "Schulterblatt-Uhr"@de .
+
+
+###  http://purl.org/PhysicalTherapy#SchulterdehnungUeberDenKoerper
+:SchulterdehnungUeberDenKoerper rdf:type owl:NamedIndividual ,
+                                         :MobilisationStretching ;
+                                :engagedBodyPart :Shoulders ,
+                                                 :UpperBack ;
+                                :hasContraindication :ShoulderIssue ;
+                                :hasDifficultyLevel :Beginner ;
+                                :improves :Flexibility ,
+                                          :Mobility ;
+                                :requiresEquipment :None ;
+                                :hasCommonMistake "Vermeide federnde Bewegungen und halte nicht die Luft an. Dehne nur so weit, wie es angenehm bleibt und keine Schmerzen verursacht." ;
+                                :hasCorrectionGuidance "Atme ruhig weiter und halte die Position nur so weit, wie du ein deutliches, aber angenehmes Ziehen spürst." ;
+                                :hasDescription "Dehnübung zur gezielten Verbesserung der Beweglichkeit im Bereich Schultern." ;
+                                :hasDuration "1 Min" ;
+                                :hasInstruction """1. Geeignete Ausgangsposition einnehmen.
+2. Zielbereich langsam bis zu einem deutlichen, schmerzfreien Zug bewegen.
+3. Position halten.
+4. Langsam lösen und Seite wechseln.""" ;
+                                rdfs:label "Cross Body Shoulder Stretch"@en ,
+                                           "Schulterdehnung über den Körper"@de .
+
+
+###  http://purl.org/PhysicalTherapy#SchulterflexionMitStab
+:SchulterflexionMitStab rdf:type owl:NamedIndividual ,
+                                 :MobilisationStretching ;
+                        :engagedBodyPart :Shoulders ,
+                                         :UpperBack ;
+                        :hasContraindication :ShoulderIssue ;
+                        :hasDifficultyLevel :Beginner ;
+                        :improves :Flexibility ,
+                                  :Mobility ,
+                                  :Posture ;
+                        :requiresEquipment :Stick ;
+                        :hasCommonMistake "Vermeide zu große oder schwungvolle Bewegungen. Führe die Bewegung stattdessen kontrolliert Wirbel für Wirbel oder Grad für Grad aus." ;
+                        :hasCorrectionGuidance "Verkleinere den Bewegungsradius, drossle das Tempo und halte deinen Rumpf dabei ruhig und stabil." ;
+                        :hasDescription "Mobilisationsübung zur sanften Bewegungserweiterung im Bereich Schultern mit Schwerpunkt auf mobilität." ;
+                        :hasDuration "2 Min" ;
+                        :hasInstruction """1. Stab mit beiden Händen halten.
+2. Der gesunde Arm führt die Bewegung.
+3. Arm langsam anheben.
+4. Ohne Schmerz zurückführen.""" ;
+                        rdfs:label "Schulterflexion mit Stab"@de ,
+                                   "Wand Assisted Flexion"@en .
+
+
+###  http://purl.org/PhysicalTherapy#Schulterkreisen
+:Schulterkreisen rdf:type owl:NamedIndividual ,
+                          :MobilisationStretching ;
+                 :engagedBodyPart :Shoulders ,
+                                  :UpperBack ;
+                 :hasContraindication :ShoulderIssue ;
+                 :hasDifficultyLevel :Beginner ;
+                 :improves :Flexibility ,
+                           :Mobility ,
+                           :Posture ;
+                 :requiresEquipment :None ;
+                 :hasCommonMistake "Vermeide zu große oder schwungvolle Bewegungen. Führe die Bewegung stattdessen kontrolliert Wirbel für Wirbel oder Grad für Grad aus." ;
+                 :hasCorrectionGuidance "Verkleinere den Bewegungsradius, drossle das Tempo und halte deinen Rumpf dabei ruhig und stabil." ;
+                 :hasDescription "Mobilisationsübung zur sanften Bewegungserweiterung im Bereich Schultern mit Schwerpunkt auf mobilität." ;
+                 :hasDuration "2 Min" ;
+                 :hasInstruction """1. Aufrecht stehen oder sitzen.
+2. Schultern locker lassen.
+3. Schulterblätter gezielt in verschiedene Richtungen bewegen.
+4. Rumpf ruhig halten.""" ;
+                 rdfs:label "Schulterkreisen"@de ,
+                            "Shoulder Circles"@en .
+
+
+###  http://purl.org/PhysicalTherapy#Schulterpendel
+:Schulterpendel rdf:type owl:NamedIndividual ,
+                         :MobilisationStretching ;
+                :engagedBodyPart :Shoulders ,
+                                 :UpperBack ;
+                :hasContraindication :ShoulderIssue ;
+                :hasDifficultyLevel :Beginner ;
+                :improves :Flexibility ,
+                          :Mobility ,
+                          :Posture ;
+                :requiresEquipment :None ;
+                :hasCommonMistake "Vermeide zu große oder schwungvolle Bewegungen. Führe die Bewegung stattdessen kontrolliert Wirbel für Wirbel oder Grad für Grad aus." ;
+                :hasCorrectionGuidance "Verkleinere den Bewegungsradius, drossle das Tempo und halte deinen Rumpf dabei ruhig und stabil." ;
+                :hasDescription "Mobilisationsübung zur sanften Bewegungserweiterung im Bereich Schultern mit Schwerpunkt auf mobilität." ;
+                :hasDuration "2 Min" ;
+                :hasInstruction """1. Oberkörper leicht vorbeugen.
+2. Arm locker hängen lassen.
+3. Kleine Kreise pendeln.
+4. Richtung wechseln.""" ;
+                rdfs:label "Schulterpendel"@de ,
+                           "Shoulder Pendulum"@en .
+
+
+###  http://purl.org/PhysicalTherapy#SchultervorhebenMitTheraband
+:SchultervorhebenMitTheraband rdf:type owl:NamedIndividual ,
+                                       :Strength ;
+                              :engagedBodyPart :Shoulders ,
+                                               :UpperBack ;
+                              :hasContraindication :ShoulderIssue ;
+                              :hasDifficultyLevel :Beginner ;
+                              :improves :Posture ,
+                                        :Stability ,
+                                        :Strength ;
+                              :requiresEquipment :Theraband ;
+                              :hasCommonMistake "Vermeide es, die Rumpfspannung zu verlieren oder die Bewegung mit Schwung auszuführen. Halte deinen Rumpf stabil und bewege dich langsam und kontrolliert." ;
+                              :hasCorrectionGuidance "Verlangsame das Tempo, richte deine Wirbelsäule neutral aus und steigere die Belastung erst, wenn du die Technik sauber ausführen kannst." ;
+                              :hasDescription "Kräftigungsübung zum gezielten Aufbau von kraft im Bereich Schultern." ;
+                              :hasDuration "4 Min" ;
+                              :hasInstruction """1. Theraband sicher fixieren.
+2. Schulter tief halten.
+3. Arm kontrolliert nach vorn oder seitlich anheben.
+4. Langsam absenken.""" ;
+                              rdfs:label "Schultervorheben mit Theraband"@de ,
+                                         "Shoulder Flexion Band"@en .
 
 
 ###  http://purl.org/PhysicalTherapy#Sciatica
@@ -12099,6 +13442,229 @@ Langsam zur Mitte zurückkehren.
              rdfs:comment "Dehnübung für Brust und vordere Schulter, die typische Sitzhaltungen ausgleicht."@de ;
              rdfs:label "Robben-Dehnung"@de ,
                         "SealStretch"@en .
+
+
+###  http://purl.org/PhysicalTherapy#SegmentaleWirbelsaeulenbeugung
+:SegmentaleWirbelsaeulenbeugung rdf:type owl:NamedIndividual ,
+                                         :MobilisationStretching ;
+                                :engagedBodyPart :Spine ,
+                                                 :UpperBack ;
+                                :hasContraindication :BackIssue ;
+                                :hasDifficultyLevel :Intermediate ;
+                                :improves :Flexibility ,
+                                          :Mobility ,
+                                          :Posture ;
+                                :requiresEquipment :None ;
+                                :hasCommonMistake "Vermeide zu große oder schwungvolle Bewegungen. Führe die Bewegung stattdessen kontrolliert Wirbel für Wirbel oder Grad für Grad aus." ;
+                                :hasCorrectionGuidance "Verkleinere den Bewegungsradius, drossle das Tempo und halte deinen Rumpf dabei ruhig und stabil." ;
+                                :hasDescription "Mobilisationsübung zur sanften Bewegungserweiterung im Bereich Oberer Rücken mit Schwerpunkt auf mobilität." ;
+                                :hasDuration "2 Min" ;
+                                :hasInstruction """1. Aufrecht stehen.
+2. Kopf und Brustwirbelsäule Wirbel für Wirbel einrollen.
+3. Kurz halten.
+4. Langsam wieder aufrichten.""" ;
+                                rdfs:label "Segmental Spinal Flexion"@en ,
+                                           "Segmentale Wirbelsäulenbeugung"@de .
+
+
+###  http://purl.org/PhysicalTherapy#SeitlicheRumpfdehnung
+:SeitlicheRumpfdehnung rdf:type owl:NamedIndividual ,
+                                :MobilisationStretching ;
+                       :engagedBodyPart :Back ,
+                                        :Spine ;
+                       :hasContraindication :BackIssue ;
+                       :hasDifficultyLevel :Beginner ;
+                       :improves :Flexibility ,
+                                 :Mobility ;
+                       :requiresEquipment :None ;
+                       :hasCommonMistake "Vermeide federnde Bewegungen und halte nicht die Luft an. Dehne nur so weit, wie es angenehm bleibt und keine Schmerzen verursacht." ;
+                       :hasCorrectionGuidance "Atme ruhig weiter und halte die Position nur so weit, wie du ein deutliches, aber angenehmes Ziehen spürst." ;
+                       :hasDescription "Dehnübung zur gezielten Verbesserung der Beweglichkeit im Bereich Rücken." ;
+                       :hasDuration "1 Min" ;
+                       :hasInstruction """1. Geeignete Ausgangsposition einnehmen.
+2. Zielbereich langsam bis zu einem deutlichen, schmerzfreien Zug bewegen.
+3. Position halten.
+4. Langsam lösen und Seite wechseln.""" ;
+                       rdfs:label "Seitliche Rumpfdehnung"@de ,
+                                  "Side Bend Stretch"@en .
+
+
+###  http://purl.org/PhysicalTherapy#Seitstuetz
+:Seitstuetz rdf:type owl:NamedIndividual ,
+                     :Strength ;
+            :engagedBodyPart :Core ,
+                             :LowerBack ;
+            :hasContraindication :WristIssue ;
+            :hasDifficultyLevel :Intermediate ;
+            :improves :Posture ,
+                      :Stability ,
+                      :Strength ;
+            :requiresEquipment :None ;
+            :hasCommonMistake "Vermeide es, die Rumpfspannung zu verlieren oder die Bewegung mit Schwung auszuführen. Halte deinen Rumpf stabil und bewege dich langsam und kontrolliert." ;
+            :hasCorrectionGuidance "Verlangsame das Tempo, richte deine Wirbelsäule neutral aus und steigere die Belastung erst, wenn du die Technik sauber ausführen kannst." ;
+            :hasDescription "Kräftigungsübung zum gezielten Aufbau von kraft im Bereich Rumpf." ;
+            :hasDuration "4 Min" ;
+            :hasInstruction """1. Stützposition einnehmen.
+2. Bauch und Gesäß anspannen.
+3. Körper in einer stabilen Linie halten.
+4. Ruhig atmen und kontrolliert lösen.""" ;
+            rdfs:label "Seitstütz"@de ,
+                       "Side Plank"@en .
+
+
+###  http://purl.org/PhysicalTherapy#SelbstmassageDerHinterenSchulter
+:SelbstmassageDerHinterenSchulter rdf:type owl:NamedIndividual ,
+                                           :Entspannung ;
+                                  :engagedBodyPart :Shoulders ,
+                                                   :UpperBack ;
+                                  :hasContraindication :ShoulderIssue ;
+                                  :hasDifficultyLevel :Intermediate ;
+                                  :improves :Mobility ,
+                                            :Relaxation ;
+                                  :requiresEquipment :None ;
+                                  :hasCommonMistake "Vermeide zu starken Druck und rolle nicht direkt über Knochen und Gelenke." ;
+                                  :hasCorrectionGuidance "Reduziere den Druck, arbeite langsam und spare empfindliche Strukturen wie Knochen und Gelenke gezielt aus." ;
+                                  :hasDescription "Selbstmassage zur Lockerung und Durchblutungsförderung im Bereich Schultern." ;
+                                  :hasDuration "4 Min" ;
+                                  :hasInstruction """1. Zielbereich bequem positionieren.
+2. Mit Hand, Ball oder Rolle langsamen Druck ausüben.
+3. Empfindliche Punkte kurz halten.
+4. Bei stechendem Schmerz abbrechen.""" ;
+                                  rdfs:label "Posterior Shoulder Release"@en ,
+                                             "Selbstmassage der hinteren Schulter"@de .
+
+
+###  http://purl.org/PhysicalTherapy#SelbstmassageDesMusculusQuadratusLumborum
+:SelbstmassageDesMusculusQuadratusLumborum rdf:type owl:NamedIndividual ,
+                                                    :Entspannung ;
+                                           :engagedBodyPart :Core ,
+                                                            :LowerBack ;
+                                           :hasContraindication :BackIssue ;
+                                           :hasDifficultyLevel :Beginner ;
+                                           :improves :Mobility ,
+                                                     :Relaxation ;
+                                           :requiresEquipment :None ;
+                                           :hasCommonMistake "Vermeide zu starken Druck und rolle nicht direkt über Knochen und Gelenke." ;
+                                           :hasCorrectionGuidance "Reduziere den Druck, arbeite langsam und spare empfindliche Strukturen wie Knochen und Gelenke gezielt aus." ;
+                                           :hasDescription "Selbstmassage zur Lockerung und Durchblutungsförderung im Bereich Unterer Rücken." ;
+                                           :hasDuration "3 Min" ;
+                                           :hasInstruction """1. Zielbereich bequem positionieren.
+2. Mit Hand, Ball oder Rolle langsamen Druck ausüben.
+3. Empfindliche Punkte kurz halten.
+4. Bei stechendem Schmerz abbrechen.""" ;
+                                           rdfs:label "Quadratus Lumborum Massage"@en ,
+                                                      "Selbstmassage des Musculus Quadratus Lumborum"@de .
+
+
+###  http://purl.org/PhysicalTherapy#SelbstmassageDesOberenTrapezmuskels
+:SelbstmassageDesOberenTrapezmuskels rdf:type owl:NamedIndividual ,
+                                              :Entspannung ;
+                                     :engagedBodyPart :Neck ,
+                                                      :Shoulders ;
+                                     :hasContraindication :ShoulderIssue ;
+                                     :hasDifficultyLevel :Beginner ;
+                                     :improves :Mobility ,
+                                               :Relaxation ;
+                                     :requiresEquipment :None ;
+                                     :hasCommonMistake "Vermeide zu starken Druck und rolle nicht direkt über Knochen und Gelenke." ;
+                                     :hasCorrectionGuidance "Reduziere den Druck, arbeite langsam und spare empfindliche Strukturen wie Knochen und Gelenke gezielt aus." ;
+                                     :hasDescription "Selbstmassage zur Lockerung und Durchblutungsförderung im Bereich Nacken." ;
+                                     :hasDuration "4 Min" ;
+                                     :hasInstruction """1. Zielbereich bequem positionieren.
+2. Mit Hand, Ball oder Rolle langsamen Druck ausüben.
+3. Empfindliche Punkte kurz halten.
+4. Bei stechendem Schmerz abbrechen.""" ;
+                                     rdfs:label "Selbstmassage des oberen Trapezmuskels"@de ,
+                                                "Upper Trapezius Self Massage"@en .
+
+
+###  http://purl.org/PhysicalTherapy#SelbstmassageDesPiriformis
+:SelbstmassageDesPiriformis rdf:type owl:NamedIndividual ,
+                                     :Entspannung ;
+                            :engagedBodyPart :Glutes ,
+                                             :Hip ;
+                            :hasContraindication :HipIssue ;
+                            :hasDifficultyLevel :Beginner ;
+                            :improves :Mobility ,
+                                      :Relaxation ;
+                            :requiresEquipment :None ;
+                            :hasCommonMistake "Vermeide zu starken Druck und rolle nicht direkt über Knochen und Gelenke." ;
+                            :hasCorrectionGuidance "Reduziere den Druck, arbeite langsam und spare empfindliche Strukturen wie Knochen und Gelenke gezielt aus." ;
+                            :hasDescription "Selbstmassage zur Lockerung und Durchblutungsförderung im Bereich Gesäß." ;
+                            :hasDuration "3 Min" ;
+                            :hasInstruction """1. Zielbereich bequem positionieren.
+2. Mit Hand, Ball oder Rolle langsamen Druck ausüben.
+3. Empfindliche Punkte kurz halten.
+4. Bei stechendem Schmerz abbrechen.""" ;
+                            rdfs:label "Piriformis Self Massage"@en ,
+                                       "Selbstmassage des Piriformis"@de .
+
+
+###  http://purl.org/PhysicalTherapy#SelbstmassageDesSchulterblatthebersLevatorScapulae
+:SelbstmassageDesSchulterblatthebersLevatorScapulae rdf:type owl:NamedIndividual ,
+                                                             :Entspannung ;
+                                                    :engagedBodyPart :Neck ,
+                                                                     :Shoulders ;
+                                                    :hasContraindication :ShoulderIssue ;
+                                                    :hasDifficultyLevel :Beginner ;
+                                                    :improves :Mobility ,
+                                                              :Relaxation ;
+                                                    :requiresEquipment :None ;
+                                                    :hasCommonMistake "Vermeide zu starken Druck und rolle nicht direkt über Knochen und Gelenke." ;
+                                                    :hasCorrectionGuidance "Reduziere den Druck, arbeite langsam und spare empfindliche Strukturen wie Knochen und Gelenke gezielt aus." ;
+                                                    :hasDescription "Selbstmassage zur Lockerung und Durchblutungsförderung im Bereich Nacken." ;
+                                                    :hasDuration "4 Min" ;
+                                                    :hasInstruction """1. Zielbereich bequem positionieren.
+2. Mit Hand, Ball oder Rolle langsamen Druck ausüben.
+3. Empfindliche Punkte kurz halten.
+4. Bei stechendem Schmerz abbrechen.""" ;
+                                                    rdfs:label "Levator Scapulae Massage"@en ,
+                                                               "Selbstmassage des Schulterblatthebers (Levator Scapulae)"@de .
+
+
+###  http://purl.org/PhysicalTherapy#SelbstmassageDesUnterenRueckens
+:SelbstmassageDesUnterenRueckens rdf:type owl:NamedIndividual ,
+                                          :Entspannung ;
+                                 :engagedBodyPart :Core ,
+                                                  :LowerBack ;
+                                 :hasContraindication :LowerBackIssue ;
+                                 :hasDifficultyLevel :Beginner ;
+                                 :improves :Mobility ,
+                                           :Relaxation ;
+                                 :requiresEquipment :None ;
+                                 :hasCommonMistake "Vermeide zu starken Druck und rolle nicht direkt über Knochen und Gelenke." ;
+                                 :hasCorrectionGuidance "Reduziere den Druck, arbeite langsam und spare empfindliche Strukturen wie Knochen und Gelenke gezielt aus." ;
+                                 :hasDescription "Selbstmassage zur Lockerung und Durchblutungsförderung im Bereich Unterer Rücken." ;
+                                 :hasDuration "4 Min" ;
+                                 :hasInstruction """1. Zielbereich bequem positionieren.
+2. Mit Hand, Ball oder Rolle langsamen Druck ausüben.
+3. Empfindliche Punkte kurz halten.
+4. Bei stechendem Schmerz abbrechen.""" ;
+                                 rdfs:label "Lower Back Self Massage"@en ,
+                                            "Selbstmassage des unteren Rückens"@de .
+
+
+###  http://purl.org/PhysicalTherapy#SerratusPunchSchulterblattProtraktion
+:SerratusPunchSchulterblattProtraktion rdf:type owl:NamedIndividual ,
+                                                :Strength ;
+                                       :engagedBodyPart :Shoulders ,
+                                                        :UpperBack ;
+                                       :hasContraindication :ShoulderIssue ;
+                                       :hasDifficultyLevel :Beginner ;
+                                       :improves :Posture ,
+                                                 :Stability ,
+                                                 :Strength ;
+                                       :requiresEquipment :None ;
+                                       :hasCommonMistake "Vermeide es, die Rumpfspannung zu verlieren oder die Bewegung mit Schwung auszuführen. Halte deinen Rumpf stabil und bewege dich langsam und kontrolliert." ;
+                                       :hasCorrectionGuidance "Verlangsame das Tempo, richte deine Wirbelsäule neutral aus und steigere die Belastung erst, wenn du die Technik sauber ausführen kannst." ;
+                                       :hasDescription "Kräftigungsübung zum gezielten Aufbau von kraft im Bereich Schultern." ;
+                                       :hasDuration "4 Min" ;
+                                       :hasInstruction """1. Arm nach vorn ausrichten.
+2. Ellbogen gestreckt halten.
+3. Schulterblatt aktiv nach vorn schieben.
+4. Kontrolliert zurückführen.""" ;
+                                       rdfs:label "Serratus Punch"@en ,
+                                                  "Serratus Punch (Schulterblatt-Protraktion)"@de .
 
 
 ###  http://purl.org/PhysicalTherapy#Session0001
@@ -12889,10 +14455,55 @@ Langsam zur Mitte zurückkehren.
 ###  http://purl.org/PhysicalTherapy#SleepPositionAdjustment
 :SleepPositionAdjustment rdf:type owl:NamedIndividual ,
                                   :DailyRoutine ;
-                         :hasDailyLifeAdvice "Anpassung der Schlafposition, z.B. durch Kissenunterstützung, um Wirbelsäule, Nacken oder Gelenke zu entlasten."@de ;
+                         :hasDailyLifeAdvice "Anpassung der Schlafposition, z.B. durch Kissenunterstützung, um Wirbelsäule, Nacken oder Gelenke zu entlasten." ;
                          rdfs:comment "Anpassung der Schlafposition"@de ;
                          rdfs:label "Anpassung der Schlafposition"@de ,
                                     "SleepPositionAdjustment"@en .
+
+
+###  http://purl.org/PhysicalTherapy#SleeperDehnung
+:SleeperDehnung rdf:type owl:NamedIndividual ,
+                         :MobilisationStretching ;
+                :engagedBodyPart :Back ,
+                                 :Spine ;
+                :hasContraindication :BackIssue ;
+                :hasDifficultyLevel :Intermediate ;
+                :improves :Flexibility ,
+                          :Mobility ;
+                :requiresEquipment :None ;
+                :hasCommonMistake "Vermeide federnde Bewegungen und halte nicht die Luft an. Dehne nur so weit, wie es angenehm bleibt und keine Schmerzen verursacht." ;
+                :hasCorrectionGuidance "Atme ruhig weiter und halte die Position nur so weit, wie du ein deutliches, aber angenehmes Ziehen spürst." ;
+                :hasDescription "Dehnübung zur gezielten Verbesserung der Beweglichkeit im Bereich Rücken." ;
+                :hasDuration "1 Min" ;
+                :hasInstruction """1. Geeignete Ausgangsposition einnehmen.
+2. Zielbereich langsam bis zu einem deutlichen, schmerzfreien Zug bewegen.
+3. Position halten.
+4. Langsam lösen und Seite wechseln.""" ;
+                rdfs:label "Sleeper Stretch"@en ,
+                           "Sleeper-Dehnung"@de .
+
+
+###  http://purl.org/PhysicalTherapy#SleeperMobilisation
+:SleeperMobilisation rdf:type owl:NamedIndividual ,
+                              :MobilisationStretching ;
+                     :engagedBodyPart :Back ,
+                                      :Spine ;
+                     :hasContraindication :BackIssue ;
+                     :hasDifficultyLevel :Intermediate ;
+                     :improves :Flexibility ,
+                               :Mobility ,
+                               :Posture ;
+                     :requiresEquipment :None ;
+                     :hasCommonMistake "Vermeide zu große oder schwungvolle Bewegungen. Führe die Bewegung stattdessen kontrolliert Wirbel für Wirbel oder Grad für Grad aus." ;
+                     :hasCorrectionGuidance "Verkleinere den Bewegungsradius, drossle das Tempo und halte deinen Rumpf dabei ruhig und stabil." ;
+                     :hasDescription "Mobilisationsübung zur sanften Bewegungserweiterung im Bereich Rücken mit Schwerpunkt auf mobilität." ;
+                     :hasDuration "2 Min" ;
+                     :hasInstruction """1. Ausgangsposition sicher einnehmen.
+2. Bewegung langsam und kontrolliert ausführen.
+3. Ruhig atmen.
+4. Bei Schmerzen abbrechen.""" ;
+                     rdfs:label "Sleeper Mobilisation"@en ,
+                                "Sleeper-Mobilisation"@de .
 
 
 ###  http://purl.org/PhysicalTherapy#Snorkeling
@@ -13163,7 +14774,7 @@ Langsam zur Mitte zurückkehren.
 
 ###  http://purl.org/PhysicalTherapy#StandingBackbend
 :StandingBackbend rdf:type owl:NamedIndividual ,
-                           :Asana ;
+                           :Stretching ;
                   :engagedBodyPart :Back ,
                                    :Chest ,
                                    :LowerBack ,
@@ -16316,6 +17927,29 @@ Langsam zur Mitte zurückkehren.
             :MET 2.5 .
 
 
+###  http://purl.org/PhysicalTherapy#Superman
+:Superman rdf:type owl:NamedIndividual ,
+                   :Strength ;
+          :engagedBodyPart :Core ,
+                           :LowerBack ;
+          :hasContraindication :LowerBackIssue ;
+          :hasDifficultyLevel :Intermediate ;
+          :improves :Posture ,
+                    :Stability ,
+                    :Strength ;
+          :requiresEquipment :None ;
+          :hasCommonMistake "Vermeide es, die Rumpfspannung zu verlieren oder die Bewegung mit Schwung auszuführen. Halte deinen Rumpf stabil und bewege dich langsam und kontrolliert." ;
+          :hasCorrectionGuidance "Verlangsame das Tempo, richte deine Wirbelsäule neutral aus und steigere die Belastung erst, wenn du die Technik sauber ausführen kannst." ;
+          :hasDescription "Kräftigungsübung zum gezielten Aufbau von kraft im Bereich Rumpf." ;
+          :hasDuration "2–3 Sätze à 8–12 Wdh." ;
+          :hasInstruction """1. In Bauchlage Arme nach vorn strecken.
+2. Bauch anspannen.
+3. Arme und Beine leicht anheben.
+4. Kurz halten und ablegen.""" ;
+          rdfs:label "Superman"@de ,
+                     "Superman"@en .
+
+
 ###  http://purl.org/PhysicalTherapy#Surfing
 :Surfing rdf:type owl:NamedIndividual ,
                   :SportActivity ;
@@ -16352,6 +17986,29 @@ Langsam zur Mitte zurückkehren.
                          "SwimmingSlow"@en .
 
 
+###  http://purl.org/PhysicalTherapy#THeben
+:THeben rdf:type owl:NamedIndividual ,
+                 :Strength ;
+        :engagedBodyPart :Shoulders ,
+                         :UpperBack ;
+        :hasContraindication :ShoulderIssue ;
+        :hasDifficultyLevel :Intermediate ;
+        :improves :Posture ,
+                  :Stability ,
+                  :Strength ;
+        :requiresEquipment :None ;
+        :hasCommonMistake "Vermeide es, die Rumpfspannung zu verlieren oder die Bewegung mit Schwung auszuführen. Halte deinen Rumpf stabil und bewege dich langsam und kontrolliert." ;
+        :hasCorrectionGuidance "Verlangsame das Tempo, richte deine Wirbelsäule neutral aus und steigere die Belastung erst, wenn du die Technik sauber ausführen kannst." ;
+        :hasDescription "Kräftigungsübung zum gezielten Aufbau von kraft im Bereich Schultern." ;
+        :hasDuration "4 Min" ;
+        :hasInstruction """1. In Bauchlage oder leichter Vorbeuge starten.
+2. Schulterblätter stabilisieren.
+3. Arme in der vorgegebenen Form anheben.
+4. Langsam absenken.""" ;
+        rdfs:label "T Raise"@en ,
+                   "T-Heben"@de .
+
+
 ###  http://purl.org/PhysicalTherapy#TableTennis
 :TableTennis rdf:type owl:NamedIndividual ,
                       :SportActivity ;
@@ -16377,6 +18034,31 @@ Langsam zur Mitte zurückkehren.
         :MET 4.0 ;
         rdfs:label "Tai-Chi"@de ,
                    "TaiChi"@en .
+
+
+###  http://purl.org/PhysicalTherapy#TeilweisesTurkishGetUp
+:TeilweisesTurkishGetUp rdf:type owl:NamedIndividual ,
+                                 :CoordinationMobility ;
+                        :engagedBodyPart :Back ,
+                                         :Core ,
+                                         :Legs ,
+                                         :Shoulders ;
+                        :hasContraindication :BalanceIssue ;
+                        :hasDifficultyLevel :Advanced ;
+                        :improves :Balance ,
+                                  :Coordination ,
+                                  :Stability ;
+                        :requiresEquipment :Dumble ;
+                        :hasCommonMistake "Vermeide hektische Ausgleichsbewegungen. Steuere stattdessen ruhig und kontrolliert gegen, um dein Gleichgewicht zu halten." ;
+                        :hasCorrectionGuidance "Verlangsame die Bewegung, fixiere einen festen Punkt und nutze bei Bedarf eine Wand oder einen Stuhl als Stütze." ;
+                        :hasDescription "Koordinations- und Gleichgewichtsübung zur Verbesserung der Körperkontrolle im Bereich Rumpf." ;
+                        :hasDuration "3 Min" ;
+                        :hasInstruction """1. In Rückenlage mit Gewicht starten.
+2. Arm senkrecht stabil halten.
+3. Die Aufstehphasen kontrolliert nacheinander ausführen.
+4. In umgekehrter Reihenfolge zurückkehren.""" ;
+                        rdfs:label "Teilweises Turkish Get-up"@de ,
+                                   "Turkish Get-up (Partial)"@en .
 
 
 ###  http://purl.org/PhysicalTherapy#Tennis
@@ -16480,8 +18162,27 @@ Langsam zur Mitte zurückkehren.
                              "ThoracicBackPain"@en .
 
 
-###  http://purl.org/PhysicalTherapy#TomSpradau
-:TomSpradau rdf:type owl:NamedIndividual .
+###  http://purl.org/PhysicalTherapy#Tischgleiten
+:Tischgleiten rdf:type owl:NamedIndividual ,
+                       :MobilisationStretching ;
+              :engagedBodyPart :Back ,
+                               :Spine ;
+              :hasContraindication :BackIssue ;
+              :hasDifficultyLevel :Beginner ;
+              :improves :Flexibility ,
+                        :Mobility ,
+                        :Posture ;
+              :requiresEquipment :None ;
+              :hasCommonMistake "Vermeide zu große oder schwungvolle Bewegungen. Führe die Bewegung stattdessen kontrolliert Wirbel für Wirbel oder Grad für Grad aus." ;
+              :hasCorrectionGuidance "Verkleinere den Bewegungsradius, drossle das Tempo und halte deinen Rumpf dabei ruhig und stabil." ;
+              :hasDescription "Mobilisationsübung zur sanften Bewegungserweiterung im Bereich Rücken mit Schwerpunkt auf mobilität." ;
+              :hasDuration "2 Min" ;
+              :hasInstruction """1. Vor einen Tisch setzen.
+2. Hände auf ein Tuch legen.
+3. Hände nach vorn gleiten lassen.
+4. Ohne Schulterhochziehen zurückkehren.""" ;
+              rdfs:label "Table Slides"@en ,
+                         "Tischgleiten"@de .
 
 
 ###  http://purl.org/PhysicalTherapy#Torso
@@ -16520,6 +18221,28 @@ Langsam zur Mitte zurückkehren.
            rdfs:comment "Trapezmuskel, ein großer Muskel im oberen Rücken und Nacken, der die Schultern bewegt."@de ;
            rdfs:label "Trapezius"@en ,
                       "Trapezmuskel"@de .
+
+
+###  http://purl.org/PhysicalTherapy#TrapezmuskelDehnung
+:TrapezmuskelDehnung rdf:type owl:NamedIndividual ,
+                              :MobilisationStretching ;
+                     :engagedBodyPart :Neck ,
+                                      :Shoulders ;
+                     :hasContraindication :ShoulderIssue ;
+                     :hasDifficultyLevel :Beginner ;
+                     :improves :Flexibility ,
+                               :Mobility ;
+                     :requiresEquipment :None ;
+                     :hasCommonMistake "Federn, die Luft anhalten oder bis in einen spürbaren Schmerz hinein dehnen." ;
+                     :hasCorrectionGuidance "Ruhig weiteratmen und die Position nur bis zu einem deutlichen, aber angenehmen Ziehen halten." ;
+                     :hasDescription "Dehnübung zur gezielten Verbesserung der Beweglichkeit im Bereich Nacken." ;
+                     :hasDuration "1 Min" ;
+                     :hasInstruction """1. Geeignete Ausgangsposition einnehmen.
+2. Zielbereich langsam bis zu einem deutlichen, schmerzfreien Zug bewegen.
+3. Position halten.
+4. Langsam lösen und Seite wechseln.""" ;
+                     rdfs:label "Trapezmuskel-Dehnung"@de ,
+                                "Upper Trapezius Stretch"@en .
 
 
 ###  http://purl.org/PhysicalTherapy#Tree
@@ -17518,11 +19241,108 @@ Langsam zur Mitte zurückkehren.
 ###  http://purl.org/PhysicalTherapy#TricepsStretch_ShoulderIssue
 :TricepsStretch_ShoulderIssue rdf:type owl:NamedIndividual ;
                               :forCondition :ShoulderIssue ;
-                              :isContraindicationFor :TricepsStretch ;
                               :severity :LowRisk ;
                               rdfs:comment "Hinweis auf Schulter-Probleme, die bei der Trizeps-Dehnung berücksichtigt werden sollten."@de ;
                               rdfs:label "TricepsStretch_ShoulderIssue"@en ,
                                          "Trizepsdehnung: Schulterproblem"@de .
+
+
+###  http://purl.org/PhysicalTherapy#TriggerpunktmassageDerGesaessmuskulatur
+:TriggerpunktmassageDerGesaessmuskulatur rdf:type owl:NamedIndividual ,
+                                                  :Entspannung ;
+                                         :engagedBodyPart :Glutes ,
+                                                          :Hip ;
+                                         :hasContraindication :HipIssue ;
+                                         :hasDifficultyLevel :Intermediate ;
+                                         :improves :Mobility ,
+                                                   :Relaxation ;
+                                         :requiresEquipment :None ;
+                                         :hasCommonMistake "Zu starker Druck oder ein Rollen direkt über Knochen und Gelenke." ;
+                                         :hasCorrectionGuidance "Den Druck reduzieren, langsam arbeiten und empfindliche Strukturen wie Knochen und Gelenke gezielt aussparen." ;
+                                         :hasDescription "Selbstmassage zur Lockerung und Durchblutungsförderung im Bereich Gesäß." ;
+                                         :hasDuration "4 Min" ;
+                                         :hasInstruction """1. Zielbereich bequem positionieren.
+2. Mit Hand, Ball oder Rolle langsamen Druck ausüben.
+3. Empfindliche Punkte kurz halten.
+4. Bei stechendem Schmerz abbrechen.""" ;
+                                         rdfs:label "Glute Trigger Point Release"@en ,
+                                                    "Triggerpunktmassage der Gesäßmuskulatur"@de .
+
+
+###  http://purl.org/PhysicalTherapy#TrizepsDehnung
+:TrizepsDehnung rdf:type owl:NamedIndividual ,
+                         :MobilisationStretching ;
+                :engagedBodyPart :Arms ,
+                                 :Shoulders ,
+                                 :Triceps ;
+                :hasContraindication :ShoulderIssue ;
+                :hasDifficultyLevel :Beginner ;
+                :improves :Flexibility ,
+                          :Mobility ;
+                :requiresEquipment :None ;
+                :hasCommonMistake "Vermeide federnde Bewegungen und halte nicht die Luft an. Dehne nur so weit, wie es angenehm bleibt und keine Schmerzen verursacht." ;
+                :hasCorrectionGuidance "Atme ruhig weiter und halte die Position nur so weit, wie du ein deutliches, aber angenehmes Ziehen spürst." ;
+                :hasDescription "Dehnübung zur gezielten Verbesserung der Beweglichkeit im Bereich Trizeps." ;
+                :hasDuration "2 Min" ;
+                :hasInstruction """1. Aufrecht stehen oder aufrecht auf einem Stuhl sitzen, die Füße hüftbreit.
+2. Einen Arm seitlich am Körper hängen lassen, dann den Oberarm anheben und den Ellbogen beugen.
+3. Die Hand des angehobenen Arms auf den oberen Rücken legen, zwischen die Schulterblätter.
+4. Mit der anderen Hand sanft den angehobenen Ellbogen in Richtung Kopf ziehen.
+5. Den Nacken lang lassen, die Schulter entspannt nach unten halten und nicht hochziehen.
+6. Die Dehnung 20 bis 30 Sekunden halten und gleichmäßig weiteratmen.
+7. Den Arm langsam lösen und die Seite wechseln.
+8. Pro Seite 2 bis 3 Wiederholungen durchführen.""" ;
+                rdfs:comment "Dehnübung für den Trizeps an der Rückseite des Oberarms."@de ;
+                rdfs:label "Triceps Stretch"@en ,
+                           "Trizeps-Dehnung"@de .
+
+
+###  http://purl.org/PhysicalTherapy#TurkishGetUp
+:TurkishGetUp rdf:type owl:NamedIndividual ,
+                       :CoordinationMobility ;
+              :engagedBodyPart :Back ,
+                               :Core ,
+                               :Legs ,
+                               :Shoulders ;
+              :hasContraindication :BalanceIssue ;
+              :hasDifficultyLevel :Advanced ;
+              :improves :Balance ,
+                        :Coordination ,
+                        :Stability ;
+              :requiresEquipment :Dumble ;
+              :hasCommonMistake "Das Gleichgewicht durch hektische Ausgleichsbewegungen verlieren, statt ruhig gegenzusteuern." ;
+              :hasCorrectionGuidance "Die Bewegung verlangsamen, einen festen Punkt fixieren und bei Bedarf eine Wand oder einen Stuhl als Stütze nutzen." ;
+              :hasDescription "Koordinations- und Gleichgewichtsübung zur Verbesserung der Körperkontrolle im Bereich Rumpf." ;
+              :hasDuration "3 Min" ;
+              :hasInstruction """1. In Rückenlage mit Gewicht starten.
+2. Arm senkrecht stabil halten.
+3. Die Aufstehphasen kontrolliert nacheinander ausführen.
+4. In umgekehrter Reihenfolge zurückkehren.""" ;
+              rdfs:label "Turkish Get-up"@de ,
+                         "Turkish Get-up"@en .
+
+
+###  http://purl.org/PhysicalTherapy#UmgekehrterUnterarmstuetz
+:UmgekehrterUnterarmstuetz rdf:type owl:NamedIndividual ,
+                                    :Strength ;
+                           :engagedBodyPart :Core ,
+                                            :LowerBack ;
+                           :hasContraindication :WristIssue ;
+                           :hasDifficultyLevel :Advanced ;
+                           :improves :Posture ,
+                                     :Stability ,
+                                     :Strength ;
+                           :requiresEquipment :None ;
+                           :hasCommonMistake "Die Rumpfspannung verlieren und die Bewegung mit Schwung statt kontrolliert ausführen." ;
+                           :hasCorrectionGuidance "Das Tempo verlangsamen, die Wirbelsäule neutral ausrichten und die Belastung erst bei sauberer Technik steigern." ;
+                           :hasDescription "Kräftigungsübung zum gezielten Aufbau von kraft im Bereich Rumpf." ;
+                           :hasDuration "4 Min" ;
+                           :hasInstruction """1. Stützposition einnehmen.
+2. Bauch und Gesäß anspannen.
+3. Körper in einer stabilen Linie halten.
+4. Ruhig atmen und kontrolliert lösen.""" ;
+                           rdfs:label "Reverse Plank"@en ,
+                                      "Umgekehrter Unterarmstütz"@de .
 
 
 ###  http://purl.org/PhysicalTherapy#Up
@@ -17560,7 +19380,7 @@ Langsam zur Mitte zurückkehren.
 ###  http://purl.org/PhysicalTherapy#UseBackpackInsteadOfOneSideBag
 :UseBackpackInsteadOfOneSideBag rdf:type owl:NamedIndividual ,
                                          :DailyRoutine ;
-                                :hasDailyLifeAdvice "Nutzung eines Rucksacks statt einer einseitigen Tasche, um asymmetrische Belastungen von Schulter, Rücken und Nacken zu vermeiden."@de ;
+                                :hasDailyLifeAdvice "Nutzung eines Rucksacks statt einer einseitigen Tasche, um asymmetrische Belastungen von Schulter, Rücken und Nacken zu vermeiden." ;
                                 rdfs:comment "Nutze einen Rucksack statt einer Umhängetasche"@de ;
                                 rdfs:label "Rucksack statt einseitiger Tasche"@de ,
                                            "UseBackpackInsteadOfOneSideBag"@en .
@@ -17569,7 +19389,7 @@ Langsam zur Mitte zurückkehren.
 ###  http://purl.org/PhysicalTherapy#UseStepStoolForOverheadWork
 :UseStepStoolForOverheadWork rdf:type owl:NamedIndividual ,
                                       :DailyRoutine ;
-                             :hasDailyLifeAdvice "Für Arbeiten über Schulterhöhe wie Staubwischen oder Einräumen einen Tritthocker oder eine Leiter benutzen, um Überkopfarbeit mit überstrecktem Nacken und angehobenen Armen zu vermeiden."@de ;
+                             :hasDailyLifeAdvice "Für Arbeiten über Schulterhöhe wie Staubwischen oder Einräumen einen Tritthocker oder eine Leiter benutzen, um Überkopfarbeit mit überstrecktem Nacken und angehobenen Armen zu vermeiden." ;
                              rdfs:comment "Tritthocker für Überkopfarbeit"@de ;
                              rdfs:label "Tritthocker für Überkopfarbeit"@de ,
                                         "UseStepStoolForOverheadWork"@en .
@@ -17593,6 +19413,30 @@ Langsam zur Mitte zurückkehren.
             :MET 3.0 ;
             rdfs:label "Volleyball"@de ,
                        "Volleyball"@en .
+
+
+###  http://purl.org/PhysicalTherapy#WHeben
+:WHeben rdf:type owl:NamedIndividual ,
+                 :Strength ;
+        :engagedBodyPart :Shoulders ,
+                         :UpperBack ;
+        :hasContraindication :ShoulderIssue ;
+        :hasDifficultyLevel :Intermediate ;
+        :improves :Posture ,
+                  :Stability ,
+                  :Strength ;
+        :requiresEquipment :None ;
+        :hasCommonMistake "Vermeide es, die Rumpfspannung zu verlieren oder die Bewegung mit Schwung auszuführen. Halte deinen Rumpf stabil und bewege dich langsam und kontrolliert." ;
+        :hasCorrectionGuidance "Führe die Bewegung langsamer aus und halte deine Wirbelsäule in einer neutralen Position. Steigere die Belastung erst, wenn du die Übung sauber und kontrolliert ausführen kannst." ;
+        :hasDescription "Kräftigungsübung zum gezielten Aufbau von kraft im Bereich Schultern." ;
+        :hasDuration "4 Min" ;
+        :hasInstruction """Lege dich auf den Bauch oder beuge deinen Oberkörper leicht nach vorne.
+
+* Ziehe deine Schulterblätter sanft nach hinten und unten.
+* Hebe deine Arme langsam in der vorgegebenen Position an.
+* Senke die Arme anschließend kontrolliert wieder ab.""" ;
+        rdfs:label "W Raise"@en ,
+                   "W-Heben"@de .
 
 
 ###  http://purl.org/PhysicalTherapy#Wadendehnung
@@ -17748,13 +19592,82 @@ Langsam zur Mitte zurückkehren.
                         "Wandliegestütz"@de .
 
 
+###  http://purl.org/PhysicalTherapy#Wandengel
+:Wandengel rdf:type owl:NamedIndividual ,
+                    :MobilisationStretching ;
+           :engagedBodyPart :Shoulders ,
+                            :UpperBack ;
+           :hasContraindication :ShoulderIssue ;
+           :hasDifficultyLevel :Intermediate ;
+           :improves :Flexibility ,
+                     :Mobility ,
+                     :Posture ;
+           :requiresEquipment :Wall ;
+           :hasCommonMistake "Vermeide zu große oder schwungvolle Bewegungen. Führe die Bewegung stattdessen langsam und kontrolliert aus." ;
+           :hasCorrectionGuidance "Verkleinere den Bewegungsradius und führe die Bewegung langsamer aus. Halte deinen Rumpf dabei ruhig und stabil." ;
+           :hasDescription "Mobilisationsübung zur sanften Bewegungserweiterung im Bereich Schultern mit Schwerpunkt auf mobilität." ;
+           :hasDuration "2 Min" ;
+           :hasInstruction """1. Lehne deinen Rücken oder deine Unterarme an die Wand.
+2. Spanne deinen Rumpf an und halte ihn stabil.
+3. Lass deine Arme langsam an der Wand nach oben gleiten.
+4. Senke die Arme anschließend kontrolliert wieder ab.""" ;
+           rdfs:label "Wall Angels"@en ,
+                      "Wandengel"@de .
+
+
+###  http://purl.org/PhysicalTherapy#WandgleitenMitArmabheben
+:WandgleitenMitArmabheben rdf:type owl:NamedIndividual ,
+                                   :CoordinationMobility ;
+                          :engagedBodyPart :Back ,
+                                           :Spine ;
+                          :hasContraindication :BackIssue ;
+                          :hasDifficultyLevel :Intermediate ;
+                          :improves :Coordination ,
+                                    :Mobility ,
+                                    :Stability ;
+                          :requiresEquipment :Wall ;
+                          :hasCommonMistake "Vermeide hektische Ausgleichsbewegungen. Steuere stattdessen ruhig und kontrolliert gegen, um dein Gleichgewicht zu halten." ;
+                          :hasCorrectionGuidance "Führe die Bewegung langsam und kontrolliert aus. Fixiere einen festen Punkt und nutze bei Bedarf eine Wand oder einen Stuhl zur Unterstützung." ;
+                          :hasDescription "Koordinations- und Gleichgewichtsübung zur Verbesserung der Körperkontrolle im Bereich Rücken." ;
+                          :hasDuration "3 Min" ;
+                          :hasInstruction """1. Lehne deinen Rücken oder deine Unterarme an die Wand.
+2. Spanne deinen Rumpf an und halte ihn stabil.
+3. Lass deine Arme langsam und kontrolliert an der Wand nach oben gleiten.
+4. Senke die Arme anschließend kontrolliert wieder ab.""" ;
+                          rdfs:label "Wall Slide with Lift Off"@en ,
+                                     "Wandgleiten mit Armabheben"@de .
+
+
+###  http://purl.org/PhysicalTherapy#Wandschieben
+:Wandschieben rdf:type owl:NamedIndividual ,
+                       :MobilisationStretching ;
+              :engagedBodyPart :Back ,
+                               :Spine ;
+              :hasContraindication :BackIssue ;
+              :hasDifficultyLevel :Beginner ;
+              :improves :Flexibility ,
+                        :Mobility ,
+                        :Posture ;
+              :requiresEquipment :Wall ;
+              :hasCommonMistake "Vermeide zu große oder schwungvolle Bewegungen. Führe die Bewegung stattdessen kontrolliert Wirbel für Wirbel oder Grad für Grad aus." ;
+              :hasCorrectionGuidance "Verkleinere den Bewegungsradius, drossle das Tempo und halte deinen Rumpf dabei ruhig und stabil." ;
+              :hasDescription "Mobilisationsübung zur sanften Bewegungserweiterung im Bereich Rücken mit Schwerpunkt auf mobilität." ;
+              :hasDuration "2 Min" ;
+              :hasInstruction """1. Rücken oder Unterarme an die Wand bringen.
+2. Rumpf stabil halten.
+3. Arme langsam nach oben gleiten lassen.
+4. Kontrolliert absenken.""" ;
+              rdfs:comment "Eine Übung zur Kräftigung und Stabilisierung der Schulter-, Arm- und Rumpfmuskulatur durch kontrolliertes Drücken gegen eine Wand."@de ;
+              rdfs:label "Wall Slides"@en ,
+                         "Wandschieben"@de .
+
+
 ###  http://purl.org/PhysicalTherapy#Wandsitzen
 :Wandsitzen rdf:type owl:NamedIndividual ,
                      :Strength ;
             :engagedBodyPart :Glutes ,
                              :KneeJoint ,
-                             :Quadriceps ,
-                             :Quads ;
+                             :Quadriceps ;
             :hasContraindication :KneeIssue ;
             :hasDifficultyLevel :Beginner ;
             :improves :Stability ,
@@ -18823,7 +20736,7 @@ Langsam zur Mitte zurückkehren.
 ###  http://purl.org/PhysicalTherapy#WeightShiftWhileStanding
 :WeightShiftWhileStanding rdf:type owl:NamedIndividual ,
                                    :DailyRoutine ;
-                          :hasDailyLifeAdvice "Bei längerem Stehen regelmäßig das Gewicht von einem Bein auf das andere verlagern, die Position verändern und nach Möglichkeit einen Fuß auf eine Erhöhung stellen, um einseitige Belastungen von Wirbelsäule, Hüfte und Beinen zu reduzieren."@de ;
+                          :hasDailyLifeAdvice "Bei längerem Stehen regelmäßig das Gewicht von einem Bein auf das andere verlagern, die Position verändern und nach Möglichkeit einen Fuß auf eine Erhöhung stellen, um einseitige Belastungen von Wirbelsäule, Hüfte und Beinen zu reduzieren." ;
                           rdfs:comment "Gewichtsverlagerung beim Stehen"@de ;
                           rdfs:label "Gewichtsverlagerung im Stehen"@de ,
                                      "WeightShiftWhileStanding"@en .
@@ -19435,6 +21348,30 @@ Langsam zur Mitte zurückkehren.
                    "Wrists"@en .
 
 
+###  http://purl.org/PhysicalTherapy#YHeben
+:YHeben rdf:type owl:NamedIndividual ,
+                 :Strength ;
+        :engagedBodyPart :Shoulders ,
+                         :UpperBack ;
+        :hasContraindication :ShoulderIssue ;
+        :hasDifficultyLevel :Intermediate ;
+        :improves :Posture ,
+                  :Stability ,
+                  :Strength ;
+        :requiresEquipment :None ;
+        :hasCommonMistake "Die Rumpfspannung verlieren und die Bewegung mit Schwung statt kontrolliert ausführen." ;
+        :hasCorrectionGuidance "Das Tempo verlangsamen, die Wirbelsäule neutral ausrichten und die Belastung erst bei sauberer Technik steigern." ;
+        :hasDescription "Kräftigungsübung zum gezielten Aufbau von kraft im Bereich Schultern." ;
+        :hasDuration "4 Min." ;
+        :hasInstruction """1. In Bauchlage oder leichter Vorbeuge starten.
+2. Schulterblätter stabilisieren.
+3. Arme in der vorgegebenen Form anheben.
+4. Langsam absenken.""" ;
+        rdfs:comment "Eine Übung zur Kräftigung der Schulter- und oberen Rückenmuskulatur, bei der die Arme kontrolliert in einer Y-Position angehoben werden."@de ;
+        rdfs:label "Y Raise"@en ,
+                   "Y-Heben"@de .
+
+
 ###  http://purl.org/PhysicalTherapy#Yoga
 :Yoga rdf:type owl:NamedIndividual ,
                :SportActivity ;
@@ -19485,6 +21422,29 @@ Langsam zur Mitte zurückkehren.
    owl:annotatedTarget :KneeIssue ;
    rdfs:comment "This Contraindication should be considered for practitioners of Z-Sits to avoid strain or injury."
  ] .
+
+
+###  http://purl.org/PhysicalTherapy#Zwerchfellatmung
+:Zwerchfellatmung rdf:type owl:NamedIndividual ,
+                           :Entspannung ;
+                  :engagedBodyPart :Back ,
+                                   :Core ;
+                  :hasContraindication :RespiratoryIssue ;
+                  :hasDifficultyLevel :Beginner ;
+                  :improves :Focus ,
+                            :Relaxation ;
+                  :requiresEquipment :None ;
+                  :hasCommonMistake "Vermeide eine schnelle und flache Atmung in den Brustkorb. Atme stattdessen bewusst und ruhig in den Bauch." ;
+                  :hasCorrectionGuidance "Atme bewusst langsamer und versuche, etwas länger auszuatmen als einzuatmen." ;
+                  :hasDescription "Zwerchfellatmung ist eine ruhige Atemübung, die Entspannung, Körperwahrnehmung und eine bewusste Atemkontrolle fördert." ;
+                  :hasDuration "3 Min" ;
+                  :hasInstruction """1. Lege oder setze dich bequem hin.
+2. Lege eine Hand auf deinen Bauch.
+3. Atme langsam durch die Nase ein und spüre, wie sich dein Bauch hebt.
+4. Atme anschließend ruhig und langsam wieder aus.
+.""" ;
+                  rdfs:label "Diaphragmatic Breathing"@en ,
+                             "Zwerchfellatmung"@de .
 
 
 ###  http://purl.org/PhysicalTherapy#Bicycling20+Mph
