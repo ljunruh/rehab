@@ -4,6 +4,9 @@ import 'package:app_prototype/data/models/api/plan.dart';
 import 'package:app_prototype/data/repository/plan_repository.dart';
 import 'package:flutter/material.dart';
 
+import '../enum/goal.dart';
+import '../models/api/api_models.dart';
+
 class PlanProvider extends ChangeNotifier {
   final PlanRepository repo;
 
@@ -42,6 +45,22 @@ class PlanProvider extends ChangeNotifier {
     final updatedPlan = _selectedPlan!.copyWith(exercises: exercises);
     await repo.savePlan(updatedPlan);
     _selectedPlan = updatedPlan;
+    notifyListeners();
+  }
+  // haltet die aktuell generierte  Empfehlung im Arbeitsspeicher
+  Plan? _recommendedPlan;
+  Plan? get recommendedPlan => _recommendedPlan;
+  // generiert eine Planempfehlung aus den  Übergebenen Übungen und benachrichtigt UI
+  void generateRecommandedPlan(
+    List<Exercise> exercises,
+    String region,
+    String goal,
+  ) {
+    _recommendedPlan = repo.createRecomendedPlan(
+      exercises,
+      region,
+      goal,
+    );
     notifyListeners();
   }
 
