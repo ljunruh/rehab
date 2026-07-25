@@ -123,6 +123,41 @@ extension ContraindicationExt on Contraindication {
     }
   }
 
+  String get shortLabel {
+    switch (this) {
+      case Contraindication.ankleIssue:
+        return "Sprunggelenk";
+      case Contraindication.backIssue:
+        return "Rücken";
+      case Contraindication.balanceIssue:
+        return "Gleichgewicht";
+      case Contraindication.coreWeakness:
+        return "Rumpf";
+      case Contraindication.hamstringIssue:
+        return "Hamstrings";
+      case Contraindication.hipIssue:
+        return "Hüfte";
+      case Contraindication.kneeIssue:
+        return "Knie";
+      case Contraindication.lowerBackIssue:
+        return "Unterer Rücken";
+      case Contraindication.neckIssue:
+        return "Nacken";
+      case Contraindication.respiratoryIssue:
+        return "Atemwege";
+      case Contraindication.shoulderIssue:
+        return "Schulter";
+      case Contraindication.spineIssue:
+        return "Wirbelsäule";
+      case Contraindication.upperBackIssue:
+        return "Oberer Rücken";
+      case Contraindication.wristIssue:
+        return "Handgelenk";
+      case Contraindication.none:
+        return "Keine";
+    }
+  }
+
   static Contraindication fromString(String value) {
     switch (value) {
       case "AnkleIssue":

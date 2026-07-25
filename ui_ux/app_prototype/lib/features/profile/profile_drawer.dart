@@ -163,7 +163,7 @@ class _ProfileDrawerState extends State<ProfileDrawer>
                               child: Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
-                                  Text('Verletzungsbereiche',
+                                  Text('Verletzungsbereich',
                                       style: AppText.caption),
                                   const SizedBox(height: AppSpacing.sm),
                                   Wrap(
@@ -175,7 +175,7 @@ class _ProfileDrawerState extends State<ProfileDrawer>
                                       else
                                         for (final injuryId in dbUser!.contraindication)
                                           AppTag(
-                                            ContraindicationExt.fromString(injuryId).label,
+                                            ContraindicationExt.fromString(injuryId).shortLabel,
                                             variant: TagVariant.goal,
                                           ),
                                     ],

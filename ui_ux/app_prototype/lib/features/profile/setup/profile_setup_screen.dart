@@ -314,7 +314,7 @@ class _UserSetupScreenState extends State<UserSetupScreen> {
       filteredItems: _filteredContraindications,
       onSearch: _filterInjuries,
 
-      getTitle: (injury) => injury.label,
+      getTitle: (injury) => injury.shortLabel,
       getSubtitle: (injury) => injury.description,
       selectedItems: _selectedContraindications, // Erwartet jetzt das Set<Contraindication>
       onSelectionChanged: (injury, selected) {
