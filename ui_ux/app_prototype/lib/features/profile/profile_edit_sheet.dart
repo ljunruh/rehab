@@ -3,6 +3,7 @@ import 'package:provider/provider.dart';
 import '../../core/theme/app_theme.dart';
 import '../../core/widgets/widgets.dart';
 import '../../data/demo/plan_options.dart';
+import '../../data/enum/contraindication.dart';
 import '../../data/enum/gender.dart';
 import '../../data/enum/skill_level.dart';
 import '../../state/ui_state.dart';
@@ -58,7 +59,9 @@ class _ProfileEditSheetState extends State<ProfileEditSheet> {
     _selectedGender = dbUser?.gender ?? Gender.diverse;
     _selectedSkillLevel = dbUser?.skillLevel ?? SkillLevel.beginner;
 
-    _selectedInjuries = List.from(dbUser?.contraindication ?? []);
+    _selectedInjuries = List.from(dbUser?.contraindication ?? [])
+        .map((e) => ContraindicationExt.fromString(e).label)
+        .toList();
   }
 
   @override
@@ -68,44 +71,6 @@ class _ProfileEditSheetState extends State<ProfileEditSheet> {
     _heightCtrl.dispose();
     _weightCtrl.dispose();
     super.dispose();
-  }
-
-  // _resolveSkillLevel wurde hier komplett entfernt, da nicht mehr benötigt!
-
-  String _convertToGermanTerm(String input) {
-    final clean = input.trim().toLowerCase();
-    if (clean.contains('balance') || clean.contains('gleichgewicht')) return 'Gleichgewicht';
-    if (clean.contains('ankle') || clean.contains('sprunggelenk')) return 'Sprunggelenk';
-    if (clean.contains('core') || clean.contains('rumpf')) return 'Rumpf';
-    if (clean.contains('wrist') || clean.contains('handgelenk')) return 'Handgelenk';
-    if (clean.contains('hip') || clean.contains('hüfte') || clean.contains('huefte')) return 'Hüfte';
-    if (clean.contains('shoulder') || clean.contains('schulter')) return 'Schulter';
-    if (clean.contains('neck') || clean.contains('nacken')) return 'Nacken';
-    if (clean.contains('lowerback') || clean.contains('unterer rücken') || clean.contains('untererrücken')) return 'Unterer Rücken';
-    if (clean.contains('upperback') || clean.contains('oberer rücken') || clean.contains('obererrücken')) return 'Oberer Rücken';
-    if (clean.contains('glute') || clean.contains('gesäß') || clean.contains('gesaess')) return 'Gesäß';
-    if (clean.contains('spine') || clean.contains('wirbelsäule')) return 'Wirbelsäule';
-    if (clean.contains('hamstring') || clean.contains('oberschenkel')) return 'Oberschenkel';
-    if (clean.contains('knee') || clean.contains('knie')) return 'Knie';
-    return input;
-  }
-
-  String _convertToOntologyId(String input) {
-    final clean = input.trim().toLowerCase();
-    if (clean.contains('gleichgewicht')) return 'BalanceIssue';
-    if (clean.contains('sprunggelenk')) return 'AnkleIssue';
-    if (clean.contains('rumpf')) return 'CoreWeakness';
-    if (clean.contains('handgelenk')) return 'WristIssue';
-    if (clean.contains('hüfte') || clean.contains('huefte')) return 'HipIssue';
-    if (clean.contains('schulter')) return 'ShoulderIssue';
-    if (clean.contains('nacken')) return 'NeckIssue';
-    if (clean.contains('unterer rücken')) return 'LowerBackIssue';
-    if (clean.contains('oberer rücken')) return 'UpperBackIssue';
-    if (clean.contains('gesäß') || clean.contains('gesaess')) return 'GlutesIssue';
-    if (clean.contains('wirbelsäule')) return 'SpineIssue';
-    if (clean.contains('oberschenkel')) return 'HamstringIssue';
-    if (clean == 'knie') return 'KneesIssue';
-    return input;
   }
 
   @override
@@ -326,15 +291,10 @@ class _ProfileEditSheetState extends State<ProfileEditSheet> {
               const SizedBox(height: AppSpacing.sm),
               Center(
                 child: BodyMapSelector(
-                  selected: _selectedInjuries
-                      .map((e) => _convertToGermanTerm(e))
-                      .toSet()
-                      .toList(),
+                  selected: _selectedInjuries,
                   onChanged: (nextInjuries) {
                     setState(() {
-                      _selectedInjuries = nextInjuries
-                          .map((e) => _convertToOntologyId(e))
-                          .toList();
+                      _selectedInjuries = nextInjuries;
                     });
                   },
                 ),
@@ -436,6 +396,15 @@ class _ProfileEditSheetState extends State<ProfileEditSheet> {
                 label: 'Änderungen speichern',
                 icon: Icons.check,
                 onPressed: () async {
+                  final ontologyIds = _selectedInjuries.map((germanLabel) {
+                    final contraindication = Contraindication.values.firstWhere(
+                          (e) => e.label == germanLabel,
+                      orElse: () => Contraindication.none,
+                    );
+                    return contraindication.labelEN;
+                  }).where((id) => id != "None").toList();
+
+
                   await userProvider.saveUser(
                     name: _nameCtrl.text.trim(),
                     gender: _selectedGender,
@@ -443,7 +412,7 @@ class _ProfileEditSheetState extends State<ProfileEditSheet> {
                     height: int.tryParse(_heightCtrl.text) ?? dbUser?.height ?? 0,
                     weight: int.tryParse(_weightCtrl.text) ?? dbUser?.weight ?? 0,
                     skillLevel: _selectedSkillLevel,
-                    injuries: _selectedInjuries,
+                    injuries: ontologyIds,
                   );
                   widget.onClose != null
                       ? widget.onClose!()

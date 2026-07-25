@@ -10,6 +10,7 @@ import 'past_tips_sheet.dart';
 import 'settings_sheet.dart';
 import 'package:app_prototype/data/provider/user_provider.dart';
 import 'package:app_prototype/data/enum/skill_level.dart';
+import 'package:app_prototype/data/enum/contraindication.dart';
 
 /// PERSON 4 — Profil-Drawer (fährt von rechts ein).
 class ProfileDrawer extends StatefulWidget {
@@ -60,11 +61,8 @@ class _ProfileDrawerState extends State<ProfileDrawer>
 
   @override
   Widget build(BuildContext context) {
-    // 1. NEU: Echten UserProvider für Persistenz beobachten
     final userProvider = context.watch<UserProvider>();
     final dbUser = userProvider.user;
-
-    // 2. Bestehenden UI-State für Archivierte Pläne & Mobilität beobachten
     final app = context.watch<UiState>();
     final uiProfile = app.profile;
     final archived = app.plans.where((p) => p.archived).toList();
@@ -165,19 +163,21 @@ class _ProfileDrawerState extends State<ProfileDrawer>
                               child: Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
-                                  Text('Aktive Trainingsbereiche',
+                                  Text('Verletzungsbereiche',
                                       style: AppText.caption),
                                   const SizedBox(height: AppSpacing.sm),
                                   Wrap(
                                     spacing: AppSpacing.sm,
                                     runSpacing: AppSpacing.sm,
                                     children: [
-                                      // Lädt die lesbaren Labels (z.B. "Knie") direkt aus Isar via Provider
-                                      if (userProvider.injuryLabels.isEmpty)
-                                        AppTag('Keine Einschränkungen', variant: TagVariant.goal)
+                                      if ((dbUser?.contraindication ?? []).isEmpty)
+                                        const AppTag('Keine Einschränkungen', variant: TagVariant.goal)
                                       else
-                                        for (final label in userProvider.injuryLabels)
-                                          AppTag(label, variant: TagVariant.goal),
+                                        for (final injuryId in dbUser!.contraindication)
+                                          AppTag(
+                                            ContraindicationExt.fromString(injuryId).label,
+                                            variant: TagVariant.goal,
+                                          ),
                                     ],
                                   ),
                                   const SizedBox(height: AppSpacing.base),
