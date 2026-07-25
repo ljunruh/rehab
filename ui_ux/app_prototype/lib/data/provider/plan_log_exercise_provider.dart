@@ -79,6 +79,20 @@ class PlanLogExerciseProvider extends ChangeNotifier {
     return plan.exercises.indexWhere((ex) => !isExerciseCompletedToday(plan.id, ex.id));
   }
 
+  /// Berechnet abgeschlossene Pläne für ein bestimmtes Kalender-Datum
+  Future<List<Plan>> getCompletedPlansForDate(DateTime date, List<Plan> allPlans) async {
+    return await repo.getCompletedPlansForDate(
+      date: date,
+      availablePlans: allPlans,
+    );
+  }
+
+  /// Prüft für das Kalender-Dotting, ob an einem bestimmten Tag mindestens 1 Plan abgeschlossen wurde
+  Future<bool> hasCompletedPlanOnDate(DateTime date, List<Plan> allPlans) async {
+    final completed = await getCompletedPlansForDate(date, allPlans);
+    return completed.isNotEmpty;
+  }
+
   //TODO[API]: Test um WeeklyStreak zu simulieren und Fake Daten dafür anzulegen
   Future<void> seedTestData(int weeks, {List<Plan> activePlans = const []}) async {
     await repo.insertFakeHistoricalLogs(weeks, activePlans);

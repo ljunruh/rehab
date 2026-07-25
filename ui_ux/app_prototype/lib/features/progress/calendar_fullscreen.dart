@@ -1,3 +1,8 @@
+import 'package:app_prototype/data/enum/body_part.dart';
+import 'package:app_prototype/data/models/api/api_models.dart';
+import 'package:app_prototype/data/provider/pain_log_provider.dart';
+import 'package:app_prototype/data/provider/plan_log_exercise_provider.dart';
+import 'package:app_prototype/data/provider/plan_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:provider/provider.dart';
@@ -17,7 +22,6 @@ class CalendarFullscreen extends StatelessWidget {
   final VoidCallback onBack;
   const CalendarFullscreen({super.key, required this.onBack});
 
-  // 10-stufige Rosé→Terrakotta-Skala, wie im Prototyp (PAIN_COLORS).
   static const _painColors = {
     1: Color(0xFFF5E1D7),
     2: Color(0xFFEFCFC0),
@@ -38,7 +42,7 @@ class CalendarFullscreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final app = context.watch<UiState>();
     final now = DateTime.now();
-    // Monate: voriger, aktueller, +1, +2
+
     final months = [
       for (int offset = -1; offset <= 2; offset++)
         DateTime(now.year, now.month + offset, 1),
@@ -46,7 +50,6 @@ class CalendarFullscreen extends StatelessWidget {
 
     return Column(
       children: [
-        // Header
         Padding(
           padding: const EdgeInsets.fromLTRB(
               AppSpacing.screenH, AppSpacing.base, AppSpacing.screenH, AppSpacing.sm),
@@ -120,8 +123,12 @@ class _MonthGrid extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final app = context.watch<UiState>();
+    final painProvider = context.watch<PainLogProvider>();
+    final planLogProvider = context.watch<PlanLogExerciseProvider>();
+    final allPlans = context.watch<PlanProvider>().plans;
+
     final today = DateTime.now();
-    final daysInMonth = DateTime(year, month + 1, 0).day;
+    final daysInMonth = DateUtils.getDaysInMonth(year, month);
     final firstWeekday = (DateTime(year, month, 1).weekday + 6) % 7;
 
     return Column(
@@ -135,7 +142,7 @@ class _MonthGrid extends StatelessWidget {
               const SizedBox(width: AppSpacing.sm),
               Container(
                 padding:
-                    const EdgeInsets.symmetric(horizontal: 8, vertical: 3),
+                const EdgeInsets.symmetric(horizontal: 8, vertical: 3),
                 decoration: BoxDecoration(
                   color: AppColors.sageLight,
                   borderRadius: BorderRadius.circular(999),
@@ -171,65 +178,87 @@ class _MonthGrid extends StatelessWidget {
                 today.month == month &&
                 today.day == day;
 
-            final events = app.eventsOn(key);
-            final doneExercises = events
-                .where((e) => e.type == 'exercise' && e.done)
-                .toList();
-            final painToday = app.painOn(key);
+            final painToday = painProvider.getLogsForDateKey(key);
             final maxPain = painToday.isEmpty
                 ? null
                 : painToday.map((p) => p.level).reduce((a, b) => a > b ? a : b);
-            final hasHighPain = app.highPainDays.contains(key);
+            final hasHighPain = maxPain != null && maxPain >= 7;
 
-            Color? bg;
-            Color textColor = AppColors.text;
-            FontWeight weight = FontWeight.w400;
+            return FutureBuilder<List<Plan>>(
+              future: planLogProvider.getCompletedPlansForDate(date, allPlans),
+              builder: (context, snapshot) {
+                final completedPlans = snapshot.data ?? [];
+                final hasCompletedExercises = completedPlans.isNotEmpty;
 
-            if (mode == 'pain' && maxPain != null) {
-              bg = painColorFor(maxPain);
-              textColor = maxPain >= 5 ? AppColors.white : AppColors.text;
-              weight = FontWeight.w600;
-            } else if (mode == 'exercises' && doneExercises.isNotEmpty) {
-              bg = app.colorForRegion(doneExercises.first.region);
-              textColor = AppColors.white;
-              weight = FontWeight.w600;
-            }
+                Color? bg;
+                Color textColor = AppColors.text;
+                FontWeight weight = FontWeight.w400;
 
-            final showWarnDot = mode == 'exercises' &&
-                doneExercises.isNotEmpty &&
-                hasHighPain;
+                if (mode == 'pain' && maxPain != null) {
+                  bg = painColorFor(maxPain);
+                  textColor = maxPain >= 5 ? AppColors.white : AppColors.text;
+                  weight = FontWeight.w600;
+                } else if (mode == 'exercises' && hasCompletedExercises) {
+                  bg = app.colorForRegion(completedPlans.first.region.name);
+                  textColor = AppColors.white;
+                  weight = FontWeight.w600;
+                }
 
-            return GestureDetector(
-              onTap: () => DayDetailSheet.show(context, date),
-              behavior: HitTestBehavior.opaque,
-              child: Stack(
-                alignment: Alignment.center,
-                children: [
-                  Container(
-                    width: 34,
-                    height: 34,
+                final showWarnDot = mode == 'exercises' &&
+                    hasCompletedExercises &&
+                    hasHighPain;
+
+                return GestureDetector(
+                  onTap: () => DayDetailSheet.show(context, date),
+                  behavior: HitTestBehavior.opaque,
+                  child: Stack(
                     alignment: Alignment.center,
-                    decoration: BoxDecoration(
-                      color: isToday ? Colors.transparent : bg,
-                      shape: BoxShape.circle,
-                      border: isToday
-                          ? Border.all(color: AppColors.sageDeep, width: 1.5)
-                          : null,
-                    ),
-                    child: Text('$day',
-                        style: AppText.caption.copyWith(
-                          color: isToday ? AppColors.text : textColor,
-                          fontWeight: isToday ? FontWeight.w600 : weight,
-                        )),
+                    children: [
+                      Container(
+                        width: 34,
+                        height: 34,
+                        alignment: Alignment.center,
+                        decoration: BoxDecoration(
+                          color: isToday ? Colors.transparent : bg,
+                          shape: BoxShape.circle,
+                          border: isToday
+                              ? Border.all(color: AppColors.sageDeep, width: 1.5)
+                              : null,
+                        ),
+                        child: Text('$day',
+                            style: AppText.caption.copyWith(
+                              color: isToday ? AppColors.text : textColor,
+                              fontWeight: isToday ? FontWeight.w600 : weight,
+                            )),
+                      ),
+                      if (mode == 'pain' && painToday.isNotEmpty)
+                        Positioned(
+                          bottom: 3,
+                          child: Row(
+                            mainAxisSize: MainAxisSize.min,
+                            children: painToday.take(3).map((log) {
+                              return Container(
+                                margin: const EdgeInsets.symmetric(horizontal: 0.8),
+                                width: 4,
+                                height: 4,
+                                decoration: BoxDecoration(
+                                  color: log.region.color,
+                                  shape: BoxShape.circle,
+                                ),
+                              );
+                            }).toList(),
+                          ),
+                        ),
+                      if (showWarnDot)
+                        const Positioned(
+                          top: 2,
+                          right: 2,
+                          child: _WarnDot(),
+                        ),
+                    ],
                   ),
-                  if (showWarnDot)
-                    const Positioned(
-                      top: 2,
-                      right: 2,
-                      child: _WarnDot(),
-                    ),
-                ],
-              ),
+                );
+              },
             );
           },
         ),
@@ -250,4 +279,3 @@ class _WarnDot extends StatelessWidget {
     );
   }
 }
-

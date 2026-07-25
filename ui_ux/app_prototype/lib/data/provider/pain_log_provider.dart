@@ -106,6 +106,16 @@ class PainLogProvider extends ChangeNotifier {
     );
   }
 
+  /// Liefert alle Schmerzeinträge für ein bestimmtes Datum (Format: YYYY-MM-DD).
+  List<PainLog> getLogsForDateKey(String dateKey) {
+    return _allPainLogs.where((log) => log.dateKey == dateKey).toList();
+  }
+
+  /// Liefert alle Schmerzeinträge für ein bestimmtes Jahr und Monat.
+  List<PainLog> getLogsForMonth(int year, int month) {
+    return _allPainLogs.where((log) => log.date.year == year && log.date.month == month).toList();
+  }
+
   //TODO[API]: Test Schmerzgraph zu simulieren und Fake Daten dafür anzulegen
   /// Befüllt Isar mit Demo-Schmerzdaten und aktualisiert den Provider
   Future<void> seedDemoData() async {

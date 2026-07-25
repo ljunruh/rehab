@@ -6,11 +6,11 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../../core/theme/app_theme.dart';
 import '../../core/widgets/widgets.dart';
-import '../../state/ui_state.dart';
 import '../../navigation/screen_header.dart';
+import '../../state/ui_state.dart';
 import '../home/concentric_rings.dart';
-import 'calendar_widget.dart';
 import 'pain_history_carousel.dart';
+import 'calendar_widget.dart';
 
 /// ┌──────────────────────────────────────────────────────────┐
 /// │  PERSON 3 — VERLAUF & KALENDER (wie Prototyp)             │
@@ -278,7 +278,7 @@ class _ProgressScreenState extends State<ProgressScreen> {
               const PainHistoryCarousel(),
 
               //TODO[API]: Test Schmerzgraph zu simulieren und Fake Daten dafür anzulegen
-              /*
+
               ElevatedButton.icon(
                 style: ElevatedButton.styleFrom(
                   backgroundColor: AppColors.sageDeep,
@@ -298,7 +298,7 @@ class _ProgressScreenState extends State<ProgressScreen> {
                   }
                 },
               )
-              */
+
             ],
           ),
         ),

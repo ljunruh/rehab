@@ -1,3 +1,6 @@
+import 'package:app_prototype/data/provider/pain_log_provider.dart';
+import 'package:app_prototype/data/provider/plan_log_exercise_provider.dart';
+import 'package:app_prototype/data/provider/plan_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../../core/theme/app_theme.dart';
@@ -18,13 +21,21 @@ class CalendarScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final app = context.watch<UiState>();
+    final painProvider = context.watch<PainLogProvider>();
+    final planLogProvider = context.watch<PlanLogExerciseProvider>();
+    final allPlans = context.watch<PlanProvider>().plans;
     final profile = app.profile;
 
-    // Ereignisse nach Datum gruppieren (vereinfachte Liste).
-    final byDate = <String, List<CalendarEvent>>{};
+    final Map<String, List<dynamic>> byDate = {};
+
     for (final e in app.calendarEvents) {
       byDate.putIfAbsent(e.dateKey, () => []).add(e);
     }
+
+    for (final pain in painProvider.allPainLogs) {
+      byDate.putIfAbsent(pain.dateKey, () => []).add(pain);
+    }
+
     final sortedKeys = byDate.keys.toList()..sort((a, b) => b.compareTo(a));
 
     return ListView(
@@ -32,7 +43,7 @@ class CalendarScreen extends StatelessWidget {
       children: [
         ScreenHeader(
           greeting: 'Kalender',
-          subtitle: 'Deine Übungen & Termine',
+          subtitle: 'Deine Übungen & Schmerzeinträge',
           initials: profile.initials,
           onAvatarTap: onOpenProfile,
         ),
@@ -41,16 +52,37 @@ class CalendarScreen extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              for (final key in sortedKeys) ...[
-                Padding(
-                  padding: const EdgeInsets.only(bottom: AppSpacing.sm, top: AppSpacing.sm),
-                  child: Text(key, style: AppText.micro),
-                ),
-                ...byDate[key]!.map((e) => Padding(
-                      padding: const EdgeInsets.only(bottom: AppSpacing.sm),
-                      child: _EventRow(event: e),
-                    )),
-              ],
+              if (sortedKeys.isEmpty)
+                const Padding(
+                  padding: EdgeInsets.symmetric(vertical: AppSpacing.xl),
+                  child: Center(child: Text('Keine Einträge vorhanden.')),
+                )
+              else
+                for (final key in sortedKeys) ...[
+                  Padding(
+                    padding: const EdgeInsets.only(bottom: AppSpacing.sm, top: AppSpacing.sm),
+                    child: Text(key, style: AppText.micro),
+                  ),
+                  ...byDate[key]!.map((item) {
+                    if (item is CalendarEvent) {
+                      return Padding(
+                        padding: const EdgeInsets.only(bottom: AppSpacing.sm),
+                        child: _EventRow(event: item),
+                      );
+                    } else {
+                      final pain = item;
+                      return Padding(
+                        padding: const EdgeInsets.only(bottom: AppSpacing.sm),
+                        child: _PainRow(
+                          regionLabel: pain.region.label,
+                          level: pain.level,
+                          note: pain.note,
+                          color: pain.region.color,
+                        ),
+                      );
+                    }
+                  }),
+                ],
             ],
           ),
         ),
@@ -90,6 +122,54 @@ class _EventRow extends StatelessWidget {
           ),
           if (event.done)
             const Icon(Icons.check_circle, color: AppColors.sage, size: 20),
+        ],
+      ),
+    );
+  }
+}
+
+class _PainRow extends StatelessWidget {
+  final String regionLabel;
+  final int level;
+  final String note;
+  final Color color;
+
+  const _PainRow({
+    required this.regionLabel,
+    required this.level,
+    required this.note,
+    required this.color,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return AppCard(
+      padding: const EdgeInsets.all(AppSpacing.base),
+      child: Row(
+        children: [
+          Container(
+            width: 8,
+            height: 40,
+            decoration: BoxDecoration(
+              color: color,
+              borderRadius: BorderRadius.circular(AppRadius.pill),
+            ),
+          ),
+          const SizedBox(width: AppSpacing.md),
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text('$regionLabel: Level $level/10', style: AppText.cardTitle),
+                Text(
+                  note.isNotEmpty ? note : 'Keine Notiz',
+                  style: AppText.caption,
+                  maxLines: 1,
+                  overflow: TextOverflow.ellipsis,
+                ),
+              ],
+            ),
+          ),
         ],
       ),
     );

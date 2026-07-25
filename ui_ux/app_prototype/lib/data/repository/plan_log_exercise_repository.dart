@@ -122,6 +122,39 @@ class PlanLogExerciseRepository {
     return streak > 0 ? streak : 1;
   }
 
+  /// Ermittelt alle Pläne, die an einem bestimmten Tag vollständig absolviert wurden.
+  /// Ein Plan gilt als abgeschlossen, wenn für alle seine Übungen mindestens ein Log an diesem Tag vorliegt.
+  Future<List<Plan>> getCompletedPlansForDate({
+    required DateTime date,
+    required List<Plan> availablePlans,
+  }) async {
+    final logsOnDate = await getLogsForDate(date);
+    if (logsOnDate.isEmpty) return [];
+
+    final completedPlans = <Plan>[];
+
+    for (final plan in availablePlans) {
+      if (plan.exercises.isEmpty) continue;
+
+      // Alle absolvierten Übung-IDs des Tages für diesen Plan filtern
+      final loggedExerciseIds = logsOnDate
+          .where((log) => log.planId == plan.id)
+          .map((log) => log.exerciseId)
+          .toSet();
+
+      // Prüfen, ob jede Übung des Plans in den Logs vertreten ist
+      final isCompleted = plan.exercises.every(
+            (ex) => loggedExerciseIds.contains(ex.id),
+      );
+
+      if (isCompleted) {
+        completedPlans.add(plan);
+      }
+    }
+
+    return completedPlans;
+  }
+
   //TODO[API]: Test um WeeklyStreak zu simulieren und Fake Daten dafür anzulegen
   /// Erstellt gefakte historische Logs für `weeksBack` Wochen in der Vergangenheit.
   /// Berücksichtigt die aktiven Pläne und deren Wochenziele (sessionsPerWeek).

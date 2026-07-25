@@ -1,3 +1,5 @@
+import 'package:app_prototype/data/enum/body_part.dart';
+import 'package:app_prototype/data/provider/pain_log_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:provider/provider.dart';
@@ -31,7 +33,6 @@ class _CalendarWidgetState extends State<CalendarWidget> {
     'Juli', 'August', 'September', 'Oktober', 'November', 'Dezember'
   ];
 
-  // 10-stufige Rosé→Terrakotta-Skala (PAIN_COLORS im Prototyp).
   static const _painColors = {
     1: Color(0xFFF5E1D7),
     2: Color(0xFFEFCFC0),
@@ -56,22 +57,22 @@ class _CalendarWidgetState extends State<CalendarWidget> {
   }
 
   void _prev() => setState(() {
-        if (_month == 1) {
-          _month = 12;
-          _year--;
-        } else {
-          _month--;
-        }
-      });
+    if (_month == 1) {
+      _month = 12;
+      _year--;
+    } else {
+      _month--;
+    }
+  });
 
   void _next() => setState(() {
-        if (_month == 12) {
-          _month = 1;
-          _year++;
-        } else {
-          _month++;
-        }
-      });
+    if (_month == 12) {
+      _month = 1;
+      _year++;
+    } else {
+      _month++;
+    }
+  });
 
   String _key(int day) =>
       '$_year-${_month.toString().padLeft(2, '0')}-${day.toString().padLeft(2, '0')}';
@@ -79,16 +80,18 @@ class _CalendarWidgetState extends State<CalendarWidget> {
   @override
   Widget build(BuildContext context) {
     final app = context.watch<UiState>();
+    final painProvider = context.watch<PainLogProvider>();
     final mode = app.calendarMode; // "exercises" | "pain"
     final today = DateTime.now();
-    final daysInMonth = DateTime(_year, _month + 1, 0).day;
+    final daysInMonth = DateUtils.getDaysInMonth(_year, _month);
     final firstWeekday = (DateTime(_year, _month, 1).weekday + 6) % 7;
 
-    // Bis zu 3 aktive Trainings-Regionen für die Legende.
-    final legendRegions = app.activePlans
-        .map((p) => p.region)
+    // Regionen für die Legende ermitteln (ohne BodyPart.none)
+    final monthLogs = painProvider.getLogsForMonth(_year, _month);
+    final activePainRegions = monthLogs
+        .map((l) => l.region)
+        .where((r) => r != BodyPart.none)
         .toSet()
-        .take(3)
         .toList();
 
     return GestureDetector(
@@ -106,25 +109,23 @@ class _CalendarWidgetState extends State<CalendarWidget> {
                     _NavBtn(icon: Icons.chevron_left, onTap: _prev),
                     Row(
                       children: [
-                        Text('${_months[_month - 1]} $_year',
-                            style: AppText.cardTitle),
+                        Text('${_months[_month - 1]} $_year', style: AppText.cardTitle),
                         const SizedBox(width: 6),
                         GestureDetector(
-                          onTap: () =>
-                              setState(() => _legendOpen = !_legendOpen),
+                          onTap: () => setState(() => _legendOpen = !_legendOpen),
                           child: Container(
                             width: 20,
                             height: 20,
                             alignment: Alignment.center,
                             decoration: BoxDecoration(
-                              color: _legendOpen
-                                  ? AppColors.sageLight
-                                  : AppColors.offwhite,
+                              color: _legendOpen ? AppColors.sageLight : AppColors.offwhite,
                               shape: BoxShape.circle,
                             ),
                             child: SvgPicture.asset(
-                                'assets/icons/other/info-green.svg',
-                                width: 11, height: 11),
+                              'assets/icons/other/info-green.svg',
+                              width: 11,
+                              height: 11,
+                            ),
                           ),
                         ),
                       ],
@@ -136,42 +137,31 @@ class _CalendarWidgetState extends State<CalendarWidget> {
                 Row(
                   children: [
                     for (final w in _weekdays)
-                      Expanded(
-                          child: Center(
-                              child: Text(w, style: AppText.micro))),
+                      Expanded(child: Center(child: Text(w, style: AppText.micro))),
                   ],
                 ),
                 const SizedBox(height: AppSpacing.sm),
                 GridView.builder(
                   shrinkWrap: true,
                   physics: const NeverScrollableScrollPhysics(),
-                  gridDelegate:
-                      const SliverGridDelegateWithFixedCrossAxisCount(
+                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                     crossAxisCount: 7,
                     childAspectRatio: 1,
                   ),
                   itemCount: firstWeekday + daysInMonth,
                   itemBuilder: (context, index) {
-                    if (index < firstWeekday) {
-                      return const SizedBox.shrink();
-                    }
+                    if (index < firstWeekday) return const SizedBox.shrink();
                     final day = index - firstWeekday + 1;
                     final key = _key(day);
-                    final isToday = today.year == _year &&
-                        today.month == _month &&
-                        today.day == day;
+                    final isToday = today.year == _year && today.month == _month && today.day == day;
 
                     final events = app.eventsOn(key);
-                    final doneExercises = events
-                        .where((e) => e.type == 'exercise' && e.done)
-                        .toList();
-                    final painToday = app.painOn(key);
-                    final maxPain = painToday.isEmpty
+                    final doneExercises = events.where((e) => e.type == 'exercise' && e.done).toList();
+
+                    final painLogs = painProvider.getLogsForDateKey(key);
+                    final maxPain = painLogs.isEmpty
                         ? null
-                        : painToday
-                            .map((p) => p.level)
-                            .reduce((a, b) => a > b ? a : b);
-                    final hasHighPain = app.highPainDays.contains(key);
+                        : painLogs.map((p) => p.level).reduce((a, b) => a > b ? a : b);
 
                     Color? bg;
                     Color textColor = AppColors.text;
@@ -179,19 +169,13 @@ class _CalendarWidgetState extends State<CalendarWidget> {
 
                     if (mode == 'pain' && maxPain != null) {
                       bg = _painColorFor(maxPain);
-                      textColor =
-                          maxPain >= 5 ? AppColors.white : AppColors.text;
+                      textColor = maxPain >= 5 ? AppColors.white : AppColors.text;
                       weight = FontWeight.w600;
-                    } else if (mode == 'exercises' &&
-                        doneExercises.isNotEmpty) {
+                    } else if (mode == 'exercises' && doneExercises.isNotEmpty) {
                       bg = app.colorForRegion(doneExercises.first.region);
                       textColor = AppColors.white;
                       weight = FontWeight.w600;
                     }
-
-                    final showWarnDot = mode == 'exercises' &&
-                        doneExercises.isNotEmpty &&
-                        hasHighPain;
 
                     return Stack(
                       alignment: Alignment.center,
@@ -203,21 +187,33 @@ class _CalendarWidgetState extends State<CalendarWidget> {
                           decoration: BoxDecoration(
                             color: isToday ? Colors.transparent : bg,
                             shape: BoxShape.circle,
-                            border: isToday
-                                ? Border.all(
-                                    color: AppColors.sageDeep, width: 1.5)
-                                : null,
+                            border: isToday ? Border.all(color: AppColors.sageDeep, width: 1.5) : null,
                           ),
                           child: Text('$day',
                               style: AppText.caption.copyWith(
                                 color: isToday ? AppColors.text : textColor,
-                                fontWeight:
-                                    isToday ? FontWeight.w600 : weight,
+                                fontWeight: isToday ? FontWeight.w600 : weight,
                               )),
                         ),
-                        if (showWarnDot)
-                          const Positioned(
-                              top: 0, right: 4, child: _WarnDot()),
+                        // Kleine farbige Punkte für Schmerzregionen
+                        if (mode == 'pain' && painLogs.isNotEmpty)
+                          Positioned(
+                            bottom: 2,
+                            child: Row(
+                              mainAxisSize: MainAxisSize.min,
+                              children: painLogs.take(3).map((log) {
+                                return Container(
+                                  margin: const EdgeInsets.symmetric(horizontal: 0.8),
+                                  width: 4,
+                                  height: 4,
+                                  decoration: BoxDecoration(
+                                    color: app.colorForRegion(log.region.label),
+                                    shape: BoxShape.circle,
+                                  ),
+                                );
+                              }).toList(),
+                            ),
+                          ),
                       ],
                     );
                   },
@@ -226,71 +222,44 @@ class _CalendarWidgetState extends State<CalendarWidget> {
                 Container(
                   padding: const EdgeInsets.only(top: AppSpacing.sm),
                   decoration: const BoxDecoration(
-                    border: Border(
-                        top: BorderSide(color: AppColors.beige)),
+                    border: Border(top: BorderSide(color: AppColors.beige)),
                   ),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Expanded(
                         child: mode == 'pain'
-                            ? Row(
-                                children: [
-                                  Text('1', style: AppText.micro),
-                                  const SizedBox(width: 6),
-                                  ClipRRect(
-                                    borderRadius:
-                                        BorderRadius.circular(3),
-                                    child: Row(
-                                      children: [
-                                        for (int lvl = 1; lvl <= 10; lvl++)
-                                          Container(
-                                            width: 9,
-                                            height: 7,
-                                            color: _painColorFor(lvl),
-                                          ),
-                                      ],
-                                    ),
+                            ? Wrap(
+                          spacing: 8,
+                          runSpacing: 4,
+                          children: activePainRegions.take(3).map((r) {
+                            return Row(
+                              mainAxisSize: MainAxisSize.min,
+                              children: [
+                                Container(
+                                  width: 8,
+                                  height: 8,
+                                  decoration: BoxDecoration(
+                                    color: app.colorForRegion(r.label),
+                                    shape: BoxShape.circle,
                                   ),
-                                  const SizedBox(width: 6),
-                                  Text('10', style: AppText.micro),
-                                ],
-                              )
-                            : Wrap(
-                                spacing: 10,
-                                runSpacing: 6,
-                                crossAxisAlignment:
-                                    WrapCrossAlignment.center,
-                                children: [
-                                  for (final r in legendRegions)
-                                    Row(
-                                      mainAxisSize: MainAxisSize.min,
-                                      children: [
-                                        Container(
-                                          width: 14,
-                                          height: 8,
-                                          decoration: BoxDecoration(
-                                            color: app.colorForRegion(r),
-                                            borderRadius:
-                                                BorderRadius.circular(3),
-                                          ),
-                                        ),
-                                        const SizedBox(width: 4),
-                                        Text(r, style: AppText.micro),
-                                      ],
-                                    ),
-                                ],
-                              ),
+                                ),
+                                const SizedBox(width: 4),
+                                // Nutze HIER .label anstelle von .name:
+                                Text(r.label, style: AppText.micro),
+                              ],
+                            );
+                          }).toList(),
+                        )
+                            : Container(),
                       ),
                       Row(
                         mainAxisSize: MainAxisSize.min,
                         children: [
                           Text('Öffnen',
                               style: AppText.micro.copyWith(
-                                  color: AppColors.sageDeep,
-                                  fontWeight: FontWeight.w500)),
-                          const Icon(Icons.chevron_right,
-                              size: 13, color: AppColors.sageDeep),
+                                  color: AppColors.sageDeep, fontWeight: FontWeight.w500)),
+                          const Icon(Icons.chevron_right, size: 13, color: AppColors.sageDeep),
                         ],
                       ),
                     ],
@@ -304,7 +273,11 @@ class _CalendarWidgetState extends State<CalendarWidget> {
                 left: 0,
                 right: 0,
                 child: Center(
-                  child: _LegendPopover(app: app, mode: mode),
+                  child: _LegendPopover(
+                    app: app,
+                    mode: mode,
+                    activePainRegions: activePainRegions,
+                  ),
                 ),
               ),
           ],
@@ -314,27 +287,19 @@ class _CalendarWidgetState extends State<CalendarWidget> {
   }
 }
 
-class _WarnDot extends StatelessWidget {
-  const _WarnDot();
-
-  @override
-  Widget build(BuildContext context) {
-    return SvgPicture.asset(
-      'assets/icons/other/lightningbolt.svg',
-      width: 14,
-      height: 14,
-    );
-  }
-}
-
 class _LegendPopover extends StatelessWidget {
   final UiState app;
   final String mode;
-  const _LegendPopover({required this.app, required this.mode});
+  final List<BodyPart> activePainRegions;
+
+  const _LegendPopover({
+    required this.app,
+    required this.mode,
+    required this.activePainRegions,
+  });
 
   @override
   Widget build(BuildContext context) {
-    final regions = app.activePlans.map((p) => p.region).toSet().toList();
     return Container(
       width: 220,
       padding: const EdgeInsets.all(AppSpacing.md),
@@ -354,54 +319,33 @@ class _LegendPopover extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisSize: MainAxisSize.min,
         children: [
-          Text('Legende',
-              style: AppText.caption.copyWith(fontWeight: FontWeight.w600)),
+          Text('Legende', style: AppText.caption.copyWith(fontWeight: FontWeight.w600)),
           const SizedBox(height: AppSpacing.sm),
-          if (mode == 'exercises') ...[
-            Text('Farbe = Trainingsbereich des Tages', style: AppText.micro),
+          if (mode == 'pain') ...[
+            Text('Körperregionen im Monat:', style: AppText.micro),
             const SizedBox(height: AppSpacing.sm),
-            for (final r in regions)
-              Padding(
-                padding: const EdgeInsets.only(bottom: 5),
-                child: Row(
-                  children: [
-                    Container(
-                      width: 12,
-                      height: 12,
-                      decoration: BoxDecoration(
-                        color: app.colorForRegion(r),
-                        borderRadius: BorderRadius.circular(4),
+            if (activePainRegions.isEmpty)
+              Text('Keine Eintrags-Daten', style: AppText.micro)
+            else
+              for (final r in activePainRegions)
+                Padding(
+                  padding: const EdgeInsets.only(bottom: 5),
+                  child: Row(
+                    children: [
+                      Container(
+                        width: 8,
+                        height: 8,
+                        decoration: BoxDecoration(
+                          color: app.colorForRegion(r.label),
+                          shape: BoxShape.circle,
+                        ),
                       ),
-                    ),
-                    const SizedBox(width: AppSpacing.sm),
-                    Text(r, style: AppText.micro),
-                  ],
-                ),
-              ),
-            Padding(
-              padding: const EdgeInsets.only(top: 4),
-              child: Row(
-                children: [
-                  Container(
-                    width: 12,
-                    height: 12,
-                    decoration: const BoxDecoration(
-                      shape: BoxShape.circle,
-                      border: Border.fromBorderSide(
-                          BorderSide(color: AppColors.sageDeep, width: 1.5)),
-                    ),
+                      const SizedBox(width: AppSpacing.sm),
+                      // Auch hier r.label für sauberes Deutsch:
+                      Text(r.label, style: AppText.micro),
+                    ],
                   ),
-                  const SizedBox(width: AppSpacing.sm),
-                  Text('Heutiger Tag', style: AppText.micro),
-                ],
-              ),
-            ),
-          ] else ...[
-            Text('Farbe = Schmerzlevel des Tages (1–10)',
-                style: AppText.micro),
-            const SizedBox(height: AppSpacing.sm),
-            Text('Je dunkler, desto stärker der Schmerz.',
-                style: AppText.micro.copyWith(color: AppColors.textMuted)),
+                ),
           ],
         ],
       ),
