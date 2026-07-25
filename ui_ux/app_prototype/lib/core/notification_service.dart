@@ -42,41 +42,46 @@ class NotificationService {
   }
 
   /// Plant eine tägliche Benachrichtigung zur angegebenen Uhrzeit (Format "HH:mm").
+  /// Auf Windows/Linux/macOS wird die Zeit nur gespeichert, aber nicht geplant.
   Future<void> schedule(String time) async {
     final parts = time.split(':');
     final hour = int.parse(parts[0]);
     final minute = int.parse(parts[1]);
 
-    await _plugin.cancel(_notifId);
+    // Nur auf Android/iOS planen
+    if (Platform.isAndroid || Platform.isIOS) {
+      await _plugin.cancel(_notifId);
 
-    final now = tz.TZDateTime.now(tz.local);
-    var next = tz.TZDateTime(tz.local, now.year, now.month, now.day, hour, minute);
-    if (!next.isAfter(now)) {
-      next = next.add(const Duration(days: 1));
+      final now = tz.TZDateTime.now(tz.local);
+      var next = tz.TZDateTime(tz.local, now.year, now.month, now.day, hour, minute);
+      if (!next.isAfter(now)) {
+        next = next.add(const Duration(days: 1));
+      }
+
+      const details = NotificationDetails(
+        android: AndroidNotificationDetails(
+          _channelId,
+          'Trainings-Erinnerung',
+          channelDescription: 'Tägliche Erinnerung an dein Training',
+          importance: Importance.high,
+          priority: Priority.high,
+        ),
+      );
+
+      await _plugin.zonedSchedule(
+        _notifId,
+        'Reha App',
+        'Denk an dein Training',
+        next,
+        details,
+        androidScheduleMode: AndroidScheduleMode.inexactAllowWhileIdle,
+        uiLocalNotificationDateInterpretation:
+            UILocalNotificationDateInterpretation.absoluteTime,
+        matchDateTimeComponents: DateTimeComponents.time,
+      );
     }
 
-    const details = NotificationDetails(
-      android: AndroidNotificationDetails(
-        _channelId,
-        'Trainings-Erinnerung',
-        channelDescription: 'Tägliche Erinnerung an dein Training',
-        importance: Importance.high,
-        priority: Priority.high,
-      ),
-    );
-
-    await _plugin.zonedSchedule(
-      _notifId,
-      'Reha App',
-      'Denk an dein Training',
-      next,
-      details,
-      androidScheduleMode: AndroidScheduleMode.inexactAllowWhileIdle,
-      uiLocalNotificationDateInterpretation:
-          UILocalNotificationDateInterpretation.absoluteTime,
-      matchDateTimeComponents: DateTimeComponents.time,
-    );
-
+    // Zeit immer speichern (funktioniert auf allen Plattformen)
     await _save(enabled: true, time: time);
   }
 
@@ -84,7 +89,9 @@ class NotificationService {
   /// [time] wird weiterhin gespeichert, damit die Auswahl beim erneuten
   /// Aktivieren erhalten bleibt.
   Future<void> cancel(String time) async {
-    await _plugin.cancel(_notifId);
+    if (Platform.isAndroid || Platform.isIOS) {
+      await _plugin.cancel(_notifId);
+    }
     await _save(enabled: false, time: time);
   }
 
@@ -111,16 +118,18 @@ class NotificationService {
 
   /// NUR FÜR DEBUG – löst sofort eine Test-Notification aus. kann aus der Finalen Version raus
   Future<void> debugShowNow() async {
-    await _plugin.show(
-      99,
-      'Reha App',
-      'Denk an dein Training',
-      const NotificationDetails(
-        android: AndroidNotificationDetails(
-          _channelId,
-          'Trainings-Erinnerung',
+    if (Platform.isAndroid || Platform.isIOS) {
+      await _plugin.show(
+        99,
+        'Reha App',
+        'Denk an dein Training',
+        const NotificationDetails(
+          android: AndroidNotificationDetails(
+            _channelId,
+            'Trainings-Erinnerung',
+          ),
         ),
-      ),
-    );
+      );
+    }
   }
 }
