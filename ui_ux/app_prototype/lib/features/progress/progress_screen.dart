@@ -1,3 +1,4 @@
+import 'package:app_prototype/data/provider/pain_log_provider.dart';
 import 'package:app_prototype/data/provider/plan_log_exercise_provider.dart';
 import 'package:app_prototype/data/provider/plan_provider.dart';
 import 'package:app_prototype/data/provider/user_provider.dart';
@@ -275,6 +276,29 @@ class _ProgressScreenState extends State<ProgressScreen> {
                   style: AppText.caption.copyWith(height: 1.5)),
               const SizedBox(height: AppSpacing.base),
               const PainHistoryCarousel(),
+
+              //TODO[API]: Test Schmerzgraph zu simulieren und Fake Daten dafür anzulegen
+              /*
+              ElevatedButton.icon(
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: AppColors.sageDeep,
+                  foregroundColor: AppColors.white,
+                ),
+                icon: const Icon(Icons.bug_report, size: 18),
+                label: const Text('Schmerz-Demodaten (2 Jahre) laden'),
+                onPressed: () async {
+                  await context.read<PainLogProvider>().seedDemoData();
+                  if (context.mounted) {
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      const SnackBar(
+                        content: Text('Schmerz-Demodaten erfolgreich geladen!'),
+                        duration: Duration(seconds: 2),
+                      ),
+                    );
+                  }
+                },
+              )
+              */
             ],
           ),
         ),
