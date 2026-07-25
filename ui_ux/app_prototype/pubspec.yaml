@@ -52,6 +52,9 @@ dependencies:
   fvp: ^0.37.3
   # Um Eindeutige IDs für Isar zu generieren
   uuid: ^4.6.0
+  # Lokale Benachrichtigungen für die Trainings-Erinnerung
+  flutter_local_notifications: ^17.2.3
+  timezone: ^0.9.4
 
 dev_dependencies:
   flutter_test:

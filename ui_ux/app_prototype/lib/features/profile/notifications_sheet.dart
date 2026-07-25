@@ -1,8 +1,8 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
+import '../../core/notification_service.dart';
 import '../../core/theme/app_theme.dart';
 import '../../core/widgets/widgets.dart';
-import '../../state/ui_state.dart';
 
 /// Benachrichtigungen-Sheet.
 ///
@@ -31,8 +31,8 @@ class NotificationsSheet extends StatefulWidget {
 }
 
 class _NotificationsSheetState extends State<NotificationsSheet> {
-  bool _enabled = true;
-  late String _time;
+  bool _enabled = false;
+  String _time = '08:00';
 
   static const _times = [
     '06:00', '07:00', '08:00', '09:00',
@@ -44,8 +44,17 @@ class _NotificationsSheetState extends State<NotificationsSheet> {
   @override
   void initState() {
     super.initState();
-    _time = context.read<UiState>().profile.reminder;
-    if (!_times.contains(_time)) _time = '08:00';
+    _loadSettings();
+  }
+
+  Future<void> _loadSettings() async {
+    final saved = await NotificationService.instance.loadSettings();
+    if (!mounted) return;
+    setState(() {
+      _enabled = saved['enabled'] as bool? ?? false;
+      _time = saved['time'] as String? ?? '08:00';
+      if (!_times.contains(_time)) _time = '08:00';
+    });
   }
 
   @override
@@ -173,12 +182,21 @@ class _NotificationsSheetState extends State<NotificationsSheet> {
             PrimaryButton(
               label: 'Speichern',
               icon: Icons.check,
-              onPressed: () {
-                final app = context.read<UiState>();
-                app.updateProfile(app.profile.copyWith(reminder: _time));
-                Navigator.of(context).pop();
+              onPressed: () async {
+                if (_enabled) {
+                  await NotificationService.instance.schedule(_time);
+                } else {
+                  await NotificationService.instance.cancel(_time);
+                }
+                if (mounted) Navigator.of(context).pop();
               },
             ),
+            if (kDebugMode)
+              TextButton.icon(
+                icon: const Icon(Icons.notifications_active_outlined),
+                label: const Text('Debug: Jetzt anzeigen'),
+                onPressed: () => NotificationService.instance.debugShowNow(),
+              ),
           ],
         ),
       ),

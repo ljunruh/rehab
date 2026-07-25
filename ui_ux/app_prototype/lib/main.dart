@@ -1,3 +1,4 @@
+import 'package:app_prototype/core/notification_service.dart';
 import 'package:app_prototype/data/api/exercise_api.dart';
 import 'package:app_prototype/data/models/api/pain_log.dart';
 import 'package:app_prototype/data/models/api/plan.dart';
@@ -31,6 +32,8 @@ void main() async {
 
   // Diese Zeile schaltet den Linux/Windows Support für den video_player frei
   fvp.registerWith(options: {'platforms': ['windows', 'macos', 'linux']});
+
+  await NotificationService.instance.initialize();
 
   final appDir = await getApplicationDocumentsDirectory();
   final isar = await Isar.open(
