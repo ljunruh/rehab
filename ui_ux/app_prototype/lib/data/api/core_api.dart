@@ -9,7 +9,7 @@ class CoreApi {
       ? 'localhost:3030'
       : (Platform.isAndroid ? '10.0.2.2:3030' : '127.0.0.1:3030');
 
-  final String _fusekiUrl = 'http://$_host/H:/Gitforwindows/Git/rehab/query';
+  final String _fusekiUrl = 'http://$_host/rehab/query';
 
   /// Standard SPARQL Prefixe
   String get _defaultPrefixes => '''
