@@ -7,7 +7,6 @@ import 'package:provider/provider.dart';
 import '../../core/theme/app_theme.dart';
 import '../../core/widgets/widgets.dart';
 import '../../data/demo/demo_data.dart';
-import '../../state/ui_state.dart';
 import 'concentric_rings.dart';
 import 'home_hero.dart';
 import 'pain_carousel.dart';
@@ -234,7 +233,7 @@ class HomeScreen extends StatelessWidget {
               onTap: onOpenProfile,
             ),
           ),
-    //TODO[API]: Test um WeeklyStreak zu simulieren und Fake Daten dafür anzulegen
+          //TODO[API]: Test um WeeklyStreak zu simulieren und Fake Daten dafür anzulegen
           /*
     ElevatedButton(
     onPressed: () => context.read<PlanLogExerciseProvider>().seedTestData(4, activePlans: context.read<PlanProvider>().activePlans),

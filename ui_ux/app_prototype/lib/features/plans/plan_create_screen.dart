@@ -1,6 +1,4 @@
 import 'dart:math';
-
-import 'package:app_prototype/data/models/api/exercise.dart' as api;
 import 'package:app_prototype/data/models/api/plan.dart';
 import 'package:app_prototype/data/provider/exercise_provider.dart';
 import 'package:app_prototype/data/provider/plan_provider.dart';
@@ -10,6 +8,7 @@ import '../../core/theme/app_theme.dart';
 import '../../core/widgets/widgets.dart';
 import '../../data/enum/body_part.dart';
 import '../../data/enum/goal.dart';
+import 'package:app_prototype/data/models/api/exercise.dart' as api;
 import '../profile/setup/selectable_accordion.dart';
 
 /// PERSON 2 — Plan-Erstellung als 3-Schritt-Wizard.

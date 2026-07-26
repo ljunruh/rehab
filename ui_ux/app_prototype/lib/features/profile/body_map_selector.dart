@@ -2,6 +2,7 @@ import 'dart:math' as math;
 import 'package:flutter/material.dart';
 import '../../core/theme/app_theme.dart';
 import '../../core/widgets/widgets.dart';
+import '../../data/enum/contraindication.dart';
 
 /// Interaktive Körper-Region-Auswahl (Vorderseite / Rückseite).
 ///
@@ -39,29 +40,28 @@ class _Region {
   const _Region(this.label, {this.back = false, required this.parts});
 }
 
-/// Regionen + Positionen (Labels = deutsche Körperregionen aus Sophias
-/// Knowledge-Graph-Übersetzung).
+/// Regionen + Positionen
 const List<_Region> _kRegions = [
   // ── Vorderseite ──
-  _Region('Nacken', parts: [_Part(106, 70, 28, 15, 8)]),
-  _Region('Schulter', parts: [_Part(66, 90, 32, 28, 14), _Part(142, 90, 32, 28, 14)]),
-  _Region('Rumpf', parts: [_Part(88, 128, 64, 72, 22)]),
-  _Region('Hüfte', parts: [_Part(90, 204, 60, 46, 20)]),
-  _Region('Handgelenk', parts: [_Part(52, 196, 24, 24, 12), _Part(164, 196, 24, 24, 12)]),
-  _Region('Knie', parts: [_Part(78, 300, 28, 28, 14), _Part(134, 300, 28, 28, 14)]),
-  _Region('Sprunggelenk', parts: [_Part(80, 360, 24, 18, 9), _Part(136, 360, 24, 18, 9)]),
-  _Region('Gleichgewicht', parts: [_Part(84, 392, 72, 20, 10)]),
+  _Region('Nackenprobleme', parts: [_Part(106, 70, 28, 15, 8)]),
+  _Region('Schulterprobleme', parts: [_Part(66, 90, 32, 28, 14), _Part(142, 90, 32, 28, 14)]),
+  _Region('Rumpfmuskelschwäche', parts: [_Part(88, 128, 64, 72, 22)]),
+  _Region('Hüftprobleme', parts: [_Part(90, 204, 60, 46, 20)]),
+  _Region('Handgelenkprobleme', parts: [_Part(52, 196, 24, 24, 12), _Part(164, 196, 24, 24, 12)]),
+  _Region('Knieschmerzen', parts: [_Part(78, 300, 28, 28, 14), _Part(134, 300, 28, 28, 14)]),
+  _Region('Sprunggelenkprobleme', parts: [_Part(80, 360, 24, 18, 9), _Part(136, 360, 24, 18, 9)]),
+  _Region('Gleichgewichtsprobleme', parts: [_Part(84, 392, 72, 20, 10)]),
 
   // ── Rückseite ──
-  _Region('Nacken', back: true, parts: [_Part(106, 70, 28, 15, 8)]),
-  _Region('Schulter', back: true, parts: [_Part(66, 90, 32, 28, 14), _Part(142, 90, 32, 28, 14)]),
-  _Region('Oberer Rücken', back: true, parts: [_Part(92, 128, 56, 40, 18)]),
-  _Region('Unterer Rücken', back: true, parts: [_Part(92, 172, 56, 40, 18)]),
-  _Region('Gesäß', back: true, parts: [_Part(90, 216, 60, 34, 18)]),
-  _Region('Handgelenk', back: true, parts: [_Part(52, 196, 24, 24, 12), _Part(164, 196, 24, 24, 12)]),
-  _Region('Knie', back: true, parts: [_Part(78, 300, 28, 28, 14), _Part(134, 300, 28, 28, 14)]),
-  _Region('Sprunggelenk', back: true, parts: [_Part(80, 360, 24, 18, 9), _Part(136, 360, 24, 18, 9)]),
-  _Region('Gleichgewicht', back: true, parts: [_Part(84, 392, 72, 20, 10)]),
+  _Region('Nackenprobleme', back: true, parts: [_Part(106, 70, 28, 15, 8)]),
+  _Region('Schulterprobleme', back: true, parts: [_Part(66, 90, 32, 28, 14), _Part(142, 90, 32, 28, 14)]),
+  _Region('Wirbelsäulenprobleme', back: true, parts: [_Part(92, 128, 56, 40, 18)]),
+  _Region('Probleme im unteren Rücken', back: true, parts: [_Part(92, 172, 56, 40, 18)]),
+  _Region('Oberschenkelrückseiten-Beschwerden', back: true, parts: [_Part(90, 216, 60, 34, 18)]),
+  _Region('Handgelenkprobleme', back: true, parts: [_Part(52, 196, 24, 24, 12), _Part(164, 196, 24, 24, 12)]),
+  _Region('Knieschmerzen', back: true, parts: [_Part(78, 300, 28, 28, 14), _Part(134, 300, 28, 28, 14)]),
+  _Region('Sprunggelenkprobleme', back: true, parts: [_Part(80, 360, 24, 18, 9), _Part(136, 360, 24, 18, 9)]),
+  _Region('Gleichgewichtsprobleme', back: true, parts: [_Part(84, 392, 72, 20, 10)]),
 ];
 
 class _BodyMapSelectorState extends State<BodyMapSelector> {
@@ -145,7 +145,16 @@ class _BodyMapSelectorState extends State<BodyMapSelector> {
             spacing: AppSpacing.sm,
             runSpacing: AppSpacing.sm,
             children: [
-              for (final s in widget.selected) AppTag(s, variant: TagVariant.goal),
+              for (final s in widget.selected)
+                AppTag(
+                  ContraindicationExt.fromString(
+                    Contraindication.values.firstWhere(
+                          (e) => e.label == s,
+                      orElse: () => Contraindication.none,
+                    ).labelEN,
+                  ).shortLabel,
+                  variant: TagVariant.goal,
+                ),
             ],
           ),
         ],

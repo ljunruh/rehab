@@ -3,24 +3,18 @@ import 'package:provider/provider.dart';
 import '../../core/theme/app_theme.dart';
 import '../../core/widgets/widgets.dart';
 import '../../data/demo/plan_options.dart';
+import '../../data/enum/contraindication.dart';
 import '../../data/enum/gender.dart';
+import '../../data/enum/skill_level.dart';
 import '../../state/ui_state.dart';
 import 'mobility_level_sheet.dart';
 import 'body_map_selector.dart';
+import 'package:app_prototype/data/provider/user_provider.dart';
 
 /// PERSON 4 — Profil bearbeiten (Bottom-Sheet), wie im Prototyp.
-///
-/// Datenschutz-Hinweis, Avatar, Name (änderbar), Stammdaten (Alter,
-/// Größe, Geschlecht, Gewicht), Verletzung(en) (Körperregionen,
-/// Mehrfachauswahl) und Mobilitätslevel mit "Level wählen/ändern"
-/// (öffnet die Selbsteinschätzung). Entspricht dem
-/// Profil-bearbeiten-Sheet im JSX-Prototyp (verschachtelt im
-/// Profil-Drawer, kein 4-Fragen-Test).
 class ProfileEditSheet extends StatefulWidget {
-  /// Wenn gesetzt, wird beim Schließen/Speichern dieser Callback aufgerufen
-  /// (statt Navigator.pop) — nötig, wenn das Sheet als In-Frame-Overlay statt
-  /// als Wurzel-Modal gerendert wird.
   final VoidCallback? onClose;
+
   const ProfileEditSheet({super.key, this.onClose});
 
   static Future<void> show(BuildContext context) {
@@ -30,8 +24,9 @@ class ProfileEditSheet extends StatefulWidget {
       isScrollControlled: true,
       constraints: const BoxConstraints(maxWidth: 380),
       shape: const RoundedRectangleBorder(
-        borderRadius:
-            BorderRadius.vertical(top: Radius.circular(AppRadius.sheet)),
+        borderRadius: BorderRadius.vertical(
+          top: Radius.circular(AppRadius.sheet),
+        ),
       ),
       builder: (_) => const ProfileEditSheet(),
     );
@@ -46,18 +41,27 @@ class _ProfileEditSheetState extends State<ProfileEditSheet> {
   late TextEditingController _ageCtrl;
   late TextEditingController _heightCtrl;
   late TextEditingController _weightCtrl;
+  late Gender _selectedGender;
+  late SkillLevel _selectedSkillLevel;
+  late List<String> _selectedInjuries;
   bool _editingName = false;
 
   @override
   void initState() {
     super.initState();
-    final profile = context.read<UiState>().profile;
-    _nameCtrl = TextEditingController(text: profile.name);
-    _ageCtrl = TextEditingController(text: profile.age?.toString() ?? '');
-    _heightCtrl =
-        TextEditingController(text: profile.height?.toString() ?? '');
-    _weightCtrl =
-        TextEditingController(text: profile.weight?.toString() ?? '');
+    final userProvider = context.read<UserProvider>();
+    final user = userProvider.user;
+
+    _nameCtrl = TextEditingController(text: user?.name ?? 'Name eingeben');
+    _ageCtrl = TextEditingController(text: user?.age.toString() ?? '');
+    _heightCtrl = TextEditingController(text: user?.height.toString() ?? '');
+    _weightCtrl = TextEditingController(text: user?.weight.toString() ?? '');
+    _selectedGender = user?.gender ?? Gender.diverse;
+    _selectedSkillLevel = user?.skillLevel ?? SkillLevel.beginner;
+
+    _selectedInjuries = List.from(user?.contraindication ?? [])
+        .map((e) => ContraindicationExt.fromString(e).label)
+        .toList();
   }
 
   @override
@@ -71,16 +75,21 @@ class _ProfileEditSheetState extends State<ProfileEditSheet> {
 
   @override
   Widget build(BuildContext context) {
-    final app = context.watch<UiState>();
-    final profile = app.profile;
+    final userProvider = context.watch<UserProvider>();
+    final user = userProvider.user;
     final bottomInset = MediaQuery.of(context).viewInsets.bottom;
+    final userInitials = userProvider.initials;
 
     return Padding(
       padding: EdgeInsets.only(bottom: bottomInset),
       child: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.fromLTRB(
-              AppSpacing.lg, AppSpacing.base, AppSpacing.lg, AppSpacing.xl),
+            AppSpacing.lg,
+            AppSpacing.base,
+            AppSpacing.lg,
+            AppSpacing.xl,
+          ),
           child: Column(
             mainAxisSize: MainAxisSize.min,
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -99,8 +108,10 @@ class _ProfileEditSheetState extends State<ProfileEditSheet> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Text('Profil bearbeiten',
-                      style: AppText.screenTitle.copyWith(fontSize: 22)),
+                  Text(
+                    'Profil bearbeiten',
+                    style: AppText.screenTitle.copyWith(fontSize: 22),
+                  ),
                   GestureDetector(
                     onTap: () => widget.onClose != null
                         ? widget.onClose!()
@@ -111,17 +122,20 @@ class _ProfileEditSheetState extends State<ProfileEditSheet> {
                       alignment: Alignment.center,
                       decoration: BoxDecoration(
                         color: AppColors.white,
-                        borderRadius: BorderRadius.circular(AppRadius.iconSmall),
+                        borderRadius: BorderRadius.circular(
+                          AppRadius.iconSmall,
+                        ),
                       ),
-                      child: const Icon(Icons.close,
-                          size: 16, color: AppColors.text),
+                      child: const Icon(
+                        Icons.close,
+                        size: 16,
+                        color: AppColors.text,
+                      ),
                     ),
                   ),
                 ],
               ),
               const SizedBox(height: AppSpacing.base),
-
-              // Datenschutz-Hinweis
               Container(
                 padding: const EdgeInsets.all(AppSpacing.base),
                 decoration: BoxDecoration(
@@ -130,23 +144,25 @@ class _ProfileEditSheetState extends State<ProfileEditSheet> {
                 ),
                 child: Row(
                   children: [
-                    const Icon(Icons.shield_outlined,
-                        size: 18, color: AppColors.sageDeep),
+                    const Icon(
+                      Icons.shield_outlined,
+                      size: 18,
+                      color: AppColors.sageDeep,
+                    ),
                     const SizedBox(width: AppSpacing.sm),
                     Expanded(
                       child: Text(
-                        'Deine Daten verlassen nie dein Gerät. Alles wird '
-                        'lokal gespeichert – sicher und privat.',
-                        style: AppText.caption
-                            .copyWith(color: AppColors.sageDeep, height: 1.4),
+                        'Deine Daten verlassen nie dein Gerät. Alles wird lokal gespeichert – sicher und privat.',
+                        style: AppText.caption.copyWith(
+                          color: AppColors.sageDeep,
+                          height: 1.4,
+                        ),
                       ),
                     ),
                   ],
                 ),
               ),
               const SizedBox(height: AppSpacing.lg),
-
-              // Avatar mit Stift
               Center(
                 child: Stack(
                   children: [
@@ -158,9 +174,13 @@ class _ProfileEditSheetState extends State<ProfileEditSheet> {
                         color: AppColors.sageLight,
                         shape: BoxShape.circle,
                       ),
-                      child: Text(profile.initials,
-                          style: AppText.screenTitle.copyWith(
-                              color: AppColors.sageDeep, fontSize: 26)),
+                      child: Text(
+                        userInitials,
+                        style: AppText.screenTitle.copyWith(
+                          color: AppColors.sageDeep,
+                          fontSize: 26,
+                        ),
+                      ),
                     ),
                     Positioned(
                       right: 0,
@@ -173,21 +193,24 @@ class _ProfileEditSheetState extends State<ProfileEditSheet> {
                           color: AppColors.sage,
                           shape: BoxShape.circle,
                         ),
-                        child: const Icon(Icons.edit,
-                            size: 13, color: AppColors.white),
+                        child: const Icon(
+                          Icons.edit,
+                          size: 13,
+                          color: AppColors.white,
+                        ),
                       ),
                     ),
                   ],
                 ),
               ),
               const SizedBox(height: AppSpacing.lg),
-
-              // NAME
               Text('NAME', style: AppText.micro),
               const SizedBox(height: AppSpacing.sm),
               Container(
                 padding: const EdgeInsets.symmetric(
-                    horizontal: 14, vertical: 4),
+                  horizontal: 14,
+                  vertical: 4,
+                ),
                 decoration: BoxDecoration(
                   color: AppColors.white,
                   borderRadius: BorderRadius.circular(AppRadius.input),
@@ -198,38 +221,30 @@ class _ProfileEditSheetState extends State<ProfileEditSheet> {
                     Expanded(
                       child: _editingName
                           ? TextField(
-                              controller: _nameCtrl,
-                              autofocus: true,
-                              style: AppText.body,
-                              decoration: const InputDecoration(
-                                border: InputBorder.none,
-                                isDense: true,
-                              ),
-                            )
+                        controller: _nameCtrl,
+                        autofocus: true,
+                        style: AppText.body,
+                        decoration: const InputDecoration(
+                          border: InputBorder.none,
+                          isDense: true,
+                        ),
+                      )
                           : Padding(
-                              padding:
-                                  const EdgeInsets.symmetric(vertical: 12),
-                              child: Text(_nameCtrl.text, style: AppText.body),
-                            ),
+                        padding: const EdgeInsets.symmetric(vertical: 12),
+                        child: Text(_nameCtrl.text, style: AppText.body),
+                      ),
                     ),
                     GestureDetector(
-                      onTap: () {
-                        if (_editingName) {
-                          app.updateProfile(
-                              profile.copyWith(name: _nameCtrl.text.trim()));
-                        }
-                        setState(() => _editingName = !_editingName);
-                      },
-                      child: Text(_editingName ? 'Fertig' : 'Ändern',
-                          style: AppText.body
-                              .copyWith(color: AppColors.sageDeep)),
+                      onTap: () => setState(() => _editingName = !_editingName),
+                      child: Text(
+                        _editingName ? 'Fertig' : 'Ändern',
+                        style: AppText.body.copyWith(color: AppColors.sageDeep),
+                      ),
                     ),
                   ],
                 ),
               ),
               const SizedBox(height: AppSpacing.lg),
-
-              // STAMMDATEN
               Text('STAMMDATEN', style: AppText.micro),
               const SizedBox(height: AppSpacing.sm),
               Row(
@@ -256,12 +271,9 @@ class _ProfileEditSheetState extends State<ProfileEditSheet> {
                 children: [
                   Expanded(
                     child: _GenderField(
-                      value: profile.gender,
-                      onChanged: (g) =>
-                          app.updateProfile(profile.copyWith(gender: g)),
+                      value: _selectedGender,
+                      onChanged: (g) => setState(() => _selectedGender = g),
                     ),
-                    // _GenderField arbeitet jetzt direkt mit dem Gender-Enum
-                    // der API (statt mit einem String).
                   ),
                   const SizedBox(width: AppSpacing.sm),
                   Expanded(
@@ -275,14 +287,16 @@ class _ProfileEditSheetState extends State<ProfileEditSheet> {
               ),
               const SizedBox(height: AppSpacing.lg),
 
-              // VERLETZUNG(EN)
               Text('Verletzung(en)', style: AppText.caption),
               const SizedBox(height: AppSpacing.sm),
               Center(
                 child: BodyMapSelector(
-                  selected: profile.regions,
-                  onChanged: (next) =>
-                      app.updateProfile(profile.copyWith(regions: next)),
+                  selected: _selectedInjuries,
+                  onChanged: (nextInjuries) {
+                    setState(() {
+                      _selectedInjuries = nextInjuries;
+                    });
+                  },
                 ),
               ),
               const SizedBox(height: AppSpacing.lg),
@@ -290,8 +304,7 @@ class _ProfileEditSheetState extends State<ProfileEditSheet> {
               // MOBILITÄTSLEVEL
               Container(
                 width: double.infinity,
-                padding:
-                    const EdgeInsets.fromLTRB(16, 18, 16, 16),
+                padding: const EdgeInsets.fromLTRB(16, 18, 16, 16),
                 decoration: BoxDecoration(
                   color: AppColors.sageLight,
                   borderRadius: BorderRadius.circular(20),
@@ -300,70 +313,151 @@ class _ProfileEditSheetState extends State<ProfileEditSheet> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text('MOBILITÄTSLEVEL',
-                        style: AppText.micro
-                            .copyWith(color: AppColors.sageDeep)),
+                    Text(
+                      'MOBILITÄTSLEVEL',
+                      style: AppText.micro.copyWith(color: AppColors.sageDeep),
+                    ),
                     const SizedBox(height: AppSpacing.sm),
                     Text(
-                      'Schätz dich selbst ein – wähle die Stufe, die am '
-                      'besten zu dir passt.',
+                      'Schätz dich selbst ein – wähle die Stufe, die am besten zu dir passt.',
                       style: AppText.caption.copyWith(
-                          height: 1.55, color: AppColors.text),
-                    ),
-                    if (MobilityLevelMeta.forKey(profile.mobility) !=
-                        null) ...[
-                      const SizedBox(height: AppSpacing.md),
-                      Container(
-                        padding: const EdgeInsets.symmetric(
-                            horizontal: 14, vertical: 11),
-                        decoration: BoxDecoration(
-                          color: AppColors.white,
-                          borderRadius:
-                              BorderRadius.circular(AppRadius.input),
-                        ),
-                        child: Row(
-                          children: [
-                            Text('Aktuelles Level',
-                                style: AppText.caption
-                                    .copyWith(color: AppColors.text)),
-                            const SizedBox(width: AppSpacing.sm),
-                            Text(
-                              MobilityLevelMeta.labelFor(profile.mobility),
-                              style: AppText.cardTitle.copyWith(
-                                  color: AppColors.sageDeep,
-                                  fontWeight: FontWeight.w700),
-                            ),
-                          ],
-                        ),
+                        height: 1.55,
+                        color: AppColors.text,
                       ),
-                    ],
+                    ),
+                    const SizedBox(height: AppSpacing.md),
+                    Container(
+                      padding: const EdgeInsets.symmetric(
+                        horizontal: 14,
+                        vertical: 11,
+                      ),
+                      decoration: BoxDecoration(
+                        color: AppColors.white,
+                        borderRadius: BorderRadius.circular(AppRadius.input),
+                      ),
+                      child: Row(
+                        children: [
+                          Text(
+                            'Aktuelles Level',
+                            style: AppText.caption.copyWith(
+                              color: AppColors.text,
+                            ),
+                          ),
+                          const SizedBox(width: AppSpacing.sm),
+                          Text(
+                            // Einheitliche Anzeige direkt aus dem State-Enum (_selectedSkillLevel)
+                            _selectedSkillLevel == SkillLevel.advanced
+                                ? 'Fortgeschritten'
+                                : _selectedSkillLevel == SkillLevel.intermediate
+                                ? 'Geübt'
+                                : 'Anfänger',
+                            style: AppText.cardTitle.copyWith(
+                              color: AppColors.sageDeep,
+                              fontWeight: FontWeight.w700,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
                     const SizedBox(height: AppSpacing.md),
                     _DarkButton(
-                      label: MobilityLevelMeta.forKey(profile.mobility) !=
-                              null
-                          ? 'Level ändern'
-                          : 'Level wählen',
+                      label: 'Level ändern',
                       icon: Icons.bolt,
-                      onPressed: () => MobilityLevelSheet.show(context),
+                      onPressed: () async {
+                        final app = context.read<UiState>();
+                        String initialKey = 'Niedrig';
+                        if (_selectedSkillLevel == SkillLevel.advanced) initialKey = 'Hoch';
+                        if (_selectedSkillLevel == SkillLevel.intermediate) initialKey = 'Mittel';
+                        app.updateProfile(app.profile.copyWith(mobility: initialKey));
+
+                        await MobilityLevelSheet.show(context);
+
+                        if (context.mounted) {
+                          final key = app.profile.mobility;
+                          setState(() {
+                            if (key == 'Hoch') {
+                              _selectedSkillLevel = SkillLevel.advanced;
+                            } else if (key == 'Mittel') {
+                              _selectedSkillLevel = SkillLevel.intermediate;
+                            } else {
+                              _selectedSkillLevel = SkillLevel.beginner;
+                            }
+                          });
+                        }
+                      },
                     ),
                   ],
                 ),
               ),
               const SizedBox(height: AppSpacing.xl),
 
+              // Speichern Button
               PrimaryButton(
                 label: 'Änderungen speichern',
                 icon: Icons.check,
-                onPressed: () {
-                  app.updateProfile(profile.copyWith(
+                onPressed: () async {
+                  final ontologyIds = _selectedInjuries.map((germanLabel) {
+                    final contraindication = Contraindication.values.firstWhere(
+                          (e) => e.label == germanLabel,
+                      orElse: () => Contraindication.none,
+                    );
+                    return contraindication.labelEN;
+                  }).where((id) => id != "None").toList();
+
+
+                  await userProvider.saveUser(
                     name: _nameCtrl.text.trim(),
-                    age: int.tryParse(_ageCtrl.text),
-                    height: int.tryParse(_heightCtrl.text),
-                    weight: int.tryParse(_weightCtrl.text),
-                  ));
+                    gender: _selectedGender,
+                    age: int.tryParse(_ageCtrl.text) ?? user?.age ?? 0,
+                    height: int.tryParse(_heightCtrl.text) ?? user?.height ?? 0,
+                    weight: int.tryParse(_weightCtrl.text) ?? user?.weight ?? 0,
+                    skillLevel: _selectedSkillLevel,
+                    injuries: ontologyIds,
+                  );
                   widget.onClose != null
                       ? widget.onClose!()
                       : Navigator.of(context).pop();
+                },
+              ),
+              const SizedBox(height: AppSpacing.md),
+
+              // Löschen Button
+              TextButton.icon(
+                style: TextButton.styleFrom(
+                  minimumSize: const Size(double.infinity, 44),
+                  foregroundColor: Colors.red,
+                ),
+                icon: const Icon(Icons.delete_forever, size: 18),
+                label: const Text(
+                  'Profil löschen',
+                  style: TextStyle(fontWeight: FontWeight.bold),
+                ),
+                onPressed: () {
+                  showDialog(
+                    context: context,
+                    builder: (ctx) => AlertDialog(
+                      title: const Text('Profil unwiderruflich löschen?'),
+                      actions: [
+                        TextButton(
+                          onPressed: () => Navigator.pop(ctx),
+                          child: const Text('Abbrechen'),
+                        ),
+                        TextButton(
+                          onPressed: () async {
+                            await context.read<UserProvider>().deleteUser();
+                            if (context.mounted)
+                              Navigator.of(
+                                ctx,
+                              ).pushNamedAndRemoveUntil('/', (route) => false);
+                          },
+                          child: const Text(
+                            'Löschen',
+                            style: TextStyle(color: Colors.red),
+                          ),
+                        ),
+                      ],
+                    ),
+                  );
                 },
               ),
             ],
@@ -374,8 +468,7 @@ class _ProfileEditSheetState extends State<ProfileEditSheet> {
   }
 }
 
-/// Dunkelgrüner (sageDeep) Voll-Button — für das Mobilitätslevel-Widget,
-/// wo der normale Primär-Button laut Design-Feedback zu blass war.
+// Kleinere Hilfs-Widgets (_DarkButton, _NumberField, _GenderField) bleiben exakt wie gehabt...
 class _DarkButton extends StatelessWidget {
   final String label;
   final IconData icon;
@@ -404,8 +497,7 @@ class _DarkButton extends StatelessWidget {
           children: [
             Icon(icon, size: 15, color: AppColors.white),
             const SizedBox(width: AppSpacing.sm),
-            Text(label,
-                style: AppText.button.copyWith(color: AppColors.white)),
+            Text(label, style: AppText.button.copyWith(color: AppColors.white)),
           ],
         ),
       ),
@@ -460,19 +552,24 @@ class _NumberField extends StatelessWidget {
               ),
               Text(suffix, style: AppText.micro),
               const SizedBox(width: 6),
-              // Stepper-Pfeile (hoch/runter), wie im Prototyp
               Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   GestureDetector(
                     onTap: () => _step(1),
-                    child: const Icon(Icons.keyboard_arrow_up,
-                        size: 15, color: AppColors.textMuted),
+                    child: const Icon(
+                      Icons.keyboard_arrow_up,
+                      size: 15,
+                      color: AppColors.textMuted,
+                    ),
                   ),
                   GestureDetector(
                     onTap: () => _step(-1),
-                    child: const Icon(Icons.keyboard_arrow_down,
-                        size: 15, color: AppColors.textMuted),
+                    child: const Icon(
+                      Icons.keyboard_arrow_down,
+                      size: 15,
+                      color: AppColors.textMuted,
+                    ),
                   ),
                 ],
               ),
@@ -509,12 +606,14 @@ class _GenderField extends StatelessWidget {
             child: DropdownButton<Gender>(
               value: value,
               isExpanded: true,
-              icon: const Icon(Icons.expand_more,
-                  size: 16, color: AppColors.textMuted),
+              icon: const Icon(
+                Icons.expand_more,
+                size: 16,
+                color: AppColors.textMuted,
+              ),
               style: AppText.body,
               items: Gender.values
-                  .map((g) =>
-                      DropdownMenuItem(value: g, child: Text(g.label)))
+                  .map((g) => DropdownMenuItem(value: g, child: Text(g.label)))
                   .toList(),
               onChanged: (v) {
                 if (v != null) onChanged(v);

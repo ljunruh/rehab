@@ -28,7 +28,7 @@ class MobilityLevelMeta {
   static const List<MobilityLevelMeta> all = [
     MobilityLevelMeta(
       key: 'Niedrig',
-      label: 'Einsteiger',
+      label: 'Anfänger',
       color: Color(0xFFC46A52),
       bg: Color(0xFFFAE6DC),
       statement:
