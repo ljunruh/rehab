@@ -1,3 +1,4 @@
+import 'package:app_prototype/data/provider/calender_provider.dart';
 import 'package:app_prototype/data/provider/pain_log_provider.dart';
 import 'package:app_prototype/data/provider/plan_log_exercise_provider.dart';
 import 'package:app_prototype/data/provider/plan_provider.dart';
@@ -55,7 +56,7 @@ class _ProgressScreenState extends State<ProgressScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final app = context.watch<UiState>();
+    final calendarProvider = context.watch<CalendarProvider>();
     final userProvider = context.watch<UserProvider>();
     final planProvider = context.watch<PlanProvider>();
     final planLogExerciseProvider = context.watch<PlanLogExerciseProvider>();
@@ -261,8 +262,8 @@ class _ProgressScreenState extends State<ProgressScreen> {
               // ── Kalender mit Tabs ──
               const SectionTitle('Kalender'),
               _CalendarTabs(
-                mode: app.calendarMode,
-                onChange: app.setCalendarMode,
+                mode: calendarProvider.calendarMode,
+                onChange: calendarProvider.setCalendarMode,
               ),
               const SizedBox(height: AppSpacing.md),
               CalendarWidget(
@@ -309,9 +310,13 @@ class _ProgressScreenState extends State<ProgressScreen> {
 
 /// Tab-Umschalter "Übungen / Schmerzen" über dem Kalender.
 class _CalendarTabs extends StatelessWidget {
-  final String mode;
-  final ValueChanged<String> onChange;
-  const _CalendarTabs({required this.mode, required this.onChange});
+  final CalendarMode mode;
+  final ValueChanged<CalendarMode> onChange;
+
+  const _CalendarTabs({
+    required this.mode,
+    required this.onChange,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -324,18 +329,18 @@ class _CalendarTabs extends StatelessWidget {
       ),
       child: Row(
         children: [
-          _tab(context, 'exercises', 'Übungen'),
-          _tab(context, 'pain', 'Schmerzen'),
+          _tab(context, CalendarMode.exercises, 'Übungen'),
+          _tab(context, CalendarMode.pain, 'Schmerzen'),
         ],
       ),
     );
   }
 
-  Widget _tab(BuildContext context, String id, String label) {
-    final active = mode == id;
+  Widget _tab(BuildContext context, CalendarMode targetMode, String label) {
+    final active = mode == targetMode;
     return Expanded(
       child: GestureDetector(
-        onTap: () => onChange(id),
+        onTap: () => onChange(targetMode),
         child: AnimatedContainer(
           duration: AppMotion.standard,
           padding: const EdgeInsets.symmetric(vertical: 10),
@@ -344,11 +349,13 @@ class _CalendarTabs extends StatelessWidget {
             color: active ? AppColors.white : Colors.transparent,
             borderRadius: BorderRadius.circular(AppRadius.iconSmall),
           ),
-          child: Text(label,
-              style: AppText.body.copyWith(
-                color: active ? AppColors.sageDeep : AppColors.textSecondary,
-                fontWeight: active ? FontWeight.w600 : FontWeight.w400,
-              )),
+          child: Text(
+            label,
+            style: AppText.body.copyWith(
+              color: active ? AppColors.sageDeep : AppColors.textSecondary,
+              fontWeight: active ? FontWeight.w600 : FontWeight.w400,
+            ),
+          ),
         ),
       ),
     );

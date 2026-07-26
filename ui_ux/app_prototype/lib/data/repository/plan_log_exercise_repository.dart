@@ -22,6 +22,11 @@ class PlanLogExerciseRepository {
 
   PlanLogExerciseRepository(this.isar);
 
+  /// Holt alle historischen Logs aus der Datenbank
+  Future<List<PlanLogExercise>> getAllLogs() async {
+    return await isar.planLogExercises.where().findAll();
+  }
+
   /// Speichert ein einzelnes Übungs-Log
   Future<void> saveLog(String planId, String exerciseId) async {
     final log = PlanLogExercise(

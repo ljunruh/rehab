@@ -3,6 +3,7 @@ import 'package:app_prototype/data/models/api/pain_log.dart';
 import 'package:app_prototype/data/models/api/plan.dart';
 import 'package:app_prototype/data/models/api/plan_log_exercise.dart';
 import 'package:app_prototype/data/models/models.dart';
+import 'package:app_prototype/data/provider/calender_provider.dart';
 import 'package:app_prototype/data/provider/exercise_provider.dart';
 import 'package:app_prototype/data/provider/pain_log_exercise_provider.dart';
 import 'package:app_prototype/data/provider/pain_log_provider.dart';
@@ -60,6 +61,7 @@ void main() async {
         ChangeNotifierProvider(create: (_) => PainLogProvider(painLogRepository)),
         ChangeNotifierProvider(create: (_) => PainLogExerciseProvider(painLogExerciseRepository)),
         ChangeNotifierProvider(create: (_) => PlanLogExerciseProvider(planLogExerciseRepository)),
+        ChangeNotifierProvider(create: (_) => CalendarProvider()),
       ],
       child: RehaApp()));
 }

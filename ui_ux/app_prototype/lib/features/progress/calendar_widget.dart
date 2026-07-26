@@ -1,11 +1,14 @@
 import 'package:app_prototype/data/enum/body_part.dart';
+import 'package:app_prototype/data/models/api/api_models.dart';
+import 'package:app_prototype/data/provider/calender_provider.dart';
 import 'package:app_prototype/data/provider/pain_log_provider.dart';
+import 'package:app_prototype/data/provider/plan_log_exercise_provider.dart';
+import 'package:app_prototype/data/provider/plan_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:provider/provider.dart';
 import '../../core/theme/app_theme.dart';
 import '../../core/widgets/widgets.dart';
-import '../../state/ui_state.dart';
 
 /// Kompakter Monatskalender (Clue-Style gefüllte Tageskreise).
 ///
@@ -26,6 +29,11 @@ class _CalendarWidgetState extends State<CalendarWidget> {
   late int _year;
   late int _month;
   bool _legendOpen = false;
+  bool _isLoading = false;
+
+  /// Cache für die abgeschlossenen Pläne pro Tag im aktuellen Monat.
+  /// Key: "YYYY-MM-DD", Value: Liste absolvierter Pläne an diesem Tag.
+  Map<String, List<Plan>> _completedPlansByDate = {};
 
   static const _weekdays = ['Mo', 'Di', 'Mi', 'Do', 'Fr', 'Sa', 'So'];
   static const _months = [
@@ -54,39 +62,80 @@ class _CalendarWidgetState extends State<CalendarWidget> {
     final now = DateTime.now();
     _year = now.year;
     _month = now.month;
+
+    // Einmalig beim Erstellen des Widgets laden:
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      _loadMonthData();
+    });
   }
 
-  void _prev() => setState(() {
-    if (_month == 1) {
-      _month = 12;
-      _year--;
-    } else {
-      _month--;
-    }
-  });
+  /// Lädt alle Übungs-Logs für jeden Tag des aktuellen Monats im Hintergrund
+  Future<void> _loadMonthData() async {
+    if (!mounted) return;
+    setState(() => _isLoading = true);
 
-  void _next() => setState(() {
-    if (_month == 12) {
-      _month = 1;
-      _year++;
-    } else {
-      _month++;
+    final planLogProvider = context.read<PlanLogExerciseProvider>();
+    final planProvider = context.read<PlanProvider>();
+
+    final daysInMonth = DateUtils.getDaysInMonth(_year, _month);
+    final Map<String, List<Plan>> tempMap = {};
+
+    // Schleife über alle Tage des aktiven Monats
+    for (int day = 1; day <= daysInMonth; day++) {
+      final date = DateTime(_year, _month, day);
+      final key = _key(day);
+
+      final completed = await planLogProvider.getCompletedPlansForDate(date, planProvider.plans);
+
+      if (completed.isNotEmpty) {
+        tempMap[key] = completed;
+      }
     }
-  });
+
+    if (!mounted) return;
+    setState(() {
+      _completedPlansByDate = tempMap;
+      _isLoading = false;
+    });
+  }
+
+  void _prev() {
+    setState(() {
+      if (_month == 1) {
+        _month = 12;
+        _year--;
+      } else {
+        _month--;
+      }
+    });
+    _loadMonthData(); // Daten für den neuen Monat laden
+  }
+
+  void _next() {
+    setState(() {
+      if (_month == 12) {
+        _month = 1;
+        _year++;
+      } else {
+        _month++;
+      }
+    });
+    _loadMonthData(); // Daten für den neuen Monat laden
+  }
 
   String _key(int day) =>
       '$_year-${_month.toString().padLeft(2, '0')}-${day.toString().padLeft(2, '0')}';
 
   @override
   Widget build(BuildContext context) {
-    final app = context.watch<UiState>();
+    final calendarProvider = context.watch<CalendarProvider>();
     final painProvider = context.watch<PainLogProvider>();
-    final mode = app.calendarMode; // "exercises" | "pain"
+
+    final mode = calendarProvider.calendarMode;
     final today = DateTime.now();
     final daysInMonth = DateUtils.getDaysInMonth(_year, _month);
     final firstWeekday = (DateTime(_year, _month, 1).weekday + 6) % 7;
 
-    // Regionen für die Legende ermitteln (ohne BodyPart.none)
     final monthLogs = painProvider.getLogsForMonth(_year, _month);
     final activePainRegions = monthLogs
         .map((l) => l.region)
@@ -155,24 +204,25 @@ class _CalendarWidgetState extends State<CalendarWidget> {
                     final key = _key(day);
                     final isToday = today.year == _year && today.month == _month && today.day == day;
 
-                    final events = app.eventsOn(key);
-                    final doneExercises = events.where((e) => e.type == 'exercise' && e.done).toList();
-
+                    // 1. Schmerzen (synchron aus Provider)
                     final painLogs = painProvider.getLogsForDateKey(key);
                     final maxPain = painLogs.isEmpty
                         ? null
                         : painLogs.map((p) => p.level).reduce((a, b) => a > b ? a : b);
 
+                    // 2. Abgeschlossene Übungen (synchron aus unserem geladenen State)
+                    final completedPlans = _completedPlansByDate[key] ?? [];
+
                     Color? bg;
                     Color textColor = AppColors.text;
                     FontWeight weight = FontWeight.w400;
 
-                    if (mode == 'pain' && maxPain != null) {
+                    if (mode == CalendarMode.pain && maxPain != null) {
                       bg = _painColorFor(maxPain);
                       textColor = maxPain >= 5 ? AppColors.white : AppColors.text;
                       weight = FontWeight.w600;
-                    } else if (mode == 'exercises' && doneExercises.isNotEmpty) {
-                      bg = app.colorForRegion(doneExercises.first.region);
+                    } else if (mode == CalendarMode.exercises && completedPlans.isNotEmpty) {
+                      bg = completedPlans.first.color;
                       textColor = AppColors.white;
                       weight = FontWeight.w600;
                     }
@@ -196,7 +246,7 @@ class _CalendarWidgetState extends State<CalendarWidget> {
                               )),
                         ),
                         // Kleine farbige Punkte für Schmerzregionen
-                        if (mode == 'pain' && painLogs.isNotEmpty)
+                        if (mode == CalendarMode.pain && painLogs.isNotEmpty)
                           Positioned(
                             bottom: 2,
                             child: Row(
@@ -207,7 +257,7 @@ class _CalendarWidgetState extends State<CalendarWidget> {
                                   width: 4,
                                   height: 4,
                                   decoration: BoxDecoration(
-                                    color: app.colorForRegion(log.region.label),
+                                    color: log.region.color,
                                     shape: BoxShape.circle,
                                   ),
                                 );
@@ -228,7 +278,7 @@ class _CalendarWidgetState extends State<CalendarWidget> {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Expanded(
-                        child: mode == 'pain'
+                        child: mode == CalendarMode.pain
                             ? Wrap(
                           spacing: 8,
                           runSpacing: 4,
@@ -240,12 +290,11 @@ class _CalendarWidgetState extends State<CalendarWidget> {
                                   width: 8,
                                   height: 8,
                                   decoration: BoxDecoration(
-                                    color: app.colorForRegion(r.label),
+                                    color: r.color,
                                     shape: BoxShape.circle,
                                   ),
                                 ),
                                 const SizedBox(width: 4),
-                                // Nutze HIER .label anstelle von .name:
                                 Text(r.label, style: AppText.micro),
                               ],
                             );
@@ -274,7 +323,6 @@ class _CalendarWidgetState extends State<CalendarWidget> {
                 right: 0,
                 child: Center(
                   child: _LegendPopover(
-                    app: app,
                     mode: mode,
                     activePainRegions: activePainRegions,
                   ),
@@ -288,12 +336,10 @@ class _CalendarWidgetState extends State<CalendarWidget> {
 }
 
 class _LegendPopover extends StatelessWidget {
-  final UiState app;
-  final String mode;
+  final CalendarMode mode;
   final List<BodyPart> activePainRegions;
 
   const _LegendPopover({
-    required this.app,
     required this.mode,
     required this.activePainRegions,
   });
@@ -321,7 +367,7 @@ class _LegendPopover extends StatelessWidget {
         children: [
           Text('Legende', style: AppText.caption.copyWith(fontWeight: FontWeight.w600)),
           const SizedBox(height: AppSpacing.sm),
-          if (mode == 'pain') ...[
+          if (mode == CalendarMode.pain) ...[
             Text('Körperregionen im Monat:', style: AppText.micro),
             const SizedBox(height: AppSpacing.sm),
             if (activePainRegions.isEmpty)
@@ -336,12 +382,11 @@ class _LegendPopover extends StatelessWidget {
                         width: 8,
                         height: 8,
                         decoration: BoxDecoration(
-                          color: app.colorForRegion(r.label),
+                          color: r.color,
                           shape: BoxShape.circle,
                         ),
                       ),
                       const SizedBox(width: AppSpacing.sm),
-                      // Auch hier r.label für sauberes Deutsch:
                       Text(r.label, style: AppText.micro),
                     ],
                   ),

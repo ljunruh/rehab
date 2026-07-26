@@ -10,6 +10,8 @@ class PlanLogExerciseProvider extends ChangeNotifier {
     loadTodayLogs();
   }
 
+  List<PlanLogExercise> _allLogs = [];
+  List<PlanLogExercise> get allLogs => _allLogs;
   List<PlanLogExercise> _todayLogs = [];
   List<PlanLogExercise> get todayLogs => _todayLogs;
   int _weeklyStreak = 1;
@@ -17,6 +19,7 @@ class PlanLogExerciseProvider extends ChangeNotifier {
 
   /// Lädt die heutigen Logs und berechnet den Streak basierend auf den aktiven Plänen neu
   Future<void> loadTodayLogs({List<Plan> activePlans = const []}) async {
+    _allLogs = await repo.getAllLogs();
     _todayLogs = await repo.getLogsForDate(DateTime.now());
     _weeklyStreak = await repo.getWeeklyStreak(activePlans); // 👈 Hier übergeben
     notifyListeners();

@@ -7,10 +7,9 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../../core/theme/app_theme.dart';
 import '../../core/widgets/widgets.dart';
-import '../../state/ui_state.dart';
 
 /// Tagesdetail-Sheet: zeigt Übungen, Termine und Schmerz-Einträge eines Tages.
-class DayDetailSheet extends StatelessWidget {
+class DayDetailSheet extends StatefulWidget {
   final DateTime date;
   const DayDetailSheet({super.key, required this.date});
 
@@ -30,93 +29,106 @@ class DayDetailSheet extends StatelessWidget {
       isScrollControlled: true,
       constraints: const BoxConstraints(maxWidth: 380),
       shape: const RoundedRectangleBorder(
-        borderRadius:
-        BorderRadius.vertical(top: Radius.circular(AppRadius.sheet)),
+        borderRadius: BorderRadius.vertical(top: Radius.circular(AppRadius.sheet)),
       ),
       builder: (_) => DayDetailSheet(date: date),
     );
   }
 
+  @override
+  State<DayDetailSheet> createState() => _DayDetailSheetState();
+}
+
+class _DayDetailSheetState extends State<DayDetailSheet> {
+  List<Plan> _completedPlans = [];
+  bool _isLoading = true;
+
   String get _dateKey =>
-      '${date.year}-${date.month.toString().padLeft(2, '0')}-${date.day.toString().padLeft(2, '0')}';
+      '${widget.date.year}-${widget.date.month.toString().padLeft(2, '0')}-${widget.date.day.toString().padLeft(2, '0')}';
+
+  @override
+  void initState() {
+    super.initState();
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      _loadCompletedPlans();
+    });
+  }
+
+  /// Lädt die an diesem Tag absolvierten Pläne über den Provider
+  Future<void> _loadCompletedPlans() async {
+    if (!mounted) return;
+
+    final planLogProvider = context.read<PlanLogExerciseProvider>();
+    final allPlans = context.read<PlanProvider>().plans;
+
+    final completed = await planLogProvider.getCompletedPlansForDate(widget.date, allPlans);
+
+    if (!mounted) return;
+    setState(() {
+      _completedPlans = completed;
+      _isLoading = false;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
-    final app = context.watch<UiState>();
     final painProvider = context.watch<PainLogProvider>();
-    final planLogProvider = context.watch<PlanLogExerciseProvider>();
-    final allPlans = context.watch<PlanProvider>().plans;
 
-    final events = app.eventsOn(_dateKey);
-    final appointments = events.where((e) => e.type == 'appointment').toList();
-
-    // Echte Schmerzeinträge aus dem PainLogProvider (Isar DB)
+    // Echte Schmerzeinträge aus dem PainLogProvider
     final pains = painProvider.getLogsForDateKey(_dateKey);
-    final weekday = _weekdays[(date.weekday - 1) % 7];
+    final weekday = DayDetailSheet._weekdays[(widget.date.weekday - 1) % 7];
 
     return Padding(
       padding: const EdgeInsets.fromLTRB(
           AppSpacing.lg, AppSpacing.base, AppSpacing.lg, AppSpacing.xl),
-      child: FutureBuilder<List<Plan>>(
-        future: planLogProvider.getCompletedPlansForDate(date, allPlans),
-        builder: (context, snapshot) {
-          final completedPlans = snapshot.data ?? [];
-
-          return Column(
-            mainAxisSize: MainAxisSize.min,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Center(
-                child: Container(
-                  width: 40,
-                  height: 4,
-                  margin: const EdgeInsets.only(bottom: AppSpacing.base),
-                  decoration: BoxDecoration(
-                    color: AppColors.beige,
-                    borderRadius: BorderRadius.circular(AppRadius.pill),
-                  ),
-                ),
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Center(
+            child: Container(
+              width: 40,
+              height: 4,
+              margin: const EdgeInsets.only(bottom: AppSpacing.base),
+              decoration: BoxDecoration(
+                color: AppColors.beige,
+                borderRadius: BorderRadius.circular(AppRadius.pill),
               ),
-              Text('$weekday, ${date.day}. ${_months[date.month - 1]}',
-                  style: AppText.screenTitle.copyWith(fontSize: 20)),
-              const SizedBox(height: AppSpacing.lg),
-              if (completedPlans.isEmpty && appointments.isEmpty && pains.isEmpty)
-                _Empty()
-              else ...[
-                if (completedPlans.isNotEmpty) ...[
-                  Text('ABGESCHLOSSENE PLÄNE', style: AppText.micro),
-                  const SizedBox(height: AppSpacing.sm),
-                  ...completedPlans.map((plan) => _Row(
-                    color: app.colorForRegion(plan.region.name),
-                    title: plan.name,
-                    subtitle: '${plan.exercises.length} Übungen absolviert',
-                    done: true,
-                  )),
-                  const SizedBox(height: AppSpacing.base),
-                ],
-                if (appointments.isNotEmpty) ...[
-                  Text('TERMINE', style: AppText.micro),
-                  const SizedBox(height: AppSpacing.sm),
-                  ...appointments.map((a) => _Row(
-                    color: AppColors.alertSoft,
-                    title: a.title,
-                    subtitle: '${a.time} Uhr${(a.note != null && a.note!.isNotEmpty) ? ' · ${a.note}' : ''}',
-                  )),
-                  const SizedBox(height: AppSpacing.base),
-                ],
-                if (pains.isNotEmpty) ...[
-                  Text('SCHMERZ-EINTRÄGE', style: AppText.micro),
-                  const SizedBox(height: AppSpacing.sm),
-                  ...pains.map((p) => _Row(
-                    color: app.colorForRegion(p.region.name),
-                    title: '${p.region.label}: Level ${p.level}/10',
-                    subtitle: p.note.isNotEmpty ? p.note : 'Keine Notiz',
-                  )),
-                ],
+            ),
+          ),
+          Text('$weekday, ${widget.date.day}. ${DayDetailSheet._months[widget.date.month - 1]}',
+              style: AppText.screenTitle.copyWith(fontSize: 20)),
+          const SizedBox(height: AppSpacing.lg),
+          if (_isLoading)
+            const Padding(
+              padding: EdgeInsets.symmetric(vertical: AppSpacing.xl),
+              child: Center(child: CircularProgressIndicator()),
+            )
+          else if (_completedPlans.isEmpty && pains.isEmpty)
+            _Empty()
+          else ...[
+              if (_completedPlans.isNotEmpty) ...[
+                Text('ABGESCHLOSSENE PLÄNE', style: AppText.micro),
+                const SizedBox(height: AppSpacing.sm),
+                ..._completedPlans.map((plan) => _Row(
+                  color: plan.color,
+                  title: plan.name,
+                  subtitle: '${plan.exercises.length} Übungen absolviert',
+                  done: true,
+                )),
+                const SizedBox(height: AppSpacing.base),
+              ],
+              if (pains.isNotEmpty) ...[
+                Text('SCHMERZ-EINTRÄGE', style: AppText.micro),
+                const SizedBox(height: AppSpacing.sm),
+                ...pains.map((p) => _Row(
+                  color: p.region.color,
+                  title: '${p.region.label}: Level ${p.level}/10',
+                  subtitle: p.note.isNotEmpty ? p.note : 'Keine Notiz',
+                )),
               ],
             ],
-          );
-        },
+        ],
       ),
     );
   }
@@ -167,7 +179,7 @@ class _Row extends StatelessWidget {
               ),
             ),
             if (done)
-              const Icon(Icons.check_circle, size: 18, color: AppColors.sage),
+              const Icon(Icons.check_circle, size: 18, color: AppColors.sageDeep),
           ],
         ),
       ),
