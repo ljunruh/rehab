@@ -1,10 +1,21 @@
+import 'package:app_prototype/data/enum/body_part.dart';
+import 'package:app_prototype/data/enum/skill_level.dart';
+import 'package:app_prototype/data/models/api/api_models.dart' as api;
+import 'package:app_prototype/data/models/api/plan.dart';
+import 'package:app_prototype/data/provider/pain_log_exercise_provider.dart';
+import 'package:app_prototype/data/provider/pain_log_provider.dart';
+import 'package:app_prototype/data/provider/plan_log_exercise_provider.dart';
+import 'package:app_prototype/data/provider/plan_provider.dart';
+import 'package:app_prototype/features/plans/plan_training_video_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:provider/provider.dart';
+import 'package:video_player/video_player.dart';
+
 import '../../core/theme/app_theme.dart';
 import '../../core/widgets/widgets.dart';
-import '../../state/ui_state.dart';
 import '../../data/models/models.dart';
+import '../../state/ui_state.dart';
 
 /// PERSON 2 — Trainings-Durchlauf eines Plans.
 ///
@@ -40,61 +51,57 @@ class _PlanTrainingScreenState extends State<PlanTrainingScreen> {
   bool _stepsOpen = true;
   bool _safetyOpen = true;
 
+  @override
+  void initState() {
+    super.initState();
+
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      final planProvider = context.read<PlanProvider>();
+      planProvider.getPlan(widget.planId);
+      context.read<PlanLogExerciseProvider>().loadTodayLogs(activePlans: planProvider.activePlans);
+    });
+  }
+
   Color _painColor(int v) {
     if (v >= 7) return const Color(0xFFC5705D);
     if (v >= 4) return const Color(0xFFC99A3B);
     return AppColors.sage;
   }
 
-  int _planDuration(TrainingPlan plan, UiState app) {
-    var total = 0;
-    for (final id in plan.exerciseIds) {
-      for (final e in app.library) {
-        if (e.id == id) {
-          total += int.tryParse(e.duration.replaceAll(RegExp(r'[^0-9]'), '')) ?? 0;
-          break;
-        }
-      }
-    }
-    return total;
-  }
-
   @override
   Widget build(BuildContext context) {
     final app = context.watch<UiState>();
-    final plan = app.planById(widget.planId);
-    if (plan == null) {
-      return Center(child: Text('Plan nicht gefunden.', style: AppText.body));
-    }
+    final planProvider = context.watch<PlanProvider>();
+    final logProvider = context.watch<PlanLogExerciseProvider>();
 
-    final exercises = <Exercise>[];
-    for (final id in plan.exerciseIds) {
-      for (final e in app.library) {
-        if (e.id == id) {
-          exercises.add(e);
-          break;
-        }
-      }
-    }
+    final plan = planProvider.plan;
+    final exercises = plan?.exercises ?? [];
+    final planDuration = plan?.duration ?? 0;
 
-    if (exercises.isEmpty) {
-      return Center(
-        child: Text('Dieser Plan enthält keine Übungen.', style: AppText.body),
-      );
-    }
+    if (plan == null) return Center(child: Text('Plan nicht gefunden.', style: AppText.body));
+    if (exercises.isEmpty) return Center(child: Text('Dieser Plan enthält keine Übungen.', style: AppText.body));
 
     if (_done) {
       return _CompletionView(
         exerciseCount: exercises.length,
-        duration: _planDuration(plan, app),
+        duration: planDuration,
         onFinish: widget.onFinish,
       );
     }
 
-    final current = exercises[_idx];
-    final isLast = _idx == exercises.length - 1;
+    final api.Exercise current = exercises[_idx];
+    final isLastIndex = _idx == exercises.length - 1;
     final pain = _painLevels[_idx];
     final severe = pain != null && pain >= 7;
+
+    final isCurrentCompleted = logProvider.isExerciseCompletedToday(plan.id, current.id);
+    final willCompleteAll = logProvider.willCompleteAllWithThisClick(plan, current.id);
+
+    final String primaryButtonLabel = isCurrentCompleted
+        ? 'Übung bereits heute erledigt'
+        : (willCompleteAll
+        ? 'Übung erledigt – Plan abschließen'
+        : 'Übung erledigt · Weiter');
 
     return ListView(
       padding: const EdgeInsets.fromLTRB(
@@ -142,79 +149,7 @@ class _PlanTrainingScreenState extends State<PlanTrainingScreen> {
         const SizedBox(height: AppSpacing.lg),
 
         // Visual-Hero mit Play-Button und Dauer-Badge
-        AspectRatio(
-          aspectRatio: 16 / 10,
-          child: Container(
-            clipBehavior: Clip.antiAlias,
-            decoration: BoxDecoration(
-              gradient: const LinearGradient(
-                begin: Alignment.topLeft,
-                end: Alignment.bottomRight,
-                colors: [AppColors.mint, AppColors.sageLight],
-              ),
-              borderRadius: BorderRadius.circular(AppRadius.card),
-            ),
-            child: Stack(
-              children: [
-                Positioned(
-                  top: -30,
-                  right: -20,
-                  child: Container(
-                    width: 120,
-                    height: 120,
-                    decoration: const BoxDecoration(
-                      color: Color(0x40FFFFFF),
-                      shape: BoxShape.circle,
-                    ),
-                  ),
-                ),
-                Center(
-                  child: Container(
-                    width: 64,
-                    height: 64,
-                    decoration: BoxDecoration(
-                      color: AppColors.white,
-                      shape: BoxShape.circle,
-                      boxShadow: [
-                        BoxShadow(
-                          color: AppColors.text.withOpacity(0.12),
-                          blurRadius: 16,
-                          offset: const Offset(0, 4),
-                        ),
-                      ],
-                    ),
-                    child: const Icon(Icons.play_arrow,
-                        size: 28, color: AppColors.sageDeep),
-                  ),
-                ),
-                Positioned(
-                  bottom: 14,
-                  right: 14,
-                  child: Container(
-                    padding: const EdgeInsets.symmetric(
-                        horizontal: 10, vertical: 5),
-                    decoration: BoxDecoration(
-                      color: const Color(0xA61F2421),
-                      borderRadius: BorderRadius.circular(999),
-                    ),
-                    child: Row(
-                      mainAxisSize: MainAxisSize.min,
-                      children: [
-                        const Icon(Icons.access_time,
-                            size: 11, color: AppColors.white),
-                        const SizedBox(width: 5),
-                        Text('${current.duration} Min',
-                            style: AppText.micro.copyWith(
-                                color: AppColors.white,
-                                fontWeight: FontWeight.w500)),
-                      ],
-                    ),
-                  ),
-                ),
-              ],
-            ),
-          ),
-        ),
+        PlanTrainingVideoWidget(assetPath: current.video, key: ValueKey(current.id)),
         const SizedBox(height: AppSpacing.lg),
 
         // Titel + Info-Toggle
@@ -222,7 +157,7 @@ class _PlanTrainingScreenState extends State<PlanTrainingScreen> {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             Expanded(
-              child: Text(current.name,
+              child: Text(current.label,
                   style: AppText.screenTitle.copyWith(fontSize: 24)),
             ),
             const SizedBox(width: AppSpacing.sm),
@@ -257,14 +192,14 @@ class _PlanTrainingScreenState extends State<PlanTrainingScreen> {
           spacing: AppSpacing.sm,
           runSpacing: AppSpacing.sm,
           children: [
-            _Pill(current.region),
-            _Pill(current.difficulty),
+            _Pill(BodyPartExt.fromString(current.bodyParts[0]).label),
+            _Pill(SkillLevelExt.fromString(current.difficulty).label),
           ],
         ),
         const SizedBox(height: AppSpacing.base),
 
         // Ausführung (Schritte) – aufklappbar
-        if (current.steps.isNotEmpty)
+        if (current.instructions.isNotEmpty)
           Padding(
             padding: const EdgeInsets.only(bottom: AppSpacing.sm),
             child: AppCard(
@@ -289,11 +224,11 @@ class _PlanTrainingScreenState extends State<PlanTrainingScreen> {
                   ),
                   if (_stepsOpen) ...[
                     const SizedBox(height: AppSpacing.sm),
-                    for (int i = 0; i < current.steps.length; i++)
+                    for (int i = 0; i < current.instructions.length; i++)
                       Padding(
                         padding: EdgeInsets.only(
                           bottom:
-                              i == current.steps.length - 1 ? 0 : AppSpacing.sm,
+                          i == current.instructions.length - 1 ? 0 : AppSpacing.sm,
                         ),
                         child: Row(
                           crossAxisAlignment: CrossAxisAlignment.start,
@@ -313,7 +248,7 @@ class _PlanTrainingScreenState extends State<PlanTrainingScreen> {
                             ),
                             const SizedBox(width: AppSpacing.sm),
                             Expanded(
-                              child: Text(current.steps[i],
+                              child: Text(current.instructions[i],
                                   style: AppText.caption
                                       .copyWith(color: AppColors.text, height: 1.55)),
                             ),
@@ -326,8 +261,8 @@ class _PlanTrainingScreenState extends State<PlanTrainingScreen> {
             ),
           ),
 
-        // Korrekturen & Hinweise – aufklappbar, warme Farbe
-        if (current.safety.isNotEmpty)
+        // Korrekturen & Hinweise – aufklappbar
+        if (current.instructions.isNotEmpty)
           Padding(
             padding: const EdgeInsets.only(bottom: AppSpacing.base),
             child: Container(
@@ -361,10 +296,10 @@ class _PlanTrainingScreenState extends State<PlanTrainingScreen> {
                   ),
                   if (_safetyOpen) ...[
                     const SizedBox(height: AppSpacing.sm),
-                    for (int i = 0; i < current.safety.length; i++)
+                    for (int i = 0; i < current.hints.length; i++)
                       Padding(
                         padding: EdgeInsets.only(
-                          bottom: i == current.safety.length - 1
+                          bottom: i == current.hints.length - 1
                               ? 0
                               : AppSpacing.sm,
                         ),
@@ -382,7 +317,7 @@ class _PlanTrainingScreenState extends State<PlanTrainingScreen> {
                             ),
                             const SizedBox(width: AppSpacing.sm),
                             Expanded(
-                              child: Text(current.safety[i],
+                              child: Text(current.hints[i],
                                   style: AppText.caption.copyWith(
                                       color: const Color(0xFF8F4631),
                                       height: 1.55)),
@@ -408,7 +343,7 @@ class _PlanTrainingScreenState extends State<PlanTrainingScreen> {
                 child: Container(
                   width: double.infinity,
                   padding:
-                      const EdgeInsets.symmetric(horizontal: 14, vertical: 11),
+                  const EdgeInsets.symmetric(horizontal: 14, vertical: 11),
                   decoration: BoxDecoration(
                     color: AppColors.white,
                     borderRadius: BorderRadius.circular(13),
@@ -426,8 +361,7 @@ class _PlanTrainingScreenState extends State<PlanTrainingScreen> {
                               fontWeight: FontWeight.w500,
                               color: AppColors.text)),
                       const SizedBox(width: 6),
-                      Text('optional',
-                          style: AppText.micro),
+                      Text('optional', style: AppText.micro),
                       const Spacer(),
                       if (pain != null)
                         Container(
@@ -476,11 +410,11 @@ class _PlanTrainingScreenState extends State<PlanTrainingScreen> {
                                           ? _painColor(v)
                                           : AppColors.offwhite,
                                       borderRadius:
-                                          BorderRadius.circular(9),
+                                      BorderRadius.circular(9),
                                       border: pain == v
                                           ? null
                                           : Border.all(
-                                              color: AppColors.beige),
+                                          color: AppColors.beige),
                                     ),
                                     child: Text('$v',
                                         style: AppText.micro.copyWith(
@@ -548,7 +482,7 @@ class _PlanTrainingScreenState extends State<PlanTrainingScreen> {
                         const SizedBox(height: 3),
                         Text(
                           'Bei so starken Schmerzen brich die Übung lieber ab '
-                          'und sprich mit deinem Physio, bevor du weitermachst.',
+                              'und sprich mit deinem Physio, bevor du weitermachst.',
                           style: AppText.micro.copyWith(
                               color: const Color(0xFFA05B45), height: 1.5),
                         ),
@@ -586,11 +520,17 @@ class _PlanTrainingScreenState extends State<PlanTrainingScreen> {
           ),
 
         PrimaryButton(
-          label: isLast
-              ? 'Übung erledigt – Plan abschließen'
-              : 'Übung erledigt · Weiter',
-          icon: isLast ? Icons.check : Icons.arrow_forward,
-          onPressed: () => _handleNext(app, current, isLast),
+          label: primaryButtonLabel,
+          icon: isCurrentCompleted || willCompleteAll ? Icons.check : Icons.arrow_forward,
+          disabled: isCurrentCompleted,
+          onPressed: isCurrentCompleted
+              ? null
+              : () => _handleNext(
+            plan: plan,
+            current: current,
+            isLastIndex: isLastIndex,
+            willCompleteAll: willCompleteAll,
+          ),
         ),
         const SizedBox(height: AppSpacing.sm),
         Row(
@@ -602,10 +542,7 @@ class _PlanTrainingScreenState extends State<PlanTrainingScreen> {
                   icon: Icons.chevron_left,
                   onPressed: () => setState(() {
                     _idx -= 1;
-                    _stepsOpen = true;
-                    _safetyOpen = true;
-                    _infoOpen = false;
-                    _painOpen = false;
+                    _resetToggles();
                   }),
                 ),
               ),
@@ -613,16 +550,17 @@ class _PlanTrainingScreenState extends State<PlanTrainingScreen> {
             ],
             Expanded(
               child: SecondaryButton(
-                label: isLast ? 'Pausieren' : 'Überspringen',
+                label: isLastIndex
+                    ? 'Training beenden'
+                    : (isCurrentCompleted ? 'Weiter' : 'Überspringen'),
                 onPressed: () {
                   if (_idx < exercises.length - 1) {
                     setState(() {
                       _idx += 1;
-                      _stepsOpen = true;
-                      _safetyOpen = true;
-                      _infoOpen = false;
-                      _painOpen = false;
+                      _resetToggles();
                     });
+                  } else {
+                    widget.onExit();
                   }
                 },
               ),
@@ -633,29 +571,54 @@ class _PlanTrainingScreenState extends State<PlanTrainingScreen> {
     );
   }
 
-  void _handleNext(UiState app, Exercise current, bool isLast) {
-    setState(() {
-      _painOpen = false;
-      _infoOpen = false;
-      _stepsOpen = true;
-      _safetyOpen = true;
-    });
+  void _handleNext({
+    required Plan plan,
+    required api.Exercise current,
+    required bool isLastIndex,
+    required bool willCompleteAll,
+  }) {
+    _resetToggles();
+
+    // Schmerz verarbeiten
     final pain = _painLevels[_idx];
     if (pain != null) {
-      final now = DateTime.now();
-      app.addPainLog(PainLog(
+      context.read<PainLogExerciseProvider>().addPainLog(
         level: pain,
-        region: current.region,
-        note: '',
-        date: now,
-        dateKey: PainLog.keyOf(now),
-      ));
+        region: BodyPartExt.fromString(current.bodyParts[0]),
+        date: DateTime.now(),
+        planId: plan.id,
+        exerciseId: current.id,
+      );
     }
-    if (isLast) {
+
+    // Übung in Isar loggen
+    context.read<PlanLogExerciseProvider>().logExercise(
+      planId: plan.id,
+      exerciseId: current.id,
+    );
+
+    // Weiterleitung entscheiden
+    if (willCompleteAll) {
+      context.read<PlanProvider>().incrementCompletedSessions(plan.id);
       setState(() => _done = true);
-    } else {
+    } else if (!isLastIndex) {
       setState(() => _idx += 1);
+    } else {
+      // Falls am Ende der Liste noch Übungen offen sind: Zur nächsten offenen springen
+      final nextOpenIdx = context.read<PlanLogExerciseProvider>().getNextOpenExerciseIndex(plan);
+      if (nextOpenIdx != -1) {
+        setState(() => _idx = nextOpenIdx);
+      } else {
+        widget.onExit();
+      }
     }
+  }
+
+  void _resetToggles() {
+    _painOpen = false;
+    _infoOpen = false;
+    _stepsOpen = true;
+    _safetyOpen = true;
   }
 }
 

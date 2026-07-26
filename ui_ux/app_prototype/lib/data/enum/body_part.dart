@@ -145,58 +145,93 @@ extension BodyPartExt on BodyPart {
 
   static BodyPart fromString(String value) {
     switch (value) {
-      case "ankles":
+      case "Ankles":
         return BodyPart.ankles;
-      case "arms":
+      case "Arms":
         return BodyPart.arms;
-      case "back":
+      case "Back":
         return BodyPart.back;
-      case "biceps":
+      case "Biceps":
         return BodyPart.biceps;
-      case "calves":
+      case "Calves":
         return BodyPart.calves;
-      case "chest":
+      case "Chest":
         return BodyPart.chest;
-      case "core":
+      case "Core":
         return BodyPart.core;
-      case "elbows":
+      case "Elbows":
         return BodyPart.elbows;
-      case "glutes":
+      case "Glutes":
         return BodyPart.glutes;
-      case "hamstrings":
+      case "Hamstrings":
         return BodyPart.hamstrings;
-      case "hip":
+      case "Hip":
         return BodyPart.hip;
-      case "knees":
+      case "Knees":
         return BodyPart.knees;
-      case "legs":
+      case "Legs":
         return BodyPart.legs;
-      case "lowerBack":
+      case "LowerBack":
         return BodyPart.lowerBack;
-      case "neck":
+      case "Neck":
         return BodyPart.neck;
-      case "obliques":
+      case "Obliques":
         return BodyPart.obliques;
-      case "pelvic":
+      case "Pelvic":
         return BodyPart.pelvic;
-      case "psoas":
+      case "Psoas":
         return BodyPart.psoas;
-      case "quadriceps":
+      case "Quadriceps":
         return BodyPart.quadriceps;
-      case "shoulders":
+      case "Shoulders":
         return BodyPart.shoulders;
-      case "spine":
+      case "Spine":
         return BodyPart.spine;
-      case "thighs":
+      case "Thighs":
         return BodyPart.thighs;
-      case "triceps":
+      case "Triceps":
         return BodyPart.triceps;
-      case "upperBack":
+      case "UpperBack":
         return BodyPart.upperBack;
-      case "wrists":
+      case "Wrists":
         return BodyPart.wrists;
       default:
         return BodyPart.none;
+    }
+  }
+
+  String get article {
+    switch (this) {
+      case BodyPart.chest:
+      case BodyPart.hip:
+      case BodyPart.obliques:
+      case BodyPart.shoulders:
+      case BodyPart.spine:
+        return "deiner";
+      case BodyPart.ankles:
+      case BodyPart.arms:
+      case BodyPart.back:
+      case BodyPart.biceps:
+      case BodyPart.calves:
+      case BodyPart.core:
+      case BodyPart.elbows:
+      case BodyPart.glutes:
+      case BodyPart.hamstrings:
+      case BodyPart.knees:
+      case BodyPart.legs:
+      case BodyPart.lowerBack:
+      case BodyPart.neck:
+      case BodyPart.pelvic:
+      case BodyPart.psoas:
+      case BodyPart.quadriceps:
+      case BodyPart.thighs:
+      case BodyPart.triceps:
+      case BodyPart.upperBack:
+      case BodyPart.wrists:
+        return "deinem";
+
+      case BodyPart.none:
+        return "";
     }
   }
 }

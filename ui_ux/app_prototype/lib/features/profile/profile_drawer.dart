@@ -13,6 +13,16 @@ import 'package:app_prototype/data/enum/skill_level.dart';
 import 'package:app_prototype/data/enum/contraindication.dart';
 
 /// PERSON 4 — Profil-Drawer (fährt von rechts ein).
+///
+/// Zeigt Profil-Kopf, schnelle Aktionen (Profil bearbeiten, Praxis,
+/// Einstellungen) und das Archiv (archivierte Pläne mit Wiederherstellen/
+/// Löschen). Entspricht ProfileDrawer im JSX-Prototyp.
+///
+/// Kein Login/Abmelden: Die App hat bewusst keine Anmeldung (Team-Entscheidung),
+/// es werden keine Login-Daten gespeichert.
+///
+/// Wird als Overlay über die App gelegt (siehe app_shell). Die Animation
+/// (Slide-in + Overlay-Fade) übernimmt ein AnimationController.
 class ProfileDrawer extends StatefulWidget {
   final VoidCallback onClose;
   final VoidCallback onEditProfile;
@@ -304,10 +314,7 @@ class _ProfileDrawerState extends State<ProfileDrawer>
                                   ),
                                 )),
                             ],
-
                             const SizedBox(height: AppSpacing.base),
-
-                            // ── NEU: Akzeptanzkriterium 3: "Ausloggen" wird durch "Profil löschen" ersetzt ──
                             GestureDetector(
                               onTap: () {
                                 showDialog(

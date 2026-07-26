@@ -1,12 +1,16 @@
-import 'package:app_prototype/data/provider/plan_provider.dart';
+import 'package:app_prototype/data/enum/body_part.dart';
+import 'package:app_prototype/data/enum/goal.dart';
 import 'package:app_prototype/data/models/api/api_models.dart' as api;
+import 'package:app_prototype/data/models/api/plan.dart';
+import 'package:app_prototype/data/provider/plan_log_exercise_provider.dart';
+import 'package:app_prototype/data/provider/plan_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:provider/provider.dart';
+
 import '../../core/theme/app_theme.dart';
 import '../../core/widgets/widgets.dart';
 import '../../state/ui_state.dart';
-import '../../data/models/models.dart';
 
 /// PERSON 2 — Detailansicht eines Trainingsplans.
 ///
@@ -48,7 +52,9 @@ class _PlanDetailScreenState extends State<PlanDetailScreen> {
     super.initState();
 
     WidgetsBinding.instance.addPostFrameCallback((_) {
-      context.read<PlanProvider>().getPlan(widget.planId);
+      final planProvider = context.read<PlanProvider>();
+      planProvider.getPlan(widget.planId);
+      context.read<PlanLogExerciseProvider>().loadTodayLogs(activePlans: planProvider.activePlans);
     });
   }
 
@@ -60,7 +66,7 @@ class _PlanDetailScreenState extends State<PlanDetailScreen> {
     return 'Mobilisation';
   }
 
-  Future<void> _confirmDelete(UiState app, api.Plan plan) async {
+  Future<void> _confirmDelete(UiState app, Plan plan) async {
     final confirmed = await showModalBottomSheet<bool>(
       context: context,
       backgroundColor: AppColors.cream,
@@ -91,7 +97,7 @@ class _PlanDetailScreenState extends State<PlanDetailScreen> {
             const SizedBox(height: AppSpacing.sm),
             Text(
               'Möchtest du "${plan.name}" wirklich löschen? Diese Aktion '
-              'kann nicht rückgängig gemacht werden.',
+                  'kann nicht rückgängig gemacht werden.',
               textAlign: TextAlign.center,
               style: AppText.caption.copyWith(height: 1.55),
             ),
@@ -117,7 +123,7 @@ class _PlanDetailScreenState extends State<PlanDetailScreen> {
                       ),
                       child: Text('Löschen',
                           style:
-                              AppText.button.copyWith(color: AppColors.white)),
+                          AppText.button.copyWith(color: AppColors.white)),
                     ),
                   ),
                 ),
@@ -137,35 +143,48 @@ class _PlanDetailScreenState extends State<PlanDetailScreen> {
   Widget build(BuildContext context) {
     final app = context.watch<UiState>();
     final planProvider = context.watch<PlanProvider>();
+    final planLogExerciseProvider = context.watch<PlanLogExerciseProvider>();
+
     final plan = planProvider.plan;
-    final exercises = plan?.exercises ?? [];
-    final planDuration = plan?.duration;
-    //final plan = app.planById(widget.planId);
 
     if (plan == null) {
       return Center(child: Text('Plan nicht gefunden.', style: AppText.body));
     }
 
-    // UI DemoData auskommentieren
-    // Übungen des Plans aus der Bibliothek auflösen (in exerciseIds-Reihenfolge).
-    /*
-    final exercises = <Exercise>[];
-    for (final id in plan.exerciseIds) {
-      for (final e in app.library) {
-        if (e.id == id) {
-          exercises.add(e);
-          break;
-        }
-      }
+    final exercises = plan.exercises;
+    final planDuration = plan.duration;
+    final accent = plan.color ?? AppColors.sage;
+
+    // Status- und Fortschrittslogik
+    final isLimitReached = plan.completedSessions >= plan.sessionsPerWeek;
+    final progress = planLogExerciseProvider.getTodayProgress(plan);
+
+    final int done = progress.done;
+    final int total = progress.total;
+    final bool isFullyDone = isLimitReached || (total > 0 && done == total);
+
+    // Button-Eigenschaften anhand des Status bestimmen
+    final String startButtonLabel;
+    final IconData startButtonIcon;
+
+    if (exercises.isEmpty) {
+      startButtonLabel = 'Keine Übungen im Plan';
+      startButtonIcon = Icons.play_arrow;
+    } else if (isLimitReached) {
+      startButtonLabel = 'Wochenziel erreicht';
+      startButtonIcon = Icons.check;
+    } else if (done == total) {
+      startButtonLabel = 'Heute erledigt';
+      startButtonIcon = Icons.check;
+    } else if (done > 0) {
+      startButtonLabel = 'Weiter trainieren';
+      startButtonIcon = Icons.play_arrow;
+    } else {
+      startButtonLabel = 'Training starten';
+      startButtonIcon = Icons.play_arrow;
     }
 
-    final totalMinutes = exercises.fold<int>(0, (sum, e) {
-      final m = int.tryParse(e.duration.replaceAll(RegExp(r'[^0-9]'), '')) ?? 0;
-      return sum + m;
-    });
-    */
-
-    final accent = plan.color ?? AppColors.sage;
+    final bool isButtonDisabled = isFullyDone || exercises.isEmpty;
 
     return ListView(
       padding: const EdgeInsets.fromLTRB(
@@ -179,7 +198,7 @@ class _PlanDetailScreenState extends State<PlanDetailScreen> {
         const SizedBox(height: AppSpacing.base),
 
         // Cover (zentriert)
-        Center(child: _PlanCover(region: plan.region)),
+        Center(child: _PlanCover(region: plan.region.label)),
         const SizedBox(height: AppSpacing.lg),
 
         // Titel + Bearbeiten-Toggle
@@ -197,8 +216,8 @@ class _PlanDetailScreenState extends State<PlanDetailScreen> {
                     runSpacing: AppSpacing.sm,
                     crossAxisAlignment: WrapCrossAlignment.center,
                     children: [
-                      AppTag(plan.region, variant: TagVariant.region),
-                      AppTag(_rubrikLabel(plan.goal), variant: TagVariant.goal),
+                      AppTag(plan.region.label, variant: TagVariant.region),
+                      AppTag(_rubrikLabel(plan.goal.label), variant: TagVariant.goal),
                       Container(
                         padding: const EdgeInsets.symmetric(
                             horizontal: 12, vertical: 6),
@@ -208,7 +227,7 @@ class _PlanDetailScreenState extends State<PlanDetailScreen> {
                         ),
                         child: Text('Kalenderfarbe',
                             style:
-                                AppText.label.copyWith(color: AppColors.white)),
+                            AppText.label.copyWith(color: AppColors.white)),
                       ),
                     ],
                   ),
@@ -234,7 +253,7 @@ class _PlanDetailScreenState extends State<PlanDetailScreen> {
         ),
         const SizedBox(height: AppSpacing.lg),
 
-        // Kennzahlen (linksbündig, letzte rechtsbündig)
+        // Kennzahlen
         AppCard(
           background: AppColors.offwhite,
           padding: const EdgeInsets.all(18),
@@ -246,8 +265,8 @@ class _PlanDetailScreenState extends State<PlanDetailScreen> {
               const Spacer(),
               _StatBlock(
                 label: 'ABGESCHLOSSEN',
-                value: '${plan.completedSessions}×',
-                valueColor: AppColors.sageDeep,
+                value: '${plan.completedSessions}/${plan.sessionsPerWeek}',
+                valueColor: isLimitReached ? AppColors.sageDeep : AppColors.text,
                 alignRight: true,
               ),
             ],
@@ -280,12 +299,12 @@ class _PlanDetailScreenState extends State<PlanDetailScreen> {
                                 shape: BoxShape.circle,
                                 border: accent.value == c.value
                                     ? Border.all(
-                                        color: AppColors.text, width: 2)
+                                    color: AppColors.text, width: 2)
                                     : null,
                               ),
                               child: accent.value == c.value
                                   ? const Icon(Icons.check,
-                                      size: 16, color: AppColors.white)
+                                  size: 16, color: AppColors.white)
                                   : null,
                             ),
                           ),
@@ -325,7 +344,7 @@ class _PlanDetailScreenState extends State<PlanDetailScreen> {
                   child: Container(
                     width: 196,
                     padding:
-                        const EdgeInsets.symmetric(horizontal: 12, vertical: 10),
+                    const EdgeInsets.symmetric(horizontal: 12, vertical: 10),
                     decoration: BoxDecoration(
                       color: AppColors.white,
                       borderRadius: BorderRadius.circular(12),
@@ -367,13 +386,13 @@ class _PlanDetailScreenState extends State<PlanDetailScreen> {
             shrinkWrap: true,
             physics: const NeverScrollableScrollPhysics(),
             buildDefaultDragHandles: false,
-              onReorder: (oldIndex, newIndex) {
-                final exercises = List<api.Exercise>.from(plan.exercises);
-                if (newIndex > oldIndex) newIndex -= 1;
-                final movedExercise = exercises.removeAt(oldIndex);
-                exercises.insert(newIndex, movedExercise);
-                planProvider.updatePlanExercises(exercises);
-              },
+            onReorder: (oldIndex, newIndex) {
+              final exercisesList = List<api.Exercise>.from(plan.exercises);
+              if (newIndex > oldIndex) newIndex -= 1;
+              final movedExercise = exercisesList.removeAt(oldIndex);
+              exercisesList.insert(newIndex, movedExercise);
+              planProvider.updatePlanExercises(exercisesList);
+            },
             children: [
               for (int i = 0; i < exercises.length; i++)
                 Padding(
@@ -388,9 +407,9 @@ class _PlanDetailScreenState extends State<PlanDetailScreen> {
                       child: const _DragDots(),
                     ),
                     onRemove: () {
-                      final exercises = List<api.Exercise>.from(plan.exercises);
-                      exercises.remove(exercises[i]);
-                      planProvider.updatePlanExercises(exercises);
+                      final exercisesList = List<api.Exercise>.from(plan.exercises);
+                      exercisesList.removeAt(i);
+                      planProvider.updatePlanExercises(exercisesList);
                     },
                   ),
                 ),
@@ -409,13 +428,6 @@ class _PlanDetailScreenState extends State<PlanDetailScreen> {
 
         if (_editing) ...[
           const SizedBox(height: AppSpacing.sm),
-          // "Übung aus Bibliothek hinzufügen" – im Prototyp optisch als
-          // gestrichelte Karte, dort aber ohne Funktion (kein onClick,
-          // toter Code). Damit das Team weiterhin Übungen ergänzen kann,
-          // habe ich das hier bewusst funktionsfähig gelassen (führt zum
-          // bestehenden Bibliotheks-Flow) statt es rein dekorativ zu
-          // lassen — sonst gäbe es in der App gar keinen Weg mehr, einem
-          // Plan nachträglich Übungen hinzuzufügen.
           GestureDetector(
             onTap: () => widget.onAddExercise(plan.id),
             child: Container(
@@ -460,7 +472,7 @@ class _PlanDetailScreenState extends State<PlanDetailScreen> {
                   const SizedBox(width: AppSpacing.sm),
                   Text('Plan archivieren',
                       style:
-                          AppText.button.copyWith(color: AppColors.white)),
+                      AppText.button.copyWith(color: AppColors.white)),
                 ],
               ),
             ),
@@ -484,18 +496,21 @@ class _PlanDetailScreenState extends State<PlanDetailScreen> {
                   const SizedBox(width: AppSpacing.sm),
                   Text('Plan löschen',
                       style:
-                          AppText.button.copyWith(color: AppColors.white)),
+                      AppText.button.copyWith(color: AppColors.white)),
                 ],
               ),
             ),
           ),
         ] else ...[
           const SizedBox(height: 26),
+          // Dynamischer Primary Button
           PrimaryButton(
-            label: 'Training starten',
-            icon: Icons.play_arrow,
-            onPressed:
-                exercises.isEmpty ? null : () => widget.onStartTraining(plan.id),
+            label: startButtonLabel,
+            icon: startButtonIcon,
+            disabled: isButtonDisabled,
+            onPressed: isButtonDisabled
+                ? null
+                : () => widget.onStartTraining(plan.id),
           ),
         ],
       ],
@@ -520,7 +535,7 @@ class _StatBlock extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       crossAxisAlignment:
-          alignRight ? CrossAxisAlignment.end : CrossAxisAlignment.start,
+      alignRight ? CrossAxisAlignment.end : CrossAxisAlignment.start,
       mainAxisSize: MainAxisSize.min,
       children: [
         Text(label, style: AppText.micro),
@@ -649,7 +664,6 @@ class _PlanExerciseRow extends StatelessWidget {
   }
 }
 
-/// Plan-Cover (großes, farbiges Badge), entspricht PlanCover im Prototyp.
 class _PlanCover extends StatelessWidget {
   final String region;
   const _PlanCover({required this.region});
@@ -697,34 +711,34 @@ class _PlanCover extends StatelessWidget {
       child: icon == null
           ? null
           : Stack(
-              children: [
-                Positioned(
-                  top: -dim * 0.12,
-                  right: -dim * 0.12,
-                  child: Container(
-                    width: dim * 0.44,
-                    height: dim * 0.44,
-                    decoration: BoxDecoration(
-                      color: p.a.withOpacity(0.55),
-                      shape: BoxShape.circle,
-                    ),
-                  ),
-                ),
-                Positioned(
-                  bottom: -dim * 0.18,
-                  left: -dim * 0.12,
-                  child: Container(
-                    width: dim * 0.56,
-                    height: dim * 0.56,
-                    decoration: BoxDecoration(
-                      color: p.b.withOpacity(0.32),
-                      shape: BoxShape.circle,
-                    ),
-                  ),
-                ),
-                Center(child: Icon(icon, size: 52, color: p.b)),
-              ],
+        children: [
+          Positioned(
+            top: -dim * 0.12,
+            right: -dim * 0.12,
+            child: Container(
+              width: dim * 0.44,
+              height: dim * 0.44,
+              decoration: BoxDecoration(
+                color: p.a.withOpacity(0.55),
+                shape: BoxShape.circle,
+              ),
             ),
+          ),
+          Positioned(
+            bottom: -dim * 0.18,
+            left: -dim * 0.12,
+            child: Container(
+              width: dim * 0.56,
+              height: dim * 0.56,
+              decoration: BoxDecoration(
+                color: p.b.withOpacity(0.32),
+                shape: BoxShape.circle,
+              ),
+            ),
+          ),
+          Center(child: Icon(icon, size: 52, color: p.b)),
+        ],
+      ),
     );
   }
 }

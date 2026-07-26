@@ -11,15 +11,15 @@ import '../../data/models/models.dart';
 class ConcentricRings extends StatefulWidget {
   final List<WeeklyRing> rings;
   final double size;
-  final double strokeWidth;
-  final double gap;
+  final double? strokeWidth; // optional für manuelle Überschreibung
+  final double? gap;         // optional für manuelle Überschreibung
 
   const ConcentricRings({
     super.key,
     required this.rings,
     this.size = 168,
-    this.strokeWidth = 13,
-    this.gap = 5,
+    this.strokeWidth,
+    this.gap,
   });
 
   @override
@@ -59,8 +59,9 @@ class _ConcentricRingsState extends State<ConcentricRings>
           return CustomPaint(
             painter: _RingsPainter(
               rings: widget.rings,
-              strokeWidth: widget.strokeWidth,
-              gap: widget.gap,
+              size: widget.size,
+              overrideStrokeWidth: widget.strokeWidth,
+              overrideGap: widget.gap,
               t: _anim.value,
             ),
           );
@@ -72,35 +73,60 @@ class _ConcentricRingsState extends State<ConcentricRings>
 
 class _RingsPainter extends CustomPainter {
   final List<WeeklyRing> rings;
-  final double strokeWidth;
-  final double gap;
+  final double size;
+  final double? overrideStrokeWidth;
+  final double? overrideGap;
   final double t; // Animationsfortschritt 0..1
 
   _RingsPainter({
     required this.rings,
-    required this.strokeWidth,
-    required this.gap,
+    required this.size,
+    this.overrideStrokeWidth,
+    this.overrideGap,
     required this.t,
   });
 
   @override
   void paint(Canvas canvas, Size size) {
+    if (rings.isEmpty) return;
+
     final center = Offset(size.width / 2, size.height / 2);
+    final count = rings.length;
 
-    for (int i = 0; i < rings.length; i++) {
+    // Radius, der für alle Ringe inklusive Lücken zur Verfügung steht (mit 2px Rand außen)
+    final maxAvailableRadius = (size.width / 2) - 2;
+
+    // Berechnung:
+    // Wir teilen den verfügbaren Radius dynamisch auf die Anzahl der Ringe auf.
+    // Jedes Ring-Segment besteht aus 1x strokeWidth + 0.35x gap.
+    final calculatedStroke = maxAvailableRadius / (count * 1.35);
+
+    final double strokeWidth = overrideStrokeWidth ??
+        (count <= 3 && size.width >= 100
+            ? 13.0
+            : calculatedStroke.clamp(2.5, 12.0)); // min auf 2.5 runtergesetzt für kleine Container
+
+    final double gap = overrideGap ?? (strokeWidth * 0.35).clamp(1.0, 4.0);
+
+    final outerRadius = size.width / 2 - strokeWidth / 2 - 1;
+
+    for (int i = 0; i < count; i++) {
       final ring = rings[i];
-      final radius = size.width / 2 - strokeWidth / 2 - i * (strokeWidth + gap);
-      if (radius <= 0) continue;
+      final radius = outerRadius - i * (strokeWidth + gap);
 
-      // Hintergrund-Ring (beige).
+      // Verhindert Zeichnen, falls der Radius das Zentrum erreicht
+      if (radius < strokeWidth / 2) break;
+
+      // Hintergrund-Ring (beige)
       final bgPaint = Paint()
         ..style = PaintingStyle.stroke
         ..strokeWidth = strokeWidth
         ..color = AppColors.beige;
       canvas.drawCircle(center, radius, bgPaint);
 
-      // Gestaffelter Start je Ring.
-      final delayed = ((t - i * 0.12) / (1 - i * 0.12)).clamp(0.0, 1.0);
+      // Gestaffelter Start je Ring
+      final delayStep = count > 1 ? 0.4 / count : 0.0;
+      final delayed = ((t - i * delayStep) / (1 - i * delayStep)).clamp(0.0, 1.0);
       final sweep = 2 * math.pi * ring.progress * delayed;
       if (sweep <= 0) continue;
 
@@ -151,9 +177,10 @@ class RingsLegend extends StatelessWidget {
                 const SizedBox(width: 10),
                 Expanded(child: Text(r.label, style: AppText.body)),
                 const SizedBox(width: AppSpacing.base),
-                Text('${r.done}/${r.goal}',
-                    style: AppText.body
-                        .copyWith(color: AppColors.textSecondary)),
+                Text(
+                  '${r.done}/${r.goal}',
+                  style: AppText.body.copyWith(color: AppColors.textSecondary),
+                ),
               ],
             ),
           ),
