@@ -126,6 +126,33 @@ class _CalendarWidgetState extends State<CalendarWidget> {
   String _key(int day) =>
       '$_year-${_month.toString().padLeft(2, '0')}-${day.toString().padLeft(2, '0')}';
 
+  /// Hilfs-Widget für die kleine Schmerz-Farbleiste (1 bis 10) unten im Schmerz-Modus
+  Widget _buildPainScaleLegend() {
+    return Row(
+      mainAxisSize: MainAxisSize.min,
+      children: [
+        Text('1', style: AppText.micro),
+        const SizedBox(width: 4),
+        Row(
+          children: List.generate(10, (index) {
+            final level = index + 1;
+            return Container(
+              width: 8,
+              height: 8,
+              margin: const EdgeInsets.symmetric(horizontal: 1),
+              decoration: BoxDecoration(
+                color: _painColorFor(level),
+                borderRadius: BorderRadius.circular(2),
+              ),
+            );
+          }),
+        ),
+        const SizedBox(width: 4),
+        Text('10', style: AppText.micro),
+      ],
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     final calendarProvider = context.watch<CalendarProvider>();
@@ -269,6 +296,7 @@ class _CalendarWidgetState extends State<CalendarWidget> {
                   },
                 ),
                 const SizedBox(height: AppSpacing.md),
+                const SizedBox(height: AppSpacing.md),
                 Container(
                   padding: const EdgeInsets.only(top: AppSpacing.sm),
                   decoration: const BoxDecoration(
@@ -278,36 +306,70 @@ class _CalendarWidgetState extends State<CalendarWidget> {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Expanded(
-                        child: mode == CalendarMode.pain
-                            ? Wrap(
-                          spacing: 8,
-                          runSpacing: 4,
-                          children: activePainRegions.take(3).map((r) {
-                            return Row(
-                              mainAxisSize: MainAxisSize.min,
-                              children: [
-                                Container(
-                                  width: 8,
-                                  height: 8,
-                                  decoration: BoxDecoration(
-                                    color: r.color,
-                                    shape: BoxShape.circle,
-                                  ),
-                                ),
-                                const SizedBox(width: 4),
-                                Text(r.label, style: AppText.micro),
-                              ],
+                        child: mode == CalendarMode.exercises
+                            ? Builder(
+                          builder: (context) {
+                            // 1. Alle absolvierten Pläne dieses Monats ermitteln
+                            final monthPrefix = '$_year-${_month.toString().padLeft(2, '0')}';
+                            final monthEntries = _completedPlansByDate.entries
+                                .where((entry) => entry.key.startsWith(monthPrefix));
+
+                            final List<Plan> completedPlansInMonth = [];
+                            for (var entry in monthEntries) {
+                              completedPlansInMonth.addAll(entry.value);
+                            }
+
+                            // 2. Eindeutige Körperregionen (BodyParts) des Monats filtern
+                            final trainedRegionsInMonth = completedPlansInMonth
+                                .map((p) => p.region)
+                                .where((r) => r != BodyPart.none)
+                                .toSet()
+                                .toList();
+
+                            if (trainedRegionsInMonth.isEmpty) {
+                              return Text(
+                                'Keine Trainings',
+                                style: AppText.micro.copyWith(color: AppColors.textMuted),
+                              );
+                            }
+
+                            // 3. Maximal 3 trainierte Regionen unten mit kleiner Farbmarkierung anzeigen
+                            return Wrap(
+                              spacing: 8,
+                              runSpacing: 4,
+                              children: trainedRegionsInMonth.take(3).map((r) {
+                                return Row(
+                                  mainAxisSize: MainAxisSize.min,
+                                  children: [
+                                    Container(
+                                      width: 8,
+                                      height: 8,
+                                      decoration: BoxDecoration(
+                                        color: r.color,
+                                        shape: BoxShape.circle,
+                                      ),
+                                    ),
+                                    const SizedBox(width: 4),
+                                    Text(r.label, style: AppText.micro),
+                                  ],
+                                );
+                              }).toList(),
                             );
-                          }).toList(),
+                          },
                         )
-                            : Container(),
+                        // Im Schmerz-Modus wird die farbige Schmerzskala (1 bis 10) angezeigt
+                            : _buildPainScaleLegend(),
                       ),
                       Row(
                         mainAxisSize: MainAxisSize.min,
                         children: [
-                          Text('Öffnen',
-                              style: AppText.micro.copyWith(
-                                  color: AppColors.sageDeep, fontWeight: FontWeight.w500)),
+                          Text(
+                            'Öffnen',
+                            style: AppText.micro.copyWith(
+                              color: AppColors.sageDeep,
+                              fontWeight: FontWeight.w500,
+                            ),
+                          ),
                           const Icon(Icons.chevron_right, size: 13, color: AppColors.sageDeep),
                         ],
                       ),
