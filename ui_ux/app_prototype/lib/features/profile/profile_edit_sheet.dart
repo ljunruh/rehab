@@ -50,16 +50,16 @@ class _ProfileEditSheetState extends State<ProfileEditSheet> {
   void initState() {
     super.initState();
     final userProvider = context.read<UserProvider>();
-    final dbUser = userProvider.user;
+    final user = userProvider.user;
 
-    _nameCtrl = TextEditingController(text: dbUser?.name ?? 'Name eingeben');
-    _ageCtrl = TextEditingController(text: dbUser?.age.toString() ?? '');
-    _heightCtrl = TextEditingController(text: dbUser?.height.toString() ?? '');
-    _weightCtrl = TextEditingController(text: dbUser?.weight.toString() ?? '');
-    _selectedGender = dbUser?.gender ?? Gender.diverse;
-    _selectedSkillLevel = dbUser?.skillLevel ?? SkillLevel.beginner;
+    _nameCtrl = TextEditingController(text: user?.name ?? 'Name eingeben');
+    _ageCtrl = TextEditingController(text: user?.age.toString() ?? '');
+    _heightCtrl = TextEditingController(text: user?.height.toString() ?? '');
+    _weightCtrl = TextEditingController(text: user?.weight.toString() ?? '');
+    _selectedGender = user?.gender ?? Gender.diverse;
+    _selectedSkillLevel = user?.skillLevel ?? SkillLevel.beginner;
 
-    _selectedInjuries = List.from(dbUser?.contraindication ?? [])
+    _selectedInjuries = List.from(user?.contraindication ?? [])
         .map((e) => ContraindicationExt.fromString(e).label)
         .toList();
   }
@@ -76,7 +76,7 @@ class _ProfileEditSheetState extends State<ProfileEditSheet> {
   @override
   Widget build(BuildContext context) {
     final userProvider = context.watch<UserProvider>();
-    final dbUser = userProvider.user;
+    final user = userProvider.user;
     final bottomInset = MediaQuery.of(context).viewInsets.bottom;
     final userInitials = userProvider.initials;
 
@@ -408,9 +408,9 @@ class _ProfileEditSheetState extends State<ProfileEditSheet> {
                   await userProvider.saveUser(
                     name: _nameCtrl.text.trim(),
                     gender: _selectedGender,
-                    age: int.tryParse(_ageCtrl.text) ?? dbUser?.age ?? 0,
-                    height: int.tryParse(_heightCtrl.text) ?? dbUser?.height ?? 0,
-                    weight: int.tryParse(_weightCtrl.text) ?? dbUser?.weight ?? 0,
+                    age: int.tryParse(_ageCtrl.text) ?? user?.age ?? 0,
+                    height: int.tryParse(_heightCtrl.text) ?? user?.height ?? 0,
+                    weight: int.tryParse(_weightCtrl.text) ?? user?.weight ?? 0,
                     skillLevel: _selectedSkillLevel,
                     injuries: ontologyIds,
                   );

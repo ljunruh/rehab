@@ -72,7 +72,7 @@ class _ProfileDrawerState extends State<ProfileDrawer>
   @override
   Widget build(BuildContext context) {
     final userProvider = context.watch<UserProvider>();
-    final dbUser = userProvider.user;
+    final user = userProvider.user;
     final app = context.watch<UiState>();
     final uiProfile = app.profile;
     final archived = app.plans.where((p) => p.archived).toList();
@@ -160,7 +160,7 @@ class _ProfileDrawerState extends State<ProfileDrawer>
                                             fontWeight: FontWeight.w700)),
                                   ),
                                   const SizedBox(height: AppSpacing.md),
-                                  Text(dbUser?.name ?? 'Name eingeben', // Aus Isar
+                                  Text(user?.name ?? 'Name eingeben', // Aus Isar
                                       style: AppText.screenTitle
                                           .copyWith(fontSize: 20)),
                                 ],
@@ -180,10 +180,10 @@ class _ProfileDrawerState extends State<ProfileDrawer>
                                     spacing: AppSpacing.sm,
                                     runSpacing: AppSpacing.sm,
                                     children: [
-                                      if ((dbUser?.contraindication ?? []).isEmpty)
+                                      if ((user?.contraindication ?? []).isEmpty)
                                         const AppTag('Keine Einschränkungen', variant: TagVariant.goal)
                                       else
-                                        for (final injuryId in dbUser!.contraindication)
+                                        for (final injuryId in user!.contraindication)
                                           AppTag(
                                             ContraindicationExt.fromString(injuryId).shortLabel,
                                             variant: TagVariant.goal,
@@ -198,9 +198,9 @@ class _ProfileDrawerState extends State<ProfileDrawer>
                                       style: AppText.caption),
                                   const SizedBox(height: AppSpacing.sm),
                                   AppTag(
-                                      dbUser?.skillLevel == SkillLevel.advanced
+                                      user?.skillLevel == SkillLevel.advanced
                                           ? 'Fortgeschritten'
-                                          : dbUser?.skillLevel == SkillLevel.intermediate
+                                          : user?.skillLevel == SkillLevel.intermediate
                                           ? 'Geübt'
                                           : 'Anfänger',
                                       variant: TagVariant.goal)

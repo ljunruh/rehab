@@ -134,7 +134,7 @@ extension ContraindicationExt on Contraindication {
       case Contraindication.coreWeakness:
         return "Rumpf";
       case Contraindication.hamstringIssue:
-        return "Hamstrings";
+        return "Beinbeuger";
       case Contraindication.hipIssue:
         return "Hüfte";
       case Contraindication.kneeIssue:
