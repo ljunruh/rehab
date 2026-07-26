@@ -325,6 +325,9 @@ class _CalendarWidgetState extends State<CalendarWidget> {
                   child: _LegendPopover(
                     mode: mode,
                     activePainRegions: activePainRegions,
+                    year: _year,
+                    month: _month,
+                    completedPlansByDate: _completedPlansByDate,
                   ),
                 ),
               ),
@@ -338,14 +341,35 @@ class _CalendarWidgetState extends State<CalendarWidget> {
 class _LegendPopover extends StatelessWidget {
   final CalendarMode mode;
   final List<BodyPart> activePainRegions;
+  final int year;
+  final int month;
+  final Map<String, List<Plan>> completedPlansByDate;
 
   const _LegendPopover({
+    super.key,
     required this.mode,
     required this.activePainRegions,
+    required this.year,
+    required this.month,
+    required this.completedPlansByDate,
   });
 
   @override
   Widget build(BuildContext context) {
+    // 1. Alle absolvierten Pläne des ausgewählten Monats ermitteln
+    final monthPrefix = '$year-${month.toString().padLeft(2, '0')}';
+
+    final completedPlansInMonth = completedPlansByDate.entries
+        .where((entry) => entry.key.startsWith(monthPrefix))
+        .expand((entry) => entry.value);
+
+    // 2. Nur die eindeutigen Trainingsbereiche (BodyParts) filtern, die in diesem Monat trainiert wurden
+    final trainedRegionsInMonth = completedPlansInMonth
+        .map((plan) => plan.region)
+        .where((region) => region != BodyPart.none)
+        .toSet()
+        .toList();
+
     return Container(
       width: 220,
       padding: const EdgeInsets.all(AppSpacing.md),
@@ -365,32 +389,77 @@ class _LegendPopover extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisSize: MainAxisSize.min,
         children: [
-          Text('Legende', style: AppText.caption.copyWith(fontWeight: FontWeight.w600)),
+          Text(
+            'Legende',
+            style: AppText.caption.copyWith(fontWeight: FontWeight.w600),
+          ),
           const SizedBox(height: AppSpacing.sm),
-          if (mode == CalendarMode.pain) ...[
-            Text('Körperregionen im Monat:', style: AppText.micro),
+          if (mode == CalendarMode.exercises) ...[
+            Text('Trainingsbereiche des Monats', style: AppText.micro),
             const SizedBox(height: AppSpacing.sm),
-            if (activePainRegions.isEmpty)
-              Text('Keine Eintrags-Daten', style: AppText.micro)
+
+            // Wenn in diesem Monat noch kein Training absolviert wurde:
+            if (trainedRegionsInMonth.isEmpty)
+              Padding(
+                padding: const EdgeInsets.only(bottom: 5),
+                child: Text(
+                  'Keine Trainings in diesem Monat',
+                  style: AppText.micro.copyWith(color: AppColors.textMuted),
+                ),
+              )
             else
-              for (final r in activePainRegions)
+            // Anzeige der tatsächlich trainierten Bereiche
+              for (final region in trainedRegionsInMonth)
                 Padding(
                   padding: const EdgeInsets.only(bottom: 5),
                   child: Row(
                     children: [
                       Container(
-                        width: 8,
-                        height: 8,
+                        width: 12,
+                        height: 12,
                         decoration: BoxDecoration(
-                          color: r.color,
-                          shape: BoxShape.circle,
+                          color: region.color,
+                          borderRadius: BorderRadius.circular(4),
                         ),
                       ),
                       const SizedBox(width: AppSpacing.sm),
-                      Text(r.label, style: AppText.micro),
+                      Expanded(
+                        child: Text(
+                          region.label,
+                          style: AppText.micro,
+                          overflow: TextOverflow.ellipsis,
+                        ),
+                      ),
                     ],
                   ),
                 ),
+
+            Padding(
+              padding: const EdgeInsets.only(top: 4),
+              child: Row(
+                children: [
+                  Container(
+                    width: 12,
+                    height: 12,
+                    decoration: const BoxDecoration(
+                      shape: BoxShape.circle,
+                      border: Border.fromBorderSide(
+                        BorderSide(color: AppColors.sageDeep, width: 1.5),
+                      ),
+                    ),
+                  ),
+                  const SizedBox(width: AppSpacing.sm),
+                  Text('Heutiger Tag', style: AppText.micro),
+                ],
+              ),
+            ),
+          ] else ...[
+            Text('Farbe = Schmerzlevel (1–10)', style: AppText.micro),
+            const SizedBox(height: AppSpacing.sm),
+            Text(
+              'Je dunkler der Kreis, desto höher das Schmerzlevel an diesem Tag.',
+              style: AppText.micro.copyWith(color: AppColors.textMuted),
+            ),
           ],
         ],
       ),
