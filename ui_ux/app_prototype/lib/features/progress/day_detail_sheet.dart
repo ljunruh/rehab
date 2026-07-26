@@ -1,11 +1,16 @@
+import 'package:app_prototype/data/enum/body_part.dart';
+import 'package:app_prototype/data/models/api/api_models.dart';
+import 'package:app_prototype/data/provider/pain_log_provider.dart';
+import 'package:app_prototype/data/provider/plan_log_exercise_provider.dart';
+import 'package:app_prototype/data/provider/plan_provider.dart';
+import 'package:app_prototype/data/repository/plan_log_exercise_repository.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../../core/theme/app_theme.dart';
 import '../../core/widgets/widgets.dart';
-import '../../state/ui_state.dart';
 
 /// Tagesdetail-Sheet: zeigt Übungen, Termine und Schmerz-Einträge eines Tages.
-class DayDetailSheet extends StatelessWidget {
+class DayDetailSheet extends StatefulWidget {
   final DateTime date;
   const DayDetailSheet({super.key, required this.date});
 
@@ -25,24 +30,54 @@ class DayDetailSheet extends StatelessWidget {
       isScrollControlled: true,
       constraints: const BoxConstraints(maxWidth: 380),
       shape: const RoundedRectangleBorder(
-        borderRadius:
-            BorderRadius.vertical(top: Radius.circular(AppRadius.sheet)),
+        borderRadius: BorderRadius.vertical(top: Radius.circular(AppRadius.sheet)),
       ),
       builder: (_) => DayDetailSheet(date: date),
     );
   }
 
+  @override
+  State<DayDetailSheet> createState() => _DayDetailSheetState();
+}
+
+class _DayDetailSheetState extends State<DayDetailSheet> {
+  List<PlanDayProgress> _planProgresses = [];
+  bool _isLoading = true;
+
   String get _dateKey =>
-      '${date.year}-${date.month.toString().padLeft(2, '0')}-${date.day.toString().padLeft(2, '0')}';
+      '${widget.date.year}-${widget.date.month.toString().padLeft(2, '0')}-${widget.date.day.toString().padLeft(2, '0')}';
+
+  @override
+  void initState() {
+    super.initState();
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      _loadPlanProgresses();
+    });
+  }
+
+  /// Lädt alle gestarteten Pläne für den Tag über den Provider
+  Future<void> _loadPlanProgresses() async {
+    if (!mounted) return;
+
+    final planLogProvider = context.read<PlanLogExerciseProvider>();
+    final allPlans = context.read<PlanProvider>().plans;
+
+    final progresses = await planLogProvider.getPlanProgressForDate(widget.date, allPlans);
+
+    if (!mounted) return;
+    setState(() {
+      _planProgresses = progresses;
+      _isLoading = false;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
-    final app = context.watch<UiState>();
-    final events = app.eventsOn(_dateKey);
-    final exercises = events.where((e) => e.type == 'exercise').toList();
-    final appointments = events.where((e) => e.type == 'appointment').toList();
-    final pains = app.painOn(_dateKey);
-    final weekday = _weekdays[(date.weekday + 6) % 7];
+    final painProvider = context.watch<PainLogProvider>();
+
+    // Schmerzeinträge für das gewählte Datum laden
+    final pains = painProvider.getLogsForDateKey(_dateKey);
+    final weekday = DayDetailSheet._weekdays[(widget.date.weekday - 1) % 7];
 
     return Padding(
       padding: const EdgeInsets.fromLTRB(
@@ -62,45 +97,38 @@ class DayDetailSheet extends StatelessWidget {
               ),
             ),
           ),
-          Text('$weekday, ${date.day}. ${_months[date.month - 1]}',
+          Text('$weekday, ${widget.date.day}. ${DayDetailSheet._months[widget.date.month - 1]}',
               style: AppText.screenTitle.copyWith(fontSize: 20)),
           const SizedBox(height: AppSpacing.lg),
-          if (exercises.isEmpty && appointments.isEmpty && pains.isEmpty)
+          if (_isLoading)
+            const Padding(
+              padding: EdgeInsets.symmetric(vertical: AppSpacing.xl),
+              child: Center(child: CircularProgressIndicator()),
+            )
+          else if (_planProgresses.isEmpty && pains.isEmpty)
             _Empty()
           else ...[
-            if (exercises.isNotEmpty) ...[
-              Text('ÜBUNGEN', style: AppText.micro),
-              const SizedBox(height: AppSpacing.sm),
-              ...exercises.map((e) => _Row(
-                    color: app.colorForRegion(e.region),
-                    title: e.title,
-                    subtitle: e.region.isNotEmpty ? e.region : 'Allgemein',
-                    done: e.done,
-                  )),
-              const SizedBox(height: AppSpacing.base),
+              if (_planProgresses.isNotEmpty) ...[
+                Text('TRAININGSEINHEITEN', style: AppText.micro),
+                const SizedBox(height: AppSpacing.sm),
+                ..._planProgresses.map((progress) => _Row(
+                  color: progress.plan.color,
+                  title: progress.plan.name,
+                  subtitle: '${progress.completedExercisesCount} von ${progress.totalExercisesCount} Übungen absolviert',
+                  done: progress.isFullyCompleted, // Grüne Häkchen nur bei 100%
+                )),
+                const SizedBox(height: AppSpacing.base),
+              ],
+              if (pains.isNotEmpty) ...[
+                Text('SCHMERZ-EINTRÄGE', style: AppText.micro),
+                const SizedBox(height: AppSpacing.sm),
+                ...pains.map((p) => _Row(
+                  color: p.region.color,
+                  title: '${p.region.label}: Level ${p.level}/10',
+                  subtitle: p.note.isNotEmpty ? p.note : 'Keine Notiz',
+                )),
+              ],
             ],
-            if (appointments.isNotEmpty) ...[
-              Text('TERMINE', style: AppText.micro),
-              const SizedBox(height: AppSpacing.sm),
-              ...appointments.map((a) => _Row(
-                    color: AppColors.alertSoft,
-                    title: a.title,
-                    subtitle: '${a.time} Uhr${(a.note != null && a.note!.isNotEmpty) ? ' · ${a.note}' : ''}',
-                  )),
-              const SizedBox(height: AppSpacing.base),
-            ],
-            if (pains.isNotEmpty) ...[
-              Text('SCHMERZ-EINTRÄGE', style: AppText.micro),
-              const SizedBox(height: AppSpacing.sm),
-              ...pains.map((p) => _Row(
-                    color: p.level >= 7
-                        ? AppColors.alertSoft
-                        : AppColors.sageLight,
-                    title: '${p.region}: Level ${p.level}/10',
-                    subtitle: p.note.isNotEmpty ? p.note : 'Keine Notiz',
-                  )),
-            ],
-          ],
         ],
       ),
     );
@@ -142,15 +170,17 @@ class _Row extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(title, style: AppText.cardTitle),
-                  Text(subtitle,
-                      maxLines: 1,
-                      overflow: TextOverflow.ellipsis,
-                      style: AppText.caption),
+                  Text(
+                    subtitle,
+                    maxLines: 1,
+                    overflow: TextOverflow.ellipsis,
+                    style: AppText.caption,
+                  ),
                 ],
               ),
             ),
             if (done)
-              const Icon(Icons.check_circle, size: 18, color: AppColors.sage),
+              const Icon(Icons.check_circle, size: 18, color: AppColors.sageDeep),
           ],
         ),
       ),

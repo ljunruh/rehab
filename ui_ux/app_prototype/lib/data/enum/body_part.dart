@@ -1,4 +1,9 @@
 // Kopie aus Graphen (BodyPart Class/Individuals)
+import 'dart:ui';
+
+import 'package:app_prototype/core/theme/app_colors.dart';
+import 'package:flutter/material.dart';
+
 enum BodyPart {
   ankles,
   arms,
@@ -232,6 +237,62 @@ extension BodyPartExt on BodyPart {
 
       case BodyPart.none:
         return "";
+    }
+  }
+
+  /*TODO:
+     Körperregionen sind nicht von Planfarbe anhängig.
+     Es kann mehre Pläne mit unterschiedlichen Farben für eine Körperregion geben.
+     Welche Farbe kommt die Körpreregion dann??
+     Übergangslösung!
+   */
+  Color get color {
+    switch (this) {
+    // Brust / Schultern / Oberkörper (Koralle & Petrol)
+      case BodyPart.chest:
+        return PlanColors.koralle;
+      case BodyPart.shoulders:
+        return PlanColors.petrol;
+    // Arme (Gold, Sand & Terrakotta)
+      case BodyPart.arms:
+      case BodyPart.biceps:
+        return PlanColors.gold;
+      case BodyPart.triceps:
+      case BodyPart.elbows:
+        return PlanColors.sand;
+      case BodyPart.wrists:
+        return PlanColors.terrakotta;
+    // Rücken & Wirbelsäule (Marine & Petrol)
+      case BodyPart.back:
+      case BodyPart.upperBack:
+        return PlanColors.marine;
+      case BodyPart.lowerBack:
+      case BodyPart.spine:
+        return PlanColors.petrol;
+    // Rumpf & Hals (Türkis & Lila)
+      case BodyPart.core:
+      case BodyPart.obliques:
+        return PlanColors.tuerkis;
+      case BodyPart.neck:
+        return PlanColors.lila;
+    // Becken & Hüfte (Lila & Terrakotta)
+      case BodyPart.hip:
+      case BodyPart.pelvic:
+      case BodyPart.glutes:
+      case BodyPart.psoas:
+        return PlanColors.lila;
+    // Beine / Oberschenkel / Unterschenkel (Olive & Türkis)
+      case BodyPart.legs:
+      case BodyPart.thighs:
+      case BodyPart.quadriceps:
+      case BodyPart.hamstrings:
+        return PlanColors.olive;
+      case BodyPart.calves:
+      case BodyPart.knees:
+      case BodyPart.ankles:
+        return PlanColors.tuerkis;
+      default:
+        return Colors.transparent;
     }
   }
 }

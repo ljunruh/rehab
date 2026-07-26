@@ -10,6 +10,8 @@ class PlanLogExerciseProvider extends ChangeNotifier {
     loadTodayLogs();
   }
 
+  List<PlanLogExercise> _allLogs = [];
+  List<PlanLogExercise> get allLogs => _allLogs;
   List<PlanLogExercise> _todayLogs = [];
   List<PlanLogExercise> get todayLogs => _todayLogs;
   int _weeklyStreak = 1;
@@ -17,6 +19,7 @@ class PlanLogExerciseProvider extends ChangeNotifier {
 
   /// Lädt die heutigen Logs und berechnet den Streak basierend auf den aktiven Plänen neu
   Future<void> loadTodayLogs({List<Plan> activePlans = const []}) async {
+    _allLogs = await repo.getAllLogs();
     _todayLogs = await repo.getLogsForDate(DateTime.now());
     _weeklyStreak = await repo.getWeeklyStreak(activePlans); // 👈 Hier übergeben
     notifyListeners();
@@ -77,6 +80,28 @@ class PlanLogExerciseProvider extends ChangeNotifier {
   /// Liefert den Index der ersten Übung, die heute noch nicht erledigt wurde (-1 wenn alle fertig sind)
   int getNextOpenExerciseIndex(Plan plan) {
     return plan.exercises.indexWhere((ex) => !isExerciseCompletedToday(plan.id, ex.id));
+  }
+
+  /// Berechnet abgeschlossene Pläne für ein bestimmtes Kalender-Datum
+  Future<List<Plan>> getCompletedPlansForDate(DateTime date, List<Plan> allPlans) async {
+    return await repo.getCompletedPlansForDate(
+      date: date,
+      availablePlans: allPlans,
+    );
+  }
+
+  /// Prüft für das Kalender-Dotting, ob an einem bestimmten Tag mindestens 1 Plan abgeschlossen wurde
+  Future<bool> hasCompletedPlanOnDate(DateTime date, List<Plan> allPlans) async {
+    final completed = await getCompletedPlansForDate(date, allPlans);
+    return completed.isNotEmpty;
+  }
+
+  /// Neu: Holt den Fortschritt aller gestarteten Pläne für ein bestimmtes Kalender-Datum
+  Future<List<PlanDayProgress>> getPlanProgressForDate(DateTime date, List<Plan> allPlans) async {
+    return await repo.getPlanProgressForDate(
+      date: date,
+      availablePlans: allPlans,
+    );
   }
 
   //TODO[API]: Test um WeeklyStreak zu simulieren und Fake Daten dafür anzulegen

@@ -1,9 +1,25 @@
 import 'package:app_prototype/data/enum/body_part.dart';
 import 'package:app_prototype/data/enum/goal.dart';
 import 'package:app_prototype/data/models/api/api_models.dart';
-import 'package:app_prototype/data/models/api/pain_log_exercise.dart';
 import 'package:app_prototype/data/models/api/plan_log_exercise.dart';
+import 'package:collection/collection.dart';
 import 'package:isar/isar.dart';
+
+/// Hilfsmodell zur Darstellung des Plan-Fortschritts an einem bestimmten Tag
+class PlanDayProgress {
+  final Plan plan;
+  final int completedExercisesCount;
+  final int totalExercisesCount;
+
+  bool get isFullyCompleted =>
+      totalExercisesCount > 0 && completedExercisesCount >= totalExercisesCount;
+
+  PlanDayProgress({
+    required this.plan,
+    required this.completedExercisesCount,
+    required this.totalExercisesCount,
+  });
+}
 
 extension DateTimeWeekExtension on DateTime {
   /// Berechnet die ISO-Kalenderwoche (1–53)
@@ -21,6 +37,11 @@ class PlanLogExerciseRepository {
   final Isar isar;
 
   PlanLogExerciseRepository(this.isar);
+
+  /// Holt alle historischen Logs aus der Datenbank
+  Future<List<PlanLogExercise>> getAllLogs() async {
+    return await isar.planLogExercises.where().findAll();
+  }
 
   /// Speichert ein einzelnes Übungs-Log
   Future<void> saveLog(String planId, String exerciseId) async {
@@ -122,6 +143,39 @@ class PlanLogExerciseRepository {
     return streak > 0 ? streak : 1;
   }
 
+  /// Ermittelt alle Pläne, die an einem bestimmten Tag vollständig absolviert wurden.
+  /// Ein Plan gilt als abgeschlossen, wenn für alle seine Übungen mindestens ein Log an diesem Tag vorliegt.
+  Future<List<Plan>> getCompletedPlansForDate({
+    required DateTime date,
+    required List<Plan> availablePlans,
+  }) async {
+    final logsOnDate = await getLogsForDate(date);
+    if (logsOnDate.isEmpty) return [];
+
+    final completedPlans = <Plan>[];
+
+    for (final plan in availablePlans) {
+      if (plan.exercises.isEmpty) continue;
+
+      // Alle absolvierten Übung-IDs des Tages für diesen Plan filtern
+      final loggedExerciseIds = logsOnDate
+          .where((log) => log.planId == plan.id)
+          .map((log) => log.exerciseId)
+          .toSet();
+
+      // Prüfen, ob jede Übung des Plans in den Logs vertreten ist
+      final isCompleted = plan.exercises.every(
+            (ex) => loggedExerciseIds.contains(ex.id),
+      );
+
+      if (isCompleted) {
+        completedPlans.add(plan);
+      }
+    }
+
+    return completedPlans;
+  }
+
   //TODO[API]: Test um WeeklyStreak zu simulieren und Fake Daten dafür anzulegen
   /// Erstellt gefakte historische Logs für `weeksBack` Wochen in der Vergangenheit.
   /// Berücksichtigt die aktiven Pläne und deren Wochenziele (sessionsPerWeek).
@@ -157,5 +211,51 @@ class PlanLogExerciseRepository {
         }
       }
     });
+  }
+
+  /// Ermittelt alle Pläne, für die an einem bestimmten Tag mindestens eine Übung geloggt wurde,
+  /// und berechnet deren Fortschritt.
+  Future<List<PlanDayProgress>> getPlanProgressForDate({
+    required DateTime date,
+    required List<Plan> availablePlans,
+  }) async {
+    // 1. Logs für den Tag abrufen
+    final logsForDay = await getLogsForDate(date);
+    if (logsForDay.isEmpty) return [];
+
+    // 2. Erledigte Übungs-IDs nach planId gruppieren
+    final Map<String, Set<String>> planCompletedExerciseIds = {};
+    for (final log in logsForDay) {
+      planCompletedExerciseIds.putIfAbsent(log.planId, () => {}).add(log.exerciseId);
+    }
+
+    final List<PlanDayProgress> results = [];
+
+    // 3. Für jeden geloggten Plan den Fortschritt berechnen
+    for (final entry in planCompletedExerciseIds.entries) {
+      final planId = entry.key;
+      final completedIds = entry.value;
+
+      // Sucht den Plan in der Liste – liefert `null`, falls er nicht existiert (z. B. gelöscht)
+      final plan = availablePlans.firstWhereOrNull((p) => p.id == planId);
+
+      // Nur verarbeiten, wenn der Plan tatsächlich in der App existiert
+      if (plan != null) {
+        final totalCount = plan.exercises.length;
+        final completedCount = plan.exercises
+            .where((ex) => completedIds.contains(ex.id))
+            .length;
+
+        if (completedCount > 0) {
+          results.add(PlanDayProgress(
+            plan: plan,
+            completedExercisesCount: completedCount,
+            totalExercisesCount: totalCount,
+          ));
+        }
+      }
+    }
+
+    return results;
   }
 }
