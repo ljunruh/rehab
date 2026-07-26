@@ -3,6 +3,7 @@ import 'package:app_prototype/data/models/api/api_models.dart';
 import 'package:app_prototype/data/provider/pain_log_provider.dart';
 import 'package:app_prototype/data/provider/plan_log_exercise_provider.dart';
 import 'package:app_prototype/data/provider/plan_provider.dart';
+import 'package:app_prototype/data/repository/plan_log_exercise_repository.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../../core/theme/app_theme.dart';
@@ -40,7 +41,7 @@ class DayDetailSheet extends StatefulWidget {
 }
 
 class _DayDetailSheetState extends State<DayDetailSheet> {
-  List<Plan> _completedPlans = [];
+  List<PlanDayProgress> _planProgresses = [];
   bool _isLoading = true;
 
   String get _dateKey =>
@@ -50,22 +51,22 @@ class _DayDetailSheetState extends State<DayDetailSheet> {
   void initState() {
     super.initState();
     WidgetsBinding.instance.addPostFrameCallback((_) {
-      _loadCompletedPlans();
+      _loadPlanProgresses();
     });
   }
 
-  /// Lädt die an diesem Tag absolvierten Pläne über den Provider
-  Future<void> _loadCompletedPlans() async {
+  /// Lädt alle gestarteten Pläne für den Tag über den Provider
+  Future<void> _loadPlanProgresses() async {
     if (!mounted) return;
 
     final planLogProvider = context.read<PlanLogExerciseProvider>();
     final allPlans = context.read<PlanProvider>().plans;
 
-    final completed = await planLogProvider.getCompletedPlansForDate(widget.date, allPlans);
+    final progresses = await planLogProvider.getPlanProgressForDate(widget.date, allPlans);
 
     if (!mounted) return;
     setState(() {
-      _completedPlans = completed;
+      _planProgresses = progresses;
       _isLoading = false;
     });
   }
@@ -74,7 +75,7 @@ class _DayDetailSheetState extends State<DayDetailSheet> {
   Widget build(BuildContext context) {
     final painProvider = context.watch<PainLogProvider>();
 
-    // Echte Schmerzeinträge aus dem PainLogProvider
+    // Schmerzeinträge für das gewählte Datum laden
     final pains = painProvider.getLogsForDateKey(_dateKey);
     final weekday = DayDetailSheet._weekdays[(widget.date.weekday - 1) % 7];
 
@@ -104,17 +105,17 @@ class _DayDetailSheetState extends State<DayDetailSheet> {
               padding: EdgeInsets.symmetric(vertical: AppSpacing.xl),
               child: Center(child: CircularProgressIndicator()),
             )
-          else if (_completedPlans.isEmpty && pains.isEmpty)
+          else if (_planProgresses.isEmpty && pains.isEmpty)
             _Empty()
           else ...[
-              if (_completedPlans.isNotEmpty) ...[
-                Text('ABGESCHLOSSENE PLÄNE', style: AppText.micro),
+              if (_planProgresses.isNotEmpty) ...[
+                Text('TRAININGSEINHEITEN', style: AppText.micro),
                 const SizedBox(height: AppSpacing.sm),
-                ..._completedPlans.map((plan) => _Row(
-                  color: plan.color,
-                  title: plan.name,
-                  subtitle: '${plan.exercises.length} Übungen absolviert',
-                  done: true,
+                ..._planProgresses.map((progress) => _Row(
+                  color: progress.plan.color,
+                  title: progress.plan.name,
+                  subtitle: '${progress.completedExercisesCount} von ${progress.totalExercisesCount} Übungen absolviert',
+                  done: progress.isFullyCompleted, // Grüne Häkchen nur bei 100%
                 )),
                 const SizedBox(height: AppSpacing.base),
               ],

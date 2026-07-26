@@ -96,6 +96,14 @@ class PlanLogExerciseProvider extends ChangeNotifier {
     return completed.isNotEmpty;
   }
 
+  /// Neu: Holt den Fortschritt aller gestarteten Pläne für ein bestimmtes Kalender-Datum
+  Future<List<PlanDayProgress>> getPlanProgressForDate(DateTime date, List<Plan> allPlans) async {
+    return await repo.getPlanProgressForDate(
+      date: date,
+      availablePlans: allPlans,
+    );
+  }
+
   //TODO[API]: Test um WeeklyStreak zu simulieren und Fake Daten dafür anzulegen
   Future<void> seedTestData(int weeks, {List<Plan> activePlans = const []}) async {
     await repo.insertFakeHistoricalLogs(weeks, activePlans);

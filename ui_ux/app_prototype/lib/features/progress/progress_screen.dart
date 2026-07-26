@@ -279,7 +279,7 @@ class _ProgressScreenState extends State<ProgressScreen> {
               const PainHistoryCarousel(),
 
               //TODO[API]: Test Schmerzgraph zu simulieren und Fake Daten dafür anzulegen
-
+              /*
               ElevatedButton.icon(
                 style: ElevatedButton.styleFrom(
                   backgroundColor: AppColors.sageDeep,
@@ -299,7 +299,7 @@ class _ProgressScreenState extends State<ProgressScreen> {
                   }
                 },
               )
-
+            */
             ],
           ),
         ),
