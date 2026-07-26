@@ -236,9 +236,11 @@ class _CalendarWidgetState extends State<CalendarWidget> {
                     final maxPain = painLogs.isEmpty
                         ? null
                         : painLogs.map((p) => p.level).reduce((a, b) => a > b ? a : b);
+                    final hasHighPain = maxPain != null && maxPain >= 7;
 
                     // 2. Abgeschlossene Übungen (synchron aus unserem geladenen State)
                     final completedPlans = _completedPlansByDate[key] ?? [];
+                    final hasCompletedExercises = completedPlans.isNotEmpty;
 
                     Color? bg;
                     Color textColor = AppColors.text;
@@ -248,11 +250,16 @@ class _CalendarWidgetState extends State<CalendarWidget> {
                       bg = _painColorFor(maxPain);
                       textColor = maxPain >= 5 ? AppColors.white : AppColors.text;
                       weight = FontWeight.w600;
-                    } else if (mode == CalendarMode.exercises && completedPlans.isNotEmpty) {
+                    } else if (mode == CalendarMode.exercises && hasCompletedExercises) {
                       bg = completedPlans.first.color;
                       textColor = AppColors.white;
                       weight = FontWeight.w600;
                     }
+
+                    // Blitz anzeigen, wenn im Übungs-Modus Übungen gemacht wurden UND starker Schmerz vorlag
+                    final showWarnDot = mode == CalendarMode.exercises &&
+                        hasCompletedExercises &&
+                        hasHighPain;
 
                     return Stack(
                       alignment: Alignment.center,
@@ -290,6 +297,13 @@ class _CalendarWidgetState extends State<CalendarWidget> {
                                 );
                               }).toList(),
                             ),
+                          ),
+                        // Exakt dieselbe Positionierung wie in CalendarFullScreen
+                        if (showWarnDot)
+                          const Positioned(
+                            top: 3,
+                            right: 3,
+                            child: _WarnDot(),
                           ),
                       ],
                     );
@@ -396,6 +410,19 @@ class _CalendarWidgetState extends State<CalendarWidget> {
           ],
         ),
       ),
+    );
+  }
+}
+
+class _WarnDot extends StatelessWidget {
+  const _WarnDot();
+
+  @override
+  Widget build(BuildContext context) {
+    return SvgPicture.asset(
+      'assets/icons/other/lightningbolt.svg',
+      width: 12,
+      height: 12,
     );
   }
 }
