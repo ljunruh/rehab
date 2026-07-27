@@ -5,6 +5,7 @@ import 'package:app_prototype/data/repository/plan_repository.dart';
 import 'package:flutter/material.dart';
 import 'package:app_prototype/core/theme/app_colors.dart';
 import '../enum/goal.dart';
+import '../models/api/api_models.dart';
 
 class PlanProvider extends ChangeNotifier {
   final PlanRepository repo;
@@ -27,15 +28,11 @@ class PlanProvider extends ChangeNotifier {
   Plan? get recommendedPlan => _recommendedPlan;
   // generiert eine Planempfehlung aus den  Übergebenen Übungen und benachrichtigt UI
   void generateRecommandedPlan(
-      List<Exercise> exercises,
-      BodyPart region,
-      Goal goal,
-      ) {
-    _recommendedPlan = repo.createRecomendedPlan(
-      exercises,
-      region,
-      goal,
-    );
+    List<Exercise> exercises,
+    BodyPart region,
+    Goal goal,
+  ) {
+    _recommendedPlan = repo.createRecomendedPlan(exercises, region, goal);
     notifyListeners();
   }
 
@@ -62,6 +59,83 @@ class PlanProvider extends ChangeNotifier {
     await repo.savePlan(updatedPlan);
     _selectedPlan = updatedPlan;
     notifyListeners();
+  }
+
+  // Plan komplett aus Isar löschen
+  Future<void> deletePlan(String planId) async {
+    final planToDelete = await repo.getPlanById(planId);
+    if (planToDelete != null) {
+      await repo.deletePlan(planToDelete);
+      _plans.removeWhere((p) => p.id == planId);
+      if (_selectedPlan?.id == planId) {
+        _selectedPlan = null;
+      }
+      notifyListeners();
+    }
+  }
+
+  // Plan Archivieren  und De-archivieren
+
+  Future<void> archivePlan(String planId, {bool archive = true}) async {
+    final planToArchive = await repo.getPlanById(planId);
+
+    if (planToArchive != null) {
+      final updatedPlan = planToArchive.copyWith(archived: archive);
+      await repo.savePlan(updatedPlan);
+
+      final index = _plans.indexWhere((p) => p.id == planId);
+      if (index != -1) {
+        _plans[index] = updatedPlan;
+      }
+      if (_selectedPlan?.id == planId) {
+        _selectedPlan = updatedPlan;
+      }
+      notifyListeners();
+    }
+  }
+
+  //Kalenderfarbe eines Plans ändern (in Isar speichern)
+
+  Future<void> updatePlanColor(String planId, Color color) async {
+    final planToUpdate = await repo.getPlanById(planId);
+
+    if (planToUpdate != null) {
+      final updatedPlan = planToUpdate.copyWith(color: color);
+      await repo.savePlan(updatedPlan);
+      final index = _plans.indexWhere((p) => p.id == planId);
+      if (index != -1) {
+        _plans[index] = updatedPlan;
+      }
+      if (_selectedPlan?.id == planId) {
+        _selectedPlan = updatedPlan;
+      }
+      notifyListeners();
+    }
+  }
+
+  // neue Übungen zum Plan hinzufügen (in Isar speichern)
+
+  Future<void> addExercisesToPlan(
+    String planId,
+    List<Exercise> newExercises,
+  ) async {
+    final targetPlan = await repo.getPlanById(planId);
+    if (targetPlan != null) {
+      final updatedList = List<Exercise>.from(targetPlan.exercises)
+        ..addAll(newExercises);
+
+      final updatedPlan = targetPlan.copyWith(exercises: updatedList);
+      await repo.savePlan(updatedPlan);
+
+      final index = _plans.indexWhere((p) => p.id == planId);
+      if (index != -1) {
+        _plans[index] = updatedPlan;
+      }
+      if (_selectedPlan?.id == planId) {
+        _selectedPlan = updatedPlan;
+      }
+      notifyListeners();
+    }
   }
 
   Future<List<BodyPart>> loadActiveTrainedRegions() async {
@@ -95,12 +169,14 @@ class PlanProvider extends ChangeNotifier {
       // Nimm die Farbe direkt vom Plan (mit Fallback auf eine Standardfarbe)
       final Color ringColor = plan.color ?? AppColors.sageDeep;
 
-      rings.add(WeeklyRing(
-        label: plan.name.isNotEmpty ? plan.name : plan.region.label,
-        done: plan.completedSessions,
-        goal: plan.sessionsPerWeek,
-        color: ringColor,
-      ));
+      rings.add(
+        WeeklyRing(
+          label: plan.name.isNotEmpty ? plan.name : plan.region.label,
+          done: plan.completedSessions,
+          goal: plan.sessionsPerWeek,
+          color: ringColor,
+        ),
+      );
     }
 
     return rings;

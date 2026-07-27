@@ -2,8 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../../core/theme/app_theme.dart';
 import '../../core/widgets/widgets.dart';
-import '../../state/ui_state.dart';
 import '../../data/demo/plan_options.dart';
+import '../../data/enum/body_part.dart';
+import '../../data/enum/goal.dart';
+import '../../data/models/api/exercise.dart';
+import '../../data/provider/exercise_provider.dart';
+import '../../data/provider/plan_provider.dart';
+import '../../data/repository/exercise_repository.dart';
 
 /// PERSON 2 — Übungen zu einem bestehenden Plan hinzufügen.
 ///
@@ -29,19 +34,59 @@ class AddExerciseScreen extends StatefulWidget {
 class _AddExerciseScreenState extends State<AddExerciseScreen> {
   String _filterRegion = 'Alle';
   final Set<String> _selected = {};
+  List<Exercise> _library = [];
+
+  @override
+  void initState() {
+    super.initState();
+    _loadExercises();
+  }
+
+  Future<void> _loadExercises() async {
+    final exercises = await context.read<ExerciseProvider>().repo.getAll();
+    if (exercises != null && mounted) {
+      setState(() {
+        _library = exercises;
+      });
+    }
+  }
+
+  // das habe ich implementiert , da die filtermethode wegen deutsch und englisch
+  //nicht funktioniert hat
+  BodyPart _findBodyPart(String text) {
+    final clean = text.trim().toLowerCase();
+    for (final bp in BodyPart.values) {
+      if (bp == BodyPart.none) continue;
+      if (bp.name.toLowerCase() == clean ||
+          bp.label.toLowerCase().contains(clean) ||
+          clean.contains(bp.label.toLowerCase()) ||
+          bp.labelEN.toLowerCase().contains(clean) ||
+          clean.contains(bp.labelEN.toLowerCase())) {
+        return bp;
+      }
+    }
+    return BodyPart.none;
+  }
 
   @override
   Widget build(BuildContext context) {
-    final app = context.watch<UiState>();
-    final plan = app.planById(widget.planId);
-    if (plan == null) {
-      return Center(child: Text('Plan nicht gefunden.', style: AppText.body));
-    }
-    final alreadyIn = plan.exerciseIds.toSet();
+    final planProvider = context.watch<PlanProvider>();
+    final plan = planProvider.plans.firstWhere(
+      (p) => p.id == widget.planId,
+      orElse: () => planProvider.plan!,
+    );
+    final alreadyIn = plan.exercises.map((e) => e.id).toSet();
 
-    var list = app.library;
+    final exerciseRepo = context.read<ExerciseProvider>().repo;
+    var list = _library;
+    // lokale filterungsmethide wird aufgerufen
     if (_filterRegion != 'Alle') {
-      list = list.where((e) => e.region == _filterRegion).toList();
+      final bodyPartEnum = _findBodyPart(_filterRegion);
+      list = exerciseRepo.filterExercises(
+        _library,
+        bodyPart: bodyPartEnum,
+        goal: Goal.none,
+      );
     }
 
     return Column(
@@ -49,7 +94,11 @@ class _AddExerciseScreenState extends State<AddExerciseScreen> {
         Expanded(
           child: ListView(
             padding: const EdgeInsets.fromLTRB(
-                AppSpacing.screenH, AppSpacing.base, AppSpacing.screenH, 24),
+              AppSpacing.screenH,
+              AppSpacing.base,
+              AppSpacing.screenH,
+              24,
+            ),
             children: [
               AppBackButton(onTap: widget.onBack),
               const SizedBox(height: AppSpacing.lg),
@@ -92,12 +141,12 @@ class _AddExerciseScreenState extends State<AddExerciseScreen> {
                       onTap: inPlan
                           ? null
                           : () => setState(() {
-                                if (selected) {
-                                  _selected.remove(ex.id);
-                                } else {
-                                  _selected.add(ex.id);
-                                }
-                              }),
+                              if (selected) {
+                                _selected.remove(ex.id);
+                              } else {
+                                _selected.add(ex.id);
+                              }
+                            }),
                       padding: const EdgeInsets.all(AppSpacing.base),
                       child: Row(
                         children: [
@@ -117,8 +166,11 @@ class _AddExerciseScreenState extends State<AddExerciseScreen> {
                               ),
                             ),
                             child: (selected || inPlan)
-                                ? const Icon(Icons.check,
-                                    size: 16, color: AppColors.white)
+                                ? const Icon(
+                                    Icons.check,
+                                    size: 16,
+                                    color: AppColors.white,
+                                  )
                                 : null,
                           ),
                           const SizedBox(width: AppSpacing.md),
@@ -126,10 +178,11 @@ class _AddExerciseScreenState extends State<AddExerciseScreen> {
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                Text(ex.name, style: AppText.cardTitle),
+                                Text(ex.label, style: AppText.cardTitle),
                                 Text(
-                                    '${ex.region} · ${ex.duration}${inPlan ? ' · bereits im Plan' : ''}',
-                                    style: AppText.caption),
+                                  '${ex.bodyParts.join(', ')} · ${ex.duration} Min${inPlan ? ' · bereits im Plan' : ''}',
+                                  style: AppText.caption,
+                                ),
                               ],
                             ),
                           ),
@@ -146,7 +199,11 @@ class _AddExerciseScreenState extends State<AddExerciseScreen> {
         // Footer
         Container(
           padding: const EdgeInsets.fromLTRB(
-              AppSpacing.screenH, AppSpacing.md, AppSpacing.screenH, 24),
+            AppSpacing.screenH,
+            AppSpacing.md,
+            AppSpacing.screenH,
+            24,
+          ),
           color: AppColors.cream,
           child: PrimaryButton(
             label: _selected.isEmpty
@@ -156,9 +213,14 @@ class _AddExerciseScreenState extends State<AddExerciseScreen> {
             disabled: _selected.isEmpty,
             onPressed: _selected.isEmpty
                 ? null
-                : () {
-                    app.addExercisesToPlan(
-                        widget.planId, _selected.toList());
+                : () async {
+                    final selectedExercises = _library
+                        .where((e) => _selected.contains(e.id))
+                        .toList();
+                    await planProvider.addExercisesToPlan(
+                      widget.planId,
+                      selectedExercises,
+                    );
                     widget.onAdded();
                   },
           ),
