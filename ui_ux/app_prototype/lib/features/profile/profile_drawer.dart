@@ -176,7 +176,7 @@ class _ProfileDrawerState extends State<ProfileDrawer>
                               child: Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
-                                  Text('Verletzungsbereich',
+                                  Text('Beschwerdebereich',
                                       style: AppText.caption),
                                   const SizedBox(height: AppSpacing.sm),
                                   Wrap(
