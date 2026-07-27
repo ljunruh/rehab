@@ -3,6 +3,8 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:provider/provider.dart';
 import '../../core/theme/app_theme.dart';
 import '../../core/widgets/widgets.dart';
+import '../../data/enum/body_part.dart';
+import '../../data/provider/plan_provider.dart';
 import '../../state/ui_state.dart';
 import 'mobility_level_sheet.dart';
 import 'notifications_sheet.dart';
@@ -134,7 +136,7 @@ class _ProfileDrawerState extends State<ProfileDrawer>
                         child: ListView(
                           padding: const EdgeInsets.fromLTRB(20, 0, 20, 24),
                           children: [
-                            // ── Profil-Kopf: Echte Daten statt Mock-Daten ──
+                            // ── Profil-Kopf
                             Center(
                               child: Column(
                                 children: [
@@ -168,7 +170,8 @@ class _ProfileDrawerState extends State<ProfileDrawer>
                             ),
                             const SizedBox(height: AppSpacing.lg),
 
-                            // ── Info-Karte: Trainingsbereiche + Mobilität ──
+                            // ── Info-Karte: Constrains + Aktive Trainingsbereiche + Mobilität ──
+                            // 1. Constrains
                             AppCard(
                               child: Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -190,6 +193,34 @@ class _ProfileDrawerState extends State<ProfileDrawer>
                                           ),
                                     ],
                                   ),
+                                  const SizedBox(height: AppSpacing.base),
+                                  const Divider(color: AppColors.beige, height: 1),
+                                  const SizedBox(height: AppSpacing.base),
+
+                                  // 2. Aktive Trainingsbereiche
+                                  Text('Aktive Trainingsbereiche', style: AppText.caption),
+                                  const SizedBox(height: AppSpacing.sm),
+                                  Consumer<PlanProvider>(
+                                    builder: (context, planProvider, child) {
+                                      final activeRegions = planProvider.activeRegions;
+
+                                      return Wrap(
+                                        spacing: AppSpacing.sm,
+                                        runSpacing: AppSpacing.sm,
+                                        children: [
+                                          if (activeRegions.isEmpty)
+                                            const AppTag('Keine aktiven Bereiche', variant: TagVariant.goal)
+                                          else
+                                            for (final region in activeRegions)
+                                              AppTag(
+                                                region.label,
+                                                variant: TagVariant.goal,
+                                              ),
+                                        ],
+                                      );
+                                    },
+                                  ),
+                                  // 3. Mobilitätslevel
                                   const SizedBox(height: AppSpacing.base),
                                   const Divider(
                                       color: AppColors.beige, height: 1),
