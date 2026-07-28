@@ -13,6 +13,7 @@ import 'settings_sheet.dart';
 import 'package:app_prototype/data/provider/user_provider.dart';
 import 'package:app_prototype/data/enum/skill_level.dart';
 import 'package:app_prototype/data/enum/contraindication.dart';
+import 'package:app_prototype/data/provider/plan_provider.dart';
 
 /// PERSON 4 — Profil-Drawer (fährt von rechts ein).
 ///
@@ -75,9 +76,8 @@ class _ProfileDrawerState extends State<ProfileDrawer>
   Widget build(BuildContext context) {
     final userProvider = context.watch<UserProvider>();
     final user = userProvider.user;
-    final app = context.watch<UiState>();
-    final uiProfile = app.profile;
-    final archived = app.plans.where((p) => p.archived).toList();
+    final planProvider = context.watch<PlanProvider>();
+    final archived = planProvider.plans.where((p) => p.archived).toList();
 
     return AnimatedBuilder(
       animation: _controller,
@@ -325,7 +325,7 @@ class _ProfileDrawerState extends State<ProfileDrawer>
                                         ),
                                         GestureDetector(
                                           onTap: () =>
-                                              app.restorePlan(p.id),
+                                              planProvider.archivePlan(p.id, archive: false),
                                           child: const Icon(
                                               Icons.restore,
                                               size: 18,
@@ -334,7 +334,7 @@ class _ProfileDrawerState extends State<ProfileDrawer>
                                         const SizedBox(width: 14),
                                         GestureDetector(
                                           onTap: () =>
-                                              app.deletePlan(p.id),
+                                              planProvider.deletePlan(p.id),
                                           child: const Icon(
                                               Icons.delete_outline,
                                               size: 18,

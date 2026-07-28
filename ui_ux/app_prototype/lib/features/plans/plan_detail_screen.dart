@@ -10,6 +10,7 @@ import 'package:provider/provider.dart';
 
 import '../../core/theme/app_theme.dart';
 import '../../core/widgets/widgets.dart';
+import '../../data/provider/plan_provider.dart';
 import '../../state/ui_state.dart';
 
 /// PERSON 2 — Detailansicht eines Trainingsplans.
@@ -54,7 +55,9 @@ class _PlanDetailScreenState extends State<PlanDetailScreen> {
     WidgetsBinding.instance.addPostFrameCallback((_) {
       final planProvider = context.read<PlanProvider>();
       planProvider.getPlan(widget.planId);
-      context.read<PlanLogExerciseProvider>().loadTodayLogs(activePlans: planProvider.activePlans);
+      context.read<PlanLogExerciseProvider>().loadTodayLogs(
+        activePlans: planProvider.activePlans,
+      );
     });
   }
 
@@ -66,17 +69,23 @@ class _PlanDetailScreenState extends State<PlanDetailScreen> {
     return 'Mobilisation';
   }
 
-  Future<void> _confirmDelete(UiState app, Plan plan) async {
+  Future<void> _confirmDelete(PlanProvider planProvider, Plan plan) async {
     final confirmed = await showModalBottomSheet<bool>(
       context: context,
       backgroundColor: AppColors.cream,
       constraints: const BoxConstraints(maxWidth: 380),
       shape: const RoundedRectangleBorder(
-        borderRadius: BorderRadius.vertical(top: Radius.circular(AppRadius.sheet)),
+        borderRadius: BorderRadius.vertical(
+          top: Radius.circular(AppRadius.sheet),
+        ),
       ),
       builder: (ctx) => Padding(
         padding: const EdgeInsets.fromLTRB(
-            AppSpacing.lg, AppSpacing.xl, AppSpacing.lg, AppSpacing.xl),
+          AppSpacing.lg,
+          AppSpacing.xl,
+          AppSpacing.lg,
+          AppSpacing.xl,
+        ),
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
@@ -88,16 +97,21 @@ class _PlanDetailScreenState extends State<PlanDetailScreen> {
                 color: Color(0xFFFAE6DC),
                 shape: BoxShape.circle,
               ),
-              child: const Icon(Icons.delete_outline,
-                  size: 22, color: Color(0xFFC46A52)),
+              child: const Icon(
+                Icons.delete_outline,
+                size: 22,
+                color: Color(0xFFC46A52),
+              ),
             ),
             const SizedBox(height: AppSpacing.md),
-            Text('Plan löschen?',
-                style: AppText.screenTitle.copyWith(fontSize: 20)),
+            Text(
+              'Plan löschen?',
+              style: AppText.screenTitle.copyWith(fontSize: 20),
+            ),
             const SizedBox(height: AppSpacing.sm),
             Text(
               'Möchtest du "${plan.name}" wirklich löschen? Diese Aktion '
-                  'kann nicht rückgängig gemacht werden.',
+              'kann nicht rückgängig gemacht werden.',
               textAlign: TextAlign.center,
               style: AppText.caption.copyWith(height: 1.55),
             ),
@@ -121,9 +135,10 @@ class _PlanDetailScreenState extends State<PlanDetailScreen> {
                         color: const Color(0xFFB85C5C),
                         borderRadius: BorderRadius.circular(22),
                       ),
-                      child: Text('Löschen',
-                          style:
-                          AppText.button.copyWith(color: AppColors.white)),
+                      child: Text(
+                        'Löschen',
+                        style: AppText.button.copyWith(color: AppColors.white),
+                      ),
                     ),
                   ),
                 ),
@@ -134,7 +149,7 @@ class _PlanDetailScreenState extends State<PlanDetailScreen> {
       ),
     );
     if (confirmed == true) {
-      app.deletePlan(plan.id);
+      planProvider.deletePlan(plan.id);
       widget.onBack();
     }
   }
@@ -217,17 +232,23 @@ class _PlanDetailScreenState extends State<PlanDetailScreen> {
                     crossAxisAlignment: WrapCrossAlignment.center,
                     children: [
                       AppTag(plan.region.label, variant: TagVariant.region),
-                      AppTag(_rubrikLabel(plan.goal.label), variant: TagVariant.goal),
+                      AppTag(
+                        _rubrikLabel(plan.goal.label),
+                        variant: TagVariant.goal,
+                      ),
                       Container(
                         padding: const EdgeInsets.symmetric(
-                            horizontal: 12, vertical: 6),
+                          horizontal: 12,
+                          vertical: 6,
+                        ),
                         decoration: BoxDecoration(
                           color: accent,
                           borderRadius: BorderRadius.circular(AppRadius.pill),
                         ),
-                        child: Text('Kalenderfarbe',
-                            style:
-                            AppText.label.copyWith(color: AppColors.white)),
+                        child: Text(
+                          'Kalenderfarbe',
+                          style: AppText.label.copyWith(color: AppColors.white),
+                        ),
                       ),
                     ],
                   ),
@@ -245,8 +266,11 @@ class _PlanDetailScreenState extends State<PlanDetailScreen> {
                   color: _editing ? AppColors.sageLight : AppColors.white,
                   borderRadius: BorderRadius.circular(AppRadius.input),
                 ),
-                child: Icon(_editing ? Icons.check : Icons.edit_outlined,
-                    size: 16, color: AppColors.sageDeep),
+                child: Icon(
+                  _editing ? Icons.check : Icons.edit_outlined,
+                  size: 16,
+                  color: AppColors.sageDeep,
+                ),
               ),
             ),
           ],
@@ -266,7 +290,9 @@ class _PlanDetailScreenState extends State<PlanDetailScreen> {
               _StatBlock(
                 label: 'ABGESCHLOSSEN',
                 value: '${plan.completedSessions}/${plan.sessionsPerWeek}',
-                valueColor: isLimitReached ? AppColors.sageDeep : AppColors.text,
+                valueColor: isLimitReached
+                    ? AppColors.sageDeep
+                    : AppColors.text,
                 alignRight: true,
               ),
             ],
@@ -290,7 +316,8 @@ class _PlanDetailScreenState extends State<PlanDetailScreen> {
                       children: [
                         for (final c in PlanColors.all)
                           GestureDetector(
-                            onTap: () => app.updatePlanColor(plan.id, c),
+                            onTap: () =>
+                                planProvider.updatePlanColor(plan.id, c),
                             child: Container(
                               width: 38,
                               height: 38,
@@ -299,12 +326,17 @@ class _PlanDetailScreenState extends State<PlanDetailScreen> {
                                 shape: BoxShape.circle,
                                 border: accent.value == c.value
                                     ? Border.all(
-                                    color: AppColors.text, width: 2)
+                                        color: AppColors.text,
+                                        width: 2,
+                                      )
                                     : null,
                               ),
                               child: accent.value == c.value
-                                  ? const Icon(Icons.check,
-                                  size: 16, color: AppColors.white)
+                                  ? const Icon(
+                                      Icons.check,
+                                      size: 16,
+                                      color: AppColors.white,
+                                    )
                                   : null,
                             ),
                           ),
@@ -317,8 +349,7 @@ class _PlanDetailScreenState extends State<PlanDetailScreen> {
                 top: 14,
                 right: 14,
                 child: GestureDetector(
-                  onTap: () =>
-                      setState(() => _colorInfoOpen = !_colorInfoOpen),
+                  onTap: () => setState(() => _colorInfoOpen = !_colorInfoOpen),
                   child: Container(
                     width: 22,
                     height: 22,
@@ -330,10 +361,12 @@ class _PlanDetailScreenState extends State<PlanDetailScreen> {
                       shape: BoxShape.circle,
                     ),
                     child: SvgPicture.asset(
-                        _colorInfoOpen
-                            ? 'assets/icons/other/info-green.svg'
-                            : 'assets/icons/other/info-gray.svg',
-                        width: 13, height: 13),
+                      _colorInfoOpen
+                          ? 'assets/icons/other/info-green.svg'
+                          : 'assets/icons/other/info-gray.svg',
+                      width: 13,
+                      height: 13,
+                    ),
                   ),
                 ),
               ),
@@ -343,8 +376,10 @@ class _PlanDetailScreenState extends State<PlanDetailScreen> {
                   right: 12,
                   child: Container(
                     width: 196,
-                    padding:
-                    const EdgeInsets.symmetric(horizontal: 12, vertical: 10),
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: 12,
+                      vertical: 10,
+                    ),
                     decoration: BoxDecoration(
                       color: AppColors.white,
                       borderRadius: BorderRadius.circular(12),
@@ -376,8 +411,10 @@ class _PlanDetailScreenState extends State<PlanDetailScreen> {
             child: Center(
               child: Padding(
                 padding: const EdgeInsets.symmetric(vertical: AppSpacing.md),
-                child: Text('Noch keine Übungen. Füge welche hinzu.',
-                    style: AppText.caption),
+                child: Text(
+                  'Noch keine Übungen. Füge welche hinzu.',
+                  style: AppText.caption,
+                ),
               ),
             ),
           )
@@ -407,7 +444,9 @@ class _PlanDetailScreenState extends State<PlanDetailScreen> {
                       child: const _DragDots(),
                     ),
                     onRemove: () {
-                      final exercisesList = List<api.Exercise>.from(plan.exercises);
+                      final exercisesList = List<api.Exercise>.from(
+                        plan.exercises,
+                      );
                       exercisesList.removeAt(i);
                       planProvider.updatePlanExercises(exercisesList);
                     },
@@ -442,10 +481,13 @@ class _PlanDetailScreenState extends State<PlanDetailScreen> {
                 children: [
                   const Icon(Icons.add, size: 14, color: AppColors.sageDeep),
                   const SizedBox(width: AppSpacing.sm),
-                  Text('Übung aus Bibliothek hinzufügen',
-                      style: AppText.caption.copyWith(
-                          color: AppColors.sageDeep,
-                          fontWeight: FontWeight.w500)),
+                  Text(
+                    'Übung aus Bibliothek hinzufügen',
+                    style: AppText.caption.copyWith(
+                      color: AppColors.sageDeep,
+                      fontWeight: FontWeight.w500,
+                    ),
+                  ),
                 ],
               ),
             ),
@@ -453,7 +495,7 @@ class _PlanDetailScreenState extends State<PlanDetailScreen> {
           const SizedBox(height: 26),
           GestureDetector(
             onTap: () {
-              app.archivePlan(plan.id);
+              planProvider.archivePlan(plan.id);
               widget.onBack();
             },
             child: Container(
@@ -467,19 +509,23 @@ class _PlanDetailScreenState extends State<PlanDetailScreen> {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  const Icon(Icons.archive_outlined,
-                      size: 14, color: AppColors.white),
+                  const Icon(
+                    Icons.archive_outlined,
+                    size: 14,
+                    color: AppColors.white,
+                  ),
                   const SizedBox(width: AppSpacing.sm),
-                  Text('Plan archivieren',
-                      style:
-                      AppText.button.copyWith(color: AppColors.white)),
+                  Text(
+                    'Plan archivieren',
+                    style: AppText.button.copyWith(color: AppColors.white),
+                  ),
                 ],
               ),
             ),
           ),
           const SizedBox(height: AppSpacing.sm),
           GestureDetector(
-            onTap: () => _confirmDelete(app, plan),
+            onTap: () => _confirmDelete(planProvider, plan),
             child: Container(
               width: double.infinity,
               padding: const EdgeInsets.symmetric(vertical: 13),
@@ -491,12 +537,16 @@ class _PlanDetailScreenState extends State<PlanDetailScreen> {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  const Icon(Icons.delete_outline,
-                      size: 14, color: AppColors.white),
+                  const Icon(
+                    Icons.delete_outline,
+                    size: 14,
+                    color: AppColors.white,
+                  ),
                   const SizedBox(width: AppSpacing.sm),
-                  Text('Plan löschen',
-                      style:
-                      AppText.button.copyWith(color: AppColors.white)),
+                  Text(
+                    'Plan löschen',
+                    style: AppText.button.copyWith(color: AppColors.white),
+                  ),
                 ],
               ),
             ),
@@ -534,15 +584,20 @@ class _StatBlock extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
-      crossAxisAlignment:
-      alignRight ? CrossAxisAlignment.end : CrossAxisAlignment.start,
+      crossAxisAlignment: alignRight
+          ? CrossAxisAlignment.end
+          : CrossAxisAlignment.start,
       mainAxisSize: MainAxisSize.min,
       children: [
         Text(label, style: AppText.micro),
         const SizedBox(height: 2),
-        Text(value,
-            style: AppText.cardTitle
-                .copyWith(fontSize: 18, color: valueColor ?? AppColors.text)),
+        Text(
+          value,
+          style: AppText.cardTitle.copyWith(
+            fontSize: 18,
+            color: valueColor ?? AppColors.text,
+          ),
+        ),
       ],
     );
   }
@@ -623,21 +678,31 @@ class _PlanExerciseRow extends StatelessWidget {
               color: AppColors.offwhite,
               shape: BoxShape.circle,
             ),
-            child: Text('$index',
-                style: AppText.micro.copyWith(
-                    color: AppColors.sageDeep, fontWeight: FontWeight.w600)),
+            child: Text(
+              '$index',
+              style: AppText.micro.copyWith(
+                color: AppColors.sageDeep,
+                fontWeight: FontWeight.w600,
+              ),
+            ),
           ),
           const SizedBox(width: AppSpacing.md),
           Expanded(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(exercise.label,
-                    style: AppText.caption.copyWith(
-                        fontWeight: FontWeight.w600, color: AppColors.text)),
+                Text(
+                  exercise.label,
+                  style: AppText.caption.copyWith(
+                    fontWeight: FontWeight.w600,
+                    color: AppColors.text,
+                  ),
+                ),
                 const SizedBox(height: 2),
-                Text('${exercise.duration} Min · ${exercise.difficulty}',
-                    style: AppText.micro),
+                Text(
+                  '${exercise.duration} Min · ${exercise.difficulty}',
+                  style: AppText.micro,
+                ),
               ],
             ),
           ),
@@ -652,10 +717,15 @@ class _PlanExerciseRow extends StatelessWidget {
                   color: AppColors.offwhite,
                   borderRadius: BorderRadius.circular(10),
                 ),
-                child: SvgPicture.asset('assets/icons/other/trash.svg',
-                    width: 14, height: 14,
-                    colorFilter: const ColorFilter.mode(
-                        AppColors.sageDeep, BlendMode.srcIn)),
+                child: SvgPicture.asset(
+                  'assets/icons/other/trash.svg',
+                  width: 14,
+                  height: 14,
+                  colorFilter: const ColorFilter.mode(
+                    AppColors.sageDeep,
+                    BlendMode.srcIn,
+                  ),
+                ),
               ),
             ),
         ],
@@ -670,14 +740,42 @@ class _PlanCover extends StatelessWidget {
 
   static const _palettes = <String, ({Color bg, Color a, Color b})>{
     'Knie': (bg: Color(0xFFC8DDD2), a: Color(0xFF7A9B7E), b: Color(0xFF3F5E48)),
-    'Schulter': (bg: Color(0xFFD7E4D3), a: Color(0xFF7FBFA8), b: Color(0xFF3F5E48)),
-    'Rücken': (bg: Color(0xFFE8DFCF), a: Color(0xFFC9B79C), b: Color(0xFF7A9B7E)),
-    'Nacken': (bg: Color(0xFFD9E3DC), a: Color(0xFFA6BFD1), b: Color(0xFF3F5E48)),
-    'Hüfte': (bg: Color(0xFFE5DCC7), a: Color(0xFFD6B582), b: Color(0xFF3F5E48)),
+    'Schulter': (
+      bg: Color(0xFFD7E4D3),
+      a: Color(0xFF7FBFA8),
+      b: Color(0xFF3F5E48),
+    ),
+    'Rücken': (
+      bg: Color(0xFFE8DFCF),
+      a: Color(0xFFC9B79C),
+      b: Color(0xFF7A9B7E),
+    ),
+    'Nacken': (
+      bg: Color(0xFFD9E3DC),
+      a: Color(0xFFA6BFD1),
+      b: Color(0xFF3F5E48),
+    ),
+    'Hüfte': (
+      bg: Color(0xFFE5DCC7),
+      a: Color(0xFFD6B582),
+      b: Color(0xFF3F5E48),
+    ),
     'Büro': (bg: Color(0xFFE8DFCF), a: Color(0xFFC9B79C), b: Color(0xFF7A9B7E)),
-    'Morgen': (bg: Color(0xFFF3E0C6), a: Color(0xFFE0B575), b: Color(0xFFC46A52)),
-    'Abend': (bg: Color(0xFFD7D4DE), a: Color(0xFFA6A0BF), b: Color(0xFF5B5273)),
-    'Unterwegs': (bg: Color(0xFFD7E4D3), a: Color(0xFF7FBFA8), b: Color(0xFF3F5E48)),
+    'Morgen': (
+      bg: Color(0xFFF3E0C6),
+      a: Color(0xFFE0B575),
+      b: Color(0xFFC46A52),
+    ),
+    'Abend': (
+      bg: Color(0xFFD7D4DE),
+      a: Color(0xFFA6A0BF),
+      b: Color(0xFF5B5273),
+    ),
+    'Unterwegs': (
+      bg: Color(0xFFD7E4D3),
+      a: Color(0xFF7FBFA8),
+      b: Color(0xFF3F5E48),
+    ),
   };
 
   @override
@@ -711,34 +809,34 @@ class _PlanCover extends StatelessWidget {
       child: icon == null
           ? null
           : Stack(
-        children: [
-          Positioned(
-            top: -dim * 0.12,
-            right: -dim * 0.12,
-            child: Container(
-              width: dim * 0.44,
-              height: dim * 0.44,
-              decoration: BoxDecoration(
-                color: p.a.withOpacity(0.55),
-                shape: BoxShape.circle,
-              ),
+              children: [
+                Positioned(
+                  top: -dim * 0.12,
+                  right: -dim * 0.12,
+                  child: Container(
+                    width: dim * 0.44,
+                    height: dim * 0.44,
+                    decoration: BoxDecoration(
+                      color: p.a.withOpacity(0.55),
+                      shape: BoxShape.circle,
+                    ),
+                  ),
+                ),
+                Positioned(
+                  bottom: -dim * 0.18,
+                  left: -dim * 0.12,
+                  child: Container(
+                    width: dim * 0.56,
+                    height: dim * 0.56,
+                    decoration: BoxDecoration(
+                      color: p.b.withOpacity(0.32),
+                      shape: BoxShape.circle,
+                    ),
+                  ),
+                ),
+                Center(child: Icon(icon, size: 52, color: p.b)),
+              ],
             ),
-          ),
-          Positioned(
-            bottom: -dim * 0.18,
-            left: -dim * 0.12,
-            child: Container(
-              width: dim * 0.56,
-              height: dim * 0.56,
-              decoration: BoxDecoration(
-                color: p.b.withOpacity(0.32),
-                shape: BoxShape.circle,
-              ),
-            ),
-          ),
-          Center(child: Icon(icon, size: 52, color: p.b)),
-        ],
-      ),
     );
   }
 }

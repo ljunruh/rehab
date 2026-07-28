@@ -123,7 +123,7 @@ class _PlansScreenState extends State<PlansScreen> {
     //final profile = app.profile; // UI auskommentiert
     final user = context.watch<UserProvider>();
     final plan = context.watch<PlanProvider>();
-    final activePlans = plan.plans;
+    final activePlans = plan.activePlans;
 
     // Anatomische Standard-Regionen zuerst, dann Lifestyle-Pläne.
     /* UI auskommentiert
@@ -192,9 +192,9 @@ class _PlansScreenState extends State<PlansScreen> {
                         duration: p.duration,
                         //TODO[API]: DemoData ID, damit UI nicht kaputt geht. Wird später ersetzt p.id
                         onOpen: () => widget.onOpenPlan(p.id),
-                        onArchive: () => app.archivePlan('plan-knie'),
+                        onArchive: () => plan.archivePlan(p.id),
                         onRequestDelete: () =>
-                            setState(() => _confirmDeleteId = 'plan-knie'),
+                            setState(() => _confirmDeleteId = p.id),
                       ),
                     ),
                   ),
@@ -309,7 +309,7 @@ class _PlansScreenState extends State<PlansScreen> {
             planName: planToDelete?.name ?? '',
             onCancel: () => setState(() => _confirmDeleteId = null),
             onConfirm: () {
-              app.deletePlan(_confirmDeleteId!);
+              plan.deletePlan(_confirmDeleteId!);
               setState(() => _confirmDeleteId = null);
             },
           ),
