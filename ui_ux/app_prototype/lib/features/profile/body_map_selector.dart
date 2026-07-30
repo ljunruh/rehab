@@ -43,14 +43,15 @@ class _Region {
 /// Regionen + Positionen
 const List<_Region> _kRegions = [
   // ── Vorderseite ──
-  _Region('Atemwegsproblem', parts: [_Part(106, 70, 28, 15, 8)]),
+  // Atemwege am Brustkorb (vorher fälschlich auf Kopfhöhe).
+  _Region('Atemwegsproblem', parts: [_Part(98, 102, 44, 28, 14)]),
   _Region('Schulterprobleme', parts: [_Part(66, 90, 32, 28, 14), _Part(142, 90, 32, 28, 14)]),
   _Region('Rumpfmuskelschwäche', parts: [_Part(92, 128, 56, 40, 18)]),
-  _Region('Wirbelsäulenprobleme', parts: [_Part(92, 172, 56, 40, 18)]),
   _Region('Hüftprobleme', parts: [_Part(90, 216, 60, 34, 18)]),
   _Region('Handgelenkprobleme', parts: [_Part(52, 196, 24, 24, 12), _Part(164, 196, 24, 24, 12)]),
-  _Region('Knieschmerzen', parts: [_Part(78, 300, 28, 28, 14), _Part(134, 300, 28, 28, 14)]),
-  _Region('Sprunggelenkprobleme', parts: [_Part(80, 360, 24, 18, 9), _Part(136, 360, 24, 18, 9)]),
+  // Knie/Sprunggelenk mittig auf die Beine gesetzt (vorher nach außen versetzt).
+  _Region('Knieschmerzen', parts: [_Part(92, 300, 28, 28, 14), _Part(120, 300, 28, 28, 14)]),
+  _Region('Sprunggelenkprobleme', parts: [_Part(94, 360, 24, 18, 9), _Part(122, 360, 24, 18, 9)]),
   _Region('Gleichgewichtsprobleme', parts: [_Part(84, 392, 72, 20, 10)]),
 
   // ── Rückseite ──
@@ -59,9 +60,12 @@ const List<_Region> _kRegions = [
   _Region('Probleme im oberen Rücken', back: true, parts: [_Part(92, 128, 56, 40, 18)]),
   _Region('Rückenprobleme', back: true, parts: [_Part(92, 172, 56, 40, 18)]),
   _Region('Probleme im unteren Rücken', back: true, parts: [_Part(90, 216, 60, 34, 18)]),
+  // Wirbelsäule: vertikal mittig auf der Rückseite (vorher horizontal auf der Vorderseite).
+  _Region('Wirbelsäulenprobleme', back: true, parts: [_Part(112, 92, 16, 128, 8)]),
   _Region('Handgelenkprobleme', back: true, parts: [_Part(52, 196, 24, 24, 12), _Part(164, 196, 24, 24, 12)]),
-  _Region('Oberschenkelrückseiten-Beschwerden', back: true, parts: [_Part(78, 300, 28, 28, 14), _Part(134, 300, 28, 28, 14)]),
-  _Region('Sprunggelenkprobleme', back: true, parts: [_Part(80, 360, 24, 18, 9), _Part(136, 360, 24, 18, 9)]),
+  // Oberschenkelrückseite: vertikal an den Oberschenkeln (vorher auf Kniehöhe).
+  _Region('Oberschenkelrückseiten-Beschwerden', back: true, parts: [_Part(92, 244, 28, 46, 12), _Part(120, 244, 28, 46, 12)]),
+  _Region('Sprunggelenkprobleme', back: true, parts: [_Part(94, 360, 24, 18, 9), _Part(122, 360, 24, 18, 9)]),
   _Region('Gleichgewichtsprobleme', back: true, parts: [_Part(84, 392, 72, 20, 10)]),
 ];
 
