@@ -308,7 +308,7 @@ class _UserSetupScreenState extends State<UserSetupScreen> {
 
   Widget _buildInjuriesSection() {
     return SelectableAccordion<Contraindication>(
-      title: "Bestehende Verletzungen / Beschwerden",
+      title: "Bestehende Beschwerden",
       summary: _buildInjurySummary(),
       items: _allContraindications,
       filteredItems: _filteredContraindications,

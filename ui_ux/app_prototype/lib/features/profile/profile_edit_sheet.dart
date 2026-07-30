@@ -287,7 +287,7 @@ class _ProfileEditSheetState extends State<ProfileEditSheet> {
               ),
               const SizedBox(height: AppSpacing.lg),
 
-              Text('Verletzung(en)', style: AppText.caption),
+              Text('Beschwerdebereich', style: AppText.caption),
               const SizedBox(height: AppSpacing.sm),
               Center(
                 child: BodyMapSelector(

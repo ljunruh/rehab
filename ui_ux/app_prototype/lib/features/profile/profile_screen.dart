@@ -97,7 +97,7 @@ class ProfileScreen extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Text(
-                        'Verletzungen / Beschwerden',
+                        'Beschwerdebereich',
                         style: AppText.caption,
                       ),
                       Text(
