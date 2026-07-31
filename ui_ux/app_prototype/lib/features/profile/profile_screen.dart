@@ -134,13 +134,8 @@ class ProfileScreen extends StatelessWidget {
           icon: Icons.edit_outlined,
           onPressed: onEdit,
         ),
-        const SizedBox(height: AppSpacing.md),
-
-        SecondaryButton(
-          label: 'Löschen',
-          icon: Icons.delete,
-          onPressed: userProvider.deleteUser,
-        ),
+        // „Löschen" entfernt: Team-Entscheidung — kein Login/Konto, keine
+        // Profil-Löschung.
       ],
     );
   }

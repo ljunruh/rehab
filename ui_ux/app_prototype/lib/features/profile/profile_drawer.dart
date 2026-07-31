@@ -345,61 +345,8 @@ class _ProfileDrawerState extends State<ProfileDrawer>
                                   ),
                                 )),
                             ],
-                            const SizedBox(height: AppSpacing.base),
-                            GestureDetector(
-                              onTap: () {
-                                showDialog(
-                                  context: context,
-                                  builder: (dialogContext) => AlertDialog(
-                                    title: const Text('Profil unwiderruflich löschen?'),
-                                    content: const Text(
-                                      'Möchtest du dein Profil und alle Trainingsdaten wirklich '
-                                          'aus der App und vom Server löschen?',
-                                    ),
-                                    actions: [
-                                      TextButton(
-                                        onPressed: () => Navigator.pop(dialogContext),
-                                        child: const Text('Abbrechen'),
-                                      ),
-                                      TextButton(
-                                        onPressed: () async {
-                                          Navigator.pop(dialogContext);
-
-                                          // Trigger Isar-Löschung + API-Update
-                                          await userProvider.deleteUser();
-
-                                          // Drawer schließen
-                                          _close();
-                                        },
-                                        child: const Text('Löschen', style: TextStyle(color: Colors.red)),
-                                      ),
-                                    ],
-                                  ),
-                                );
-                              },
-                              behavior: HitTestBehavior.opaque,
-                              child: Container(
-                                width: double.infinity,
-                                padding: const EdgeInsets.symmetric(vertical: 14),
-                                alignment: Alignment.center,
-                                decoration: BoxDecoration(
-                                  color: AppColors.white,
-                                  borderRadius: BorderRadius.circular(AppRadius.card),
-                                ),
-                                child: Row(
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  children: [
-                                    const Icon(Icons.delete_forever,
-                                        size: 18, color: PlanColors.koralle),
-                                    const SizedBox(width: AppSpacing.sm),
-                                    Text('Profil löschen',
-                                        style: AppText.cardTitle.copyWith(
-                                            color: PlanColors.koralle,
-                                            fontWeight: FontWeight.bold)),
-                                  ],
-                                ),
-                              ),
-                            ),
+                            // „Profil löschen" entfernt: Team-Entscheidung —
+                            // kein Login/Konto, daher keine Profil-Löschung.
                           ],
                         ),
                       ),

@@ -419,47 +419,8 @@ class _ProfileEditSheetState extends State<ProfileEditSheet> {
                       : Navigator.of(context).pop();
                 },
               ),
-              const SizedBox(height: AppSpacing.md),
-
-              // Löschen Button
-              TextButton.icon(
-                style: TextButton.styleFrom(
-                  minimumSize: const Size(double.infinity, 44),
-                  foregroundColor: Colors.red,
-                ),
-                icon: const Icon(Icons.delete_forever, size: 18),
-                label: const Text(
-                  'Profil löschen',
-                  style: TextStyle(fontWeight: FontWeight.bold),
-                ),
-                onPressed: () {
-                  showDialog(
-                    context: context,
-                    builder: (ctx) => AlertDialog(
-                      title: const Text('Profil unwiderruflich löschen?'),
-                      actions: [
-                        TextButton(
-                          onPressed: () => Navigator.pop(ctx),
-                          child: const Text('Abbrechen'),
-                        ),
-                        TextButton(
-                          onPressed: () async {
-                            await context.read<UserProvider>().deleteUser();
-                            if (context.mounted)
-                              Navigator.of(
-                                ctx,
-                              ).pushNamedAndRemoveUntil('/', (route) => false);
-                          },
-                          child: const Text(
-                            'Löschen',
-                            style: TextStyle(color: Colors.red),
-                          ),
-                        ),
-                      ],
-                    ),
-                  );
-                },
-              ),
+              // „Profil löschen" entfernt: Team-Entscheidung — kein Login/Konto,
+              // daher keine Profil-Löschung.
             ],
           ),
         ),
