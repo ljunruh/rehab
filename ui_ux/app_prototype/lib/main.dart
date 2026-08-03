@@ -1,4 +1,5 @@
 import 'package:app_prototype/data/api/exercise_api.dart';
+import 'package:app_prototype/data/models/api/app_state.dart';
 import 'package:app_prototype/data/models/api/plan.dart';
 import 'package:app_prototype/data/models/api/pain_log.dart';
 import 'package:app_prototype/data/models/api/plan_log_exercise.dart';
@@ -10,6 +11,7 @@ import 'package:app_prototype/data/provider/pain_log_provider.dart';
 import 'package:app_prototype/data/provider/plan_log_exercise_provider.dart';
 import 'package:app_prototype/data/provider/plan_provider.dart';
 import 'package:app_prototype/data/provider/user_provider.dart';
+import 'package:app_prototype/data/repository/app_state_repository.dart';
 import 'package:app_prototype/data/repository/exercise_repository.dart';
 import 'package:app_prototype/data/repository/pain_log_exercise_repository.dart';
 import 'package:app_prototype/data/repository/pain_log_repository.dart';
@@ -36,6 +38,7 @@ void main() async {
   final appDir = await getApplicationDocumentsDirectory();
   final isar = await Isar.open(
     [
+      AppStateSchema,
       UserSchema,
       PlanSchema,
       PainLogSchema,
@@ -45,6 +48,7 @@ void main() async {
     directory: appDir.path
   );
 
+  final appStateRepository = AppStateRepository(isar);
   final userRepository = UserRepository(isar);
   final exerciseRepository = ExerciseRepository(api: ExerciseApi(), userRepository: userRepository);
   final planRepository = PlanRepository(isar);
@@ -57,7 +61,7 @@ void main() async {
         ChangeNotifierProvider(create: (_) => UiState()),
         ChangeNotifierProvider(create: (_) => UserProvider(userRepository)..init()),
         ChangeNotifierProvider(create: (_) => ExerciseProvider(exerciseRepository)),
-        ChangeNotifierProvider(create: (_) => PlanProvider(planRepository)),
+        ChangeNotifierProvider(create: (_) => PlanProvider(planRepo: planRepository, appStateRepo: appStateRepository)),
         ChangeNotifierProvider(create: (_) => PainLogProvider(painLogRepository)),
         ChangeNotifierProvider(create: (_) => PainLogExerciseProvider(painLogExerciseRepository)),
         ChangeNotifierProvider(create: (_) => PlanLogExerciseProvider(planLogExerciseRepository)),

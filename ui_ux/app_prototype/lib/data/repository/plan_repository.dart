@@ -13,7 +13,8 @@ class PlanRepository {
 
   Future<Plan?> getPlan(Plan plan) async => isar.plans.getById(plan.id);
 
-  Future<Plan?> getPlanById(String id) async => isar.plans.where().idEqualTo(id).findFirst();
+  Future<Plan?> getPlanById(String id) async =>
+      isar.plans.where().idEqualTo(id).findFirst();
 
   Future<void> savePlan(Plan plan) async {
     await isar.writeTxn(() async {
@@ -32,27 +33,37 @@ class PlanRepository {
   }
 
   Future<List<BodyPart>> getActiveTrainedRegions() async {
-    final activePlans = await isar.plans
-        .filter()
-        .archivedEqualTo(false)
-        .findAll();
+    final activePlans =
+    await isar.plans.filter().archivedEqualTo(false).findAll();
 
     // Regionen extrahieren und Duplikate entfernen
     return activePlans.map((plan) => plan.region).toSet().toList();
   }
 
-  ///  generiert aus einer liste von übungen  zufällige eine  planempfelung (max 3 übungen )
+  /// Setzt completedSessions aller aktiven (nicht archivierten) Pläne in einer Transaktion auf 0
+  Future<void> resetAllActivePlansCompletedSessions() async {
+    await isar.writeTxn(() async {
+      final activePlans =
+      await isar.plans.filter().archivedEqualTo(false).findAll();
+
+      for (final plan in activePlans) {
+        if (plan.completedSessions > 0) {
+          final updatedPlan = plan.copyWith(completedSessions: 0);
+          await isar.plans.put(updatedPlan);
+        }
+      }
+    });
+  }
+
+  /// Generiert aus einer Liste von Übungen zufällig eine Planempfehlung (max 3 Übungen)
   Plan createRecomendedPlan(
-    List<Exercise> exercises,
-    BodyPart region,
-    Goal goal,
-  ) {
-    // Erstellt eine kopie der liste und mische sie zufällig  durch (Random)
+      List<Exercise> exercises,
+      BodyPart region,
+      Goal goal,
+      ) {
     final shuffled = List<Exercise>.from(exercises)..shuffle();
-    // wählt dann die ersten 3 übungen aus
     final selection = shuffled.take(3).toList();
 
-    // erstellt das Plan_objekt mit der kennzeichnung "Empfohlen"
     return Plan(
       id: 'Plan_recomended_${DateTime.now().millisecondsSinceEpoch}',
       name: '${region.label}-Plan(empfohlen)',
