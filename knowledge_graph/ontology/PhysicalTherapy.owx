@@ -912,6 +912,9 @@
         <NamedIndividual IRI="#Elbows"/>
     </Declaration>
     <Declaration>
+        <NamedIndividual IRI="#Ellenbogenprobleme"/>
+    </Declaration>
+    <Declaration>
         <NamedIndividual IRI="#EnBlocBedExit"/>
     </Declaration>
     <Declaration>
@@ -2995,10 +2998,6 @@
         <NamedIndividual IRI="#BackFriendlyLifting"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="#Contraindication"/>
-        <NamedIndividual IRI="#BackIssue"/>
-    </ClassAssertion>
-    <ClassAssertion>
         <Class IRI="#SportActivity"/>
         <NamedIndividual IRI="#Backpacking"/>
     </ClassAssertion>
@@ -3017,10 +3016,6 @@
     <ClassAssertion>
         <Class IRI="#TrainingsEffect"/>
         <NamedIndividual IRI="#Balance"/>
-    </ClassAssertion>
-    <ClassAssertion>
-        <Class IRI="#Contraindication"/>
-        <NamedIndividual IRI="#BalanceIssue"/>
     </ClassAssertion>
     <ClassAssertion>
         <Class IRI="#Equipment"/>
@@ -3299,10 +3294,6 @@
         <NamedIndividual IRI="#Core"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="#Contraindication"/>
-        <NamedIndividual IRI="#CoreWeakness"/>
-    </ClassAssertion>
-    <ClassAssertion>
         <Class IRI="#Asana"/>
         <NamedIndividual IRI="#Crab"/>
     </ClassAssertion>
@@ -3441,6 +3432,10 @@
     <ClassAssertion>
         <Class IRI="#BodyPart"/>
         <NamedIndividual IRI="#Elbows"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Contraindication"/>
+        <NamedIndividual IRI="#Ellenbogenprobleme"/>
     </ClassAssertion>
     <ClassAssertion>
         <Class IRI="#DailyRoutine"/>
@@ -3681,10 +3676,6 @@
     <ClassAssertion>
         <Class IRI="#LimbAlignment"/>
         <NamedIndividual IRI="#HalfMoon_Torso"/>
-    </ClassAssertion>
-    <ClassAssertion>
-        <Class IRI="#Contraindication"/>
-        <NamedIndividual IRI="#HamstringIssue"/>
     </ClassAssertion>
     <ClassAssertion>
         <Class IRI="#ThighMuscleInjury"/>
@@ -4215,10 +4206,6 @@
         <NamedIndividual IRI="#Relaxation"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="#Contraindication"/>
-        <NamedIndividual IRI="#RespiratoryIssue"/>
-    </ClassAssertion>
-    <ClassAssertion>
         <Class IRI="#RecipeOfTheWeek"/>
         <NamedIndividual IRI="#Rezept_AvocadoKresseBrot"/>
     </ClassAssertion>
@@ -4557,10 +4544,6 @@
     <ClassAssertion>
         <Class IRI="#BodyPart"/>
         <NamedIndividual IRI="#Spine"/>
-    </ClassAssertion>
-    <ClassAssertion>
-        <Class IRI="#Contraindication"/>
-        <NamedIndividual IRI="#SpineIssue"/>
     </ClassAssertion>
     <ClassAssertion>
         <Class IRI="#Joint"/>
