@@ -48,7 +48,7 @@
         <Class IRI="#Contraindication"/>
     </Declaration>
     <Declaration>
-        <Class IRI="#CoordinationMobility"/>
+        <Class IRI="#Coordination"/>
     </Declaration>
     <Declaration>
         <Class IRI="#CoreMuscleInjury"/>
@@ -64,9 +64,6 @@
     </Declaration>
     <Declaration>
         <Class IRI="#ElbowJointInjury"/>
-    </Declaration>
-    <Declaration>
-        <Class IRI="#Entspannung"/>
     </Declaration>
     <Declaration>
         <Class IRI="#Equipment"/>
@@ -126,7 +123,7 @@
         <Class IRI="#LumbarSpinePain"/>
     </Declaration>
     <Declaration>
-        <Class IRI="#MobilisationStretching"/>
+        <Class IRI="#Mobilisation"/>
     </Declaration>
     <Declaration>
         <Class IRI="#Muscle"/>
@@ -139,6 +136,12 @@
     </Declaration>
     <Declaration>
         <Class IRI="#Patient"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#RecipeOfTheWeek"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Relaxation"/>
     </Declaration>
     <Declaration>
         <Class IRI="#SeverityLevel"/>
@@ -342,6 +345,9 @@
         <DataProperty IRI="#hasGender"/>
     </Declaration>
     <Declaration>
+        <DataProperty IRI="#hasHealthBenefit"/>
+    </Declaration>
+    <Declaration>
         <DataProperty IRI="#hasHeight"/>
     </Declaration>
     <Declaration>
@@ -352,6 +358,9 @@
     </Declaration>
     <Declaration>
         <DataProperty IRI="#hasMETScore"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#hasPreparationTime"/>
     </Declaration>
     <Declaration>
         <DataProperty IRI="#hasRiskFactor"/>
@@ -901,6 +910,9 @@
     </Declaration>
     <Declaration>
         <NamedIndividual IRI="#Elbows"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Ellenbogenprobleme"/>
     </Declaration>
     <Declaration>
         <NamedIndividual IRI="#EnBlocBedExit"/>
@@ -1668,6 +1680,36 @@
         <NamedIndividual IRI="#RespiratoryIssue"/>
     </Declaration>
     <Declaration>
+        <NamedIndividual IRI="#Rezept_AvocadoKresseBrot"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Rezept_Beeren_Smoothie"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Rezept_ChiaBeerenPudding"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Rezept_GoldeneMilchOatmeal"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Rezept_GrünerPowerSmoothie"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Rezept_IngwerZitronenShot"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Rezept_KirschKamilleSchlummerdrink"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Rezept_MandelKakaoEnergyBalls"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Rezept_RoteBeteApfelJuice"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Rezept_WalnussBananenQuark"/>
+    </Declaration>
+    <Declaration>
         <NamedIndividual IRI="#Right"/>
     </Declaration>
     <Declaration>
@@ -2339,11 +2381,10 @@
     <Declaration>
         <NamedIndividual IRI="#Triceps"/>
     </Declaration>
-    
     <Declaration>
         <NamedIndividual IRI="#TricepsStretch"/>
     </Declaration>
-<Declaration>
+    <Declaration>
         <NamedIndividual IRI="#TricepsStretch_ShoulderIssue"/>
     </Declaration>
     <Declaration>
@@ -2621,7 +2662,7 @@
         <Class IRI="#ExerciseProperties"/>
     </SubClassOf>
     <SubClassOf>
-        <Class IRI="#CoordinationMobility"/>
+        <Class IRI="#Coordination"/>
         <Class IRI="#Exercise"/>
     </SubClassOf>
     <SubClassOf>
@@ -2639,10 +2680,6 @@
     <SubClassOf>
         <Class IRI="#ElbowJointInjury"/>
         <Class IRI="#JointInjury"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="#Entspannung"/>
-        <Class IRI="#Exercise"/>
     </SubClassOf>
     <SubClassOf>
         <Class IRI="#Equipment"/>
@@ -2717,7 +2754,7 @@
         <Class IRI="#SpinePain"/>
     </SubClassOf>
     <SubClassOf>
-        <Class IRI="#MobilisationStretching"/>
+        <Class IRI="#Mobilisation"/>
         <Class IRI="#Exercise"/>
     </SubClassOf>
     <SubClassOf>
@@ -2731,6 +2768,10 @@
     <SubClassOf>
         <Class IRI="#NeckMuscleInjury"/>
         <Class IRI="#MuscleInjury"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Relaxation"/>
+        <Class IRI="#Exercise"/>
     </SubClassOf>
     <SubClassOf>
         <Class IRI="#SeverityLevel"/>
@@ -2885,7 +2926,7 @@
         <NamedIndividual IRI="#Airplane_Torso"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="#CoordinationMobility"/>
+        <Class IRI="#Coordination"/>
         <NamedIndividual IRI="#AllFourswithLegExtension"/>
     </ClassAssertion>
     <ClassAssertion>
@@ -2917,11 +2958,11 @@
         <NamedIndividual IRI="#Archery"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="#CoordinationMobility"/>
+        <Class IRI="#Coordination"/>
         <NamedIndividual IRI="#ArmhebenImVierfuesslerstand"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="#CoordinationMobility"/>
+        <Class IRI="#Coordination"/>
         <NamedIndividual IRI="#Armkreisen"/>
     </ClassAssertion>
     <ClassAssertion>
@@ -2929,15 +2970,15 @@
         <NamedIndividual IRI="#Arms"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="#CoordinationMobility"/>
+        <Class IRI="#Coordination"/>
         <NamedIndividual IRI="#AssistedShoulderRotation"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="#MobilisationStretching"/>
+        <Class IRI="#Mobilisation"/>
         <NamedIndividual IRI="#AssistedShoulderRotation"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="#Entspannung"/>
+        <Class IRI="#Relaxation"/>
         <NamedIndividual IRI="#Atemuebung478"/>
     </ClassAssertion>
     <ClassAssertion>
@@ -2957,10 +2998,6 @@
         <NamedIndividual IRI="#BackFriendlyLifting"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="#Contraindication"/>
-        <NamedIndividual IRI="#BackIssue"/>
-    </ClassAssertion>
-    <ClassAssertion>
         <Class IRI="#SportActivity"/>
         <NamedIndividual IRI="#Backpacking"/>
     </ClassAssertion>
@@ -2969,20 +3006,16 @@
         <NamedIndividual IRI="#Badminton"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="#CoordinationMobility"/>
+        <Class IRI="#Coordination"/>
         <NamedIndividual IRI="#Baerenlauf"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="#CoordinationMobility"/>
+        <Class IRI="#Coordination"/>
         <NamedIndividual IRI="#Baerenstuetz"/>
     </ClassAssertion>
     <ClassAssertion>
         <Class IRI="#TrainingsEffect"/>
         <NamedIndividual IRI="#Balance"/>
-    </ClassAssertion>
-    <ClassAssertion>
-        <Class IRI="#Contraindication"/>
-        <NamedIndividual IRI="#BalanceIssue"/>
     </ClassAssertion>
     <ClassAssertion>
         <Class IRI="#Equipment"/>
@@ -2993,7 +3026,7 @@
         <NamedIndividual IRI="#Ballet"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="#CoordinationMobility"/>
+        <Class IRI="#Coordination"/>
         <NamedIndividual IRI="#BallkreisenAnDerWand"/>
     </ClassAssertion>
     <ClassAssertion>
@@ -3009,7 +3042,7 @@
         <NamedIndividual IRI="#BasketballShootingBaskets"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="#Entspannung"/>
+        <Class IRI="#Relaxation"/>
         <NamedIndividual IRI="#BauchatmungInBauchlage"/>
     </ClassAssertion>
     <ClassAssertion>
@@ -3021,15 +3054,15 @@
         <NamedIndividual IRI="#BeachVolleyball"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="#MobilisationStretching"/>
+        <Class IRI="#Mobilisation"/>
         <NamedIndividual IRI="#Beckenkippen"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="#CoordinationMobility"/>
+        <Class IRI="#Coordination"/>
         <NamedIndividual IRI="#BeckenkontrollUebung"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="#MobilisationStretching"/>
+        <Class IRI="#Mobilisation"/>
         <NamedIndividual IRI="#Beckenuhr"/>
     </ClassAssertion>
     <ClassAssertion>
@@ -3041,11 +3074,11 @@
         <NamedIndividual IRI="#Beginner"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="#MobilisationStretching"/>
+        <Class IRI="#Mobilisation"/>
         <NamedIndividual IRI="#BeideKnieZurBrust"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="#CoordinationMobility"/>
+        <Class IRI="#Coordination"/>
         <NamedIndividual IRI="#BeinhebenImVierfuesslerstand"/>
     </ClassAssertion>
     <ClassAssertion>
@@ -3077,15 +3110,15 @@
         <NamedIndividual IRI="#BicyclingLeisurely"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="#CoordinationMobility"/>
+        <Class IRI="#Coordination"/>
         <NamedIndividual IRI="#BirdDogAufDemGymnastikball"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="#CoordinationMobility"/>
+        <Class IRI="#Coordination"/>
         <NamedIndividual IRI="#BirdDogHalteuebung"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="#MobilisationStretching"/>
+        <Class IRI="#Stretching"/>
         <NamedIndividual IRI="#BizepsDehnung"/>
     </ClassAssertion>
     <ClassAssertion>
@@ -3101,35 +3134,35 @@
         <NamedIndividual IRI="#Bruecke"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="#MobilisationStretching"/>
+        <Class IRI="#Stretching"/>
         <NamedIndividual IRI="#BrustdehnungAnDerWand"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="#Entspannung"/>
+        <Class IRI="#Relaxation"/>
         <NamedIndividual IRI="#BrustmuskelmassageMitBall"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="#MobilisationStretching"/>
+        <Class IRI="#Stretching"/>
         <NamedIndividual IRI="#BrustwirbelsaeulenDehnung"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="#Entspannung"/>
+        <Class IRI="#Relaxation"/>
         <NamedIndividual IRI="#BrustwirbelsaeulenMassageMitDerFaszienrolle"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="#MobilisationStretching"/>
+        <Class IRI="#Mobilisation"/>
         <NamedIndividual IRI="#BrustwirbelsaeulenRotation"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="#MobilisationStretching"/>
+        <Class IRI="#Mobilisation"/>
         <NamedIndividual IRI="#BrustwirbelsaeulenRotationImVierfuesslerstand"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="#MobilisationStretching"/>
+        <Class IRI="#Mobilisation"/>
         <NamedIndividual IRI="#BrustwirbelsaeulenstreckungUeberDerFaszienrolle"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="#MobilisationStretching"/>
+        <Class IRI="#Mobilisation"/>
         <NamedIndividual IRI="#Buchoeffner"/>
     </ClassAssertion>
     <ClassAssertion>
@@ -3261,10 +3294,6 @@
         <NamedIndividual IRI="#Core"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="#Contraindication"/>
-        <NamedIndividual IRI="#CoreWeakness"/>
-    </ClassAssertion>
-    <ClassAssertion>
         <Class IRI="#Asana"/>
         <NamedIndividual IRI="#Crab"/>
     </ClassAssertion>
@@ -3329,23 +3358,23 @@
         <NamedIndividual IRI="#Deadlift"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="#MobilisationStretching"/>
+        <Class IRI="#Stretching"/>
         <NamedIndividual IRI="#DehnungDerHinterenOberschenkelmuskulatur"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="#MobilisationStretching"/>
+        <Class IRI="#Stretching"/>
         <NamedIndividual IRI="#DehnungDerHinterenSchulterkapsel"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="#MobilisationStretching"/>
+        <Class IRI="#Stretching"/>
         <NamedIndividual IRI="#DehnungDerLendenwirbelsaeule"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="#MobilisationStretching"/>
+        <Class IRI="#Stretching"/>
         <NamedIndividual IRI="#DehnungDesSchulterblatthebers"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="#CoordinationMobility"/>
+        <Class IRI="#Coordination"/>
         <NamedIndividual IRI="#DiagonalesArmUndBeinhebenImVierfuesslerstand"/>
     </ClassAssertion>
     <ClassAssertion>
@@ -3361,7 +3390,7 @@
         <NamedIndividual IRI="#Dumble"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="#CoordinationMobility"/>
+        <Class IRI="#Coordination"/>
         <NamedIndividual IRI="#DynamischeUmarmung"/>
     </ClassAssertion>
     <ClassAssertion>
@@ -3389,11 +3418,11 @@
         <NamedIndividual IRI="#Eagle_Torso"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="#CoordinationMobility"/>
+        <Class IRI="#Coordination"/>
         <NamedIndividual IRI="#EinarmigerFarmerSWalk"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="#CoordinationMobility"/>
+        <Class IRI="#Coordination"/>
         <NamedIndividual IRI="#Einbeinstand"/>
     </ClassAssertion>
     <ClassAssertion>
@@ -3405,15 +3434,19 @@
         <NamedIndividual IRI="#Elbows"/>
     </ClassAssertion>
     <ClassAssertion>
+        <Class IRI="#Contraindication"/>
+        <NamedIndividual IRI="#Ellenbogenprobleme"/>
+    </ClassAssertion>
+    <ClassAssertion>
         <Class IRI="#DailyRoutine"/>
         <NamedIndividual IRI="#EnBlocBedExit"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="#Entspannung"/>
+        <Class IRI="#Relaxation"/>
         <NamedIndividual IRI="#EntspannungInDerKindhaltung"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="#Entspannung"/>
+        <Class IRI="#Relaxation"/>
         <NamedIndividual IRI="#EntspannungslageInRueckenlage"/>
     </ClassAssertion>
     <ClassAssertion>
@@ -3429,7 +3462,7 @@
         <NamedIndividual IRI="#FacePullMitTheraband"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="#MobilisationStretching"/>
+        <Class IRI="#Mobilisation"/>
         <NamedIndividual IRI="#FadenDurchDieNadel"/>
     </ClassAssertion>
     <ClassAssertion>
@@ -3441,7 +3474,7 @@
         <NamedIndividual IRI="#Faszienrolle"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="#Entspannung"/>
+        <Class IRI="#Relaxation"/>
         <NamedIndividual IRI="#FaszienrolleRueckenWade"/>
     </ClassAssertion>
     <ClassAssertion>
@@ -3453,7 +3486,7 @@
         <NamedIndividual IRI="#Fencing"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="#CoordinationMobility"/>
+        <Class IRI="#Coordination"/>
         <NamedIndividual IRI="#FerseZehenGang"/>
     </ClassAssertion>
     <ClassAssertion>
@@ -3557,15 +3590,15 @@
         <NamedIndividual IRI="#Gate_Torso"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="#MobilisationStretching"/>
+        <Class IRI="#Stretching"/>
         <NamedIndividual IRI="#GebetshaltungDehnung"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="#CoordinationMobility"/>
+        <Class IRI="#Coordination"/>
         <NamedIndividual IRI="#GewichtsverlagerungSeitlich"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="#CoordinationMobility"/>
+        <Class IRI="#Coordination"/>
         <NamedIndividual IRI="#GleichgewichtInstabil"/>
     </ClassAssertion>
     <ClassAssertion>
@@ -3613,7 +3646,7 @@
         <NamedIndividual IRI="#Gymnastics"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="#CoordinationMobility"/>
+        <Class IRI="#Coordination"/>
         <NamedIndividual IRI="#GymnastikballRollout"/>
     </ClassAssertion>
     <ClassAssertion>
@@ -3643,10 +3676,6 @@
     <ClassAssertion>
         <Class IRI="#LimbAlignment"/>
         <NamedIndividual IRI="#HalfMoon_Torso"/>
-    </ClassAssertion>
-    <ClassAssertion>
-        <Class IRI="#Contraindication"/>
-        <NamedIndividual IRI="#HamstringIssue"/>
     </ClassAssertion>
     <ClassAssertion>
         <Class IRI="#ThighMuscleInjury"/>
@@ -3733,7 +3762,7 @@
         <NamedIndividual IRI="#HueftbeugeMitGerademRueckenGoodMorning"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="#MobilisationStretching"/>
+        <Class IRI="#Stretching"/>
         <NamedIndividual IRI="#HueftbeugerDehnung"/>
     </ClassAssertion>
     <ClassAssertion>
@@ -3769,11 +3798,11 @@
         <NamedIndividual IRI="#Karate"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="#Entspannung"/>
+        <Class IRI="#Relaxation"/>
         <NamedIndividual IRI="#Kastenatmung4444Atmung"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="#MobilisationStretching"/>
+        <Class IRI="#Mobilisation"/>
         <NamedIndividual IRI="#Katze-Kuh-Übung"/>
     </ClassAssertion>
     <ClassAssertion>
@@ -3781,7 +3810,7 @@
         <NamedIndividual IRI="#Kayaking"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="#Entspannung"/>
+        <Class IRI="#Relaxation"/>
         <NamedIndividual IRI="#Kindpose"/>
     </ClassAssertion>
     <ClassAssertion>
@@ -3829,11 +3858,7 @@
         <NamedIndividual IRI="#Knees"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="#MobilisationStretching"/>
-        <NamedIndividual IRI="#KnieZurBrustDehnung"/>
-    </ClassAssertion>
-    <ClassAssertion>
-        <Class IRI="#MobilisationStretching"/>
+        <Class IRI="#Mobilisation"/>
         <NamedIndividual IRI="#KniegelenkMobilisation"/>
     </ClassAssertion>
     <ClassAssertion>
@@ -3845,7 +3870,7 @@
         <NamedIndividual IRI="#Lacrosse"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="#MobilisationStretching"/>
+        <Class IRI="#Stretching"/>
         <NamedIndividual IRI="#LatStretch"/>
     </ClassAssertion>
     <ClassAssertion>
@@ -3853,7 +3878,7 @@
         <NamedIndividual IRI="#LateralDeltoids"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="#Entspannung"/>
+        <Class IRI="#Relaxation"/>
         <NamedIndividual IRI="#LatissimusMassageMitDerFaszienrolle"/>
     </ClassAssertion>
     <ClassAssertion>
@@ -3877,7 +3902,7 @@
         <NamedIndividual IRI="#Legs"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="#MobilisationStretching"/>
+        <Class IRI="#Mobilisation"/>
         <NamedIndividual IRI="#LendenwirbelsaeulenRotation"/>
     </ClassAssertion>
     <ClassAssertion>
@@ -3981,7 +4006,7 @@
         <NamedIndividual IRI="#Muschel"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="#MobilisationStretching"/>
+        <Class IRI="#Stretching"/>
         <NamedIndividual IRI="#Nackendehnungen"/>
     </ClassAssertion>
     <ClassAssertion>
@@ -4005,7 +4030,7 @@
         <NamedIndividual IRI="#None"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="#MobilisationStretching"/>
+        <Class IRI="#Mobilisation"/>
         <NamedIndividual IRI="#OberkoerperrotationImStand"/>
     </ClassAssertion>
     <ClassAssertion>
@@ -4053,12 +4078,8 @@
         <NamedIndividual IRI="#PhoneAtEyeLevel"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="#MobilisationStretching"/>
+        <Class IRI="#Mobilisation"/>
         <NamedIndividual IRI="#PigeonPose"/>
-    </ClassAssertion>
-    <ClassAssertion>
-        <Class IRI="#MobilisationStretching"/>
-        <NamedIndividual IRI="#PiriformisStretch"/>
     </ClassAssertion>
     <ClassAssertion>
         <Class IRI="#Stretching"/>
@@ -4085,7 +4106,7 @@
         <NamedIndividual IRI="#Posture"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="#Entspannung"/>
+        <Class IRI="#Relaxation"/>
         <NamedIndividual IRI="#ProgressiveMuskelentspannung"/>
     </ClassAssertion>
     <ClassAssertion>
@@ -4185,8 +4206,44 @@
         <NamedIndividual IRI="#Relaxation"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="#Contraindication"/>
-        <NamedIndividual IRI="#RespiratoryIssue"/>
+        <Class IRI="#RecipeOfTheWeek"/>
+        <NamedIndividual IRI="#Rezept_AvocadoKresseBrot"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#RecipeOfTheWeek"/>
+        <NamedIndividual IRI="#Rezept_Beeren_Smoothie"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#RecipeOfTheWeek"/>
+        <NamedIndividual IRI="#Rezept_ChiaBeerenPudding"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#RecipeOfTheWeek"/>
+        <NamedIndividual IRI="#Rezept_GoldeneMilchOatmeal"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#RecipeOfTheWeek"/>
+        <NamedIndividual IRI="#Rezept_GrünerPowerSmoothie"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#RecipeOfTheWeek"/>
+        <NamedIndividual IRI="#Rezept_IngwerZitronenShot"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#RecipeOfTheWeek"/>
+        <NamedIndividual IRI="#Rezept_KirschKamilleSchlummerdrink"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#RecipeOfTheWeek"/>
+        <NamedIndividual IRI="#Rezept_MandelKakaoEnergyBalls"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#RecipeOfTheWeek"/>
+        <NamedIndividual IRI="#Rezept_RoteBeteApfelJuice"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#RecipeOfTheWeek"/>
+        <NamedIndividual IRI="#Rezept_WalnussBananenQuark"/>
     </ClassAssertion>
     <ClassAssertion>
         <Class IRI="#Limb"/>
@@ -4221,7 +4278,7 @@
         <NamedIndividual IRI="#RotatorCuffs"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="#Entspannung"/>
+        <Class IRI="#Relaxation"/>
         <NamedIndividual IRI="#RotatorenmanschettenMassageMitBall"/>
     </ClassAssertion>
     <ClassAssertion>
@@ -4249,7 +4306,7 @@
         <NamedIndividual IRI="#Running9MinMile"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="#CoordinationMobility"/>
+        <Class IRI="#Coordination"/>
         <NamedIndividual IRI="#ScapulaRetraktion"/>
     </ClassAssertion>
     <ClassAssertion>
@@ -4257,15 +4314,15 @@
         <NamedIndividual IRI="#ScapulaRetraktion"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="#CoordinationMobility"/>
+        <Class IRI="#Coordination"/>
         <NamedIndividual IRI="#SchulterAlphabet"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="#Entspannung"/>
+        <Class IRI="#Relaxation"/>
         <NamedIndividual IRI="#SchulterNackenEntspannung"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="#MobilisationStretching"/>
+        <Class IRI="#Mobilisation"/>
         <NamedIndividual IRI="#SchulterabduktionMitStab"/>
     </ClassAssertion>
     <ClassAssertion>
@@ -4273,27 +4330,27 @@
         <NamedIndividual IRI="#SchulterabduktionMitTheraband"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="#CoordinationMobility"/>
+        <Class IRI="#Coordination"/>
         <NamedIndividual IRI="#SchulterblattKontrolluebung"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="#CoordinationMobility"/>
+        <Class IRI="#Coordination"/>
         <NamedIndividual IRI="#SchulterblattUhr_2"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="#MobilisationStretching"/>
+        <Class IRI="#Stretching"/>
         <NamedIndividual IRI="#SchulterdehnungUeberDenKoerper"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="#MobilisationStretching"/>
+        <Class IRI="#Mobilisation"/>
         <NamedIndividual IRI="#SchulterflexionMitStab"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="#MobilisationStretching"/>
+        <Class IRI="#Mobilisation"/>
         <NamedIndividual IRI="#Schulterkreisen"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="#MobilisationStretching"/>
+        <Class IRI="#Mobilisation"/>
         <NamedIndividual IRI="#Schulterpendel"/>
     </ClassAssertion>
     <ClassAssertion>
@@ -4305,19 +4362,15 @@
         <NamedIndividual IRI="#Sciatica"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="#MobilisationStretching"/>
-        <NamedIndividual IRI="#SealStretch"/>
-    </ClassAssertion>
-    <ClassAssertion>
         <Class IRI="#Stretching"/>
         <NamedIndividual IRI="#SealStretch"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="#MobilisationStretching"/>
+        <Class IRI="#Mobilisation"/>
         <NamedIndividual IRI="#SegmentaleWirbelsaeulenbeugung"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="#MobilisationStretching"/>
+        <Class IRI="#Stretching"/>
         <NamedIndividual IRI="#SeitlicheRumpfdehnung"/>
     </ClassAssertion>
     <ClassAssertion>
@@ -4325,27 +4378,27 @@
         <NamedIndividual IRI="#Seitstuetz"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="#Entspannung"/>
+        <Class IRI="#Relaxation"/>
         <NamedIndividual IRI="#SelbstmassageDerHinterenSchulter"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="#Entspannung"/>
+        <Class IRI="#Relaxation"/>
         <NamedIndividual IRI="#SelbstmassageDesMusculusQuadratusLumborum"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="#Entspannung"/>
+        <Class IRI="#Relaxation"/>
         <NamedIndividual IRI="#SelbstmassageDesOberenTrapezmuskels"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="#Entspannung"/>
+        <Class IRI="#Relaxation"/>
         <NamedIndividual IRI="#SelbstmassageDesPiriformis"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="#Entspannung"/>
+        <Class IRI="#Relaxation"/>
         <NamedIndividual IRI="#SelbstmassageDesSchulterblatthebersLevatorScapulae"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="#Entspannung"/>
+        <Class IRI="#Relaxation"/>
         <NamedIndividual IRI="#SelbstmassageDesUnterenRueckens"/>
     </ClassAssertion>
     <ClassAssertion>
@@ -4369,11 +4422,11 @@
         <NamedIndividual IRI="#ShoulderInstability"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="#CoordinationMobility"/>
+        <Class IRI="#Coordination"/>
         <NamedIndividual IRI="#ShoulderInternalExternalRotation"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="#MobilisationStretching"/>
+        <Class IRI="#Mobilisation"/>
         <NamedIndividual IRI="#ShoulderInternalExternalRotation"/>
     </ClassAssertion>
     <ClassAssertion>
@@ -4429,7 +4482,7 @@
         <NamedIndividual IRI="#Sitting"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="#CoordinationMobility"/>
+        <Class IRI="#Coordination"/>
         <NamedIndividual IRI="#SitzenStehen"/>
     </ClassAssertion>
     <ClassAssertion>
@@ -4457,11 +4510,11 @@
         <NamedIndividual IRI="#SleepPositionAdjustment"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="#MobilisationStretching"/>
+        <Class IRI="#Stretching"/>
         <NamedIndividual IRI="#SleeperDehnung"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="#MobilisationStretching"/>
+        <Class IRI="#Mobilisation"/>
         <NamedIndividual IRI="#SleeperMobilisation"/>
     </ClassAssertion>
     <ClassAssertion>
@@ -4491,10 +4544,6 @@
     <ClassAssertion>
         <Class IRI="#BodyPart"/>
         <NamedIndividual IRI="#Spine"/>
-    </ClassAssertion>
-    <ClassAssertion>
-        <Class IRI="#Contraindication"/>
-        <NamedIndividual IRI="#SpineIssue"/>
     </ClassAssertion>
     <ClassAssertion>
         <Class IRI="#Joint"/>
@@ -4637,7 +4686,7 @@
         <NamedIndividual IRI="#StandingLegRaise_Torso"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="#MobilisationStretching"/>
+        <Class IRI="#Mobilisation"/>
         <NamedIndividual IRI="#StandingPelvicTilts"/>
     </ClassAssertion>
     <ClassAssertion>
@@ -4687,10 +4736,6 @@
     <ClassAssertion>
         <Class IRI="#LimbAlignment"/>
         <NamedIndividual IRI="#StandingSplit_Torso"/>
-    </ClassAssertion>
-    <ClassAssertion>
-        <Class IRI="#MobilisationStretching"/>
-        <NamedIndividual IRI="#Standing_sleeper_stretch"/>
     </ClassAssertion>
     <ClassAssertion>
         <Class IRI="#Stretching"/>
@@ -4753,7 +4798,7 @@
         <NamedIndividual IRI="#TaiChi"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="#CoordinationMobility"/>
+        <Class IRI="#Coordination"/>
         <NamedIndividual IRI="#TeilweisesTurkishGetUp"/>
     </ClassAssertion>
     <ClassAssertion>
@@ -4785,7 +4830,7 @@
         <NamedIndividual IRI="#ThoracicBackPain"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="#MobilisationStretching"/>
+        <Class IRI="#Mobilisation"/>
         <NamedIndividual IRI="#Tischgleiten"/>
     </ClassAssertion>
     <ClassAssertion>
@@ -4805,7 +4850,7 @@
         <NamedIndividual IRI="#Trapezius"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="#MobilisationStretching"/>
+        <Class IRI="#Stretching"/>
         <NamedIndividual IRI="#TrapezmuskelDehnung"/>
     </ClassAssertion>
     <ClassAssertion>
@@ -4865,15 +4910,19 @@
         <NamedIndividual IRI="#Triceps"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="#Entspannung"/>
+        <Class IRI="#Stretching"/>
+        <NamedIndividual IRI="#TricepsStretch"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Relaxation"/>
         <NamedIndividual IRI="#TriggerpunktmassageDerGesaessmuskulatur"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="#MobilisationStretching"/>
+        <Class IRI="#Stretching"/>
         <NamedIndividual IRI="#TrizepsDehnung"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="#CoordinationMobility"/>
+        <Class IRI="#Coordination"/>
         <NamedIndividual IRI="#TurkishGetUp"/>
     </ClassAssertion>
     <ClassAssertion>
@@ -4909,7 +4958,7 @@
         <NamedIndividual IRI="#WHeben"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="#MobilisationStretching"/>
+        <Class IRI="#Stretching"/>
         <NamedIndividual IRI="#Wadendehnung"/>
     </ClassAssertion>
     <ClassAssertion>
@@ -4949,15 +4998,15 @@
         <NamedIndividual IRI="#WallPushUps"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="#MobilisationStretching"/>
+        <Class IRI="#Mobilisation"/>
         <NamedIndividual IRI="#Wandengel"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="#CoordinationMobility"/>
+        <Class IRI="#Coordination"/>
         <NamedIndividual IRI="#WandgleitenMitArmabheben"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="#MobilisationStretching"/>
+        <Class IRI="#Mobilisation"/>
         <NamedIndividual IRI="#Wandschieben"/>
     </ClassAssertion>
     <ClassAssertion>
@@ -5092,12 +5141,8 @@
         <Class IRI="#Stretching"/>
         <NamedIndividual IRI="#Z-Sits"/>
     </ClassAssertion>
-    
     <ClassAssertion>
-        <Class IRI="#Stretching"/>
-        <NamedIndividual IRI="#TricepsStretch"/>
-    </ClassAssertion><ClassAssertion>
-        <Class IRI="#Entspannung"/>
+        <Class IRI="#Relaxation"/>
         <NamedIndividual IRI="#Zwerchfellatmung"/>
     </ClassAssertion>
     <ClassAssertion>
@@ -5105,16 +5150,6 @@
         <NamedIndividual IRI="#Bicycling20+Mph"/>
     </ClassAssertion>
     <ObjectPropertyAssertion>
-        <ObjectProperty IRI="#excludesExercise"/>
-        <NamedIndividual IRI="#RotatorCuffStrain"/>
-        <NamedIndividual IRI="#TricepsStretch"/>
-    </ObjectPropertyAssertion>
-<ObjectPropertyAssertion>
-        <ObjectProperty IRI="#excludesExercise"/>
-        <NamedIndividual IRI="#RotatorCuffTear"/>
-        <NamedIndividual IRI="#TricepsStretch"/>
-    </ObjectPropertyAssertion>
-<ObjectPropertyAssertion>
         <ObjectProperty IRI="#excludesExercise"/>
         <NamedIndividual IRI="#ACLTear"/>
         <NamedIndividual IRI="#Einbeinstand"/>
@@ -5313,15 +5348,6 @@
         <NamedIndividual IRI="#AirplaneInstruction"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
-        <Annotation>
-            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-            <Literal>This Contraindication should be considered for practitioners of TricepsStretch to avoid strain or injury.</Literal>
-        </Annotation>
-        <ObjectProperty IRI="#hasContraindication"/>
-        <NamedIndividual IRI="#TricepsStretch"/>
-        <NamedIndividual IRI="#ShoulderIssue"/>
-    </ObjectPropertyAssertion>
-<ObjectPropertyAssertion>
         <Annotation>
             <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
             <Literal>This Contraindication should be considered for practitioners of Airplane to avoid strain or injury.</Literal>
@@ -5692,11 +5718,6 @@
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#engagedBodyPart"/>
-        <NamedIndividual IRI="#TricepsStretch"/>
-        <NamedIndividual IRI="#Triceps"/>
-    </ObjectPropertyAssertion>
-<ObjectPropertyAssertion>
-        <ObjectProperty IRI="#engagedBodyPart"/>
         <NamedIndividual IRI="#AllFourswithLegExtension"/>
         <NamedIndividual IRI="#Abs"/>
     </ObjectPropertyAssertion>
@@ -5752,25 +5773,10 @@
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#hasDifficultyLevel"/>
-        <NamedIndividual IRI="#TricepsStretch"/>
-        <NamedIndividual IRI="#Beginner"/>
-    </ObjectPropertyAssertion>
-<ObjectPropertyAssertion>
-        <ObjectProperty IRI="#hasDifficultyLevel"/>
         <NamedIndividual IRI="#AllFourswithLegExtension"/>
         <NamedIndividual IRI="#Beginner"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
-        <ObjectProperty IRI="#improves"/>
-        <NamedIndividual IRI="#TricepsStretch"/>
-        <NamedIndividual IRI="#Flexibility"/>
-    </ObjectPropertyAssertion>
-<ObjectPropertyAssertion>
-        <ObjectProperty IRI="#improves"/>
-        <NamedIndividual IRI="#TricepsStretch"/>
-        <NamedIndividual IRI="#Mobility"/>
-    </ObjectPropertyAssertion>
-<ObjectPropertyAssertion>
         <ObjectProperty IRI="#improves"/>
         <NamedIndividual IRI="#AllFourswithLegExtension"/>
         <NamedIndividual IRI="#Balance"/>
@@ -5816,11 +5822,6 @@
         <NamedIndividual IRI="#SpineJoint"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
-        <ObjectProperty IRI="#requiresEquipment"/>
-        <NamedIndividual IRI="#TricepsStretch"/>
-        <NamedIndividual IRI="#None"/>
-    </ObjectPropertyAssertion>
-<ObjectPropertyAssertion>
         <ObjectProperty IRI="#requiresEquipment"/>
         <NamedIndividual IRI="#AllFourswithLegExtension"/>
         <NamedIndividual IRI="#None"/>
@@ -6990,11 +6991,6 @@
         <NamedIndividual IRI="#None"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
-        <ObjectProperty IRI="#stretches"/>
-        <NamedIndividual IRI="#TricepsStretch"/>
-        <NamedIndividual IRI="#Triceps"/>
-    </ObjectPropertyAssertion>
-<ObjectPropertyAssertion>
         <ObjectProperty IRI="#stretches"/>
         <NamedIndividual IRI="#BrustwirbelsaeulenRotation"/>
         <NamedIndividual IRI="#Core"/>
@@ -18255,6 +18251,11 @@
         <NamedIndividual IRI="#TherabandAussenrotation"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#excludesExercise"/>
+        <NamedIndividual IRI="#RotatorCuffStrain"/>
+        <NamedIndividual IRI="#TricepsStretch"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
         <ObjectProperty IRI="#requiresImprovementOf"/>
         <NamedIndividual IRI="#RotatorCuffStrain"/>
         <NamedIndividual IRI="#RotatorCuffs"/>
@@ -18303,6 +18304,11 @@
         <ObjectProperty IRI="#excludesExercise"/>
         <NamedIndividual IRI="#RotatorCuffTear"/>
         <NamedIndividual IRI="#TherabandAussenrotation"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#excludesExercise"/>
+        <NamedIndividual IRI="#RotatorCuffTear"/>
+        <NamedIndividual IRI="#TricepsStretch"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#excludesExercise"/>
@@ -24967,6 +24973,45 @@
         <NamedIndividual IRI="#Arms"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#engagedBodyPart"/>
+        <NamedIndividual IRI="#TricepsStretch"/>
+        <NamedIndividual IRI="#Triceps"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>This Contraindication should be considered for practitioners of TricepsStretch to avoid strain or injury.</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#hasContraindication"/>
+        <NamedIndividual IRI="#TricepsStretch"/>
+        <NamedIndividual IRI="#ShoulderIssue"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasDifficultyLevel"/>
+        <NamedIndividual IRI="#TricepsStretch"/>
+        <NamedIndividual IRI="#Beginner"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#improves"/>
+        <NamedIndividual IRI="#TricepsStretch"/>
+        <NamedIndividual IRI="#Flexibility"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#improves"/>
+        <NamedIndividual IRI="#TricepsStretch"/>
+        <NamedIndividual IRI="#Mobility"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#requiresEquipment"/>
+        <NamedIndividual IRI="#TricepsStretch"/>
+        <NamedIndividual IRI="#None"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#stretches"/>
+        <NamedIndividual IRI="#TricepsStretch"/>
+        <NamedIndividual IRI="#Triceps"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
         <ObjectProperty IRI="#forCondition"/>
         <NamedIndividual IRI="#TricepsStretch_ShoulderIssue"/>
         <NamedIndividual IRI="#ShoulderIssue"/>
@@ -27479,6 +27524,11 @@
         <DataProperty IRI="#hasDuration"/>
         <NamedIndividual IRI="#Atemuebung478"/>
         <Literal>3 Min</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasDuration"/>
+        <NamedIndividual IRI="#Atemuebung478"/>
+        <Literal>5 Min</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="#hasInstruction"/>
@@ -30453,6 +30503,156 @@ Langsam zur Mitte zurückkehren.
         <Literal>Kurze regelmäßige Bewegungspausen im Alltag, um Verspannungen vorzubeugen und Mobilität zu fördern.</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
+        <DataProperty IRI="#hasDescription"/>
+        <NamedIndividual IRI="#Rezept_AvocadoKresseBrot"/>
+        <Literal>Eine Scheibe Vollkornbrot rösten. 1/2 Avocado zerdrücken, mit Salz, Pfeffer und Zitronensaft abschmecken, auf dem Brot verteilen und reichlich frische Kresse darüberstreuen.</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasHealthBenefit"/>
+        <NamedIndividual IRI="#Rezept_AvocadoKresseBrot"/>
+        <Literal>Avocados liefern gesunde einfach ungesättigte Fettsäuren, die für die Aufnahme fettlöslicher Vitamine essenziell sind. Kresse enthält Senföle, die keimtötend und entzündungshemmend wirken.</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasPreparationTime"/>
+        <NamedIndividual IRI="#Rezept_AvocadoKresseBrot"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#decimal">5</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasDescription"/>
+        <NamedIndividual IRI="#Rezept_Beeren_Smoothie"/>
+        <Literal>100g Beeren, 1/2 TL Kurkuma, 200ml Pflanzendrink im Mixer pürieren.</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasHealthBenefit"/>
+        <NamedIndividual IRI="#Rezept_Beeren_Smoothie"/>
+        <Literal>Dieses Lebensmittel/Rezept ist besonders gut, da das enthaltene Kurkuma stark entzündungshemmend ist und Antioxidantien die Zellregeneration fördern.</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasPreparationTime"/>
+        <NamedIndividual IRI="#Rezept_Beeren_Smoothie"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#decimal">5</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasDescription"/>
+        <NamedIndividual IRI="#Rezept_ChiaBeerenPudding"/>
+        <Literal>3 EL Chiasamen mit 150ml Mandelmilch verrühren und über Nacht im Kühlschrank quellen lassen. Vor dem Verzehr mit 50g aufgetauten Tiefkühl-Beeren toppen.</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasHealthBenefit"/>
+        <NamedIndividual IRI="#Rezept_ChiaBeerenPudding"/>
+        <Literal>Chiasamen sind hervorragende Lieferanten von Omega-3-Fettsäuren und Ballaststoffen. Die Antioxidantien der Beeren schützen die Zellen vor oxidativem Stress.</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasPreparationTime"/>
+        <NamedIndividual IRI="#Rezept_ChiaBeerenPudding"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#decimal">5</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasDescription"/>
+        <NamedIndividual IRI="#Rezept_GoldeneMilchOatmeal"/>
+        <Literal>50g Haferflocken mit 200ml Pflanzendrink, 1 TL Kurkuma, 1 Prise schwarzem Pfeffer und etwas Honig aufkochen und 5 Minuten köcheln lassen.</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasHealthBenefit"/>
+        <NamedIndividual IRI="#Rezept_GoldeneMilchOatmeal"/>
+        <Literal>Haferflocken liefern wertvolle Komplexe Kohlenhydrate und Magnesium für die Muskelentspannung. Das enthaltene Kurkuma mindert Entzündungen in den Gelenken.</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasPreparationTime"/>
+        <NamedIndividual IRI="#Rezept_GoldeneMilchOatmeal"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#decimal">10</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasDescription"/>
+        <NamedIndividual IRI="#Rezept_GrünerPowerSmoothie"/>
+        <Literal>Eine Handvoll frischen Baby-Spinat, 1/2 Banane, 1/2 Apfel und 200ml Kokoswasser oder Leitungswasser im Standmixer feinpürieren.</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasHealthBenefit"/>
+        <NamedIndividual IRI="#Rezept_GrünerPowerSmoothie"/>
+        <Literal>Grünes Blattgemüse wie Spinat liefert reichlich Folsäure, Eisen und Magnesium, was die Sauerstoffversorgung der Muskeln und die Regeneration unterstützt.</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasPreparationTime"/>
+        <NamedIndividual IRI="#Rezept_GrünerPowerSmoothie"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#decimal">5</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasDescription"/>
+        <NamedIndividual IRI="#Rezept_IngwerZitronenShot"/>
+        <Literal>50g frischen Ingwer schälen und würfeln. Mit dem Saft von 2 Zitronen und 100ml Wasser im Mixer pürieren und anschließend durch ein feines Sieb streichen.</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasHealthBenefit"/>
+        <NamedIndividual IRI="#Rezept_IngwerZitronenShot"/>
+        <Literal>Ingwer enthält Gingerol, das schmerzlindernd und stark entzündungshemmend wirkt. Vitamin C aus der Zitrone stärkt das Immunsystem und fördert die Kollagensynthese im Gewebe.</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasPreparationTime"/>
+        <NamedIndividual IRI="#Rezept_IngwerZitronenShot"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#decimal">5</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasDescription"/>
+        <NamedIndividual IRI="#Rezept_KirschKamilleSchlummerdrink"/>
+        <Literal>100ml ungesüßten Sauerkirschsaft mit 100ml abgekühltem Kamillentee mischen und optional mit etwas Zitrone verfeinern.</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasHealthBenefit"/>
+        <NamedIndividual IRI="#Rezept_KirschKamilleSchlummerdrink"/>
+        <Literal>Sauerkirschen enthalten natürliches Melatonin und Entzündungshemmer, was die Schlafqualität verbessert. Guter Schlaf ist der wichtigste Faktor für die körperliche Geweberegeneration.</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasPreparationTime"/>
+        <NamedIndividual IRI="#Rezept_KirschKamilleSchlummerdrink"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#decimal">5</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasDescription"/>
+        <NamedIndividual IRI="#Rezept_MandelKakaoEnergyBalls"/>
+        <Literal>100g entsteinte Datteln, 50g Mandeln und 2 EL Backkakao im Food Processor zerkleinern, bis eine klebrige Masse entsteht. Daraus kleine Bällchen formen und kaltstellen.</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasHealthBenefit"/>
+        <NamedIndividual IRI="#Rezept_MandelKakaoEnergyBalls"/>
+        <Literal>Mandeln und Datteln liefern schnelle und nachhaltige Energie sowie Kalium für die Nerven- und Muskelfunktion. Ungesüßter Kakao ist reich an zellschützenden Flavonoiden.</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasPreparationTime"/>
+        <NamedIndividual IRI="#Rezept_MandelKakaoEnergyBalls"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#decimal">15</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasDescription"/>
+        <NamedIndividual IRI="#Rezept_RoteBeteApfelJuice"/>
+        <Literal>1 vorgegarte Knolle Rote Bete, 1 Apfel und etwas frischen Zitronensaft im Entsafter entsaften oder mit Wasser pürieren.</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasHealthBenefit"/>
+        <NamedIndividual IRI="#Rezept_RoteBeteApfelJuice"/>
+        <Literal>Rote Bete ist reich an Nitraten, welche die Gefäße erweitern, die Durchblutung steigern und Nährstoffe schneller in verletztes Gewebe transportieren.</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasPreparationTime"/>
+        <NamedIndividual IRI="#Rezept_RoteBeteApfelJuice"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#decimal">10</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasDescription"/>
+        <NamedIndividual IRI="#Rezept_WalnussBananenQuark"/>
+        <Literal>200g Magerquark mit einem Schuss Mineralwasser glattrühren. Eine gehackte Banane und eine Handvoll gehackte Walnüsse unterheben.</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasHealthBenefit"/>
+        <NamedIndividual IRI="#Rezept_WalnussBananenQuark"/>
+        <Literal>Magerquark liefert hochwertiges Kasein-Protein zur langfristigen Muskelreparatur. Walnüsse sind reich an pflanzlichen Omega-3-Fettsäuren, die Entzündungsprozesse im Körper bremsen.</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasPreparationTime"/>
+        <NamedIndividual IRI="#Rezept_WalnussBananenQuark"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#decimal">5</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
         <DataProperty IRI="#Calorie"/>
         <NamedIndividual IRI="#RollerSkating"/>
         <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#decimal">500.0</Literal>
@@ -32221,6 +32421,23 @@ Langsam zur Mitte zurückkehren.
         <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#decimal">90.0</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
+        <DataProperty IRI="#hasDuration"/>
+        <NamedIndividual IRI="#TricepsStretch"/>
+        <Literal>2 Min</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasInstruction"/>
+        <NamedIndividual IRI="#TricepsStretch"/>
+        <Literal>1. Aufrecht stehen oder aufrecht auf einem Stuhl sitzen, die Füße hüftbreit.
+2. Einen Arm seitlich am Körper hängen lassen, dann den Oberarm anheben und den Ellbogen beugen.
+3. Die Hand des angehobenen Arms auf den oberen Rücken legen, zwischen die Schulterblätter.
+4. Mit der anderen Hand sanft den angehobenen Ellbogen in Richtung Kopf ziehen.
+5. Den Nacken lang lassen, die Schulter entspannt nach unten halten und nicht hochziehen.
+6. Die Dehnung 20 bis 30 Sekunden halten und gleichmäßig weiteratmen.
+7. Den Arm langsam lösen und die Seite wechseln.
+8. Pro Seite 2 bis 3 Wiederholungen durchführen.</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
         <DataProperty IRI="#hasCommonMistake"/>
         <NamedIndividual IRI="#TriggerpunktmassageDerGesaessmuskulatur"/>
         <Literal>Zu starker Druck oder ein Rollen direkt über Knochen und Gelenke.</Literal>
@@ -33245,6 +33462,10 @@ Langsam zur Mitte zurückkehren.
         <Datatype abbreviatedIRI="xsd:string"/>
     </DataPropertyRange>
     <DataPropertyRange>
+        <DataProperty IRI="#hasHealthBenefit"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
         <DataProperty IRI="#hasHeight"/>
         <Datatype abbreviatedIRI="xsd:decimal"/>
     </DataPropertyRange>
@@ -33259,6 +33480,10 @@ Langsam zur Mitte zurückkehren.
     <DataPropertyRange>
         <DataProperty IRI="#hasMETScore"/>
         <Datatype abbreviatedIRI="xsd:decimal"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#hasPreparationTime"/>
+        <Datatype abbreviatedIRI="xsd:integer"/>
     </DataPropertyRange>
     <DataPropertyRange>
         <DataProperty IRI="#hasRiskFactor"/>
@@ -34205,6 +34430,11 @@ Langsam zur Mitte zurückkehren.
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#BodyPart</IRI>
+        <Literal xml:lang="de">Körperteil</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#Bouldering</IRI>
         <Literal xml:lang="en">Bouldering</Literal>
     </AnnotationAssertion>
@@ -34534,6 +34764,11 @@ Langsam zur Mitte zurückkehren.
         <Literal xml:lang="en">Cardio</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Cardio</IRI>
+        <Literal xml:lang="de">Kardio</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
         <IRI>#CenterSplits</IRI>
         <Literal>Samakonasana</Literal>
@@ -34859,9 +35094,19 @@ Langsam zur Mitte zurückkehren.
         <Literal xml:lang="en">Contraindication</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Contraindication</IRI>
+        <Literal xml:lang="de">Kontraindikationen</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
         <IRI>#Coordination</IRI>
         <Literal xml:lang="de">Koordination, das Zusammenspiel von Muskeln und Nerven für flüssige Bewegungen.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Coordination</IRI>
+        <Literal xml:lang="de">Übungen zur Schulung der Koordination und kontrollierten Bewegung</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
@@ -34871,21 +35116,16 @@ Langsam zur Mitte zurückkehren.
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#Coordination</IRI>
-        <Literal xml:lang="de">Koordination</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-        <IRI>#CoordinationMobility</IRI>
-        <Literal xml:lang="de">Übungen zur Schulung der Koordination und kontrollierten Bewegung</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>#CoordinationMobility</IRI>
         <Literal xml:lang="en">CoordinationMobility</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>#CoordinationMobility</IRI>
+        <IRI>#Coordination</IRI>
+        <Literal xml:lang="de">Koordination</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Coordination</IRI>
         <Literal>Koordination/Beweglichkeit</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
@@ -35047,6 +35287,11 @@ Langsam zur Mitte zurückkehren.
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#DailyRoutine</IRI>
         <Literal xml:lang="en">DailyRoutine</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#DailyRoutine</IRI>
+        <Literal xml:lang="de">Schonung im Alltag</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
@@ -35282,6 +35527,11 @@ Langsam zur Mitte zurückkehren.
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#DifficultyLevel</IRI>
         <Literal xml:lang="en">DifficultyLevel</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#DifficultyLevel</IRI>
+        <Literal xml:lang="de">Schwierigkeitsgrad</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
@@ -35581,17 +35831,12 @@ Langsam zur Mitte zurückkehren.
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#EnBlocBedExit</IRI>
-        <Literal xml:lang="en">EnBlocBedExit</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-        <IRI>#Entspannung</IRI>
-        <Literal xml:lang="de">Übungen zur körperlichen und geistigen Entspannung</Literal>
+        <Literal xml:lang="de">Aufstehen aus dem Bett en bloc</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>#Entspannung</IRI>
-        <Literal xml:lang="de">Entspannung</Literal>
+        <IRI>#EnBlocBedExit</IRI>
+        <Literal xml:lang="en">EnBlocBedExit</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
@@ -35617,6 +35862,11 @@ Langsam zur Mitte zurückkehren.
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
         <IRI>#Equipment</IRI>
         <Literal xml:lang="de">Trainingsgeräte und Hilfsmittel, die in Physiotherapie und Rehabilitation eingesetzt werden, um Übungen zu erleichtern oder Belastungen gezielt zu dosieren.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Equipment</IRI>
+        <Literal xml:lang="de">Equipment</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
@@ -35664,6 +35914,11 @@ Langsam zur Mitte zurückkehren.
         <Literal xml:lang="en">Exercise</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Exercise</IRI>
+        <Literal xml:lang="de">Übung</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
         <IRI>#ExerciseProperties</IRI>
         <Literal xml:lang="de">Eigenschaften und Merkmale, die eine Übung charakterisieren, etwa Schwierigkeitsgrad, betroffene Körperregionen oder benötigte Ausrüstung.</Literal>
@@ -35672,6 +35927,11 @@ Langsam zur Mitte zurückkehren.
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#ExerciseProperties</IRI>
         <Literal xml:lang="en">ExerciseProperties</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#ExerciseProperties</IRI>
+        <Literal xml:lang="de">Übungseigenschaften</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
@@ -37090,6 +37350,11 @@ Langsam zur Mitte zurückkehren.
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Injury</IRI>
+        <Literal xml:lang="de">Verletzung</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#InnenrotationMitTheraband</IRI>
         <Literal xml:lang="de">Innenrotation mit Theraband</Literal>
     </AnnotationAssertion>
@@ -37117,6 +37382,11 @@ Langsam zur Mitte zurückkehren.
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
         <IRI>#Joint</IRI>
         <Literal xml:lang="de">Gelenk des menschlichen Körpers; Oberklasse aller spezifischen Gelenke</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Joint</IRI>
+        <Literal xml:lang="de">Gelenk</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
@@ -37691,12 +37961,22 @@ Langsam zur Mitte zurückkehren.
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#Limb</IRI>
+        <Literal xml:lang="de">Glied</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Limb</IRI>
         <Literal xml:lang="en">Limb</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
         <IRI>#LimbAlignment</IRI>
         <Literal xml:lang="de">Beschreibung der räumlichen Ausrichtung von Gliedmaßen in Bezug auf den Körper oder auf benachbarte Gelenke.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#LimbAlignment</IRI>
+        <Literal xml:lang="de">Extremitätenausrichtung</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
@@ -37900,13 +38180,18 @@ Langsam zur Mitte zurückkehren.
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-        <IRI>#MobilisationStretching</IRI>
+        <IRI>#Mobilisation</IRI>
+        <Literal xml:lang="en">Mobilization</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Mobilisation</IRI>
         <Literal xml:lang="de">Übungen zur Verbesserung der Beweglichkeit und Dehnfähigkeit</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>#MobilisationStretching</IRI>
-        <Literal xml:lang="de">MobilisationStretching</Literal>
+        <IRI>#Mobilisation</IRI>
+        <Literal xml:lang="de">Mobilisation</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
@@ -38122,6 +38407,11 @@ Langsam zur Mitte zurückkehren.
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#Muscle</IRI>
         <Literal xml:lang="en">Muscle</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Muscle</IRI>
+        <Literal xml:lang="de">Muskel</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
@@ -38417,6 +38707,11 @@ Langsam zur Mitte zurückkehren.
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
         <IRI>#Patient</IRI>
         <Literal xml:lang="de">Diese Klasse repräsentiert einen Reha-Patienten, der die Physiotherapie in Anspruch nimmt</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Patient</IRI>
+        <Literal xml:lang="de">Patient</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
@@ -38980,6 +39275,16 @@ Langsam zur Mitte zurückkehren.
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#RecipeOfTheWeek</IRI>
+        <Literal>Rezept der Woche</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#RecipeOfTheWeek</IRI>
+        <Literal xml:lang="de">Rezept der Woche</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
         <IRI>#RegularMovementBreak</IRI>
         <Literal xml:lang="de">Regelmäßige Bewegungspausen</Literal>
     </AnnotationAssertion>
@@ -38997,6 +39302,11 @@ Langsam zur Mitte zurückkehren.
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
         <IRI>#Relaxation</IRI>
         <Literal xml:lang="de">Entspannung als bewusste Reduzierung von Anspannung in Muskulatur und Geist.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Relaxation</IRI>
+        <Literal xml:lang="de">Übungen zur körperlichen und geistigen Entspannung</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
@@ -39027,6 +39337,106 @@ Langsam zur Mitte zurückkehren.
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#RespiratoryIssue</IRI>
         <Literal xml:lang="en">RespiratoryIssue</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Rezept_AvocadoKresseBrot</IRI>
+        <Literal xml:lang="en">Avocado Cress Toast</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Rezept_AvocadoKresseBrot</IRI>
+        <Literal xml:lang="de">Avocado-Kresse-Brot</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Rezept_Beeren_Smoothie</IRI>
+        <Literal xml:lang="en">Anti-Inflammatory Berry Smoothie</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Rezept_Beeren_Smoothie</IRI>
+        <Literal xml:lang="de">Entzündungshemmender Beeren-Smoothie</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Rezept_ChiaBeerenPudding</IRI>
+        <Literal xml:lang="en">Chia Berry Pudding</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Rezept_ChiaBeerenPudding</IRI>
+        <Literal xml:lang="de">Chia-Beeren-Pudding</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Rezept_GoldeneMilchOatmeal</IRI>
+        <Literal xml:lang="en">Golden Milk Oatmeal</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Rezept_GoldeneMilchOatmeal</IRI>
+        <Literal xml:lang="de">Goldene-Milch-Haferbrei</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Rezept_GrünerPowerSmoothie</IRI>
+        <Literal xml:lang="en">Green Power Smoothie</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Rezept_GrünerPowerSmoothie</IRI>
+        <Literal xml:lang="de">Grüner Power-Smoothie</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Rezept_IngwerZitronenShot</IRI>
+        <Literal xml:lang="en">Ginger Lemon Shot</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Rezept_IngwerZitronenShot</IRI>
+        <Literal xml:lang="de">Ingwer-Zitronen-Shot</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Rezept_KirschKamilleSchlummerdrink</IRI>
+        <Literal xml:lang="en">Cherry Chamomile Nightcap</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Rezept_KirschKamilleSchlummerdrink</IRI>
+        <Literal xml:lang="de">Kirsch-Kamille-Schlummerdrink</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Rezept_MandelKakaoEnergyBalls</IRI>
+        <Literal xml:lang="en">Almond Cocoa Energy Balls</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Rezept_MandelKakaoEnergyBalls</IRI>
+        <Literal xml:lang="de">Mandel-Kakao-Energy-Balls</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Rezept_RoteBeteApfelJuice</IRI>
+        <Literal xml:lang="en">Beetroot Apple Juice</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Rezept_RoteBeteApfelJuice</IRI>
+        <Literal xml:lang="de">Rote-Bete-Apfel-Saft</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Rezept_WalnussBananenQuark</IRI>
+        <Literal xml:lang="de">Walnuss-Bananen-Quark</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Rezept_WalnussBananenQuark</IRI>
+        <Literal xml:lang="en">Walnut Banana Curd</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
@@ -39557,6 +39967,11 @@ Langsam zur Mitte zurückkehren.
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
         <IRI>#SeverityLevel</IRI>
         <Literal xml:lang="de">Stufe zur Einstufung der Schwere eines Risikos oder Zustands, etwa in abgestuften Klassen wie niedrig, mittel und hoch.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#SeverityLevel</IRI>
+        <Literal xml:lang="de">Risiko Level</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
@@ -40107,6 +40522,11 @@ Langsam zur Mitte zurückkehren.
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#SportActivity</IRI>
         <Literal xml:lang="en">SportActivity</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#SportActivity</IRI>
+        <Literal xml:lang="de">Sportaktivität</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
@@ -41521,7 +41941,12 @@ Langsam zur Mitte zurückkehren.
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#TrainingsEffect</IRI>
-        <Literal xml:lang="en">TrainingsEffect</Literal>
+        <Literal xml:lang="en">Trainingeffect</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#TrainingsEffect</IRI>
+        <Literal xml:lang="de">Trainingseffekt</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
@@ -41529,9 +41954,19 @@ Langsam zur Mitte zurückkehren.
         <Literal xml:lang="de">Einstufung des sportlichen Leistungsstands einer Person, üblicherweise in Stufen wie Anfänger, Fortgeschritten und Profi.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#TrainingsLevel</IRI>
+        <Literal xml:lang="en">TrainingLevel</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#TrainingsLevel</IRI>
-        <Literal xml:lang="en">TrainingsLevel</Literal>
+        <Literal xml:lang="en">Traininglevel</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#TrainingsLevel</IRI>
+        <Literal xml:lang="de">Trainingslevel</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
@@ -41813,7 +42248,7 @@ Langsam zur Mitte zurückkehren.
         <IRI>#Triceps</IRI>
         <Literal xml:lang="de">Trizeps</Literal>
     </AnnotationAssertion>
-        <AnnotationAssertion>
+    <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
         <IRI>#TricepsStretch</IRI>
         <Literal xml:lang="de">Dehnübung für den Trizeps an der Rückseite des Oberarms.</Literal>
@@ -41821,14 +42256,14 @@ Langsam zur Mitte zurückkehren.
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#TricepsStretch</IRI>
-        <Literal xml:lang="de">Trizepsdehnung</Literal>
+        <Literal xml:lang="en">TricepsStretch</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#TricepsStretch</IRI>
-        <Literal xml:lang="en">TricepsStretch</Literal>
+        <Literal xml:lang="de">Trizepsdehnung</Literal>
     </AnnotationAssertion>
-<AnnotationAssertion>
+    <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
         <IRI>#TricepsStretch_ShoulderIssue</IRI>
         <Literal xml:lang="de">Hinweis auf Schulter-Probleme, die bei der Trizeps-Dehnung berücksichtigt werden sollten.</Literal>
@@ -43298,1192 +43733,12 @@ Langsam zur Mitte zurückkehren.
         <IRI>#Bicycling20+Mph</IRI>
         <Literal xml:lang="en">Bicycling20+Mph</Literal>
     </AnnotationAssertion>
-<!-- ============================================================ -->
-<!-- ADDITIONS: generated 2026-07-11 to satisfy the schema        -->
-<!-- (hasDifficultyLevel, hasInstruction, hasDuration,           -->
-<!--  hasContraindication w/ label, improves w/ label,            -->
-<!--  engagedBodyPart w/ label) for the non-Yoga/Asana exercises -->
-<!-- that were missing values. All values sourced from the web:  -->
-<!-- Cleveland Clinic, Mayo Clinic, NHS, NASM, Healthline,        -->
-<!-- MedBridge, ACE, Physiopedia, peer-reviewed PT literature.   -->
-<!-- See chat log for the full citation trail per value.          -->
-<!-- ============================================================ -->
-
-
-<!-- New individual: RespiratoryIssue -->
-    <Declaration>
-        <NamedIndividual IRI="#RespiratoryIssue"/>
-    </Declaration>
-    <ClassAssertion>
-        <Class IRI="#Contraindication"/>
-        <NamedIndividual IRI="#RespiratoryIssue"/>
-    </ClassAssertion>
-    
-    
-    
-    
-
-<!-- hasDuration additions -->
-    <DataPropertyAssertion>
-        <DataProperty IRI="#hasDuration"/>
-        <NamedIndividual IRI="#Atemuebung478"/>
-        <Literal>5 Min</Literal>
-    </DataPropertyAssertion>
-    <DataPropertyAssertion>
-        <DataProperty IRI="#hasDuration"/>
-        <NamedIndividual IRI="#Bruecke"/>
-        <Literal>3 Min</Literal>
-    </DataPropertyAssertion>
-    <DataPropertyAssertion>
-        <DataProperty IRI="#hasDuration"/>
-        <NamedIndividual IRI="#ChestDoorwayStretch"/>
-        <Literal>2 Min</Literal>
-    </DataPropertyAssertion>
-    <DataPropertyAssertion>
-        <DataProperty IRI="#hasDuration"/>
-        <NamedIndividual IRI="#DeadBug"/>
-        <Literal>3 Min</Literal>
-    </DataPropertyAssertion>
-    <DataPropertyAssertion>
-        <DataProperty IRI="#hasDuration"/>
-        <NamedIndividual IRI="#Einbeinstand"/>
-        <Literal>2 Min</Literal>
-    </DataPropertyAssertion>
-    <DataPropertyAssertion>
-        <DataProperty IRI="#hasDuration"/>
-        <NamedIndividual IRI="#FaszienrolleRueckenWade"/>
-        <Literal>2 Min</Literal>
-    </DataPropertyAssertion>
-    <DataPropertyAssertion>
-        <DataProperty IRI="#hasDuration"/>
-        <NamedIndividual IRI="#FerseZehenGang"/>
-        <Literal>2 Min</Literal>
-    </DataPropertyAssertion>
-    <DataPropertyAssertion>
-        <DataProperty IRI="#hasDuration"/>
-        <NamedIndividual IRI="#FigureFourStretch"/>
-        <Literal>2 Min</Literal>
-    </DataPropertyAssertion>
-    <DataPropertyAssertion>
-        <DataProperty IRI="#hasDuration"/>
-        <NamedIndividual IRI="#GewichtsverlagerungSeitlich"/>
-        <Literal>2 Min</Literal>
-    </DataPropertyAssertion>
-    <DataPropertyAssertion>
-        <DataProperty IRI="#hasDuration"/>
-        <NamedIndividual IRI="#GleichgewichtInstabil"/>
-        <Literal>2 Min</Literal>
-    </DataPropertyAssertion>
-    <DataPropertyAssertion>
-        <DataProperty IRI="#hasDuration"/>
-        <NamedIndividual IRI="#HamstringStretch"/>
-        <Literal>2 Min</Literal>
-    </DataPropertyAssertion>
-    <DataPropertyAssertion>
-        <DataProperty IRI="#hasDuration"/>
-        <NamedIndividual IRI="#JumpingJacks"/>
-        <Literal>2 Min</Literal>
-    </DataPropertyAssertion>
-    <DataPropertyAssertion>
-        <DataProperty IRI="#hasDuration"/>
-        <NamedIndividual IRI="#Kindpose"/>
-        <Literal>2 Min</Literal>
-    </DataPropertyAssertion>
-    <DataPropertyAssertion>
-        <DataProperty IRI="#hasDuration"/>
-        <NamedIndividual IRI="#KniegelenkMobilisation"/>
-        <Literal>2 Min</Literal>
-    </DataPropertyAssertion>
-    <DataPropertyAssertion>
-        <DataProperty IRI="#hasDuration"/>
-        <NamedIndividual IRI="#LatStretch"/>
-        <Literal>2 Min</Literal>
-    </DataPropertyAssertion>
-    <DataPropertyAssertion>
-        <DataProperty IRI="#hasDuration"/>
-        <NamedIndividual IRI="#MonsterWalk"/>
-        <Literal>2 Min</Literal>
-    </DataPropertyAssertion>
-    <DataPropertyAssertion>
-        <DataProperty IRI="#hasDuration"/>
-        <NamedIndividual IRI="#MountainClimber"/>
-        <Literal>2 Min</Literal>
-    </DataPropertyAssertion>
-    <DataPropertyAssertion>
-        <DataProperty IRI="#hasDuration"/>
-        <NamedIndividual IRI="#Muschel"/>
-        <Literal>2 Min</Literal>
-    </DataPropertyAssertion>
-    <DataPropertyAssertion>
-        <DataProperty IRI="#hasDuration"/>
-        <NamedIndividual IRI="#Nackendehnungen"/>
-        <Literal>2 Min</Literal>
-    </DataPropertyAssertion>
-    <DataPropertyAssertion>
-        <DataProperty IRI="#hasDuration"/>
-        <NamedIndividual IRI="#PigeonPose"/>
-        <Literal>2 Min</Literal>
-    </DataPropertyAssertion>
-    <DataPropertyAssertion>
-        <DataProperty IRI="#hasDuration"/>
-        <NamedIndividual IRI="#ProgressiveMuskelentspannung"/>
-        <Literal>5 Min</Literal>
-    </DataPropertyAssertion>
-    <DataPropertyAssertion>
-        <DataProperty IRI="#hasDuration"/>
-        <NamedIndividual IRI="#SchulterNackenEntspannung"/>
-        <Literal>2 Min</Literal>
-    </DataPropertyAssertion>
-    <DataPropertyAssertion>
-        <DataProperty IRI="#hasDuration"/>
-        <NamedIndividual IRI="#SingleLegBridge"/>
-        <Literal>2 Min</Literal>
-    </DataPropertyAssertion>
-    <DataPropertyAssertion>
-        <DataProperty IRI="#hasDuration"/>
-        <NamedIndividual IRI="#SitzenStehen"/>
-        <Literal>3 Min</Literal>
-    </DataPropertyAssertion>
-    <DataPropertyAssertion>
-        <DataProperty IRI="#hasDuration"/>
-        <NamedIndividual IRI="#Squads"/>
-        <Literal>3 Min</Literal>
-    </DataPropertyAssertion>
-    <DataPropertyAssertion>
-        <DataProperty IRI="#hasDuration"/>
-        <NamedIndividual IRI="#StandingCalfStretch"/>
-        <Literal>2 Min</Literal>
-    </DataPropertyAssertion>
-    <DataPropertyAssertion>
-        <DataProperty IRI="#hasDuration"/>
-        <NamedIndividual IRI="#TricepsStretch"/>
-        <Literal>2 Min</Literal>
-    </DataPropertyAssertion>
-    <DataPropertyAssertion>
-        <DataProperty IRI="#hasDuration"/>
-        <NamedIndividual IRI="#Wadendehnung"/>
-        <Literal>2 Min</Literal>
-    </DataPropertyAssertion>
-    <DataPropertyAssertion>
-        <DataProperty IRI="#hasDuration"/>
-        <NamedIndividual IRI="#Wandsitzen"/>
-        <Literal>2 Min</Literal>
-    </DataPropertyAssertion>
-    <DataPropertyAssertion>
-        <DataProperty IRI="#hasDuration"/>
-        <NamedIndividual IRI="#Z-Sits"/>
-        <Literal>2 Min</Literal>
-    </DataPropertyAssertion>
-
-<!-- hasInstruction additions -->
-    <DataPropertyAssertion>
-        <DataProperty IRI="#hasInstruction"/>
-        <NamedIndividual IRI="#Einbeinstand"/>
-        <Literal>1. Aufrecht mit hüftbreitem Stand auf einer stabilen, flachen Unterlage stehen.
-2. Das Standbein leicht beugen, das Knie dabei weich halten und nicht durchdrücken.
-3. Den Rumpf aufrichten, Schulterblätter nach unten ziehen, Blick auf einen festen Punkt vorne richten.
-4. Das andere Bein langsam vom Boden abheben, das Knie leicht gebeugt.
-5. Die Position 20 bis 30 Sekunden halten und dabei ruhig weiteratmen.
-6. Das Bein kontrolliert wieder abstellen und die Seite wechseln.
-7. Pro Seite 2 bis 3 Wiederholungen durchführen, bei Bedarf anfangs mit Fingerkontakt an einer Stuhllehne oder Wand.</Literal>
-    </DataPropertyAssertion>
-    <DataPropertyAssertion>
-        <DataProperty IRI="#hasInstruction"/>
-        <NamedIndividual IRI="#FerseZehenGang"/>
-        <Literal>1. Aufrecht stehen und die Arme seitlich ausstrecken, um das Gleichgewicht zu erleichtern.
-2. Den Blick nach vorne richten und den Rumpf stabil halten.
-3. Einen Fuß direkt vor den anderen setzen, sodass die Ferse des vorderen Fußes die Zehen des hinteren berührt.
-4. Langsam und bewusst vorwärts gehen, dabei die Füße in einer Linie halten.
-5. Beim Wenden große Schritte machen, damit sich die Beine nicht kreuzen.
-6. Die Übung idealerweise entlang einer Theke oder Wand durchführen, an der man sich bei Bedarf festhalten kann.
-7. Ungefähr zwei Minuten in der Linie vor- und zurückgehen.</Literal>
-    </DataPropertyAssertion>
-    <DataPropertyAssertion>
-        <DataProperty IRI="#hasInstruction"/>
-        <NamedIndividual IRI="#FigureFourStretch"/>
-        <Literal>1. Auf den Rücken legen, beide Knie anwinkeln und die Füße flach auf den Boden stellen.
-2. Den äußeren Knöchel eines Fußes auf das gegenüberliegende Knie legen, sodass die Beine eine Vier bilden.
-3. Die Hände hinter dem Oberschenkel des unten liegenden Beins verschränken.
-4. Das untere Bein langsam in Richtung Brust ziehen, bis eine sanfte Dehnung in Gesäß und Hüfte spürbar ist.
-5. Die Position 20 bis 30 Sekunden halten und gleichmäßig weiteratmen.
-6. Langsam in die Ausgangsposition zurückkehren und die Seite wechseln.
-7. Pro Seite 2 bis 3 Wiederholungen durchführen.</Literal>
-    </DataPropertyAssertion>
-    <DataPropertyAssertion>
-        <DataProperty IRI="#hasInstruction"/>
-        <NamedIndividual IRI="#GewichtsverlagerungSeitlich"/>
-        <Literal>1. Aufrecht stehen, Füße etwas mehr als hüftbreit auseinander, Hände seitlich an den Hüften.
-2. Den Blick nach vorne richten, Knie leicht gebeugt und Rumpf aufrecht halten.
-3. Das Gewicht langsam auf das rechte Bein verlagern, bis ungefähr 80 Prozent des Gewichts auf der rechten Seite lastet.
-4. Das rechte Knie dabei leicht beugen, ohne den Rumpf zur Seite zu neigen.
-5. Die Endposition kurz halten, dann langsam zur Mitte zurückkehren.
-6. Die Bewegung zur anderen Seite wiederholen.
-7. Pro Seite 8 bis 10 Wiederholungen mit bewussten Pausen durchführen.</Literal>
-    </DataPropertyAssertion>
-    <DataPropertyAssertion>
-        <DataProperty IRI="#hasInstruction"/>
-        <NamedIndividual IRI="#GleichgewichtInstabil"/>
-        <Literal>1. Eine weiche, instabile Unterlage wie ein Balancekissen oder Schaumstoffpad auf eine rutschfeste Fläche legen.
-2. Aufrecht neben einer stabilen Stütze wie einer Küchenzeile stehen und sich anfangs mit den Fingerspitzen festhalten.
-3. Beide Füße hüftbreit auf die Unterlage stellen, das Gewicht gleichmäßig verteilen.
-4. Rumpf aufrichten, Schultern entspannen, Blick geradeaus richten.
-5. Die Position 30 Sekunden halten und das Gleichgewicht halten.
-6. Kleine Gewichtsverlagerungen nach vorne, hinten und zur Seite ausprobieren, ohne den Stand zu verlieren.
-7. Mit zunehmender Sicherheit den Fingerkontakt lösen, später optional ein Bein anheben.
-8. Übung mit langen Pausen über zwei Minuten wiederholen.</Literal>
-    </DataPropertyAssertion>
-    <DataPropertyAssertion>
-        <DataProperty IRI="#hasInstruction"/>
-        <NamedIndividual IRI="#HamstringStretch"/>
-        <Literal>1. Auf den Rücken legen, beide Beine ausstrecken.
-2. Ein Handtuch oder einen Gurt um den Mittelfuß eines Beins legen.
-3. Das Bein am Handtuch hochheben und das Knie langsam strecken, bis eine sanfte Dehnung an der Oberschenkelrückseite spürbar ist.
-4. Das Knie dabei leicht gebeugt halten, falls die Dehnung zu intensiv wird.
-5. Die Position 20 bis 30 Sekunden halten und ruhig weiteratmen.
-6. Das Bein kontrolliert ablegen und die Seite wechseln.
-7. Pro Seite 2 bis 3 Wiederholungen durchführen.</Literal>
-    </DataPropertyAssertion>
-    <DataPropertyAssertion>
-        <DataProperty IRI="#hasInstruction"/>
-        <NamedIndividual IRI="#JumpingJacks"/>
-        <Literal>1. Aufrecht stehen, Füße zusammen, Arme seitlich am Körper.
-2. Mit beiden Füßen gleichzeitig etwas mehr als hüftbreit springen und die Arme in einem Bogen über den Kopf führen.
-3. Weich auf den Fußballen landen, die Knie dabei leicht gebeugt halten.
-4. Mit einem weiteren Sprung in die Ausgangsposition zurückkehren und die Arme senken.
-5. Die Knie während der gesamten Bewegung über den Fußspitzen ausrichten und den Rumpf stabil halten.
-6. Anfangs 20 bis 30 Sekunden in gemäßigtem Tempo durchführen, dann 30 bis 60 Sekunden steigern.
-7. Zwei bis drei Sätze mit jeweils 20 bis 30 Sekunden Pause absolvieren.</Literal>
-    </DataPropertyAssertion>
-    <DataPropertyAssertion>
-        <DataProperty IRI="#hasInstruction"/>
-        <NamedIndividual IRI="#MonsterWalk"/>
-        <Literal>1. Ein leichtes Theraband knapp über den Knien um beide Oberschenkel legen.
-2. Aufrecht in Schrittstellung hinstellen, die Füße etwas weiter als hüftbreit auseinander.
-3. Die Knie bewusst nach außen drücken, sodass das Band unter Spannung bleibt.
-4. Die Hüfte leicht beugen und das Gesäß anspannen.
-5. Mit kleinen, bewussten Schritten seitlich nach rechts gehen und dabei das Band gespannt halten.
-6. Eine bestimmte Strecke in eine Richtung gehen, dann wenden und zur anderen Seite laufen.
-7. Anschließend in Vor- und Rückwärtsrichtung mit kleinen Schritten wiederholen.
-8. Pro Richtung 10 bis 20 Schritte ausführen und das Band nicht zu leicht wählen.</Literal>
-    </DataPropertyAssertion>
-    <DataPropertyAssertion>
-        <DataProperty IRI="#hasInstruction"/>
-        <NamedIndividual IRI="#MountainClimber"/>
-        <Literal>1. In die Liegestützposition kommen, Hände unter den Schultern, Arme gestreckt.
-2. Den Rumpf stabilisieren, sodass Schultern, Hüfte und Knie eine Linie bilden.
-3. Ein Knie kontrolliert in Richtung Brust ziehen.
-4. Das Bein zügig, aber kontrolliert wieder in die Ausgangsposition bringen und gleichzeitig das andere Knie nach vorne ziehen.
-5. Die Beine in einem gleichmäßigen Rhythmus abwechseln, ohne dass das Becken stark nach oben oder unten schwingt.
-6. Anfangs 20 Sekunden arbeiten, 20 Sekunden Pause, insgesamt drei Sätze.
-7. Bei besserer Ausdauer auf 30 bis 45 Sekunden pro Satz steigern.</Literal>
-    </DataPropertyAssertion>
-    <DataPropertyAssertion>
-        <DataProperty IRI="#hasInstruction"/>
-        <NamedIndividual IRI="#Muschel"/>
-        <Literal>1. In Seitenlage auf eine Matte legen, Hüfte und Knie ungefähr 45 Grad angewinkelt.
-2. Die Füße übereinander halten, der untere Arm stützt den Kopf.
-3. Den oberen Arm locker vor die Brust legen und die obere Hand an der Hüfte positionieren.
-4. Die Beckenstellung kontrollieren: Hüfte und Schultern bleiben senkrecht übereinander.
-5. Das obere Knie langsam und kontrolliert anheben, die Füße bleiben dabei zusammen.
-6. Das Knie am oberen Punkt kurz halten, dann langsam wieder absenken.
-7. 10 bis 15 Wiederholungen pro Seite durchführen und die Seite wechseln.
-8. Optional ein Theraband knapp über den Knien anbringen, um die Intensität zu steigern.</Literal>
-    </DataPropertyAssertion>
-    <DataPropertyAssertion>
-        <DataProperty IRI="#hasInstruction"/>
-        <NamedIndividual IRI="#SingleLegBridge"/>
-        <Literal>1. Auf den Rücken legen, beide Knie anwinkeln und die Füße hüftbreit aufstellen.
-2. Ein Knie zur Brust ziehen, sodass der Oberschenkel senkrecht steht und der Unterschenkel parallel zum Boden bleibt.
-3. Die Bauchmuskulatur anspannen und das Becken in eine neutrale Position bringen.
-4. Über die Ferse des stehenden Beins das Becken kontrolliert anheben, bis Schulter, Hüfte und Knie eine Linie bilden.
-5. Das Gesäß am oberen Punkt kurz anspannen und die Hüfte waagerecht halten.
-6. Die Hüfte langsam wieder absenken, ohne den unteren Rücken ins Hohlkreuz fallen zu lassen.
-7. 10 bis 15 Wiederholungen pro Seite durchführen, dann die Seite wechseln.
-8. Pro Seite 2 bis 3 Sätze absolvieren.</Literal>
-    </DataPropertyAssertion>
-    <DataPropertyAssertion>
-        <DataProperty IRI="#hasInstruction"/>
-        <NamedIndividual IRI="#SitzenStehen"/>
-        <Literal>1. Aufrecht auf einen stabilen Stuhl ohne Armlehne setzen, Füße hüftbreit und flach auf dem Boden.
-2. Die Arme vor der Brust verschränken, um den Einsatz der Hände auszuschließen.
-3. Den Oberkörper leicht nach vorne lehnen, die Füße fest in den Boden drücken.
-4. Mit kontrolliertem Tempo aus dem Sitz aufstehen, bis die Beine vollständig gestreckt sind.
-5. Kurz aufrecht stehen bleiben, dann langsam und gleichmäßig wieder hinsetzen.
-6. Die Knie während der gesamten Bewegung in Richtung Fußspitzen halten.
-7. 8 bis 12 Wiederholungen als ein Satz durchführen, insgesamt drei Sätze mit etwa einer Minute Pause.</Literal>
-    </DataPropertyAssertion>
-    <DataPropertyAssertion>
-        <DataProperty IRI="#hasInstruction"/>
-        <NamedIndividual IRI="#Squads"/>
-        <Literal>1. Aufrecht hinstellen, Füße etwas mehr als hüftbreit, Zehen leicht nach außen gedreht.
-2. Den Blick nach vorne richten und den Rumpf aufrichten.
-3. Die Arme zur Stabilisation nach vorne strecken oder vor der Brust verschränken.
-4. Langsam die Knie beugen und die Hüfte nach hinten schieben, als würde man sich auf einen Stuhl setzen.
-5. Die Knie in Richtung Fußspitzen halten, den Rücken gerade lassen und nicht ins Hohlkreuz fallen.
-6. Soweit absenken, wie eine kontrollierte, schmerzfreie Bewegung möglich ist, und kurz halten.
-7. Über die Fersen kontrolliert wieder in den Stand aufrichten.
-8. 12 bis 15 Wiederholungen pro Satz durchführen, insgesamt zwei bis drei Sätze.</Literal>
-    </DataPropertyAssertion>
-    <DataPropertyAssertion>
-        <DataProperty IRI="#hasInstruction"/>
-        <NamedIndividual IRI="#StandingCalfStretch"/>
-        <Literal>1. Mit beiden Händen an einer Wand auf Schulterhöhe abstützen, Arme gestreckt.
-2. Ein Bein nach hinten setzen, das Knie des hinteren Beins gestreckt halten.
-3. Die Ferse des hinteren Fußes fest in den Boden drücken, die Zehen zeigen nach vorne.
-4. Das vordere Knie langsam beugen und das Becken nach vorne schieben.
-5. Die Dehnung in der Wade des hinteren Beins halten, ohne den Fuß nach außen zu drehen.
-6. Die Position 30 Sekunden halten und ruhig weiteratmen.
-7. Die Seite wechseln und pro Seite 2 bis 3 Wiederholungen durchführen.</Literal>
-    </DataPropertyAssertion>
-    <DataPropertyAssertion>
-        <DataProperty IRI="#hasInstruction"/>
-        <NamedIndividual IRI="#TricepsStretch"/>
-        <Literal>1. Aufrecht stehen oder aufrecht auf einem Stuhl sitzen, die Füße hüftbreit.
-2. Einen Arm seitlich am Körper hängen lassen, dann den Oberarm anheben und den Ellbogen beugen.
-3. Die Hand des angehobenen Arms auf den oberen Rücken legen, zwischen die Schulterblätter.
-4. Mit der anderen Hand sanft den angehobenen Ellbogen in Richtung Kopf ziehen.
-5. Den Nacken lang lassen, die Schulter entspannt nach unten halten und nicht hochziehen.
-6. Die Dehnung 20 bis 30 Sekunden halten und gleichmäßig weiteratmen.
-7. Den Arm langsam lösen und die Seite wechseln.
-8. Pro Seite 2 bis 3 Wiederholungen durchführen.</Literal>
-    </DataPropertyAssertion>
-    <DataPropertyAssertion>
-        <DataProperty IRI="#hasInstruction"/>
-        <NamedIndividual IRI="#Wandsitzen"/>
-        <Literal>1. Mit dem Rücken an eine Wand stellen, die Füße etwa schulterbreit auseinander und einen halben Schritt von der Wand entfernt.
-2. Den Rücken langsam an der Wand nach unten gleiten lassen, bis die Oberschenkel ungefähr parallel zum Boden sind.
-3. Die Knie ungefähr im rechten Winkel beugen, die Füße bleiben fest am Boden.
-4. Den Rücken vollständig an die Wand pressen, den Rumpf aufrichten und die Schultern entspannen.
-5. Die Arme locker seitlich an die Wand legen oder auf den Oberschenkeln ablegen.
-6. Die Position 20 bis 40 Sekunden halten und ruhig weiteratmen.
-7. Mit der Ferse gegen den Boden drücken, um die Oberschenkelmuskulatur zu aktivieren.
-8. Den Rücken an der Wand nach oben schieben, um die Position zu beenden.
-9. Zwei bis drei Sätze absolvieren und die Haltezeit langsam steigern.</Literal>
-    </DataPropertyAssertion>
-    <DataPropertyAssertion>
-        <DataProperty IRI="#hasInstruction"/>
-        <NamedIndividual IRI="#Z-Sits"/>
-        <Literal>1. Auf eine Matte oder ein gefaltetes Handtuch setzen, die Beine zunächst nach vorne ausstrecken.
-2. Das vordere Bein im rechten Winkel nach vorne beugen, den Unterschenkel senkrecht zum Körper halten.
-3. Das hintere Bein im rechten Winkel zur gegenüberliegenden Seite beugen, sodass beide Unterschenkel parallel zueinander stehen und die Beine zusammen ein Z bilden.
-4. Den Oberkörper aufrecht halten, das Brustbein anheben und die Schultern entspannen.
-5. Das Gewicht möglichst gleichmäßig auf beide Sitzknochen verteilen und den unteren Rücken nicht runden.
-6. Die Position 30 bis 60 Sekunden halten und ruhig weiteratmen.
-7. Die Beine langsam in die Ausgangsstellung zurückführen und die Seite wechseln.
-8. Pro Seite 2 bis 3 Wiederholungen durchführen, bei eingeschränkter Beweglichkeit ein Kissen unter die Hüfte legen.</Literal>
-    </DataPropertyAssertion>
-
-<!-- hasContraindication additions -->
-    <ObjectPropertyAssertion>
-        <Annotation>
-            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-            <Literal>This Contraindication should be considered for practitioners of Atemuebung478 to avoid strain or injury.</Literal>
-        </Annotation>
-        <ObjectProperty IRI="#hasContraindication"/>
-        <NamedIndividual IRI="#Atemuebung478"/>
-        <NamedIndividual IRI="#RespiratoryIssue"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <Annotation>
-            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-            <Literal>This Contraindication should be considered for practitioners of ChestDoorwayStretch to avoid strain or injury.</Literal>
-        </Annotation>
-        <ObjectProperty IRI="#hasContraindication"/>
-        <NamedIndividual IRI="#ChestDoorwayStretch"/>
-        <NamedIndividual IRI="#ShoulderIssue"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <Annotation>
-            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-            <Literal>This Contraindication should be considered for practitioners of FigureFourStretch to avoid strain or injury.</Literal>
-        </Annotation>
-        <ObjectProperty IRI="#hasContraindication"/>
-        <NamedIndividual IRI="#FigureFourStretch"/>
-        <NamedIndividual IRI="#HipIssue"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <Annotation>
-            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-            <Literal>This Contraindication should be considered for practitioners of FigureFourStretch to avoid strain or injury.</Literal>
-        </Annotation>
-        <ObjectProperty IRI="#hasContraindication"/>
-        <NamedIndividual IRI="#FigureFourStretch"/>
-        <NamedIndividual IRI="#KneeIssue"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <Annotation>
-            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-            <Literal>This Contraindication should be considered for practitioners of HamstringStretch to avoid strain or injury.</Literal>
-        </Annotation>
-        <ObjectProperty IRI="#hasContraindication"/>
-        <NamedIndividual IRI="#HamstringStretch"/>
-        <NamedIndividual IRI="#HamstringIssue"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <Annotation>
-            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-            <Literal>This Contraindication should be considered for practitioners of HamstringStretch to avoid strain or injury.</Literal>
-        </Annotation>
-        <ObjectProperty IRI="#hasContraindication"/>
-        <NamedIndividual IRI="#HamstringStretch"/>
-        <NamedIndividual IRI="#LowerBackIssue"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <Annotation>
-            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-            <Literal>This Contraindication should be considered for practitioners of JumpingJacks to avoid strain or injury.</Literal>
-        </Annotation>
-        <ObjectProperty IRI="#hasContraindication"/>
-        <NamedIndividual IRI="#JumpingJacks"/>
-        <NamedIndividual IRI="#KneeIssue"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <Annotation>
-            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-            <Literal>This Contraindication should be considered for practitioners of JumpingJacks to avoid strain or injury.</Literal>
-        </Annotation>
-        <ObjectProperty IRI="#hasContraindication"/>
-        <NamedIndividual IRI="#JumpingJacks"/>
-        <NamedIndividual IRI="#AnkleIssue"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <Annotation>
-            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-            <Literal>This Contraindication should be considered for practitioners of JumpingJacks to avoid strain or injury.</Literal>
-        </Annotation>
-        <ObjectProperty IRI="#hasContraindication"/>
-        <NamedIndividual IRI="#JumpingJacks"/>
-        <NamedIndividual IRI="#BackIssue"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <Annotation>
-            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-            <Literal>This Contraindication should be considered for practitioners of MonsterWalk to avoid strain or injury.</Literal>
-        </Annotation>
-        <ObjectProperty IRI="#hasContraindication"/>
-        <NamedIndividual IRI="#MonsterWalk"/>
-        <NamedIndividual IRI="#KneeIssue"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <Annotation>
-            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-            <Literal>This Contraindication should be considered for practitioners of MonsterWalk to avoid strain or injury.</Literal>
-        </Annotation>
-        <ObjectProperty IRI="#hasContraindication"/>
-        <NamedIndividual IRI="#MonsterWalk"/>
-        <NamedIndividual IRI="#HipIssue"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <Annotation>
-            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-            <Literal>This Contraindication should be considered for practitioners of MountainClimber to avoid strain or injury.</Literal>
-        </Annotation>
-        <ObjectProperty IRI="#hasContraindication"/>
-        <NamedIndividual IRI="#MountainClimber"/>
-        <NamedIndividual IRI="#BackIssue"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <Annotation>
-            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-            <Literal>This Contraindication should be considered for practitioners of MountainClimber to avoid strain or injury.</Literal>
-        </Annotation>
-        <ObjectProperty IRI="#hasContraindication"/>
-        <NamedIndividual IRI="#MountainClimber"/>
-        <NamedIndividual IRI="#ShoulderIssue"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <Annotation>
-            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-            <Literal>This Contraindication should be considered for practitioners of MountainClimber to avoid strain or injury.</Literal>
-        </Annotation>
-        <ObjectProperty IRI="#hasContraindication"/>
-        <NamedIndividual IRI="#MountainClimber"/>
-        <NamedIndividual IRI="#WristIssue"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <Annotation>
-            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-            <Literal>This Contraindication should be considered for practitioners of ProgressiveMuskelentspannung to avoid strain or injury.</Literal>
-        </Annotation>
-        <ObjectProperty IRI="#hasContraindication"/>
-        <NamedIndividual IRI="#ProgressiveMuskelentspannung"/>
-        <NamedIndividual IRI="#BackIssue"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <Annotation>
-            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-            <Literal>This Contraindication should be considered for practitioners of SingleLegBridge to avoid strain or injury.</Literal>
-        </Annotation>
-        <ObjectProperty IRI="#hasContraindication"/>
-        <NamedIndividual IRI="#SingleLegBridge"/>
-        <NamedIndividual IRI="#KneeIssue"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <Annotation>
-            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-            <Literal>This Contraindication should be considered for practitioners of SingleLegBridge to avoid strain or injury.</Literal>
-        </Annotation>
-        <ObjectProperty IRI="#hasContraindication"/>
-        <NamedIndividual IRI="#SingleLegBridge"/>
-        <NamedIndividual IRI="#LowerBackIssue"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <Annotation>
-            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-            <Literal>This Contraindication should be considered for practitioners of Squads to avoid strain or injury.</Literal>
-        </Annotation>
-        <ObjectProperty IRI="#hasContraindication"/>
-        <NamedIndividual IRI="#Squads"/>
-        <NamedIndividual IRI="#KneeIssue"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <Annotation>
-            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-            <Literal>This Contraindication should be considered for practitioners of Squads to avoid strain or injury.</Literal>
-        </Annotation>
-        <ObjectProperty IRI="#hasContraindication"/>
-        <NamedIndividual IRI="#Squads"/>
-        <NamedIndividual IRI="#LowerBackIssue"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <Annotation>
-            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-            <Literal>This Contraindication should be considered for practitioners of Squads to avoid strain or injury.</Literal>
-        </Annotation>
-        <ObjectProperty IRI="#hasContraindication"/>
-        <NamedIndividual IRI="#Squads"/>
-        <NamedIndividual IRI="#HipIssue"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <Annotation>
-            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-            <Literal>This Contraindication should be considered for practitioners of StandingCalfStretch to avoid strain or injury.</Literal>
-        </Annotation>
-        <ObjectProperty IRI="#hasContraindication"/>
-        <NamedIndividual IRI="#StandingCalfStretch"/>
-        <NamedIndividual IRI="#AnkleIssue"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <Annotation>
-            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-            <Literal>This Contraindication should be considered for practitioners of TricepsStretch to avoid strain or injury.</Literal>
-        </Annotation>
-        <ObjectProperty IRI="#hasContraindication"/>
-        <NamedIndividual IRI="#TricepsStretch"/>
-        <NamedIndividual IRI="#ShoulderIssue"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <Annotation>
-            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-            <Literal>This Contraindication should be considered for practitioners of Z-Sits to avoid strain or injury.</Literal>
-        </Annotation>
-        <ObjectProperty IRI="#hasContraindication"/>
-        <NamedIndividual IRI="#Z-Sits"/>
-        <NamedIndividual IRI="#KneeIssue"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <Annotation>
-            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-            <Literal>This Contraindication should be considered for practitioners of Z-Sits to avoid strain or injury.</Literal>
-        </Annotation>
-        <ObjectProperty IRI="#hasContraindication"/>
-        <NamedIndividual IRI="#Z-Sits"/>
-        <NamedIndividual IRI="#HipIssue"/>
-    </ObjectPropertyAssertion>
-<!-- ============================================================ -->
-<!-- ADDITIONS: rdfs:label (de) for every NamedIndividual          -->
-<!-- Generated 2026-07-11. Source: standard German medical,       -->
-<!-- anatomical, PT, yoga (verified), and sport terminology       -->
-<!-- (verified via de.wiki, Babbel, PowerYoga Vienna, Gelernt-     -->
-<!-- mit-Bernd, Viva Language Services, dict.cc). Display label,   -->
-<!-- not the technical identifier (so 'Brücke', not 'Bruecke').    -->
-<!-- ============================================================ -->
-
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#Bicycling20+Mph</IRI>
         <Literal xml:lang="de">Radfahren über 32 km/h</Literal>
     </AnnotationAssertion>
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>#EnBlocBedExit</IRI>
-        <Literal xml:lang="de">Aufstehen aus dem Bett en bloc</Literal>
-    </AnnotationAssertion>
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    </Ontology>
+</Ontology>
 
 
 
