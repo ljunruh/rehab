@@ -66,9 +66,6 @@
         <Class IRI="#ElbowJointInjury"/>
     </Declaration>
     <Declaration>
-        <Class IRI="#Entspannung"/>
-    </Declaration>
-    <Declaration>
         <Class IRI="#Equipment"/>
     </Declaration>
     <Declaration>
@@ -141,6 +138,12 @@
         <Class IRI="#Patient"/>
     </Declaration>
     <Declaration>
+        <Class IRI="#RecipeOfTheWeek"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Relaxation"/>
+    </Declaration>
+    <Declaration>
         <Class IRI="#SeverityLevel"/>
     </Declaration>
     <Declaration>
@@ -196,9 +199,6 @@
     </Declaration>
     <Declaration>
         <Class IRI="#Yoga"/>
-    </Declaration>
-    <Declaration>
-        <Class IRI="#recipeOfTheWeek"/>
     </Declaration>
     <Declaration>
         <ObjectProperty IRI="#avoidsAsana"/>
@@ -2679,10 +2679,6 @@
         <Class IRI="#JointInjury"/>
     </SubClassOf>
     <SubClassOf>
-        <Class IRI="#Entspannung"/>
-        <Class IRI="#Exercise"/>
-    </SubClassOf>
-    <SubClassOf>
         <Class IRI="#Equipment"/>
         <Class IRI="#ExerciseProperties"/>
     </SubClassOf>
@@ -2769,6 +2765,10 @@
     <SubClassOf>
         <Class IRI="#NeckMuscleInjury"/>
         <Class IRI="#MuscleInjury"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Relaxation"/>
+        <Class IRI="#Exercise"/>
     </SubClassOf>
     <SubClassOf>
         <Class IRI="#SeverityLevel"/>
@@ -2975,7 +2975,7 @@
         <NamedIndividual IRI="#AssistedShoulderRotation"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="#Entspannung"/>
+        <Class IRI="#Relaxation"/>
         <NamedIndividual IRI="#Atemuebung478"/>
     </ClassAssertion>
     <ClassAssertion>
@@ -3047,7 +3047,7 @@
         <NamedIndividual IRI="#BasketballShootingBaskets"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="#Entspannung"/>
+        <Class IRI="#Relaxation"/>
         <NamedIndividual IRI="#BauchatmungInBauchlage"/>
     </ClassAssertion>
     <ClassAssertion>
@@ -3143,7 +3143,7 @@
         <NamedIndividual IRI="#BrustdehnungAnDerWand"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="#Entspannung"/>
+        <Class IRI="#Relaxation"/>
         <NamedIndividual IRI="#BrustmuskelmassageMitBall"/>
     </ClassAssertion>
     <ClassAssertion>
@@ -3151,7 +3151,7 @@
         <NamedIndividual IRI="#BrustwirbelsaeulenDehnung"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="#Entspannung"/>
+        <Class IRI="#Relaxation"/>
         <NamedIndividual IRI="#BrustwirbelsaeulenMassageMitDerFaszienrolle"/>
     </ClassAssertion>
     <ClassAssertion>
@@ -3447,11 +3447,11 @@
         <NamedIndividual IRI="#EnBlocBedExit"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="#Entspannung"/>
+        <Class IRI="#Relaxation"/>
         <NamedIndividual IRI="#EntspannungInDerKindhaltung"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="#Entspannung"/>
+        <Class IRI="#Relaxation"/>
         <NamedIndividual IRI="#EntspannungslageInRueckenlage"/>
     </ClassAssertion>
     <ClassAssertion>
@@ -3479,7 +3479,7 @@
         <NamedIndividual IRI="#Faszienrolle"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="#Entspannung"/>
+        <Class IRI="#Relaxation"/>
         <NamedIndividual IRI="#FaszienrolleRueckenWade"/>
     </ClassAssertion>
     <ClassAssertion>
@@ -3807,7 +3807,7 @@
         <NamedIndividual IRI="#Karate"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="#Entspannung"/>
+        <Class IRI="#Relaxation"/>
         <NamedIndividual IRI="#Kastenatmung4444Atmung"/>
     </ClassAssertion>
     <ClassAssertion>
@@ -3819,7 +3819,7 @@
         <NamedIndividual IRI="#Kayaking"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="#Entspannung"/>
+        <Class IRI="#Relaxation"/>
         <NamedIndividual IRI="#Kindpose"/>
     </ClassAssertion>
     <ClassAssertion>
@@ -3887,7 +3887,7 @@
         <NamedIndividual IRI="#LateralDeltoids"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="#Entspannung"/>
+        <Class IRI="#Relaxation"/>
         <NamedIndividual IRI="#LatissimusMassageMitDerFaszienrolle"/>
     </ClassAssertion>
     <ClassAssertion>
@@ -4115,7 +4115,7 @@
         <NamedIndividual IRI="#Posture"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="#Entspannung"/>
+        <Class IRI="#Relaxation"/>
         <NamedIndividual IRI="#ProgressiveMuskelentspannung"/>
     </ClassAssertion>
     <ClassAssertion>
@@ -4219,43 +4219,43 @@
         <NamedIndividual IRI="#RespiratoryIssue"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="#recipeOfTheWeek"/>
+        <Class IRI="#RecipeOfTheWeek"/>
         <NamedIndividual IRI="#Rezept_AvocadoKresseBrot"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="#recipeOfTheWeek"/>
+        <Class IRI="#RecipeOfTheWeek"/>
         <NamedIndividual IRI="#Rezept_Beeren_Smoothie"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="#recipeOfTheWeek"/>
+        <Class IRI="#RecipeOfTheWeek"/>
         <NamedIndividual IRI="#Rezept_ChiaBeerenPudding"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="#recipeOfTheWeek"/>
+        <Class IRI="#RecipeOfTheWeek"/>
         <NamedIndividual IRI="#Rezept_GoldeneMilchOatmeal"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="#recipeOfTheWeek"/>
+        <Class IRI="#RecipeOfTheWeek"/>
         <NamedIndividual IRI="#Rezept_GrünerPowerSmoothie"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="#recipeOfTheWeek"/>
+        <Class IRI="#RecipeOfTheWeek"/>
         <NamedIndividual IRI="#Rezept_IngwerZitronenShot"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="#recipeOfTheWeek"/>
+        <Class IRI="#RecipeOfTheWeek"/>
         <NamedIndividual IRI="#Rezept_KirschKamilleSchlummerdrink"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="#recipeOfTheWeek"/>
+        <Class IRI="#RecipeOfTheWeek"/>
         <NamedIndividual IRI="#Rezept_MandelKakaoEnergyBalls"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="#recipeOfTheWeek"/>
+        <Class IRI="#RecipeOfTheWeek"/>
         <NamedIndividual IRI="#Rezept_RoteBeteApfelJuice"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="#recipeOfTheWeek"/>
+        <Class IRI="#RecipeOfTheWeek"/>
         <NamedIndividual IRI="#Rezept_WalnussBananenQuark"/>
     </ClassAssertion>
     <ClassAssertion>
@@ -4291,7 +4291,7 @@
         <NamedIndividual IRI="#RotatorCuffs"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="#Entspannung"/>
+        <Class IRI="#Relaxation"/>
         <NamedIndividual IRI="#RotatorenmanschettenMassageMitBall"/>
     </ClassAssertion>
     <ClassAssertion>
@@ -4331,7 +4331,7 @@
         <NamedIndividual IRI="#SchulterAlphabet"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="#Entspannung"/>
+        <Class IRI="#Relaxation"/>
         <NamedIndividual IRI="#SchulterNackenEntspannung"/>
     </ClassAssertion>
     <ClassAssertion>
@@ -4391,27 +4391,27 @@
         <NamedIndividual IRI="#Seitstuetz"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="#Entspannung"/>
+        <Class IRI="#Relaxation"/>
         <NamedIndividual IRI="#SelbstmassageDerHinterenSchulter"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="#Entspannung"/>
+        <Class IRI="#Relaxation"/>
         <NamedIndividual IRI="#SelbstmassageDesMusculusQuadratusLumborum"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="#Entspannung"/>
+        <Class IRI="#Relaxation"/>
         <NamedIndividual IRI="#SelbstmassageDesOberenTrapezmuskels"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="#Entspannung"/>
+        <Class IRI="#Relaxation"/>
         <NamedIndividual IRI="#SelbstmassageDesPiriformis"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="#Entspannung"/>
+        <Class IRI="#Relaxation"/>
         <NamedIndividual IRI="#SelbstmassageDesSchulterblatthebersLevatorScapulae"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="#Entspannung"/>
+        <Class IRI="#Relaxation"/>
         <NamedIndividual IRI="#SelbstmassageDesUnterenRueckens"/>
     </ClassAssertion>
     <ClassAssertion>
@@ -4931,7 +4931,7 @@
         <NamedIndividual IRI="#TricepsStretch"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="#Entspannung"/>
+        <Class IRI="#Relaxation"/>
         <NamedIndividual IRI="#TriggerpunktmassageDerGesaessmuskulatur"/>
     </ClassAssertion>
     <ClassAssertion>
@@ -5159,7 +5159,7 @@
         <NamedIndividual IRI="#Z-Sits"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="#Entspannung"/>
+        <Class IRI="#Relaxation"/>
         <NamedIndividual IRI="#Zwerchfellatmung"/>
     </ClassAssertion>
     <ClassAssertion>
@@ -34447,6 +34447,11 @@ Langsam zur Mitte zurückkehren.
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#BodyPart</IRI>
+        <Literal xml:lang="de">Körperteil</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#Bouldering</IRI>
         <Literal xml:lang="en">Bouldering</Literal>
     </AnnotationAssertion>
@@ -34776,6 +34781,11 @@ Langsam zur Mitte zurückkehren.
         <Literal xml:lang="en">Cardio</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Cardio</IRI>
+        <Literal xml:lang="de">Kardio</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
         <IRI>#CenterSplits</IRI>
         <Literal>Samakonasana</Literal>
@@ -35101,6 +35111,11 @@ Langsam zur Mitte zurückkehren.
         <Literal xml:lang="en">Contraindication</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Contraindication</IRI>
+        <Literal xml:lang="de">Kontraindikationen</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
         <IRI>#Coordination</IRI>
         <Literal xml:lang="de">Koordination, das Zusammenspiel von Muskeln und Nerven für flüssige Bewegungen.</Literal>
@@ -35289,6 +35304,11 @@ Langsam zur Mitte zurückkehren.
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#DailyRoutine</IRI>
         <Literal xml:lang="en">DailyRoutine</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#DailyRoutine</IRI>
+        <Literal xml:lang="de">Schonung im Alltag</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
@@ -35524,6 +35544,11 @@ Langsam zur Mitte zurückkehren.
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#DifficultyLevel</IRI>
         <Literal xml:lang="en">DifficultyLevel</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#DifficultyLevel</IRI>
+        <Literal xml:lang="de">Schwierigkeitsgrad</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
@@ -35831,16 +35856,6 @@ Langsam zur Mitte zurückkehren.
         <Literal xml:lang="en">EnBlocBedExit</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-        <IRI>#Entspannung</IRI>
-        <Literal xml:lang="de">Übungen zur körperlichen und geistigen Entspannung</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>#Entspannung</IRI>
-        <Literal xml:lang="de">Entspannung</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#EntspannungInDerKindhaltung</IRI>
         <Literal xml:lang="en">Child&apos;s Pose Relaxation</Literal>
@@ -35864,6 +35879,11 @@ Langsam zur Mitte zurückkehren.
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
         <IRI>#Equipment</IRI>
         <Literal xml:lang="de">Trainingsgeräte und Hilfsmittel, die in Physiotherapie und Rehabilitation eingesetzt werden, um Übungen zu erleichtern oder Belastungen gezielt zu dosieren.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Equipment</IRI>
+        <Literal xml:lang="de">Equipment</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
@@ -35911,6 +35931,11 @@ Langsam zur Mitte zurückkehren.
         <Literal xml:lang="en">Exercise</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Exercise</IRI>
+        <Literal xml:lang="de">Übung</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
         <IRI>#ExerciseProperties</IRI>
         <Literal xml:lang="de">Eigenschaften und Merkmale, die eine Übung charakterisieren, etwa Schwierigkeitsgrad, betroffene Körperregionen oder benötigte Ausrüstung.</Literal>
@@ -35919,6 +35944,11 @@ Langsam zur Mitte zurückkehren.
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#ExerciseProperties</IRI>
         <Literal xml:lang="en">ExerciseProperties</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#ExerciseProperties</IRI>
+        <Literal xml:lang="de">Übungseigenschaften</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
@@ -37337,6 +37367,11 @@ Langsam zur Mitte zurückkehren.
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Injury</IRI>
+        <Literal xml:lang="de">Verletzung</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#InnenrotationMitTheraband</IRI>
         <Literal xml:lang="de">Innenrotation mit Theraband</Literal>
     </AnnotationAssertion>
@@ -37364,6 +37399,11 @@ Langsam zur Mitte zurückkehren.
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
         <IRI>#Joint</IRI>
         <Literal xml:lang="de">Gelenk des menschlichen Körpers; Oberklasse aller spezifischen Gelenke</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Joint</IRI>
+        <Literal xml:lang="de">Gelenk</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
@@ -37938,12 +37978,22 @@ Langsam zur Mitte zurückkehren.
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#Limb</IRI>
+        <Literal xml:lang="de">Glied</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Limb</IRI>
         <Literal xml:lang="en">Limb</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
         <IRI>#LimbAlignment</IRI>
         <Literal xml:lang="de">Beschreibung der räumlichen Ausrichtung von Gliedmaßen in Bezug auf den Körper oder auf benachbarte Gelenke.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#LimbAlignment</IRI>
+        <Literal xml:lang="de">Extremitätenausrichtung</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
@@ -38144,6 +38194,11 @@ Langsam zur Mitte zurückkehren.
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#Mild</IRI>
         <Literal xml:lang="en">Mild</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Mobilisation</IRI>
+        <Literal xml:lang="en">Mobilization</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
@@ -38369,6 +38424,11 @@ Langsam zur Mitte zurückkehren.
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#Muscle</IRI>
         <Literal xml:lang="en">Muscle</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Muscle</IRI>
+        <Literal xml:lang="de">Muskel</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
@@ -38664,6 +38724,11 @@ Langsam zur Mitte zurückkehren.
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
         <IRI>#Patient</IRI>
         <Literal xml:lang="de">Diese Klasse repräsentiert einen Reha-Patienten, der die Physiotherapie in Anspruch nimmt</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Patient</IRI>
+        <Literal xml:lang="de">Patient</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
@@ -39227,6 +39292,16 @@ Langsam zur Mitte zurückkehren.
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#RecipeOfTheWeek</IRI>
+        <Literal>Rezept der Woche</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#RecipeOfTheWeek</IRI>
+        <Literal xml:lang="de">Rezept der Woche</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
         <IRI>#RegularMovementBreak</IRI>
         <Literal xml:lang="de">Regelmäßige Bewegungspausen</Literal>
     </AnnotationAssertion>
@@ -39244,6 +39319,11 @@ Langsam zur Mitte zurückkehren.
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
         <IRI>#Relaxation</IRI>
         <Literal xml:lang="de">Entspannung als bewusste Reduzierung von Anspannung in Muskulatur und Geist.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Relaxation</IRI>
+        <Literal xml:lang="de">Übungen zur körperlichen und geistigen Entspannung</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
@@ -39274,6 +39354,106 @@ Langsam zur Mitte zurückkehren.
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#RespiratoryIssue</IRI>
         <Literal xml:lang="en">RespiratoryIssue</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Rezept_AvocadoKresseBrot</IRI>
+        <Literal xml:lang="en">Avocado Cress Toast</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Rezept_AvocadoKresseBrot</IRI>
+        <Literal xml:lang="de">Avocado-Kresse-Brot</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Rezept_Beeren_Smoothie</IRI>
+        <Literal xml:lang="en">Anti-Inflammatory Berry Smoothie</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Rezept_Beeren_Smoothie</IRI>
+        <Literal xml:lang="de">Entzündungshemmender Beeren-Smoothie</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Rezept_ChiaBeerenPudding</IRI>
+        <Literal xml:lang="en">Chia Berry Pudding</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Rezept_ChiaBeerenPudding</IRI>
+        <Literal xml:lang="de">Chia-Beeren-Pudding</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Rezept_GoldeneMilchOatmeal</IRI>
+        <Literal xml:lang="en">Golden Milk Oatmeal</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Rezept_GoldeneMilchOatmeal</IRI>
+        <Literal xml:lang="de">Goldene-Milch-Haferbrei</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Rezept_GrünerPowerSmoothie</IRI>
+        <Literal xml:lang="en">Green Power Smoothie</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Rezept_GrünerPowerSmoothie</IRI>
+        <Literal xml:lang="de">Grüner Power-Smoothie</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Rezept_IngwerZitronenShot</IRI>
+        <Literal xml:lang="en">Ginger Lemon Shot</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Rezept_IngwerZitronenShot</IRI>
+        <Literal xml:lang="de">Ingwer-Zitronen-Shot</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Rezept_KirschKamilleSchlummerdrink</IRI>
+        <Literal xml:lang="en">Cherry Chamomile Nightcap</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Rezept_KirschKamilleSchlummerdrink</IRI>
+        <Literal xml:lang="de">Kirsch-Kamille-Schlummerdrink</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Rezept_MandelKakaoEnergyBalls</IRI>
+        <Literal xml:lang="en">Almond Cocoa Energy Balls</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Rezept_MandelKakaoEnergyBalls</IRI>
+        <Literal xml:lang="de">Mandel-Kakao-Energy-Balls</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Rezept_RoteBeteApfelJuice</IRI>
+        <Literal xml:lang="en">Beetroot Apple Juice</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Rezept_RoteBeteApfelJuice</IRI>
+        <Literal xml:lang="de">Rote-Bete-Apfel-Saft</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Rezept_WalnussBananenQuark</IRI>
+        <Literal xml:lang="de">Walnuss-Bananen-Quark</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Rezept_WalnussBananenQuark</IRI>
+        <Literal xml:lang="en">Walnut Banana Curd</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
@@ -39804,6 +39984,11 @@ Langsam zur Mitte zurückkehren.
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
         <IRI>#SeverityLevel</IRI>
         <Literal xml:lang="de">Stufe zur Einstufung der Schwere eines Risikos oder Zustands, etwa in abgestuften Klassen wie niedrig, mittel und hoch.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#SeverityLevel</IRI>
+        <Literal xml:lang="de">Risiko Level</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
@@ -40354,6 +40539,11 @@ Langsam zur Mitte zurückkehren.
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#SportActivity</IRI>
         <Literal xml:lang="en">SportActivity</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#SportActivity</IRI>
+        <Literal xml:lang="de">Sportaktivität</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
@@ -41768,7 +41958,12 @@ Langsam zur Mitte zurückkehren.
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#TrainingsEffect</IRI>
-        <Literal xml:lang="en">TrainingsEffect</Literal>
+        <Literal xml:lang="en">Trainingeffect</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#TrainingsEffect</IRI>
+        <Literal xml:lang="de">Trainingseffekt</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
@@ -41776,9 +41971,19 @@ Langsam zur Mitte zurückkehren.
         <Literal xml:lang="de">Einstufung des sportlichen Leistungsstands einer Person, üblicherweise in Stufen wie Anfänger, Fortgeschritten und Profi.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#TrainingsLevel</IRI>
+        <Literal xml:lang="en">TrainingLevel</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#TrainingsLevel</IRI>
-        <Literal xml:lang="en">TrainingsLevel</Literal>
+        <Literal xml:lang="en">Traininglevel</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#TrainingsLevel</IRI>
+        <Literal xml:lang="de">Trainingslevel</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
