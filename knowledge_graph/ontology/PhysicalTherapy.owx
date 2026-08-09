@@ -33402,13 +33402,17 @@ Langsam zur Mitte zurückkehren.
         <Class IRI="#Exercise"/>
     </DataPropertyDomain>
     <DataPropertyDomain>
-        <DataProperty IRI="#hasInstruction"/>
-        <Class IRI="#Exercise"/>
-    </DataPropertyDomain>
-    <DataPropertyDomain>
-        <DataProperty IRI="#hasMETScore"/>
-        <Class IRI="#Patient"/>
-    </DataPropertyDomain>
+    <DataProperty IRI="#hasInstruction"/>
+    <Class IRI="#Exercise"/>
+</DataPropertyDomain>
+<DataPropertyDomain>
+    <DataProperty IRI="#hasVideoUrl"/>
+    <Class IRI="#Exercise"/>
+</DataPropertyDomain>
+<DataPropertyDomain>
+    <DataProperty IRI="#hasMETScore"/>
+    <Class IRI="#Patient"/>
+</DataPropertyDomain>
     <DataPropertyDomain>
         <DataProperty IRI="#hasSeverityScore"/>
         <Class IRI="#Injury"/>
