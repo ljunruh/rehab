@@ -30338,6 +30338,11 @@ Langsam zur Mitte zurückkehren.
 6. Ruhig weiteratmen.
 7. Die Position nur so lange halten, wie die Kontrolle erhalten bleibt.</Literal>
     </DataPropertyAssertion>
+<DataPropertyAssertion>
+    <DataProperty IRI="#hasVideoUrl"/>
+    <NamedIndividual IRI="#Plank"/>
+    <Literal>https://revia.mausnetz.com/video/plank.mp4</Literal>
+</DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="#Calorie"/>
         <NamedIndividual IRI="#PlayingCatch"/>
