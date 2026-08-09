@@ -359,6 +359,7 @@
 <Declaration>
     <DataProperty IRI="#hasLifestyle"/>
 </Declaration>
+</Declaration>
         <DataProperty IRI="#hasMETScore"/>
     </Declaration>
     <Declaration>
