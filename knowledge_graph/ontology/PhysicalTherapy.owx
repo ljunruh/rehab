@@ -351,10 +351,14 @@
         <DataProperty IRI="#hasHeight"/>
     </Declaration>
     <Declaration>
-        <DataProperty IRI="#hasInstruction"/>
-    </Declaration>
-    <Declaration>
-        <DataProperty IRI="#hasLifestyle"/>
+    <DataProperty IRI="#hasInstruction"/>
+</Declaration>
+<Declaration>
+    <DataProperty IRI="#hasVideoUrl"/>
+</Declaration>
+<Declaration>
+    <DataProperty IRI="#hasLifestyle"/>
+</Declaration>
     </Declaration>
     <Declaration>
         <DataProperty IRI="#hasMETScore"/>
