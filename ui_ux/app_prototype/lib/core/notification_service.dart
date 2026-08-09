@@ -21,8 +21,15 @@ class NotificationService {
   static const _channelId = 'daily_training_reminder';
   static const _fileName = 'notification_settings.json';
 
+  bool get _supportsLocalNotifications => Platform.isAndroid || Platform.isIOS;
+
   /// Initialisiert das Plugin und stellt eine gespeicherte Erinnerung wieder her.
   Future<void> initialize() async {
+    // Desktop-Plattformen überspringen, um Plugin-Probleme zu vermeiden.
+    if (!_supportsLocalNotifications) {
+      return;
+    }
+
     tz.initializeTimeZones();
 
     const android = AndroidInitializationSettings('@mipmap/ic_launcher');
@@ -49,7 +56,7 @@ class NotificationService {
     final minute = int.parse(parts[1]);
 
     // Nur auf Android/iOS planen
-    if (Platform.isAndroid || Platform.isIOS) {
+    if (_supportsLocalNotifications) {
       await _plugin.cancel(_notifId);
 
       final now = tz.TZDateTime.now(tz.local);
@@ -89,7 +96,7 @@ class NotificationService {
   /// [time] wird weiterhin gespeichert, damit die Auswahl beim erneuten
   /// Aktivieren erhalten bleibt.
   Future<void> cancel(String time) async {
-    if (Platform.isAndroid || Platform.isIOS) {
+    if (_supportsLocalNotifications) {
       await _plugin.cancel(_notifId);
     }
     await _save(enabled: false, time: time);
@@ -118,7 +125,7 @@ class NotificationService {
 
   /// NUR FÜR DEBUG – löst sofort eine Test-Notification aus. kann aus der Finalen Version raus
   Future<void> debugShowNow() async {
-    if (Platform.isAndroid || Platform.isIOS) {
+    if (_supportsLocalNotifications) {
       await _plugin.show(
         99,
         'Reha App',
