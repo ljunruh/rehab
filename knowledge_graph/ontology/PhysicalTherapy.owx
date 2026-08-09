@@ -33478,13 +33478,17 @@ Langsam zur Mitte zurückkehren.
         <Datatype abbreviatedIRI="xsd:decimal"/>
     </DataPropertyRange>
     <DataPropertyRange>
-        <DataProperty IRI="#hasInstruction"/>
-        <Datatype abbreviatedIRI="xsd:string"/>
-    </DataPropertyRange>
-    <DataPropertyRange>
-        <DataProperty IRI="#hasLifestyle"/>
-        <Datatype abbreviatedIRI="xsd:string"/>
-    </DataPropertyRange>
+    <DataProperty IRI="#hasInstruction"/>
+    <Datatype abbreviatedIRI="xsd:string"/>
+</DataPropertyRange>
+<DataPropertyRange>
+    <DataProperty IRI="#hasVideoUrl"/>
+    <Datatype abbreviatedIRI="xsd:string"/>
+</DataPropertyRange>
+<DataPropertyRange>
+    <DataProperty IRI="#hasLifestyle"/>
+    <Datatype abbreviatedIRI="xsd:string"/>
+</DataPropertyRange>
     <DataPropertyRange>
         <DataProperty IRI="#hasMETScore"/>
         <Datatype abbreviatedIRI="xsd:decimal"/>
