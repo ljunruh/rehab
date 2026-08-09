@@ -1497,6 +1497,9 @@
         <NamedIndividual IRI="#None"/>
     </Declaration>
     <Declaration>
+        <NamedIndividual IRI="#Obererückengelenke"/>
+    </Declaration>
+    <Declaration>
         <NamedIndividual IRI="#OberkoerperrotationImStand"/>
     </Declaration>
     <Declaration>
@@ -2400,6 +2403,9 @@
         <NamedIndividual IRI="#UmgekehrterUnterarmstuetz"/>
     </Declaration>
     <Declaration>
+        <NamedIndividual IRI="#Untererückengeleneke"/>
+    </Declaration>
+    <Declaration>
         <NamedIndividual IRI="#Up"/>
     </Declaration>
     <Declaration>
@@ -3294,6 +3300,10 @@
         <NamedIndividual IRI="#Core"/>
     </ClassAssertion>
     <ClassAssertion>
+        <Class IRI="#Contraindication"/>
+        <NamedIndividual IRI="#CoreWeakness"/>
+    </ClassAssertion>
+    <ClassAssertion>
         <Class IRI="#Asana"/>
         <NamedIndividual IRI="#Crab"/>
     </ClassAssertion>
@@ -4030,6 +4040,10 @@
         <NamedIndividual IRI="#None"/>
     </ClassAssertion>
     <ClassAssertion>
+        <Class IRI="#Joint"/>
+        <NamedIndividual IRI="#Obererückengelenke"/>
+    </ClassAssertion>
+    <ClassAssertion>
         <Class IRI="#Mobilisation"/>
         <NamedIndividual IRI="#OberkoerperrotationImStand"/>
     </ClassAssertion>
@@ -4204,6 +4218,10 @@
     <ClassAssertion>
         <Class IRI="#TrainingsEffect"/>
         <NamedIndividual IRI="#Relaxation"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Contraindication"/>
+        <NamedIndividual IRI="#RespiratoryIssue"/>
     </ClassAssertion>
     <ClassAssertion>
         <Class IRI="#RecipeOfTheWeek"/>
@@ -4544,6 +4562,10 @@
     <ClassAssertion>
         <Class IRI="#BodyPart"/>
         <NamedIndividual IRI="#Spine"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Contraindication"/>
+        <NamedIndividual IRI="#SpineIssue"/>
     </ClassAssertion>
     <ClassAssertion>
         <Class IRI="#Joint"/>
@@ -4928,6 +4950,10 @@
     <ClassAssertion>
         <Class IRI="#Strength"/>
         <NamedIndividual IRI="#UmgekehrterUnterarmstuetz"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Joint"/>
+        <NamedIndividual IRI="#Untererückengeleneke"/>
     </ClassAssertion>
     <ClassAssertion>
         <Class IRI="#BodyPart"/>
@@ -10609,6 +10635,11 @@
         <NamedIndividual IRI="#Elbows"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#requiresImprovementOf"/>
+        <NamedIndividual IRI="#Ellenbogenprobleme"/>
+        <NamedIndividual IRI="#Elbows"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
         <ObjectProperty IRI="#engagedBodyPart"/>
         <NamedIndividual IRI="#EntspannungInDerKindhaltung"/>
         <NamedIndividual IRI="#Back"/>
@@ -16229,6 +16260,11 @@
         <ObjectProperty IRI="#partOf"/>
         <NamedIndividual IRI="#NeckJoint"/>
         <NamedIndividual IRI="#Neck"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#partOf"/>
+        <NamedIndividual IRI="#Obererückengelenke"/>
+        <NamedIndividual IRI="#Back"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#engagedBodyPart"/>
@@ -25185,6 +25221,11 @@
         <ObjectProperty IRI="#requiresEquipment"/>
         <NamedIndividual IRI="#UmgekehrterUnterarmstuetz"/>
         <NamedIndividual IRI="#None"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#partOf"/>
+        <NamedIndividual IRI="#Untererückengeleneke"/>
+        <NamedIndividual IRI="#Back"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#partOf"/>
@@ -35820,6 +35861,21 @@ Langsam zur Mitte zurückkehren.
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Ellenbogenprobleme</IRI>
+        <Literal>Repräsentiert Probleme oder Verletzungen im Bereich des Ellbogens</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Ellenbogenprobleme</IRI>
+        <Literal xml:lang="en">Elbow problems</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Ellenbogenprobleme</IRI>
+        <Literal xml:lang="de">Ellbogenprobleme</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
         <IRI>#EnBlocBedExit</IRI>
         <Literal xml:lang="de">Aufstehen aus dem Bett</Literal>
     </AnnotationAssertion>
@@ -38537,6 +38593,21 @@ Langsam zur Mitte zurückkehren.
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#None</IRI>
         <Literal xml:lang="en">None</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Obererückengelenke</IRI>
+        <Literal>Repräsentiert die Gelenke des oberen Rückenbereichs</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Obererückengelenke</IRI>
+        <Literal xml:lang="de">Obere Rückengelenke</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Obererückengelenke</IRI>
+        <Literal>Upper back joints</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
@@ -42322,6 +42393,21 @@ Langsam zur Mitte zurückkehren.
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#UmgekehrterUnterarmstuetz</IRI>
         <Literal xml:lang="de">Umgekehrter Unterarmstütz</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Untererückengeleneke</IRI>
+        <Literal>Repräsentiert die Gelenke des unteren Rückenbereichs</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Untererückengeleneke</IRI>
+        <Literal xml:lang="en">Lower back joints</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Untererückengeleneke</IRI>
+        <Literal xml:lang="de">Untere Rückengelenke</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
