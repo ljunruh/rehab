@@ -35817,7 +35817,7 @@ Langsam zur Mitte zurückkehren.
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#Elbow</IRI>
-        <Literal xml:lang="en">Elbow</Literal>
+        <Literal xml:lang="en">Elbow Joint</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
@@ -35867,7 +35867,7 @@ Langsam zur Mitte zurückkehren.
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#Ellenbogenprobleme</IRI>
-        <Literal xml:lang="en">Elbow problems</Literal>
+        <Literal xml:lang="en">ElbowIssue</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
