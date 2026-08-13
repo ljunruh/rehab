@@ -232,45 +232,46 @@ class _PainHistoryCarouselState extends State<PainHistoryCarousel> {
                           )
                         else
                           PainTrendChart(entries: entries, height: 110),
-                        const SizedBox(height: AppSpacing.base),
 
-                        // Trend-Banner
-                        Container(
-                          width: double.infinity,
-                          padding: const EdgeInsets.symmetric(
-                            horizontal: 14,
-                            vertical: 12,
-                          ),
-                          decoration: BoxDecoration(
-                            color: trend.bg,
-                            borderRadius:
-                            BorderRadius.circular(AppRadius.input),
-                          ),
-                          child: Row(
-                            children: [
-                              Container(
-                                width: 6,
-                                height: 6,
-                                margin:
-                                const EdgeInsets.only(top: 2, right: 10),
-                                decoration: BoxDecoration(
-                                  color: trend.fg,
-                                  shape: BoxShape.circle,
-                                ),
-                              ),
-                              Expanded(
-                                child: Text(
-                                  trend.text,
-                                  style: AppText.caption.copyWith(
+                        // Trend-Banner (wird nur angezeigt, wenn ein Trend vorhanden ist)
+                        if (trend != null) ...[
+                          const SizedBox(height: AppSpacing.base),
+                          Container(
+                            width: double.infinity,
+                            padding: const EdgeInsets.symmetric(
+                              horizontal: 14,
+                              vertical: 12,
+                            ),
+                            decoration: BoxDecoration(
+                              color: trend.bg,
+                              borderRadius:
+                              BorderRadius.circular(AppRadius.input),
+                            ),
+                            child: Row(
+                              children: [
+                                Container(
+                                  width: 6,
+                                  height: 6,
+                                  margin: const EdgeInsets.only(top: 2, right: 10),
+                                  decoration: BoxDecoration(
                                     color: trend.fg,
-                                    fontWeight: FontWeight.w500,
-                                    height: 1.4,
+                                    shape: BoxShape.circle,
                                   ),
                                 ),
-                              ),
-                            ],
+                                Expanded(
+                                  child: Text(
+                                    trend.text,
+                                    style: AppText.caption.copyWith(
+                                      color: trend.fg,
+                                      fontWeight: FontWeight.w500,
+                                      height: 1.4,
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
                           ),
-                        ),
+                        ],
                       ],
                     ),
                   ),
