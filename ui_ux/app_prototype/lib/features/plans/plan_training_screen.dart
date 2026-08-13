@@ -389,56 +389,64 @@ class _PlanTrainingScreenState extends State<PlanTrainingScreen> {
                 ),
               ),
               if (_painOpen)
-                Padding(
-                  padding: const EdgeInsets.fromLTRB(4, 14, 4, 2),
-                  child: Column(
-                    children: [
-                      Row(
+                IgnorePointer(
+                  ignoring: isCurrentCompleted,
+                  child: Opacity(
+                    opacity: isCurrentCompleted ? 0.5 : 1.0,
+                    child: Padding(
+                      padding: const EdgeInsets.fromLTRB(4, 14, 4, 2),
+                      child: Column(
                         children: [
-                          for (int v = 0; v <= 10; v++) ...[
-                            if (v > 0) const SizedBox(width: 5),
-                            Expanded(
-                              child: GestureDetector(
-                                onTap: () =>
-                                    setState(() => _painLevels[_idx] = v),
-                                child: AspectRatio(
-                                  aspectRatio: 1,
-                                  child: Container(
-                                    alignment: Alignment.center,
-                                    decoration: BoxDecoration(
-                                      color: pain == v
-                                          ? _painColor(v)
-                                          : AppColors.offwhite,
-                                      borderRadius:
-                                      BorderRadius.circular(9),
-                                      border: pain == v
-                                          ? null
-                                          : Border.all(
-                                          color: AppColors.beige),
-                                    ),
-                                    child: Text('$v',
-                                        style: AppText.micro.copyWith(
-                                          fontWeight: FontWeight.w600,
+                          Row(
+                            children: [
+                              for (int v = 0; v <= 10; v++) ...[
+                                if (v > 0) const SizedBox(width: 5),
+                                Expanded(
+                                  child: GestureDetector(
+                                    onTap: isCurrentCompleted
+                                        ? null
+                                        : () =>
+                                        setState(() => _painLevels[_idx] = v),
+                                    child: AspectRatio(
+                                      aspectRatio: 1,
+                                      child: Container(
+                                        alignment: Alignment.center,
+                                        decoration: BoxDecoration(
                                           color: pain == v
-                                              ? AppColors.white
-                                              : AppColors.textSecondary,
-                                        )),
+                                              ? _painColor(v)
+                                              : AppColors.offwhite,
+                                          borderRadius:
+                                          BorderRadius.circular(9),
+                                          border: pain == v
+                                              ? null
+                                              : Border.all(
+                                              color: AppColors.beige),
+                                        ),
+                                        child: Text('$v',
+                                            style: AppText.micro.copyWith(
+                                              fontWeight: FontWeight.w600,
+                                              color: pain == v
+                                                  ? AppColors.white
+                                                  : AppColors.textSecondary,
+                                            )),
+                                      ),
+                                    ),
                                   ),
                                 ),
-                              ),
-                            ),
-                          ],
+                              ],
+                            ],
+                          ),
+                          const SizedBox(height: AppSpacing.sm),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Text('kein Schmerz', style: AppText.micro),
+                              Text('sehr stark', style: AppText.micro),
+                            ],
+                          ),
                         ],
                       ),
-                      const SizedBox(height: AppSpacing.sm),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Text('kein Schmerz', style: AppText.micro),
-                          Text('sehr stark', style: AppText.micro),
-                        ],
-                      ),
-                    ],
+                    ),
                   ),
                 ),
             ],
