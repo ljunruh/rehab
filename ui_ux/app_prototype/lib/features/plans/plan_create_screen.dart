@@ -46,6 +46,7 @@ class _PlanCreateScreenState extends State<PlanCreateScreen> {
   final List<api.Exercise> _selectedExercises = [];
   List<api.Exercise> _filteredExercises = [];
   String _exerciseSearchQuery = "";
+  String? _levelFilter; // Schwierigkeits-Filter (null = alle Level)
   late Color _color; // Dynamische Initialisierung statt starrer Vorgabe
   int _sessionsPerWeek = 3;
 
@@ -236,49 +237,118 @@ class _PlanCreateScreenState extends State<PlanCreateScreen> {
     );
   }
 
+  /// Distinct Schwierigkeitsgrade aus den geladenen Übungen (dynamisch aus dem
+  /// KG), in sinnvoller Reihenfolge (leicht → schwer, Unbekanntes ans Ende).
+  List<String> _distinctLevels(List<api.Exercise> all) {
+    final set = <String>{};
+    for (final e in all) {
+      if (e.difficulty.trim().isNotEmpty) set.add(e.difficulty);
+    }
+    const order = [
+      'Leicht', 'Einfach', 'Beginner', 'Anfänger',
+      'Mittel', 'Intermediate', 'Geübt', 'Fortgeschritten',
+      'Schwer', 'Anspruchsvoll', 'Advanced', 'Profi',
+    ];
+    final list = set.toList();
+    list.sort((a, b) {
+      var ra = order.indexOf(a), rb = order.indexOf(b);
+      if (ra < 0) ra = 99;
+      if (rb < 0) rb = 99;
+      return ra != rb ? ra.compareTo(rb) : a.compareTo(b);
+    });
+    return list;
+  }
+
+  /// Wendet Such- UND Schwierigkeits-Filter auf die Übungsliste an.
+  void _applyExerciseFilter(List<api.Exercise> all) {
+    var list = all;
+    final q = _exerciseSearchQuery.trim().toLowerCase();
+    if (q.isNotEmpty) {
+      list = list
+          .where((e) =>
+              e.label.toLowerCase().contains(q) ||
+              e.description.toLowerCase().contains(q))
+          .toList();
+    }
+    if (_levelFilter != null) {
+      list = list.where((e) => e.difficulty == _levelFilter).toList();
+    }
+    _filteredExercises = list;
+  }
+
   // ── Schritt 2: Übungen auswählen ──
   Widget _buildStep2(BuildContext context) {
     final exercises = context.watch<ExerciseProvider>().exercises;
     if (_exerciseSearchQuery.isEmpty &&
+        _levelFilter == null &&
         _filteredExercises.isEmpty &&
         exercises.isNotEmpty) {
       _filteredExercises = exercises;
     }
+    final levels = _distinctLevels(exercises);
 
-    return SelectableAccordion<api.Exercise>(
-      title: 'Wähle deine Übungen',
-      summary: Text(
-        '${_selectedExercises.length} ${_selectedExercises.length == 1 ? 'Übung' : 'Übungen'} ausgewählt',
-        style: AppText.caption,
-      ),
-      items: exercises,
-      filteredItems: _filteredExercises,
-      onSearch: (query) {
-        setState(() {
-          _exerciseSearchQuery = query;
-          if (query.isEmpty) {
-            _filteredExercises = exercises;
-          } else {
-            _filteredExercises = exercises
-                .where((e) =>
-            e.label.toLowerCase().contains(query.toLowerCase()) ||
-                e.description.toLowerCase().contains(query.toLowerCase()))
-                .toList();
-          }
-        });
-      },
-      getTitle: (ex) => ex.label,
-      getSubtitle: (ex) => '${ex.difficulty} · ${ex.duration} Min',
-      selectedItems: _selectedExercises,
-      onSelectionChanged: (exercise, selected) {
-        setState(() {
-          if (selected) {
-            _selectedExercises.add(exercise);
-          } else {
-            _selectedExercises.remove(exercise);
-          }
-        });
-      },
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        // Schwierigkeits-Filter (Team-Wunsch): Standard „Alle" zeigt alles,
+        // der Nutzer kann optional auf ein Level einschränken.
+        if (levels.isNotEmpty) ...[
+          Text('Schwierigkeit', style: AppText.caption),
+          const SizedBox(height: AppSpacing.sm),
+          Wrap(
+            spacing: AppSpacing.sm,
+            runSpacing: AppSpacing.sm,
+            children: [
+              AppChip(
+                label: 'Alle',
+                active: _levelFilter == null,
+                onTap: () => setState(() {
+                  _levelFilter = null;
+                  _applyExerciseFilter(exercises);
+                }),
+              ),
+              for (final lvl in levels)
+                AppChip(
+                  label: lvl,
+                  active: _levelFilter == lvl,
+                  onTap: () => setState(() {
+                    _levelFilter = (_levelFilter == lvl) ? null : lvl;
+                    _applyExerciseFilter(exercises);
+                  }),
+                ),
+            ],
+          ),
+          const SizedBox(height: AppSpacing.base),
+        ],
+
+        SelectableAccordion<api.Exercise>(
+          title: 'Wähle deine Übungen',
+          summary: Text(
+            '${_selectedExercises.length} ${_selectedExercises.length == 1 ? 'Übung' : 'Übungen'} ausgewählt',
+            style: AppText.caption,
+          ),
+          items: exercises,
+          filteredItems: _filteredExercises,
+          onSearch: (query) {
+            setState(() {
+              _exerciseSearchQuery = query;
+              _applyExerciseFilter(exercises);
+            });
+          },
+          getTitle: (ex) => ex.label,
+          getSubtitle: (ex) => '${ex.difficulty} · ${ex.duration} Min',
+          selectedItems: _selectedExercises,
+          onSelectionChanged: (exercise, selected) {
+            setState(() {
+              if (selected) {
+                _selectedExercises.add(exercise);
+              } else {
+                _selectedExercises.remove(exercise);
+              }
+            });
+          },
+        ),
+      ],
     );
   }
 
