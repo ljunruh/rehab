@@ -57,7 +57,7 @@ class _UserSetupScreenState extends State<UserSetupScreen> {
     setState(() {
       _filteredContraindications = _allContraindications
           .where((i) =>
-              i.label.toLowerCase().contains(query.toLowerCase()) ||
+              i.labelDE.toLowerCase().contains(query.toLowerCase()) ||
               i.description.toLowerCase().contains(query.toLowerCase()))
           .toList();
     });
@@ -286,7 +286,7 @@ class _UserSetupScreenState extends State<UserSetupScreen> {
           .map(
             (i) => Chip(
               label: Text(
-                i.label,
+                i.labelDE,
                 style: AppText.caption.copyWith(color: AppColors.sageDeep),
               ),
               backgroundColor: AppColors.sageLight,

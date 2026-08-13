@@ -20,7 +20,7 @@ class DemoData {
     age: 20,
     weight: 60,
     height: 170,
-    contraindication: [Contraindication.kneeIssue.label],
+    contraindication: [Contraindication.kneeIssue.labelDE],
     skillLevel: SkillLevel.intermediate,
     email: 'lena.mueller@email.de',
     goal: 'Beweglichkeit verbessern',

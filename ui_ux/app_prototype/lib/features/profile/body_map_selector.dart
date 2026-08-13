@@ -154,7 +154,7 @@ class _BodyMapSelectorState extends State<BodyMapSelector> {
                 AppTag(
                   ContraindicationExt.fromString(
                     Contraindication.values.firstWhere(
-                          (e) => e.label == s,
+                          (e) => e.labelDE == s,
                       orElse: () => Contraindication.none,
                     ).labelEN,
                   ).shortLabel,
