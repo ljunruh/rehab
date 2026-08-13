@@ -82,13 +82,8 @@ GROUP BY
     ?exerciseLabel
     ?description
     ?difficultyLabel
-    ?contraindications
-    ?trainingsEffects
-    ?bodyParts
     ?duration
     ?instruction
-    ?corrections
-    ?mistakes
     ?video
     ''';
 
@@ -202,13 +197,8 @@ GROUP BY
     ?exerciseLabel
     ?description
     ?difficultyLabel
-    ?contraindications
-    ?trainingsEffects
-    ?bodyParts
     ?duration
     ?instruction
-    ?corrections
-    ?mistakes
     ?video
     ''';
 
