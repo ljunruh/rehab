@@ -253,4 +253,20 @@ class PlanProvider extends ChangeNotifier with WidgetsBindingObserver {
       notifyListeners();
     }
   }
+
+  /// Aktualisiert die completedSessions aller aktiven Pläne anhand der übergebenen Map
+  Future<void> updateCompletedSessionsFromMap(Map<String, int> updatedSessionsMap) async {
+    for (int i = 0; i < _plans.length; i++) {
+      final plan = _plans[i];
+      if (updatedSessionsMap.containsKey(plan.id)) {
+        final newCount = updatedSessionsMap[plan.id]!;
+        if (plan.completedSessions != newCount) {
+          final updatedPlan = plan.copyWith(completedSessions: newCount);
+          await planRepo.savePlan(updatedPlan);
+          _plans[i] = updatedPlan;
+        }
+      }
+    }
+    notifyListeners();
+  }
 }
