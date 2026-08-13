@@ -68,9 +68,17 @@ class _AppShellState extends State<AppShell> {
   /// ID des aktuell geöffneten Elements (Übung oder Plan).
   String? _selectedId;
 
+  /// Initiales Datum beim Öffnen des Vollbild-Kalenders.
+  DateTime? _calendarInitialDate;
+
   void _openProfile() => setState(() => _profileOpen = true);
 
   void _openTip() => setState(() => _sub = SubView.tip);
+
+  void _openCalendar(DateTime date) => setState(() {
+    _calendarInitialDate = date;
+    _sub = SubView.calendarFull;
+  });
 
   void _closeSub() => setState(() {
     _sub = SubView.none;
@@ -189,7 +197,10 @@ class _AppShellState extends State<AppShell> {
       );
       showNav = false;
     } else if (_sub == SubView.calendarFull) {
-      screen = CalendarFullscreen(onBack: _closeSub);
+      screen = CalendarFullscreen(
+        onBack: _closeSub,
+        initialDate: _calendarInitialDate ?? DateTime.now(),
+      );
       showNav = false;
     } else if (_sub == SubView.exerciseDetail && _selectedId != null) {
       screen = ExerciseDetailScreen(
@@ -235,8 +246,7 @@ class _AppShellState extends State<AppShell> {
         case AppTab.progress:
           screen = ProgressScreen(
             onOpenProfile: _openProfile,
-            onOpenCalendar: () =>
-                setState(() => _sub = SubView.calendarFull),
+            onOpenCalendar: _openCalendar,
           );
           break;
       }

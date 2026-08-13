@@ -20,7 +20,7 @@ import 'calendar_widget.dart';
 /// └──────────────────────────────────────────────────────────┘
 class ProgressScreen extends StatefulWidget {
   final VoidCallback onOpenProfile;
-  final VoidCallback onOpenCalendar;
+  final void Function(DateTime date) onOpenCalendar;
   const ProgressScreen({
     super.key,
     required this.onOpenProfile,
