@@ -116,6 +116,12 @@ class PainLogProvider extends ChangeNotifier {
     return _allPainLogs.where((log) => log.date.year == year && log.date.month == month).toList();
   }
 
+  /// Löscht Schmerzeinträge im gewählten Zeitraum und aktualisiert die UI.
+  Future<void> deleteLogsBetween(DateTime fromDate, DateTime toDate) async {
+    await _repository.deletePainLogsBetween(fromDate, toDate);
+    await loadLogs(); // Lädt die Daten neu und ruft notifyListeners() auf
+  }
+
   //TODO[API]: Test Schmerzgraph zu simulieren und Fake Daten dafür anzulegen
   /// Befüllt Isar mit Demo-Schmerzdaten und aktualisiert den Provider
   Future<void> seedDemoData() async {

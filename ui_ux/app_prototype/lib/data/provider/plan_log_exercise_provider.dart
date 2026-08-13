@@ -104,6 +104,11 @@ class PlanLogExerciseProvider extends ChangeNotifier {
     );
   }
 
+  /// Löscht Schmerzeinträge im gewählten Zeitraum und aktualisiert die UI.
+  Future<void> deleteLogsBetween(DateTime fromDate, DateTime toDate) async {
+    await repo.deletePlanLogExercisesBetween(fromDate, toDate);
+  }
+
   //TODO[API]: Test um WeeklyStreak zu simulieren und Fake Daten dafür anzulegen
   Future<void> seedTestData(int weeks, {List<Plan> activePlans = const []}) async {
     await repo.insertFakeHistoricalLogs(weeks, activePlans);

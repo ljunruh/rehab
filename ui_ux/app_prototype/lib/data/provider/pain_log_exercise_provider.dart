@@ -67,4 +67,10 @@ class PainLogExerciseProvider extends ChangeNotifier {
     // 3. Lokalen State neu laden (aktualisiert die Listen und die Map automatisch)
     await loadLogs();
   }
+
+  /// Löscht Schmerzeinträge im gewählten Zeitraum und aktualisiert die UI.
+  Future<void> deleteLogsBetween(DateTime fromDate, DateTime toDate) async {
+    await _repository.deletePainLogExercisesBetween(fromDate, toDate);
+    await loadLogs(); // Lädt die Daten neu und ruft notifyListeners() auf
+  }
 }

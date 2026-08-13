@@ -258,4 +258,19 @@ class PlanLogExerciseRepository {
 
     return results;
   }
+
+  /// Löscht alle Schmerzeinträge, deren Datum im angegebenen Zeitraum liegt (inklusive Start- und Endtag).
+  Future<void> deletePlanLogExercisesBetween(DateTime fromDate, DateTime toDate) async {
+    // Starttag ab 00:00:00 Uhr
+    final startDate = DateTime(fromDate.year, fromDate.month, fromDate.day, 0, 0, 0);
+    // Endtag bis 23:59:59 Uhr
+    final endDate = DateTime(toDate.year, toDate.month, toDate.day, 23, 59, 59, 999);
+
+    await isar.writeTxn(() async {
+      await isar.planLogExercises
+          .filter()
+          .timestampBetween(startDate, endDate)
+          .deleteAll();
+    });
+  }
 }
