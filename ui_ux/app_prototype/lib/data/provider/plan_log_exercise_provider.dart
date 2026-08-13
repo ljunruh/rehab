@@ -104,9 +104,71 @@ class PlanLogExerciseProvider extends ChangeNotifier {
     );
   }
 
-  /// Löscht Schmerzeinträge im gewählten Zeitraum und aktualisiert die UI.
-  Future<void> deleteLogsBetween(DateTime fromDate, DateTime toDate) async {
+  /// Berechnet die Anzahl der in der AKTUELLEN Woche vollständig absolvierten
+  /// Sessions für einen Plan (1 Session = alle Übungen des Plans an einem Tag gemacht).
+  int calculateWeeklyCompletedSessionsForPlan(Plan plan) {
+    if (plan.exercises.isEmpty) return 0;
+
+    final now = DateTime.now();
+    // Montag der aktuellen Woche (00:00:00 Uhr)
+    final monday = DateTime(now.year, now.month, now.day - (now.weekday - 1));
+
+    int completedCount = 0;
+
+    // Gehe alle Tage der aktuellen Woche von Montag bis heute durch
+    for (int i = 0; i < 7; i++) {
+      final currentDay = monday.add(Duration(days: i));
+
+      // Tage in der Zukunft müssen nicht geprüft werden
+      if (currentDay.isAfter(now)) break;
+
+      // Alle absolvierten Übungs-IDs für diesen Tag und diesen Plan sammeln
+      final completedExerciseIdsOnDay = _allLogs
+          .where((log) =>
+      log.planId == plan.id &&
+          log.timestamp.year == currentDay.year &&
+          log.timestamp.month == currentDay.month &&
+          log.timestamp.day == currentDay.day)
+          .map((log) => log.exerciseId)
+          .toSet();
+
+      // Prüfen, ob JEDE Übung des Plans an diesem Tag geloggt wurde
+      final allDoneOnDay = plan.exercises.every(
+            (ex) => completedExerciseIdsOnDay.contains(ex.id),
+      );
+
+      if (allDoneOnDay) {
+        completedCount++;
+      }
+    }
+
+    return completedCount;
+  }
+
+  /// Berechnet die `completedSessions` für alle übergebenen Pläne neu
+  Map<String, int> recalculateCompletedSessionsForAllPlans(List<Plan> plans) {
+    final Map<String, int> resultMap = {};
+    for (final plan in plans) {
+      resultMap[plan.id] = calculateWeeklyCompletedSessionsForPlan(plan);
+    }
+    return resultMap;
+  }
+
+  /// Löscht Log-Einträge im gewählten Zeitraum, lädt die Daten neu
+  /// und gibt die neu berechneten `completedSessions` pro Plan-ID zurück.
+  Future<Map<String, int>> deleteLogsBetween(
+      DateTime fromDate,
+      DateTime toDate, {
+        List<Plan> activePlans = const [],
+      }) async {
+    // 1. Einträge aus Isar löschen
     await repo.deletePlanLogExercisesBetween(fromDate, toDate);
+
+    // 2. Lokale Logs neu aus der Datenbank laden
+    await loadTodayLogs(activePlans: activePlans);
+
+    // 3. Neu berechnete completedSessions für alle aktiven Pläne ermitteln und zurückgeben
+    return recalculateCompletedSessionsForAllPlans(activePlans);
   }
 
   //TODO[API]: Test um WeeklyStreak zu simulieren und Fake Daten dafür anzulegen

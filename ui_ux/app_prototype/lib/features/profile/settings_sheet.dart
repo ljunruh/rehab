@@ -1,6 +1,7 @@
 import 'package:app_prototype/data/provider/pain_log_exercise_provider.dart';
 import 'package:app_prototype/data/provider/pain_log_provider.dart';
 import 'package:app_prototype/data/provider/plan_log_exercise_provider.dart';
+import 'package:app_prototype/data/provider/plan_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:provider/provider.dart';
@@ -287,10 +288,12 @@ class _DeleteTrainingDataAccordionState extends State<_DeleteTrainingDataAccordi
                           final painLogProv = context.read<PainLogProvider>();
                           final painLogExProv = context.read<PainLogExerciseProvider>();
                           final planLogExProv = context.read<PlanLogExerciseProvider>();
+                          final planProv = context.read<PlanProvider>();
 
                           await painLogProv.deleteLogsBetween(_fromDate!, _toDate!);
                           await painLogExProv.deleteLogsBetween(_fromDate!, _toDate!);
-                          await planLogExProv.deleteLogsBetween(_fromDate!, _toDate!);
+                          final updatedMap = await planLogExProv.deleteLogsBetween(_fromDate!, _toDate!, activePlans: planProv.activePlans);
+                          await planProv.updateCompletedSessionsFromMap(updatedMap);
 
                           if (!mounted) return;
 
