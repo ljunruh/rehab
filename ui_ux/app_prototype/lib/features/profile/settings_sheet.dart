@@ -178,32 +178,28 @@ class _DeleteTrainingDataAccordionState extends State<_DeleteTrainingDataAccordi
 
   Future<void> _pickDate({required bool isFrom}) async {
     final now = DateTime.now();
-    final picked = await showDatePicker(
-      context: context,
-      initialDate: (isFrom ? _fromDate : _toDate) ?? now,
+    final initial = (isFrom ? _fromDate : _toDate) ?? now;
+
+    final picked = await _AppDatePickerDialog.show(
+      context,
+      initialDate: initial,
       firstDate: DateTime(2020),
       lastDate: now,
-      builder: (context, child) {
-        return Theme(
-          data: Theme.of(context).copyWith(
-            colorScheme: const ColorScheme.light(
-              primary: AppColors.sageDeep,
-              onPrimary: Colors.white,
-              surface: AppColors.cream,
-              onSurface: AppColors.text,
-            ),
-          ),
-          child: child!,
-        );
-      },
+      title: isFrom ? 'Startdatum wählen' : 'Enddatum wählen',
     );
 
     if (picked != null) {
       setState(() {
         if (isFrom) {
           _fromDate = picked;
+          if (_toDate != null && _fromDate!.isAfter(_toDate!)) {
+            _toDate = picked;
+          }
         } else {
           _toDate = picked;
+          if (_fromDate != null && _toDate!.isBefore(_fromDate!)) {
+            _fromDate = picked;
+          }
         }
       });
     }
@@ -237,15 +233,20 @@ class _DeleteTrainingDataAccordionState extends State<_DeleteTrainingDataAccordi
                 borderRadius: BorderRadius.circular(AppRadius.pill),
               ),
             ),
-            //TODO[API]:
             onPressed: () async {
               Navigator.of(dialogContext).pop();
 
-              // Löschung im Provider ausführen
-              await context.read<PainLogProvider>().deleteLogsBetween(_fromDate!, _toDate!);
-              await context.read<PainLogExerciseProvider>().deleteLogsBetween(_fromDate!, _toDate!);
-              await context.read<PlanLogExerciseProvider>().deleteLogsBetween(_fromDate!, _toDate!);
+              if (!mounted) return;
 
+              final painLogProv = context.read<PainLogProvider>();
+              final painLogExProv = context.read<PainLogExerciseProvider>();
+              final planLogExProv = context.read<PlanLogExerciseProvider>();
+
+              await painLogProv.deleteLogsBetween(_fromDate!, _toDate!);
+              await painLogExProv.deleteLogsBetween(_fromDate!, _toDate!);
+              await planLogExProv.deleteLogsBetween(_fromDate!, _toDate!);
+
+              if (!mounted) return;
 
               setState(() {
                 _fromDate = null;
@@ -402,18 +403,29 @@ class _DateField extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: onTap,
-      child: Container(
-        padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 10),
+      behavior: HitTestBehavior.opaque,
+      child: AnimatedContainer(
+        duration: AppMotion.standard,
+        padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 10),
         decoration: BoxDecoration(
-          color: AppColors.cream,
-          borderRadius: BorderRadius.circular(8),
-          border: Border.all(color: AppColors.beige),
+          color: isSelected ? AppColors.white : AppColors.cream,
+          borderRadius: BorderRadius.circular(AppRadius.input),
+          border: Border.all(
+            color: isSelected ? AppColors.sageDeep : AppColors.beige,
+            width: isSelected ? 1.5 : 1.0,
+          ),
         ),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(label, style: AppText.micro),
-            const SizedBox(height: 2),
+            Text(
+              label,
+              style: AppText.micro.copyWith(
+                color: isSelected ? AppColors.sageDeep : AppColors.textMuted,
+                fontWeight: isSelected ? FontWeight.bold : FontWeight.normal,
+              ),
+            ),
+            const SizedBox(height: 3),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
@@ -422,17 +434,392 @@ class _DateField extends StatelessWidget {
                     valueText,
                     style: TextStyle(
                       fontSize: 13,
-                      fontWeight: FontWeight.w500,
+                      fontWeight: isSelected ? FontWeight.w600 : FontWeight.w500,
                       color: isSelected ? AppColors.text : AppColors.textMuted,
                     ),
                     overflow: TextOverflow.ellipsis,
                   ),
                 ),
-                const Icon(Icons.calendar_today,
-                    size: 13, color: AppColors.textMuted),
+                Icon(
+                  Icons.calendar_today_rounded,
+                  size: 14,
+                  color: isSelected ? AppColors.sageDeep : AppColors.textMuted,
+                ),
               ],
             ),
           ],
+        ),
+      ),
+    );
+  }
+}
+
+/// Maße- & designgetreuer, mehrauflösungsfähiger Datums-Picker für die AppShell.
+class _AppDatePickerDialog extends StatefulWidget {
+  final DateTime initialDate;
+  final DateTime firstDate;
+  final DateTime lastDate;
+  final String title;
+
+  const _AppDatePickerDialog({
+    required this.initialDate,
+    required this.firstDate,
+    required this.lastDate,
+    required this.title,
+  });
+
+  static Future<DateTime?> show(
+    BuildContext context, {
+    required DateTime initialDate,
+    required DateTime firstDate,
+    required DateTime lastDate,
+    required String title,
+  }) {
+    return showDialog<DateTime>(
+      context: context,
+      builder: (ctx) => _AppDatePickerDialog(
+        initialDate: initialDate,
+        firstDate: firstDate,
+        lastDate: lastDate,
+        title: title,
+      ),
+    );
+  }
+
+  @override
+  State<_AppDatePickerDialog> createState() => _AppDatePickerDialogState();
+}
+
+class _AppDatePickerDialogState extends State<_AppDatePickerDialog> {
+  late DateTime _displayedMonth;
+  late DateTime _selectedDate;
+  bool _showYearPicker = false;
+
+  static const _weekdays = ['Mo', 'Di', 'Mi', 'Do', 'Fr', 'Sa', 'So'];
+  static const _months = [
+    'Januar', 'Februar', 'März', 'April', 'Mai', 'Juni',
+    'Juli', 'August', 'September', 'Oktober', 'November', 'Dezember'
+  ];
+
+  @override
+  void initState() {
+    super.initState();
+    _selectedDate = widget.initialDate;
+    _displayedMonth = DateTime(widget.initialDate.year, widget.initialDate.month, 1);
+  }
+
+  void _prevMonth() {
+    setState(() {
+      final prev = DateTime(_displayedMonth.year, _displayedMonth.month - 1, 1);
+      if (!prev.isBefore(DateTime(widget.firstDate.year, widget.firstDate.month, 1))) {
+        _displayedMonth = prev;
+      }
+    });
+  }
+
+  void _nextMonth() {
+    setState(() {
+      final next = DateTime(_displayedMonth.year, _displayedMonth.month + 1, 1);
+      if (!next.isAfter(DateTime(widget.lastDate.year, widget.lastDate.month, 1))) {
+        _displayedMonth = next;
+      }
+    });
+  }
+
+  bool get _canGoPrev {
+    final prev = DateTime(_displayedMonth.year, _displayedMonth.month - 1, 1);
+    return !prev.isBefore(DateTime(widget.firstDate.year, widget.firstDate.month, 1));
+  }
+
+  bool get _canGoNext {
+    final next = DateTime(_displayedMonth.year, _displayedMonth.month + 1, 1);
+    return !next.isAfter(DateTime(widget.lastDate.year, widget.lastDate.month, 1));
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final daysInMonth = DateUtils.getDaysInMonth(_displayedMonth.year, _displayedMonth.month);
+    final firstWeekday = (DateTime(_displayedMonth.year, _displayedMonth.month, 1).weekday + 6) % 7;
+    final today = DateTime.now();
+
+    return Dialog(
+      backgroundColor: AppColors.cream,
+      elevation: 8,
+      shadowColor: AppColors.toastShadow,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(AppRadius.card),
+      ),
+      insetPadding: const EdgeInsets.symmetric(horizontal: 20, vertical: 24),
+      child: ConstrainedBox(
+        constraints: const BoxConstraints(maxWidth: 320),
+        child: Padding(
+          padding: const EdgeInsets.all(AppSpacing.base),
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              // Kopfzeile
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    widget.title,
+                    style: AppText.cardTitle.copyWith(fontWeight: FontWeight.w600),
+                  ),
+                  GestureDetector(
+                    onTap: () => Navigator.of(context).pop(),
+                    child: Container(
+                      width: 28,
+                      height: 28,
+                      alignment: Alignment.center,
+                      decoration: BoxDecoration(
+                        color: AppColors.offwhite,
+                        borderRadius: BorderRadius.circular(AppRadius.iconSmall),
+                      ),
+                      child: const Icon(Icons.close, size: 14, color: AppColors.text),
+                    ),
+                  ),
+                ],
+              ),
+              const SizedBox(height: AppSpacing.md),
+
+              // Monats- und Jahres-Navigation
+              Container(
+                padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 6),
+                decoration: BoxDecoration(
+                  color: AppColors.offwhite,
+                  borderRadius: BorderRadius.circular(AppRadius.input),
+                ),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    GestureDetector(
+                      onTap: _canGoPrev ? _prevMonth : null,
+                      child: Container(
+                        width: 28,
+                        height: 28,
+                        alignment: Alignment.center,
+                        decoration: BoxDecoration(
+                          color: _canGoPrev ? AppColors.white : Colors.transparent,
+                          borderRadius: BorderRadius.circular(8),
+                        ),
+                        child: Icon(
+                          Icons.chevron_left,
+                          size: 18,
+                          color: _canGoPrev ? AppColors.sageDeep : AppColors.textMuted,
+                        ),
+                      ),
+                    ),
+                    GestureDetector(
+                      onTap: () => setState(() => _showYearPicker = !_showYearPicker),
+                      child: Row(
+                        children: [
+                          Text(
+                            '${_months[_displayedMonth.month - 1]} ${_displayedMonth.year}',
+                            style: AppText.cardTitle.copyWith(
+                              fontSize: 14,
+                              color: AppColors.sageDeep,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                          Icon(
+                            _showYearPicker ? Icons.arrow_drop_up : Icons.arrow_drop_down,
+                            color: AppColors.sageDeep,
+                            size: 18,
+                          ),
+                        ],
+                      ),
+                    ),
+                    GestureDetector(
+                      onTap: _canGoNext ? _nextMonth : null,
+                      child: Container(
+                        width: 28,
+                        height: 28,
+                        alignment: Alignment.center,
+                        decoration: BoxDecoration(
+                          color: _canGoNext ? AppColors.white : Colors.transparent,
+                          borderRadius: BorderRadius.circular(8),
+                        ),
+                        child: Icon(
+                          Icons.chevron_right,
+                          size: 18,
+                          color: _canGoNext ? AppColors.sageDeep : AppColors.textMuted,
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              const SizedBox(height: AppSpacing.md),
+
+              if (_showYearPicker) ...[
+                // Schnell-Auswahl für das Jahr
+                SizedBox(
+                  height: 180,
+                  child: GridView.builder(
+                    gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                      crossAxisCount: 3,
+                      childAspectRatio: 2.2,
+                      crossAxisSpacing: 8,
+                      mainAxisSpacing: 8,
+                    ),
+                    itemCount: widget.lastDate.year - widget.firstDate.year + 1,
+                    itemBuilder: (context, index) {
+                      final year = widget.firstDate.year + index;
+                      final isSelected = _displayedMonth.year == year;
+                      return GestureDetector(
+                        onTap: () {
+                          setState(() {
+                            _displayedMonth = DateTime(year, _displayedMonth.month, 1);
+                            _showYearPicker = false;
+                          });
+                        },
+                        child: Container(
+                          alignment: Alignment.center,
+                          decoration: BoxDecoration(
+                            color: isSelected ? AppColors.sageDeep : AppColors.white,
+                            borderRadius: BorderRadius.circular(8),
+                            border: Border.all(
+                              color: isSelected ? AppColors.sageDeep : AppColors.beige,
+                            ),
+                          ),
+                          child: Text(
+                            '$year',
+                            style: AppText.caption.copyWith(
+                              color: isSelected ? Colors.white : AppColors.text,
+                              fontWeight: isSelected ? FontWeight.bold : FontWeight.normal,
+                            ),
+                          ),
+                        ),
+                      );
+                    },
+                  ),
+                ),
+              ] else ...[
+                // Wochentage-Header
+                Row(
+                  children: [
+                    for (final w in _weekdays)
+                      Expanded(
+                        child: Center(
+                          child: Text(
+                            w,
+                            style: AppText.micro.copyWith(
+                              fontWeight: FontWeight.w600,
+                              color: AppColors.textSecondary,
+                            ),
+                          ),
+                        ),
+                      ),
+                  ],
+                ),
+                const SizedBox(height: AppSpacing.xs),
+
+                // Tage-Raster
+                GridView.builder(
+                  shrinkWrap: true,
+                  physics: const NeverScrollableScrollPhysics(),
+                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                    crossAxisCount: 7,
+                    childAspectRatio: 1,
+                  ),
+                  itemCount: firstWeekday + daysInMonth,
+                  itemBuilder: (context, index) {
+                    if (index < firstWeekday) return const SizedBox.shrink();
+                    final day = index - firstWeekday + 1;
+                    final date = DateTime(_displayedMonth.year, _displayedMonth.month, day);
+
+                    final isSelected = _selectedDate.year == date.year &&
+                        _selectedDate.month == date.month &&
+                        _selectedDate.day == date.day;
+                    final isToday = today.year == date.year &&
+                        today.month == date.month &&
+                        today.day == date.day;
+                    final isDisabled = date.isBefore(widget.firstDate) ||
+                        date.isAfter(DateTime(widget.lastDate.year, widget.lastDate.month, widget.lastDate.day, 23, 59, 59));
+
+                    return GestureDetector(
+                      onTap: isDisabled
+                          ? null
+                          : () {
+                              setState(() {
+                                _selectedDate = date;
+                              });
+                            },
+                      child: Center(
+                        child: AnimatedContainer(
+                          duration: AppMotion.standard,
+                          width: 28,
+                          height: 28,
+                          alignment: Alignment.center,
+                          decoration: BoxDecoration(
+                            color: isSelected
+                                ? AppColors.sageDeep
+                                : (isToday ? AppColors.sageLight : Colors.transparent),
+                            shape: BoxShape.circle,
+                            border: isToday && !isSelected
+                                ? Border.all(color: AppColors.sageDeep, width: 1.5)
+                                : null,
+                          ),
+                          child: Text(
+                            '$day',
+                            style: TextStyle(
+                              fontSize: 13,
+                              fontWeight: isSelected || isToday ? FontWeight.bold : FontWeight.w400,
+                              color: isDisabled
+                                  ? AppColors.textMuted.withValues(alpha: 0.4)
+                                  : (isSelected
+                                      ? Colors.white
+                                      : AppColors.text),
+                            ),
+                          ),
+                        ),
+                      ),
+                    );
+                  },
+                ),
+              ],
+              const SizedBox(height: AppSpacing.base),
+
+              // Aktions-Buttons
+              Row(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                  TextButton(
+                    onPressed: () => Navigator.of(context).pop(),
+                    style: TextButton.styleFrom(
+                      padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 8),
+                    ),
+                    child: Text(
+                      'Abbrechen',
+                      style: AppText.caption.copyWith(
+                        color: AppColors.textMuted,
+                        fontWeight: FontWeight.w500,
+                      ),
+                    ),
+                  ),
+                  const SizedBox(width: AppSpacing.sm),
+                  ElevatedButton(
+                    onPressed: () => Navigator.of(context).pop(_selectedDate),
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: AppColors.sageDeep,
+                      elevation: 0,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(AppRadius.pill),
+                      ),
+                      padding: const EdgeInsets.symmetric(horizontal: 18, vertical: 8),
+                    ),
+                    child: Text(
+                      'Auswählen',
+                      style: AppText.caption.copyWith(
+                        color: Colors.white,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ],
+          ),
         ),
       ),
     );
