@@ -372,6 +372,9 @@
         <DataProperty IRI="#hasVASvalue"/>
     </Declaration>
     <Declaration>
+        <DataProperty IRI="#hasVideoUrl"/>
+    </Declaration>
+    <Declaration>
         <DataProperty IRI="#hasWeight"/>
     </Declaration>
     <Declaration>
@@ -448,6 +451,9 @@
     </Declaration>
     <Declaration>
         <NamedIndividual IRI="#AlternateSittingAndStanding"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Ananas-Ingwer-Regenerations-Smoothie"/>
     </Declaration>
     <Declaration>
         <NamedIndividual IRI="#AnkleFracture"/>
@@ -1122,10 +1128,16 @@
         <NamedIndividual IRI="#Goddess_Torso"/>
     </Declaration>
     <Declaration>
+        <NamedIndividual IRI="#Goldene-Milch-Smoothie"/>
+    </Declaration>
+    <Declaration>
         <NamedIndividual IRI="#Golf"/>
     </Declaration>
     <Declaration>
         <NamedIndividual IRI="#GolfWithCart"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Granatapfel-Kefir-Drink"/>
     </Declaration>
     <Declaration>
         <NamedIndividual IRI="#Gymnastics"/>
@@ -1258,6 +1270,9 @@
     </Declaration>
     <Declaration>
         <NamedIndividual IRI="#HueftbeugerDehnung_KneeIssue"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Hüttenkäse_mit_Leinöl_und_Kräutern"/>
     </Declaration>
     <Declaration>
         <NamedIndividual IRI="#IYTHebenInBauchlage"/>
@@ -1419,6 +1434,9 @@
         <NamedIndividual IRI="#Mat"/>
     </Declaration>
     <Declaration>
+        <NamedIndividual IRI="#Matcha-Latte_mit_Mandelmilch"/>
+    </Declaration>
+    <Declaration>
         <NamedIndividual IRI="#MediumRisk"/>
     </Declaration>
     <Declaration>
@@ -1545,6 +1563,9 @@
         <NamedIndividual IRI="#Pelvic"/>
     </Declaration>
     <Declaration>
+        <NamedIndividual IRI="#Pflücksalat_mit_Blaubeeren_und_Walnüssen"/>
+    </Declaration>
+    <Declaration>
         <NamedIndividual IRI="#PhoneAtEyeLevel"/>
     </Declaration>
     <Declaration>
@@ -1635,6 +1656,9 @@
         <NamedIndividual IRI="#Quads"/>
     </Declaration>
     <Declaration>
+        <NamedIndividual IRI="#Quinoa-Gemüse-Bowl"/>
+    </Declaration>
+    <Declaration>
         <NamedIndividual IRI="#RaceWalking"/>
     </Declaration>
     <Declaration>
@@ -1701,7 +1725,16 @@
         <NamedIndividual IRI="#Rezept_IngwerZitronenShot"/>
     </Declaration>
     <Declaration>
+        <NamedIndividual IRI="#Rezept_Kamille_Ingwer_Eistee"/>
+    </Declaration>
+    <Declaration>
         <NamedIndividual IRI="#Rezept_KirschKamilleSchlummerdrink"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Rezept_KurkumaLinsenSuppe"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Rezept_LachsAvocadoTartar"/>
     </Declaration>
     <Declaration>
         <NamedIndividual IRI="#Rezept_MandelKakaoEnergyBalls"/>
@@ -1954,6 +1987,9 @@
     </Declaration>
     <Declaration>
         <NamedIndividual IRI="#Softball"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Spinat-Mandel-Pesto"/>
     </Declaration>
     <Declaration>
         <NamedIndividual IRI="#Spine"/>
@@ -2944,6 +2980,10 @@
         <NamedIndividual IRI="#AlternateSittingAndStanding"/>
     </ClassAssertion>
     <ClassAssertion>
+        <Class IRI="#RecipeOfTheWeek"/>
+        <NamedIndividual IRI="#Ananas-Ingwer-Regenerations-Smoothie"/>
+    </ClassAssertion>
+    <ClassAssertion>
         <Class IRI="#AnkleFrac"/>
         <NamedIndividual IRI="#AnkleFracture"/>
     </ClassAssertion>
@@ -3644,12 +3684,20 @@
         <NamedIndividual IRI="#Goddess_Torso"/>
     </ClassAssertion>
     <ClassAssertion>
+        <Class IRI="#RecipeOfTheWeek"/>
+        <NamedIndividual IRI="#Goldene-Milch-Smoothie"/>
+    </ClassAssertion>
+    <ClassAssertion>
         <Class IRI="#SportActivity"/>
         <NamedIndividual IRI="#Golf"/>
     </ClassAssertion>
     <ClassAssertion>
         <Class IRI="#SportActivity"/>
         <NamedIndividual IRI="#GolfWithCart"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#RecipeOfTheWeek"/>
+        <NamedIndividual IRI="#Granatapfel-Kefir-Drink"/>
     </ClassAssertion>
     <ClassAssertion>
         <Class IRI="#SportActivity"/>
@@ -3774,6 +3822,10 @@
     <ClassAssertion>
         <Class IRI="#Stretching"/>
         <NamedIndividual IRI="#HueftbeugerDehnung"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#RecipeOfTheWeek"/>
+        <NamedIndividual IRI="#Hüttenkäse_mit_Leinöl_und_Kräutern"/>
     </ClassAssertion>
     <ClassAssertion>
         <Class IRI="#Strength"/>
@@ -3952,6 +4004,10 @@
         <NamedIndividual IRI="#Mat"/>
     </ClassAssertion>
     <ClassAssertion>
+        <Class IRI="#RecipeOfTheWeek"/>
+        <NamedIndividual IRI="#Matcha-Latte_mit_Mandelmilch"/>
+    </ClassAssertion>
+    <ClassAssertion>
         <Class IRI="#SeverityLevel"/>
         <NamedIndividual IRI="#MediumRisk"/>
     </ClassAssertion>
@@ -4088,6 +4144,10 @@
         <NamedIndividual IRI="#Pelvic"/>
     </ClassAssertion>
     <ClassAssertion>
+        <Class IRI="#RecipeOfTheWeek"/>
+        <NamedIndividual IRI="#Pflücksalat_mit_Blaubeeren_und_Walnüssen"/>
+    </ClassAssertion>
+    <ClassAssertion>
         <Class IRI="#DailyRoutine"/>
         <NamedIndividual IRI="#PhoneAtEyeLevel"/>
     </ClassAssertion>
@@ -4172,6 +4232,10 @@
         <NamedIndividual IRI="#Quads"/>
     </ClassAssertion>
     <ClassAssertion>
+        <Class IRI="#RecipeOfTheWeek"/>
+        <NamedIndividual IRI="#Quinoa-Gemüse-Bowl"/>
+    </ClassAssertion>
+    <ClassAssertion>
         <Class IRI="#SportActivity"/>
         <NamedIndividual IRI="#RaceWalking"/>
     </ClassAssertion>
@@ -4249,7 +4313,19 @@
     </ClassAssertion>
     <ClassAssertion>
         <Class IRI="#RecipeOfTheWeek"/>
+        <NamedIndividual IRI="#Rezept_Kamille_Ingwer_Eistee"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#RecipeOfTheWeek"/>
         <NamedIndividual IRI="#Rezept_KirschKamilleSchlummerdrink"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#RecipeOfTheWeek"/>
+        <NamedIndividual IRI="#Rezept_KurkumaLinsenSuppe"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#RecipeOfTheWeek"/>
+        <NamedIndividual IRI="#Rezept_LachsAvocadoTartar"/>
     </ClassAssertion>
     <ClassAssertion>
         <Class IRI="#RecipeOfTheWeek"/>
@@ -4558,6 +4634,10 @@
     <ClassAssertion>
         <Class IRI="#SportActivity"/>
         <NamedIndividual IRI="#Softball"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#RecipeOfTheWeek"/>
+        <NamedIndividual IRI="#Spinat-Mandel-Pesto"/>
     </ClassAssertion>
     <ClassAssertion>
         <Class IRI="#BodyPart"/>
@@ -27448,6 +27528,21 @@
         <Literal>Regelmäßiger Wechsel zwischen Sitzen und Stehen, um einseitige Belastungen zu reduzieren und die Wirbelsäule zu entlasten.</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
+        <DataProperty IRI="#hasHealthBenefit"/>
+        <NamedIndividual IRI="#Ananas-Ingwer-Regenerations-Smoothie"/>
+        <Literal xml:lang="de">Ananas enthält das Enzym Bromelain, welches Abschwellungen fördert und die Heilung von Gewebe und Gelenken nach Verletzungen beschleunigt.</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasInstruction"/>
+        <NamedIndividual IRI="#Ananas-Ingwer-Regenerations-Smoothie"/>
+        <Literal>150g frische Ananas, 1 cm frischen Ingwer, 1/2 Banane und 150ml Wasser im Hochleistungsmixer cremig pürieren.</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasPreparationTime"/>
+        <NamedIndividual IRI="#Ananas-Ingwer-Regenerations-Smoothie"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#decimal">5</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
         <DataProperty IRI="#Calorie"/>
         <NamedIndividual IRI="#Archery"/>
         <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#decimal">250.0</Literal>
@@ -29360,6 +29455,21 @@
         <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#decimal">0.0</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
+        <DataProperty IRI="#hasHealthBenefit"/>
+        <NamedIndividual IRI="#Goldene-Milch-Smoothie"/>
+        <Literal xml:lang="de">Die Kombination aus gefrorener Mango, Kurkuma und Zimt sorgt für eine geballte Ladung Antioxidantien. Sie fördert die Abschwellung im Gelenkgewebe und gibt nachhaltige Energie für den Tag.</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasInstruction"/>
+        <NamedIndividual IRI="#Goldene-Milch-Smoothie"/>
+        <Literal xml:lang="de">100g gefrorene Mangowürfel, 1/2 TL Kurkuma, 1 Prise Zimt, 1 Prise schwarzer Pfeffer und 200ml Hafer- oder Mandeldrink im Mixer cremig pürieren.</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasPreparationTime"/>
+        <NamedIndividual IRI="#Goldene-Milch-Smoothie"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#decimal">5</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
         <DataProperty IRI="#Calorie"/>
         <NamedIndividual IRI="#Golf"/>
         <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#decimal">314.0</Literal>
@@ -29378,6 +29488,21 @@
         <DataProperty IRI="#MET"/>
         <NamedIndividual IRI="#GolfWithCart"/>
         <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#decimal">2.5</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasHealthBenefit"/>
+        <NamedIndividual IRI="#Granatapfel-Kefir-Drink"/>
+        <Literal xml:lang="de">Kefir stärkt das Darmmikrobiom, was die systemische Entzündungsneigung im gesamten Körper reduziert. Granatapfelkerne liefern zellschützende Antioxidantien.</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasInstruction"/>
+        <NamedIndividual IRI="#Granatapfel-Kefir-Drink"/>
+        <Literal xml:lang="de">200ml eiskalten Kefir mit 50ml direkt gepresstem Granatapfelsaft verrühren und mit ein paar frischen Granatapfelkernen garnieren.</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasPreparationTime"/>
+        <NamedIndividual IRI="#Granatapfel-Kefir-Drink"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#decimal">5</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="#Calorie"/>
@@ -29607,6 +29732,21 @@
 6. Die Dehnung an der Vorderseite der Hüfte des hinteren Beins wahrnehmen.
 7. Die Position ruhig halten und gleichmäßig atmen.
 8. Anschließend die Seite wechseln.</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasHealthBenefit"/>
+        <NamedIndividual IRI="#Hüttenkäse_mit_Leinöl_und_Kräutern"/>
+        <Literal xml:lang="de">Leinöl hat den höchsten Gehalt an Alpha-Linolensäure (Omega 3). Die Kombination mit den Schwefel-Aminosäuren aus dem Hüttenkäse optimiert die Aufnahme im Körper.</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasInstruction"/>
+        <NamedIndividual IRI="#Hüttenkäse_mit_Leinöl_und_Kräutern"/>
+        <Literal xml:lang="de">150g Hüttenkäse mit 1 EL kaltgepresstem Leinöl, frischem Schnittlauch, Salz und etwas Pfeffer verrühren und auf Vollkornbrot genießen.</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasPreparationTime"/>
+        <NamedIndividual IRI="#Hüttenkäse_mit_Leinöl_und_Kräutern"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#decimal">5</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="#hasCommonMistake"/>
@@ -30087,6 +30227,21 @@
         <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#decimal">0.2</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
+        <DataProperty IRI="#hasHealthBenefit"/>
+        <NamedIndividual IRI="#Matcha-Latte_mit_Mandelmilch"/>
+        <Literal xml:lang="de">Matcha ist extrem reich an EGCG (Epigallocatechingallat), einem der stärksten bekannten pflanzlichen Antioxidantien zur Regeneration von Zellen.</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasInstruction"/>
+        <NamedIndividual IRI="#Matcha-Latte_mit_Mandelmilch"/>
+        <Literal xml:lang="de">1 TL Matcha-Pulver mit 50ml heißem (nicht kochendem) Wasser schaumig schlagen. Mit 150ml warmem, aufgeschäumtem Mandeldrink auffüllen.</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasPreparationTime"/>
+        <NamedIndividual IRI="#Matcha-Latte_mit_Mandelmilch"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#decimal">5</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
         <DataProperty IRI="#severityScore"/>
         <NamedIndividual IRI="#MediumRisk"/>
         <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#decimal">0.5</Literal>
@@ -30277,6 +30432,21 @@ Langsam zur Mitte zurückkehren.
         <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#decimal">0.0</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
+        <DataProperty IRI="#hasHealthBenefit"/>
+        <NamedIndividual IRI="#Pflücksalat_mit_Blaubeeren_und_Walnüssen"/>
+        <Literal xml:lang="de">Dunkle Pflücksalate und Blaubeeren stecken voller Polyphenole, die freie Radikale neutralisieren und den Körper vor zellulärem Stress schützen.</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasInstruction"/>
+        <NamedIndividual IRI="#Pflücksalat_mit_Blaubeeren_und_Walnüssen"/>
+        <Literal>Zwei Handvoll Pflücksalat waschen, mit 50g frischen Blaubeeren und gehackten Walnüssen mischen. Ein Dressing aus Olivenöl und Balsamico darübergeben.</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasPreparationTime"/>
+        <NamedIndividual IRI="#Pflücksalat_mit_Blaubeeren_und_Walnüssen"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#decimal">10</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
         <DataProperty IRI="#hasDailyLifeAdvice"/>
         <NamedIndividual IRI="#PhoneAtEyeLevel"/>
         <Literal>Smartphone oder Tablet nahe am Körper auf Brusthöhe oder Augenhöhe halten, statt mit nach vorne geneigtem Kopf darauf herunterzublicken, um Nacken- und obere Rückenmuskulatur zu entlasten.</Literal>
@@ -30374,6 +30544,11 @@ Langsam zur Mitte zurückkehren.
 5. Den Körper in einer geraden Linie halten.
 6. Ruhig weiteratmen.
 7. Die Position nur so lange halten, wie die Kontrolle erhalten bleibt.</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasVideoUrl"/>
+        <NamedIndividual IRI="#Plank"/>
+        <Literal>https://revia.mausnetz.com/video/plank.mp4</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="#Calorie"/>
@@ -30482,6 +30657,21 @@ Langsam zur Mitte zurückkehren.
         <DataProperty IRI="#angle"/>
         <NamedIndividual IRI="#Pyramid_Torso"/>
         <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#decimal">45.0</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasHealthBenefit"/>
+        <NamedIndividual IRI="#Quinoa-Gemüse-Bowl"/>
+        <Literal xml:lang="de">Quinoa enthält alle neun essenziellen Aminosäuren und ist damit ein perfekter Baustein für den Wiederaufbau von beschädigtem Gewebe.</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasInstruction"/>
+        <NamedIndividual IRI="#Quinoa-Gemüse-Bowl"/>
+        <Literal xml:lang="de">60g Quinoa nach Packungsanleitung kochen. Mit gedünstetem Brokkoli, Paprika und einem Löffel Tahin (Sesammus) in einer Schüssel anrichten.</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasPreparationTime"/>
+        <NamedIndividual IRI="#Quinoa-Gemüse-Bowl"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#decimal">20</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="#Calorie"/>
@@ -30634,6 +30824,21 @@ Langsam zur Mitte zurückkehren.
         <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#decimal">5</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
+        <DataProperty IRI="#hasHealthBenefit"/>
+        <NamedIndividual IRI="#Rezept_Kamille_Ingwer_Eistee"/>
+        <Literal xml:lang="de">Kamille beruhigt gereizte Nerven und mindert Entzündungen im Körper, während Flüssigkeit die Schmierung der Gelenke (Synovialflüssigkeit) aufrechterhält.</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasInstruction"/>
+        <NamedIndividual IRI="#Rezept_Kamille_Ingwer_Eistee"/>
+        <Literal xml:lang="de">Kamillentee mit 3 Scheiben Ingwer aufbrühen, abkühlen lassen. Mit Eiswürfeln, einem Spritzer Zitrone und frischer Minze eiskalt servieren.</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasPreparationTime"/>
+        <NamedIndividual IRI="#Rezept_Kamille_Ingwer_Eistee"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#decimal">10</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
         <DataProperty IRI="#hasDescription"/>
         <NamedIndividual IRI="#Rezept_KirschKamilleSchlummerdrink"/>
         <Literal>100ml ungesüßten Sauerkirschsaft mit 100ml abgekühltem Kamillentee mischen und optional mit etwas Zitrone verfeinern.</Literal>
@@ -30647,6 +30852,36 @@ Langsam zur Mitte zurückkehren.
         <DataProperty IRI="#hasPreparationTime"/>
         <NamedIndividual IRI="#Rezept_KirschKamilleSchlummerdrink"/>
         <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#decimal">5</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasHealthBenefit"/>
+        <NamedIndividual IRI="#Rezept_KurkumaLinsenSuppe"/>
+        <Literal>100g rote Linsen mit 1 TL Kurkuma, 1 gehackten Möhre und 400ml Gemüsebrühe 15 Minuten köcheln lassen. Anschließend pürieren und mit Pfeffer abschmecken.</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasHealthBenefit"/>
+        <NamedIndividual IRI="#Rezept_KurkumaLinsenSuppe"/>
+        <Literal>Rote Linsen liefern pflanzliches Eiweiß und Zink für die Geweberegeneration. Die Kombination aus Kurkuma und schwarzem Pfeffer verstärkt die entzündungshemmende Wirkung um ein Vielfaches.</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasPreparationTime"/>
+        <NamedIndividual IRI="#Rezept_KurkumaLinsenSuppe"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#decimal">15</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasHealthBenefit"/>
+        <NamedIndividual IRI="#Rezept_LachsAvocadoTartar"/>
+        <Literal>Lachs liefert hochwertige Omega-3-Fettsäuren (EPA und DHA), die Entzündungskaskaden im Körper effektiv hemmen. Proteine unterstützen zudem die Sehnen- und Muskelreparatur.</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasInstruction"/>
+        <NamedIndividual IRI="#Rezept_LachsAvocadoTartar"/>
+        <Literal>100g frisches Lachsfilet (Sushi-Qualität) und 1/2 Avocado klein würfeln. Mit etwas Zitronensaft, Dill, Salz und Pfeffer anmachen und servieren.</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasPreparationTime"/>
+        <NamedIndividual IRI="#Rezept_LachsAvocadoTartar"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#decimal">15</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="#hasDescription"/>
@@ -31808,6 +32043,21 @@ Langsam zur Mitte zurückkehren.
         <DataProperty IRI="#MET"/>
         <NamedIndividual IRI="#Softball"/>
         <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#decimal">5.0</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasHealthBenefit"/>
+        <NamedIndividual IRI="#Spinat-Mandel-Pesto"/>
+        <Literal xml:lang="de">Mandeln liefern reichlich Vitamin E, welches Zellmembranen vor Entzündungsschäden schützt. Olivenöl enthält Oleocanthal, das ähnlich wie leichte Schmerzmittel wirkt.</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasInstruction"/>
+        <NamedIndividual IRI="#Spinat-Mandel-Pesto"/>
+        <Literal xml:lang="de">50g Baby-Spinat, 30g gehackte Mandeln, 1 Knoblauchzehe und 50ml hochwertiges Olivenöl im Zerkleinerer pürieren. Mit Salz und Zitronensaft abschmecken.</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasPreparationTime"/>
+        <NamedIndividual IRI="#Spinat-Mandel-Pesto"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#decimal">10</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="#hasDailyLifeAdvice"/>
@@ -33451,6 +33701,10 @@ Langsam zur Mitte zurückkehren.
         <Class IRI="#Injury"/>
     </DataPropertyDomain>
     <DataPropertyDomain>
+        <DataProperty IRI="#hasVideoUrl"/>
+        <Class IRI="#Exercise"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
         <DataProperty IRI="#severityScore"/>
         <Class IRI="#SeverityLevel"/>
     </DataPropertyDomain>
@@ -33537,6 +33791,10 @@ Langsam zur Mitte zurückkehren.
     <DataPropertyRange>
         <DataProperty IRI="#hasVASvalue"/>
         <Datatype abbreviatedIRI="xsd:decimal"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#hasVideoUrl"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
     </DataPropertyRange>
     <DataPropertyRange>
         <DataProperty IRI="#hasWeight"/>
@@ -33828,6 +34086,16 @@ Langsam zur Mitte zurückkehren.
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#AlternateSittingAndStanding</IRI>
         <Literal xml:lang="en">AlternateSittingAndStanding</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Ananas-Ingwer-Regenerations-Smoothie</IRI>
+        <Literal xml:lang="de">Ananas-Ingwer-Regenerations-Smoothie</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Ananas-Ingwer-Regenerations-Smoothie</IRI>
+        <Literal xml:lang="en">Pineapple Ginger Recovery Smoothie</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
@@ -36786,6 +37054,16 @@ Langsam zur Mitte zurückkehren.
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Goldene-Milch-Smoothie</IRI>
+        <Literal xml:lang="en">Golden Milk Smoothie</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Goldene-Milch-Smoothie</IRI>
+        <Literal xml:lang="de">Goldene-Milch-Smoothie</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#Golf</IRI>
         <Literal xml:lang="de">Golf</Literal>
     </AnnotationAssertion>
@@ -36803,6 +37081,16 @@ Langsam zur Mitte zurückkehren.
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#GolfWithCart</IRI>
         <Literal xml:lang="en">GolfWithCart</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Granatapfel-Kefir-Drink</IRI>
+        <Literal xml:lang="de">Granatapfel-Kefir-Drink</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Granatapfel-Kefir-Drink</IRI>
+        <Literal xml:lang="en">Pomegranate Kefir Drink</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
@@ -37373,6 +37661,16 @@ Langsam zur Mitte zurückkehren.
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#HueftbeugerDehnung_KneeIssue</IRI>
         <Literal xml:lang="de">Hüftbeuger-Dehnung: Knieschmerzen</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Hüttenkäse_mit_Leinöl_und_Kräutern</IRI>
+        <Literal xml:lang="en">Cottage Cheese with Linseed Oil and Herbs</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Hüttenkäse_mit_Leinöl_und_Kräutern</IRI>
+        <Literal xml:lang="de">Hüttenkäse mit Leinöl und Kräutern</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
@@ -38190,6 +38488,16 @@ Langsam zur Mitte zurückkehren.
         <Literal xml:lang="de">Turnmatte</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Matcha-Latte_mit_Mandelmilch</IRI>
+        <Literal xml:lang="en">Matcha Latte with Almond Milk</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Matcha-Latte_mit_Mandelmilch</IRI>
+        <Literal xml:lang="de">Matcha-Latte mit Mandelmilch</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
         <IRI>#MediumRisk</IRI>
         <Literal xml:lang="de">Mittleres Risiko: spürbare Beschwerden oder Einschränkungen, die Aufmerksamkeit erfordern.</Literal>
@@ -38805,6 +39113,16 @@ Langsam zur Mitte zurückkehren.
         <Literal xml:lang="en">Pelvic</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Pflücksalat_mit_Blaubeeren_und_Walnüssen</IRI>
+        <Literal xml:lang="en">Leaf Salad with Blueberries and Walnuts</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Pflücksalat_mit_Blaubeeren_und_Walnüssen</IRI>
+        <Literal xml:lang="de">Pflücksalat mit Blaubeeren und Walnüssen</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
         <IRI>#PhoneAtEyeLevel</IRI>
         <Literal xml:lang="de">Smartphone auf Augenhöhe</Literal>
@@ -39201,6 +39519,16 @@ Langsam zur Mitte zurückkehren.
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Quinoa-Gemüse-Bowl</IRI>
+        <Literal xml:lang="en">Quinoa Vegetable Bowl</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Quinoa-Gemüse-Bowl</IRI>
+        <Literal xml:lang="de">Quinoa-Gemüse-Bowl</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#RaceWalking</IRI>
         <Literal xml:lang="de">Gehsport</Literal>
     </AnnotationAssertion>
@@ -39471,6 +39799,16 @@ Langsam zur Mitte zurückkehren.
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Rezept_Kamille_Ingwer_Eistee</IRI>
+        <Literal xml:lang="en">Chamomile Ginger Iced Tea</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Rezept_Kamille_Ingwer_Eistee</IRI>
+        <Literal xml:lang="de">Kamille-Ingwer-Eistee</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#Rezept_KirschKamilleSchlummerdrink</IRI>
         <Literal xml:lang="en">Cherry Chamomile Nightcap</Literal>
     </AnnotationAssertion>
@@ -39478,6 +39816,26 @@ Langsam zur Mitte zurückkehren.
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#Rezept_KirschKamilleSchlummerdrink</IRI>
         <Literal xml:lang="de">Kirsch-Kamille-Schlummerdrink</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Rezept_KurkumaLinsenSuppe</IRI>
+        <Literal xml:lang="de">Kurkuma-Linsensuppe</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Rezept_KurkumaLinsenSuppe</IRI>
+        <Literal xml:lang="en">Turmeric Lentil Soup</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Rezept_LachsAvocadoTartar</IRI>
+        <Literal xml:lang="de">Lachs-Avocado-Tatar</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Rezept_LachsAvocadoTartar</IRI>
+        <Literal xml:lang="en">Salmon Avocado Tartare</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
@@ -40508,6 +40866,16 @@ Langsam zur Mitte zurückkehren.
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#Softball</IRI>
         <Literal xml:lang="en">Softball</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Spinat-Mandel-Pesto</IRI>
+        <Literal xml:lang="en">Spinach Almond Pesto</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Spinat-Mandel-Pesto</IRI>
+        <Literal xml:lang="de">Spinat-Mandel-Pesto</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
@@ -43501,6 +43869,11 @@ Langsam zur Mitte zurückkehren.
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#hasHealthBenefit</IRI>
+        <Literal xml:lang="en">hasHealthBenefit</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#hasHeight</IRI>
         <Literal xml:lang="en">hasHeight</Literal>
     </AnnotationAssertion>
@@ -43548,6 +43921,11 @@ Langsam zur Mitte zurückkehren.
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#hasMETScore</IRI>
         <Literal xml:lang="en">hasMETScore</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#hasPreparationTime</IRI>
+        <Literal xml:lang="en">hasPreparationTime</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>

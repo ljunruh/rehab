@@ -14,14 +14,20 @@ import 'day_detail_sheet.dart';
 
 /// PERSON 3 — Kalender im Vollbild.
 ///
-/// Zeigt mehrere Monate untereinander (voriger, aktueller, +1, +2) mit
+/// Zeigt alle 12 Monate eines ausgewählten Jahres untereinander an mit
 /// gefüllten Tages-Kreisen: im Schmerz-Modus als Farbverlauf je nach
 /// Schmerzlevel (1–10), im Übungs-Modus in der Farbe der Trainings-
 /// Region, plus Warn-Punkt bei starkem Schmerz an Trainingstagen.
 /// Entspricht CalendarFullscreen im JSX-Prototyp.
-class CalendarFullscreen extends StatelessWidget {
+class CalendarFullscreen extends StatefulWidget {
   final VoidCallback onBack;
-  const CalendarFullscreen({super.key, required this.onBack});
+  final DateTime initialDate;
+
+  const CalendarFullscreen({
+    super.key,
+    required this.onBack,
+    required this.initialDate,
+  });
 
   static const _painColors = {
     1: Color(0xFFF5E1D7),
@@ -40,15 +46,172 @@ class CalendarFullscreen extends StatelessWidget {
       _painColors[level.clamp(1, 10)] ?? _painColors[1]!;
 
   @override
+  State<CalendarFullscreen> createState() => _CalendarFullscreenState();
+}
+
+class _CalendarFullscreenState extends State<CalendarFullscreen> {
+  late int _selectedYear;
+  late final ScrollController _scrollController;
+  late final List<GlobalKey> _monthKeys;
+
+  @override
+  void initState() {
+    super.initState();
+    _selectedYear = widget.initialDate.year;
+    _scrollController = ScrollController();
+    _monthKeys = List.generate(12, (_) => GlobalKey());
+
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      _scrollToMonth(widget.initialDate.month);
+    });
+  }
+
+  @override
+  void dispose() {
+    _scrollController.dispose();
+    super.dispose();
+  }
+
+  void _scrollToMonth(int month, {bool animate = false}) {
+    final targetIndex = (month - 1).clamp(0, 11);
+    final targetKey = _monthKeys[targetIndex];
+    final context = targetKey.currentContext;
+
+    if (context != null) {
+      Scrollable.ensureVisible(
+        context,
+        duration: animate ? AppMotion.standard : Duration.zero,
+        curve: Curves.easeInOut,
+        alignment: 0.0,
+      );
+    } else if (_scrollController.hasClients) {
+      final offset = targetIndex * 290.0;
+      if (animate) {
+        _scrollController.animateTo(
+          offset,
+          duration: AppMotion.standard,
+          curve: Curves.easeInOut,
+        );
+      } else {
+        _scrollController.jumpTo(offset);
+      }
+    }
+  }
+
+  void _changeYear(int year) {
+    if (year < 2020 || year > 2035) return;
+    setState(() {
+      _selectedYear = year;
+    });
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      final now = DateTime.now();
+      if (year == now.year) {
+        _scrollToMonth(now.month, animate: true);
+      } else {
+        _scrollToMonth(1, animate: true);
+      }
+    });
+  }
+
+  Future<void> _showYearPickerModal() async {
+    final now = DateTime.now();
+    final pickedYear = await showDialog<int>(
+      context: context,
+      builder: (ctx) => Dialog(
+        backgroundColor: AppColors.cream,
+        elevation: 8,
+        shadowColor: AppColors.toastShadow,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(AppRadius.card),
+        ),
+        insetPadding: const EdgeInsets.symmetric(horizontal: 24, vertical: 24),
+        child: ConstrainedBox(
+          constraints: const BoxConstraints(maxWidth: 320),
+          child: Padding(
+            padding: const EdgeInsets.all(AppSpacing.base),
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                      'Jahr auswählen',
+                      style: AppText.cardTitle.copyWith(fontWeight: FontWeight.bold),
+                    ),
+                    GestureDetector(
+                      onTap: () => Navigator.of(ctx).pop(),
+                      child: Container(
+                        width: 28,
+                        height: 28,
+                        alignment: Alignment.center,
+                        decoration: BoxDecoration(
+                          color: AppColors.offwhite,
+                          borderRadius: BorderRadius.circular(AppRadius.iconSmall),
+                        ),
+                        child: const Icon(Icons.close, size: 14, color: AppColors.text),
+                      ),
+                    ),
+                  ],
+                ),
+                const SizedBox(height: AppSpacing.md),
+                SizedBox(
+                  height: 200,
+                  child: GridView.builder(
+                    gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                      crossAxisCount: 3,
+                      childAspectRatio: 2.2,
+                      crossAxisSpacing: 8,
+                      mainAxisSpacing: 8,
+                    ),
+                    itemCount: (now.year + 2) - 2020 + 1,
+                    itemBuilder: (context, index) {
+                      final year = 2020 + index;
+                      final isSelected = year == _selectedYear;
+                      return GestureDetector(
+                        onTap: () => Navigator.of(ctx).pop(year),
+                        child: Container(
+                          alignment: Alignment.center,
+                          decoration: BoxDecoration(
+                            color: isSelected ? AppColors.sageDeep : AppColors.white,
+                            borderRadius: BorderRadius.circular(AppRadius.input),
+                            border: Border.all(
+                              color: isSelected ? AppColors.sageDeep : AppColors.beige,
+                            ),
+                          ),
+                          child: Text(
+                            '$year',
+                            style: AppText.caption.copyWith(
+                              color: isSelected ? Colors.white : AppColors.text,
+                              fontWeight: isSelected ? FontWeight.bold : FontWeight.normal,
+                            ),
+                          ),
+                        ),
+                      );
+                    },
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
+
+    if (pickedYear != null && pickedYear != _selectedYear) {
+      _changeYear(pickedYear);
+    }
+  }
+
+  @override
   Widget build(BuildContext context) {
     final calendarProvider = context.watch<CalendarProvider>();
     final mode = calendarProvider.calendarMode;
     final now = DateTime.now();
 
-    final months = [
-      for (int offset = -1; offset <= 2; offset++)
-        DateTime(now.year, now.month + offset, 1),
-    ];
+    final canPrevYear = _selectedYear > 2020;
+    final canNextYear = _selectedYear < (now.year + 2);
 
     return Column(
       children: [
@@ -57,15 +220,80 @@ class CalendarFullscreen extends StatelessWidget {
               AppSpacing.screenH, AppSpacing.base, AppSpacing.screenH, AppSpacing.sm),
           child: Row(
             children: [
-              AppBackButton(onTap: onBack),
+              AppBackButton(onTap: widget.onBack),
               Expanded(
                 child: Column(
                   children: [
                     Text('Kalender', style: AppText.cardTitle),
-                    const SizedBox(height: 2),
-                    Text(
-                      '${_MonthGrid.monthNames[now.month - 1]} ${now.year}',
-                      style: AppText.micro,
+                    const SizedBox(height: 4),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        GestureDetector(
+                          onTap: canPrevYear ? () => _changeYear(_selectedYear - 1) : null,
+                          child: Container(
+                            width: 26,
+                            height: 26,
+                            alignment: Alignment.center,
+                            decoration: BoxDecoration(
+                              color: canPrevYear ? AppColors.offwhite : Colors.transparent,
+                              borderRadius: BorderRadius.circular(6),
+                            ),
+                            child: Icon(
+                              Icons.chevron_left,
+                              size: 18,
+                              color: canPrevYear ? AppColors.sageDeep : AppColors.textMuted,
+                            ),
+                          ),
+                        ),
+                        const SizedBox(width: 4),
+                        GestureDetector(
+                          onTap: _showYearPickerModal,
+                          child: Container(
+                            padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
+                            decoration: BoxDecoration(
+                              color: AppColors.sageLight,
+                              borderRadius: BorderRadius.circular(AppRadius.pill),
+                            ),
+                            child: Row(
+                              mainAxisSize: MainAxisSize.min,
+                              children: [
+                                Text(
+                                  '$_selectedYear',
+                                  style: AppText.caption.copyWith(
+                                    color: AppColors.sageDeep,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                ),
+                                const SizedBox(width: 2),
+                                const Icon(
+                                  Icons.arrow_drop_down,
+                                  size: 16,
+                                  color: AppColors.sageDeep,
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                        const SizedBox(width: 4),
+                        GestureDetector(
+                          onTap: canNextYear ? () => _changeYear(_selectedYear + 1) : null,
+                          child: Container(
+                            width: 26,
+                            height: 26,
+                            alignment: Alignment.center,
+                            decoration: BoxDecoration(
+                              color: canNextYear ? AppColors.offwhite : Colors.transparent,
+                              borderRadius: BorderRadius.circular(6),
+                            ),
+                            child: Icon(
+                              Icons.chevron_right,
+                              size: 18,
+                              color: canNextYear ? AppColors.sageDeep : AppColors.textMuted,
+                            ),
+                          ),
+                        ),
+                      ],
                     ),
                   ],
                 ),
@@ -76,21 +304,28 @@ class CalendarFullscreen extends StatelessWidget {
         ),
         const Divider(height: 1, color: AppColors.beige),
         Expanded(
-          child: ListView(
+          child: ListView.builder(
+            controller: _scrollController,
+            cacheExtent: 10000.0,
             padding: const EdgeInsets.fromLTRB(
                 AppSpacing.screenH, AppSpacing.base, AppSpacing.screenH, 40),
-            children: [
-              for (final m in months) ...[
-                _MonthGrid(
-                  year: m.year,
-                  month: m.month,
+            itemCount: 12,
+            itemBuilder: (context, index) {
+              final month = index + 1;
+              final isCurrent = _selectedYear == now.year && month == now.month;
+
+              return Container(
+                key: _monthKeys[index],
+                margin: const EdgeInsets.only(bottom: AppSpacing.sectionGap),
+                child: _MonthGrid(
+                  year: _selectedYear,
+                  month: month,
                   mode: mode,
-                  isCurrent: m.year == now.year && m.month == now.month,
-                  painColorFor: _painColorFor,
+                  isCurrent: isCurrent,
+                  painColorFor: CalendarFullscreen._painColorFor,
                 ),
-                const SizedBox(height: AppSpacing.sectionGap),
-              ],
-            ],
+              );
+            },
           ),
         ),
       ],

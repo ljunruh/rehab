@@ -65,6 +65,21 @@ class PainLogRepository {
     )).toList();
   }
 
+  /// Löscht alle Schmerzeinträge, deren Datum im angegebenen Zeitraum liegt (inklusive Start- und Endtag).
+  Future<void> deletePainLogsBetween(DateTime fromDate, DateTime toDate) async {
+    // Starttag ab 00:00:00 Uhr
+    final startDate = DateTime(fromDate.year, fromDate.month, fromDate.day, 0, 0, 0);
+    // Endtag bis 23:59:59 Uhr
+    final endDate = DateTime(toDate.year, toDate.month, toDate.day, 23, 59, 59, 999);
+
+    await _isar.writeTxn(() async {
+      await _isar.painLogs
+          .filter()
+          .dateBetween(startDate, endDate)
+          .deleteAll();
+    });
+  }
+
   //TODO[API]: Test Schmerzgraph zu simulieren und Fake Daten dafür anzulegen
   /// Generiert abwechslungsreiche Demo-Schmerzeinträge für verschiedene Zeiträume
   /*
