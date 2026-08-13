@@ -1,14 +1,26 @@
-import 'dart:math' as math;
+import 'dart:ui' as ui;
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import '../../core/theme/app_theme.dart';
 import '../../core/widgets/widgets.dart';
-import '../../data/enum/contraindication.dart';
 
 /// Interaktive Körper-Region-Auswahl (Vorderseite / Rückseite).
 ///
-/// Schematische Figur nach Sophias Design (Screen-Recording 06.07.26):
-/// antippbare Regionen werden bei Auswahl [AppColors.sageDeep] gefüllt,
-/// sonst gestrichelt umrandet. Vorder-/Rückseite umschaltbar.
+/// Zeichnet eine anatomische Muskelfigur (SVG, in Sage-Grün eingefärbt) und die
+/// antippbaren Regionen in **einer einzigen Zeichenebene** ([CustomPaint]):
+/// Die SVG wird als [ui.Picture] geladen und zusammen mit den Region-Markern auf
+/// dieselbe Canvas gemalt. So können Figur und Marker prinzipiell nicht
+/// gegeneinander verrutschen (kein Layer-Drift beim Scrollen).
+///
+/// Ausgewählte Regionen werden grün gefüllt, nicht gewählte gestrichelt
+/// umrandet. Vorder-/Rückseite umschaltbar.
+///
+/// Von den 14 Beschwerdebereichen sind 12 direkt auf der Figur antippbar;
+/// `Gleichgewichtsprobleme` (kein Körperort) und `Wirbelsäulenprobleme`
+/// (überlappt die Rücken-Unterregionen) werden als Chips darunter angeboten.
+///
+/// Grafik: „Muscles front and back" von Tomáš Kebert & umimeto.org (nach
+/// OpenStax), CC BY-SA 4.0 – umgefärbt. Quelle/Lizenz siehe Impressum.
 ///
 /// [selected]/[onChanged] arbeiten mit den deutschen Region-Labels
 /// (kompatibel zu `profile.regions`).
@@ -26,51 +38,86 @@ class BodyMapSelector extends StatefulWidget {
   State<BodyMapSelector> createState() => _BodyMapSelectorState();
 }
 
-/// Ein Positions-Rechteck einer antippbaren Region (relativ zur 240×420-Figur).
-/// [r] = Eckenradius (großer Wert ⇒ Oval/Kreis).
-class _Part {
-  final double l, t, w, h, r;
-  const _Part(this.l, this.t, this.w, this.h, this.r);
+/// Figur-Koordinatensystem: identisch zur SVG-viewBox (Breite × Höhe).
+const double _kFigW = 205;
+const double _kFigH = 354.43;
+
+const String _kFrontAsset = 'assets/body/koerper_front.svg';
+const String _kBackAsset = 'assets/body/koerper_back.svg';
+
+/// Temporäres Messgitter zum Kalibrieren der Hotspots (rot). Vor Release false.
+const bool _kDebugGrid = false;
+
+/// Ein antippbarer Bereich (Ellipse) in Figur-Koordinaten.
+class _Spot {
+  final double cx, cy, rx, ry;
+  const _Spot(this.cx, this.cy, this.rx, this.ry);
 }
 
-class _Region {
+class _Reg {
   final String label;
-  final bool back; // true = nur auf Rückseite sichtbar
-  final List<_Part> parts;
-  const _Region(this.label, {this.back = false, required this.parts});
+  final List<_Spot> spots;
+  const _Reg(this.label, this.spots);
 }
 
-/// Regionen + Positionen
-const List<_Region> _kRegions = [
-  // ── Vorderseite ──
-  // Atemwege am Brustkorb (vorher fälschlich auf Kopfhöhe).
-  _Region('Atemwegsproblem', parts: [_Part(98, 102, 44, 28, 14)]),
-  _Region('Schulterprobleme', parts: [_Part(66, 90, 32, 28, 14), _Part(142, 90, 32, 28, 14)]),
-  _Region('Rumpfmuskelschwäche', parts: [_Part(92, 128, 56, 40, 18)]),
-  _Region('Hüftprobleme', parts: [_Part(90, 216, 60, 34, 18)]),
-  _Region('Handgelenkprobleme', parts: [_Part(52, 196, 24, 24, 12), _Part(164, 196, 24, 24, 12)]),
-  // Knie/Sprunggelenk mittig auf die Beine gesetzt (vorher nach außen versetzt).
-  _Region('Knieschmerzen', parts: [_Part(92, 300, 28, 28, 14), _Part(120, 300, 28, 28, 14)]),
-  _Region('Sprunggelenkprobleme', parts: [_Part(94, 360, 24, 18, 9), _Part(122, 360, 24, 18, 9)]),
-  _Region('Gleichgewichtsprobleme', parts: [_Part(84, 392, 72, 20, 10)]),
-
-  // ── Rückseite ──
-  _Region('Nackenprobleme', back: true, parts: [_Part(106, 70, 28, 15, 8)]),
-  _Region('Schulterprobleme', back: true, parts: [_Part(66, 90, 32, 28, 14), _Part(142, 90, 32, 28, 14)]),
-  _Region('Probleme im oberen Rücken', back: true, parts: [_Part(92, 128, 56, 40, 18)]),
-  _Region('Rückenprobleme', back: true, parts: [_Part(92, 172, 56, 40, 18)]),
-  _Region('Probleme im unteren Rücken', back: true, parts: [_Part(90, 216, 60, 34, 18)]),
-  // Wirbelsäule: vertikal mittig auf der Rückseite (vorher horizontal auf der Vorderseite).
-  _Region('Wirbelsäulenprobleme', back: true, parts: [_Part(112, 92, 16, 128, 8)]),
-  _Region('Handgelenkprobleme', back: true, parts: [_Part(52, 196, 24, 24, 12), _Part(164, 196, 24, 24, 12)]),
-  // Oberschenkelrückseite: vertikal an den Oberschenkeln (vorher auf Kniehöhe).
-  _Region('Oberschenkelrückseiten-Beschwerden', back: true, parts: [_Part(92, 244, 28, 46, 12), _Part(120, 244, 28, 46, 12)]),
-  _Region('Sprunggelenkprobleme', back: true, parts: [_Part(94, 360, 24, 18, 9), _Part(122, 360, 24, 18, 9)]),
-  _Region('Gleichgewichtsprobleme', back: true, parts: [_Part(84, 392, 72, 20, 10)]),
+// Auf der Figur antippbare Regionen (Namen unverändert, kompatibel zum KG).
+const List<_Reg> _kFront = [
+  _Reg('Atemwegsproblem', [_Spot(101, 100, 30, 17)]),
+  _Reg('Schulterprobleme', [_Spot(62, 95, 18, 15), _Spot(140, 95, 18, 15)]),
+  _Reg('Rumpfmuskelschwäche', [_Spot(101, 138, 24, 27)]),
+  _Reg('Hüftprobleme', [_Spot(101, 182, 30, 15)]),
+  _Reg('Handgelenkprobleme', [_Spot(30, 199, 14, 14), _Spot(172, 199, 14, 14)]),
+  _Reg('Knieschmerzen', [_Spot(86, 247, 13, 14), _Spot(117, 247, 13, 14)]),
+  _Reg('Sprunggelenkprobleme', [_Spot(88, 322, 11, 11), _Spot(116, 322, 11, 11)]),
 ];
+
+const List<_Reg> _kBack = [
+  _Reg('Nackenprobleme', [_Spot(113, 60, 14, 9)]),
+  _Reg('Schulterprobleme', [_Spot(68, 95, 18, 15), _Spot(152, 95, 18, 15)]),
+  _Reg('Probleme im oberen Rücken', [_Spot(113, 100, 27, 14)]),
+  _Reg('Rückenprobleme', [_Spot(113, 130, 25, 14)]),
+  _Reg('Probleme im unteren Rücken', [_Spot(113, 156, 27, 13)]),
+  _Reg('Oberschenkelrückseiten-Beschwerden',
+      [_Spot(96, 220, 15, 25), _Spot(130, 220, 15, 25)]),
+  _Reg('Sprunggelenkprobleme', [_Spot(98, 320, 11, 11), _Spot(128, 320, 11, 11)]),
+];
+
+/// Beschwerdebereiche, die nicht sinnvoll als Figur-Hotspot funktionieren
+/// (kein eindeutiger Körperort bzw. Überlappung) – als Chips wählbar.
+const List<String> _kExtra = ['Wirbelsäulenprobleme', 'Gleichgewichtsprobleme'];
 
 class _BodyMapSelectorState extends State<BodyMapSelector> {
   bool _back = false;
+  ui.Picture? _frontPic, _backPic;
+  Size _frontSize = const Size(_kFigW, _kFigH);
+  Size _backSize = const Size(_kFigW, _kFigH);
+
+  @override
+  void initState() {
+    super.initState();
+    _loadPictures();
+  }
+
+  Future<void> _loadPictures() async {
+    final f = await vg.loadPicture(const SvgAssetLoader(_kFrontAsset), null);
+    final b = await vg.loadPicture(const SvgAssetLoader(_kBackAsset), null);
+    if (!mounted) return;
+    setState(() {
+      _frontPic = f.picture;
+      _frontSize = f.size;
+      _backPic = b.picture;
+      _backSize = b.size;
+    });
+  }
+
+  @override
+  void dispose() {
+    _frontPic?.dispose();
+    _backPic?.dispose();
+    super.dispose();
+  }
+
+  List<_Reg> get _regs => _back ? _kBack : _kFront;
 
   void _toggle(String label) {
     final next = List<String>.from(widget.selected);
@@ -78,10 +125,23 @@ class _BodyMapSelectorState extends State<BodyMapSelector> {
     widget.onChanged(next);
   }
 
+  void _handleTap(Offset local, double w, double h) {
+    final sx = local.dx / w * _kFigW;
+    final sy = local.dy / h * _kFigH;
+    for (final r in _regs) {
+      for (final s in r.spots) {
+        final dx = (sx - s.cx) / s.rx;
+        final dy = (sy - s.cy) / s.ry;
+        if (dx * dx + dy * dy <= 1.0) {
+          _toggle(r.label);
+          return;
+        }
+      }
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
-    final regions = _kRegions.where((r) => r.back == _back).toList();
-
     return Column(
       children: [
         // ── Vorderseite / Rückseite Umschalter ──
@@ -101,40 +161,46 @@ class _BodyMapSelectorState extends State<BodyMapSelector> {
         ),
         const SizedBox(height: AppSpacing.base),
 
-        // ── Figur ──
-        SizedBox(
-          width: 240,
-          height: 446,
-          child: Stack(
-            children: [
-              Positioned.fill(child: _Silhouette(showFace: !_back)),
-              for (final r in regions)
-                for (final p in r.parts)
-                  Positioned(
-                    left: p.l,
-                    top: p.t,
-                    width: p.w,
-                    height: p.h,
-                    child: GestureDetector(
-                      behavior: HitTestBehavior.opaque,
-                      onTap: () => _toggle(r.label),
-                      child: _RegionShape(
-                        selected: widget.selected.contains(r.label),
-                        radius: p.r,
-                      ),
-                    ),
+        // ── Figur + antippbare Regionen (eine gemeinsame Ebene) ──
+        LayoutBuilder(
+          builder: (context, constraints) {
+            final w = constraints.maxWidth.clamp(180.0, 260.0);
+            final h = w * (_kFigH / _kFigW);
+            return SizedBox(
+              width: w,
+              height: h,
+              child: GestureDetector(
+                behavior: HitTestBehavior.opaque,
+                onTapDown: (d) => _handleTap(d.localPosition, w, h),
+                child: CustomPaint(
+                  painter: _FigurePainter(
+                    picture: _back ? _backPic : _frontPic,
+                    pictureSize: _back ? _backSize : _frontSize,
+                    regions: _regs,
+                    selected: widget.selected,
                   ),
-              // Bodenschatten-Label "Gleichgewicht"
-              const Positioned(
-                left: 0,
-                right: 0,
-                bottom: 0,
-                child: Center(
-                  child: Text('Gleichgewicht', style: AppText.micro),
                 ),
               ),
-            ],
-          ),
+            );
+          },
+        ),
+        const SizedBox(height: AppSpacing.md),
+
+        // ── Weitere Bereiche (nicht als Hotspot sinnvoll) ──
+        Text('Weitere Bereiche', style: AppText.micro),
+        const SizedBox(height: AppSpacing.sm),
+        Wrap(
+          alignment: WrapAlignment.center,
+          spacing: AppSpacing.sm,
+          runSpacing: AppSpacing.sm,
+          children: [
+            for (final r in _kExtra)
+              AppChip(
+                label: r,
+                active: widget.selected.contains(r),
+                onTap: () => _toggle(r),
+              ),
+          ],
         ),
         const SizedBox(height: AppSpacing.md),
 
@@ -150,16 +216,7 @@ class _BodyMapSelectorState extends State<BodyMapSelector> {
             spacing: AppSpacing.sm,
             runSpacing: AppSpacing.sm,
             children: [
-              for (final s in widget.selected)
-                AppTag(
-                  ContraindicationExt.fromString(
-                    Contraindication.values.firstWhere(
-                          (e) => e.label == s,
-                      orElse: () => Contraindication.none,
-                    ).labelEN,
-                  ).shortLabel,
-                  variant: TagVariant.goal,
-                ),
+              for (final s in widget.selected) AppTag(s, variant: TagVariant.goal),
             ],
           ),
         ],
@@ -192,41 +249,90 @@ class _BodyMapSelectorState extends State<BodyMapSelector> {
   }
 }
 
-/// Gefüllte (ausgewählt) bzw. gestrichelt umrandete (nicht gewählt) Region.
-class _RegionShape extends StatelessWidget {
-  final bool selected;
-  final double radius;
-  const _RegionShape({required this.selected, required this.radius});
+/// Malt die SVG-Figur (als [ui.Picture]) und darüber die Region-Marker auf
+/// **dieselbe** Canvas – dadurch ist eine perfekte Deckung garantiert.
+class _FigurePainter extends CustomPainter {
+  final ui.Picture? picture;
+  final Size pictureSize;
+  final List<_Reg> regions;
+  final List<String> selected;
 
-  @override
-  Widget build(BuildContext context) {
-    if (selected) {
-      return DecoratedBox(
-        decoration: BoxDecoration(
-          color: AppColors.sageDeep,
-          borderRadius: BorderRadius.circular(radius),
-        ),
-      );
-    }
-    return CustomPaint(painter: _DashedRRectPainter(radius));
-  }
-}
-
-class _DashedRRectPainter extends CustomPainter {
-  final double radius;
-  _DashedRRectPainter(this.radius);
+  _FigurePainter({
+    required this.picture,
+    required this.pictureSize,
+    required this.regions,
+    required this.selected,
+  });
 
   @override
   void paint(Canvas canvas, Size size) {
+    // 1) Figur: viewBox-Koordinaten → Widget-Größe skalieren und zeichnen.
+    if (picture != null) {
+      canvas.save();
+      canvas.scale(
+        size.width / pictureSize.width,
+        size.height / pictureSize.height,
+      );
+      canvas.drawPicture(picture!);
+      canvas.restore();
+    }
+
+    // Ab hier in Figur-Koordinaten (0..205 × 0..354) arbeiten.
+    final scale = size.width / _kFigW;
+
+    if (_kDebugGrid) _paintGrid(canvas, size, scale);
+
+    // 2) Region-Marker auf dieselbe Canvas.
+    for (final r in regions) {
+      final on = selected.contains(r.label);
+      for (final sp in r.spots) {
+        final rect = Rect.fromCenter(
+          center: Offset(sp.cx * scale, sp.cy * scale),
+          width: sp.rx * 2 * scale,
+          height: sp.ry * 2 * scale,
+        );
+        if (on) {
+          canvas.drawOval(
+            rect,
+            Paint()..color = AppColors.sageDeep.withValues(alpha: 0.55),
+          );
+          canvas.drawOval(
+            rect,
+            Paint()
+              ..style = PaintingStyle.stroke
+              ..strokeWidth = 1.6
+              ..color = AppColors.sageDeep,
+          );
+        } else {
+          _dashedOval(canvas, rect);
+        }
+      }
+    }
+  }
+
+  void _paintGrid(Canvas canvas, Size size, double scale) {
+    final thin = Paint()
+      ..color = const Color(0x55FF0000)
+      ..strokeWidth = 0.5;
+    final thick = Paint()
+      ..color = const Color(0xAAFF0000)
+      ..strokeWidth = 1.0;
+    for (int x = 0; x <= 205; x += 10) {
+      canvas.drawLine(Offset(x * scale, 0), Offset(x * scale, size.height),
+          x % 50 == 0 ? thick : thin);
+    }
+    for (int y = 0; y <= 354; y += 10) {
+      canvas.drawLine(Offset(0, y * scale), Offset(size.width, y * scale),
+          y % 50 == 0 ? thick : thin);
+    }
+  }
+
+  void _dashedOval(Canvas canvas, Rect rect) {
     final paint = Paint()
-      ..color = AppColors.sageDeep
+      ..color = AppColors.sageDeep.withValues(alpha: 0.9)
       ..style = PaintingStyle.stroke
       ..strokeWidth = 1.4;
-    final rr = RRect.fromRectAndRadius(
-      Offset.zero & size,
-      Radius.circular(radius),
-    );
-    final path = Path()..addRRect(rr);
+    final path = Path()..addOval(rect);
     const dash = 4.0, gap = 3.0;
     for (final metric in path.computeMetrics()) {
       double d = 0;
@@ -238,69 +344,8 @@ class _DashedRRectPainter extends CustomPainter {
   }
 
   @override
-  bool shouldRepaint(covariant _DashedRRectPainter old) => old.radius != radius;
-}
-
-/// Helle, nicht interaktive Körper-Silhouette mit Kopf-Smiley.
-class _Silhouette extends StatelessWidget {
-  final bool showFace;
-  const _Silhouette({this.showFace = true});
-
-  @override
-  Widget build(BuildContext context) =>
-      CustomPaint(painter: _SilhouettePainter(showFace));
-}
-
-class _SilhouettePainter extends CustomPainter {
-  final bool showFace;
-  _SilhouettePainter(this.showFace);
-
-  @override
-  void paint(Canvas canvas, Size size) {
-    final body = Paint()
-      ..color = const Color(0x99D2E7E1) // sageLight ~60%
-      ..style = PaintingStyle.fill;
-
-    RRect rr(double l, double t, double w, double h, double r) =>
-        RRect.fromRectAndRadius(Rect.fromLTWH(l, t, w, h), Radius.circular(r));
-
-    // Kopf
-    const head = Offset(120, 40);
-    canvas.drawCircle(head, 26, body);
-    // Torso (Schulter bis Hüfte)
-    canvas.drawRRect(rr(90, 84, 60, 138, 24), body);
-    // Arme
-    canvas.drawRRect(rr(60, 92, 18, 122, 9), body);
-    canvas.drawRRect(rr(162, 92, 18, 122, 9), body);
-    // Beine
-    canvas.drawRRect(rr(96, 224, 20, 156, 10), body);
-    canvas.drawRRect(rr(124, 224, 20, 156, 10), body);
-    // Boden-Ellipse (Gleichgewicht)
-    canvas.drawOval(Rect.fromCenter(center: const Offset(120, 402), width: 84, height: 22),
-        Paint()..color = const Color(0x66D2E7E1));
-
-    // Smiley – nur auf der Vorderseite (Hinterkopf hat kein Gesicht)
-    if (showFace) {
-      final face = Paint()
-        ..color = const Color(0xB31F4E47) // sageDeep ~70%
-        ..style = PaintingStyle.fill;
-      canvas.drawCircle(head + const Offset(-8, -3), 2.2, face);
-      canvas.drawCircle(head + const Offset(8, -3), 2.2, face);
-      final smile = Paint()
-        ..color = const Color(0xB31F4E47)
-        ..style = PaintingStyle.stroke
-        ..strokeWidth = 2
-        ..strokeCap = StrokeCap.round;
-      canvas.drawArc(
-        Rect.fromCenter(center: head + const Offset(0, 2), width: 18, height: 14),
-        0.15 * math.pi,
-        0.7 * math.pi,
-        false,
-        smile,
-      );
-    }
-  }
-
-  @override
-  bool shouldRepaint(covariant _SilhouettePainter old) => old.showFace != showFace;
+  bool shouldRepaint(covariant _FigurePainter old) =>
+      old.picture != picture ||
+      old.selected != selected ||
+      old.regions != regions;
 }
