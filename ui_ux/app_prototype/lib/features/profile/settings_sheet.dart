@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:provider/provider.dart';
 import '../../core/theme/app_theme.dart';
+import '../../core/widgets/widgets.dart';
 import '../../state/ui_state.dart';
 
 /// "Einstellungen"-Sheet im Profil-Drawer (Person 4).
@@ -208,57 +209,121 @@ class _DeleteTrainingDataAccordionState extends State<_DeleteTrainingDataAccordi
   void _showConfirmationDialog() {
     showDialog(
       context: context,
-      builder: (dialogContext) => AlertDialog(
+      builder: (dialogContext) => Dialog(
         backgroundColor: AppColors.cream,
+        elevation: 8,
+        shadowColor: AppColors.toastShadow,
         shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(AppRadius.sheet),
+          borderRadius: BorderRadius.circular(AppRadius.card),
         ),
-        title: Text('Trainingsdaten löschen?',
-            style: AppText.screenTitle.copyWith(fontSize: 18)),
-        content: Text(
-          'Möchtest du wirklich alle Trainingsdaten vom ${_formatDate(_fromDate)} bis ${_formatDate(_toDate)} unwiderruflich löschen?',
-          style: AppText.cardTitle.copyWith(fontWeight: FontWeight.normal),
-        ),
-        actions: [
-          TextButton(
-            onPressed: () => Navigator.of(dialogContext).pop(),
-            child: const Text('Abbrechen',
-                style: TextStyle(color: AppColors.textMuted)),
-          ),
-          ElevatedButton(
-            style: ElevatedButton.styleFrom(
-              backgroundColor: Colors.redAccent,
-              elevation: 0,
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(AppRadius.pill),
-              ),
+        insetPadding: const EdgeInsets.symmetric(horizontal: 20, vertical: 24),
+        child: ConstrainedBox(
+          constraints: const BoxConstraints(maxWidth: 320),
+          child: Padding(
+            padding: const EdgeInsets.all(AppSpacing.lg),
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Container(
+                      width: 36,
+                      height: 36,
+                      alignment: Alignment.center,
+                      decoration: BoxDecoration(
+                        color: const Color(0xFFFDE8E8),
+                        borderRadius: BorderRadius.circular(AppRadius.iconSmall),
+                      ),
+                      child: const Icon(Icons.delete_forever_rounded,
+                          size: 20, color: Colors.redAccent),
+                    ),
+                    GestureDetector(
+                      onTap: () => Navigator.of(dialogContext).pop(),
+                      child: Container(
+                        width: 30,
+                        height: 30,
+                        alignment: Alignment.center,
+                        decoration: BoxDecoration(
+                          color: AppColors.offwhite,
+                          borderRadius: BorderRadius.circular(AppRadius.iconSmall),
+                        ),
+                        child: const Icon(Icons.close, size: 14, color: AppColors.text),
+                      ),
+                    ),
+                  ],
+                ),
+                const SizedBox(height: AppSpacing.md),
+                Text(
+                  'Trainingsdaten löschen?',
+                  style: AppText.screenTitle.copyWith(fontSize: 18),
+                ),
+                const SizedBox(height: AppSpacing.sm),
+                Text(
+                  'Möchtest du wirklich alle Trainingsdaten vom ${_formatDate(_fromDate)} bis ${_formatDate(_toDate)} unwiderruflich löschen?',
+                  style: AppText.caption.copyWith(
+                    color: AppColors.textSecondary,
+                    height: 1.4,
+                  ),
+                ),
+                const SizedBox(height: AppSpacing.lg),
+                Row(
+                  children: [
+                    Expanded(
+                      child: SecondaryButton(
+                        label: 'Abbrechen',
+                        onPressed: () => Navigator.of(dialogContext).pop(),
+                      ),
+                    ),
+                    const SizedBox(width: AppSpacing.sm),
+                    Expanded(
+                      child: GestureDetector(
+                        onTap: () async {
+                          Navigator.of(dialogContext).pop();
+
+                          if (!mounted) return;
+
+                          final painLogProv = context.read<PainLogProvider>();
+                          final painLogExProv = context.read<PainLogExerciseProvider>();
+                          final planLogExProv = context.read<PlanLogExerciseProvider>();
+
+                          await painLogProv.deleteLogsBetween(_fromDate!, _toDate!);
+                          await painLogExProv.deleteLogsBetween(_fromDate!, _toDate!);
+                          await planLogExProv.deleteLogsBetween(_fromDate!, _toDate!);
+
+                          if (!mounted) return;
+
+                          setState(() {
+                            _fromDate = null;
+                            _toDate = null;
+                            _isExpanded = false;
+                          });
+                        },
+                        child: Container(
+                          height: 44,
+                          alignment: Alignment.center,
+                          decoration: BoxDecoration(
+                            color: Colors.redAccent,
+                            borderRadius: BorderRadius.circular(AppRadius.buttonSecondary),
+                          ),
+                          child: Text(
+                            'Löschen',
+                            style: AppText.button.copyWith(
+                              color: Colors.white,
+                              fontSize: 13,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ],
             ),
-            onPressed: () async {
-              Navigator.of(dialogContext).pop();
-
-              if (!mounted) return;
-
-              final painLogProv = context.read<PainLogProvider>();
-              final painLogExProv = context.read<PainLogExerciseProvider>();
-              final planLogExProv = context.read<PlanLogExerciseProvider>();
-
-              await painLogProv.deleteLogsBetween(_fromDate!, _toDate!);
-              await painLogExProv.deleteLogsBetween(_fromDate!, _toDate!);
-              await planLogExProv.deleteLogsBetween(_fromDate!, _toDate!);
-
-              if (!mounted) return;
-
-              setState(() {
-                _fromDate = null;
-                _toDate = null;
-                _isExpanded = false;
-              });
-            },
-            child: const Text('Löschen',
-                style: TextStyle(
-                    color: Colors.white, fontWeight: FontWeight.bold)),
           ),
-        ],
+        ),
       ),
     );
   }
@@ -354,27 +419,10 @@ class _DeleteTrainingDataAccordionState extends State<_DeleteTrainingDataAccordi
                     ],
                   ),
                   const SizedBox(height: AppSpacing.md),
-                  SizedBox(
-                    width: double.infinity,
-                    child: ElevatedButton(
-                      onPressed: isFormValid ? _showConfirmationDialog : null,
-                      style: ElevatedButton.styleFrom(
-                        backgroundColor: Colors.redAccent,
-                        disabledBackgroundColor: AppColors.beige,
-                        elevation: 0,
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(AppRadius.pill),
-                        ),
-                        padding: const EdgeInsets.symmetric(vertical: 12),
-                      ),
-                      child: Text(
-                        'Bestätigen',
-                        style: TextStyle(
-                          color: isFormValid ? Colors.white : AppColors.textMuted,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                    ),
+                  PrimaryButton(
+                    label: 'Bestätigen',
+                    disabled: !isFormValid,
+                    onPressed: isFormValid ? _showConfirmationDialog : null,
                   ),
                 ],
               ),
@@ -782,37 +830,32 @@ class _AppDatePickerDialogState extends State<_AppDatePickerDialog> {
 
               // Aktions-Buttons
               Row(
-                mainAxisAlignment: MainAxisAlignment.end,
                 children: [
-                  TextButton(
-                    onPressed: () => Navigator.of(context).pop(),
-                    style: TextButton.styleFrom(
-                      padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 8),
-                    ),
-                    child: Text(
-                      'Abbrechen',
-                      style: AppText.caption.copyWith(
-                        color: AppColors.textMuted,
-                        fontWeight: FontWeight.w500,
-                      ),
+                  Expanded(
+                    child: SecondaryButton(
+                      label: 'Abbrechen',
+                      onPressed: () => Navigator.of(context).pop(),
                     ),
                   ),
                   const SizedBox(width: AppSpacing.sm),
-                  ElevatedButton(
-                    onPressed: () => Navigator.of(context).pop(_selectedDate),
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: AppColors.sageDeep,
-                      elevation: 0,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(AppRadius.pill),
-                      ),
-                      padding: const EdgeInsets.symmetric(horizontal: 18, vertical: 8),
-                    ),
-                    child: Text(
-                      'Auswählen',
-                      style: AppText.caption.copyWith(
-                        color: Colors.white,
-                        fontWeight: FontWeight.bold,
+                  Expanded(
+                    child: GestureDetector(
+                      onTap: () => Navigator.of(context).pop(_selectedDate),
+                      child: Container(
+                        height: 44,
+                        alignment: Alignment.center,
+                        decoration: BoxDecoration(
+                          color: AppColors.sageDeep,
+                          borderRadius: BorderRadius.circular(AppRadius.buttonSecondary),
+                        ),
+                        child: Text(
+                          'Auswählen',
+                          style: AppText.button.copyWith(
+                            color: Colors.white,
+                            fontSize: 13,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
                       ),
                     ),
                   ),
