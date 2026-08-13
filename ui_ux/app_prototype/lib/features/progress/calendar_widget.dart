@@ -18,7 +18,7 @@ import '../../core/widgets/widgets.dart';
 /// Tippen (fast überall) öffnet den Vollbild-Kalender.
 /// Entspricht CalendarWidget im JSX-Prototyp.
 class CalendarWidget extends StatefulWidget {
-  final VoidCallback onExpand;
+  final void Function(DateTime date) onExpand;
   const CalendarWidget({super.key, required this.onExpand});
 
   @override
@@ -171,7 +171,7 @@ class _CalendarWidgetState extends State<CalendarWidget> {
         .toList();
 
     return GestureDetector(
-      onTap: widget.onExpand,
+      onTap: () => widget.onExpand(DateTime(_year, _month, 1)),
       behavior: HitTestBehavior.opaque,
       child: AppCard(
         child: Stack(
