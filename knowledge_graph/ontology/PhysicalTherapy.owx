@@ -15,6 +15,12 @@
     <Prefix name="rdfs" IRI="http://www.w3.org/2000/01/rdf-schema#"/>
     <Prefix name="YogaKG" IRI="http://www.ease-crc.org/ont/yoga#"/>
     <Declaration>
+        <Class IRI="#AmArbeitsplatz"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#AmBildschirm"/>
+    </Declaration>
+    <Declaration>
         <Class IRI="#AnkleFrac"/>
     </Declaration>
     <Declaration>
@@ -28,6 +34,9 @@
     </Declaration>
     <Declaration>
         <Class IRI="#Asana"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#AutoFahren"/>
     </Declaration>
     <Declaration>
         <Class IRI="#BackMuscleInjury"/>
@@ -81,7 +90,16 @@
         <Class IRI="#Fracture"/>
     </Declaration>
     <Declaration>
+        <Class IRI="#GreifenundÜberkopf"/>
+    </Declaration>
+    <Declaration>
         <Class IRI="#HandFrac"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#HandyundTablet"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#HebenundBücken"/>
     </Declaration>
     <Declaration>
         <Class IRI="#HipFrac"/>
@@ -144,6 +162,15 @@
         <Class IRI="#Relaxation"/>
     </Declaration>
     <Declaration>
+        <Class IRI="#Schlafen"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Schonungshinweis"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Schonungskategorie"/>
+    </Declaration>
+    <Declaration>
         <Class IRI="#SeverityLevel"/>
     </Declaration>
     <Declaration>
@@ -154,6 +181,9 @@
     </Declaration>
     <Declaration>
         <Class IRI="#ShoulderMuscleInjury"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Sitzen"/>
     </Declaration>
     <Declaration>
         <Class IRI="#SpineFrac"/>
@@ -183,10 +213,16 @@
         <Class IRI="#ThoracicSpinePain"/>
     </Declaration>
     <Declaration>
+        <Class IRI="#TragenundHeben"/>
+    </Declaration>
+    <Declaration>
         <Class IRI="#TrainingsEffect"/>
     </Declaration>
     <Declaration>
         <Class IRI="#TrainingsLevel"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Treppensteigen"/>
     </Declaration>
     <Declaration>
         <Class IRI="#UpperBackPain"/>
@@ -202,6 +238,9 @@
     </Declaration>
     <Declaration>
         <ObjectProperty IRI="#avoidsAsana"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#belongsToBodyPart"/>
     </Declaration>
     <Declaration>
         <ObjectProperty IRI="#engagedBodyPart"/>
@@ -220,6 +259,9 @@
     </Declaration>
     <Declaration>
         <ObjectProperty IRI="#hasContraindication"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasDailyLifeCategory"/>
     </Declaration>
     <Declaration>
         <ObjectProperty IRI="#hasDifficultyLevel"/>
@@ -2664,6 +2706,14 @@
         <Datatype abbreviatedIRI="xsd:date"/>
     </Declaration>
     <SubClassOf>
+        <Class IRI="#AmArbeitsplatz"/>
+        <Class IRI="#Schonungskategorie"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#AmBildschirm"/>
+        <Class IRI="#Schonungskategorie"/>
+    </SubClassOf>
+    <SubClassOf>
         <Class IRI="#AnkleFrac"/>
         <Class IRI="#Fracture"/>
     </SubClassOf>
@@ -2682,6 +2732,10 @@
     <SubClassOf>
         <Class IRI="#Asana"/>
         <Class IRI="#Yoga"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#AutoFahren"/>
+        <Class IRI="#Schonungskategorie"/>
     </SubClassOf>
     <SubClassOf>
         <Class IRI="#BackMuscleInjury"/>
@@ -2744,8 +2798,20 @@
         <Class IRI="#Injury"/>
     </SubClassOf>
     <SubClassOf>
+        <Class IRI="#GreifenundÜberkopf"/>
+        <Class IRI="#Schonungskategorie"/>
+    </SubClassOf>
+    <SubClassOf>
         <Class IRI="#HandFrac"/>
         <Class IRI="#Fracture"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#HandyundTablet"/>
+        <Class IRI="#Schonungskategorie"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#HebenundBücken"/>
+        <Class IRI="#Schonungskategorie"/>
     </SubClassOf>
     <SubClassOf>
         <Class IRI="#HipFrac"/>
@@ -2816,6 +2882,18 @@
         <Class IRI="#Exercise"/>
     </SubClassOf>
     <SubClassOf>
+        <Class IRI="#Schlafen"/>
+        <Class IRI="#Schonungskategorie"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Schonungshinweis"/>
+        <Class IRI="#DailyRoutine"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Schonungskategorie"/>
+        <Class IRI="#DailyRoutine"/>
+    </SubClassOf>
+    <SubClassOf>
         <Class IRI="#SeverityLevel"/>
         <Class IRI="#ExerciseProperties"/>
     </SubClassOf>
@@ -2830,6 +2908,10 @@
     <SubClassOf>
         <Class IRI="#ShoulderMuscleInjury"/>
         <Class IRI="#MuscleInjury"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Sitzen"/>
+        <Class IRI="#Schonungskategorie"/>
     </SubClassOf>
     <SubClassOf>
         <Class IRI="#SpineFrac"/>
@@ -2864,12 +2946,20 @@
         <Class IRI="#SpinePain"/>
     </SubClassOf>
     <SubClassOf>
+        <Class IRI="#TragenundHeben"/>
+        <Class IRI="#Schonungskategorie"/>
+    </SubClassOf>
+    <SubClassOf>
         <Class IRI="#TrainingsEffect"/>
         <Class IRI="#ExerciseProperties"/>
     </SubClassOf>
     <SubClassOf>
         <Class IRI="#TrainingsLevel"/>
         <Class IRI="#Patient"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Treppensteigen"/>
+        <Class IRI="#Schonungskategorie"/>
     </SubClassOf>
     <SubClassOf>
         <Class IRI="#UpperBackPain"/>
@@ -2887,6 +2977,17 @@
         <Class IRI="#Yoga"/>
         <Class IRI="#Exercise"/>
     </SubClassOf>
+    <DisjointClasses>
+        <Class IRI="#AmArbeitsplatz"/>
+        <Class IRI="#AmBildschirm"/>
+        <Class IRI="#AutoFahren"/>
+        <Class IRI="#GreifenundÜberkopf"/>
+        <Class IRI="#HandyundTablet"/>
+        <Class IRI="#HebenundBücken"/>
+        <Class IRI="#Schlafen"/>
+        <Class IRI="#Sitzen"/>
+        <Class IRI="#TragenundHeben"/>
+    </DisjointClasses>
     <DisjointClasses>
         <Class IRI="#BackPain"/>
         <Class IRI="#Fracture"/>
@@ -2976,7 +3077,7 @@
         <NamedIndividual IRI="#AllFourswithLegExtension"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="#DailyRoutine"/>
+        <Class IRI="#Schonungshinweis"/>
         <NamedIndividual IRI="#AlternateSittingAndStanding"/>
     </ClassAssertion>
     <ClassAssertion>
@@ -3488,7 +3589,7 @@
         <NamedIndividual IRI="#Ellenbogenprobleme"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="#DailyRoutine"/>
+        <Class IRI="#Schonungshinweis"/>
         <NamedIndividual IRI="#EnBlocBedExit"/>
     </ClassAssertion>
     <ClassAssertion>
@@ -3500,7 +3601,7 @@
         <NamedIndividual IRI="#EntspannungslageInRueckenlage"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="#DailyRoutine"/>
+        <Class IRI="#Schonungshinweis"/>
         <NamedIndividual IRI="#ErgonomicSitting"/>
     </ClassAssertion>
     <ClassAssertion>
@@ -4600,7 +4701,7 @@
         <NamedIndividual IRI="#SkiingDownhill"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="#DailyRoutine"/>
+        <Class IRI="#Schonungshinweis"/>
         <NamedIndividual IRI="#SleepPositionAdjustment"/>
     </ClassAssertion>
     <ClassAssertion>
@@ -10793,6 +10894,16 @@
         <ObjectProperty IRI="#requiresEquipment"/>
         <NamedIndividual IRI="#EntspannungslageInRueckenlage"/>
         <NamedIndividual IRI="#None"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#belongsToBodyPart"/>
+        <NamedIndividual IRI="#ErgonomicSitting"/>
+        <NamedIndividual IRI="#Back"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasDailyLifeCategory"/>
+        <NamedIndividual IRI="#ErgonomicSitting"/>
+        <NamedIndividual IRI="#Sitting"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#engagedBodyPart"/>
@@ -29073,7 +29184,7 @@
     <DataPropertyAssertion>
         <DataProperty IRI="#hasDailyLifeAdvice"/>
         <NamedIndividual IRI="#ErgonomicSitting"/>
-        <Literal>Aufrechte, unterstützte Sitzhaltung mit angepasster Stuhl- und Tischhöhe zur Entlastung von Rücken, Nacken und Schultern.</Literal>
+        <Literal>Aufrechte, unterstützte Sitzhaltung mit angepasster Stuhl- und Tischhöhe zur Entlastung von Rücken.</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="#hasCommonMistake"/>
@@ -33421,6 +33532,10 @@ Langsam zur Mitte zurückkehren.
         <Class IRI="#Patient"/>
     </ObjectPropertyDomain>
     <ObjectPropertyDomain>
+        <ObjectProperty IRI="#belongsToBodyPart"/>
+        <Class IRI="#Schonungshinweis"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
         <ObjectProperty IRI="#engagedBodyPart"/>
         <Class IRI="#Asana"/>
     </ObjectPropertyDomain>
@@ -33443,6 +33558,10 @@ Langsam zur Mitte zurückkehren.
     <ObjectPropertyDomain>
         <ObjectProperty IRI="#hasContraindication"/>
         <Class IRI="#Exercise"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#hasDailyLifeCategory"/>
+        <Class IRI="#BodyPart"/>
     </ObjectPropertyDomain>
     <ObjectPropertyDomain>
         <ObjectProperty IRI="#hasDifficultyLevel"/>
@@ -33545,6 +33664,10 @@ Langsam zur Mitte zurückkehren.
         <Class IRI="#Asana"/>
     </ObjectPropertyRange>
     <ObjectPropertyRange>
+        <ObjectProperty IRI="#belongsToBodyPart"/>
+        <Class IRI="#BodyPart"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
         <ObjectProperty IRI="#engagedBodyPart"/>
         <Class IRI="#BodyPart"/>
     </ObjectPropertyRange>
@@ -33559,6 +33682,10 @@ Langsam zur Mitte zurückkehren.
     <ObjectPropertyRange>
         <ObjectProperty IRI="#hasContraindication"/>
         <Class IRI="#Injury"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#hasDailyLifeCategory"/>
+        <Class IRI="#Schonungskategorie"/>
     </ObjectPropertyRange>
     <ObjectPropertyRange>
         <ObjectProperty IRI="#hasDifficultyLevel"/>
@@ -33674,7 +33801,7 @@ Langsam zur Mitte zurückkehren.
     </DataPropertyDomain>
     <DataPropertyDomain>
         <DataProperty IRI="#hasDailyLifeAdvice"/>
-        <Class IRI="#Injury"/>
+        <Class IRI="#Schonungshinweis"/>
     </DataPropertyDomain>
     <DataPropertyDomain>
         <DataProperty IRI="#hasDateOfOnset"/>
@@ -34088,6 +34215,36 @@ Langsam zur Mitte zurückkehren.
         <Literal xml:lang="en">AlternateSittingAndStanding</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#AmArbeitsplatz</IRI>
+        <Literal xml:lang="de">Kategorie für Hinweise zur Entlastung des Körpers bei Tätigkeiten am Arbeitsplatz.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#AmArbeitsplatz</IRI>
+        <Literal xml:lang="de">Am Arbeitsplatz</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#AmArbeitsplatz</IRI>
+        <Literal xml:lang="en">At the work</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#AmBildschirm</IRI>
+        <Literal xml:lang="de">Kategorie für Hinweise zur körpergerechten Haltung und Entlastung bei der Nutzung von Bildschirmgeräten.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#AmBildschirm</IRI>
+        <Literal xml:lang="de">Am Bildschirm</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#AmBildschirm</IRI>
+        <Literal xml:lang="en">At the screen</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#Ananas-Ingwer-Regenerations-Smoothie</IRI>
         <Literal xml:lang="de">Ananas-Ingwer-Regenerations-Smoothie</Literal>
@@ -34306,6 +34463,21 @@ Langsam zur Mitte zurückkehren.
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#Atemuebung478</IRI>
         <Literal xml:lang="en">BreathingExercise478</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#AutoFahren</IRI>
+        <Literal xml:lang="de">Kategorie für Hinweise zur körpergerechten und möglichst schonenden Haltung beim Autofahren.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#AutoFahren</IRI>
+        <Literal xml:lang="de">Autofahren</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#AutoFahren</IRI>
+        <Literal xml:lang="en">Driving</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
@@ -35590,12 +35762,12 @@ Langsam zur Mitte zurückkehren.
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
         <IRI>#DailyRoutine</IRI>
-        <Literal xml:lang="de">Schonung im Alltag</Literal>
+        <Literal xml:lang="de">Enthält Hinweise und Empfehlungen zur Entlastung einer betroffenen Körperregion im Alltag.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#DailyRoutine</IRI>
-        <Literal xml:lang="en">DailyRoutine</Literal>
+        <Literal xml:lang="en">Daily Life Advice</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
@@ -37093,6 +37265,21 @@ Langsam zur Mitte zurückkehren.
         <Literal xml:lang="en">Pomegranate Kefir Drink</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#GreifenundÜberkopf</IRI>
+        <Literal xml:lang="de">Kategorie für Hinweise zum schonenden Greifen sowie zur Durchführung von Tätigkeiten oberhalb des Kopfes.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#GreifenundÜberkopf</IRI>
+        <Literal xml:lang="de">Greifen und Überkopf</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#GreifenundÜberkopf</IRI>
+        <Literal xml:lang="en">Reaching und Overhead</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#Gymnastics</IRI>
         <Literal xml:lang="en">Gymnastics</Literal>
@@ -37316,6 +37503,36 @@ Langsam zur Mitte zurückkehren.
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#HandFrac</IRI>
         <Literal xml:lang="en">HandFrac</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#HandyundTablet</IRI>
+        <Literal xml:lang="de">Kategorie für Hinweise zur körpergerechten und möglichst schonenden Nutzung von Smartphones und Tablets.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#HandyundTablet</IRI>
+        <Literal xml:lang="de">Handy und Tablet</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#HandyundTablet</IRI>
+        <Literal xml:lang="en">Smartphone and Tablet</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#HebenundBücken</IRI>
+        <Literal xml:lang="de">Heben und Bücken</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#HebenundBücken</IRI>
+        <Literal xml:lang="de">Kategorie für Hinweise zum körpergerechten und möglichst schonenden Heben von Gegenständen und Bücken im Alltag.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#HebenundBücken</IRI>
+        <Literal xml:lang="en">Lifting and Bending</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
@@ -40088,6 +40305,51 @@ Langsam zur Mitte zurückkehren.
         <Literal xml:lang="de">Skapula-Retraktion: Schulterproblem</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Schlafen</IRI>
+        <Literal xml:lang="de">Kategorie für Hinweise zur körpergerechten und möglichst entlastenden Schlafposition.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Schlafen</IRI>
+        <Literal xml:lang="de">Schlafen</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Schlafen</IRI>
+        <Literal xml:lang="en">Sleeping</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Schonungshinweis</IRI>
+        <Literal xml:lang="de">Beschreibt einen konkreten Hinweis zur Entlastung und Schonung einer Körperregion im Alltag.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Schonungshinweis</IRI>
+        <Literal xml:lang="en">Daily Life Advice</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Schonungshinweis</IRI>
+        <Literal xml:lang="de">Schonungshinweis</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Schonungskategorie</IRI>
+        <Literal xml:lang="de">Kategorisiert Hinweise zur Schonung im Alltag nach Alltagssituationen wie Schlafen, Sitzen, Tragen, Heben oder Arbeiten.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Schonungskategorie</IRI>
+        <Literal xml:lang="en">Daily Life Advice Category</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Schonungskategorie</IRI>
+        <Literal xml:lang="de">Schonungskategorie</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#SchulterAlphabet</IRI>
         <Literal xml:lang="de">Schulter-Alphabet</Literal>
@@ -40685,6 +40947,21 @@ Langsam zur Mitte zurückkehren.
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#Sitting</IRI>
+        <Literal xml:lang="de">Sitzen</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Sitzen</IRI>
+        <Literal xml:lang="de">Kategorie für Hinweise zur körpergerechten Sitzhaltung und zur Entlastung betroffener Körperregionen beim Sitzen.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Sitzen</IRI>
+        <Literal xml:lang="en">Sitting</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Sitzen</IRI>
         <Literal xml:lang="de">Sitzen</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
@@ -42374,6 +42651,21 @@ Langsam zur Mitte zurückkehren.
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#TragenundHeben</IRI>
+        <Literal xml:lang="de">Kategorie für Hinweise zum schonenden Tragen und Heben von Gegenständen im Alltag.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#TragenundHeben</IRI>
+        <Literal xml:lang="en">Carrying und  Lifting</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#TragenundHeben</IRI>
+        <Literal xml:lang="de">Tragen und Heben</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
         <IRI>#TrainingsEffect</IRI>
         <Literal xml:lang="de">Ziele oder Effekte einer Übung so wie Mobilität, Kraft, Stabilität oder Entspannung.</Literal>
     </AnnotationAssertion>
@@ -42551,6 +42843,21 @@ Langsam zur Mitte zurückkehren.
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#Tree_Torso</IRI>
         <Literal xml:lang="en">Tree_Torso</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Treppensteigen</IRI>
+        <Literal xml:lang="de">Kategorie für Hinweise zur körpergerechten und schonenden Nutzung von Treppen.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Treppensteigen</IRI>
+        <Literal xml:lang="en">Climbing Stairs</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Treppensteigen</IRI>
+        <Literal xml:lang="de">Treppensteigen</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
@@ -43689,6 +43996,16 @@ Langsam zur Mitte zurückkehren.
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#belongsToBodyPart</IRI>
+        <Literal xml:lang="de">Verknüpft einen Hinweis zur Schonung im Alltag mit der Körperregion, für die dieser Hinweis vorgesehen ist.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#belongsToBodyPart</IRI>
+        <Literal xml:lang="en">belongsToBodyPart</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
         <IRI>#date</IRI>
         <Literal xml:lang="de">Datum, an dem ein Ereignis stattgefunden hat oder geplant ist.</Literal>
     </AnnotationAssertion>
@@ -43810,12 +44127,22 @@ Langsam zur Mitte zurückkehren.
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
         <IRI>#hasDailyLifeAdvice</IRI>
-        <Literal xml:lang="de">Empfehlungen, wie gesündere Bewegungsmuster in den Alltag eingebaut werden können.</Literal>
+        <Literal xml:lang="de">Enthält den konkreten textuellen Hinweis zur Schonung einer Körperregion im Alltag.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#hasDailyLifeAdvice</IRI>
         <Literal xml:lang="en">hasDailyLifeAdvice</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#hasDailyLifeCategory</IRI>
+        <Literal xml:lang="de">Verknüpft eine Körperregion mit einer für diese Region relevanten Kategorie zur Schonung im Alltag.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#hasDailyLifeCategory</IRI>
+        <Literal xml:lang="en">hasDailyLifeCategory</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
@@ -43961,6 +44288,16 @@ Langsam zur Mitte zurückkehren.
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#hasVASvalue</IRI>
         <Literal xml:lang="en">hasVASvalue</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#hasVideoUrl</IRI>
+        <Literal xml:lang="de">Beinhaltet URLs von Videos.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#hasVideoUrl</IRI>
+        <Literal xml:lang="en">hasVideoUrl</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
