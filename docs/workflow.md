@@ -1,8 +1,8 @@
-# Github Workflow & Zusammenarbeit
+# Github Workflow & Zusammenarbei
 
 Um bei drei verschiedenen Arbeitsgruppen nicht den Überblick zu verlieren, sind folgende Leitlinien empfehlenswert. 
 
-Bitte lest euch diesen Leitfaden durch, bevor ihr mit der Arbeit beginnt.
+Bitte lest euch diesen Leitfaden durch, bevor ihr mit der Arbeit beginnt
 
 ---
 
