@@ -417,6 +417,12 @@ xsd:date rdf:type rdfs:Datatype .
            rdfs:label "hasGender"@en .
 
 
+###  http://purl.org/PhysicalTherapy#hasHealthBenefit
+:hasHealthBenefit rdf:type owl:DatatypeProperty ;
+                  rdfs:range xsd:string ;
+                  rdfs:label "hasHealthBenefit"@en .
+
+
 ###  http://purl.org/PhysicalTherapy#hasHeight
 :hasHeight rdf:type owl:DatatypeProperty ;
            rdfs:range xsd:decimal ;
@@ -445,6 +451,12 @@ xsd:date rdf:type rdfs:Datatype .
              rdfs:label "hasMETScore"@en .
 
 
+###  http://purl.org/PhysicalTherapy#hasPreparationTime
+:hasPreparationTime rdf:type owl:DatatypeProperty ;
+                    rdfs:range xsd:integer ;
+                    rdfs:label "hasPreparationTime"@en .
+
+
 ###  http://purl.org/PhysicalTherapy#hasRiskFactor
 :hasRiskFactor rdf:type owl:DatatypeProperty ;
                rdfs:range xsd:string ;
@@ -462,6 +474,12 @@ xsd:date rdf:type rdfs:Datatype .
 :hasVASvalue rdf:type owl:DatatypeProperty ;
              rdfs:range xsd:decimal ;
              rdfs:label "hasVASvalue"@en .
+
+
+###  http://purl.org/PhysicalTherapy#hasVideoUrl
+:hasVideoUrl rdf:type owl:DatatypeProperty ;
+             rdfs:domain :Exercise ;
+             rdfs:range xsd:string .
 
 
 ###  http://purl.org/PhysicalTherapy#hasWeight
@@ -547,14 +565,16 @@ xsd:date rdf:type rdfs:Datatype .
 ###  http://purl.org/PhysicalTherapy#BodyPart
 :BodyPart rdf:type owl:Class ;
           rdfs:comment "Körperteile"@de ;
-          rdfs:label "BodyPart"@en .
+          rdfs:label "BodyPart"@en ,
+                     "Körperteil"@de .
 
 
 ###  http://purl.org/PhysicalTherapy#Cardio
 :Cardio rdf:type owl:Class ;
         rdfs:subClassOf :Exercise ;
         rdfs:comment "Aerobe Übung, die Herzfrequenz und Atmung erhöht, um die kardiovaskuläre Ausdauer zu verbessern."@de ;
-        rdfs:label "Cardio"@en .
+        rdfs:label "Cardio"@en ,
+                   "Kardio"@de .
 
 
 ###  http://purl.org/PhysicalTherapy#CervicalSpinePain
@@ -568,15 +588,13 @@ xsd:date rdf:type rdfs:Datatype .
 :Contraindication rdf:type owl:Class ;
                   rdfs:subClassOf :ExerciseProperties ;
                   rdfs:comment "Bedingungen oder Ausschlusskriterien, bei denen eine Übung nicht empfohlen wird."@de ;
-                  rdfs:label "Contraindication"@en .
+                  rdfs:label "Contraindication"@en ,
+                             "Kontraindikationen"@de .
 
 
-###  http://purl.org/PhysicalTherapy#CoordinationMobility
-:CoordinationMobility rdf:type owl:Class ;
-                      rdfs:subClassOf :Exercise ;
-                      rdfs:comment "Übungen zur Schulung der Koordination und kontrollierten Bewegung"@de ;
-                      rdfs:label "CoordinationMobility"@en ,
-                                 "Koordination/Beweglichkeit" .
+###  http://purl.org/PhysicalTherapy#Coordination
+:Coordination rdf:type owl:Class ;
+              rdfs:subClassOf :Exercise .
 
 
 ###  http://purl.org/PhysicalTherapy#CoreMuscleInjury
@@ -589,14 +607,16 @@ xsd:date rdf:type rdfs:Datatype .
 ###  http://purl.org/PhysicalTherapy#DailyRoutine
 :DailyRoutine rdf:type owl:Class ;
               rdfs:comment "Schonung im Alltag"@de ;
-              rdfs:label "DailyRoutine"@en .
+              rdfs:label "DailyRoutine"@en ,
+                         "Schonung im Alltag"@de .
 
 
 ###  http://purl.org/PhysicalTherapy#DifficultyLevel
 :DifficultyLevel rdf:type owl:Class ;
                  rdfs:subClassOf :ExerciseProperties ;
                  rdfs:comment "Einstufung des Schwierigkeitsgrads einer Übung, die den Grad der körperlichen, koordinativen und konditionellen Anforderungen beschreibt."@de ;
-                 rdfs:label "DifficultyLevel"@en .
+                 rdfs:label "DifficultyLevel"@en ,
+                            "Schwierigkeitsgrad"@de .
 
 
 ###  http://purl.org/PhysicalTherapy#ElbowFrac
@@ -613,32 +633,28 @@ xsd:date rdf:type rdfs:Datatype .
                   rdfs:label "ElbowJointInjury"@en .
 
 
-###  http://purl.org/PhysicalTherapy#Entspannung
-:Entspannung rdf:type owl:Class ;
-             rdfs:subClassOf :Exercise ;
-             rdfs:comment "Übungen zur körperlichen und geistigen Entspannung"@de ;
-             rdfs:label "Entspannung"@de .
-
-
 ###  http://purl.org/PhysicalTherapy#Equipment
 :Equipment rdf:type owl:Class ;
            rdfs:subClassOf :ExerciseProperties ;
            rdfs:comment "Trainingsgeräte und Hilfsmittel, die in Physiotherapie und Rehabilitation eingesetzt werden, um Übungen zu erleichtern oder Belastungen gezielt zu dosieren."@de ;
-           rdfs:label "Equipment"@en .
+           rdfs:label "Equipment"@de ,
+                      "Equipment"@en .
 
 
 ###  http://purl.org/PhysicalTherapy#Exercise
 :Exercise rdf:type owl:Class ;
           rdfs:subClassOf owl:Thing ;
           rdfs:comment "Repräsentiert eine physiotherapeutische, sportliche oder mobilisierende Übung."@de ;
-          rdfs:label "Exercise"@en .
+          rdfs:label "Exercise"@en ,
+                     "Übung"@de .
 
 
 ###  http://purl.org/PhysicalTherapy#ExerciseProperties
 :ExerciseProperties rdf:type owl:Class ;
                     rdfs:subClassOf owl:Thing ;
                     rdfs:comment "Eigenschaften und Merkmale, die eine Übung charakterisieren, etwa Schwierigkeitsgrad, betroffene Körperregionen oder benötigte Ausrüstung."@de ;
-                    rdfs:label "ExerciseProperties"@en .
+                    rdfs:label "ExerciseProperties"@en ,
+                               "Übungseigenschaften"@de .
 
 
 ###  http://purl.org/PhysicalTherapy#FootFrac
@@ -686,14 +702,16 @@ xsd:date rdf:type rdfs:Datatype .
 ###  http://purl.org/PhysicalTherapy#Injury
 :Injury rdf:type owl:Class ;
         rdfs:comment "Konkrete Verletzung des Patienten (Spezialisierung von Condition)"@de ;
-        rdfs:label "Injury"@en .
+        rdfs:label "Injury"@en ,
+                   "Verletzung"@de .
 
 
 ###  http://purl.org/PhysicalTherapy#Joint
 :Joint rdf:type owl:Class ;
        rdfs:subClassOf :BodyPart ;
        rdfs:comment "Gelenk des menschlichen Körpers; Oberklasse aller spezifischen Gelenke"@de ;
-       rdfs:label "Joint"@en .
+       rdfs:label "Gelenk"@de ,
+                  "Joint"@en .
 
 
 ###  http://purl.org/PhysicalTherapy#JointInjury
@@ -721,14 +739,16 @@ xsd:date rdf:type rdfs:Datatype .
 :Limb rdf:type owl:Class ;
       rdfs:subClassOf :BodyPart ;
       rdfs:comment "Repräsentiert die Gliedmaßen des menschlichen Körpers."@de ;
-      rdfs:label "Limb"@en .
+      rdfs:label "Glied"@de ,
+                 "Limb"@en .
 
 
 ###  http://purl.org/PhysicalTherapy#LimbAlignment
 :LimbAlignment rdf:type owl:Class ;
                rdfs:subClassOf :ExerciseProperties ;
                rdfs:comment "Beschreibung der räumlichen Ausrichtung von Gliedmaßen in Bezug auf den Körper oder auf benachbarte Gelenke."@de ;
-               rdfs:label "LimbAlignment"@en .
+               rdfs:label "Extremitätenausrichtung"@de ,
+                          "LimbAlignment"@en .
 
 
 ###  http://purl.org/PhysicalTherapy#LowerBackPain
@@ -750,18 +770,20 @@ xsd:date rdf:type rdfs:Datatype .
                  rdfs:label "LumbarSpinePain"@en .
 
 
-###  http://purl.org/PhysicalTherapy#MobilisationStretching
-:MobilisationStretching rdf:type owl:Class ;
-                        rdfs:subClassOf :Exercise ;
-                        rdfs:comment "Übungen zur Verbesserung der Beweglichkeit und Dehnfähigkeit"@de ;
-                        rdfs:label "MobilisationStretching"@de .
+###  http://purl.org/PhysicalTherapy#Mobilisation
+:Mobilisation rdf:type owl:Class ;
+              rdfs:subClassOf :Exercise ;
+              rdfs:comment "Mobilization"@en ,
+                           "Übungen zur Verbesserung der Beweglichkeit und Dehnfähigkeit"@de ;
+              rdfs:label "Mobilisation"@de .
 
 
 ###  http://purl.org/PhysicalTherapy#Muscle
 :Muscle rdf:type owl:Class ;
         rdfs:subClassOf :BodyPart ;
         rdfs:comment "Repräsentiert die Muskeln des menschlichen Körpers."@de ;
-        rdfs:label "Muscle"@en .
+        rdfs:label "Muscle"@en ,
+                   "Muskel"@de .
 
 
 ###  http://purl.org/PhysicalTherapy#MuscleInjury
@@ -781,14 +803,27 @@ xsd:date rdf:type rdfs:Datatype .
 ###  http://purl.org/PhysicalTherapy#Patient
 :Patient rdf:type owl:Class ;
          rdfs:comment "Diese Klasse repräsentiert einen Reha-Patienten, der die Physiotherapie in Anspruch nimmt"@de ;
-         rdfs:label "Patient"@en .
+         rdfs:label "Patient"@de ,
+                    "Patient"@en .
+
+
+###  http://purl.org/PhysicalTherapy#RecipeOfTheWeek
+:RecipeOfTheWeek rdf:type owl:Class ;
+                 rdfs:comment "Rezept der Woche" ;
+                 rdfs:label "Rezept der Woche"@de .
+
+
+###  http://purl.org/PhysicalTherapy#Relaxation
+:Relaxation rdf:type owl:Class ;
+            rdfs:subClassOf :Exercise .
 
 
 ###  http://purl.org/PhysicalTherapy#SeverityLevel
 :SeverityLevel rdf:type owl:Class ;
                rdfs:subClassOf :ExerciseProperties ;
                rdfs:comment "Stufe zur Einstufung der Schwere eines Risikos oder Zustands, etwa in abgestuften Klassen wie niedrig, mittel und hoch."@de ;
-               rdfs:label "SeverityLevel"@en .
+               rdfs:label "Risiko Level"@de ,
+                          "SeverityLevel"@en .
 
 
 ###  http://purl.org/PhysicalTherapy#ShoulderFrac
@@ -836,7 +871,8 @@ xsd:date rdf:type rdfs:Datatype .
 ###  http://purl.org/PhysicalTherapy#SportActivity
 :SportActivity rdf:type owl:Class ;
                rdfs:comment "This class is about all kind of sport activities" ;
-               rdfs:label "SportActivity"@en .
+               rdfs:label "SportActivity"@en ,
+                          "Sportaktivität"@de .
 
 
 ###  http://purl.org/PhysicalTherapy#Strength
@@ -874,14 +910,17 @@ xsd:date rdf:type rdfs:Datatype .
 :TrainingsEffect rdf:type owl:Class ;
                  rdfs:subClassOf :ExerciseProperties ;
                  rdfs:comment "Ziele oder Effekte einer Übung so wie Mobilität, Kraft, Stabilität oder Entspannung."@de ;
-                 rdfs:label "TrainingsEffect"@en .
+                 rdfs:label "Trainingeffect"@en ,
+                            "Trainingseffekt"@de .
 
 
 ###  http://purl.org/PhysicalTherapy#TrainingsLevel
 :TrainingsLevel rdf:type owl:Class ;
                 rdfs:subClassOf :Patient ;
-                rdfs:comment "Einstufung des sportlichen Leistungsstands einer Person, üblicherweise in Stufen wie Anfänger, Fortgeschritten und Profi."@de ;
-                rdfs:label "TrainingsLevel"@en .
+                rdfs:comment "Einstufung des sportlichen Leistungsstands einer Person, üblicherweise in Stufen wie Anfänger, Fortgeschritten und Profi."@de ,
+                             "TrainingLevel"@en ;
+                rdfs:label "Traininglevel"@en ,
+                           "Trainingslevel"@de .
 
 
 ###  http://purl.org/PhysicalTherapy#UpperBackPain
@@ -1481,7 +1520,7 @@ xsd:date rdf:type rdfs:Datatype .
 
 ###  http://purl.org/PhysicalTherapy#AllFourswithLegExtension
 :AllFourswithLegExtension rdf:type owl:NamedIndividual ,
-                                   :CoordinationMobility ,
+                                   :Coordination ,
                                    :Strength ;
                           :engagedBodyPart :Abs ,
                                            :Glutes ,
@@ -1533,6 +1572,16 @@ xsd:date rdf:type rdfs:Datatype .
                                         "AlternateSittingAndStanding"@en .
 
 
+###  http://purl.org/PhysicalTherapy#Ananas-Ingwer-Regenerations-Smoothie
+:Ananas-Ingwer-Regenerations-Smoothie rdf:type owl:NamedIndividual ,
+                                               :RecipeOfTheWeek ;
+                                      :hasHealthBenefit "Ananas enthält das Enzym Bromelain, welches Abschwellungen fördert und die Heilung von Gewebe und Gelenken nach Verletzungen beschleunigt."@de ;
+                                      :hasInstruction "150g frische Ananas, 1 cm frischen Ingwer, 1/2 Banane und 150ml Wasser im Hochleistungsmixer cremig pürieren." ;
+                                      :hasPreparationTime 5 ;
+                                      rdfs:label "Ananas-Ingwer-Regenerations-Smoothie"@de ,
+                                                 "Pineapple Ginger Recovery Smoothie"@en .
+
+
 ###  http://purl.org/PhysicalTherapy#AnkleFracture
 :AnkleFracture rdf:type owl:NamedIndividual ,
                         :AnkleFrac ;
@@ -1581,7 +1630,7 @@ xsd:date rdf:type rdfs:Datatype .
 
 ###  http://purl.org/PhysicalTherapy#ArmhebenImVierfuesslerstand
 :ArmhebenImVierfuesslerstand rdf:type owl:NamedIndividual ,
-                                      :CoordinationMobility ;
+                                      :Coordination ;
                              :engagedBodyPart :Core ,
                                               :Hip ,
                                               :LowerBack ,
@@ -1607,7 +1656,7 @@ xsd:date rdf:type rdfs:Datatype .
 
 ###  http://purl.org/PhysicalTherapy#Armkreisen
 :Armkreisen rdf:type owl:NamedIndividual ,
-                     :CoordinationMobility ;
+                     :Coordination ;
             :engagedBodyPart :Chest ,
                              :Glutes ,
                              :RotatorCuffs ,
@@ -1658,8 +1707,8 @@ xsd:date rdf:type rdfs:Datatype .
 
 ###  http://purl.org/PhysicalTherapy#AssistedShoulderRotation
 :AssistedShoulderRotation rdf:type owl:NamedIndividual ,
-                                   :CoordinationMobility ,
-                                   :MobilisationStretching ;
+                                   :Coordination ,
+                                   :Mobilisation ;
                           :engagedBodyPart :Arms ,
                                            :RotatorCuffs ,
                                            :ShoulderJoint ,
@@ -1691,7 +1740,7 @@ xsd:date rdf:type rdfs:Datatype .
 
 ###  http://purl.org/PhysicalTherapy#Atemuebung478
 :Atemuebung478 rdf:type owl:NamedIndividual ,
-                        :Entspannung ;
+                        :Relaxation ;
                :engagedBodyPart :Chest ,
                                 :Core ;
                :hasContraindication :RespiratoryIssue ;
@@ -1762,8 +1811,7 @@ xsd:date rdf:type rdfs:Datatype .
 
 
 ###  http://purl.org/PhysicalTherapy#BackIssue
-:BackIssue rdf:type owl:NamedIndividual ,
-                    :Contraindication ;
+:BackIssue rdf:type owl:NamedIndividual ;
            :requiresImprovementOf :Back ,
                                   :SpineJoint ;
            rdfs:comment "Beschwerden oder Verletzungen im Rückenbereich, die Übungen einschränken können."@de ;
@@ -1798,7 +1846,7 @@ xsd:date rdf:type rdfs:Datatype .
 
 ###  http://purl.org/PhysicalTherapy#Baerenlauf
 :Baerenlauf rdf:type owl:NamedIndividual ,
-                     :CoordinationMobility ;
+                     :Coordination ;
             :engagedBodyPart :Core ,
                              :LowerBack ;
             :hasContraindication :WristIssue ;
@@ -1821,7 +1869,7 @@ xsd:date rdf:type rdfs:Datatype .
 
 ###  http://purl.org/PhysicalTherapy#Baerenstuetz
 :Baerenstuetz rdf:type owl:NamedIndividual ,
-                       :CoordinationMobility ;
+                       :Coordination ;
               :engagedBodyPart :Core ,
                                :LowerBack ;
               :hasContraindication :WristIssue ;
@@ -1851,8 +1899,7 @@ xsd:date rdf:type rdfs:Datatype .
 
 
 ###  http://purl.org/PhysicalTherapy#BalanceIssue
-:BalanceIssue rdf:type owl:NamedIndividual ,
-                       :Contraindication ;
+:BalanceIssue rdf:type owl:NamedIndividual ;
               rdfs:comment "Schwierigkeiten, das Gleichgewicht zu halten, etwa durch Schwindel oder Muskelschwäche."@de ;
               rdfs:label "BalanceIssue"@en ,
                          "Gleichgewichtsprobleme"@de .
@@ -1876,7 +1923,7 @@ xsd:date rdf:type rdfs:Datatype .
 
 ###  http://purl.org/PhysicalTherapy#BallkreisenAnDerWand
 :BallkreisenAnDerWand rdf:type owl:NamedIndividual ,
-                               :CoordinationMobility ;
+                               :Coordination ;
                       :engagedBodyPart :Back ,
                                        :Spine ;
                       :hasContraindication :BackIssue ;
@@ -1927,7 +1974,7 @@ xsd:date rdf:type rdfs:Datatype .
 
 ###  http://purl.org/PhysicalTherapy#BauchatmungInBauchlage
 :BauchatmungInBauchlage rdf:type owl:NamedIndividual ,
-                                 :Entspannung ;
+                                 :Relaxation ;
                         :engagedBodyPart :Back ,
                                          :Core ;
                         :hasContraindication :RespiratoryIssue ;
@@ -1981,7 +2028,7 @@ xsd:date rdf:type rdfs:Datatype .
 
 ###  http://purl.org/PhysicalTherapy#Beckenkippen
 :Beckenkippen rdf:type owl:NamedIndividual ,
-                       :MobilisationStretching ;
+                       :Mobilisation ;
               :engagedBodyPart :Hip ,
                                :Pelvic ;
               :hasContraindication :HipIssue ;
@@ -2004,7 +2051,7 @@ xsd:date rdf:type rdfs:Datatype .
 
 ###  http://purl.org/PhysicalTherapy#BeckenkontrollUebung
 :BeckenkontrollUebung rdf:type owl:NamedIndividual ,
-                               :CoordinationMobility ;
+                               :Coordination ;
                       :engagedBodyPart :Hip ,
                                        :Pelvic ;
                       :hasContraindication :HipIssue ;
@@ -2027,7 +2074,7 @@ xsd:date rdf:type rdfs:Datatype .
 
 ###  http://purl.org/PhysicalTherapy#Beckenuhr
 :Beckenuhr rdf:type owl:NamedIndividual ,
-                    :MobilisationStretching ;
+                    :Mobilisation ;
            :engagedBodyPart :Hip ,
                             :Pelvic ;
            :hasContraindication :HipIssue ;
@@ -2059,7 +2106,7 @@ xsd:date rdf:type rdfs:Datatype .
 
 ###  http://purl.org/PhysicalTherapy#BeideKnieZurBrust
 :BeideKnieZurBrust rdf:type owl:NamedIndividual ,
-                            :MobilisationStretching ;
+                            :Mobilisation ;
                    :engagedBodyPart :Back ,
                                     :Spine ;
                    :hasContraindication :BackIssue ;
@@ -2081,7 +2128,7 @@ xsd:date rdf:type rdfs:Datatype .
 
 ###  http://purl.org/PhysicalTherapy#BeinhebenImVierfuesslerstand
 :BeinhebenImVierfuesslerstand rdf:type owl:NamedIndividual ,
-                                       :CoordinationMobility ;
+                                       :Coordination ;
                               :engagedBodyPart :Core ,
                                                :LowerBack ;
                               :hasContraindication :BalanceIssue ;
@@ -2159,7 +2206,7 @@ xsd:date rdf:type rdfs:Datatype .
 
 ###  http://purl.org/PhysicalTherapy#BirdDogAufDemGymnastikball
 :BirdDogAufDemGymnastikball rdf:type owl:NamedIndividual ,
-                                     :CoordinationMobility ;
+                                     :Coordination ;
                             :engagedBodyPart :Core ,
                                              :LowerBack ;
                             :hasContraindication :BackIssue ;
@@ -2183,7 +2230,7 @@ xsd:date rdf:type rdfs:Datatype .
 
 ###  http://purl.org/PhysicalTherapy#BirdDogHalteuebung
 :BirdDogHalteuebung rdf:type owl:NamedIndividual ,
-                             :CoordinationMobility ;
+                             :Coordination ;
                     :engagedBodyPart :Back ,
                                      :Spine ;
                     :hasContraindication :BackIssue ;
@@ -2206,7 +2253,7 @@ xsd:date rdf:type rdfs:Datatype .
 
 ###  http://purl.org/PhysicalTherapy#BizepsDehnung
 :BizepsDehnung rdf:type owl:NamedIndividual ,
-                        :MobilisationStretching ;
+                        :Stretching ;
                :engagedBodyPart :Arms ,
                                 :Biceps ,
                                 :Shoulders ;
@@ -2288,7 +2335,7 @@ xsd:date rdf:type rdfs:Datatype .
 
 ###  http://purl.org/PhysicalTherapy#BrustdehnungAnDerWand
 :BrustdehnungAnDerWand rdf:type owl:NamedIndividual ,
-                                :MobilisationStretching ;
+                                :Stretching ;
                        :engagedBodyPart :Chest ,
                                         :Shoulders ;
                        :hasContraindication :BackIssue ;
@@ -2310,7 +2357,7 @@ xsd:date rdf:type rdfs:Datatype .
 
 ###  http://purl.org/PhysicalTherapy#BrustmuskelmassageMitBall
 :BrustmuskelmassageMitBall rdf:type owl:NamedIndividual ,
-                                    :Entspannung ;
+                                    :Relaxation ;
                            :engagedBodyPart :Chest ,
                                             :Shoulders ;
                            :hasContraindication :ShoulderIssue ;
@@ -2333,7 +2380,7 @@ xsd:date rdf:type rdfs:Datatype .
 
 ###  http://purl.org/PhysicalTherapy#BrustwirbelsaeulenDehnung
 :BrustwirbelsaeulenDehnung rdf:type owl:NamedIndividual ,
-                                    :MobilisationStretching ;
+                                    :Stretching ;
                            :engagedBodyPart :Spine ,
                                             :UpperBack ;
                            :hasContraindication :BackIssue ;
@@ -2355,7 +2402,7 @@ xsd:date rdf:type rdfs:Datatype .
 
 ###  http://purl.org/PhysicalTherapy#BrustwirbelsaeulenMassageMitDerFaszienrolle
 :BrustwirbelsaeulenMassageMitDerFaszienrolle rdf:type owl:NamedIndividual ,
-                                                      :Entspannung ;
+                                                      :Relaxation ;
                                              :engagedBodyPart :Spine ,
                                                               :UpperBack ;
                                              :hasContraindication :BackIssue ;
@@ -2377,7 +2424,7 @@ xsd:date rdf:type rdfs:Datatype .
 
 ###  http://purl.org/PhysicalTherapy#BrustwirbelsaeulenRotation
 :BrustwirbelsaeulenRotation rdf:type owl:NamedIndividual ,
-                                     :MobilisationStretching ;
+                                     :Mobilisation ;
                             :engagedBodyPart :Core ,
                                              :LowerBack ,
                                              :Shoulders ,
@@ -2412,7 +2459,7 @@ xsd:date rdf:type rdfs:Datatype .
 
 ###  http://purl.org/PhysicalTherapy#BrustwirbelsaeulenRotationImVierfuesslerstand
 :BrustwirbelsaeulenRotationImVierfuesslerstand rdf:type owl:NamedIndividual ,
-                                                        :MobilisationStretching ;
+                                                        :Mobilisation ;
                                                :engagedBodyPart :Spine ,
                                                                 :UpperBack ;
                                                :hasContraindication :BackIssue ;
@@ -2442,7 +2489,7 @@ xsd:date rdf:type rdfs:Datatype .
 
 ###  http://purl.org/PhysicalTherapy#BrustwirbelsaeulenstreckungUeberDerFaszienrolle
 :BrustwirbelsaeulenstreckungUeberDerFaszienrolle rdf:type owl:NamedIndividual ,
-                                                          :MobilisationStretching ;
+                                                          :Mobilisation ;
                                                  :engagedBodyPart :Spine ,
                                                                   :UpperBack ;
                                                  :hasContraindication :BackIssue ;
@@ -2465,7 +2512,7 @@ xsd:date rdf:type rdfs:Datatype .
 
 ###  http://purl.org/PhysicalTherapy#Buchoeffner
 :Buchoeffner rdf:type owl:NamedIndividual ,
-                      :MobilisationStretching ;
+                      :Mobilisation ;
              :engagedBodyPart :Spine ,
                               :UpperBack ;
              :hasContraindication :BackIssue ;
@@ -3938,10 +3985,7 @@ xsd:date rdf:type rdfs:Datatype .
 
 ###  http://purl.org/PhysicalTherapy#Coordination
 :Coordination rdf:type owl:NamedIndividual ,
-                       :TrainingsEffect ;
-              rdfs:comment "Koordination, das Zusammenspiel von Muskeln und Nerven für flüssige Bewegungen."@de ;
-              rdfs:label "Coordination"@en ,
-                         "Koordination"@de .
+                       :TrainingsEffect .
 
 
 ###  http://purl.org/PhysicalTherapy#Core
@@ -5103,7 +5147,7 @@ xsd:date rdf:type rdfs:Datatype .
 
 ###  http://purl.org/PhysicalTherapy#DehnungDerHinterenOberschenkelmuskulatur
 :DehnungDerHinterenOberschenkelmuskulatur rdf:type owl:NamedIndividual ,
-                                                   :MobilisationStretching ;
+                                                   :Stretching ;
                                           :engagedBodyPart :Hamstrings ,
                                                            :Legs ;
                                           :hasContraindication :BackIssue ;
@@ -5125,7 +5169,7 @@ xsd:date rdf:type rdfs:Datatype .
 
 ###  http://purl.org/PhysicalTherapy#DehnungDerHinterenSchulterkapsel
 :DehnungDerHinterenSchulterkapsel rdf:type owl:NamedIndividual ,
-                                           :MobilisationStretching ;
+                                           :Stretching ;
                                   :engagedBodyPart :Shoulders ,
                                                    :UpperBack ;
                                   :hasContraindication :ShoulderIssue ;
@@ -5147,7 +5191,7 @@ xsd:date rdf:type rdfs:Datatype .
 
 ###  http://purl.org/PhysicalTherapy#DehnungDerLendenwirbelsaeule
 :DehnungDerLendenwirbelsaeule rdf:type owl:NamedIndividual ,
-                                       :MobilisationStretching ;
+                                       :Stretching ;
                               :engagedBodyPart :Core ,
                                                :LowerBack ;
                               :hasContraindication :LowerBackIssue ;
@@ -5169,7 +5213,7 @@ xsd:date rdf:type rdfs:Datatype .
 
 ###  http://purl.org/PhysicalTherapy#DehnungDesSchulterblatthebers
 :DehnungDesSchulterblatthebers rdf:type owl:NamedIndividual ,
-                                        :MobilisationStretching ;
+                                        :Stretching ;
                                :engagedBodyPart :Neck ,
                                                 :Shoulders ;
                                :hasContraindication :ShoulderIssue ;
@@ -5191,7 +5235,7 @@ xsd:date rdf:type rdfs:Datatype .
 
 ###  http://purl.org/PhysicalTherapy#DiagonalesArmUndBeinhebenImVierfuesslerstand
 :DiagonalesArmUndBeinhebenImVierfuesslerstand rdf:type owl:NamedIndividual ,
-                                                       :CoordinationMobility ;
+                                                       :Coordination ;
                                               :engagedBodyPart :Core ,
                                                                :LowerBack ;
                                               :hasContraindication :BalanceIssue ;
@@ -5255,7 +5299,7 @@ xsd:date rdf:type rdfs:Datatype .
 
 ###  http://purl.org/PhysicalTherapy#DynamischeUmarmung
 :DynamischeUmarmung rdf:type owl:NamedIndividual ,
-                             :CoordinationMobility ;
+                             :Coordination ;
                     :engagedBodyPart :Chest ,
                                      :Shoulders ;
                     :hasContraindication :BackIssue ;
@@ -5783,7 +5827,7 @@ xsd:date rdf:type rdfs:Datatype .
 
 ###  http://purl.org/PhysicalTherapy#EinarmigerFarmerSWalk
 :EinarmigerFarmerSWalk rdf:type owl:NamedIndividual ,
-                                :CoordinationMobility ;
+                                :Coordination ;
                        :engagedBodyPart :Back ,
                                         :Core ,
                                         :Legs ,
@@ -5808,7 +5852,7 @@ xsd:date rdf:type rdfs:Datatype .
 
 ###  http://purl.org/PhysicalTherapy#Einbeinstand
 :Einbeinstand rdf:type owl:NamedIndividual ,
-                       :CoordinationMobility ;
+                       :Coordination ;
               :engagedBodyPart :AnkleJoint ,
                                :Ankles ,
                                :KneeJoint ,
@@ -5860,7 +5904,7 @@ xsd:date rdf:type rdfs:Datatype .
                 :Joint ;
        :partOf :Elbows ;
        rdfs:comment "Ellbogengelenk"@de ;
-       rdfs:label "Elbow"@en ,
+       rdfs:label "Elbow Joint"@en ,
                   "Ellbogengelenk"@de .
 
 
@@ -5870,6 +5914,15 @@ xsd:date rdf:type rdfs:Datatype .
         rdfs:comment "Ellbogen als Körperregion, die das Ellenbogengelenk und die umliegenden Strukturen umfasst."@de ;
         rdfs:label "Elbows"@en ,
                    "Ellbogen"@de .
+
+
+###  http://purl.org/PhysicalTherapy#Ellenbogenprobleme
+:Ellenbogenprobleme rdf:type owl:NamedIndividual ,
+                             :Contraindication ;
+                    :requiresImprovementOf :Elbows ;
+                    rdfs:comment "Repräsentiert Probleme oder Verletzungen im Bereich des Ellbogens" ;
+                    rdfs:label "ElbowIssue"@en ,
+                               "Ellbogenprobleme"@de .
 
 
 ###  http://purl.org/PhysicalTherapy#EnBlocBedExit
@@ -5884,7 +5937,7 @@ xsd:date rdf:type rdfs:Datatype .
 
 ###  http://purl.org/PhysicalTherapy#EntspannungInDerKindhaltung
 :EntspannungInDerKindhaltung rdf:type owl:NamedIndividual ,
-                                      :Entspannung ;
+                                      :Relaxation ;
                              :engagedBodyPart :Back ,
                                               :Hip ,
                                               :Shoulders ;
@@ -5907,7 +5960,7 @@ xsd:date rdf:type rdfs:Datatype .
 
 ###  http://purl.org/PhysicalTherapy#EntspannungslageInRueckenlage
 :EntspannungslageInRueckenlage rdf:type owl:NamedIndividual ,
-                                        :Entspannung ;
+                                        :Relaxation ;
                                :engagedBodyPart :Back ,
                                                 :Core ;
                                :hasContraindication :BackIssue ;
@@ -5969,7 +6022,7 @@ xsd:date rdf:type rdfs:Datatype .
 
 ###  http://purl.org/PhysicalTherapy#FadenDurchDieNadel
 :FadenDurchDieNadel rdf:type owl:NamedIndividual ,
-                             :MobilisationStretching ;
+                             :Mobilisation ;
                     :engagedBodyPart :Spine ,
                                      :UpperBack ;
                     :hasContraindication :BackIssue ;
@@ -6025,7 +6078,7 @@ xsd:date rdf:type rdfs:Datatype .
 
 ###  http://purl.org/PhysicalTherapy#FaszienrolleRueckenWade
 :FaszienrolleRueckenWade rdf:type owl:NamedIndividual ,
-                                  :Entspannung ;
+                                  :Relaxation ;
                          :engagedBodyPart :Calves ,
                                           :LowerBack ;
                          :hasContraindication :BackIssue ,
@@ -6082,7 +6135,7 @@ xsd:date rdf:type rdfs:Datatype .
 
 ###  http://purl.org/PhysicalTherapy#FerseZehenGang
 :FerseZehenGang rdf:type owl:NamedIndividual ,
-                         :CoordinationMobility ;
+                         :Coordination ;
                 :engagedBodyPart :AnkleJoint ,
                                  :Ankles ,
                                  :Calves ,
@@ -7208,7 +7261,7 @@ xsd:date rdf:type rdfs:Datatype .
 
 ###  http://purl.org/PhysicalTherapy#GebetshaltungDehnung
 :GebetshaltungDehnung rdf:type owl:NamedIndividual ,
-                               :MobilisationStretching ;
+                               :Stretching ;
                       :engagedBodyPart :Back ,
                                        :Spine ;
                       :hasContraindication :BackIssue ;
@@ -7230,7 +7283,7 @@ xsd:date rdf:type rdfs:Datatype .
 
 ###  http://purl.org/PhysicalTherapy#GewichtsverlagerungSeitlich
 :GewichtsverlagerungSeitlich rdf:type owl:NamedIndividual ,
-                                      :CoordinationMobility ;
+                                      :Coordination ;
                              :engagedBodyPart :AnkleJoint ,
                                               :Core ,
                                               :Hip ,
@@ -7266,7 +7319,7 @@ xsd:date rdf:type rdfs:Datatype .
 
 ###  http://purl.org/PhysicalTherapy#GleichgewichtInstabil
 :GleichgewichtInstabil rdf:type owl:NamedIndividual ,
-                                :CoordinationMobility ;
+                                :Coordination ;
                        :engagedBodyPart :AnkleJoint ,
                                         :Ankles ,
                                         :Core ;
@@ -7830,6 +7883,16 @@ xsd:date rdf:type rdfs:Datatype .
  ] .
 
 
+###  http://purl.org/PhysicalTherapy#Goldene-Milch-Smoothie
+:Goldene-Milch-Smoothie rdf:type owl:NamedIndividual ,
+                                 :RecipeOfTheWeek ;
+                        :hasHealthBenefit "Die Kombination aus gefrorener Mango, Kurkuma und Zimt sorgt für eine geballte Ladung Antioxidantien. Sie fördert die Abschwellung im Gelenkgewebe und gibt nachhaltige Energie für den Tag."@de ;
+                        :hasInstruction "100g gefrorene Mangowürfel, 1/2 TL Kurkuma, 1 Prise Zimt, 1 Prise schwarzer Pfeffer und 200ml Hafer- oder Mandeldrink im Mixer cremig pürieren."@de ;
+                        :hasPreparationTime 5 ;
+                        rdfs:label "Golden Milk Smoothie"@en ,
+                                   "Goldene-Milch-Smoothie"@de .
+
+
 ###  http://purl.org/PhysicalTherapy#Golf
 :Golf rdf:type owl:NamedIndividual ,
                :SportActivity ;
@@ -7848,6 +7911,16 @@ xsd:date rdf:type rdfs:Datatype .
                          "GolfWithCart"@en .
 
 
+###  http://purl.org/PhysicalTherapy#Granatapfel-Kefir-Drink
+:Granatapfel-Kefir-Drink rdf:type owl:NamedIndividual ,
+                                  :RecipeOfTheWeek ;
+                         :hasHealthBenefit "Kefir stärkt das Darmmikrobiom, was die systemische Entzündungsneigung im gesamten Körper reduziert. Granatapfelkerne liefern zellschützende Antioxidantien."@de ;
+                         :hasInstruction "200ml eiskalten Kefir mit 50ml direkt gepresstem Granatapfelsaft verrühren und mit ein paar frischen Granatapfelkernen garnieren."@de ;
+                         :hasPreparationTime 5 ;
+                         rdfs:label "Granatapfel-Kefir-Drink"@de ,
+                                    "Pomegranate Kefir Drink"@en .
+
+
 ###  http://purl.org/PhysicalTherapy#Gymnastics
 :Gymnastics rdf:type owl:NamedIndividual ,
                      :SportActivity ;
@@ -7859,7 +7932,7 @@ xsd:date rdf:type rdfs:Datatype .
 
 ###  http://purl.org/PhysicalTherapy#GymnastikballRollout
 :GymnastikballRollout rdf:type owl:NamedIndividual ,
-                               :CoordinationMobility ;
+                               :Coordination ;
                       :engagedBodyPart :Core ,
                                        :LowerBack ;
                       :hasContraindication :LowerBackIssue ;
@@ -8436,8 +8509,7 @@ xsd:date rdf:type rdfs:Datatype .
 
 
 ###  http://purl.org/PhysicalTherapy#HamstringIssue
-:HamstringIssue rdf:type owl:NamedIndividual ,
-                         :Contraindication ;
+:HamstringIssue rdf:type owl:NamedIndividual ;
                 :requiresImprovementOf :Hamstrings ;
                 rdfs:comment "Verspannung oder Schmerz in der hinteren Oberschenkelmuskulatur."@de ;
                 rdfs:label "HamstringIssue"@en ,
@@ -9094,7 +9166,7 @@ xsd:date rdf:type rdfs:Datatype .
 
 ###  http://purl.org/PhysicalTherapy#HueftbeugerDehnung
 :HueftbeugerDehnung rdf:type owl:NamedIndividual ,
-                             :MobilisationStretching ;
+                             :Stretching ;
                     :engagedBodyPart :Hip ,
                                      :HipJoint ,
                                      :Knees ,
@@ -9172,6 +9244,16 @@ xsd:date rdf:type rdfs:Datatype .
                               rdfs:comment "Hinweis auf Knie-Probleme, die bei der Hüftbeuger-Dehnung berücksichtigt werden sollten."@de ;
                               rdfs:label "HipFlexorStretch_KneeIssue"@en ,
                                          "Hüftbeuger-Dehnung: Knieschmerzen"@de .
+
+
+###  http://purl.org/PhysicalTherapy#Hüttenkäse_mit_Leinöl_und_Kräutern
+:Hüttenkäse_mit_Leinöl_und_Kräutern rdf:type owl:NamedIndividual ,
+                                             :RecipeOfTheWeek ;
+                                    :hasHealthBenefit "Leinöl hat den höchsten Gehalt an Alpha-Linolensäure (Omega 3). Die Kombination mit den Schwefel-Aminosäuren aus dem Hüttenkäse optimiert die Aufnahme im Körper."@de ;
+                                    :hasInstruction "150g Hüttenkäse mit 1 EL kaltgepresstem Leinöl, frischem Schnittlauch, Salz und etwas Pfeffer verrühren und auf Vollkornbrot genießen."@de ;
+                                    :hasPreparationTime 5 ;
+                                    rdfs:label "Cottage Cheese with Linseed Oil and Herbs"@en ,
+                                               "Hüttenkäse mit Leinöl und Kräutern"@de .
 
 
 ###  http://purl.org/PhysicalTherapy#IYTHebenInBauchlage
@@ -9310,7 +9392,7 @@ xsd:date rdf:type rdfs:Datatype .
 
 ###  http://purl.org/PhysicalTherapy#Kastenatmung4444Atmung
 :Kastenatmung4444Atmung rdf:type owl:NamedIndividual ,
-                                 :Entspannung ;
+                                 :Relaxation ;
                         :engagedBodyPart :Back ,
                                          :Core ;
                         :hasContraindication :RespiratoryIssue ;
@@ -9333,7 +9415,7 @@ xsd:date rdf:type rdfs:Datatype .
 
 ###  http://purl.org/PhysicalTherapy#Katze-Kuh-Übung
 :Katze-Kuh-Übung rdf:type owl:NamedIndividual ,
-                          :MobilisationStretching ;
+                          :Mobilisation ;
                  :engagedBodyPart :Abs ,
                                   :Back ,
                                   :Chest ,
@@ -9387,7 +9469,7 @@ xsd:date rdf:type rdfs:Datatype .
 
 ###  http://purl.org/PhysicalTherapy#Kindpose
 :Kindpose rdf:type owl:NamedIndividual ,
-                   :Entspannung ;
+                   :Relaxation ;
           :engagedBodyPart :Abs ,
                            :Back ,
                            :Glutes ,
@@ -10027,8 +10109,7 @@ xsd:date rdf:type rdfs:Datatype .
 
 
 ###  http://purl.org/PhysicalTherapy#KnieZurBrustDehnung
-:KnieZurBrustDehnung rdf:type owl:NamedIndividual ,
-                              :MobilisationStretching ;
+:KnieZurBrustDehnung rdf:type owl:NamedIndividual ;
                      :engagedBodyPart :Back ,
                                       :Spine ;
                      :hasContraindication :BackIssue ;
@@ -10050,7 +10131,7 @@ xsd:date rdf:type rdfs:Datatype .
 
 ###  http://purl.org/PhysicalTherapy#KniegelenkMobilisation
 :KniegelenkMobilisation rdf:type owl:NamedIndividual ,
-                                 :MobilisationStretching ;
+                                 :Mobilisation ;
                         :engagedBodyPart :Hamstrings ,
                                          :KneeJoint ,
                                          :Knees ,
@@ -10122,7 +10203,7 @@ xsd:date rdf:type rdfs:Datatype .
 
 ###  http://purl.org/PhysicalTherapy#LatStretch
 :LatStretch rdf:type owl:NamedIndividual ,
-                     :MobilisationStretching ;
+                     :Stretching ;
             :engagedBodyPart :Back ,
                              :Lats ,
                              :LowerBack ,
@@ -10182,7 +10263,7 @@ xsd:date rdf:type rdfs:Datatype .
 
 ###  http://purl.org/PhysicalTherapy#LatissimusMassageMitDerFaszienrolle
 :LatissimusMassageMitDerFaszienrolle rdf:type owl:NamedIndividual ,
-                                              :Entspannung ;
+                                              :Relaxation ;
                                      :engagedBodyPart :Shoulders ,
                                                       :UpperBack ;
                                      :hasContraindication :ShoulderIssue ;
@@ -10294,7 +10375,7 @@ xsd:date rdf:type rdfs:Datatype .
 
 ###  http://purl.org/PhysicalTherapy#LendenwirbelsaeulenRotation
 :LendenwirbelsaeulenRotation rdf:type owl:NamedIndividual ,
-                                      :MobilisationStretching ;
+                                      :Mobilisation ;
                              :engagedBodyPart :Core ,
                                               :LowerBack ;
                              :hasContraindication :LowerBackIssue ;
@@ -10417,6 +10498,16 @@ xsd:date rdf:type rdfs:Datatype .
      rdfs:comment "Turnmatte als weiche Unterlage für Übungen am Boden."@de ;
      rdfs:label "Mat"@en ,
                 "Turnmatte"@de .
+
+
+###  http://purl.org/PhysicalTherapy#Matcha-Latte_mit_Mandelmilch
+:Matcha-Latte_mit_Mandelmilch rdf:type owl:NamedIndividual ,
+                                       :RecipeOfTheWeek ;
+                              :hasHealthBenefit "Matcha ist extrem reich an EGCG (Epigallocatechingallat), einem der stärksten bekannten pflanzlichen Antioxidantien zur Regeneration von Zellen."@de ;
+                              :hasInstruction "1 TL Matcha-Pulver mit 50ml heißem (nicht kochendem) Wasser schaumig schlagen. Mit 150ml warmem, aufgeschäumtem Mandeldrink auffüllen."@de ;
+                              :hasPreparationTime 5 ;
+                              rdfs:label "Matcha Latte with Almond Milk"@en ,
+                                         "Matcha-Latte mit Mandelmilch"@de .
 
 
 ###  http://purl.org/PhysicalTherapy#MediumRisk
@@ -10941,7 +11032,7 @@ xsd:date rdf:type rdfs:Datatype .
 
 ###  http://purl.org/PhysicalTherapy#Nackendehnungen
 :Nackendehnungen rdf:type owl:NamedIndividual ,
-                          :MobilisationStretching ;
+                          :Stretching ;
                  :engagedBodyPart :Neck ,
                                   :NeckJoint ;
                  :hasContraindication :NeckIssue ;
@@ -11017,9 +11108,18 @@ Langsam zur Mitte zurückkehren.
                  "None"@en .
 
 
+###  http://purl.org/PhysicalTherapy#Obererückengelenke
+:Obererückengelenke rdf:type owl:NamedIndividual ,
+                             :Joint ;
+                    :partOf :Back ;
+                    rdfs:comment "Repräsentiert die Gelenke des oberen Rückenbereichs" ;
+                    rdfs:label "Obere Rückengelenke"@de ,
+                               "Upper back joints" .
+
+
 ###  http://purl.org/PhysicalTherapy#OberkoerperrotationImStand
 :OberkoerperrotationImStand rdf:type owl:NamedIndividual ,
-                                     :MobilisationStretching ;
+                                     :Mobilisation ;
                             :engagedBodyPart :Spine ,
                                              :UpperBack ;
                             :hasContraindication :BackIssue ;
@@ -11537,6 +11637,16 @@ Langsam zur Mitte zurückkehren.
                    "Pelvic"@en .
 
 
+###  http://purl.org/PhysicalTherapy#Pflücksalat_mit_Blaubeeren_und_Walnüssen
+:Pflücksalat_mit_Blaubeeren_und_Walnüssen rdf:type owl:NamedIndividual ,
+                                                   :RecipeOfTheWeek ;
+                                          :hasHealthBenefit "Dunkle Pflücksalate und Blaubeeren stecken voller Polyphenole, die freie Radikale neutralisieren und den Körper vor zellulärem Stress schützen."@de ;
+                                          :hasInstruction "Zwei Handvoll Pflücksalat waschen, mit 50g frischen Blaubeeren und gehackten Walnüssen mischen. Ein Dressing aus Olivenöl und Balsamico darübergeben." ;
+                                          :hasPreparationTime 10 ;
+                                          rdfs:label "Leaf Salad with Blueberries and Walnuts"@en ,
+                                                     "Pflücksalat mit Blaubeeren und Walnüssen"@de .
+
+
 ###  http://purl.org/PhysicalTherapy#PhoneAtEyeLevel
 :PhoneAtEyeLevel rdf:type owl:NamedIndividual ,
                           :DailyRoutine ;
@@ -11548,7 +11658,7 @@ Langsam zur Mitte zurückkehren.
 
 ###  http://purl.org/PhysicalTherapy#PigeonPose
 :PigeonPose rdf:type owl:NamedIndividual ,
-                     :MobilisationStretching ;
+                     :Mobilisation ;
             :engagedBodyPart :Glutes ,
                              :Hip ,
                              :HipJoint ,
@@ -11603,7 +11713,6 @@ Langsam zur Mitte zurückkehren.
 
 ###  http://purl.org/PhysicalTherapy#PiriformisStretch
 :PiriformisStretch rdf:type owl:NamedIndividual ,
-                            :MobilisationStretching ,
                             :Stretching ;
                    :engagedBodyPart :Glutes ,
                                     :Hip ,
@@ -11691,6 +11800,7 @@ Langsam zur Mitte zurückkehren.
 5. Den Körper in einer geraden Linie halten.
 6. Ruhig weiteratmen.
 7. Die Position nur so lange halten, wie die Kontrolle erhalten bleibt.""" ;
+       :hasVideoUrl "https://revia.mausnetz.com/video/plank.mp4" ;
        rdfs:comment "Statische Halteübung in Bauchlage auf Unterarmen und Zehen, die den gesamten Rumpf kräftigt."@de ;
        rdfs:label "Plank"@en ,
                   "Unterarmstütz"@de .
@@ -11742,7 +11852,7 @@ Langsam zur Mitte zurückkehren.
 
 ###  http://purl.org/PhysicalTherapy#ProgressiveMuskelentspannung
 :ProgressiveMuskelentspannung rdf:type owl:NamedIndividual ,
-                                       :Entspannung ;
+                                       :Relaxation ;
                               :engagedBodyPart :Abs ,
                                                :Core ;
                               :hasContraindication :BackIssue ;
@@ -12367,6 +12477,16 @@ Langsam zur Mitte zurückkehren.
                   "Quads"@en .
 
 
+###  http://purl.org/PhysicalTherapy#Quinoa-Gemüse-Bowl
+:Quinoa-Gemüse-Bowl rdf:type owl:NamedIndividual ,
+                             :RecipeOfTheWeek ;
+                    :hasHealthBenefit "Quinoa enthält alle neun essenziellen Aminosäuren und ist damit ein perfekter Baustein für den Wiederaufbau von beschädigtem Gewebe."@de ;
+                    :hasInstruction "60g Quinoa nach Packungsanleitung kochen. Mit gedünstetem Brokkoli, Paprika und einem Löffel Tahin (Sesammus) in einer Schüssel anrichten."@de ;
+                    :hasPreparationTime 20 ;
+                    rdfs:label "Quinoa Vegetable Bowl"@en ,
+                               "Quinoa-Gemüse-Bowl"@de .
+
+
 ###  http://purl.org/PhysicalTherapy#RaceWalking
 :RaceWalking rdf:type owl:NamedIndividual ,
                       :SportActivity ;
@@ -12835,10 +12955,7 @@ Langsam zur Mitte zurückkehren.
 
 ###  http://purl.org/PhysicalTherapy#Relaxation
 :Relaxation rdf:type owl:NamedIndividual ,
-                     :TrainingsEffect ;
-            rdfs:comment "Entspannung als bewusste Reduzierung von Anspannung in Muskulatur und Geist."@de ;
-            rdfs:label "Entspannung"@de ,
-                       "Relaxation"@en .
+                     :TrainingsEffect .
 
 
 ###  http://purl.org/PhysicalTherapy#RespiratoryIssue
@@ -12848,6 +12965,136 @@ Langsam zur Mitte zurückkehren.
                                "Vorsicht bei fortgeschrittenen Atemwegserkrankungen wie COPD oder Asthma, da längere Atempausen oder forcierte Atemmuster die Symptome verschlechtern können. Rücksprache mit einem Arzt wird empfohlen."@de ;
                   rdfs:label "Atemwegsproblem"@de ,
                              "RespiratoryIssue"@en .
+
+
+###  http://purl.org/PhysicalTherapy#Rezept_AvocadoKresseBrot
+:Rezept_AvocadoKresseBrot rdf:type owl:NamedIndividual ,
+                                   :RecipeOfTheWeek ;
+                          :hasDescription "Eine Scheibe Vollkornbrot rösten. 1/2 Avocado zerdrücken, mit Salz, Pfeffer und Zitronensaft abschmecken, auf dem Brot verteilen und reichlich frische Kresse darüberstreuen." ;
+                          :hasHealthBenefit "Avocados liefern gesunde einfach ungesättigte Fettsäuren, die für die Aufnahme fettlöslicher Vitamine essenziell sind. Kresse enthält Senföle, die keimtötend und entzündungshemmend wirken." ;
+                          :hasPreparationTime 5 ;
+                          rdfs:label "Avocado Cress Toast"@en ,
+                                     "Avocado-Kresse-Brot"@de .
+
+
+###  http://purl.org/PhysicalTherapy#Rezept_Beeren_Smoothie
+:Rezept_Beeren_Smoothie rdf:type owl:NamedIndividual ,
+                                 :RecipeOfTheWeek ;
+                        :hasDescription "100g Beeren, 1/2 TL Kurkuma, 200ml Pflanzendrink im Mixer pürieren." ;
+                        :hasHealthBenefit "Dieses Lebensmittel/Rezept ist besonders gut, da das enthaltene Kurkuma stark entzündungshemmend ist und Antioxidantien die Zellregeneration fördern." ;
+                        :hasPreparationTime 5 ;
+                        rdfs:label "Anti-Inflammatory Berry Smoothie"@en ,
+                                   "Entzündungshemmender Beeren-Smoothie"@de .
+
+
+###  http://purl.org/PhysicalTherapy#Rezept_ChiaBeerenPudding
+:Rezept_ChiaBeerenPudding rdf:type owl:NamedIndividual ,
+                                   :RecipeOfTheWeek ;
+                          :hasDescription "3 EL Chiasamen mit 150ml Mandelmilch verrühren und über Nacht im Kühlschrank quellen lassen. Vor dem Verzehr mit 50g aufgetauten Tiefkühl-Beeren toppen." ;
+                          :hasHealthBenefit "Chiasamen sind hervorragende Lieferanten von Omega-3-Fettsäuren und Ballaststoffen. Die Antioxidantien der Beeren schützen die Zellen vor oxidativem Stress." ;
+                          :hasPreparationTime 5 ;
+                          rdfs:label "Chia Berry Pudding"@en ,
+                                     "Chia-Beeren-Pudding"@de .
+
+
+###  http://purl.org/PhysicalTherapy#Rezept_GoldeneMilchOatmeal
+:Rezept_GoldeneMilchOatmeal rdf:type owl:NamedIndividual ,
+                                     :RecipeOfTheWeek ;
+                            :hasDescription "50g Haferflocken mit 200ml Pflanzendrink, 1 TL Kurkuma, 1 Prise schwarzem Pfeffer und etwas Honig aufkochen und 5 Minuten köcheln lassen." ;
+                            :hasHealthBenefit "Haferflocken liefern wertvolle Komplexe Kohlenhydrate und Magnesium für die Muskelentspannung. Das enthaltene Kurkuma mindert Entzündungen in den Gelenken." ;
+                            :hasPreparationTime 10 ;
+                            rdfs:label "Golden Milk Oatmeal"@en ,
+                                       "Goldene-Milch-Haferbrei"@de .
+
+
+###  http://purl.org/PhysicalTherapy#Rezept_GrünerPowerSmoothie
+:Rezept_GrünerPowerSmoothie rdf:type owl:NamedIndividual ,
+                                     :RecipeOfTheWeek ;
+                            :hasDescription "Eine Handvoll frischen Baby-Spinat, 1/2 Banane, 1/2 Apfel und 200ml Kokoswasser oder Leitungswasser im Standmixer feinpürieren." ;
+                            :hasHealthBenefit "Grünes Blattgemüse wie Spinat liefert reichlich Folsäure, Eisen und Magnesium, was die Sauerstoffversorgung der Muskeln und die Regeneration unterstützt." ;
+                            :hasPreparationTime 5 ;
+                            rdfs:label "Green Power Smoothie"@en ,
+                                       "Grüner Power-Smoothie"@de .
+
+
+###  http://purl.org/PhysicalTherapy#Rezept_IngwerZitronenShot
+:Rezept_IngwerZitronenShot rdf:type owl:NamedIndividual ,
+                                    :RecipeOfTheWeek ;
+                           :hasDescription "50g frischen Ingwer schälen und würfeln. Mit dem Saft von 2 Zitronen und 100ml Wasser im Mixer pürieren und anschließend durch ein feines Sieb streichen." ;
+                           :hasHealthBenefit "Ingwer enthält Gingerol, das schmerzlindernd und stark entzündungshemmend wirkt. Vitamin C aus der Zitrone stärkt das Immunsystem und fördert die Kollagensynthese im Gewebe." ;
+                           :hasPreparationTime 5 ;
+                           rdfs:label "Ginger Lemon Shot"@en ,
+                                      "Ingwer-Zitronen-Shot"@de .
+
+
+###  http://purl.org/PhysicalTherapy#Rezept_Kamille_Ingwer_Eistee
+:Rezept_Kamille_Ingwer_Eistee rdf:type owl:NamedIndividual ,
+                                       :RecipeOfTheWeek ;
+                              :hasHealthBenefit "Kamille beruhigt gereizte Nerven und mindert Entzündungen im Körper, während Flüssigkeit die Schmierung der Gelenke (Synovialflüssigkeit) aufrechterhält."@de ;
+                              :hasInstruction "Kamillentee mit 3 Scheiben Ingwer aufbrühen, abkühlen lassen. Mit Eiswürfeln, einem Spritzer Zitrone und frischer Minze eiskalt servieren."@de ;
+                              :hasPreparationTime 10 ;
+                              rdfs:label "Chamomile Ginger Iced Tea"@en ,
+                                         "Kamille-Ingwer-Eistee"@de .
+
+
+###  http://purl.org/PhysicalTherapy#Rezept_KirschKamilleSchlummerdrink
+:Rezept_KirschKamilleSchlummerdrink rdf:type owl:NamedIndividual ,
+                                             :RecipeOfTheWeek ;
+                                    :hasDescription "100ml ungesüßten Sauerkirschsaft mit 100ml abgekühltem Kamillentee mischen und optional mit etwas Zitrone verfeinern." ;
+                                    :hasHealthBenefit "Sauerkirschen enthalten natürliches Melatonin und Entzündungshemmer, was die Schlafqualität verbessert. Guter Schlaf ist der wichtigste Faktor für die körperliche Geweberegeneration." ;
+                                    :hasPreparationTime 5 ;
+                                    rdfs:label "Cherry Chamomile Nightcap"@en ,
+                                               "Kirsch-Kamille-Schlummerdrink"@de .
+
+
+###  http://purl.org/PhysicalTherapy#Rezept_KurkumaLinsenSuppe
+:Rezept_KurkumaLinsenSuppe rdf:type owl:NamedIndividual ,
+                                    :RecipeOfTheWeek ;
+                           :hasHealthBenefit "100g rote Linsen mit 1 TL Kurkuma, 1 gehackten Möhre und 400ml Gemüsebrühe 15 Minuten köcheln lassen. Anschließend pürieren und mit Pfeffer abschmecken." ,
+                                             "Rote Linsen liefern pflanzliches Eiweiß und Zink für die Geweberegeneration. Die Kombination aus Kurkuma und schwarzem Pfeffer verstärkt die entzündungshemmende Wirkung um ein Vielfaches." ;
+                           :hasPreparationTime 15 ;
+                           rdfs:label "Kurkuma-Linsensuppe"@de ,
+                                      "Turmeric Lentil Soup"@en .
+
+
+###  http://purl.org/PhysicalTherapy#Rezept_LachsAvocadoTartar
+:Rezept_LachsAvocadoTartar rdf:type owl:NamedIndividual ,
+                                    :RecipeOfTheWeek ;
+                           :hasHealthBenefit "Lachs liefert hochwertige Omega-3-Fettsäuren (EPA und DHA), die Entzündungskaskaden im Körper effektiv hemmen. Proteine unterstützen zudem die Sehnen- und Muskelreparatur." ;
+                           :hasInstruction "100g frisches Lachsfilet (Sushi-Qualität) und 1/2 Avocado klein würfeln. Mit etwas Zitronensaft, Dill, Salz und Pfeffer anmachen und servieren." ;
+                           :hasPreparationTime 15 ;
+                           rdfs:label "Lachs-Avocado-Tatar"@de ,
+                                      "Salmon Avocado Tartare"@en .
+
+
+###  http://purl.org/PhysicalTherapy#Rezept_MandelKakaoEnergyBalls
+:Rezept_MandelKakaoEnergyBalls rdf:type owl:NamedIndividual ,
+                                        :RecipeOfTheWeek ;
+                               :hasDescription "100g entsteinte Datteln, 50g Mandeln und 2 EL Backkakao im Food Processor zerkleinern, bis eine klebrige Masse entsteht. Daraus kleine Bällchen formen und kaltstellen." ;
+                               :hasHealthBenefit "Mandeln und Datteln liefern schnelle und nachhaltige Energie sowie Kalium für die Nerven- und Muskelfunktion. Ungesüßter Kakao ist reich an zellschützenden Flavonoiden." ;
+                               :hasPreparationTime 15 ;
+                               rdfs:label "Almond Cocoa Energy Balls"@en ,
+                                          "Mandel-Kakao-Energy-Balls"@de .
+
+
+###  http://purl.org/PhysicalTherapy#Rezept_RoteBeteApfelJuice
+:Rezept_RoteBeteApfelJuice rdf:type owl:NamedIndividual ,
+                                    :RecipeOfTheWeek ;
+                           :hasDescription "1 vorgegarte Knolle Rote Bete, 1 Apfel und etwas frischen Zitronensaft im Entsafter entsaften oder mit Wasser pürieren." ;
+                           :hasHealthBenefit "Rote Bete ist reich an Nitraten, welche die Gefäße erweitern, die Durchblutung steigern und Nährstoffe schneller in verletztes Gewebe transportieren." ;
+                           :hasPreparationTime 10 ;
+                           rdfs:label "Beetroot Apple Juice"@en ,
+                                      "Rote-Bete-Apfel-Saft"@de .
+
+
+###  http://purl.org/PhysicalTherapy#Rezept_WalnussBananenQuark
+:Rezept_WalnussBananenQuark rdf:type owl:NamedIndividual ,
+                                     :RecipeOfTheWeek ;
+                            :hasDescription "200g Magerquark mit einem Schuss Mineralwasser glattrühren. Eine gehackte Banane und eine Handvoll gehackte Walnüsse unterheben." ;
+                            :hasHealthBenefit "Magerquark liefert hochwertiges Kasein-Protein zur langfristigen Muskelreparatur. Walnüsse sind reich an pflanzlichen Omega-3-Fettsäuren, die Entzündungsprozesse im Körper bremsen." ;
+                            :hasPreparationTime 5 ;
+                            rdfs:label "Walnuss-Bananen-Quark"@de ,
+                                       "Walnut Banana Curd"@en .
 
 
 ###  http://purl.org/PhysicalTherapy#Right
@@ -12951,7 +13198,7 @@ Langsam zur Mitte zurückkehren.
 
 ###  http://purl.org/PhysicalTherapy#RotatorenmanschettenMassageMitBall
 :RotatorenmanschettenMassageMitBall rdf:type owl:NamedIndividual ,
-                                             :Entspannung ;
+                                             :Relaxation ;
                                     :engagedBodyPart :Back ,
                                                      :Spine ;
                                     :hasContraindication :BackIssue ;
@@ -13056,7 +13303,7 @@ Langsam zur Mitte zurückkehren.
 
 ###  http://purl.org/PhysicalTherapy#ScapulaRetraktion
 :ScapulaRetraktion rdf:type owl:NamedIndividual ,
-                            :CoordinationMobility ,
+                            :Coordination ,
                             :Strength ;
                    :engagedBodyPart :RearDeltoids ,
                                     :RotatorCuffs ,
@@ -13110,7 +13357,7 @@ Langsam zur Mitte zurückkehren.
 
 ###  http://purl.org/PhysicalTherapy#SchulterAlphabet
 :SchulterAlphabet rdf:type owl:NamedIndividual ,
-                           :CoordinationMobility ;
+                           :Coordination ;
                   :engagedBodyPart :Shoulders ,
                                    :UpperBack ;
                   :hasContraindication :ShoulderIssue ;
@@ -13133,7 +13380,7 @@ Langsam zur Mitte zurückkehren.
 
 ###  http://purl.org/PhysicalTherapy#SchulterNackenEntspannung
 :SchulterNackenEntspannung rdf:type owl:NamedIndividual ,
-                                    :Entspannung ;
+                                    :Relaxation ;
                            :engagedBodyPart :Neck ,
                                             :NeckJoint ,
                                             :ShoulderJoint ,
@@ -13185,7 +13432,7 @@ Langsam zur Mitte zurückkehren.
 
 ###  http://purl.org/PhysicalTherapy#SchulterabduktionMitStab
 :SchulterabduktionMitStab rdf:type owl:NamedIndividual ,
-                                   :MobilisationStretching ;
+                                   :Mobilisation ;
                           :engagedBodyPart :Shoulders ,
                                            :UpperBack ;
                           :hasContraindication :ShoulderIssue ;
@@ -13231,7 +13478,7 @@ Langsam zur Mitte zurückkehren.
 
 ###  http://purl.org/PhysicalTherapy#SchulterblattKontrolluebung
 :SchulterblattKontrolluebung rdf:type owl:NamedIndividual ,
-                                      :CoordinationMobility ;
+                                      :Coordination ;
                              :engagedBodyPart :Shoulders ,
                                               :UpperBack ;
                              :hasContraindication :ShoulderIssue ;
@@ -13254,7 +13501,7 @@ Langsam zur Mitte zurückkehren.
 
 ###  http://purl.org/PhysicalTherapy#SchulterblattUhr_2
 :SchulterblattUhr_2 rdf:type owl:NamedIndividual ,
-                             :CoordinationMobility ;
+                             :Coordination ;
                     :engagedBodyPart :Shoulders ,
                                      :UpperBack ;
                     :hasContraindication :ShoulderIssue ;
@@ -13277,7 +13524,7 @@ Langsam zur Mitte zurückkehren.
 
 ###  http://purl.org/PhysicalTherapy#SchulterdehnungUeberDenKoerper
 :SchulterdehnungUeberDenKoerper rdf:type owl:NamedIndividual ,
-                                         :MobilisationStretching ;
+                                         :Stretching ;
                                 :engagedBodyPart :Shoulders ,
                                                  :UpperBack ;
                                 :hasContraindication :ShoulderIssue ;
@@ -13299,7 +13546,7 @@ Langsam zur Mitte zurückkehren.
 
 ###  http://purl.org/PhysicalTherapy#SchulterflexionMitStab
 :SchulterflexionMitStab rdf:type owl:NamedIndividual ,
-                                 :MobilisationStretching ;
+                                 :Mobilisation ;
                         :engagedBodyPart :Shoulders ,
                                          :UpperBack ;
                         :hasContraindication :ShoulderIssue ;
@@ -13322,7 +13569,7 @@ Langsam zur Mitte zurückkehren.
 
 ###  http://purl.org/PhysicalTherapy#Schulterkreisen
 :Schulterkreisen rdf:type owl:NamedIndividual ,
-                          :MobilisationStretching ;
+                          :Mobilisation ;
                  :engagedBodyPart :Shoulders ,
                                   :UpperBack ;
                  :hasContraindication :ShoulderIssue ;
@@ -13345,7 +13592,7 @@ Langsam zur Mitte zurückkehren.
 
 ###  http://purl.org/PhysicalTherapy#Schulterpendel
 :Schulterpendel rdf:type owl:NamedIndividual ,
-                         :MobilisationStretching ;
+                         :Mobilisation ;
                 :engagedBodyPart :Shoulders ,
                                  :UpperBack ;
                 :hasContraindication :ShoulderIssue ;
@@ -13404,7 +13651,6 @@ Langsam zur Mitte zurückkehren.
 
 ###  http://purl.org/PhysicalTherapy#SealStretch
 :SealStretch rdf:type owl:NamedIndividual ,
-                      :MobilisationStretching ,
                       :Stretching ;
              :engagedBodyPart :Abs ,
                               :Chest ,
@@ -13446,7 +13692,7 @@ Langsam zur Mitte zurückkehren.
 
 ###  http://purl.org/PhysicalTherapy#SegmentaleWirbelsaeulenbeugung
 :SegmentaleWirbelsaeulenbeugung rdf:type owl:NamedIndividual ,
-                                         :MobilisationStretching ;
+                                         :Mobilisation ;
                                 :engagedBodyPart :Spine ,
                                                  :UpperBack ;
                                 :hasContraindication :BackIssue ;
@@ -13469,7 +13715,7 @@ Langsam zur Mitte zurückkehren.
 
 ###  http://purl.org/PhysicalTherapy#SeitlicheRumpfdehnung
 :SeitlicheRumpfdehnung rdf:type owl:NamedIndividual ,
-                                :MobilisationStretching ;
+                                :Stretching ;
                        :engagedBodyPart :Back ,
                                         :Spine ;
                        :hasContraindication :BackIssue ;
@@ -13514,7 +13760,7 @@ Langsam zur Mitte zurückkehren.
 
 ###  http://purl.org/PhysicalTherapy#SelbstmassageDerHinterenSchulter
 :SelbstmassageDerHinterenSchulter rdf:type owl:NamedIndividual ,
-                                           :Entspannung ;
+                                           :Relaxation ;
                                   :engagedBodyPart :Shoulders ,
                                                    :UpperBack ;
                                   :hasContraindication :ShoulderIssue ;
@@ -13536,7 +13782,7 @@ Langsam zur Mitte zurückkehren.
 
 ###  http://purl.org/PhysicalTherapy#SelbstmassageDesMusculusQuadratusLumborum
 :SelbstmassageDesMusculusQuadratusLumborum rdf:type owl:NamedIndividual ,
-                                                    :Entspannung ;
+                                                    :Relaxation ;
                                            :engagedBodyPart :Core ,
                                                             :LowerBack ;
                                            :hasContraindication :BackIssue ;
@@ -13558,7 +13804,7 @@ Langsam zur Mitte zurückkehren.
 
 ###  http://purl.org/PhysicalTherapy#SelbstmassageDesOberenTrapezmuskels
 :SelbstmassageDesOberenTrapezmuskels rdf:type owl:NamedIndividual ,
-                                              :Entspannung ;
+                                              :Relaxation ;
                                      :engagedBodyPart :Neck ,
                                                       :Shoulders ;
                                      :hasContraindication :ShoulderIssue ;
@@ -13580,7 +13826,7 @@ Langsam zur Mitte zurückkehren.
 
 ###  http://purl.org/PhysicalTherapy#SelbstmassageDesPiriformis
 :SelbstmassageDesPiriformis rdf:type owl:NamedIndividual ,
-                                     :Entspannung ;
+                                     :Relaxation ;
                             :engagedBodyPart :Glutes ,
                                              :Hip ;
                             :hasContraindication :HipIssue ;
@@ -13602,7 +13848,7 @@ Langsam zur Mitte zurückkehren.
 
 ###  http://purl.org/PhysicalTherapy#SelbstmassageDesSchulterblatthebersLevatorScapulae
 :SelbstmassageDesSchulterblatthebersLevatorScapulae rdf:type owl:NamedIndividual ,
-                                                             :Entspannung ;
+                                                             :Relaxation ;
                                                     :engagedBodyPart :Neck ,
                                                                      :Shoulders ;
                                                     :hasContraindication :ShoulderIssue ;
@@ -13624,7 +13870,7 @@ Langsam zur Mitte zurückkehren.
 
 ###  http://purl.org/PhysicalTherapy#SelbstmassageDesUnterenRueckens
 :SelbstmassageDesUnterenRueckens rdf:type owl:NamedIndividual ,
-                                          :Entspannung ;
+                                          :Relaxation ;
                                  :engagedBodyPart :Core ,
                                                   :LowerBack ;
                                  :hasContraindication :LowerBackIssue ;
@@ -13742,8 +13988,8 @@ Langsam zur Mitte zurückkehren.
 
 ###  http://purl.org/PhysicalTherapy#ShoulderInternalExternalRotation
 :ShoulderInternalExternalRotation rdf:type owl:NamedIndividual ,
-                                           :CoordinationMobility ,
-                                           :MobilisationStretching ;
+                                           :Coordination ,
+                                           :Mobilisation ;
                                   :engagedBodyPart :FrontDeltoid ,
                                                    :RearDeltoids ,
                                                    :RotatorCuffs ,
@@ -14370,7 +14616,7 @@ Langsam zur Mitte zurückkehren.
 
 ###  http://purl.org/PhysicalTherapy#SitzenStehen
 :SitzenStehen rdf:type owl:NamedIndividual ,
-                       :CoordinationMobility ;
+                       :Coordination ;
               :engagedBodyPart :Core ,
                                :Glutes ,
                                :KneeJoint ,
@@ -14463,7 +14709,7 @@ Langsam zur Mitte zurückkehren.
 
 ###  http://purl.org/PhysicalTherapy#SleeperDehnung
 :SleeperDehnung rdf:type owl:NamedIndividual ,
-                         :MobilisationStretching ;
+                         :Stretching ;
                 :engagedBodyPart :Back ,
                                  :Spine ;
                 :hasContraindication :BackIssue ;
@@ -14485,7 +14731,7 @@ Langsam zur Mitte zurückkehren.
 
 ###  http://purl.org/PhysicalTherapy#SleeperMobilisation
 :SleeperMobilisation rdf:type owl:NamedIndividual ,
-                              :MobilisationStretching ;
+                              :Mobilisation ;
                      :engagedBodyPart :Back ,
                                       :Spine ;
                      :hasContraindication :BackIssue ;
@@ -14558,6 +14804,16 @@ Langsam zur Mitte zurückkehren.
           :MET 5.0 ;
           rdfs:label "Softball"@de ,
                      "Softball"@en .
+
+
+###  http://purl.org/PhysicalTherapy#Spinat-Mandel-Pesto
+:Spinat-Mandel-Pesto rdf:type owl:NamedIndividual ,
+                              :RecipeOfTheWeek ;
+                     :hasHealthBenefit "Mandeln liefern reichlich Vitamin E, welches Zellmembranen vor Entzündungsschäden schützt. Olivenöl enthält Oleocanthal, das ähnlich wie leichte Schmerzmittel wirkt."@de ;
+                     :hasInstruction "50g Baby-Spinat, 30g gehackte Mandeln, 1 Knoblauchzehe und 50ml hochwertiges Olivenöl im Zerkleinerer pürieren. Mit Salz und Zitronensaft abschmecken."@de ;
+                     :hasPreparationTime 10 ;
+                     rdfs:label "Spinach Almond Pesto"@en ,
+                                "Spinat-Mandel-Pesto"@de .
 
 
 ###  http://purl.org/PhysicalTherapy#Spine
@@ -16959,7 +17215,7 @@ Langsam zur Mitte zurückkehren.
 
 ###  http://purl.org/PhysicalTherapy#StandingPelvicTilts
 :StandingPelvicTilts rdf:type owl:NamedIndividual ,
-                              :MobilisationStretching ;
+                              :Mobilisation ;
                      :engagedBodyPart :Abs ,
                                       :Glutes ,
                                       :HipJoint ,
@@ -17779,7 +18035,6 @@ Langsam zur Mitte zurückkehren.
 
 ###  http://purl.org/PhysicalTherapy#Standing_sleeper_stretch
 :Standing_sleeper_stretch rdf:type owl:NamedIndividual ,
-                                   :MobilisationStretching ,
                                    :Stretching ;
                           :engagedBodyPart :RearDeltoids ,
                                            :RotatorCuffs ,
@@ -18038,7 +18293,7 @@ Langsam zur Mitte zurückkehren.
 
 ###  http://purl.org/PhysicalTherapy#TeilweisesTurkishGetUp
 :TeilweisesTurkishGetUp rdf:type owl:NamedIndividual ,
-                                 :CoordinationMobility ;
+                                 :Coordination ;
                         :engagedBodyPart :Back ,
                                          :Core ,
                                          :Legs ,
@@ -18164,7 +18419,7 @@ Langsam zur Mitte zurückkehren.
 
 ###  http://purl.org/PhysicalTherapy#Tischgleiten
 :Tischgleiten rdf:type owl:NamedIndividual ,
-                       :MobilisationStretching ;
+                       :Mobilisation ;
               :engagedBodyPart :Back ,
                                :Spine ;
               :hasContraindication :BackIssue ;
@@ -18225,7 +18480,7 @@ Langsam zur Mitte zurückkehren.
 
 ###  http://purl.org/PhysicalTherapy#TrapezmuskelDehnung
 :TrapezmuskelDehnung rdf:type owl:NamedIndividual ,
-                              :MobilisationStretching ;
+                              :Stretching ;
                      :engagedBodyPart :Neck ,
                                       :Shoulders ;
                      :hasContraindication :ShoulderIssue ;
@@ -19249,7 +19504,7 @@ Langsam zur Mitte zurückkehren.
 
 ###  http://purl.org/PhysicalTherapy#TriggerpunktmassageDerGesaessmuskulatur
 :TriggerpunktmassageDerGesaessmuskulatur rdf:type owl:NamedIndividual ,
-                                                  :Entspannung ;
+                                                  :Relaxation ;
                                          :engagedBodyPart :Glutes ,
                                                           :Hip ;
                                          :hasContraindication :HipIssue ;
@@ -19271,7 +19526,7 @@ Langsam zur Mitte zurückkehren.
 
 ###  http://purl.org/PhysicalTherapy#TrizepsDehnung
 :TrizepsDehnung rdf:type owl:NamedIndividual ,
-                         :MobilisationStretching ;
+                         :Stretching ;
                 :engagedBodyPart :Arms ,
                                  :Shoulders ,
                                  :Triceps ;
@@ -19299,7 +19554,7 @@ Langsam zur Mitte zurückkehren.
 
 ###  http://purl.org/PhysicalTherapy#TurkishGetUp
 :TurkishGetUp rdf:type owl:NamedIndividual ,
-                       :CoordinationMobility ;
+                       :Coordination ;
               :engagedBodyPart :Back ,
                                :Core ,
                                :Legs ,
@@ -19343,6 +19598,15 @@ Langsam zur Mitte zurückkehren.
 4. Ruhig atmen und kontrolliert lösen.""" ;
                            rdfs:label "Reverse Plank"@en ,
                                       "Umgekehrter Unterarmstütz"@de .
+
+
+###  http://purl.org/PhysicalTherapy#Untererückengeleneke
+:Untererückengeleneke rdf:type owl:NamedIndividual ,
+                               :Joint ;
+                      :partOf :Back ;
+                      rdfs:comment "Repräsentiert die Gelenke des unteren Rückenbereichs" ;
+                      rdfs:label "Lower back joints"@en ,
+                                 "Untere Rückengelenke"@de .
 
 
 ###  http://purl.org/PhysicalTherapy#Up
@@ -19441,7 +19705,7 @@ Langsam zur Mitte zurückkehren.
 
 ###  http://purl.org/PhysicalTherapy#Wadendehnung
 :Wadendehnung rdf:type owl:NamedIndividual ,
-                       :MobilisationStretching ;
+                       :Stretching ;
               :engagedBodyPart :AnkleJoint ,
                                :Ankles ,
                                :Calves ,
@@ -19594,7 +19858,7 @@ Langsam zur Mitte zurückkehren.
 
 ###  http://purl.org/PhysicalTherapy#Wandengel
 :Wandengel rdf:type owl:NamedIndividual ,
-                    :MobilisationStretching ;
+                    :Mobilisation ;
            :engagedBodyPart :Shoulders ,
                             :UpperBack ;
            :hasContraindication :ShoulderIssue ;
@@ -19617,7 +19881,7 @@ Langsam zur Mitte zurückkehren.
 
 ###  http://purl.org/PhysicalTherapy#WandgleitenMitArmabheben
 :WandgleitenMitArmabheben rdf:type owl:NamedIndividual ,
-                                   :CoordinationMobility ;
+                                   :Coordination ;
                           :engagedBodyPart :Back ,
                                            :Spine ;
                           :hasContraindication :BackIssue ;
@@ -19640,7 +19904,7 @@ Langsam zur Mitte zurückkehren.
 
 ###  http://purl.org/PhysicalTherapy#Wandschieben
 :Wandschieben rdf:type owl:NamedIndividual ,
-                       :MobilisationStretching ;
+                       :Mobilisation ;
               :engagedBodyPart :Back ,
                                :Spine ;
               :hasContraindication :BackIssue ;
@@ -21426,7 +21690,7 @@ Langsam zur Mitte zurückkehren.
 
 ###  http://purl.org/PhysicalTherapy#Zwerchfellatmung
 :Zwerchfellatmung rdf:type owl:NamedIndividual ,
-                           :Entspannung ;
+                           :Relaxation ;
                   :engagedBodyPart :Back ,
                                    :Core ;
                   :hasContraindication :RespiratoryIssue ;
@@ -21473,6 +21737,14 @@ Langsam zur Mitte zurückkehren.
          rdfs:label "Calorie"@en .
 
 
+:Coordination rdfs:comment "Koordination, das Zusammenspiel von Muskeln und Nerven für flüssige Bewegungen."@de ,
+                           "Übungen zur Schulung der Koordination und kontrollierten Bewegung"@de ;
+              rdfs:label "Coordination"@en ,
+                         "CoordinationMobility"@en ,
+                         "Koordination"@de ,
+                         "Koordination/Beweglichkeit" .
+
+
 :LowerBackPain rdfs:comment "Schmerzen im Bereich der Lendenwirbelsäule (Kreuzschmerzen, Lumbalgie), häufig durch Muskelverspannungen oder Bandscheibenprobleme."@de ;
                rdfs:label "Kreuzschmerzen"@de ,
                           "LowerBackPain"@en .
@@ -21480,6 +21752,12 @@ Langsam zur Mitte zurückkehren.
 
 :MET rdfs:comment "Wert zur Einschätzung der Intensität einer körperlichen Aktivität im Vergleich zum Ruhezustand."@de ;
      rdfs:label "MET"@en .
+
+
+:Relaxation rdfs:comment "Entspannung als bewusste Reduzierung von Anspannung in Muskulatur und Geist."@de ,
+                         "Übungen zur körperlichen und geistigen Entspannung"@de ;
+            rdfs:label "Entspannung"@de ,
+                       "Relaxation"@en .
 
 
 :Strength rdfs:comment "Übungen zur Kräftigung von Muskeln oder Muskelgruppen."@de ;

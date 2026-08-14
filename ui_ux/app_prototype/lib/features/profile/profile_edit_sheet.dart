@@ -59,7 +59,7 @@ class _ProfileEditSheetState extends State<ProfileEditSheet> {
     _selectedGender = user?.gender ?? Gender.diverse;
     _selectedSkillLevel = user?.skillLevel ?? SkillLevel.beginner;
 
-    _selectedInjuries = List.from(user?.contraindication ?? [])
+    _selectedInjuries = List.from(user?.contraindications ?? [])
         .map((e) => ContraindicationExt.fromString(e).label)
         .toList();
   }
@@ -412,7 +412,8 @@ class _ProfileEditSheetState extends State<ProfileEditSheet> {
                     height: int.tryParse(_heightCtrl.text) ?? user?.height ?? 0,
                     weight: int.tryParse(_weightCtrl.text) ?? user?.weight ?? 0,
                     skillLevel: _selectedSkillLevel,
-                    injuries: ontologyIds,
+                    contraindications: ontologyIds,
+                    joints: [] //TODO[API]: Anpassen wenn Joint Selection implementiert wurde
                   );
                   widget.onClose != null
                       ? widget.onClose!()
