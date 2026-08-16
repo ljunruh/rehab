@@ -21,19 +21,48 @@ class ExerciseRepository {
     return api.fetchAllExercisesExcludeContraindications(user.contraindication);
   }
 
-  Future<List<Exercise>?> getFilterdExcercises(BodyPart bodyPart, Goal goal) async {
+  /**
+   * Planerstellung: Lädt alle Übungen für eine bestimmte Körperregion (ohne Filterung nach Schwierigkeitsgrad).
+   */
+  Future<List<Exercise>?> getExercisesForPlanCreation(BodyPart bodyPart) async {
     final user = await userRepository.getUser();
     if (user == null) {
-      return api.fetchExercisesByParamsExcludeContraindications(bodyPart, goal, [], SkillLevel.intermediate);
+      return api.fetchExercisesForPlanCreation(bodyPart, []);
     }
+    return api.fetchExercisesForPlanCreation(bodyPart, user.contraindication);
+  }
 
-    final result = api.fetchExercisesByParamsExcludeContraindications(
+  /**
+   * Planempfehlung: Lädt Übungen für eine Körperregion und mehrere gewählte Trainingseffekte (List<Goal>).
+   */
+  Future<List<Exercise>?> getExercisesForRecommendation(
+    BodyPart bodyPart,
+    List<Goal> goals,
+  ) async {
+    final user = await userRepository.getUser();
+    if (user == null) {
+      return api.fetchExercisesForRecommendation(
+        bodyPart,
+        goals,
+        [],
+        SkillLevel.intermediate,
+      );
+    }
+    return api.fetchExercisesForRecommendation(
       bodyPart,
-      goal,
+      goals,
       user.contraindication,
       user.skillLevel,
     );
-    return result;
+  }
+
+  /// Veraltete Methode (wird durch getExercisesForRecommendation ersetzt).
+  /// für sicherheit falls es noch was von alten methoden aufgerufen wird .
+  Future<List<Exercise>?> getFilterdExcercises(
+    BodyPart bodyPart,
+    Goal goal,
+  ) async {
+    return getExercisesForRecommendation(bodyPart, [goal]);
   }
 
   /// Filtert eine Liste von Übungen lokal nach Körperregion, Trainingsziel und Suchbegriff .

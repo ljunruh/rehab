@@ -104,6 +104,9 @@ class _PlanCreateScreenState extends State<PlanCreateScreen> {
   bool get _canStep2 => _selectedExercises.isNotEmpty;
 
   void _next() {
+    if (_step == 1) {
+      context.read<ExerciseProvider>().loadForPlanCreation(_region);
+    }
     if (_step < 3) setState(() => _step++);
   }
 

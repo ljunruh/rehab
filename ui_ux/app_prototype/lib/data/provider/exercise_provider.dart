@@ -39,4 +39,21 @@ class ExerciseProvider extends ChangeNotifier {
     // 3. UI benachrichtigen, dass sich die Daten geändert haben
     notifyListeners();
   }
+
+  /// wir können da auch  cache und unser filter logik anwenden aber ich bin mir nicht sicher ob das gut ist ich lass das erst so wie es ist.
+  /// Lädt alle Übungen für eine ausgewählte Körperregion zur Planerstellung über das SPARQL-Query (ohne Difficulty-Filter).
+  Future<void> loadForPlanCreation(BodyPart bodyPart) async {
+    _exercises = await repo.getExercisesForPlanCreation(bodyPart) ?? [];
+    notifyListeners();
+  }
+
+  /// Lädt empfohlene Übungen für eine Körperregion und mehrere gewählte Trainingseffekte über das SPARQL-Query.
+  Future<void> loadForRecommendation(
+    BodyPart bodyPart,
+    List<Goal> goals,
+  ) async {
+    _exercises =
+        await repo.getExercisesForRecommendation(bodyPart, goals) ?? [];
+    notifyListeners();
+  }
 }
