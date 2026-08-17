@@ -16,7 +16,9 @@ class User {
   late int height;
 
   /// Isar-safe: Enum als String speichern, da List Enums zu komplex.
-  late List<String> contraindication;
+  late List<String> contraindications;
+  /// Isar-safe: Enum als String speichern, da List Enums zu komplex.
+  late List<String> joints;
 
   @enumerated
   late SkillLevel skillLevel;
@@ -56,7 +58,8 @@ class User {
     required this.age,
     required this.weight,
     required this.height,
-    required this.contraindication,
+    required this.contraindications,
+    required this.joints,
     required this.skillLevel,
 
     // ✅ optional UI fields mit Defaults
@@ -74,7 +77,8 @@ class User {
     int? age,
     int? weight,
     int? height,
-    List<String>? injury,
+    List<String>? contraindications,
+    List<String>? joints,
     SkillLevel? skillLevel,
 
     String? email,
@@ -90,7 +94,8 @@ class User {
       age: age ?? this.age,
       weight: weight ?? this.weight,
       height: height ?? this.height,
-      contraindication: injury ?? this.contraindication,
+      contraindications: contraindications ?? this.contraindications,
+      joints: joints ?? this.joints,
       skillLevel: skillLevel ?? this.skillLevel,
 
       email: email ?? this.email,

@@ -9,11 +9,14 @@ import 'package:app_prototype/data/enum/skill_level.dart';
 import '../models/api/exercise.dart';
 
 class ExerciseApi extends CoreApi {
+
+  final String exceptionExerciseSubClasses = "rehab:Mobilisation rehab:Relaxation rehab:Stretching";
   /**
    * Planerstellung: Gib alle Exercises zurück die die Problemzonen nicht beeinflussen.
    */
-  Future<List<Exercise>> fetchAllExercisesExcludeContraindications(List<String> contraindications) async {
-    String injuries = contraindications.map((e) => "rehab:$e").join(" ");
+  Future<List<Exercise>> fetchAllExercisesExcludeContraindications(List<String> contraindications, List<String> joints) async {
+    String complaints = contraindications.map((e) => "rehab:$e").join(" ");
+    String injuries = joints.map((e) => "rehab:$e").join(" ");
 
     final query =
     '''
@@ -40,34 +43,49 @@ WHERE {
               rehab:hasContraindication ?contraindication ;
               rehab:improves ?trainingsEffect ;
               rehab:engagedBodyPart ?bodyPart .
-
     ?contraindication a rehab:Contraindication .
     ?trainingsEffect a rehab:TrainingsEffect .
     ?bodyPart a rehab:BodyPart .
-
-    # Entfernt Übungen, deren Kontraindikationen mit den
-    # vom Benutzer angegebenen Einschränkungen kollidieren.
+    
+    # 1. Entfernt Übungen, die mit betroffenen Gelenken (Joints) kollidieren
     FILTER NOT EXISTS {
-        VALUES ?selectedContraindication { $injuries }
-        ?exercise rehab:hasContraindication ?selectedContraindication
+        VALUES ?selectedJoints { $injuries }
+    	# Stellt sicher, dass das ausgewählte Element ein Joint ist (Subclass von BodyPart)
+        ?selectedJoints a/rdfs:subClassOf* rehab:Joint .
+        ?exercise rehab:engagedBodyPart ?selectedJoints .
+    }
+  
+    # 2. Entfernt Übungen mit angegebenen Contraindications,
+    # AUSSER die Übung stammt von den Klassen Mobilisation, Relaxation oder Stretching ab.
+    FILTER NOT EXISTS {
+        VALUES ?selectedContraindication { $complaints }
+        ?exercise rehab:hasContraindication ?selectedContraindication .
+
+        # Ausnahmeregel: Wenn die Übung vom Typ (oder einer Subklasse von)
+        # Mobilisation, Relaxation oder Stretching ist, greift der Ausschluss NICHT.
+        FILTER NOT EXISTS {
+            VALUES ?exceptionClass { $exceptionExerciseSubClasses }
+            ?exercise a/rdfs:subClassOf* ?exceptionClass .
+        }
     }
 
-    # Pflichtfelder
+    # Übungen müssen diese Labels besitzen
     ?contraindication rdfs:label ?contraindicationLabel .
     ?trainingsEffect rdfs:label ?trainingsEffectLabel .
     ?bodyPart rdfs:label ?bodyPartLabel .
     ?exercise rehab:hasInstruction ?instruction ;
-  			  rehab:hasDuration ?duration ;
-    		  rdfs:label ?exerciseLabel ;
-    		  rdfs:comment ?description .
+              rehab:hasDuration ?duration ;
+              rdfs:label ?exerciseLabel ;
+              rdfs:comment ?description .
   
-  	FILTER(
-    LANGMATCHES(LANG(?contraindicationLabel), "en")	&&
-    LANGMATCHES(LANG(?trainingsEffectLabel), "en") &&
-    LANGMATCHES(LANG(?bodyPartLabel), "en") &&
-    LANGMATCHES(LANG(?exerciseLabel), "de") &&
-    LANGMATCHES(LANG(?description), "de")
-  )
+    # Labels sind mehrsprachig und werden auf die notwendige Sprache für die Datenverarbeitung beschränkt
+    FILTER(
+        LANGMATCHES(LANG(?contraindicationLabel), "en") &&
+        LANGMATCHES(LANG(?trainingsEffectLabel), "en") &&
+        LANGMATCHES(LANG(?bodyPartLabel), "en") &&
+        LANGMATCHES(LANG(?exerciseLabel), "de") &&
+        LANGMATCHES(LANG(?description), "de")
+    )
 
     # Optionale Zusatzinformationen
     OPTIONAL { ?exercise rehab:hasCorrectionGuidance ?correction }
@@ -76,8 +94,7 @@ WHERE {
 
     # Extrahiert den lokalen Namen der Difficulty-URI
     BIND(REPLACE(STR(?difficulty), "^.*[#/]", "") AS ?difficultyLabel)
-}
-GROUP BY
+} GROUP BY
     ?exercise
     ?exerciseLabel
     ?description
@@ -124,11 +141,12 @@ GROUP BY
   /**
    * Planempfehlung: Gib alle Exercises zurück die die Problemzonen nicht beeinflussen gefilter über Körperregion, Traingsziel und Schwierigkeitslevel.
    */
-  Future<List<Exercise>> fetchExercisesByParamsExcludeContraindications(BodyPart bodyPart, Goal goal, List<String> contraindications, SkillLevel skillLevel) async {
+  Future<List<Exercise>> fetchExercisesByParamsExcludeContraindications(BodyPart bodyPart, Goal goal, SkillLevel skillLevel, List<String> contraindications, List<String> joints) async {
     String difficulty = _getDifficulties(skillLevel);
     String goals = "rehab:${goal.labelEN}"; //Kann später zu mehr Goals erweitert werden
     String bodyParts = "rehab:${bodyPart.labelEN}"; //Kann später zu mehr BodyParts erweitert werden
-    String injuries = contraindications.map((e) => "rehab:$e").join(" ");
+    String complaints = contraindications.map((e) => "rehab:$e").join(" ");
+    String injuries = joints.map((e) => "rehab:$e").join(" ");
 
     final query = '''
 SELECT
@@ -165,28 +183,45 @@ WHERE {
     ?trainingsEffect a rehab:TrainingsEffect .
     ?bodyPart a rehab:BodyPart .
 
-    # Entfernt Übungen, die mit den angegebenen Contraindications kollidieren
+    # 1. Entfernt Übungen, die mit betroffenen Gelenken (Joints) kollidieren
     FILTER NOT EXISTS {
-        VALUES ?selectedContraindication { $injuries }
-        ?exercise rehab:hasContraindication ?selectedContraindication
+        VALUES ?selectedJoints { $injuries }
+    	# Stellt sicher, dass das ausgewählte Element ein Joint ist (Subclass von BodyPart)
+        ?selectedJoints a/rdfs:subClassOf* rehab:Joint .
+        ?exercise rehab:engagedBodyPart ?selectedJoints .
+    }
+  
+    # 2. Entfernt Übungen mit angegebenen Contraindications,
+    # AUSSER die Übung stammt von den Klassen Mobilisation, Relaxation oder Stretching ab.
+    FILTER NOT EXISTS {
+        VALUES ?selectedContraindication { $complaints }
+        ?exercise rehab:hasContraindication ?selectedContraindication .
+
+        # Ausnahmeregel: Wenn die Übung vom Typ (oder einer Subklasse von)
+        # Mobilisation, Relaxation oder Stretching ist, greift der Ausschluss NICHT.
+        FILTER NOT EXISTS {
+            VALUES ?exceptionClass { $exceptionExerciseSubClasses }
+            ?exercise a/rdfs:subClassOf* ?exceptionClass .
+        }
     }
 
-    # Pflichtfelder
+    # Übungen müssen diese Labels besitzen
     ?contraindication rdfs:label ?contraindicationLabel .
     ?trainingsEffect rdfs:label ?trainingsEffectLabel .
     ?bodyPart rdfs:label ?bodyPartLabel .
     ?exercise rehab:hasInstruction ?instruction ;
-  			  rehab:hasDuration ?duration ;
-    		  rdfs:label ?exerciseLabel ;
-    		  rdfs:comment ?description .
+              rehab:hasDuration ?duration ;
+              rdfs:label ?exerciseLabel ;
+              rdfs:comment ?description .
   
-  	FILTER(
-    LANGMATCHES(LANG(?contraindicationLabel), "en")	&&
-    LANGMATCHES(LANG(?trainingsEffectLabel), "en") &&
-    LANGMATCHES(LANG(?bodyPartLabel), "en") &&
-    LANGMATCHES(LANG(?exerciseLabel), "de") &&
-    LANGMATCHES(LANG(?description), "de")
-  )
+    # Labels sind mehrsprachig und werden auf die notwendige Sprache für die Datenverarbeitung beschränkt
+    FILTER(
+        LANGMATCHES(LANG(?contraindicationLabel), "en") &&
+        LANGMATCHES(LANG(?trainingsEffectLabel), "en") &&
+        LANGMATCHES(LANG(?bodyPartLabel), "en") &&
+        LANGMATCHES(LANG(?exerciseLabel), "de") &&
+        LANGMATCHES(LANG(?description), "de")
+    )
 
     # Optionale Zusatzinformationen
     OPTIONAL { ?exercise rehab:hasCorrectionGuidance ?correction }
@@ -195,9 +230,7 @@ WHERE {
 
     # Extrahiert den lokalen Namen der Difficulty-URI
     BIND(REPLACE(STR(?difficulty), "^.*[#/]", "") AS ?difficultyLabel)
-}
-
-GROUP BY
+} GROUP BY
     ?exercise
     ?exerciseLabel
     ?description

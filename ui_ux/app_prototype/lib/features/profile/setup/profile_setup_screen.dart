@@ -80,7 +80,7 @@ class _UserSetupScreenState extends State<UserSetupScreen> {
 
       _selectedContraindications
         ..clear()
-        ..addAll(user.contraindication.map((contraindication) => ContraindicationExt.fromString(contraindication)));
+        ..addAll(user.contraindications.map((contraindication) => ContraindicationExt.fromString(contraindication)));
     });
   }
 
@@ -110,7 +110,8 @@ class _UserSetupScreenState extends State<UserSetupScreen> {
       height: heightVal,
       weight: weightVal,
       skillLevel: skillLevel,
-      injuries: _selectedContraindications.map((contraindication) => contraindication.labelEN).toList(),
+      contraindications: _selectedContraindications.map((contraindication) => contraindication.labelEN).toList(),
+      joints: [] //TODO[API]: Anpassen wenn Joints Selection implementiert wurde
     );
 
     widget.onFinished();

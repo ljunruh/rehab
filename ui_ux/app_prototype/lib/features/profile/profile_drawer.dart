@@ -183,10 +183,10 @@ class _ProfileDrawerState extends State<ProfileDrawer>
                                     spacing: AppSpacing.sm,
                                     runSpacing: AppSpacing.sm,
                                     children: [
-                                      if ((user?.contraindication ?? []).isEmpty)
+                                      if ((user?.contraindications ?? []).isEmpty)
                                         const AppTag('Keine Einschränkungen', variant: TagVariant.goal)
                                       else
-                                        for (final injuryId in user!.contraindication)
+                                        for (final injuryId in user!.contraindications)
                                           AppTag(
                                             ContraindicationExt.fromString(injuryId).shortLabel,
                                             variant: TagVariant.goal,

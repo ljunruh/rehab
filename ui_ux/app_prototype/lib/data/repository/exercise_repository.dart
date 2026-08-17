@@ -15,23 +15,24 @@ class ExerciseRepository {
   Future<List<Exercise>?> getAll() async {
     final user = await userRepository.getUser();
     if (user == null) {
-      return api.fetchAllExercisesExcludeContraindications([]);
+      return api.fetchAllExercisesExcludeContraindications([], []);
     }
 
-    return api.fetchAllExercisesExcludeContraindications(user.contraindication);
+    return api.fetchAllExercisesExcludeContraindications(user.contraindications, user.joints);
   }
 
   Future<List<Exercise>?> getFilterdExcercises(BodyPart bodyPart, Goal goal) async {
     final user = await userRepository.getUser();
     if (user == null) {
-      return api.fetchExercisesByParamsExcludeContraindications(bodyPart, goal, [], SkillLevel.intermediate);
+      return api.fetchExercisesByParamsExcludeContraindications(bodyPart, goal, SkillLevel.intermediate, [], []);
     }
 
     final result = api.fetchExercisesByParamsExcludeContraindications(
       bodyPart,
       goal,
-      user.contraindication,
       user.skillLevel,
+      user.contraindications,
+      user.joints
     );
     return result;
   }

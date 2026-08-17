@@ -59,8 +59,8 @@ class _ProfileEditSheetState extends State<ProfileEditSheet> {
     _selectedGender = user?.gender ?? Gender.diverse;
     _selectedSkillLevel = user?.skillLevel ?? SkillLevel.beginner;
 
-    _selectedInjuries = List.from(user?.contraindication ?? [])
-        .map((e) => ContraindicationExt.fromString(e).labelDE)
+    _selectedInjuries = List.from(user?.contraindications ?? [])
+        .map((e) => ContraindicationExt.fromString(e).label)
         .toList();
   }
 
@@ -398,7 +398,7 @@ class _ProfileEditSheetState extends State<ProfileEditSheet> {
                 onPressed: () async {
                   final ontologyIds = _selectedInjuries.map((germanLabel) {
                     final contraindication = Contraindication.values.firstWhere(
-                          (e) => e.labelDE == germanLabel,
+                          (e) => e.label == germanLabel,
                       orElse: () => Contraindication.none,
                     );
                     return contraindication.labelEN;
@@ -412,7 +412,8 @@ class _ProfileEditSheetState extends State<ProfileEditSheet> {
                     height: int.tryParse(_heightCtrl.text) ?? user?.height ?? 0,
                     weight: int.tryParse(_weightCtrl.text) ?? user?.weight ?? 0,
                     skillLevel: _selectedSkillLevel,
-                    injuries: ontologyIds,
+                    contraindications: ontologyIds,
+                    joints: [] //TODO[API]: Anpassen wenn Joint Selection implementiert wurde
                   );
                   widget.onClose != null
                       ? widget.onClose!()
