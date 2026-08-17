@@ -60,7 +60,7 @@ class _ProfileEditSheetState extends State<ProfileEditSheet> {
     _selectedSkillLevel = user?.skillLevel ?? SkillLevel.beginner;
 
     _selectedInjuries = List.from(user?.contraindications ?? [])
-        .map((e) => ContraindicationExt.fromString(e).label)
+        .map((e) => ContraindicationExt.fromString(e).labelDE)
         .toList();
   }
 
@@ -398,7 +398,7 @@ class _ProfileEditSheetState extends State<ProfileEditSheet> {
                 onPressed: () async {
                   final ontologyIds = _selectedInjuries.map((germanLabel) {
                     final contraindication = Contraindication.values.firstWhere(
-                          (e) => e.label == germanLabel,
+                          (e) => e.labelDE == germanLabel,
                       orElse: () => Contraindication.none,
                     );
                     return contraindication.labelEN;
