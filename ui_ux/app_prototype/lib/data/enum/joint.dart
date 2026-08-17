@@ -1,7 +1,7 @@
 // Kopie aus Graphen (Joint)
 enum Joint {
   ankleJoint,
-  elbow,
+  elbowJoint,
   hipJoint,
   kneeJoint,
   neckJoint,
@@ -18,7 +18,7 @@ extension JointExt on Joint {
     switch (this) {
       case Joint.ankleJoint:
         return "Sprunggelenk";
-      case Joint.elbow:
+      case Joint.elbowJoint:
         return "Ellbogengelenk";
       case Joint.hipJoint:
         return "Hüftgelenk";
@@ -44,25 +44,25 @@ extension JointExt on Joint {
   String get labelEN {
     switch (this) {
       case Joint.ankleJoint:
-        return "Ankle joint";
-      case Joint.elbow:
-        return "Elbow joint";
+        return "AnkleJoint";
+      case Joint.elbowJoint:
+        return "ElbowJoint";
       case Joint.hipJoint:
-        return "Hip joint";
+        return "HipJoint";
       case Joint.kneeJoint:
-        return "Knee joint";
+        return "KneeJoint";
       case Joint.neckJoint:
-        return "Neck joint";
+        return "NeckJoint";
       case Joint.upperBackJoint:
         return "Upper back joints";
       case Joint.shoulderJoint:
-        return "Shoulder joint";
+        return "ShoulderJoint";
       case Joint.spineJoint:
-        return "Spine joint";
+        return "SpineJoint";
       case Joint.lowerBackJoint:
         return "Lower back joints";
       case Joint.wristJoint:
-        return "Wrist joint";
+        return "WristJoint";
       case Joint.none:
         return "None";
     }
@@ -74,7 +74,7 @@ extension JointExt on Joint {
       case "AnkleJoint":
         return Joint.ankleJoint;
       case "Elbow Joint":
-        return Joint.elbow;
+        return Joint.elbowJoint;
       case "HipJoint":
         return Joint.hipJoint;
       case "KneeJoint":

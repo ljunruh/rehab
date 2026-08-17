@@ -5,6 +5,7 @@ import '../../core/widgets/widgets.dart';
 import '../../data/demo/plan_options.dart';
 import '../../data/enum/contraindication.dart';
 import '../../data/enum/gender.dart';
+import '../../data/enum/joint.dart';
 import '../../data/enum/skill_level.dart';
 import '../../state/ui_state.dart';
 import 'mobility_level_sheet.dart';
@@ -44,7 +45,7 @@ class _ProfileEditSheetState extends State<ProfileEditSheet> {
   late TextEditingController _weightCtrl;
   late Gender _selectedGender;
   late SkillLevel _selectedSkillLevel;
-  late List<String> _selectedInjuries;
+  late List<String> _selectedJoints;
   bool _editingName = false;
 
   List<Contraindication> _allContraindications = [];
@@ -64,8 +65,10 @@ class _ProfileEditSheetState extends State<ProfileEditSheet> {
     _selectedGender = user?.gender ?? Gender.diverse;
     _selectedSkillLevel = user?.skillLevel ?? SkillLevel.beginner;
 
-    //_selectedInjuries = List.from(user?.joints ?? [])
-    //    .map((e) => ContraindicationExt.fromString(e).labelDE)
+    // Gelenke vom User laden und in deutsche Labels für den BodyMapSelector mappen
+    _selectedJoints = List.from(user?.joints ?? [])
+        .map((e) => JointExt.fromString(e).labelDE)
+        .toList();
 
     // Contraindications initialisieren
     _allContraindications = Contraindication.values
@@ -295,15 +298,6 @@ class _ProfileEditSheetState extends State<ProfileEditSheet> {
                   ],
                 ),
               ),
-              const SizedBox(height: AppSpacing.sm),
-              Center(
-                child: BodyMapSelector(
-                  selected: _selectedInjuries,
-                  onChanged: (nextInjuries) {
-                    setState(() {
-                      _selectedInjuries = nextInjuries;
-                ),
-              ), */
               const SizedBox(height: AppSpacing.lg),
               Text('NAME', style: AppText.micro),
               const SizedBox(height: AppSpacing.sm),
@@ -388,18 +382,23 @@ class _ProfileEditSheetState extends State<ProfileEditSheet> {
               ),
               const SizedBox(height: AppSpacing.lg),
 
-              Text('Beschwerdebereich', style: AppText.caption),
+              // Gelenke / Beschwerdebereich über BodyMapSelector
+              Text('Beschwerdebereich (Gelenke)', style: AppText.caption),
               const SizedBox(height: AppSpacing.sm),
               Center(
                 child: BodyMapSelector(
-                  selected: _selectedInjuries,
-                  onChanged: (nextInjuries) {
+                  selected: _selectedJoints,
+                  onChanged: (nextJoints) {
                     setState(() {
-                      _selectedInjuries = nextInjuries;
+                      _selectedJoints = nextJoints;
                     });
                   },
                 ),
               ),
+              const SizedBox(height: AppSpacing.lg),
+
+              // Akkordeon für Kontraindikationen / Beschwerden
+              _buildInjuriesSection(),
               const SizedBox(height: AppSpacing.lg),
 
               // MOBILITÄTSLEVEL
@@ -466,8 +465,12 @@ class _ProfileEditSheetState extends State<ProfileEditSheet> {
                       onPressed: () async {
                         final app = context.read<UiState>();
                         String initialKey = 'Niedrig';
-                        if (_selectedSkillLevel == SkillLevel.advanced) initialKey = 'Hoch';
-                        if (_selectedSkillLevel == SkillLevel.intermediate) initialKey = 'Mittel';
+                        if (_selectedSkillLevel == SkillLevel.advanced) {
+                          initialKey = 'Hoch';
+                        }
+                        if (_selectedSkillLevel == SkillLevel.intermediate) {
+                          initialKey = 'Mittel';
+                        }
                         app.updateProfile(app.profile.copyWith(mobility: initialKey));
 
                         await MobilityLevelSheet.show(context);
@@ -503,11 +506,20 @@ class _ProfileEditSheetState extends State<ProfileEditSheet> {
                     height: int.tryParse(_heightCtrl.text) ?? user?.height ?? 0,
                     weight: int.tryParse(_weightCtrl.text) ?? user?.weight ?? 0,
                     skillLevel: _selectedSkillLevel,
-                      //joints: [] //TODO[API]: Anpassen wenn Joint Selection implementiert wurde
+                    joints: _selectedJoints
+                        .map(
+                          (jDE) => Joint.values
+                          .firstWhere(
+                            (e) => e.labelDE == jDE,
+                        orElse: () => Joint.none,
+                      )
+                          .labelEN,
+                    )
+                        .where((jEN) => jEN.isNotEmpty)
+                        .toList(),
                     contraindications: _selectedContraindications
                         .map((c) => c.labelEN)
                         .toList(),
-                    joints: user?.joints ?? [],
                   );
                   widget.onClose != null
                       ? widget.onClose!()
@@ -540,10 +552,11 @@ class _ProfileEditSheetState extends State<ProfileEditSheet> {
                         TextButton(
                           onPressed: () async {
                             await context.read<UserProvider>().deleteUser();
-                            if (context.mounted)
+                            if (context.mounted) {
                               Navigator.of(
                                 ctx,
                               ).pushNamedAndRemoveUntil('/', (route) => false);
+                            }
                           },
                           child: const Text(
                             'Löschen',
