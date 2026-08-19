@@ -13,7 +13,7 @@ import 'settings_sheet.dart';
 import 'package:app_prototype/data/provider/user_provider.dart';
 import 'package:app_prototype/data/enum/skill_level.dart';
 import 'package:app_prototype/data/enum/contraindication.dart';
-import 'package:app_prototype/data/provider/plan_provider.dart';
+import 'package:app_prototype/data/enum/joint.dart';
 
 /// PERSON 4 — Profil-Drawer (fährt von rechts ein).
 ///
@@ -170,14 +170,34 @@ class _ProfileDrawerState extends State<ProfileDrawer>
                             ),
                             const SizedBox(height: AppSpacing.lg),
 
-                            // ── Info-Karte: Constrains + Aktive Trainingsbereiche + Mobilität ──
-                            // 1. Constrains
+                            // ── Info-Karte: Gelenke + Beschwerden + Aktive Trainingsbereiche + Mobilität ──
                             AppCard(
                               child: Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
-                                  Text('Beschwerdebereich',
-                                      style: AppText.caption),
+                                  // 1. Gelenke / Beschwerdebereiche (BodyMap)
+                                  Text('Beschwerdebereich (Gelenke)', style: AppText.caption),
+                                  const SizedBox(height: AppSpacing.sm),
+                                  Wrap(
+                                    spacing: AppSpacing.sm,
+                                    runSpacing: AppSpacing.sm,
+                                    children: [
+                                      if ((user?.joints ?? []).isEmpty)
+                                        const AppTag('Keine Gelenke ausgewählt', variant: TagVariant.goal)
+                                      else
+                                        for (final jointKey in user!.joints)
+                                          AppTag(
+                                            JointExt.fromString(jointKey).labelDE,
+                                            variant: TagVariant.goal,
+                                          ),
+                                    ],
+                                  ),
+                                  const SizedBox(height: AppSpacing.base),
+                                  const Divider(color: AppColors.beige, height: 1),
+                                  const SizedBox(height: AppSpacing.base),
+
+                                  // 2. Bestehende Beschwerden (Contraindications)
+                                  Text('Bestehende Beschwerden', style: AppText.caption),
                                   const SizedBox(height: AppSpacing.sm),
                                   Wrap(
                                     spacing: AppSpacing.sm,
@@ -197,7 +217,7 @@ class _ProfileDrawerState extends State<ProfileDrawer>
                                   const Divider(color: AppColors.beige, height: 1),
                                   const SizedBox(height: AppSpacing.base),
 
-                                  // 2. Aktive Trainingsbereiche
+                                  // 3. Aktive Trainingsbereiche
                                   Text('Aktive Trainingsbereiche', style: AppText.caption),
                                   const SizedBox(height: AppSpacing.sm),
                                   Consumer<PlanProvider>(
@@ -220,21 +240,20 @@ class _ProfileDrawerState extends State<ProfileDrawer>
                                       );
                                     },
                                   ),
-                                  // 3. Mobilitätslevel
+                                  // 4. Mobilitätslevel
                                   const SizedBox(height: AppSpacing.base),
-                                  const Divider(
-                                      color: AppColors.beige, height: 1),
+                                  const Divider(color: AppColors.beige, height: 1),
                                   const SizedBox(height: AppSpacing.base),
-                                  Text('Mobilitätslevel',
-                                      style: AppText.caption),
+                                  Text('Mobilitätslevel', style: AppText.caption),
                                   const SizedBox(height: AppSpacing.sm),
                                   AppTag(
-                                      user?.skillLevel == SkillLevel.advanced
-                                          ? 'Fortgeschritten'
-                                          : user?.skillLevel == SkillLevel.intermediate
-                                          ? 'Geübt'
-                                          : 'Anfänger',
-                                      variant: TagVariant.goal)
+                                    user?.skillLevel == SkillLevel.advanced
+                                        ? 'Fortgeschritten'
+                                        : user?.skillLevel == SkillLevel.intermediate
+                                        ? 'Geübt'
+                                        : 'Anfänger',
+                                    variant: TagVariant.goal,
+                                  )
                                 ],
                               ),
                             ),
@@ -345,8 +364,6 @@ class _ProfileDrawerState extends State<ProfileDrawer>
                                   ),
                                 )),
                             ],
-                            // „Profil löschen" entfernt: Team-Entscheidung —
-                            // kein Login/Konto, daher keine Profil-Löschung.
                           ],
                         ),
                       ),
