@@ -1,6 +1,7 @@
 import 'package:app_prototype/data/models/api/plan.dart';
 import 'package:app_prototype/data/provider/plan_log_exercise_provider.dart';
 import 'package:app_prototype/data/provider/plan_provider.dart';
+import 'package:app_prototype/data/provider/recipe_provider.dart';
 import 'package:app_prototype/data/provider/user_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -34,13 +35,18 @@ class HomeScreen extends StatelessWidget {
     final userProvider = context.watch<UserProvider>();
     final planProvider = context.watch<PlanProvider>();
     final planLogExerciseProvider = context.watch<PlanLogExerciseProvider>();
+    final recipeProvider = context.watch<RecipeProvider>();
 
     final user = userProvider.user!;
 
     // Ausgelagerte Daten aus dem Provider
-    final rings = planProvider.weeklyRings;
     final weeks = planLogExerciseProvider.weeklyStreak;
-    final tip = DemoData.tipForRegion(user.region);
+    final recipe = recipeProvider.currentRecipe;
+
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      if (!context.mounted) return;
+      context.read<RecipeProvider>().syncWithWeeklyStreak(weeks);
+    });
 
     return Container(
       color: AppColors.sageMid,
@@ -210,9 +216,12 @@ class HomeScreen extends StatelessWidget {
                           children: [
                             const SectionTitle('Tipp für heute'),
                             TipOfDayCard(
-                              title: tip.title,
-                              duration: tip.duration,
-                              body: tip.body,
+                              title: recipe?.displayTitle ?? 'Rezept noch gesperrt',
+                              duration: recipe?.displayDuration ?? 'Schließe eine Streak-Woche ab',
+                              body: recipe == null
+                                  ? 'Sobald du eine neue Wochenstreak erreichst, wird ein neues Rezept automatisch freigeschaltet.'
+                                  : '${recipe.hasDescription}\n\nWarum gut für dich:\n${recipe.hasHealthBenefit}',
+                              isUnlocked: recipe != null && weeks > 0,
                             ),
                           ],
                         ),

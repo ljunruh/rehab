@@ -14,7 +14,7 @@ class PlanLogExerciseProvider extends ChangeNotifier {
   List<PlanLogExercise> get allLogs => _allLogs;
   List<PlanLogExercise> _todayLogs = [];
   List<PlanLogExercise> get todayLogs => _todayLogs;
-  int _weeklyStreak = 1;
+  int _weeklyStreak = 0;
   int get weeklyStreak => _weeklyStreak;
 
   /// Lädt die heutigen Logs und berechnet den Streak basierend auf den aktiven Plänen neu
@@ -22,6 +22,8 @@ class PlanLogExerciseProvider extends ChangeNotifier {
     _allLogs = await repo.getAllLogs();
     _todayLogs = await repo.getLogsForDate(DateTime.now());
     _weeklyStreak = await repo.getWeeklyStreak(activePlans); // 👈 Hier übergeben
+    // TEMP: Test-Override, damit Recipe-Unlock in der App direkt pruefbar ist. _weeklyStreak dafür erhöhen
+    //_weeklyStreak = 0;
     notifyListeners();
   }
 
