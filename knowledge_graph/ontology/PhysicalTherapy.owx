@@ -543,6 +543,9 @@
         <NamedIndividual IRI="#BasketballShootingBaskets"/>
     </Declaration>
     <Declaration>
+        <NamedIndividual IRI="#Bauch"/>
+    </Declaration>
+    <Declaration>
         <NamedIndividual IRI="#BauchatmungInBauchlage"/>
     </Declaration>
     <Declaration>
@@ -3088,6 +3091,10 @@
         <NamedIndividual IRI="#BasketballShootingBaskets"/>
     </ClassAssertion>
     <ClassAssertion>
+        <Class IRI="#BodyPart"/>
+        <NamedIndividual IRI="#Bauch"/>
+    </ClassAssertion>
+    <ClassAssertion>
         <Class IRI="#Relaxation"/>
         <NamedIndividual IRI="#BauchatmungInBauchlage"/>
     </ClassAssertion>
@@ -3126,10 +3133,6 @@
     <ClassAssertion>
         <Class IRI="#Coordination"/>
         <NamedIndividual IRI="#BeinhebenImVierfuesslerstand"/>
-    </ClassAssertion>
-    <ClassAssertion>
-        <Class IRI="#BodyPart"/>
-        <NamedIndividual IRI="#Biceps"/>
     </ClassAssertion>
     <ClassAssertion>
         <Class IRI="#Muscle"/>
@@ -3744,10 +3747,6 @@
         <NamedIndividual IRI="#HamstringStretch"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="#BodyPart"/>
-        <NamedIndividual IRI="#Hamstrings"/>
-    </ClassAssertion>
-    <ClassAssertion>
         <Class IRI="#Muscle"/>
         <NamedIndividual IRI="#Hamstrings"/>
     </ClassAssertion>
@@ -4104,10 +4103,6 @@
         <NamedIndividual IRI="#OberkoerperrotationImStand"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="#BodyPart"/>
-        <NamedIndividual IRI="#Obliques"/>
-    </ClassAssertion>
-    <ClassAssertion>
         <Class IRI="#Muscle"/>
         <NamedIndividual IRI="#Obliques"/>
     </ClassAssertion>
@@ -4184,10 +4179,6 @@
         <NamedIndividual IRI="#ProgressiveMuskelentspannung"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="#BodyPart"/>
-        <NamedIndividual IRI="#Psoas"/>
-    </ClassAssertion>
-    <ClassAssertion>
         <Class IRI="#Strength"/>
         <NamedIndividual IRI="#PushUps"/>
     </ClassAssertion>
@@ -4214,10 +4205,6 @@
     <ClassAssertion>
         <Class IRI="#LimbAlignment"/>
         <NamedIndividual IRI="#Pyramid_Torso"/>
-    </ClassAssertion>
-    <ClassAssertion>
-        <Class IRI="#BodyPart"/>
-        <NamedIndividual IRI="#Quadriceps"/>
     </ClassAssertion>
     <ClassAssertion>
         <Class IRI="#Muscle"/>
@@ -5002,10 +4989,6 @@
     <ClassAssertion>
         <Class IRI="#LimbAlignment"/>
         <NamedIndividual IRI="#Triangle_Torso"/>
-    </ClassAssertion>
-    <ClassAssertion>
-        <Class IRI="#BodyPart"/>
-        <NamedIndividual IRI="#Triceps"/>
     </ClassAssertion>
     <ClassAssertion>
         <Class IRI="#Muscle"/>
@@ -5995,7 +5978,7 @@
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#hasContraindication"/>
         <NamedIndividual IRI="#ArmhebenImVierfuesslerstand"/>
-        <NamedIndividual IRI="#BackIssue"/>
+        <NamedIndividual IRI="#SpineIssue"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#hasDifficultyLevel"/>
@@ -6339,7 +6322,7 @@
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#hasContraindication"/>
         <NamedIndividual IRI="#BallkreisenAnDerWand"/>
-        <NamedIndividual IRI="#BackIssue"/>
+        <NamedIndividual IRI="#SpineIssue"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#hasDifficultyLevel"/>
@@ -6370,6 +6353,11 @@
         <ObjectProperty IRI="#requiresEquipment"/>
         <NamedIndividual IRI="#BallkreisenAnDerWand"/>
         <NamedIndividual IRI="#Erhöhung"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#partOf"/>
+        <NamedIndividual IRI="#Bauch"/>
+        <NamedIndividual IRI="#Core"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#engagedBodyPart"/>
@@ -6419,7 +6407,7 @@
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#hasContraindication"/>
         <NamedIndividual IRI="#BauchlageKobra"/>
-        <NamedIndividual IRI="#BackIssue"/>
+        <NamedIndividual IRI="#SpineIssue"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#hasDifficultyLevel"/>
@@ -6579,7 +6567,7 @@
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#hasContraindication"/>
         <NamedIndividual IRI="#BeideKnieZurBrust"/>
-        <NamedIndividual IRI="#BackIssue"/>
+        <NamedIndividual IRI="#SpineIssue"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#hasDifficultyLevel"/>
@@ -6694,7 +6682,7 @@
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#hasContraindication"/>
         <NamedIndividual IRI="#BirdDogAufDemGymnastikball"/>
-        <NamedIndividual IRI="#BackIssue"/>
+        <NamedIndividual IRI="#SpineIssue"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#hasDifficultyLevel"/>
@@ -6739,7 +6727,7 @@
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#hasContraindication"/>
         <NamedIndividual IRI="#BirdDogHalteuebung"/>
-        <NamedIndividual IRI="#BackIssue"/>
+        <NamedIndividual IRI="#SpineIssue"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#hasDifficultyLevel"/>
@@ -6899,7 +6887,7 @@
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#hasContraindication"/>
         <NamedIndividual IRI="#BrustdehnungAnDerWand"/>
-        <NamedIndividual IRI="#BackIssue"/>
+        <NamedIndividual IRI="#SpineIssue"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#hasDifficultyLevel"/>
@@ -6974,7 +6962,7 @@
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#hasContraindication"/>
         <NamedIndividual IRI="#BrustwirbelsaeulenDehnung"/>
-        <NamedIndividual IRI="#BackIssue"/>
+        <NamedIndividual IRI="#SpineIssue"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#hasDifficultyLevel"/>
@@ -7009,7 +6997,7 @@
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#hasContraindication"/>
         <NamedIndividual IRI="#BrustwirbelsaeulenMassageMitDerFaszienrolle"/>
-        <NamedIndividual IRI="#BackIssue"/>
+        <NamedIndividual IRI="#SpineIssue"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#hasDifficultyLevel"/>
@@ -7119,7 +7107,7 @@
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#hasContraindication"/>
         <NamedIndividual IRI="#BrustwirbelsaeulenRotationImVierfuesslerstand"/>
-        <NamedIndividual IRI="#BackIssue"/>
+        <NamedIndividual IRI="#SpineIssue"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#hasDifficultyLevel"/>
@@ -7159,7 +7147,7 @@
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#hasContraindication"/>
         <NamedIndividual IRI="#BrustwirbelsaeulenstreckungUeberDerFaszienrolle"/>
-        <NamedIndividual IRI="#BackIssue"/>
+        <NamedIndividual IRI="#SpineIssue"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#hasDifficultyLevel"/>
@@ -7199,7 +7187,7 @@
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#hasContraindication"/>
         <NamedIndividual IRI="#Buchoeffner"/>
-        <NamedIndividual IRI="#BackIssue"/>
+        <NamedIndividual IRI="#SpineIssue"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#hasDifficultyLevel"/>
@@ -9836,7 +9824,7 @@
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#hasContraindication"/>
         <NamedIndividual IRI="#DehnungDerHinterenOberschenkelmuskulatur"/>
-        <NamedIndividual IRI="#BackIssue"/>
+        <NamedIndividual IRI="#SpineIssue"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#hasDifficultyLevel"/>
@@ -10066,7 +10054,7 @@
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#hasContraindication"/>
         <NamedIndividual IRI="#DynamischeUmarmung"/>
-        <NamedIndividual IRI="#BackIssue"/>
+        <NamedIndividual IRI="#SpineIssue"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#hasDifficultyLevel"/>
@@ -10737,7 +10725,7 @@
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#hasContraindication"/>
         <NamedIndividual IRI="#EntspannungInDerKindhaltung"/>
-        <NamedIndividual IRI="#BackIssue"/>
+        <NamedIndividual IRI="#SpineIssue"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#hasDifficultyLevel"/>
@@ -10772,7 +10760,7 @@
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#hasContraindication"/>
         <NamedIndividual IRI="#EntspannungslageInRueckenlage"/>
-        <NamedIndividual IRI="#BackIssue"/>
+        <NamedIndividual IRI="#SpineIssue"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#hasDifficultyLevel"/>
@@ -10847,7 +10835,7 @@
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#hasContraindication"/>
         <NamedIndividual IRI="#FadenDurchDieNadel"/>
-        <NamedIndividual IRI="#BackIssue"/>
+        <NamedIndividual IRI="#SpineIssue"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#hasDifficultyLevel"/>
@@ -10933,11 +10921,6 @@
         <ObjectProperty IRI="#engagedBodyPart"/>
         <NamedIndividual IRI="#FaszienrolleRueckenWade"/>
         <NamedIndividual IRI="#LowerBack"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="#hasContraindication"/>
-        <NamedIndividual IRI="#FaszienrolleRueckenWade"/>
-        <NamedIndividual IRI="#BackIssue"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#hasContraindication"/>
@@ -12065,7 +12048,7 @@
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#hasContraindication"/>
         <NamedIndividual IRI="#GebetshaltungDehnung"/>
-        <NamedIndividual IRI="#BackIssue"/>
+        <NamedIndividual IRI="#SpineIssue"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#hasDifficultyLevel"/>
@@ -14049,7 +14032,7 @@
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#hasContraindication"/>
         <NamedIndividual IRI="#InnenrotationMitTheraband"/>
-        <NamedIndividual IRI="#BackIssue"/>
+        <NamedIndividual IRI="#SpineIssue"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#hasDifficultyLevel"/>
@@ -14122,7 +14105,7 @@
         </Annotation>
         <ObjectProperty IRI="#hasContraindication"/>
         <NamedIndividual IRI="#JumpingJacks"/>
-        <NamedIndividual IRI="#BackIssue"/>
+        <NamedIndividual IRI="#KneeIssue"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <Annotation>
@@ -14131,7 +14114,7 @@
         </Annotation>
         <ObjectProperty IRI="#hasContraindication"/>
         <NamedIndividual IRI="#JumpingJacks"/>
-        <NamedIndividual IRI="#KneeIssue"/>
+        <NamedIndividual IRI="#SpineIssue"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#hasDifficultyLevel"/>
@@ -15069,7 +15052,7 @@
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#hasContraindication"/>
         <NamedIndividual IRI="#KnieZurBrustDehnung"/>
-        <NamedIndividual IRI="#BackIssue"/>
+        <NamedIndividual IRI="#SpineIssue"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#hasDifficultyLevel"/>
@@ -15405,11 +15388,6 @@
         <ObjectProperty IRI="#engagedBodyPart"/>
         <NamedIndividual IRI="#LegRaise"/>
         <NamedIndividual IRI="#SpineJoint"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="#hasContraindication"/>
-        <NamedIndividual IRI="#LegRaise"/>
-        <NamedIndividual IRI="#BackIssue"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#hasContraindication"/>
@@ -16076,7 +16054,7 @@
         </Annotation>
         <ObjectProperty IRI="#hasContraindication"/>
         <NamedIndividual IRI="#MountainClimber"/>
-        <NamedIndividual IRI="#BackIssue"/>
+        <NamedIndividual IRI="#ShoulderIssue"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <Annotation>
@@ -16085,7 +16063,7 @@
         </Annotation>
         <ObjectProperty IRI="#hasContraindication"/>
         <NamedIndividual IRI="#MountainClimber"/>
-        <NamedIndividual IRI="#ShoulderIssue"/>
+        <NamedIndividual IRI="#SpineIssue"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <Annotation>
@@ -16359,7 +16337,7 @@
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#hasContraindication"/>
         <NamedIndividual IRI="#OberkoerperrotationImStand"/>
-        <NamedIndividual IRI="#BackIssue"/>
+        <NamedIndividual IRI="#SpineIssue"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#hasDifficultyLevel"/>
@@ -17240,7 +17218,7 @@
         </Annotation>
         <ObjectProperty IRI="#hasContraindication"/>
         <NamedIndividual IRI="#ProgressiveMuskelentspannung"/>
-        <NamedIndividual IRI="#BackIssue"/>
+        <NamedIndividual IRI="#SpineIssue"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#hasDifficultyLevel"/>
@@ -18474,7 +18452,7 @@
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#hasContraindication"/>
         <NamedIndividual IRI="#RotatorenmanschettenMassageMitBall"/>
-        <NamedIndividual IRI="#BackIssue"/>
+        <NamedIndividual IRI="#SpineIssue"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#hasDifficultyLevel"/>
@@ -18514,7 +18492,7 @@
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#hasContraindication"/>
         <NamedIndividual IRI="#RudernMitTheraband"/>
-        <NamedIndividual IRI="#BackIssue"/>
+        <NamedIndividual IRI="#SpineIssue"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#hasDifficultyLevel"/>
@@ -19264,11 +19242,6 @@
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#hasContraindication"/>
         <NamedIndividual IRI="#SealStretch"/>
-        <NamedIndividual IRI="#BackIssue"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="#hasContraindication"/>
-        <NamedIndividual IRI="#SealStretch"/>
         <NamedIndividual IRI="#LowerBackIssue"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
@@ -19334,7 +19307,7 @@
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#hasContraindication"/>
         <NamedIndividual IRI="#SegmentaleWirbelsaeulenbeugung"/>
-        <NamedIndividual IRI="#BackIssue"/>
+        <NamedIndividual IRI="#SpineIssue"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#hasDifficultyLevel"/>
@@ -19374,7 +19347,7 @@
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#hasContraindication"/>
         <NamedIndividual IRI="#SeitlicheRumpfdehnung"/>
-        <NamedIndividual IRI="#BackIssue"/>
+        <NamedIndividual IRI="#SpineIssue"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#hasDifficultyLevel"/>
@@ -19484,7 +19457,7 @@
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#hasContraindication"/>
         <NamedIndividual IRI="#SelbstmassageDesMusculusQuadratusLumborum"/>
-        <NamedIndividual IRI="#BackIssue"/>
+        <NamedIndividual IRI="#SpineIssue"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#hasDifficultyLevel"/>
@@ -20547,7 +20520,7 @@
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#hasContraindication"/>
         <NamedIndividual IRI="#SleeperDehnung"/>
-        <NamedIndividual IRI="#BackIssue"/>
+        <NamedIndividual IRI="#SpineIssue"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#hasDifficultyLevel"/>
@@ -20582,7 +20555,7 @@
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#hasContraindication"/>
         <NamedIndividual IRI="#SleeperMobilisation"/>
-        <NamedIndividual IRI="#BackIssue"/>
+        <NamedIndividual IRI="#SpineIssue"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#hasDifficultyLevel"/>
@@ -24096,7 +24069,7 @@
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#hasContraindication"/>
         <NamedIndividual IRI="#Tischgleiten"/>
-        <NamedIndividual IRI="#BackIssue"/>
+        <NamedIndividual IRI="#SpineIssue"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#hasDifficultyLevel"/>
@@ -25600,7 +25573,7 @@
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#hasContraindication"/>
         <NamedIndividual IRI="#WandgleitenMitArmabheben"/>
-        <NamedIndividual IRI="#BackIssue"/>
+        <NamedIndividual IRI="#SpineIssue"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#hasDifficultyLevel"/>
@@ -25640,7 +25613,7 @@
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#hasContraindication"/>
         <NamedIndividual IRI="#Wandschieben"/>
-        <NamedIndividual IRI="#BackIssue"/>
+        <NamedIndividual IRI="#SpineIssue"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#hasDifficultyLevel"/>
@@ -34546,6 +34519,21 @@ Langsam zur Mitte zurückkehren.
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#BasketballShootingBaskets</IRI>
         <Literal xml:lang="en">BasketballShootingBaskets</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Bauch</IRI>
+        <Literal xml:lang="de">Der Bauch ist der vordere Teil des Rumpfes zwischen Brustkorb und Becken.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Bauch</IRI>
+        <Literal xml:lang="de">Bauch</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Bauch</IRI>
+        <Literal xml:lang="en">Belly</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
