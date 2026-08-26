@@ -273,7 +273,7 @@ class _ProfileDrawerState extends State<ProfileDrawer>
                                   const _MenuDivider(),
                                   _MenuItem(
                                     icon: 'assets/icons/profile/lock-open-green.svg',
-                                    label: 'Vergangene Tages-Tipps',
+                                    label: 'Vergangene Rezepte',
                                     onTap: () =>
                                         PastTipsSheet.show(context),
                                   ),

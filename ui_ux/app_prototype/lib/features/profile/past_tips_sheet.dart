@@ -5,7 +5,7 @@ import 'package:provider/provider.dart';
 
 import '../../core/theme/app_theme.dart';
 
-/// "Vergangene Tages-Tipps" als Historie freigeschalteter Wochen-Rezepte.
+/// Historie der freigeschalteten Wochen-Rezepte.
 class PastTipsSheet extends StatelessWidget {
   const PastTipsSheet({super.key});
 
@@ -16,7 +16,9 @@ class PastTipsSheet extends StatelessWidget {
       isScrollControlled: true,
       constraints: const BoxConstraints(maxWidth: 380),
       shape: const RoundedRectangleBorder(
-        borderRadius: BorderRadius.vertical(top: Radius.circular(AppRadius.sheet)),
+        borderRadius: BorderRadius.vertical(
+          top: Radius.circular(AppRadius.sheet),
+        ),
       ),
       builder: (_) => const PastTipsSheet(),
     );
@@ -53,7 +55,7 @@ class PastTipsSheet extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text(
-                  'Vergangene Tages-Tipps',
+                  'Vergangene Rezepte',
                   style: AppText.screenTitle.copyWith(fontSize: 18),
                 ),
                 GestureDetector(
@@ -66,14 +68,18 @@ class PastTipsSheet extends StatelessWidget {
                       color: AppColors.offwhite,
                       borderRadius: BorderRadius.circular(AppRadius.iconSmall),
                     ),
-                    child: const Icon(Icons.close, size: 16, color: AppColors.text),
+                    child: const Icon(
+                      Icons.close,
+                      size: 16,
+                      color: AppColors.text,
+                    ),
                   ),
                 ),
               ],
             ),
             const SizedBox(height: AppSpacing.sm),
             Text(
-              'Hier findest du alle freigeschalteten Wochen-Rezepte, sortiert nach Freischaltdatum.',
+              'Hier findest du alle freigeschalteten Rezepte, sortiert nach Freischaltdatum.',
               style: AppText.caption.copyWith(height: 1.55),
             ),
             const SizedBox(height: AppSpacing.base),
@@ -135,7 +141,10 @@ class _RecipeHistoryCardState extends State<_RecipeHistoryCard> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 16,
+                  vertical: 14,
+                ),
                 child: Row(
                   children: [
                     Container(
@@ -146,23 +155,37 @@ class _RecipeHistoryCardState extends State<_RecipeHistoryCard> {
                         color: AppColors.mint,
                         borderRadius: BorderRadius.circular(10),
                       ),
-                      child: const Icon(Icons.restaurant_menu, size: 16, color: AppColors.sageDeep),
+                      child: const Icon(
+                        Icons.restaurant_menu,
+                        size: 16,
+                        color: AppColors.sageDeep,
+                      ),
                     ),
                     const SizedBox(width: AppSpacing.md),
                     Expanded(
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Text('FREIGESCHALTET ${_formatDate(recipe.unlockedAt)}', style: AppText.micro),
+                          Text(
+                            'FREIGESCHALTET ${_formatDate(recipe.unlockedAt)}',
+                            style: AppText.micro,
+                          ),
                           const SizedBox(height: 2),
-                          Text(recipe.displayTitle, style: AppText.cardTitle.copyWith(height: 1.3)),
+                          Text(
+                            recipe.displayTitle,
+                            style: AppText.cardTitle.copyWith(height: 1.3),
+                          ),
                         ],
                       ),
                     ),
                     AnimatedRotation(
                       turns: _open ? 0.25 : 0,
                       duration: AppMotion.standard,
-                      child: const Icon(Icons.chevron_right, size: 16, color: AppColors.textMuted),
+                      child: const Icon(
+                        Icons.chevron_right,
+                        size: 16,
+                        color: AppColors.textMuted,
+                      ),
                     ),
                   ],
                 ),
@@ -173,13 +196,27 @@ class _RecipeHistoryCardState extends State<_RecipeHistoryCard> {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text('Zubereitungszeit: ${recipe.displayDuration}', style: AppText.caption),
+                      Text(
+                        'Zubereitungszeit: ${recipe.displayDuration}',
+                        style: AppText.caption,
+                      ),
                       const SizedBox(height: AppSpacing.sm),
-                      Text(recipe.hasDescription, style: AppText.body.copyWith(height: 1.5)),
+                      Text(
+                        recipe.hasDescription,
+                        style: AppText.body.copyWith(height: 1.5),
+                      ),
                       const SizedBox(height: AppSpacing.md),
-                      Text('Gesundheitsvorteil', style: AppText.cardTitle.copyWith(fontWeight: FontWeight.w600)),
+                      Text(
+                        'Gesundheitsvorteil',
+                        style: AppText.cardTitle.copyWith(
+                          fontWeight: FontWeight.w600,
+                        ),
+                      ),
                       const SizedBox(height: AppSpacing.sm),
-                      Text(recipe.hasHealthBenefit, style: AppText.caption.copyWith(height: 1.55)),
+                      Text(
+                        recipe.hasHealthBenefit,
+                        style: AppText.caption.copyWith(height: 1.55),
+                      ),
                     ],
                   ),
                 ),

@@ -21,9 +21,9 @@ class PlanLogExerciseProvider extends ChangeNotifier {
   Future<void> loadTodayLogs({List<Plan> activePlans = const []}) async {
     _allLogs = await repo.getAllLogs();
     _todayLogs = await repo.getLogsForDate(DateTime.now());
-    _weeklyStreak = await repo.getWeeklyStreak(activePlans); // 👈 Hier übergeben
+    _weeklyStreak = await repo.getWeeklyStreak(activePlans); //  Hier übergeben
     // TEMP: Test-Override, damit Recipe-Unlock in der App direkt pruefbar ist. _weeklyStreak dafür erhöhen
-    //_weeklyStreak = 0;
+    //_weeklyStreak = 1;
     notifyListeners();
   }
 

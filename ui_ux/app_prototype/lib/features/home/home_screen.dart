@@ -73,8 +73,9 @@ class HomeScreen extends StatelessWidget {
                 Container(
                   decoration: const BoxDecoration(
                     color: AppColors.cream,
-                    borderRadius:
-                    BorderRadius.vertical(top: Radius.circular(28)),
+                    borderRadius: BorderRadius.vertical(
+                      top: Radius.circular(28),
+                    ),
                   ),
                   padding: const EdgeInsets.fromLTRB(0, 22, 0, 102),
                   child: Column(
@@ -83,7 +84,8 @@ class HomeScreen extends StatelessWidget {
                       // Starter-Karussell
                       Padding(
                         padding: const EdgeInsets.symmetric(
-                            horizontal: AppSpacing.screenH),
+                          horizontal: AppSpacing.screenH,
+                        ),
                         child: SectionTitle(
                           'Womit fängst du heute an?',
                           style: AppText.screenTitle.copyWith(
@@ -98,7 +100,8 @@ class HomeScreen extends StatelessWidget {
                       // Schmerz-Karussell
                       Padding(
                         padding: const EdgeInsets.symmetric(
-                            horizontal: AppSpacing.screenH),
+                          horizontal: AppSpacing.screenH,
+                        ),
                         child: SectionTitle(
                           'Wie geht es dir heute?',
                           style: AppText.screenTitle.copyWith(
@@ -113,113 +116,160 @@ class HomeScreen extends StatelessWidget {
                       // Wochenziel-Streifen
                       Padding(
                         padding: const EdgeInsets.symmetric(
-                            horizontal: AppSpacing.screenH),
+                          horizontal: AppSpacing.screenH,
+                        ),
                         child: Consumer<PlanProvider>(
                           builder: (context, provider, child) {
                             final currentRings = provider.weeklyRings;
 
                             return AppCard(
                               padding: const EdgeInsets.symmetric(
-                                  horizontal: 18, vertical: 16),
+                                horizontal: 18,
+                                vertical: 16,
+                              ),
                               child: currentRings.isEmpty
                                   ? const _EmptyRings()
                                   : Row(
-                                crossAxisAlignment: CrossAxisAlignment.center,
-                                children: [
-                                  ConcentricRings(rings: currentRings, size: 66),
-                                  const SizedBox(width: AppSpacing.lg),
-                                  Expanded(
-                                    child: Column(
-                                      crossAxisAlignment: CrossAxisAlignment.start,
-                                      mainAxisSize: MainAxisSize.min,
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.center,
                                       children: [
-                                        for (final r in currentRings)
-                                          Padding(
-                                            padding: const EdgeInsets.only(bottom: 5),
-                                            child: Row(
-                                              children: [
-                                                Container(
-                                                  width: 9,
-                                                  height: 9,
-                                                  decoration: BoxDecoration(
-                                                    color: r.color,
-                                                    shape: BoxShape.circle,
-                                                  ),
-                                                ),
-                                                const SizedBox(width: 8),
-                                                Expanded(
-                                                  child: Text(
-                                                    r.label,
-                                                    style: AppText.caption.copyWith(
-                                                      fontSize: 12.5,
-                                                      color: AppColors.text,
-                                                      fontWeight: FontWeight.w500,
-                                                    ),
-                                                    maxLines: 1,
-                                                    overflow: TextOverflow.ellipsis,
-                                                  ),
-                                                ),
-                                                Text(
-                                                  '${r.done}/${r.goal}',
-                                                  style: AppText.caption.copyWith(
-                                                    fontSize: 12.5,
-                                                    fontWeight: FontWeight.w600,
-                                                    color: r.done >= r.goal
-                                                        ? AppColors.sageDeep
-                                                        : AppColors.textSecondary,
-                                                  ),
-                                                ),
-                                              ],
-                                            ),
-                                          ),
-                                        const Padding(
-                                          padding: EdgeInsets.symmetric(vertical: 4),
-                                          child: Divider(color: AppColors.beige, height: 1),
+                                        ConcentricRings(
+                                          rings: currentRings,
+                                          size: 66,
                                         ),
-                                        const SizedBox(height: 6),
-                                        RichText(
-                                          text: TextSpan(
-                                            style: AppText.caption.copyWith(
-                                                color: AppColors.textSecondary),
+                                        const SizedBox(width: AppSpacing.lg),
+                                        Expanded(
+                                          child: Column(
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.start,
+                                            mainAxisSize: MainAxisSize.min,
                                             children: [
-                                              TextSpan(
-                                                text: '$weeks ',
-                                                style: AppText.caption.copyWith(
-                                                  fontSize: 14,
-                                                  fontWeight: FontWeight.w700,
-                                                  color: AppColors.sageDeep,
+                                              for (final r in currentRings)
+                                                Padding(
+                                                  padding:
+                                                      const EdgeInsets.only(
+                                                        bottom: 5,
+                                                      ),
+                                                  child: Row(
+                                                    children: [
+                                                      Container(
+                                                        width: 9,
+                                                        height: 9,
+                                                        decoration:
+                                                            BoxDecoration(
+                                                              color: r.color,
+                                                              shape: BoxShape
+                                                                  .circle,
+                                                            ),
+                                                      ),
+                                                      const SizedBox(width: 8),
+                                                      Expanded(
+                                                        child: Text(
+                                                          r.label,
+                                                          style: AppText.caption
+                                                              .copyWith(
+                                                                fontSize: 12.5,
+                                                                color: AppColors
+                                                                    .text,
+                                                                fontWeight:
+                                                                    FontWeight
+                                                                        .w500,
+                                                              ),
+                                                          maxLines: 1,
+                                                          overflow: TextOverflow
+                                                              .ellipsis,
+                                                        ),
+                                                      ),
+                                                      Text(
+                                                        '${r.done}/${r.goal}',
+                                                        style: AppText.caption
+                                                            .copyWith(
+                                                              fontSize: 12.5,
+                                                              fontWeight:
+                                                                  FontWeight
+                                                                      .w600,
+                                                              color:
+                                                                  r.done >=
+                                                                      r.goal
+                                                                  ? AppColors
+                                                                        .sageDeep
+                                                                  : AppColors
+                                                                        .textSecondary,
+                                                            ),
+                                                      ),
+                                                    ],
+                                                  ),
+                                                ),
+                                              const Padding(
+                                                padding: EdgeInsets.symmetric(
+                                                  vertical: 4,
+                                                ),
+                                                child: Divider(
+                                                  color: AppColors.beige,
+                                                  height: 1,
                                                 ),
                                               ),
-                                              TextSpan(
-                                                text: '${weeks == 1 ? 'Woche' : 'Wochen'} bist du schon dabei!',
+                                              const SizedBox(height: 6),
+                                              RichText(
+                                                text: TextSpan(
+                                                  style: AppText.caption
+                                                      .copyWith(
+                                                        color: AppColors
+                                                            .textSecondary,
+                                                      ),
+                                                  children: [
+                                                    TextSpan(
+                                                      text: '$weeks ',
+                                                      style: AppText.caption
+                                                          .copyWith(
+                                                            fontSize: 14,
+                                                            fontWeight:
+                                                                FontWeight.w700,
+                                                            color: AppColors
+                                                                .sageDeep,
+                                                          ),
+                                                    ),
+                                                    TextSpan(
+                                                      text:
+                                                          '${weeks == 1 ? 'Woche' : 'Wochen'} bist du schon dabei!',
+                                                    ),
+                                                  ],
+                                                ),
                                               ),
                                             ],
                                           ),
                                         ),
                                       ],
                                     ),
-                                  ),
-                                ],
-                              ),
                             );
                           },
                         ),
                       ),
                       const SizedBox(height: AppSpacing.sectionGap),
 
-                      // Tipp für heute
+                      // Rezept der Woche
                       Padding(
                         padding: const EdgeInsets.symmetric(
-                            horizontal: AppSpacing.screenH),
+                          horizontal: AppSpacing.screenH,
+                        ),
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            const SectionTitle('Tipp für heute'),
+                            const SectionTitle('Rezept der Woche'),
                             TipOfDayCard(
-                              title: recipe?.displayTitle ?? 'Rezept noch gesperrt',
-                              duration: recipe?.displayDuration ?? 'Schließe eine Streak-Woche ab',
+                              title:
+                                  recipe?.displayTitle ??
+                                  'Rezept noch gesperrt',
+                              duration:
+                                  recipe?.displayDuration ??
+                                  'Schließe eine Streak-Woche ab',
+                              lockedMessage: recipeProvider.history.isEmpty
+                                  ? 'Erreiche eine Wochenserie, um dein erstes Rezept freizuschalten.'
+                                  : 'Starte eine neue Serie, um weitere Rezepte freizuschalten.',
                               body: recipe == null
-                                  ? 'Sobald du eine neue Wochenstreak erreichst, wird ein neues Rezept automatisch freigeschaltet.'
+                                  ? recipeProvider.history.isEmpty
+                                        ? 'Erreiche eine Wochenserie, um dein erstes Rezept freizuschalten.'
+                                        : 'Starte eine neue Serie, um weitere Rezepte freizuschalten.'
                                   : '${recipe.hasDescription}\n\nWarum gut für dich:\n${recipe.hasHealthBenefit}',
                               isUnlocked: recipe != null && weeks > 0,
                             ),
@@ -237,10 +287,7 @@ class HomeScreen extends StatelessWidget {
           Positioned(
             top: MediaQuery.of(context).padding.top + 20,
             right: 24,
-            child: HeaderAvatar(
-              initials: user.initials,
-              onTap: onOpenProfile,
-            ),
+            child: HeaderAvatar(initials: user.initials, onTap: onOpenProfile),
           ),
           //TODO[API]: Test um WeeklyStreak zu simulieren und Fake Daten dafür anzulegen
           /*
