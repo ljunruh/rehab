@@ -17,12 +17,14 @@ class TipOfDayCard extends StatefulWidget {
   final String title;
   final String duration;
   final String body;
+  final bool isUnlocked;
 
   const TipOfDayCard({
     super.key,
     required this.title,
     required this.duration,
     required this.body,
+    required this.isUnlocked,
   });
 
   @override
@@ -32,9 +34,30 @@ class TipOfDayCard extends StatefulWidget {
 enum _TipPhase { locked, unlocked, open }
 
 class _TipOfDayCardState extends State<TipOfDayCard> {
-  _TipPhase _phase = _TipPhase.locked;
+  late _TipPhase _phase;
+
+  @override
+  void initState() {
+    super.initState();
+    _phase = widget.isUnlocked ? _TipPhase.unlocked : _TipPhase.locked;
+  }
+
+  @override
+  void didUpdateWidget(covariant TipOfDayCard oldWidget) {
+    super.didUpdateWidget(oldWidget);
+
+    if (oldWidget.isUnlocked != widget.isUnlocked && !widget.isUnlocked) {
+      _phase = _TipPhase.locked;
+    }
+
+    if (oldWidget.isUnlocked != widget.isUnlocked && widget.isUnlocked) {
+      _phase = _TipPhase.unlocked;
+    }
+  }
 
   void _handleTap() {
+    if (!widget.isUnlocked) return;
+
     setState(() {
       switch (_phase) {
         case _TipPhase.locked:

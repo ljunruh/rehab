@@ -71,7 +71,7 @@ class PlanLogExerciseRepository {
   /// sein Wochenziel (sessionsPerWeek) erreicht hat.
   Future<int> getWeeklyStreak(List<Plan> activePlans) async {
     final allLogs = await isar.planLogExercises.where().findAll();
-    if (allLogs.isEmpty || activePlans.isEmpty) return 1;
+    if (allLogs.isEmpty || activePlans.isEmpty) return 0;
 
     // 1. Gruppiere Logs nach "Jahr-Woche" UND "PlanID"
     // Map-Struktur: {'2026-30': {'plan_1': 3, 'plan_2': 1}}
@@ -140,7 +140,7 @@ class PlanLogExerciseRepository {
       }
     }
 
-    return streak > 0 ? streak : 1;
+    return streak > 0 ? streak : 0;
   }
 
   /// Ermittelt alle Pläne, die an einem bestimmten Tag vollständig absolviert wurden.

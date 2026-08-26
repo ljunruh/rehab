@@ -1635,7 +1635,7 @@ xsd:date rdf:type rdfs:Datatype .
                                               :Hip ,
                                               :LowerBack ,
                                               :Obliques ;
-                             :hasContraindication :BackIssue ;
+                             :hasContraindication :SpineIssue ;
                              :hasDifficultyLevel :Beginner ;
                              :improves :Coordination ,
                                        :Mobility ,
@@ -1926,7 +1926,7 @@ xsd:date rdf:type rdfs:Datatype .
                                :Coordination ;
                       :engagedBodyPart :Back ,
                                        :Spine ;
-                      :hasContraindication :BackIssue ;
+                      :hasContraindication :SpineIssue ;
                       :hasDifficultyLevel :Intermediate ;
                       :improves :Balance ,
                                 :Coordination ,
@@ -1972,6 +1972,15 @@ xsd:date rdf:type rdfs:Datatype .
                                       "BasketballShootingBaskets"@en .
 
 
+###  http://purl.org/PhysicalTherapy#Bauch
+:Bauch rdf:type owl:NamedIndividual ,
+                :BodyPart ;
+       :partOf :Core ;
+       rdfs:comment "Der Bauch ist der vordere Teil des Rumpfes zwischen Brustkorb und Becken."@de ;
+       rdfs:label "Bauch"@de ,
+                  "Belly"@en .
+
+
 ###  http://purl.org/PhysicalTherapy#BauchatmungInBauchlage
 :BauchatmungInBauchlage rdf:type owl:NamedIndividual ,
                                  :Relaxation ;
@@ -1999,7 +2008,7 @@ xsd:date rdf:type rdfs:Datatype .
                          :Strength ;
                 :engagedBodyPart :Core ,
                                  :LowerBack ;
-                :hasContraindication :BackIssue ;
+                :hasContraindication :SpineIssue ;
                 :hasDifficultyLevel :Intermediate ;
                 :improves :Posture ,
                           :Stability ,
@@ -2109,7 +2118,7 @@ xsd:date rdf:type rdfs:Datatype .
                             :Mobilisation ;
                    :engagedBodyPart :Back ,
                                     :Spine ;
-                   :hasContraindication :BackIssue ;
+                   :hasContraindication :SpineIssue ;
                    :hasDifficultyLevel :Beginner ;
                    :improves :Flexibility ,
                              :Mobility ;
@@ -2151,7 +2160,6 @@ xsd:date rdf:type rdfs:Datatype .
 
 ###  http://purl.org/PhysicalTherapy#Biceps
 :Biceps rdf:type owl:NamedIndividual ,
-                 :BodyPart ,
                  :Muscle ;
         :partOf :Arms ;
         rdfs:comment "Bizeps, der große Beugemuskel an der Vorderseite des Oberarms."@de ;
@@ -2209,7 +2217,7 @@ xsd:date rdf:type rdfs:Datatype .
                                      :Coordination ;
                             :engagedBodyPart :Core ,
                                              :LowerBack ;
-                            :hasContraindication :BackIssue ;
+                            :hasContraindication :SpineIssue ;
                             :hasDifficultyLevel :Advanced ;
                             :improves :Balance ,
                                       :Coordination ,
@@ -2233,7 +2241,7 @@ xsd:date rdf:type rdfs:Datatype .
                              :Coordination ;
                     :engagedBodyPart :Back ,
                                      :Spine ;
-                    :hasContraindication :BackIssue ;
+                    :hasContraindication :SpineIssue ;
                     :hasDifficultyLevel :Beginner ;
                     :improves :Coordination ,
                               :Mobility ,
@@ -2338,7 +2346,7 @@ xsd:date rdf:type rdfs:Datatype .
                                 :Stretching ;
                        :engagedBodyPart :Chest ,
                                         :Shoulders ;
-                       :hasContraindication :BackIssue ;
+                       :hasContraindication :SpineIssue ;
                        :hasDifficultyLevel :Beginner ;
                        :improves :Flexibility ,
                                  :Mobility ;
@@ -2383,7 +2391,7 @@ xsd:date rdf:type rdfs:Datatype .
                                     :Stretching ;
                            :engagedBodyPart :Spine ,
                                             :UpperBack ;
-                           :hasContraindication :BackIssue ;
+                           :hasContraindication :SpineIssue ;
                            :hasDifficultyLevel :Intermediate ;
                            :improves :Flexibility ,
                                      :Mobility ;
@@ -2405,7 +2413,7 @@ xsd:date rdf:type rdfs:Datatype .
                                                       :Relaxation ;
                                              :engagedBodyPart :Spine ,
                                                               :UpperBack ;
-                                             :hasContraindication :BackIssue ;
+                                             :hasContraindication :SpineIssue ;
                                              :hasDifficultyLevel :Intermediate ;
                                              :improves :Mobility ,
                                                        :Relaxation ;
@@ -2462,7 +2470,7 @@ xsd:date rdf:type rdfs:Datatype .
                                                         :Mobilisation ;
                                                :engagedBodyPart :Spine ,
                                                                 :UpperBack ;
-                                               :hasContraindication :BackIssue ;
+                                               :hasContraindication :SpineIssue ;
                                                :hasDifficultyLevel :Intermediate ;
                                                :improves :Flexibility ,
                                                          :Mobility ,
@@ -2492,7 +2500,7 @@ xsd:date rdf:type rdfs:Datatype .
                                                           :Mobilisation ;
                                                  :engagedBodyPart :Spine ,
                                                                   :UpperBack ;
-                                                 :hasContraindication :BackIssue ;
+                                                 :hasContraindication :SpineIssue ;
                                                  :hasDifficultyLevel :Intermediate ;
                                                  :improves :Flexibility ,
                                                            :Mobility ,
@@ -2515,7 +2523,7 @@ xsd:date rdf:type rdfs:Datatype .
                       :Mobilisation ;
              :engagedBodyPart :Spine ,
                               :UpperBack ;
-             :hasContraindication :BackIssue ;
+             :hasContraindication :SpineIssue ;
              :hasDifficultyLevel :Beginner ;
              :improves :Flexibility ,
                        :Mobility ,
@@ -5150,7 +5158,7 @@ xsd:date rdf:type rdfs:Datatype .
                                                    :Stretching ;
                                           :engagedBodyPart :Hamstrings ,
                                                            :Legs ;
-                                          :hasContraindication :BackIssue ;
+                                          :hasContraindication :SpineIssue ;
                                           :hasDifficultyLevel :Beginner ;
                                           :improves :Flexibility ,
                                                     :Mobility ;
@@ -5302,7 +5310,7 @@ xsd:date rdf:type rdfs:Datatype .
                              :Coordination ;
                     :engagedBodyPart :Chest ,
                                      :Shoulders ;
-                    :hasContraindication :BackIssue ;
+                    :hasContraindication :SpineIssue ;
                     :hasDifficultyLevel :Intermediate ;
                     :improves :Coordination ,
                               :Mobility ,
@@ -5941,7 +5949,7 @@ xsd:date rdf:type rdfs:Datatype .
                              :engagedBodyPart :Back ,
                                               :Hip ,
                                               :Shoulders ;
-                             :hasContraindication :BackIssue ;
+                             :hasContraindication :SpineIssue ;
                              :hasDifficultyLevel :Beginner ;
                              :improves :Mobility ,
                                        :Relaxation ;
@@ -5963,7 +5971,7 @@ xsd:date rdf:type rdfs:Datatype .
                                         :Relaxation ;
                                :engagedBodyPart :Back ,
                                                 :Core ;
-                               :hasContraindication :BackIssue ;
+                               :hasContraindication :SpineIssue ;
                                :hasDifficultyLevel :Beginner ;
                                :improves :Focus ,
                                          :Relaxation ;
@@ -6025,7 +6033,7 @@ xsd:date rdf:type rdfs:Datatype .
                              :Mobilisation ;
                     :engagedBodyPart :Spine ,
                                      :UpperBack ;
-                    :hasContraindication :BackIssue ;
+                    :hasContraindication :SpineIssue ;
                     :hasDifficultyLevel :Intermediate ;
                     :improves :Flexibility ,
                               :Mobility ,
@@ -6081,8 +6089,7 @@ xsd:date rdf:type rdfs:Datatype .
                                   :Relaxation ;
                          :engagedBodyPart :Calves ,
                                           :LowerBack ;
-                         :hasContraindication :BackIssue ,
-                                              :SpineIssue ;
+                         :hasContraindication :SpineIssue ;
                          :hasDifficultyLevel :Beginner ;
                          :improves :Flexibility ,
                                    :Mobility ,
@@ -7264,7 +7271,7 @@ xsd:date rdf:type rdfs:Datatype .
                                :Stretching ;
                       :engagedBodyPart :Back ,
                                        :Spine ;
-                      :hasContraindication :BackIssue ;
+                      :hasContraindication :SpineIssue ;
                       :hasDifficultyLevel :Beginner ;
                       :improves :Flexibility ,
                                 :Mobility ;
@@ -8578,7 +8585,6 @@ xsd:date rdf:type rdfs:Datatype .
 
 ###  http://purl.org/PhysicalTherapy#Hamstrings
 :Hamstrings rdf:type owl:NamedIndividual ,
-                     :BodyPart ,
                      :Muscle ;
             :partOf :Thighs ;
             rdfs:comment "Beinbeuger, die Muskelgruppe an der Rückseite des Oberschenkels."@de ;
@@ -9293,7 +9299,7 @@ xsd:date rdf:type rdfs:Datatype .
                                     :Strength ;
                            :engagedBodyPart :Back ,
                                             :Spine ;
-                           :hasContraindication :BackIssue ;
+                           :hasContraindication :SpineIssue ;
                            :hasDifficultyLevel :Beginner ;
                            :improves :Posture ,
                                      :Stability ,
@@ -9339,8 +9345,8 @@ xsd:date rdf:type rdfs:Datatype .
                                :Quadriceps ,
                                :Shoulders ;
               :hasContraindication :AnkleIssue ,
-                                   :BackIssue ,
-                                   :KneeIssue ;
+                                   :KneeIssue ,
+                                   :SpineIssue ;
               :hasDifficultyLevel :Beginner ;
               :improves :Balance ,
                         :Coordination ,
@@ -9369,14 +9375,14 @@ xsd:date rdf:type rdfs:Datatype .
 [ rdf:type owl:Axiom ;
    owl:annotatedSource :JumpingJacks ;
    owl:annotatedProperty :hasContraindication ;
-   owl:annotatedTarget :BackIssue ;
+   owl:annotatedTarget :KneeIssue ;
    rdfs:comment "This Contraindication should be considered for practitioners of JumpingJacks to avoid strain or injury."
  ] .
 
 [ rdf:type owl:Axiom ;
    owl:annotatedSource :JumpingJacks ;
    owl:annotatedProperty :hasContraindication ;
-   owl:annotatedTarget :KneeIssue ;
+   owl:annotatedTarget :SpineIssue ;
    rdfs:comment "This Contraindication should be considered for practitioners of JumpingJacks to avoid strain or injury."
  ] .
 
@@ -10112,7 +10118,7 @@ xsd:date rdf:type rdfs:Datatype .
 :KnieZurBrustDehnung rdf:type owl:NamedIndividual ;
                      :engagedBodyPart :Back ,
                                       :Spine ;
-                     :hasContraindication :BackIssue ;
+                     :hasContraindication :SpineIssue ;
                      :hasDifficultyLevel :Beginner ;
                      :improves :Flexibility ,
                                :Mobility ;
@@ -10325,8 +10331,7 @@ xsd:date rdf:type rdfs:Datatype .
                            :Quadriceps ,
                            :Spine ,
                            :SpineJoint ;
-          :hasContraindication :BackIssue ,
-                               :HipIssue ,
+          :hasContraindication :HipIssue ,
                                :LowerBackIssue ,
                                :SpineIssue ;
           :hasDifficultyLevel :Intermediate ;
@@ -10829,8 +10834,8 @@ xsd:date rdf:type rdfs:Datatype .
                                   :Quadriceps ,
                                   :Shoulders ,
                                   :Triceps ;
-                 :hasContraindication :BackIssue ,
-                                      :ShoulderIssue ,
+                 :hasContraindication :ShoulderIssue ,
+                                      :SpineIssue ,
                                       :WristIssue ;
                  :hasDifficultyLevel :Intermediate ;
                  :improves :Balance ,
@@ -10860,14 +10865,14 @@ xsd:date rdf:type rdfs:Datatype .
 [ rdf:type owl:Axiom ;
    owl:annotatedSource :MountainClimber ;
    owl:annotatedProperty :hasContraindication ;
-   owl:annotatedTarget :BackIssue ;
+   owl:annotatedTarget :ShoulderIssue ;
    rdfs:comment "This Contraindication should be considered for practitioners of MountainClimber to avoid strain or injury."
  ] .
 
 [ rdf:type owl:Axiom ;
    owl:annotatedSource :MountainClimber ;
    owl:annotatedProperty :hasContraindication ;
-   owl:annotatedTarget :ShoulderIssue ;
+   owl:annotatedTarget :SpineIssue ;
    rdfs:comment "This Contraindication should be considered for practitioners of MountainClimber to avoid strain or injury."
  ] .
 
@@ -11122,7 +11127,7 @@ Langsam zur Mitte zurückkehren.
                                      :Mobilisation ;
                             :engagedBodyPart :Spine ,
                                              :UpperBack ;
-                            :hasContraindication :BackIssue ;
+                            :hasContraindication :SpineIssue ;
                             :hasDifficultyLevel :Beginner ;
                             :improves :Flexibility ,
                                       :Mobility ,
@@ -11142,7 +11147,6 @@ Langsam zur Mitte zurückkehren.
 
 ###  http://purl.org/PhysicalTherapy#Obliques
 :Obliques rdf:type owl:NamedIndividual ,
-                   :BodyPart ,
                    :Muscle ;
           :isEngagedBy :Bruecke ,
                        :DeadBug ,
@@ -11855,7 +11859,7 @@ Langsam zur Mitte zurückkehren.
                                        :Relaxation ;
                               :engagedBodyPart :Abs ,
                                                :Core ;
-                              :hasContraindication :BackIssue ;
+                              :hasContraindication :SpineIssue ;
                               :hasDifficultyLevel :Beginner ;
                               :improves :Flexibility ,
                                         :Relaxation ;
@@ -11879,14 +11883,13 @@ Langsam zur Mitte zurückkehren.
 [ rdf:type owl:Axiom ;
    owl:annotatedSource :ProgressiveMuskelentspannung ;
    owl:annotatedProperty :hasContraindication ;
-   owl:annotatedTarget :BackIssue ;
+   owl:annotatedTarget :SpineIssue ;
    rdfs:comment "This Contraindication should be considered for practitioners of ProgressiveMuskelentspannung to avoid strain or injury."
  ] .
 
 
 ###  http://purl.org/PhysicalTherapy#Psoas
-:Psoas rdf:type owl:NamedIndividual ,
-                :BodyPart ;
+:Psoas rdf:type owl:NamedIndividual ;
        :partOf :Hip ;
        rdfs:comment "Hüftbeugemuskel, der tief im Bauchraum sitzt und die Hüfte beugt."@de ;
        rdfs:label "Hüftbeuger"@de ,
@@ -12444,7 +12447,6 @@ Langsam zur Mitte zurückkehren.
 
 ###  http://purl.org/PhysicalTherapy#Quadriceps
 :Quadriceps rdf:type owl:NamedIndividual ,
-                     :BodyPart ,
                      :Muscle ;
             :partOf :Thighs ;
             rdfs:comment "Quadrizeps, die große Muskelgruppe an der Vorderseite des Oberschenkels."@de ;
@@ -13201,7 +13203,7 @@ Langsam zur Mitte zurückkehren.
                                              :Relaxation ;
                                     :engagedBodyPart :Back ,
                                                      :Spine ;
-                                    :hasContraindication :BackIssue ;
+                                    :hasContraindication :SpineIssue ;
                                     :hasDifficultyLevel :Advanced ;
                                     :improves :Mobility ,
                                               :Relaxation ;
@@ -13224,7 +13226,7 @@ Langsam zur Mitte zurückkehren.
                              :Strength ;
                     :engagedBodyPart :Back ,
                                      :Spine ;
-                    :hasContraindication :BackIssue ;
+                    :hasContraindication :SpineIssue ;
                     :hasDifficultyLevel :Beginner ;
                     :improves :Posture ,
                               :Stability ,
@@ -13662,8 +13664,7 @@ Langsam zur Mitte zurückkehren.
                               :ShoulderJoint ,
                               :Spine ,
                               :SpineJoint ;
-             :hasContraindication :BackIssue ,
-                                  :LowerBackIssue ,
+             :hasContraindication :LowerBackIssue ,
                                   :SpineIssue ;
              :hasDifficultyLevel :Intermediate ;
              :improves :Flexibility ,
@@ -13695,7 +13696,7 @@ Langsam zur Mitte zurückkehren.
                                          :Mobilisation ;
                                 :engagedBodyPart :Spine ,
                                                  :UpperBack ;
-                                :hasContraindication :BackIssue ;
+                                :hasContraindication :SpineIssue ;
                                 :hasDifficultyLevel :Intermediate ;
                                 :improves :Flexibility ,
                                           :Mobility ,
@@ -13718,7 +13719,7 @@ Langsam zur Mitte zurückkehren.
                                 :Stretching ;
                        :engagedBodyPart :Back ,
                                         :Spine ;
-                       :hasContraindication :BackIssue ;
+                       :hasContraindication :SpineIssue ;
                        :hasDifficultyLevel :Beginner ;
                        :improves :Flexibility ,
                                  :Mobility ;
@@ -13785,7 +13786,7 @@ Langsam zur Mitte zurückkehren.
                                                     :Relaxation ;
                                            :engagedBodyPart :Core ,
                                                             :LowerBack ;
-                                           :hasContraindication :BackIssue ;
+                                           :hasContraindication :SpineIssue ;
                                            :hasDifficultyLevel :Beginner ;
                                            :improves :Mobility ,
                                                      :Relaxation ;
@@ -14712,7 +14713,7 @@ Langsam zur Mitte zurückkehren.
                          :Stretching ;
                 :engagedBodyPart :Back ,
                                  :Spine ;
-                :hasContraindication :BackIssue ;
+                :hasContraindication :SpineIssue ;
                 :hasDifficultyLevel :Intermediate ;
                 :improves :Flexibility ,
                           :Mobility ;
@@ -14734,7 +14735,7 @@ Langsam zur Mitte zurückkehren.
                               :Mobilisation ;
                      :engagedBodyPart :Back ,
                                       :Spine ;
-                     :hasContraindication :BackIssue ;
+                     :hasContraindication :SpineIssue ;
                      :hasDifficultyLevel :Intermediate ;
                      :improves :Flexibility ,
                                :Mobility ,
@@ -18422,7 +18423,7 @@ Langsam zur Mitte zurückkehren.
                        :Mobilisation ;
               :engagedBodyPart :Back ,
                                :Spine ;
-              :hasContraindication :BackIssue ;
+              :hasContraindication :SpineIssue ;
               :hasDifficultyLevel :Beginner ;
               :improves :Flexibility ,
                         :Mobility ,
@@ -19454,7 +19455,6 @@ Langsam zur Mitte zurückkehren.
 
 ###  http://purl.org/PhysicalTherapy#Triceps
 :Triceps rdf:type owl:NamedIndividual ,
-                  :BodyPart ,
                   :Muscle ;
          :partOf :Arms ;
          rdfs:comment "Trizeps, der Streckmuskel an der Rückseite des Oberarms."@de ;
@@ -19884,7 +19884,7 @@ Langsam zur Mitte zurückkehren.
                                    :Coordination ;
                           :engagedBodyPart :Back ,
                                            :Spine ;
-                          :hasContraindication :BackIssue ;
+                          :hasContraindication :SpineIssue ;
                           :hasDifficultyLevel :Intermediate ;
                           :improves :Coordination ,
                                     :Mobility ,
@@ -19907,7 +19907,7 @@ Langsam zur Mitte zurückkehren.
                        :Mobilisation ;
               :engagedBodyPart :Back ,
                                :Spine ;
-              :hasContraindication :BackIssue ;
+              :hasContraindication :SpineIssue ;
               :hasDifficultyLevel :Beginner ;
               :improves :Flexibility ,
                         :Mobility ,

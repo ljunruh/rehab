@@ -4,6 +4,7 @@ import 'package:app_prototype/data/models/api/app_state.dart';
 import 'package:app_prototype/data/models/api/plan.dart';
 import 'package:app_prototype/data/models/api/pain_log.dart';
 import 'package:app_prototype/data/models/api/plan_log_exercise.dart';
+import 'package:app_prototype/data/models/api/recipe.dart';
 import 'package:app_prototype/data/models/models.dart';
 import 'package:app_prototype/data/provider/calender_provider.dart';
 import 'package:app_prototype/data/provider/exercise_provider.dart';
@@ -11,13 +12,16 @@ import 'package:app_prototype/data/provider/pain_log_exercise_provider.dart';
 import 'package:app_prototype/data/provider/pain_log_provider.dart';
 import 'package:app_prototype/data/provider/plan_log_exercise_provider.dart';
 import 'package:app_prototype/data/provider/plan_provider.dart';
+import 'package:app_prototype/data/provider/recipe_provider.dart';
 import 'package:app_prototype/data/provider/user_provider.dart';
+import 'package:app_prototype/data/api/recipe_api.dart';
 import 'package:app_prototype/data/repository/app_state_repository.dart';
 import 'package:app_prototype/data/repository/exercise_repository.dart';
 import 'package:app_prototype/data/repository/pain_log_exercise_repository.dart';
 import 'package:app_prototype/data/repository/pain_log_repository.dart';
 import 'package:app_prototype/data/repository/plan_log_exercise_repository.dart';
 import 'package:app_prototype/data/repository/plan_repository.dart';
+import 'package:app_prototype/data/repository/recipe_repository.dart';
 import 'package:app_prototype/data/repository/user_repository.dart';
 import 'package:flutter/material.dart';
 import 'package:fvp/fvp.dart' as fvp;
@@ -47,6 +51,7 @@ void main() async {
       PainLogSchema,
       PainLogExerciseSchema,
       PlanLogExerciseSchema,
+      RecipeSchema,
     ],
     directory: appDir.path
   );
@@ -58,6 +63,7 @@ void main() async {
   final painLogRepository = PainLogRepository(isar);
   final painLogExerciseRepository = PainLogExerciseRepository(isar);
   final planLogExerciseRepository = PlanLogExerciseRepository(isar);
+  final recipeRepository = RecipeRepository(isar, api: RecipeApi());
 
   runApp(MultiProvider(
       providers: [
@@ -68,6 +74,7 @@ void main() async {
         ChangeNotifierProvider(create: (_) => PainLogProvider(painLogRepository)),
         ChangeNotifierProvider(create: (_) => PainLogExerciseProvider(painLogExerciseRepository)),
         ChangeNotifierProvider(create: (_) => PlanLogExerciseProvider(planLogExerciseRepository)),
+        ChangeNotifierProvider(create: (_) => RecipeProvider(recipeRepository)),
         ChangeNotifierProvider(create: (_) => CalendarProvider()),
       ],
       child: RehaApp()));
