@@ -11,9 +11,7 @@ import '../models/api/exercise.dart';
 class ExerciseApi extends CoreApi {
 
   final String exceptionExerciseSubClasses = "rehab:Mobilisation rehab:Relaxation rehab:Stretching";
-  /**
-   * Planerstellung: Gib alle Exercises zurück die die Problemzonen nicht beeinflussen.
-   */
+  //TODO[API]: Prüfen ob das noch gebraucht wird, da wir anscheinend immer bodypart, goal und skillLevel mit einbeziehen
   Future<List<Exercise>> fetchAllExercisesExcludeContraindications(List<String> contraindications, List<String> joints) async {
     String complaints = contraindications.map((e) => "rehab:$e").join(" ");
     String injuries = joints.map((e) => "rehab:$e").join(" ");
@@ -139,7 +137,8 @@ WHERE {
   }
 
   /**
-   * Planempfehlung: Gib alle Exercises zurück die die Problemzonen nicht beeinflussen gefilter über Körperregion, Traingsziel und Schwierigkeitslevel.
+   * Planempfehlung -erstellung: Gib alle Exercises zurück die die Problemzonen (Beschwerden und Gelenke) nicht beeinflussen
+   * gefilter über Körperregion, Traingsziel und Schwierigkeitslevel.
    */
   Future<List<Exercise>> fetchExercisesByParamsExcludeContraindications(BodyPart bodyPart, Goal goal, SkillLevel skillLevel, List<String> contraindications, List<String> joints) async {
     String difficulty = _getDifficulties(skillLevel);

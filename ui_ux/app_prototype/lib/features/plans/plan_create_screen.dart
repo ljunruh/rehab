@@ -105,7 +105,10 @@ class _PlanCreateScreenState extends State<PlanCreateScreen> {
 
   void _next() {
     if (_step == 1) {
-      context.read<ExerciseProvider>().loadForPlanCreation(_region);
+      context.read<ExerciseProvider>().loadAll(
+        bodyPart: _region,
+        goal: _goal,
+      );
     }
     if (_step < 3) setState(() => _step++);
   }
