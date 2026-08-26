@@ -73,7 +73,7 @@ extension JointExt on Joint {
     switch (value) {
       case "AnkleJoint":
         return Joint.ankleJoint;
-      case "Elbow Joint":
+      case "ElbowJoint":
         return Joint.elbowJoint;
       case "HipJoint":
         return Joint.hipJoint;
