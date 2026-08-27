@@ -2010,9 +2010,6 @@
         <NamedIndividual IRI="#SleepPositionAdjustment"/>
     </Declaration>
     <Declaration>
-        <NamedIndividual IRI="#SleeperDehnung"/>
-    </Declaration>
-    <Declaration>
         <NamedIndividual IRI="#SleeperMobilisation"/>
     </Declaration>
     <Declaration>
@@ -2464,9 +2461,6 @@
     </Declaration>
     <Declaration>
         <NamedIndividual IRI="#Triceps"/>
-    </Declaration>
-    <Declaration>
-        <NamedIndividual IRI="#TricepsStretch"/>
     </Declaration>
     <Declaration>
         <NamedIndividual IRI="#TricepsStretch_ShoulderIssue"/>
@@ -4692,10 +4686,6 @@
         <NamedIndividual IRI="#SleepPositionAdjustment"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="#Stretching"/>
-        <NamedIndividual IRI="#SleeperDehnung"/>
-    </ClassAssertion>
-    <ClassAssertion>
         <Class IRI="#Mobilisation"/>
         <NamedIndividual IRI="#SleeperMobilisation"/>
     </ClassAssertion>
@@ -5094,10 +5084,6 @@
     <ClassAssertion>
         <Class IRI="#Muscle"/>
         <NamedIndividual IRI="#Triceps"/>
-    </ClassAssertion>
-    <ClassAssertion>
-        <Class IRI="#Stretching"/>
-        <NamedIndividual IRI="#TricepsStretch"/>
     </ClassAssertion>
     <ClassAssertion>
         <Class IRI="#Relaxation"/>
@@ -10897,7 +10883,7 @@
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#requiresEquipment"/>
         <NamedIndividual IRI="#DynamischeUmarmung"/>
-        <NamedIndividual IRI="#None"/>
+        <NamedIndividual IRI="#Theraband"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#engagedBodyPart"/>
@@ -19954,11 +19940,6 @@
         <NamedIndividual IRI="#TherabandAussenrotation"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
-        <ObjectProperty IRI="#excludesExercise"/>
-        <NamedIndividual IRI="#RotatorCuffStrain"/>
-        <NamedIndividual IRI="#TricepsStretch"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
         <ObjectProperty IRI="#requiresImprovementOf"/>
         <NamedIndividual IRI="#RotatorCuffStrain"/>
         <NamedIndividual IRI="#RotatorCuffs"/>
@@ -20007,11 +19988,6 @@
         <ObjectProperty IRI="#excludesExercise"/>
         <NamedIndividual IRI="#RotatorCuffTear"/>
         <NamedIndividual IRI="#TherabandAussenrotation"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="#excludesExercise"/>
-        <NamedIndividual IRI="#RotatorCuffTear"/>
-        <NamedIndividual IRI="#TricepsStretch"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#excludesExercise"/>
@@ -22419,51 +22395,6 @@
         <ObjectProperty IRI="#severity"/>
         <NamedIndividual IRI="#SitzenStehen_KneeIssue"/>
         <NamedIndividual IRI="#MediumRisk"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="#engagedBodyPart"/>
-        <NamedIndividual IRI="#SleeperDehnung"/>
-        <NamedIndividual IRI="#Back"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="#engagedBodyPart"/>
-        <NamedIndividual IRI="#SleeperDehnung"/>
-        <NamedIndividual IRI="#Spine"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="#engagedBodyPart"/>
-        <NamedIndividual IRI="#SleeperDehnung"/>
-        <NamedIndividual IRI="#SpineJoint"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="#engagedBodyPart"/>
-        <NamedIndividual IRI="#SleeperDehnung"/>
-        <NamedIndividual IRI="#Torso"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="#hasContraindication"/>
-        <NamedIndividual IRI="#SleeperDehnung"/>
-        <NamedIndividual IRI="#SpineIssue"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="#hasDifficultyLevel"/>
-        <NamedIndividual IRI="#SleeperDehnung"/>
-        <NamedIndividual IRI="#Intermediate"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="#improves"/>
-        <NamedIndividual IRI="#SleeperDehnung"/>
-        <NamedIndividual IRI="#Flexibility"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="#improves"/>
-        <NamedIndividual IRI="#SleeperDehnung"/>
-        <NamedIndividual IRI="#Mobility"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="#requiresEquipment"/>
-        <NamedIndividual IRI="#SleeperDehnung"/>
-        <NamedIndividual IRI="#None"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#engagedBodyPart"/>
@@ -27269,65 +27200,6 @@
         <ObjectProperty IRI="#partOf"/>
         <NamedIndividual IRI="#Triceps"/>
         <NamedIndividual IRI="#Arms"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="#engagedBodyPart"/>
-        <NamedIndividual IRI="#TricepsStretch"/>
-        <NamedIndividual IRI="#Arms"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="#engagedBodyPart"/>
-        <NamedIndividual IRI="#TricepsStretch"/>
-        <NamedIndividual IRI="#ShoulderJoint"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="#engagedBodyPart"/>
-        <NamedIndividual IRI="#TricepsStretch"/>
-        <NamedIndividual IRI="#Shoulders"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="#engagedBodyPart"/>
-        <NamedIndividual IRI="#TricepsStretch"/>
-        <NamedIndividual IRI="#Triceps"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="#hasContraindication"/>
-        <NamedIndividual IRI="#TricepsStretch"/>
-        <NamedIndividual IRI="#Ellenbogenprobleme"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <Annotation>
-            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-            <Literal>This Contraindication should be considered for practitioners of TricepsStretch to avoid strain or injury.</Literal>
-        </Annotation>
-        <ObjectProperty IRI="#hasContraindication"/>
-        <NamedIndividual IRI="#TricepsStretch"/>
-        <NamedIndividual IRI="#ShoulderIssue"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="#hasDifficultyLevel"/>
-        <NamedIndividual IRI="#TricepsStretch"/>
-        <NamedIndividual IRI="#Beginner"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="#improves"/>
-        <NamedIndividual IRI="#TricepsStretch"/>
-        <NamedIndividual IRI="#Flexibility"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="#improves"/>
-        <NamedIndividual IRI="#TricepsStretch"/>
-        <NamedIndividual IRI="#Mobility"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="#requiresEquipment"/>
-        <NamedIndividual IRI="#TricepsStretch"/>
-        <NamedIndividual IRI="#None"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="#stretches"/>
-        <NamedIndividual IRI="#TricepsStretch"/>
-        <NamedIndividual IRI="#Triceps"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#forCondition"/>
@@ -34266,34 +34138,6 @@ Langsam zur Mitte zurückkehren.
     </DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="#hasCommonMistake"/>
-        <NamedIndividual IRI="#SleeperDehnung"/>
-        <Literal>Vermeide federnde Bewegungen und halte nicht die Luft an. Dehne nur so weit, wie es angenehm bleibt und keine Schmerzen verursacht.</Literal>
-    </DataPropertyAssertion>
-    <DataPropertyAssertion>
-        <DataProperty IRI="#hasCorrectionGuidance"/>
-        <NamedIndividual IRI="#SleeperDehnung"/>
-        <Literal>Atme ruhig weiter und halte die Position nur so weit, wie du ein deutliches, aber angenehmes Ziehen spürst.</Literal>
-    </DataPropertyAssertion>
-    <DataPropertyAssertion>
-        <DataProperty IRI="#hasDescription"/>
-        <NamedIndividual IRI="#SleeperDehnung"/>
-        <Literal>Dehnübung zur gezielten Verbesserung der Beweglichkeit im Bereich Rücken.</Literal>
-    </DataPropertyAssertion>
-    <DataPropertyAssertion>
-        <DataProperty IRI="#hasDuration"/>
-        <NamedIndividual IRI="#SleeperDehnung"/>
-        <Literal>1 Min</Literal>
-    </DataPropertyAssertion>
-    <DataPropertyAssertion>
-        <DataProperty IRI="#hasInstruction"/>
-        <NamedIndividual IRI="#SleeperDehnung"/>
-        <Literal>1. Geeignete Ausgangsposition einnehmen.
-2. Zielbereich langsam bis zu einem deutlichen, schmerzfreien Zug bewegen.
-3. Position halten.
-4. Langsam lösen und Seite wechseln.</Literal>
-    </DataPropertyAssertion>
-    <DataPropertyAssertion>
-        <DataProperty IRI="#hasCommonMistake"/>
         <NamedIndividual IRI="#SleeperMobilisation"/>
         <Literal>Vermeide zu große oder schwungvolle Bewegungen. Führe die Bewegung stattdessen kontrolliert Wirbel für Wirbel oder Grad für Grad aus.</Literal>
     </DataPropertyAssertion>
@@ -35046,23 +34890,6 @@ Langsam zur Mitte zurückkehren.
         <DataProperty IRI="#angle"/>
         <NamedIndividual IRI="#Triangle_Torso"/>
         <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#decimal">90.0</Literal>
-    </DataPropertyAssertion>
-    <DataPropertyAssertion>
-        <DataProperty IRI="#hasDuration"/>
-        <NamedIndividual IRI="#TricepsStretch"/>
-        <Literal>2 Min</Literal>
-    </DataPropertyAssertion>
-    <DataPropertyAssertion>
-        <DataProperty IRI="#hasInstruction"/>
-        <NamedIndividual IRI="#TricepsStretch"/>
-        <Literal>1. Aufrecht stehen oder aufrecht auf einem Stuhl sitzen, die Füße hüftbreit.
-2. Einen Arm seitlich am Körper hängen lassen, dann den Oberarm anheben und den Ellbogen beugen.
-3. Die Hand des angehobenen Arms auf den oberen Rücken legen, zwischen die Schulterblätter.
-4. Mit der anderen Hand sanft den angehobenen Ellbogen in Richtung Kopf ziehen.
-5. Den Nacken lang lassen, die Schulter entspannt nach unten halten und nicht hochziehen.
-6. Die Dehnung 20 bis 30 Sekunden halten und gleichmäßig weiteratmen.
-7. Den Arm langsam lösen und die Seite wechseln.
-8. Pro Seite 2 bis 3 Wiederholungen durchführen.</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="#hasCommonMistake"/>
@@ -38717,32 +38544,32 @@ Langsam zur Mitte zurückkehren.
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
         <IRI>#FaszienrolleRueckenWade</IRI>
-        <Literal xml:lang="de">Selbstmassage mit der Faszienrolle für Rücken und Waden zur Lockerung verspannter Muskulatur.</Literal>
+        <Literal xml:lang="de">Selbstmassage mit der Faszienrolle für Waden zur Lockerung verspannter Muskulatur.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#FaszienrolleRueckenWade</IRI>
-        <Literal xml:lang="en">FasciaRollerBackCalf</Literal>
+        <Literal xml:lang="en">FasciaRollerCalf</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#FaszienrolleRueckenWade</IRI>
-        <Literal xml:lang="de">Faszienrolle für Rücken und Waden</Literal>
+        <Literal xml:lang="de">Faszienrolle für Waden</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
         <IRI>#FaszienrolleRueckenWade_SpineIssue</IRI>
-        <Literal xml:lang="de">Hinweis auf Wirbelsäulen-Probleme, die bei FaszienrolleRueckenWade berücksichtigt werden sollten.</Literal>
+        <Literal xml:lang="de">Hinweis auf Waden-Probleme, die bei FaszienrolleWade berücksichtigt werden sollten.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#FaszienrolleRueckenWade_SpineIssue</IRI>
-        <Literal xml:lang="en">FasciaRollerBackCalf_SpineIssue</Literal>
+        <Literal xml:lang="en">FasciaRollerCalf_CalfIssue</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#FaszienrolleRueckenWade_SpineIssue</IRI>
-        <Literal xml:lang="de">Faszienrolle für Rücken und Waden: Wirbelsäulenproblem</Literal>
+        <Literal xml:lang="de">Faszienrolle für Waden: Wadenproblem</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
@@ -42647,12 +42474,12 @@ Langsam zur Mitte zurückkehren.
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#SchulterabduktionMitStab</IRI>
-        <Literal xml:lang="de">Schulterabduktion mit Stab</Literal>
+        <Literal xml:lang="de">Schultermobilisation mit Stab</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#SchulterabduktionMitStab</IRI>
-        <Literal xml:lang="en">Wand Assisted Abduction</Literal>
+        <Literal xml:lang="en">Wand Assisted Mobilization</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
@@ -43303,16 +43130,6 @@ Langsam zur Mitte zurückkehren.
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#SleepPositionAdjustment</IRI>
         <Literal xml:lang="en">SleepPositionAdjustment</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>#SleeperDehnung</IRI>
-        <Literal xml:lang="en">Sleeper Stretch</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>#SleeperDehnung</IRI>
-        <Literal xml:lang="de">Sleeper-Dehnung</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
@@ -45233,21 +45050,6 @@ Langsam zur Mitte zurückkehren.
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#Triceps</IRI>
         <Literal xml:lang="de">Trizeps</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-        <IRI>#TricepsStretch</IRI>
-        <Literal xml:lang="de">Dehnübung für den Trizeps an der Rückseite des Oberarms.</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>#TricepsStretch</IRI>
-        <Literal xml:lang="en">TricepsStretch</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>#TricepsStretch</IRI>
-        <Literal xml:lang="de">Trizepsdehnung</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
