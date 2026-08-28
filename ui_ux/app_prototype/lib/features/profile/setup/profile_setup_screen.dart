@@ -57,7 +57,7 @@ class _UserSetupScreenState extends State<UserSetupScreen> {
     setState(() {
       _filteredContraindications = _allContraindications
           .where((i) =>
-              i.label.toLowerCase().contains(query.toLowerCase()) ||
+              i.labelDE.toLowerCase().contains(query.toLowerCase()) ||
               i.description.toLowerCase().contains(query.toLowerCase()))
           .toList();
     });
@@ -80,7 +80,7 @@ class _UserSetupScreenState extends State<UserSetupScreen> {
 
       _selectedContraindications
         ..clear()
-        ..addAll(user.contraindication.map((contraindication) => ContraindicationExt.fromString(contraindication)));
+        ..addAll(user.contraindications.map((contraindication) => ContraindicationExt.fromString(contraindication)));
     });
   }
 
@@ -110,7 +110,8 @@ class _UserSetupScreenState extends State<UserSetupScreen> {
       height: heightVal,
       weight: weightVal,
       skillLevel: skillLevel,
-      injuries: _selectedContraindications.map((contraindication) => contraindication.labelEN).toList(),
+      contraindications: _selectedContraindications.map((contraindication) => contraindication.labelEN).toList(),
+      joints: [] //TODO[API]: Anpassen wenn Joints Selection implementiert wurde
     );
 
     widget.onFinished();
@@ -286,7 +287,7 @@ class _UserSetupScreenState extends State<UserSetupScreen> {
           .map(
             (i) => Chip(
               label: Text(
-                i.label,
+                i.labelDE,
                 style: AppText.caption.copyWith(color: AppColors.sageDeep),
               ),
               backgroundColor: AppColors.sageLight,

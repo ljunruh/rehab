@@ -2,7 +2,7 @@ import 'dart:math' as math;
 import 'package:flutter/material.dart';
 import '../../core/theme/app_theme.dart';
 import '../../core/widgets/widgets.dart';
-import '../../data/enum/contraindication.dart';
+import '../../data/enum/joint.dart';
 
 /// Interaktive Körper-Region-Auswahl (Vorderseite / Rückseite).
 ///
@@ -40,33 +40,28 @@ class _Region {
   const _Region(this.label, {this.back = false, required this.parts});
 }
 
-/// Regionen + Positionen
+/// Regionen + Positionen (nimmt joints label de)
+/// TODO richtig mappen sobald der richtige körper kommt
 const List<_Region> _kRegions = [
   // ── Vorderseite ──
-  // Atemwege am Brustkorb (vorher fälschlich auf Kopfhöhe).
-  _Region('Atemwegsproblem', parts: [_Part(98, 102, 44, 28, 14)]),
-  _Region('Schulterprobleme', parts: [_Part(66, 90, 32, 28, 14), _Part(142, 90, 32, 28, 14)]),
-  _Region('Rumpfmuskelschwäche', parts: [_Part(92, 128, 56, 40, 18)]),
-  _Region('Hüftprobleme', parts: [_Part(90, 216, 60, 34, 18)]),
-  _Region('Handgelenkprobleme', parts: [_Part(52, 196, 24, 24, 12), _Part(164, 196, 24, 24, 12)]),
-  // Knie/Sprunggelenk mittig auf die Beine gesetzt (vorher nach außen versetzt).
-  _Region('Knieschmerzen', parts: [_Part(92, 300, 28, 28, 14), _Part(120, 300, 28, 28, 14)]),
-  _Region('Sprunggelenkprobleme', parts: [_Part(94, 360, 24, 18, 9), _Part(122, 360, 24, 18, 9)]),
-  _Region('Gleichgewichtsprobleme', parts: [_Part(84, 392, 72, 20, 10)]),
+  _Region('Halswirbelsäule', parts: [_Part(106, 70, 28, 15, 8)]),
+  _Region('Schultergelenk', parts: [_Part(66, 90, 32, 28, 14), _Part(142, 90, 32, 28, 14)]),
+  _Region('Ellbogengelenk', parts: [_Part(52, 140, 24, 24, 12), _Part(164, 140, 24, 24, 12)]),
+  _Region('Obere rückengelenke', parts: [_Part(92, 128, 56, 40, 18)]),
+  _Region('Hüftgelenk', parts: [_Part(90, 216, 60, 34, 18)]),
+  _Region('Handgelenk', parts: [_Part(52, 196, 24, 24, 12), _Part(164, 196, 24, 24, 12)]),
+  _Region('Kniegelenk', parts: [_Part(92, 300, 28, 28, 14), _Part(120, 300, 28, 28, 14)]),
+  _Region('Sprunggelenk', parts: [_Part(94, 360, 24, 18, 9), _Part(122, 360, 24, 18, 9)]),
 
   // ── Rückseite ──
-  _Region('Nackenprobleme', back: true, parts: [_Part(106, 70, 28, 15, 8)]),
-  _Region('Schulterprobleme', back: true, parts: [_Part(66, 90, 32, 28, 14), _Part(142, 90, 32, 28, 14)]),
-  _Region('Probleme im oberen Rücken', back: true, parts: [_Part(92, 128, 56, 40, 18)]),
-  _Region('Rückenprobleme', back: true, parts: [_Part(92, 172, 56, 40, 18)]),
-  _Region('Probleme im unteren Rücken', back: true, parts: [_Part(90, 216, 60, 34, 18)]),
-  // Wirbelsäule: vertikal mittig auf der Rückseite (vorher horizontal auf der Vorderseite).
-  _Region('Wirbelsäulenprobleme', back: true, parts: [_Part(112, 92, 16, 128, 8)]),
-  _Region('Handgelenkprobleme', back: true, parts: [_Part(52, 196, 24, 24, 12), _Part(164, 196, 24, 24, 12)]),
-  // Oberschenkelrückseite: vertikal an den Oberschenkeln (vorher auf Kniehöhe).
-  _Region('Oberschenkelrückseiten-Beschwerden', back: true, parts: [_Part(92, 244, 28, 46, 12), _Part(120, 244, 28, 46, 12)]),
-  _Region('Sprunggelenkprobleme', back: true, parts: [_Part(94, 360, 24, 18, 9), _Part(122, 360, 24, 18, 9)]),
-  _Region('Gleichgewichtsprobleme', back: true, parts: [_Part(84, 392, 72, 20, 10)]),
+  _Region('Halswirbelsäule', back: true, parts: [_Part(106, 70, 28, 15, 8)]),
+  _Region('Schultergelenk', back: true, parts: [_Part(66, 90, 32, 28, 14), _Part(142, 90, 32, 28, 14)]),
+  _Region('Ellbogengelenk', back: true, parts: [_Part(52, 140, 24, 24, 12), _Part(164, 140, 24, 24, 12)]),
+  _Region('Obere rückengelenke', back: true, parts: [_Part(92, 128, 56, 40, 18)]),
+  _Region('Wirbelsäulengelenke', back: true, parts: [_Part(112, 92, 16, 128, 8)]),
+  _Region('Untere Rückengelenke', back: true, parts: [_Part(90, 216, 60, 34, 18)]),
+  _Region('Handgelenk', back: true, parts: [_Part(52, 196, 24, 24, 12), _Part(164, 196, 24, 24, 12)]),
+  _Region('Sprunggelenk', back: true, parts: [_Part(94, 360, 24, 18, 9), _Part(122, 360, 24, 18, 9)]),
 ];
 
 class _BodyMapSelectorState extends State<BodyMapSelector> {
@@ -124,15 +119,6 @@ class _BodyMapSelectorState extends State<BodyMapSelector> {
                       ),
                     ),
                   ),
-              // Bodenschatten-Label "Gleichgewicht"
-              const Positioned(
-                left: 0,
-                right: 0,
-                bottom: 0,
-                child: Center(
-                  child: Text('Gleichgewicht', style: AppText.micro),
-                ),
-              ),
             ],
           ),
         ),
@@ -152,12 +138,12 @@ class _BodyMapSelectorState extends State<BodyMapSelector> {
             children: [
               for (final s in widget.selected)
                 AppTag(
-                  ContraindicationExt.fromString(
-                    Contraindication.values.firstWhere(
-                          (e) => e.label == s,
-                      orElse: () => Contraindication.none,
+                  JointExt.fromString(
+                    Joint.values.firstWhere(
+                          (e) => e.labelDE == s,
+                      orElse: () => Joint.none,
                     ).labelEN,
-                  ).shortLabel,
+                  ).labelDE,
                   variant: TagVariant.goal,
                 ),
             ],
@@ -275,11 +261,8 @@ class _SilhouettePainter extends CustomPainter {
     // Beine
     canvas.drawRRect(rr(96, 224, 20, 156, 10), body);
     canvas.drawRRect(rr(124, 224, 20, 156, 10), body);
-    // Boden-Ellipse (Gleichgewicht)
-    canvas.drawOval(Rect.fromCenter(center: const Offset(120, 402), width: 84, height: 22),
-        Paint()..color = const Color(0x66D2E7E1));
 
-    // Smiley – nur auf der Vorderseite (Hinterkopf hat kein Gesicht)
+    // Smiley – nur auf der Vorderseite
     if (showFace) {
       final face = Paint()
         ..color = const Color(0xB31F4E47) // sageDeep ~70%

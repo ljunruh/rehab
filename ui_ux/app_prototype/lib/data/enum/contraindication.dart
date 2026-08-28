@@ -1,10 +1,8 @@
-// Kopie aus Graphen (Injury Class/Individuals)
+// Kopie aus Graphen (Contraindication)
 enum Contraindication {
   ankleIssue,
-  backIssue,
-  balanceIssue,
   coreWeakness,
-  hamstringIssue,
+  elbowIssue,
   hipIssue,
   kneeIssue,
   lowerBackIssue,
@@ -14,22 +12,18 @@ enum Contraindication {
   spineIssue,
   upperBackIssue,
   wristIssue,
-  none
+  none,
 }
 
 extension ContraindicationExt on Contraindication {
-  String get label {
+  String get labelDE {
     switch (this) {
       case Contraindication.ankleIssue:
         return "Sprunggelenkprobleme";
-      case Contraindication.backIssue:
-        return "Rückenprobleme";
-      case Contraindication.balanceIssue:
-        return "Gleichgewichtsprobleme";
       case Contraindication.coreWeakness:
         return "Rumpfmuskelschwäche";
-      case Contraindication.hamstringIssue:
-        return "Oberschenkelrückseiten-Beschwerden";
+      case Contraindication.elbowIssue:
+        return "Ellbogenprobleme";
       case Contraindication.hipIssue:
         return "Hüftprobleme";
       case Contraindication.kneeIssue:
@@ -57,14 +51,10 @@ extension ContraindicationExt on Contraindication {
     switch (this) {
       case Contraindication.ankleIssue:
         return "AnkleIssue";
-      case Contraindication.backIssue:
-        return "BackIssue";
-      case Contraindication.balanceIssue:
-        return "BalanceIssue";
       case Contraindication.coreWeakness:
         return "CoreWeakness";
-      case Contraindication.hamstringIssue:
-        return "HamstringIssue";
+      case Contraindication.elbowIssue:
+        return "ElbowIssue";
       case Contraindication.hipIssue:
         return "HipIssue";
       case Contraindication.kneeIssue:
@@ -92,14 +82,10 @@ extension ContraindicationExt on Contraindication {
     switch (this) {
       case Contraindication.ankleIssue:
         return _ankleIssueDesc;
-      case Contraindication.backIssue:
-        return _backIssueDesc;
-      case Contraindication.balanceIssue:
-        return _balanceIssueDesc;
       case Contraindication.coreWeakness:
         return _coreWeaknessDesc;
-      case Contraindication.hamstringIssue:
-        return _hamstringIssueDesc;
+      case Contraindication.elbowIssue:
+        return _elbowIssueDesc;
       case Contraindication.hipIssue:
         return _hipIssueDesc;
       case Contraindication.kneeIssue:
@@ -127,14 +113,10 @@ extension ContraindicationExt on Contraindication {
     switch (this) {
       case Contraindication.ankleIssue:
         return "Sprunggelenk";
-      case Contraindication.backIssue:
-        return "Rücken";
-      case Contraindication.balanceIssue:
-        return "Gleichgewicht";
       case Contraindication.coreWeakness:
         return "Rumpf";
-      case Contraindication.hamstringIssue:
-        return "Beinbeuger";
+      case Contraindication.elbowIssue:
+        return "Ellbogen";
       case Contraindication.hipIssue:
         return "Hüfte";
       case Contraindication.kneeIssue:
@@ -162,24 +144,20 @@ extension ContraindicationExt on Contraindication {
     switch (value) {
       case "AnkleIssue":
         return Contraindication.ankleIssue;
-      case "BackIssue":
-        return Contraindication.backIssue;
-      case "BalanceIssue":
-        return Contraindication.balanceIssue;
       case "CoreWeakness":
         return Contraindication.coreWeakness;
-      case "HamstringIssue":
-        return Contraindication.hamstringIssue;
+      case "ElbowIssue":
+        return Contraindication.elbowIssue;
       case "HipIssue":
         return Contraindication.hipIssue;
       case "KneeIssue":
         return Contraindication.kneeIssue;
       case "LowerBackIssue":
         return Contraindication.lowerBackIssue;
-      case "RespiratoryIssue":
-        return Contraindication.respiratoryIssue;
       case "NeckIssue":
         return Contraindication.neckIssue;
+      case "RespiratoryIssue":
+        return Contraindication.respiratoryIssue;
       case "ShoulderIssue":
         return Contraindication.shoulderIssue;
       case "SpineIssue":
@@ -194,21 +172,14 @@ extension ContraindicationExt on Contraindication {
   }
 }
 
-// Texte aus Ontologie Stand 25.07 von EN zu DE übersetzt.
 const String _ankleIssueDesc =
     "Instabilität, frühere Verletzung oder Schmerzen im Bereich der Sprunggelenke.";
-
-const String _backIssueDesc =
-    "Beschwerden oder Verletzungen im Rückenbereich, die Übungen einschränken können.";
-
-const String _balanceIssueDesc =
-    "Schwierigkeiten, das Gleichgewicht zu halten, etwa durch Schwindel oder Muskelschwäche.";
 
 const String _coreWeaknessDesc =
     "Schwäche der Rumpfmuskulatur, die Haltung und Stabilität beeinträchtigt.";
 
-const String _hamstringIssueDesc =
-    "Verspannung oder Schmerz in der hinteren Oberschenkelmuskulatur.";
+const String _elbowIssueDesc =
+    "Schmerzen, Instabilität oder Bewegungseinschränkungen im Bereich des Ellbogens.";  //andere description als die in der Ontologie
 
 const String _hipIssueDesc =
     "Steifigkeit, Fehlstellung oder Schmerzen im Bereich der Hüfte.";
