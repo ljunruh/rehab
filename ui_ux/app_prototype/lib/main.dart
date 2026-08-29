@@ -73,7 +73,7 @@ void main() async {
         ChangeNotifierProvider(create: (_) => PlanProvider(planRepo: planRepository, appStateRepo: appStateRepository)),
         ChangeNotifierProvider(create: (_) => PainLogProvider(painLogRepository)),
         ChangeNotifierProvider(create: (_) => PainLogExerciseProvider(painLogExerciseRepository)),
-        ChangeNotifierProvider(create: (_) => PlanLogExerciseProvider(planLogExerciseRepository)),
+        ChangeNotifierProvider(create: (_) => PlanLogExerciseProvider(planLogExerciseRepository, planRepository)),
         ChangeNotifierProvider(create: (_) => RecipeProvider(recipeRepository)),
         ChangeNotifierProvider(create: (_) => CalendarProvider()),
       ],
