@@ -1986,6 +1986,9 @@
         <NamedIndividual IRI="#Sitting"/>
     </Declaration>
     <Declaration>
+    <NamedIndividual IRI="#Sitzen"/>
+</Declaration>
+    <Declaration>
         <NamedIndividual IRI="#SitzenStehen"/>
     </Declaration>
     <Declaration>
@@ -3607,6 +3610,10 @@
         <Class IRI="#Schonungshinweis"/>
         <NamedIndividual IRI="#ErgonomicSitting"/>
     </ClassAssertion>
+    <ClassAssertion>
+    <Class IRI="#Schonungskategorie"/>
+    <NamedIndividual IRI="#Sitzen"/>
+</ClassAssertion>
     <ClassAssertion>
         <Class IRI="#Equipment"/>
         <NamedIndividual IRI="#Erhöhung"/>
@@ -11714,7 +11721,7 @@
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#hasDailyLifeCategory"/>
         <NamedIndividual IRI="#ErgonomicSitting"/>
-        <NamedIndividual IRI="#Sitting"/>
+        <NamedIndividual IRI="#Sitzen"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#engagedBodyPart"/>
@@ -35786,7 +35793,7 @@ Langsam zur Mitte zurückkehren.
     </ObjectPropertyDomain>
     <ObjectPropertyDomain>
         <ObjectProperty IRI="#hasDailyLifeCategory"/>
-        <Class IRI="#BodyPart"/>
+        <Class IRI="#Schonungshinweis"/>
     </ObjectPropertyDomain>
     <ObjectPropertyDomain>
         <ObjectProperty IRI="#hasDifficultyLevel"/>
