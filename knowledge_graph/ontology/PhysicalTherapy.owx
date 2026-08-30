@@ -227,6 +227,9 @@
     <Declaration>
     <Class IRI="#LaufenundGehen"/>
 </Declaration>
+<Declaration>
+    <Class IRI="#AufstehenundHinsetzen"/>
+</Declaration>
     <Declaration>
         <Class IRI="#UpperBackPain"/>
     </Declaration>
@@ -2975,6 +2978,10 @@
     </SubClassOf>
     <SubClassOf>
     <Class IRI="#LaufenundGehen"/>
+    <Class IRI="#Schonungskategorie"/>
+</SubClassOf>
+<SubClassOf>
+    <Class IRI="#AufstehenundHinsetzen"/>
     <Class IRI="#Schonungskategorie"/>
 </SubClassOf>
     <SubClassOf>
