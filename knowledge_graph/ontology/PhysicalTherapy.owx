@@ -225,6 +225,9 @@
         <Class IRI="#Treppensteigen"/>
     </Declaration>
     <Declaration>
+    <Class IRI="#LaufenundGehen"/>
+</Declaration>
+    <Declaration>
         <Class IRI="#UpperBackPain"/>
     </Declaration>
     <Declaration>
@@ -1988,6 +1991,9 @@
     <Declaration>
     <NamedIndividual IRI="#Sitzen"/>
 </Declaration>
+<Declaration>
+    <NamedIndividual IRI="#LaufenundGehen"/>
+</Declaration>
     <Declaration>
         <NamedIndividual IRI="#SitzenStehen"/>
     </Declaration>
@@ -2968,6 +2974,10 @@
         <Class IRI="#Schonungskategorie"/>
     </SubClassOf>
     <SubClassOf>
+    <Class IRI="#LaufenundGehen"/>
+    <Class IRI="#Schonungskategorie"/>
+</SubClassOf>
+    <SubClassOf>
         <Class IRI="#UpperBackPain"/>
         <Class IRI="#BackPain"/>
     </SubClassOf>
@@ -3613,6 +3623,10 @@
     <ClassAssertion>
     <Class IRI="#Schonungskategorie"/>
     <NamedIndividual IRI="#Sitzen"/>
+</ClassAssertion>
+<ClassAssertion>
+    <Class IRI="#Schonungskategorie"/>
+    <NamedIndividual IRI="#LaufenundGehen"/>
 </ClassAssertion>
     <ClassAssertion>
         <Class IRI="#Equipment"/>
