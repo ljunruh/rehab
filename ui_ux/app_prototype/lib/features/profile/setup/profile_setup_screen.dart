@@ -8,7 +8,7 @@ import 'package:provider/provider.dart';
 import '../../../core/theme/app_theme.dart';
 import '../../../core/widgets/widgets.dart';
 import '../../../state/ui_state.dart';
-import 'selectable_accordion.dart';
+import '../body_map_selector.dart';
 
 class UserSetupScreen extends StatefulWidget {
   final VoidCallback onFinished;
@@ -37,30 +37,15 @@ class _UserSetupScreenState extends State<UserSetupScreen> {
   Gender gender = Gender.male;
   SkillLevel skillLevel = SkillLevel.beginner;
 
-  List<Contraindication> _allContraindications = [];
-  List<Contraindication> _filteredContraindications = [];
   final List<Contraindication> _selectedContraindications= [];
 
   @override
   void initState() {
     super.initState();
 
-    _allContraindications = Contraindication.values.where((i) => i != Contraindication.none).toList();
-    _filteredContraindications = _allContraindications;
-
     if (widget.isEdit) {
       _loadUser();
     }
-  }
-
-  void _filterInjuries(String query) {
-    setState(() {
-      _filteredContraindications = _allContraindications
-          .where((i) =>
-              i.label.toLowerCase().contains(query.toLowerCase()) ||
-              i.description.toLowerCase().contains(query.toLowerCase()))
-          .toList();
-    });
   }
 
   Future<void> _loadUser() async {
@@ -267,65 +252,31 @@ class _UserSetupScreenState extends State<UserSetupScreen> {
     );
   }
 
-  Widget _buildInjurySummary() {
-    if (_selectedContraindications.isEmpty) {
-      return Text(
-        "Keine Einschränkungen ausgewählt.",
-        style: AppText.caption.copyWith(
-          color: AppColors.textMuted,
-          fontStyle: FontStyle.italic,
-        ),
-      );
-    }
-
-    return Wrap(
-      spacing: AppSpacing.sm,
-      runSpacing: AppSpacing.xs,
-      children: _allContraindications
-          .where((i) => _selectedContraindications.contains(i.name))
-          .map(
-            (i) => Chip(
-              label: Text(
-                i.label,
-                style: AppText.caption.copyWith(color: AppColors.sageDeep),
-              ),
-              backgroundColor: AppColors.sageLight,
-              side: BorderSide.none,
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(AppRadius.pill),
-              ),
-              deleteIconColor: AppColors.sageDeep,
-              onDeleted: () {
-                setState(() {
-                  _selectedContraindications.remove(i.name);
-                });
-              },
-            ),
-          )
-          .toList(),
-    );
-  }
-
   Widget _buildInjuriesSection() {
-    return SelectableAccordion<Contraindication>(
-      title: "Bestehende Beschwerden",
-      summary: _buildInjurySummary(),
-      items: _allContraindications,
-      filteredItems: _filteredContraindications,
-      onSearch: _filterInjuries,
+    final selectedLabels =
+        _selectedContraindications.map((c) => c.label).toList();
 
-      getTitle: (injury) => injury.shortLabel,
-      getSubtitle: (injury) => injury.description,
-      selectedItems: _selectedContraindications, // Erwartet jetzt das Set<Contraindication>
-      onSelectionChanged: (injury, selected) {
-        setState(() {
-          if (selected) {
-            _selectedContraindications.add(injury);
-          } else {
-            _selectedContraindications.remove(injury);
-          }
-        });
-      },
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        const Text("Bestehende Beschwerden", style: AppText.sectionHeader),
+        const SizedBox(height: AppSpacing.sm),
+        Center(
+          child: BodyMapSelector(
+            selected: selectedLabels,
+            onChanged: (nextLabels) {
+              setState(() {
+                _selectedContraindications
+                  ..clear()
+                  ..addAll(nextLabels.map((label) => Contraindication.values.firstWhere(
+                        (e) => e.label == label,
+                        orElse: () => Contraindication.none,
+                      )).where((c) => c != Contraindication.none));
+              });
+            },
+          ),
+        ),
+      ],
     );
   }
 
