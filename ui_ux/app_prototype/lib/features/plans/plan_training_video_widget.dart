@@ -1,11 +1,13 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:video_player/video_player.dart';
 
 class PlanTrainingVideoWidget extends StatefulWidget {
-  final String assetPath;
+  final String videoSource;
 
   // Der Key sorgt dafür, dass das Widget merkt, wenn sich die Exercise ändert!
-  const PlanTrainingVideoWidget({required this.assetPath, super.key});
+  const PlanTrainingVideoWidget({required this.videoSource, super.key});
 
   @override
   State<PlanTrainingVideoWidget> createState() => _PlanTrainingVideoWidgetState();
@@ -14,6 +16,7 @@ class PlanTrainingVideoWidget extends StatefulWidget {
 class _PlanTrainingVideoWidgetState extends State<PlanTrainingVideoWidget> {
   VideoPlayerController? _controller;
   Future<void>? _initializeVideoPlayerFuture;
+  bool _failed = false;
 
   @override
   void initState() {
@@ -26,19 +29,30 @@ class _PlanTrainingVideoWidgetState extends State<PlanTrainingVideoWidget> {
   @override
   void didUpdateWidget(covariant PlanTrainingVideoWidget oldWidget) {
     super.didUpdateWidget(oldWidget);
-    if (oldWidget.assetPath != widget.assetPath) {
+    if (oldWidget.videoSource != widget.videoSource) {
       _controller?.dispose();
+      _failed = false;
       _initVideo();
     }
   }
 
   void _initVideo() {
-    _controller = VideoPlayerController.asset(widget.assetPath);
+    final source = widget.videoSource;
+    final isNetwork = source.startsWith('http://') || source.startsWith('https://');
+    // Lokaler Dateipfad (z.B. für Tests mit LOCAL_VIDEO_DIR): weder http(s) noch
+    // ein relativer Asset-Pfad, sondern ein absoluter Pfad im Dateisystem.
+    final isLocalFile = !isNetwork && source.startsWith('/');
+    _controller = isNetwork
+        ? VideoPlayerController.networkUrl(Uri.parse(source))
+        : isLocalFile
+            ? VideoPlayerController.file(File(source))
+            : VideoPlayerController.asset(source);
     _initializeVideoPlayerFuture = _controller!.initialize().then((_) {
       _controller!.setLooping(true);
       setState(() {});
     }).catchError((error) {
       print("Video-Fehler: $error");
+      setState(() => _failed = true);
     });
   }
 
@@ -58,6 +72,24 @@ class _PlanTrainingVideoWidgetState extends State<PlanTrainingVideoWidget> {
       future: _initializeVideoPlayerFuture,
       builder: (context, snapshot) {
         if (snapshot.connectionState == ConnectionState.done) {
+          if (_failed) {
+            return Container(
+              height: 200,
+              alignment: Alignment.center,
+              decoration: BoxDecoration(
+                color: Colors.black12,
+                borderRadius: BorderRadius.circular(12),
+              ),
+              child: const Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Icon(Icons.videocam_off_outlined, size: 32, color: Colors.black45),
+                  SizedBox(height: 8),
+                  Text('Kein Video verfügbar', style: TextStyle(color: Colors.black54)),
+                ],
+              ),
+            );
+          }
           return GestureDetector(
             onTap: () {
               // Hier steuern wir das Abspielen per Klick auf das Video

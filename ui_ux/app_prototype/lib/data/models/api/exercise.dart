@@ -81,9 +81,28 @@ class Exercise {
       instructions: _splitTextByNumbers(json['instruction']?['value']),
       corrections: _toStringList(json['corrections']?['value']),
       mistakes: _toStringList(json['mistakes']?['value']),
-      video: 'assets/demo_video/Bodyweight_Squat_placeholder.mp4' //TODO[API]: Parsen wenn Onotlogie URL gesetzt hat
+      video: json['video']?['value'] ?? _buildVideoUrl(json['exercise']?['value'])
     );
     return exercise;
+  }
+
+  /// Für lokales Testen mit noch nicht hochgeladenen Videos, z.B.:
+  /// flutter run --dart-define=LOCAL_VIDEO_DIR=/Users/name/Developer/rehab-local-videos
+  /// Wenn gesetzt, werden Videos von dort geladen statt vom Video-Server.
+  static const String _localVideoDir = String.fromEnvironment('LOCAL_VIDEO_DIR');
+
+  /// Leitet aus dem lokalen Namen der Exercise-IRI (z.B. ".../PhysicalTherapy#Plank")
+  /// die Video-URL auf dem Video-Server ab (Schema: lowercase-name + .mp4).
+  /// Fällt auf das Platzhalter-Video zurück, solange kein Video-Server-Wert bekannt ist.
+  static String _buildVideoUrl(String? exerciseIri) {
+    if (exerciseIri == null || !exerciseIri.contains('#')) {
+      return 'assets/demo_video/Bodyweight_Squat_placeholder.mp4';
+    }
+    final slug = exerciseIri.split('#').last.toLowerCase();
+    if (_localVideoDir.isNotEmpty) {
+      return '$_localVideoDir/$slug.mp4';
+    }
+    return 'https://revia.mausnetz.com/video/$slug.mp4';
   }
 
   //TODO[API] Muss in ein CoreModel oder ModelService ausgelagert werden

@@ -13,6 +13,7 @@ import '../../data/models/models.dart';
 import '../../data/models/alltag_guide.dart';
 import '../../data/demo/alltag_data.dart';
 import '../../navigation/screen_header.dart';
+import '../../core/region_icons.dart';
 
 /// ┌──────────────────────────────────────────────────────────┐
 /// │  PERSON 2 — PLÄNE & TRAINING                              │
@@ -515,10 +516,17 @@ class _SwipeablePlanCardState extends State<_SwipeablePlanCard> {
                   Container(
                     width: 46,
                     height: 46,
+                    alignment: Alignment.center,
                     decoration: const BoxDecoration(
                       color: AppColors.mint,
                       shape: BoxShape.circle,
                     ),
+                    child: () {
+                      final icon = RegionIcons.forBodyPart(widget.plan.region);
+                      return icon == null
+                          ? null
+                          : SvgPicture.asset(icon, width: 26, height: 26);
+                    }(),
                   ),
                   const SizedBox(width: AppSpacing.md),
                   Expanded(

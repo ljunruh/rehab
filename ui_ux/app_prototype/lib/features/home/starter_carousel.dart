@@ -179,7 +179,7 @@ class _RegionBadge extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final icon = RegionIcons.of(region.name) ?? 'assets/icons/regions/ruecken.svg';
+    final icon = RegionIcons.of(region.name) ?? 'assets/icons/regions/back.svg';
     return SvgPicture.asset(icon, width: 52, height: 52);
   }
 }

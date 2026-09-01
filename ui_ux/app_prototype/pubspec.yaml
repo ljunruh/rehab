@@ -93,6 +93,7 @@ flutter:
     - assets/icons/regions/
     - assets/logo/
     - assets/demo_video/
+    - assets/body/
 
   # ── Inter lokal einbinden (optional) ──────────────────────────
   # Wenn ihr die Inter-Schrift als Asset mitliefern wollt (offline-fähig,
