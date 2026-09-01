@@ -1,5 +1,6 @@
 import 'package:app_prototype/data/enum/contraindication.dart';
 import 'package:app_prototype/data/enum/gender.dart';
+import 'package:app_prototype/data/enum/joint.dart';
 import 'package:app_prototype/data/enum/skill_level.dart';
 import 'package:app_prototype/data/provider/user_provider.dart';
 import 'package:flutter/material.dart';
@@ -9,6 +10,7 @@ import '../../../core/theme/app_theme.dart';
 import '../../../core/widgets/widgets.dart';
 import '../../../state/ui_state.dart';
 import '../body_map_selector.dart';
+import 'selectable_accordion.dart';
 
 class UserSetupScreen extends StatefulWidget {
   final VoidCallback onFinished;
@@ -37,15 +39,33 @@ class _UserSetupScreenState extends State<UserSetupScreen> {
   Gender gender = Gender.male;
   SkillLevel skillLevel = SkillLevel.beginner;
 
+  List<Contraindication> _allContraindications = [];
+  List<Contraindication> _filteredContraindications = [];
   final List<Contraindication> _selectedContraindications= [];
+
+  // Gelenke / Beschwerdebereich über BodyMapSelector (deutsche Joint-Labels).
+  List<String> _selectedJoints = [];
 
   @override
   void initState() {
     super.initState();
 
+    _allContraindications = Contraindication.values.where((i) => i != Contraindication.none).toList();
+    _filteredContraindications = _allContraindications;
+
     if (widget.isEdit) {
       _loadUser();
     }
+  }
+
+  void _filterInjuries(String query) {
+    setState(() {
+      _filteredContraindications = _allContraindications
+          .where((i) =>
+              i.labelDE.toLowerCase().contains(query.toLowerCase()) ||
+              i.description.toLowerCase().contains(query.toLowerCase()))
+          .toList();
+    });
   }
 
   Future<void> _loadUser() async {
@@ -65,7 +85,12 @@ class _UserSetupScreenState extends State<UserSetupScreen> {
 
       _selectedContraindications
         ..clear()
-        ..addAll(user.contraindication.map((contraindication) => ContraindicationExt.fromString(contraindication)));
+        ..addAll(user.contraindications.map((contraindication) => ContraindicationExt.fromString(contraindication)));
+
+      // Gelenke vom User laden und in deutsche Labels für den BodyMapSelector mappen
+      _selectedJoints = List.from(user.joints)
+          .map((e) => JointExt.fromString(e).labelDE)
+          .toList();
     });
   }
 
@@ -95,7 +120,16 @@ class _UserSetupScreenState extends State<UserSetupScreen> {
       height: heightVal,
       weight: weightVal,
       skillLevel: skillLevel,
-      injuries: _selectedContraindications.map((contraindication) => contraindication.labelEN).toList(),
+      contraindications: _selectedContraindications.map((contraindication) => contraindication.labelEN).toList(),
+      joints: _selectedJoints
+          .map((jDE) => Joint.values
+              .firstWhere(
+                (e) => e.labelDE == jDE,
+                orElse: () => Joint.none,
+              )
+              .labelEN)
+          .where((id) => id != "None")
+          .toList(),
     );
 
     widget.onFinished();
@@ -252,31 +286,88 @@ class _UserSetupScreenState extends State<UserSetupScreen> {
     );
   }
 
-  Widget _buildInjuriesSection() {
-    final selectedLabels =
-        _selectedContraindications.map((c) => c.label).toList();
-
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        const Text("Bestehende Beschwerden", style: AppText.sectionHeader),
-        const SizedBox(height: AppSpacing.sm),
-        Center(
-          child: BodyMapSelector(
-            selected: selectedLabels,
-            onChanged: (nextLabels) {
-              setState(() {
-                _selectedContraindications
-                  ..clear()
-                  ..addAll(nextLabels.map((label) => Contraindication.values.firstWhere(
-                        (e) => e.label == label,
-                        orElse: () => Contraindication.none,
-                      )).where((c) => c != Contraindication.none));
-              });
-            },
+  Widget _buildBodyMapSection() {
+    return Padding(
+      padding: const EdgeInsets.only(bottom: AppSpacing.lg),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text('Beschwerdebereich (Gelenke)', style: AppText.caption),
+          const SizedBox(height: AppSpacing.sm),
+          Center(
+            child: BodyMapSelector(
+              selected: _selectedJoints,
+              onChanged: (nextJoints) {
+                setState(() {
+                  _selectedJoints = nextJoints;
+                });
+              },
+            ),
           ),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildInjurySummary() {
+    if (_selectedContraindications.isEmpty) {
+      return Text(
+        "Keine Einschränkungen ausgewählt.",
+        style: AppText.caption.copyWith(
+          color: AppColors.textMuted,
+          fontStyle: FontStyle.italic,
         ),
-      ],
+      );
+    }
+
+    return Wrap(
+      spacing: AppSpacing.sm,
+      runSpacing: AppSpacing.xs,
+      children: _allContraindications
+          .where((i) => _selectedContraindications.contains(i))
+          .map(
+            (i) => Chip(
+              label: Text(
+                i.labelDE,
+                style: AppText.caption.copyWith(color: AppColors.sageDeep),
+              ),
+              backgroundColor: AppColors.sageLight,
+              side: BorderSide.none,
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(AppRadius.pill),
+              ),
+              deleteIconColor: AppColors.sageDeep,
+              onDeleted: () {
+                setState(() {
+                  _selectedContraindications.remove(i);
+                });
+              },
+            ),
+          )
+          .toList(),
+    );
+  }
+
+  Widget _buildInjuriesSection() {
+    return SelectableAccordion<Contraindication>(
+      title: "Bestehende Beschwerden",
+      summary: _buildInjurySummary(),
+      items: _allContraindications,
+      filteredItems: _filteredContraindications,
+      onSearch: _filterInjuries,
+
+      getTitle: (injury) => injury.shortLabel,
+      getSubtitle: (injury) => injury.description,
+      selectedItems: _selectedContraindications,
+      onSelectionChanged: (injury, selected) {
+        setState(() {
+          if (selected) {
+            _selectedContraindications.add(injury);
+          } else {
+            _selectedContraindications.remove(injury);
+          }
+        });
+      },
     );
   }
 
@@ -353,6 +444,7 @@ class _UserSetupScreenState extends State<UserSetupScreen> {
               ),
               _buildSkillLevelSelector(),
               const SizedBox(height: AppSpacing.sm),
+              _buildBodyMapSection(),
               _buildInjuriesSection(),
               const SizedBox(height: AppSpacing.xl),
               PrimaryButton(

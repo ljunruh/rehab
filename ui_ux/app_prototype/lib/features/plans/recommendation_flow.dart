@@ -92,7 +92,10 @@ class _RecommendationFlowState extends State<RecommendationFlow> {
                     // Übungen über den ExerciseProvider laden (aus API/FUSEKI)
                     final exerciseProvider = context.read<ExerciseProvider>();
                     if (_region != null && _goal != null) {
-                      await exerciseProvider.loadForRecommendation(_region!, [_goal!]);
+                      await exerciseProvider.loadAll(
+                        bodyPart: _region!,
+                        goal: _goal!,
+                      );
                     }
 
                     // Empfehlungsplan im PlanProvider generieren lassen (Random-Filterung)

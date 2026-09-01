@@ -16,6 +16,7 @@ import '../../core/theme/app_theme.dart';
 class TipOfDayCard extends StatefulWidget {
   final String title;
   final String duration;
+  final String lockedMessage;
   final String body;
   final bool isUnlocked;
 
@@ -23,6 +24,7 @@ class TipOfDayCard extends StatefulWidget {
     super.key,
     required this.title,
     required this.duration,
+    required this.lockedMessage,
     required this.body,
     required this.isUnlocked,
   });
@@ -104,17 +106,21 @@ class _TipOfDayCardState extends State<TipOfDayCard> {
                     color: AppColors.onDarkIconBg,
                     borderRadius: BorderRadius.circular(AppRadius.iconLarge),
                   ),
-                  child: SvgPicture.asset(
-                    open || !locked
-                        ? 'assets/icons/tip/lock-open-white.svg'
-                        : 'assets/icons/tip/lock-closed-white.svg',
-                    width: 22,
-                    height: 22,
-                    colorFilter: ColorFilter.mode(
-                      locked ? const Color(0xB3FFFFFF) : AppColors.white,
-                      BlendMode.srcIn,
-                    ),
-                  ),
+                  child: locked
+                      ? SvgPicture.asset(
+                          'assets/icons/tip/lock-closed-white.svg',
+                          width: 22,
+                          height: 22,
+                          colorFilter: const ColorFilter.mode(
+                            Color(0xB3FFFFFF),
+                            BlendMode.srcIn,
+                          ),
+                        )
+                      : const Icon(
+                          Icons.restaurant_menu,
+                          size: 22,
+                          color: AppColors.white,
+                        ),
                 ),
                 const SizedBox(width: AppSpacing.base),
                 // Texte
@@ -124,16 +130,16 @@ class _TipOfDayCardState extends State<TipOfDayCard> {
                     children: [
                       Text(
                         locked ? 'Noch gesperrt' : widget.title,
-                        style:
-                            AppText.cardTitle.copyWith(color: AppColors.white),
+                        style: AppText.cardTitle.copyWith(
+                          color: AppColors.white,
+                        ),
                       ),
                       const SizedBox(height: 3),
                       Text(
-                        locked
-                            ? 'Schließe heute einen Plan ab, um deinen Tipp freizuschalten.'
-                            : widget.duration,
-                        style: AppText.caption
-                            .copyWith(color: AppColors.onDarkSecondary),
+                        locked ? widget.lockedMessage : widget.duration,
+                        style: AppText.caption.copyWith(
+                          color: AppColors.onDarkSecondary,
+                        ),
                       ),
                     ],
                   ),

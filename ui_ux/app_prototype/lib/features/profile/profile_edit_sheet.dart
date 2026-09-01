@@ -5,13 +5,15 @@ import '../../core/widgets/widgets.dart';
 import '../../data/demo/plan_options.dart';
 import '../../data/enum/contraindication.dart';
 import '../../data/enum/gender.dart';
+import '../../data/enum/joint.dart';
 import '../../data/enum/skill_level.dart';
 import '../../state/ui_state.dart';
 import 'mobility_level_sheet.dart';
+import 'setup/selectable_accordion.dart';
 import 'body_map_selector.dart';
 import 'package:app_prototype/data/provider/user_provider.dart';
 
-/// PERSON 4 — Profil bearbeiten (Bottom-Sheet), wie im Prototyp.
+/// PERSON 4 — Profil bearbeiten (Bottom-Sheet)
 class ProfileEditSheet extends StatefulWidget {
   final VoidCallback? onClose;
 
@@ -43,8 +45,12 @@ class _ProfileEditSheetState extends State<ProfileEditSheet> {
   late TextEditingController _weightCtrl;
   late Gender _selectedGender;
   late SkillLevel _selectedSkillLevel;
-  late List<String> _selectedInjuries;
+  late List<String> _selectedJoints;
   bool _editingName = false;
+
+  List<Contraindication> _allContraindications = [];
+  List<Contraindication> _filteredContraindications = [];
+  final List<Contraindication> _selectedContraindications = [];
 
   @override
   void initState() {
@@ -59,9 +65,25 @@ class _ProfileEditSheetState extends State<ProfileEditSheet> {
     _selectedGender = user?.gender ?? Gender.diverse;
     _selectedSkillLevel = user?.skillLevel ?? SkillLevel.beginner;
 
-    _selectedInjuries = List.from(user?.contraindication ?? [])
-        .map((e) => ContraindicationExt.fromString(e).label)
+    // Gelenke vom User laden und in deutsche Labels für den BodyMapSelector mappen
+    _selectedJoints = List.from(user?.joints ?? [])
+        .map((e) => JointExt.fromString(e).labelDE)
         .toList();
+
+    // Contraindications initialisieren
+    _allContraindications = Contraindication.values
+        .where((i) => i != Contraindication.none)
+        .toList();
+    _filteredContraindications = _allContraindications;
+
+    // Bereits gespeicherte Contraindications vom User laden
+    if (user != null && user.contraindications.isNotEmpty) {
+      _selectedContraindications.addAll(
+        user.contraindications.map(
+              (contraindication) => ContraindicationExt.fromString(contraindication),
+        ),
+      );
+    }
   }
 
   @override
@@ -71,6 +93,79 @@ class _ProfileEditSheetState extends State<ProfileEditSheet> {
     _heightCtrl.dispose();
     _weightCtrl.dispose();
     super.dispose();
+  }
+
+  void _filterInjuries(String query) {
+    setState(() {
+      _filteredContraindications = _allContraindications
+          .where(
+            (i) =>
+        i.labelDE.toLowerCase().contains(query.toLowerCase()) ||
+            i.description.toLowerCase().contains(query.toLowerCase()),
+      )
+          .toList();
+    });
+  }
+
+  Widget _buildInjurySummary() {
+    if (_selectedContraindications.isEmpty) {
+      return Text(
+        "Keine Einschränkungen ausgewählt.",
+        style: AppText.caption.copyWith(
+          color: AppColors.textMuted,
+          fontStyle: FontStyle.italic,
+        ),
+      );
+    }
+
+    return Wrap(
+      spacing: AppSpacing.sm,
+      runSpacing: AppSpacing.xs,
+      children: _allContraindications
+          .where((i) => _selectedContraindications.contains(i))
+          .map(
+            (i) => Chip(
+          label: Text(
+            i.labelDE,
+            style: AppText.caption.copyWith(color: AppColors.sageDeep),
+          ),
+          backgroundColor: AppColors.sageLight,
+          side: BorderSide.none,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(AppRadius.pill),
+          ),
+          deleteIconColor: AppColors.sageDeep,
+          onDeleted: () {
+            setState(() {
+              _selectedContraindications.remove(i);
+            });
+          },
+        ),
+      )
+          .toList(),
+    );
+  }
+
+  Widget _buildInjuriesSection() {
+    return SelectableAccordion<Contraindication>(
+      title: "Bestehende Beschwerden",
+      summary: _buildInjurySummary(),
+      items: _allContraindications,
+      filteredItems: _filteredContraindications,
+      onSearch: _filterInjuries,
+      getTitle: (injury) => injury.shortLabel,
+      getSubtitle: (injury) => injury.description,
+      selectedItems: _selectedContraindications,
+      onSelectionChanged: (injury, selected) {
+        setState(() {
+          if (selected) {
+            _selectedContraindications.add(injury);
+          } else {
+            _selectedContraindications.remove(injury);
+          }
+        });
+      },
+    );
   }
 
   @override
@@ -287,18 +382,23 @@ class _ProfileEditSheetState extends State<ProfileEditSheet> {
               ),
               const SizedBox(height: AppSpacing.lg),
 
-              Text('Beschwerdebereich', style: AppText.caption),
+              // Gelenke / Beschwerdebereich über BodyMapSelector
+              Text('Beschwerdebereich (Gelenke)', style: AppText.caption),
               const SizedBox(height: AppSpacing.sm),
               Center(
                 child: BodyMapSelector(
-                  selected: _selectedInjuries,
-                  onChanged: (nextInjuries) {
+                  selected: _selectedJoints,
+                  onChanged: (nextJoints) {
                     setState(() {
-                      _selectedInjuries = nextInjuries;
+                      _selectedJoints = nextJoints;
                     });
                   },
                 ),
               ),
+              const SizedBox(height: AppSpacing.lg),
+
+              // Akkordeon für Kontraindikationen / Beschwerden
+              _buildInjuriesSection(),
               const SizedBox(height: AppSpacing.lg),
 
               // MOBILITÄTSLEVEL
@@ -345,7 +445,6 @@ class _ProfileEditSheetState extends State<ProfileEditSheet> {
                           ),
                           const SizedBox(width: AppSpacing.sm),
                           Text(
-                            // Einheitliche Anzeige direkt aus dem State-Enum (_selectedSkillLevel)
                             _selectedSkillLevel == SkillLevel.advanced
                                 ? 'Fortgeschritten'
                                 : _selectedSkillLevel == SkillLevel.intermediate
@@ -366,8 +465,12 @@ class _ProfileEditSheetState extends State<ProfileEditSheet> {
                       onPressed: () async {
                         final app = context.read<UiState>();
                         String initialKey = 'Niedrig';
-                        if (_selectedSkillLevel == SkillLevel.advanced) initialKey = 'Hoch';
-                        if (_selectedSkillLevel == SkillLevel.intermediate) initialKey = 'Mittel';
+                        if (_selectedSkillLevel == SkillLevel.advanced) {
+                          initialKey = 'Hoch';
+                        }
+                        if (_selectedSkillLevel == SkillLevel.intermediate) {
+                          initialKey = 'Mittel';
+                        }
                         app.updateProfile(app.profile.copyWith(mobility: initialKey));
 
                         await MobilityLevelSheet.show(context);
@@ -396,15 +499,6 @@ class _ProfileEditSheetState extends State<ProfileEditSheet> {
                 label: 'Änderungen speichern',
                 icon: Icons.check,
                 onPressed: () async {
-                  final ontologyIds = _selectedInjuries.map((germanLabel) {
-                    final contraindication = Contraindication.values.firstWhere(
-                          (e) => e.label == germanLabel,
-                      orElse: () => Contraindication.none,
-                    );
-                    return contraindication.labelEN;
-                  }).where((id) => id != "None").toList();
-
-
                   await userProvider.saveUser(
                     name: _nameCtrl.text.trim(),
                     gender: _selectedGender,
@@ -412,7 +506,20 @@ class _ProfileEditSheetState extends State<ProfileEditSheet> {
                     height: int.tryParse(_heightCtrl.text) ?? user?.height ?? 0,
                     weight: int.tryParse(_weightCtrl.text) ?? user?.weight ?? 0,
                     skillLevel: _selectedSkillLevel,
-                    injuries: ontologyIds,
+                    joints: _selectedJoints
+                        .map(
+                          (jDE) => Joint.values
+                          .firstWhere(
+                            (e) => e.labelDE == jDE,
+                        orElse: () => Joint.none,
+                      )
+                          .labelEN,
+                    )
+                        .where((jEN) => jEN.isNotEmpty)
+                        .toList(),
+                    contraindications: _selectedContraindications
+                        .map((c) => c.labelEN)
+                        .toList(),
                   );
                   widget.onClose != null
                       ? widget.onClose!()
@@ -421,8 +528,7 @@ class _ProfileEditSheetState extends State<ProfileEditSheet> {
               ),
               const SizedBox(height: AppSpacing.md),
 
-              // Löschen Button — bleibt bewusst NUR hier in „Profil bearbeiten"
-              // (Team-Absprache); in Drawer/Profil-Ansicht entfernt.
+              // Löschen Button
               TextButton.icon(
                 style: TextButton.styleFrom(
                   minimumSize: const Size(double.infinity, 44),
@@ -446,10 +552,11 @@ class _ProfileEditSheetState extends State<ProfileEditSheet> {
                         TextButton(
                           onPressed: () async {
                             await context.read<UserProvider>().deleteUser();
-                            if (context.mounted)
+                            if (context.mounted) {
                               Navigator.of(
                                 ctx,
                               ).pushNamedAndRemoveUntil('/', (route) => false);
+                            }
                           },
                           child: const Text(
                             'Löschen',
@@ -469,7 +576,7 @@ class _ProfileEditSheetState extends State<ProfileEditSheet> {
   }
 }
 
-// Kleinere Hilfs-Widgets (_DarkButton, _NumberField, _GenderField) bleiben exakt wie gehabt...
+// Hilfs-Widgets wie _DarkButton, _NumberField, _GenderField...
 class _DarkButton extends StatelessWidget {
   final String label;
   final IconData icon;

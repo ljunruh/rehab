@@ -33,11 +33,13 @@ import '../../core/region_icons.dart';
 class PlansScreen extends StatefulWidget {
   final VoidCallback onOpenProfile;
   final ValueChanged<String> onOpenPlan;
+  final VoidCallback onAddPlan;
 
   const PlansScreen({
     super.key,
     required this.onOpenProfile,
     required this.onOpenPlan,
+    required this.onAddPlan,
   });
 
   @override
@@ -201,30 +203,31 @@ class _PlansScreenState extends State<PlansScreen> {
                   ),
                   const SizedBox(height: 4),
 
-                  // "Plan hinzufügen" – rein dekorativ, wie im Prototyp
-                  // (Pläne werden über den "+"-Button in der Navigation
-                  // angelegt).
-                  CustomPaint(
-                    painter: _DashedBorderPainter(
-                      color: AppColors.mint,
-                      radius: 22,
-                      strokeWidth: 1.5,
-                    ),
-                    child: Container(
-                      width: double.infinity,
-                      padding: const EdgeInsets.symmetric(
-                          horizontal: 20, vertical: 16),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          const Icon(Icons.add,
-                              size: 15, color: AppColors.sageDeep),
-                          const SizedBox(width: AppSpacing.sm),
-                          Text('Plan hinzufügen',
-                              style: AppText.caption.copyWith(
-                                  color: AppColors.sageDeep,
-                                  fontWeight: FontWeight.w500)),
-                        ],
+                  GestureDetector(
+                    behavior: HitTestBehavior.opaque,
+                    onTap: widget.onAddPlan,
+                    child: CustomPaint(
+                      painter: _DashedBorderPainter(
+                        color: AppColors.mint,
+                        radius: 22,
+                        strokeWidth: 1.5,
+                      ),
+                      child: Container(
+                        width: double.infinity,
+                        padding: const EdgeInsets.symmetric(
+                            horizontal: 20, vertical: 16),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            const Icon(Icons.add,
+                                size: 15, color: AppColors.sageDeep),
+                            const SizedBox(width: AppSpacing.sm),
+                            Text('Plan hinzufügen',
+                                style: AppText.caption.copyWith(
+                                    color: AppColors.sageDeep,
+                                    fontWeight: FontWeight.w500)),
+                          ],
+                        ),
                       ),
                     ),
                   ),

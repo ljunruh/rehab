@@ -1,12 +1,14 @@
 import 'package:app_prototype/data/models/api/api_models.dart';
 import 'package:app_prototype/data/models/api/plan_log_exercise.dart';
 import 'package:app_prototype/data/repository/plan_log_exercise_repository.dart';
+import 'package:app_prototype/data/repository/plan_repository.dart';
 import 'package:flutter/material.dart';
 
 class PlanLogExerciseProvider extends ChangeNotifier {
   final PlanLogExerciseRepository repo;
+  final PlanRepository planRepo;
 
-  PlanLogExerciseProvider(this.repo) {
+  PlanLogExerciseProvider(this.repo, this.planRepo) {
     loadTodayLogs();
   }
 
@@ -18,12 +20,11 @@ class PlanLogExerciseProvider extends ChangeNotifier {
   int get weeklyStreak => _weeklyStreak;
 
   /// Lädt die heutigen Logs und berechnet den Streak basierend auf den aktiven Plänen neu
-  Future<void> loadTodayLogs({List<Plan> activePlans = const []}) async {
+  Future<void> loadTodayLogs({List<Plan>? activePlans}) async {
+    final plans = activePlans ?? await planRepo.getActivePlans();
     _allLogs = await repo.getAllLogs();
     _todayLogs = await repo.getLogsForDate(DateTime.now());
-    _weeklyStreak = await repo.getWeeklyStreak(activePlans); // 👈 Hier übergeben
-    // TEMP: Test-Override, damit Recipe-Unlock in der App direkt pruefbar ist. _weeklyStreak dafür erhöhen
-    //_weeklyStreak = 0;
+    _weeklyStreak = await repo.getWeeklyStreak(plans);
     notifyListeners();
   }
 
@@ -31,7 +32,7 @@ class PlanLogExerciseProvider extends ChangeNotifier {
   Future<void> logExercise({
     required String planId,
     required String exerciseId,
-    List<Plan> activePlans = const [],
+    List<Plan>? activePlans,
   }) async {
     await repo.saveLog(planId, exerciseId);
     await loadTodayLogs(activePlans: activePlans);
@@ -174,8 +175,9 @@ class PlanLogExerciseProvider extends ChangeNotifier {
   }
 
   //TODO[API]: Test um WeeklyStreak zu simulieren und Fake Daten dafür anzulegen
-  Future<void> seedTestData(int weeks, {List<Plan> activePlans = const []}) async {
-    await repo.insertFakeHistoricalLogs(weeks, activePlans);
-    await loadTodayLogs(activePlans: activePlans); // Berechnet den Streak neu
+  Future<void> seedTestData(int weeks, {List<Plan>? activePlans}) async {
+    final plans = activePlans ?? await planRepo.getActivePlans();
+    await repo.insertFakeHistoricalLogs(weeks, plans);
+    await loadTodayLogs(activePlans: plans); // Berechnet den Streak neu
   }
 }

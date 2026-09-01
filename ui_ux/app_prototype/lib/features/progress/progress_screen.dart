@@ -1,5 +1,4 @@
 import 'package:app_prototype/data/provider/calender_provider.dart';
-import 'package:app_prototype/data/provider/pain_log_provider.dart';
 import 'package:app_prototype/data/provider/plan_log_exercise_provider.dart';
 import 'package:app_prototype/data/provider/plan_provider.dart';
 import 'package:app_prototype/data/provider/user_provider.dart';
@@ -8,7 +7,6 @@ import 'package:provider/provider.dart';
 import '../../core/theme/app_theme.dart';
 import '../../core/widgets/widgets.dart';
 import '../../navigation/screen_header.dart';
-import '../../state/ui_state.dart';
 import '../home/concentric_rings.dart';
 import 'pain_history_carousel.dart';
 import 'calendar_widget.dart';
@@ -80,50 +78,52 @@ class _ProgressScreenState extends State<ProgressScreen> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              // ── Wochenserie-Banner (dunkel) ──
-              Container(
-                padding: const EdgeInsets.all(AppSpacing.base),
-                decoration: BoxDecoration(
-                  color: AppColors.sageDeep,
-                  borderRadius: BorderRadius.circular(AppRadius.card),
-                ),
-                child: Row(
-                  children: [
-                    Container(
-                      width: 44,
-                      height: 44,
-                      alignment: Alignment.center,
-                      decoration: const BoxDecoration(
-                        color: AppColors.onDarkIconBg,
-                        shape: BoxShape.circle,
+              if (weeks > 0) ...[
+                // ── Wochenserie-Banner (dunkel) ──
+                Container(
+                  padding: const EdgeInsets.all(AppSpacing.base),
+                  decoration: BoxDecoration(
+                    color: AppColors.sageDeep,
+                    borderRadius: BorderRadius.circular(AppRadius.card),
+                  ),
+                  child: Row(
+                    children: [
+                      Container(
+                        width: 44,
+                        height: 44,
+                        alignment: Alignment.center,
+                        decoration: const BoxDecoration(
+                          color: AppColors.onDarkIconBg,
+                          shape: BoxShape.circle,
+                        ),
+                        child: const Text('🔥', style: TextStyle(fontSize: 20)),
                       ),
-                      child: const Text('🔥', style: TextStyle(fontSize: 20)),
-                    ),
-                    const SizedBox(width: AppSpacing.md),
-                    Expanded(
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text('WOCHENSERIE',
-                              style: AppText.micro
-                                  .copyWith(color: AppColors.onDarkSecondary)),
-                          const SizedBox(height: 2),
-                          Text(
-                            _weeklyStreakMessage(weeks),
-                            style: AppText.caption.copyWith(
-                                color: AppColors.white, height: 1.4),
-                          ),
-                        ],
+                      const SizedBox(width: AppSpacing.md),
+                      Expanded(
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text('WOCHENSERIE',
+                                style: AppText.micro
+                                    .copyWith(color: AppColors.onDarkSecondary)),
+                            const SizedBox(height: 2),
+                            Text(
+                              _weeklyStreakMessage(weeks),
+                              style: AppText.caption.copyWith(
+                                  color: AppColors.white, height: 1.4),
+                            ),
+                          ],
+                        ),
                       ),
-                    ),
-                    const SizedBox(width: AppSpacing.sm),
-                    Text('$weeks',
-                        style: AppText.screenTitle.copyWith(
-                            color: AppColors.white, fontSize: 26)),
-                  ],
+                      const SizedBox(width: AppSpacing.sm),
+                      Text('$weeks',
+                          style: AppText.screenTitle.copyWith(
+                              color: AppColors.white, fontSize: 26)),
+                    ],
+                  ),
                 ),
-              ),
-              const SizedBox(height: AppSpacing.sectionGap),
+                const SizedBox(height: AppSpacing.sectionGap),
+              ],
 
               // ── Fortschritt dieser Woche (Ringe) ──
               AppCard(

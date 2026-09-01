@@ -419,7 +419,8 @@ xsd:date rdf:type rdfs:Datatype .
 
 ###  http://purl.org/PhysicalTherapy#hasHealthBenefit
 :hasHealthBenefit rdf:type owl:DatatypeProperty ;
-                  rdfs:range xsd:string .
+                  rdfs:range xsd:string ;
+                  rdfs:label "hasHealthBenefit"@en .
 
 
 ###  http://purl.org/PhysicalTherapy#hasHeight
@@ -452,7 +453,8 @@ xsd:date rdf:type rdfs:Datatype .
 
 ###  http://purl.org/PhysicalTherapy#hasPreparationTime
 :hasPreparationTime rdf:type owl:DatatypeProperty ;
-                    rdfs:range xsd:integer .
+                    rdfs:range xsd:integer ;
+                    rdfs:label "hasPreparationTime"@en .
 
 
 ###  http://purl.org/PhysicalTherapy#hasRiskFactor
@@ -1570,6 +1572,16 @@ xsd:date rdf:type rdfs:Datatype .
                                         "AlternateSittingAndStanding"@en .
 
 
+###  http://purl.org/PhysicalTherapy#Ananas-Ingwer-Regenerations-Smoothie
+:Ananas-Ingwer-Regenerations-Smoothie rdf:type owl:NamedIndividual ,
+                                               :RecipeOfTheWeek ;
+                                      :hasHealthBenefit "Ananas enthält das Enzym Bromelain, welches Abschwellungen fördert und die Heilung von Gewebe und Gelenken nach Verletzungen beschleunigt."@de ;
+                                      :hasInstruction "150g frische Ananas, 1 cm frischen Ingwer, 1/2 Banane und 150ml Wasser im Hochleistungsmixer cremig pürieren." ;
+                                      :hasPreparationTime 5 ;
+                                      rdfs:label "Ananas-Ingwer-Regenerations-Smoothie"@de ,
+                                                 "Pineapple Ginger Recovery Smoothie"@en .
+
+
 ###  http://purl.org/PhysicalTherapy#AnkleFracture
 :AnkleFracture rdf:type owl:NamedIndividual ,
                         :AnkleFrac ;
@@ -1623,7 +1635,7 @@ xsd:date rdf:type rdfs:Datatype .
                                               :Hip ,
                                               :LowerBack ,
                                               :Obliques ;
-                             :hasContraindication :BackIssue ;
+                             :hasContraindication :SpineIssue ;
                              :hasDifficultyLevel :Beginner ;
                              :improves :Coordination ,
                                        :Mobility ,
@@ -1914,7 +1926,7 @@ xsd:date rdf:type rdfs:Datatype .
                                :Coordination ;
                       :engagedBodyPart :Back ,
                                        :Spine ;
-                      :hasContraindication :BackIssue ;
+                      :hasContraindication :SpineIssue ;
                       :hasDifficultyLevel :Intermediate ;
                       :improves :Balance ,
                                 :Coordination ,
@@ -1960,6 +1972,15 @@ xsd:date rdf:type rdfs:Datatype .
                                       "BasketballShootingBaskets"@en .
 
 
+###  http://purl.org/PhysicalTherapy#Bauch
+:Bauch rdf:type owl:NamedIndividual ,
+                :BodyPart ;
+       :partOf :Core ;
+       rdfs:comment "Der Bauch ist der vordere Teil des Rumpfes zwischen Brustkorb und Becken."@de ;
+       rdfs:label "Bauch"@de ,
+                  "Belly"@en .
+
+
 ###  http://purl.org/PhysicalTherapy#BauchatmungInBauchlage
 :BauchatmungInBauchlage rdf:type owl:NamedIndividual ,
                                  :Relaxation ;
@@ -1987,7 +2008,7 @@ xsd:date rdf:type rdfs:Datatype .
                          :Strength ;
                 :engagedBodyPart :Core ,
                                  :LowerBack ;
-                :hasContraindication :BackIssue ;
+                :hasContraindication :SpineIssue ;
                 :hasDifficultyLevel :Intermediate ;
                 :improves :Posture ,
                           :Stability ,
@@ -2097,7 +2118,7 @@ xsd:date rdf:type rdfs:Datatype .
                             :Mobilisation ;
                    :engagedBodyPart :Back ,
                                     :Spine ;
-                   :hasContraindication :BackIssue ;
+                   :hasContraindication :SpineIssue ;
                    :hasDifficultyLevel :Beginner ;
                    :improves :Flexibility ,
                              :Mobility ;
@@ -2139,7 +2160,6 @@ xsd:date rdf:type rdfs:Datatype .
 
 ###  http://purl.org/PhysicalTherapy#Biceps
 :Biceps rdf:type owl:NamedIndividual ,
-                 :BodyPart ,
                  :Muscle ;
         :partOf :Arms ;
         rdfs:comment "Bizeps, der große Beugemuskel an der Vorderseite des Oberarms."@de ;
@@ -2197,7 +2217,7 @@ xsd:date rdf:type rdfs:Datatype .
                                      :Coordination ;
                             :engagedBodyPart :Core ,
                                              :LowerBack ;
-                            :hasContraindication :BackIssue ;
+                            :hasContraindication :SpineIssue ;
                             :hasDifficultyLevel :Advanced ;
                             :improves :Balance ,
                                       :Coordination ,
@@ -2221,7 +2241,7 @@ xsd:date rdf:type rdfs:Datatype .
                              :Coordination ;
                     :engagedBodyPart :Back ,
                                      :Spine ;
-                    :hasContraindication :BackIssue ;
+                    :hasContraindication :SpineIssue ;
                     :hasDifficultyLevel :Beginner ;
                     :improves :Coordination ,
                               :Mobility ,
@@ -2326,7 +2346,7 @@ xsd:date rdf:type rdfs:Datatype .
                                 :Stretching ;
                        :engagedBodyPart :Chest ,
                                         :Shoulders ;
-                       :hasContraindication :BackIssue ;
+                       :hasContraindication :SpineIssue ;
                        :hasDifficultyLevel :Beginner ;
                        :improves :Flexibility ,
                                  :Mobility ;
@@ -2371,7 +2391,7 @@ xsd:date rdf:type rdfs:Datatype .
                                     :Stretching ;
                            :engagedBodyPart :Spine ,
                                             :UpperBack ;
-                           :hasContraindication :BackIssue ;
+                           :hasContraindication :SpineIssue ;
                            :hasDifficultyLevel :Intermediate ;
                            :improves :Flexibility ,
                                      :Mobility ;
@@ -2393,7 +2413,7 @@ xsd:date rdf:type rdfs:Datatype .
                                                       :Relaxation ;
                                              :engagedBodyPart :Spine ,
                                                               :UpperBack ;
-                                             :hasContraindication :BackIssue ;
+                                             :hasContraindication :SpineIssue ;
                                              :hasDifficultyLevel :Intermediate ;
                                              :improves :Mobility ,
                                                        :Relaxation ;
@@ -2450,7 +2470,7 @@ xsd:date rdf:type rdfs:Datatype .
                                                         :Mobilisation ;
                                                :engagedBodyPart :Spine ,
                                                                 :UpperBack ;
-                                               :hasContraindication :BackIssue ;
+                                               :hasContraindication :SpineIssue ;
                                                :hasDifficultyLevel :Intermediate ;
                                                :improves :Flexibility ,
                                                          :Mobility ,
@@ -2480,7 +2500,7 @@ xsd:date rdf:type rdfs:Datatype .
                                                           :Mobilisation ;
                                                  :engagedBodyPart :Spine ,
                                                                   :UpperBack ;
-                                                 :hasContraindication :BackIssue ;
+                                                 :hasContraindication :SpineIssue ;
                                                  :hasDifficultyLevel :Intermediate ;
                                                  :improves :Flexibility ,
                                                            :Mobility ,
@@ -2503,7 +2523,7 @@ xsd:date rdf:type rdfs:Datatype .
                       :Mobilisation ;
              :engagedBodyPart :Spine ,
                               :UpperBack ;
-             :hasContraindication :BackIssue ;
+             :hasContraindication :SpineIssue ;
              :hasDifficultyLevel :Beginner ;
              :improves :Flexibility ,
                        :Mobility ,
@@ -3986,7 +4006,8 @@ xsd:date rdf:type rdfs:Datatype .
 
 
 ###  http://purl.org/PhysicalTherapy#CoreWeakness
-:CoreWeakness rdf:type owl:NamedIndividual ;
+:CoreWeakness rdf:type owl:NamedIndividual ,
+                       :Contraindication ;
               :requiresImprovementOf :Core ;
               rdfs:comment "Schwäche der Rumpfmuskulatur, die Haltung und Stabilität beeinträchtigt."@de ;
               rdfs:label "CoreWeakness"@en ,
@@ -5137,7 +5158,7 @@ xsd:date rdf:type rdfs:Datatype .
                                                    :Stretching ;
                                           :engagedBodyPart :Hamstrings ,
                                                            :Legs ;
-                                          :hasContraindication :BackIssue ;
+                                          :hasContraindication :SpineIssue ;
                                           :hasDifficultyLevel :Beginner ;
                                           :improves :Flexibility ,
                                                     :Mobility ;
@@ -5289,7 +5310,7 @@ xsd:date rdf:type rdfs:Datatype .
                              :Coordination ;
                     :engagedBodyPart :Chest ,
                                      :Shoulders ;
-                    :hasContraindication :BackIssue ;
+                    :hasContraindication :SpineIssue ;
                     :hasDifficultyLevel :Intermediate ;
                     :improves :Coordination ,
                               :Mobility ,
@@ -5891,7 +5912,7 @@ xsd:date rdf:type rdfs:Datatype .
                 :Joint ;
        :partOf :Elbows ;
        rdfs:comment "Ellbogengelenk"@de ;
-       rdfs:label "Elbow"@en ,
+       rdfs:label "Elbow Joint"@en ,
                   "Ellbogengelenk"@de .
 
 
@@ -5905,7 +5926,11 @@ xsd:date rdf:type rdfs:Datatype .
 
 ###  http://purl.org/PhysicalTherapy#Ellenbogenprobleme
 :Ellenbogenprobleme rdf:type owl:NamedIndividual ,
-                             :Contraindication .
+                             :Contraindication ;
+                    :requiresImprovementOf :Elbows ;
+                    rdfs:comment "Repräsentiert Probleme oder Verletzungen im Bereich des Ellbogens" ;
+                    rdfs:label "ElbowIssue"@en ,
+                               "Ellbogenprobleme"@de .
 
 
 ###  http://purl.org/PhysicalTherapy#EnBlocBedExit
@@ -5924,7 +5949,7 @@ xsd:date rdf:type rdfs:Datatype .
                              :engagedBodyPart :Back ,
                                               :Hip ,
                                               :Shoulders ;
-                             :hasContraindication :BackIssue ;
+                             :hasContraindication :SpineIssue ;
                              :hasDifficultyLevel :Beginner ;
                              :improves :Mobility ,
                                        :Relaxation ;
@@ -5946,7 +5971,7 @@ xsd:date rdf:type rdfs:Datatype .
                                         :Relaxation ;
                                :engagedBodyPart :Back ,
                                                 :Core ;
-                               :hasContraindication :BackIssue ;
+                               :hasContraindication :SpineIssue ;
                                :hasDifficultyLevel :Beginner ;
                                :improves :Focus ,
                                          :Relaxation ;
@@ -6008,7 +6033,7 @@ xsd:date rdf:type rdfs:Datatype .
                              :Mobilisation ;
                     :engagedBodyPart :Spine ,
                                      :UpperBack ;
-                    :hasContraindication :BackIssue ;
+                    :hasContraindication :SpineIssue ;
                     :hasDifficultyLevel :Intermediate ;
                     :improves :Flexibility ,
                               :Mobility ,
@@ -6064,8 +6089,7 @@ xsd:date rdf:type rdfs:Datatype .
                                   :Relaxation ;
                          :engagedBodyPart :Calves ,
                                           :LowerBack ;
-                         :hasContraindication :BackIssue ,
-                                              :SpineIssue ;
+                         :hasContraindication :SpineIssue ;
                          :hasDifficultyLevel :Beginner ;
                          :improves :Flexibility ,
                                    :Mobility ,
@@ -7247,7 +7271,7 @@ xsd:date rdf:type rdfs:Datatype .
                                :Stretching ;
                       :engagedBodyPart :Back ,
                                        :Spine ;
-                      :hasContraindication :BackIssue ;
+                      :hasContraindication :SpineIssue ;
                       :hasDifficultyLevel :Beginner ;
                       :improves :Flexibility ,
                                 :Mobility ;
@@ -7866,6 +7890,16 @@ xsd:date rdf:type rdfs:Datatype .
  ] .
 
 
+###  http://purl.org/PhysicalTherapy#Goldene-Milch-Smoothie
+:Goldene-Milch-Smoothie rdf:type owl:NamedIndividual ,
+                                 :RecipeOfTheWeek ;
+                        :hasHealthBenefit "Die Kombination aus gefrorener Mango, Kurkuma und Zimt sorgt für eine geballte Ladung Antioxidantien. Sie fördert die Abschwellung im Gelenkgewebe und gibt nachhaltige Energie für den Tag."@de ;
+                        :hasInstruction "100g gefrorene Mangowürfel, 1/2 TL Kurkuma, 1 Prise Zimt, 1 Prise schwarzer Pfeffer und 200ml Hafer- oder Mandeldrink im Mixer cremig pürieren."@de ;
+                        :hasPreparationTime 5 ;
+                        rdfs:label "Golden Milk Smoothie"@en ,
+                                   "Goldene-Milch-Smoothie"@de .
+
+
 ###  http://purl.org/PhysicalTherapy#Golf
 :Golf rdf:type owl:NamedIndividual ,
                :SportActivity ;
@@ -7882,6 +7916,16 @@ xsd:date rdf:type rdfs:Datatype .
               :MET 2.5 ;
               rdfs:label "Golf mit Cart"@de ,
                          "GolfWithCart"@en .
+
+
+###  http://purl.org/PhysicalTherapy#Granatapfel-Kefir-Drink
+:Granatapfel-Kefir-Drink rdf:type owl:NamedIndividual ,
+                                  :RecipeOfTheWeek ;
+                         :hasHealthBenefit "Kefir stärkt das Darmmikrobiom, was die systemische Entzündungsneigung im gesamten Körper reduziert. Granatapfelkerne liefern zellschützende Antioxidantien."@de ;
+                         :hasInstruction "200ml eiskalten Kefir mit 50ml direkt gepresstem Granatapfelsaft verrühren und mit ein paar frischen Granatapfelkernen garnieren."@de ;
+                         :hasPreparationTime 5 ;
+                         rdfs:label "Granatapfel-Kefir-Drink"@de ,
+                                    "Pomegranate Kefir Drink"@en .
 
 
 ###  http://purl.org/PhysicalTherapy#Gymnastics
@@ -8541,7 +8585,6 @@ xsd:date rdf:type rdfs:Datatype .
 
 ###  http://purl.org/PhysicalTherapy#Hamstrings
 :Hamstrings rdf:type owl:NamedIndividual ,
-                     :BodyPart ,
                      :Muscle ;
             :partOf :Thighs ;
             rdfs:comment "Beinbeuger, die Muskelgruppe an der Rückseite des Oberschenkels."@de ;
@@ -9209,6 +9252,16 @@ xsd:date rdf:type rdfs:Datatype .
                                          "Hüftbeuger-Dehnung: Knieschmerzen"@de .
 
 
+###  http://purl.org/PhysicalTherapy#Hüttenkäse_mit_Leinöl_und_Kräutern
+:Hüttenkäse_mit_Leinöl_und_Kräutern rdf:type owl:NamedIndividual ,
+                                             :RecipeOfTheWeek ;
+                                    :hasHealthBenefit "Leinöl hat den höchsten Gehalt an Alpha-Linolensäure (Omega 3). Die Kombination mit den Schwefel-Aminosäuren aus dem Hüttenkäse optimiert die Aufnahme im Körper."@de ;
+                                    :hasInstruction "150g Hüttenkäse mit 1 EL kaltgepresstem Leinöl, frischem Schnittlauch, Salz und etwas Pfeffer verrühren und auf Vollkornbrot genießen."@de ;
+                                    :hasPreparationTime 5 ;
+                                    rdfs:label "Cottage Cheese with Linseed Oil and Herbs"@en ,
+                                               "Hüttenkäse mit Leinöl und Kräutern"@de .
+
+
 ###  http://purl.org/PhysicalTherapy#IYTHebenInBauchlage
 :IYTHebenInBauchlage rdf:type owl:NamedIndividual ,
                               :Strength ;
@@ -9246,7 +9299,7 @@ xsd:date rdf:type rdfs:Datatype .
                                     :Strength ;
                            :engagedBodyPart :Back ,
                                             :Spine ;
-                           :hasContraindication :BackIssue ;
+                           :hasContraindication :SpineIssue ;
                            :hasDifficultyLevel :Beginner ;
                            :improves :Posture ,
                                      :Stability ,
@@ -9292,8 +9345,8 @@ xsd:date rdf:type rdfs:Datatype .
                                :Quadriceps ,
                                :Shoulders ;
               :hasContraindication :AnkleIssue ,
-                                   :BackIssue ,
-                                   :KneeIssue ;
+                                   :KneeIssue ,
+                                   :SpineIssue ;
               :hasDifficultyLevel :Beginner ;
               :improves :Balance ,
                         :Coordination ,
@@ -9322,14 +9375,14 @@ xsd:date rdf:type rdfs:Datatype .
 [ rdf:type owl:Axiom ;
    owl:annotatedSource :JumpingJacks ;
    owl:annotatedProperty :hasContraindication ;
-   owl:annotatedTarget :BackIssue ;
+   owl:annotatedTarget :KneeIssue ;
    rdfs:comment "This Contraindication should be considered for practitioners of JumpingJacks to avoid strain or injury."
  ] .
 
 [ rdf:type owl:Axiom ;
    owl:annotatedSource :JumpingJacks ;
    owl:annotatedProperty :hasContraindication ;
-   owl:annotatedTarget :KneeIssue ;
+   owl:annotatedTarget :SpineIssue ;
    rdfs:comment "This Contraindication should be considered for practitioners of JumpingJacks to avoid strain or injury."
  ] .
 
@@ -10065,7 +10118,7 @@ xsd:date rdf:type rdfs:Datatype .
 :KnieZurBrustDehnung rdf:type owl:NamedIndividual ;
                      :engagedBodyPart :Back ,
                                       :Spine ;
-                     :hasContraindication :BackIssue ;
+                     :hasContraindication :SpineIssue ;
                      :hasDifficultyLevel :Beginner ;
                      :improves :Flexibility ,
                                :Mobility ;
@@ -10278,8 +10331,7 @@ xsd:date rdf:type rdfs:Datatype .
                            :Quadriceps ,
                            :Spine ,
                            :SpineJoint ;
-          :hasContraindication :BackIssue ,
-                               :HipIssue ,
+          :hasContraindication :HipIssue ,
                                :LowerBackIssue ,
                                :SpineIssue ;
           :hasDifficultyLevel :Intermediate ;
@@ -10451,6 +10503,16 @@ xsd:date rdf:type rdfs:Datatype .
      rdfs:comment "Turnmatte als weiche Unterlage für Übungen am Boden."@de ;
      rdfs:label "Mat"@en ,
                 "Turnmatte"@de .
+
+
+###  http://purl.org/PhysicalTherapy#Matcha-Latte_mit_Mandelmilch
+:Matcha-Latte_mit_Mandelmilch rdf:type owl:NamedIndividual ,
+                                       :RecipeOfTheWeek ;
+                              :hasHealthBenefit "Matcha ist extrem reich an EGCG (Epigallocatechingallat), einem der stärksten bekannten pflanzlichen Antioxidantien zur Regeneration von Zellen."@de ;
+                              :hasInstruction "1 TL Matcha-Pulver mit 50ml heißem (nicht kochendem) Wasser schaumig schlagen. Mit 150ml warmem, aufgeschäumtem Mandeldrink auffüllen."@de ;
+                              :hasPreparationTime 5 ;
+                              rdfs:label "Matcha Latte with Almond Milk"@en ,
+                                         "Matcha-Latte mit Mandelmilch"@de .
 
 
 ###  http://purl.org/PhysicalTherapy#MediumRisk
@@ -10772,8 +10834,8 @@ xsd:date rdf:type rdfs:Datatype .
                                   :Quadriceps ,
                                   :Shoulders ,
                                   :Triceps ;
-                 :hasContraindication :BackIssue ,
-                                      :ShoulderIssue ,
+                 :hasContraindication :ShoulderIssue ,
+                                      :SpineIssue ,
                                       :WristIssue ;
                  :hasDifficultyLevel :Intermediate ;
                  :improves :Balance ,
@@ -10803,14 +10865,14 @@ xsd:date rdf:type rdfs:Datatype .
 [ rdf:type owl:Axiom ;
    owl:annotatedSource :MountainClimber ;
    owl:annotatedProperty :hasContraindication ;
-   owl:annotatedTarget :BackIssue ;
+   owl:annotatedTarget :ShoulderIssue ;
    rdfs:comment "This Contraindication should be considered for practitioners of MountainClimber to avoid strain or injury."
  ] .
 
 [ rdf:type owl:Axiom ;
    owl:annotatedSource :MountainClimber ;
    owl:annotatedProperty :hasContraindication ;
-   owl:annotatedTarget :ShoulderIssue ;
+   owl:annotatedTarget :SpineIssue ;
    rdfs:comment "This Contraindication should be considered for practitioners of MountainClimber to avoid strain or injury."
  ] .
 
@@ -11051,12 +11113,21 @@ Langsam zur Mitte zurückkehren.
                  "None"@en .
 
 
+###  http://purl.org/PhysicalTherapy#Obererückengelenke
+:Obererückengelenke rdf:type owl:NamedIndividual ,
+                             :Joint ;
+                    :partOf :Back ;
+                    rdfs:comment "Repräsentiert die Gelenke des oberen Rückenbereichs" ;
+                    rdfs:label "Obere Rückengelenke"@de ,
+                               "Upper back joints" .
+
+
 ###  http://purl.org/PhysicalTherapy#OberkoerperrotationImStand
 :OberkoerperrotationImStand rdf:type owl:NamedIndividual ,
                                      :Mobilisation ;
                             :engagedBodyPart :Spine ,
                                              :UpperBack ;
-                            :hasContraindication :BackIssue ;
+                            :hasContraindication :SpineIssue ;
                             :hasDifficultyLevel :Beginner ;
                             :improves :Flexibility ,
                                       :Mobility ,
@@ -11076,7 +11147,6 @@ Langsam zur Mitte zurückkehren.
 
 ###  http://purl.org/PhysicalTherapy#Obliques
 :Obliques rdf:type owl:NamedIndividual ,
-                   :BodyPart ,
                    :Muscle ;
           :isEngagedBy :Bruecke ,
                        :DeadBug ,
@@ -11571,6 +11641,16 @@ Langsam zur Mitte zurückkehren.
                    "Pelvic"@en .
 
 
+###  http://purl.org/PhysicalTherapy#Pflücksalat_mit_Blaubeeren_und_Walnüssen
+:Pflücksalat_mit_Blaubeeren_und_Walnüssen rdf:type owl:NamedIndividual ,
+                                                   :RecipeOfTheWeek ;
+                                          :hasHealthBenefit "Dunkle Pflücksalate und Blaubeeren stecken voller Polyphenole, die freie Radikale neutralisieren und den Körper vor zellulärem Stress schützen."@de ;
+                                          :hasInstruction "Zwei Handvoll Pflücksalat waschen, mit 50g frischen Blaubeeren und gehackten Walnüssen mischen. Ein Dressing aus Olivenöl und Balsamico darübergeben." ;
+                                          :hasPreparationTime 10 ;
+                                          rdfs:label "Leaf Salad with Blueberries and Walnuts"@en ,
+                                                     "Pflücksalat mit Blaubeeren und Walnüssen"@de .
+
+
 ###  http://purl.org/PhysicalTherapy#PhoneAtEyeLevel
 :PhoneAtEyeLevel rdf:type owl:NamedIndividual ,
                           :DailyRoutine ;
@@ -11779,7 +11859,7 @@ Langsam zur Mitte zurückkehren.
                                        :Relaxation ;
                               :engagedBodyPart :Abs ,
                                                :Core ;
-                              :hasContraindication :BackIssue ;
+                              :hasContraindication :SpineIssue ;
                               :hasDifficultyLevel :Beginner ;
                               :improves :Flexibility ,
                                         :Relaxation ;
@@ -11803,14 +11883,13 @@ Langsam zur Mitte zurückkehren.
 [ rdf:type owl:Axiom ;
    owl:annotatedSource :ProgressiveMuskelentspannung ;
    owl:annotatedProperty :hasContraindication ;
-   owl:annotatedTarget :BackIssue ;
+   owl:annotatedTarget :SpineIssue ;
    rdfs:comment "This Contraindication should be considered for practitioners of ProgressiveMuskelentspannung to avoid strain or injury."
  ] .
 
 
 ###  http://purl.org/PhysicalTherapy#Psoas
-:Psoas rdf:type owl:NamedIndividual ,
-                :BodyPart ;
+:Psoas rdf:type owl:NamedIndividual ;
        :partOf :Hip ;
        rdfs:comment "Hüftbeugemuskel, der tief im Bauchraum sitzt und die Hüfte beugt."@de ;
        rdfs:label "Hüftbeuger"@de ,
@@ -12368,7 +12447,6 @@ Langsam zur Mitte zurückkehren.
 
 ###  http://purl.org/PhysicalTherapy#Quadriceps
 :Quadriceps rdf:type owl:NamedIndividual ,
-                     :BodyPart ,
                      :Muscle ;
             :partOf :Thighs ;
             rdfs:comment "Quadrizeps, die große Muskelgruppe an der Vorderseite des Oberschenkels."@de ;
@@ -12399,6 +12477,16 @@ Langsam zur Mitte zurückkehren.
        rdfs:comment "Quadrizeps, die große Muskelgruppe an der Vorderseite des Oberschenkels."@de ;
        rdfs:label "Quadrizeps"@de ,
                   "Quads"@en .
+
+
+###  http://purl.org/PhysicalTherapy#Quinoa-Gemüse-Bowl
+:Quinoa-Gemüse-Bowl rdf:type owl:NamedIndividual ,
+                             :RecipeOfTheWeek ;
+                    :hasHealthBenefit "Quinoa enthält alle neun essenziellen Aminosäuren und ist damit ein perfekter Baustein für den Wiederaufbau von beschädigtem Gewebe."@de ;
+                    :hasInstruction "60g Quinoa nach Packungsanleitung kochen. Mit gedünstetem Brokkoli, Paprika und einem Löffel Tahin (Sesammus) in einer Schüssel anrichten."@de ;
+                    :hasPreparationTime 20 ;
+                    rdfs:label "Quinoa Vegetable Bowl"@en ,
+                               "Quinoa-Gemüse-Bowl"@de .
 
 
 ###  http://purl.org/PhysicalTherapy#RaceWalking
@@ -12873,7 +12961,8 @@ Langsam zur Mitte zurückkehren.
 
 
 ###  http://purl.org/PhysicalTherapy#RespiratoryIssue
-:RespiratoryIssue rdf:type owl:NamedIndividual ;
+:RespiratoryIssue rdf:type owl:NamedIndividual ,
+                           :Contraindication ;
                   rdfs:comment "Caution for advanced respiratory conditions such as COPD or asthma, as extended breath holds or forced breathing patterns may worsen symptoms. Consulting a physician is recommended."@en ,
                                "Vorsicht bei fortgeschrittenen Atemwegserkrankungen wie COPD oder Asthma, da längere Atempausen oder forcierte Atemmuster die Symptome verschlechtern können. Rücksprache mit einem Arzt wird empfohlen."@de ;
                   rdfs:label "Atemwegsproblem"@de ,
@@ -12940,6 +13029,16 @@ Langsam zur Mitte zurückkehren.
                                       "Ingwer-Zitronen-Shot"@de .
 
 
+###  http://purl.org/PhysicalTherapy#Rezept_Kamille_Ingwer_Eistee
+:Rezept_Kamille_Ingwer_Eistee rdf:type owl:NamedIndividual ,
+                                       :RecipeOfTheWeek ;
+                              :hasHealthBenefit "Kamille beruhigt gereizte Nerven und mindert Entzündungen im Körper, während Flüssigkeit die Schmierung der Gelenke (Synovialflüssigkeit) aufrechterhält."@de ;
+                              :hasInstruction "Kamillentee mit 3 Scheiben Ingwer aufbrühen, abkühlen lassen. Mit Eiswürfeln, einem Spritzer Zitrone und frischer Minze eiskalt servieren."@de ;
+                              :hasPreparationTime 10 ;
+                              rdfs:label "Chamomile Ginger Iced Tea"@en ,
+                                         "Kamille-Ingwer-Eistee"@de .
+
+
 ###  http://purl.org/PhysicalTherapy#Rezept_KirschKamilleSchlummerdrink
 :Rezept_KirschKamilleSchlummerdrink rdf:type owl:NamedIndividual ,
                                              :RecipeOfTheWeek ;
@@ -12948,6 +13047,26 @@ Langsam zur Mitte zurückkehren.
                                     :hasPreparationTime 5 ;
                                     rdfs:label "Cherry Chamomile Nightcap"@en ,
                                                "Kirsch-Kamille-Schlummerdrink"@de .
+
+
+###  http://purl.org/PhysicalTherapy#Rezept_KurkumaLinsenSuppe
+:Rezept_KurkumaLinsenSuppe rdf:type owl:NamedIndividual ,
+                                    :RecipeOfTheWeek ;
+                           :hasHealthBenefit "100g rote Linsen mit 1 TL Kurkuma, 1 gehackten Möhre und 400ml Gemüsebrühe 15 Minuten köcheln lassen. Anschließend pürieren und mit Pfeffer abschmecken." ,
+                                             "Rote Linsen liefern pflanzliches Eiweiß und Zink für die Geweberegeneration. Die Kombination aus Kurkuma und schwarzem Pfeffer verstärkt die entzündungshemmende Wirkung um ein Vielfaches." ;
+                           :hasPreparationTime 15 ;
+                           rdfs:label "Kurkuma-Linsensuppe"@de ,
+                                      "Turmeric Lentil Soup"@en .
+
+
+###  http://purl.org/PhysicalTherapy#Rezept_LachsAvocadoTartar
+:Rezept_LachsAvocadoTartar rdf:type owl:NamedIndividual ,
+                                    :RecipeOfTheWeek ;
+                           :hasHealthBenefit "Lachs liefert hochwertige Omega-3-Fettsäuren (EPA und DHA), die Entzündungskaskaden im Körper effektiv hemmen. Proteine unterstützen zudem die Sehnen- und Muskelreparatur." ;
+                           :hasInstruction "100g frisches Lachsfilet (Sushi-Qualität) und 1/2 Avocado klein würfeln. Mit etwas Zitronensaft, Dill, Salz und Pfeffer anmachen und servieren." ;
+                           :hasPreparationTime 15 ;
+                           rdfs:label "Lachs-Avocado-Tatar"@de ,
+                                      "Salmon Avocado Tartare"@en .
 
 
 ###  http://purl.org/PhysicalTherapy#Rezept_MandelKakaoEnergyBalls
@@ -13084,7 +13203,7 @@ Langsam zur Mitte zurückkehren.
                                              :Relaxation ;
                                     :engagedBodyPart :Back ,
                                                      :Spine ;
-                                    :hasContraindication :BackIssue ;
+                                    :hasContraindication :SpineIssue ;
                                     :hasDifficultyLevel :Advanced ;
                                     :improves :Mobility ,
                                               :Relaxation ;
@@ -13107,7 +13226,7 @@ Langsam zur Mitte zurückkehren.
                              :Strength ;
                     :engagedBodyPart :Back ,
                                      :Spine ;
-                    :hasContraindication :BackIssue ;
+                    :hasContraindication :SpineIssue ;
                     :hasDifficultyLevel :Beginner ;
                     :improves :Posture ,
                               :Stability ,
@@ -13545,8 +13664,7 @@ Langsam zur Mitte zurückkehren.
                               :ShoulderJoint ,
                               :Spine ,
                               :SpineJoint ;
-             :hasContraindication :BackIssue ,
-                                  :LowerBackIssue ,
+             :hasContraindication :LowerBackIssue ,
                                   :SpineIssue ;
              :hasDifficultyLevel :Intermediate ;
              :improves :Flexibility ,
@@ -13578,7 +13696,7 @@ Langsam zur Mitte zurückkehren.
                                          :Mobilisation ;
                                 :engagedBodyPart :Spine ,
                                                  :UpperBack ;
-                                :hasContraindication :BackIssue ;
+                                :hasContraindication :SpineIssue ;
                                 :hasDifficultyLevel :Intermediate ;
                                 :improves :Flexibility ,
                                           :Mobility ,
@@ -13601,7 +13719,7 @@ Langsam zur Mitte zurückkehren.
                                 :Stretching ;
                        :engagedBodyPart :Back ,
                                         :Spine ;
-                       :hasContraindication :BackIssue ;
+                       :hasContraindication :SpineIssue ;
                        :hasDifficultyLevel :Beginner ;
                        :improves :Flexibility ,
                                  :Mobility ;
@@ -13668,7 +13786,7 @@ Langsam zur Mitte zurückkehren.
                                                     :Relaxation ;
                                            :engagedBodyPart :Core ,
                                                             :LowerBack ;
-                                           :hasContraindication :BackIssue ;
+                                           :hasContraindication :SpineIssue ;
                                            :hasDifficultyLevel :Beginner ;
                                            :improves :Mobility ,
                                                      :Relaxation ;
@@ -14595,7 +14713,7 @@ Langsam zur Mitte zurückkehren.
                          :Stretching ;
                 :engagedBodyPart :Back ,
                                  :Spine ;
-                :hasContraindication :BackIssue ;
+                :hasContraindication :SpineIssue ;
                 :hasDifficultyLevel :Intermediate ;
                 :improves :Flexibility ,
                           :Mobility ;
@@ -14617,7 +14735,7 @@ Langsam zur Mitte zurückkehren.
                               :Mobilisation ;
                      :engagedBodyPart :Back ,
                                       :Spine ;
-                     :hasContraindication :BackIssue ;
+                     :hasContraindication :SpineIssue ;
                      :hasDifficultyLevel :Intermediate ;
                      :improves :Flexibility ,
                                :Mobility ,
@@ -14689,6 +14807,16 @@ Langsam zur Mitte zurückkehren.
                      "Softball"@en .
 
 
+###  http://purl.org/PhysicalTherapy#Spinat-Mandel-Pesto
+:Spinat-Mandel-Pesto rdf:type owl:NamedIndividual ,
+                              :RecipeOfTheWeek ;
+                     :hasHealthBenefit "Mandeln liefern reichlich Vitamin E, welches Zellmembranen vor Entzündungsschäden schützt. Olivenöl enthält Oleocanthal, das ähnlich wie leichte Schmerzmittel wirkt."@de ;
+                     :hasInstruction "50g Baby-Spinat, 30g gehackte Mandeln, 1 Knoblauchzehe und 50ml hochwertiges Olivenöl im Zerkleinerer pürieren. Mit Salz und Zitronensaft abschmecken."@de ;
+                     :hasPreparationTime 10 ;
+                     rdfs:label "Spinach Almond Pesto"@en ,
+                                "Spinat-Mandel-Pesto"@de .
+
+
 ###  http://purl.org/PhysicalTherapy#Spine
 :Spine rdf:type owl:NamedIndividual ,
                 :BodyPart ;
@@ -14699,7 +14827,8 @@ Langsam zur Mitte zurückkehren.
 
 
 ###  http://purl.org/PhysicalTherapy#SpineIssue
-:SpineIssue rdf:type owl:NamedIndividual ;
+:SpineIssue rdf:type owl:NamedIndividual ,
+                     :Contraindication ;
             :requiresImprovementOf :Spine ;
             rdfs:comment "Allgemeine Empfindlichkeit oder Instabilität im Bereich der Wirbelsäule."@de ;
             rdfs:label "SpineIssue"@en ,
@@ -18294,7 +18423,7 @@ Langsam zur Mitte zurückkehren.
                        :Mobilisation ;
               :engagedBodyPart :Back ,
                                :Spine ;
-              :hasContraindication :BackIssue ;
+              :hasContraindication :SpineIssue ;
               :hasDifficultyLevel :Beginner ;
               :improves :Flexibility ,
                         :Mobility ,
@@ -19326,7 +19455,6 @@ Langsam zur Mitte zurückkehren.
 
 ###  http://purl.org/PhysicalTherapy#Triceps
 :Triceps rdf:type owl:NamedIndividual ,
-                  :BodyPart ,
                   :Muscle ;
          :partOf :Arms ;
          rdfs:comment "Trizeps, der Streckmuskel an der Rückseite des Oberarms."@de ;
@@ -19470,6 +19598,15 @@ Langsam zur Mitte zurückkehren.
 4. Ruhig atmen und kontrolliert lösen.""" ;
                            rdfs:label "Reverse Plank"@en ,
                                       "Umgekehrter Unterarmstütz"@de .
+
+
+###  http://purl.org/PhysicalTherapy#Untererückengeleneke
+:Untererückengeleneke rdf:type owl:NamedIndividual ,
+                               :Joint ;
+                      :partOf :Back ;
+                      rdfs:comment "Repräsentiert die Gelenke des unteren Rückenbereichs" ;
+                      rdfs:label "Lower back joints"@en ,
+                                 "Untere Rückengelenke"@de .
 
 
 ###  http://purl.org/PhysicalTherapy#Up
@@ -19747,7 +19884,7 @@ Langsam zur Mitte zurückkehren.
                                    :Coordination ;
                           :engagedBodyPart :Back ,
                                            :Spine ;
-                          :hasContraindication :BackIssue ;
+                          :hasContraindication :SpineIssue ;
                           :hasDifficultyLevel :Intermediate ;
                           :improves :Coordination ,
                                     :Mobility ,
@@ -19770,7 +19907,7 @@ Langsam zur Mitte zurückkehren.
                        :Mobilisation ;
               :engagedBodyPart :Back ,
                                :Spine ;
-              :hasContraindication :BackIssue ;
+              :hasContraindication :SpineIssue ;
               :hasDifficultyLevel :Beginner ;
               :improves :Flexibility ,
                         :Mobility ,

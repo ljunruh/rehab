@@ -15,54 +15,26 @@ class ExerciseRepository {
   Future<List<Exercise>?> getAll() async {
     final user = await userRepository.getUser();
     if (user == null) {
-      return api.fetchAllExercisesExcludeContraindications([]);
+      return api.fetchAllExercisesExcludeContraindications([], []);
     }
 
-    return api.fetchAllExercisesExcludeContraindications(user.contraindication);
+    return api.fetchAllExercisesExcludeContraindications(user.contraindications, user.joints);
   }
 
-  /**
-   * Planerstellung: Lädt alle Übungen für eine bestimmte Körperregion (ohne Filterung nach Schwierigkeitsgrad).
-   */
-  Future<List<Exercise>?> getExercisesForPlanCreation(BodyPart bodyPart) async {
+  Future<List<Exercise>?> getFilterdExcercises(BodyPart bodyPart, Goal goal) async {
     final user = await userRepository.getUser();
     if (user == null) {
-      return api.fetchExercisesForPlanCreation(bodyPart, []);
+      return api.fetchExercisesByParamsExcludeContraindications(bodyPart, goal, SkillLevel.intermediate, [], []);
     }
-    return api.fetchExercisesForPlanCreation(bodyPart, user.contraindication);
-  }
 
-  /**
-   * Planempfehlung: Lädt Übungen für eine Körperregion und mehrere gewählte Trainingseffekte (List<Goal>).
-   */
-  Future<List<Exercise>?> getExercisesForRecommendation(
-    BodyPart bodyPart,
-    List<Goal> goals,
-  ) async {
-    final user = await userRepository.getUser();
-    if (user == null) {
-      return api.fetchExercisesForRecommendation(
-        bodyPart,
-        goals,
-        [],
-        SkillLevel.intermediate,
-      );
-    }
-    return api.fetchExercisesForRecommendation(
+    final result = api.fetchExercisesByParamsExcludeContraindications(
       bodyPart,
-      goals,
-      user.contraindication,
+      goal,
       user.skillLevel,
+      user.contraindications,
+      user.joints
     );
-  }
-
-  /// Veraltete Methode (wird durch getExercisesForRecommendation ersetzt).
-  /// für sicherheit falls es noch was von alten methoden aufgerufen wird .
-  Future<List<Exercise>?> getFilterdExcercises(
-    BodyPart bodyPart,
-    Goal goal,
-  ) async {
-    return getExercisesForRecommendation(bodyPart, [goal]);
+    return result;
   }
 
   /// Filtert eine Liste von Übungen lokal nach Körperregion, Trainingsziel und Suchbegriff .

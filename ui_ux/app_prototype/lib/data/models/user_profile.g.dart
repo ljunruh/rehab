@@ -22,9 +22,9 @@ const UserSchema = CollectionSchema(
       name: r'age',
       type: IsarType.long,
     ),
-    r'contraindication': PropertySchema(
+    r'contraindications': PropertySchema(
       id: 1,
-      name: r'contraindication',
+      name: r'contraindications',
       type: IsarType.stringList,
     ),
     r'gender': PropertySchema(
@@ -43,19 +43,24 @@ const UserSchema = CollectionSchema(
       name: r'initials',
       type: IsarType.string,
     ),
-    r'name': PropertySchema(
+    r'joints': PropertySchema(
       id: 5,
+      name: r'joints',
+      type: IsarType.stringList,
+    ),
+    r'name': PropertySchema(
+      id: 6,
       name: r'name',
       type: IsarType.string,
     ),
     r'skillLevel': PropertySchema(
-      id: 6,
+      id: 7,
       name: r'skillLevel',
       type: IsarType.byte,
       enumMap: _UserskillLevelEnumValueMap,
     ),
     r'weight': PropertySchema(
-      id: 7,
+      id: 8,
       name: r'weight',
       type: IsarType.long,
     )
@@ -80,14 +85,21 @@ int _userEstimateSize(
   Map<Type, List<int>> allOffsets,
 ) {
   var bytesCount = offsets.last;
-  bytesCount += 3 + object.contraindication.length * 3;
+  bytesCount += 3 + object.contraindications.length * 3;
   {
-    for (var i = 0; i < object.contraindication.length; i++) {
-      final value = object.contraindication[i];
+    for (var i = 0; i < object.contraindications.length; i++) {
+      final value = object.contraindications[i];
       bytesCount += value.length * 3;
     }
   }
   bytesCount += 3 + object.initials.length * 3;
+  bytesCount += 3 + object.joints.length * 3;
+  {
+    for (var i = 0; i < object.joints.length; i++) {
+      final value = object.joints[i];
+      bytesCount += value.length * 3;
+    }
+  }
   bytesCount += 3 + object.name.length * 3;
   return bytesCount;
 }
@@ -99,13 +111,14 @@ void _userSerialize(
   Map<Type, List<int>> allOffsets,
 ) {
   writer.writeLong(offsets[0], object.age);
-  writer.writeStringList(offsets[1], object.contraindication);
+  writer.writeStringList(offsets[1], object.contraindications);
   writer.writeByte(offsets[2], object.gender.index);
   writer.writeLong(offsets[3], object.height);
   writer.writeString(offsets[4], object.initials);
-  writer.writeString(offsets[5], object.name);
-  writer.writeByte(offsets[6], object.skillLevel.index);
-  writer.writeLong(offsets[7], object.weight);
+  writer.writeStringList(offsets[5], object.joints);
+  writer.writeString(offsets[6], object.name);
+  writer.writeByte(offsets[7], object.skillLevel.index);
+  writer.writeLong(offsets[8], object.weight);
 }
 
 User _userDeserialize(
@@ -116,15 +129,16 @@ User _userDeserialize(
 ) {
   final object = User(
     age: reader.readLong(offsets[0]),
-    contraindication: reader.readStringList(offsets[1]) ?? [],
+    contraindications: reader.readStringList(offsets[1]) ?? [],
     gender: _UsergenderValueEnumMap[reader.readByteOrNull(offsets[2])] ??
         Gender.male,
     height: reader.readLong(offsets[3]),
-    name: reader.readString(offsets[5]),
+    joints: reader.readStringList(offsets[5]) ?? [],
+    name: reader.readString(offsets[6]),
     skillLevel:
-        _UserskillLevelValueEnumMap[reader.readByteOrNull(offsets[6])] ??
+        _UserskillLevelValueEnumMap[reader.readByteOrNull(offsets[7])] ??
             SkillLevel.beginner,
-    weight: reader.readLong(offsets[7]),
+    weight: reader.readLong(offsets[8]),
   );
   object.id = id;
   return object;
@@ -149,11 +163,13 @@ P _userDeserializeProp<P>(
     case 4:
       return (reader.readString(offset)) as P;
     case 5:
-      return (reader.readString(offset)) as P;
+      return (reader.readStringList(offset) ?? []) as P;
     case 6:
+      return (reader.readString(offset)) as P;
+    case 7:
       return (_UserskillLevelValueEnumMap[reader.readByteOrNull(offset)] ??
           SkillLevel.beginner) as P;
-    case 7:
+    case 8:
       return (reader.readLong(offset)) as P;
     default:
       throw IsarError('Unknown property with id $propertyId');
@@ -322,13 +338,13 @@ extension UserQueryFilter on QueryBuilder<User, User, QFilterCondition> {
   }
 
   QueryBuilder<User, User, QAfterFilterCondition>
-      contraindicationElementEqualTo(
+      contraindicationsElementEqualTo(
     String value, {
     bool caseSensitive = true,
   }) {
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(FilterCondition.equalTo(
-        property: r'contraindication',
+        property: r'contraindications',
         value: value,
         caseSensitive: caseSensitive,
       ));
@@ -336,7 +352,7 @@ extension UserQueryFilter on QueryBuilder<User, User, QFilterCondition> {
   }
 
   QueryBuilder<User, User, QAfterFilterCondition>
-      contraindicationElementGreaterThan(
+      contraindicationsElementGreaterThan(
     String value, {
     bool include = false,
     bool caseSensitive = true,
@@ -344,7 +360,7 @@ extension UserQueryFilter on QueryBuilder<User, User, QFilterCondition> {
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(FilterCondition.greaterThan(
         include: include,
-        property: r'contraindication',
+        property: r'contraindications',
         value: value,
         caseSensitive: caseSensitive,
       ));
@@ -352,7 +368,7 @@ extension UserQueryFilter on QueryBuilder<User, User, QFilterCondition> {
   }
 
   QueryBuilder<User, User, QAfterFilterCondition>
-      contraindicationElementLessThan(
+      contraindicationsElementLessThan(
     String value, {
     bool include = false,
     bool caseSensitive = true,
@@ -360,7 +376,7 @@ extension UserQueryFilter on QueryBuilder<User, User, QFilterCondition> {
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(FilterCondition.lessThan(
         include: include,
-        property: r'contraindication',
+        property: r'contraindications',
         value: value,
         caseSensitive: caseSensitive,
       ));
@@ -368,7 +384,7 @@ extension UserQueryFilter on QueryBuilder<User, User, QFilterCondition> {
   }
 
   QueryBuilder<User, User, QAfterFilterCondition>
-      contraindicationElementBetween(
+      contraindicationsElementBetween(
     String lower,
     String upper, {
     bool includeLower = true,
@@ -377,7 +393,7 @@ extension UserQueryFilter on QueryBuilder<User, User, QFilterCondition> {
   }) {
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(FilterCondition.between(
-        property: r'contraindication',
+        property: r'contraindications',
         lower: lower,
         includeLower: includeLower,
         upper: upper,
@@ -388,13 +404,13 @@ extension UserQueryFilter on QueryBuilder<User, User, QFilterCondition> {
   }
 
   QueryBuilder<User, User, QAfterFilterCondition>
-      contraindicationElementStartsWith(
+      contraindicationsElementStartsWith(
     String value, {
     bool caseSensitive = true,
   }) {
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(FilterCondition.startsWith(
-        property: r'contraindication',
+        property: r'contraindications',
         value: value,
         caseSensitive: caseSensitive,
       ));
@@ -402,13 +418,13 @@ extension UserQueryFilter on QueryBuilder<User, User, QFilterCondition> {
   }
 
   QueryBuilder<User, User, QAfterFilterCondition>
-      contraindicationElementEndsWith(
+      contraindicationsElementEndsWith(
     String value, {
     bool caseSensitive = true,
   }) {
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(FilterCondition.endsWith(
-        property: r'contraindication',
+        property: r'contraindications',
         value: value,
         caseSensitive: caseSensitive,
       ));
@@ -416,11 +432,11 @@ extension UserQueryFilter on QueryBuilder<User, User, QFilterCondition> {
   }
 
   QueryBuilder<User, User, QAfterFilterCondition>
-      contraindicationElementContains(String value,
+      contraindicationsElementContains(String value,
           {bool caseSensitive = true}) {
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(FilterCondition.contains(
-        property: r'contraindication',
+        property: r'contraindications',
         value: value,
         caseSensitive: caseSensitive,
       ));
@@ -428,11 +444,11 @@ extension UserQueryFilter on QueryBuilder<User, User, QFilterCondition> {
   }
 
   QueryBuilder<User, User, QAfterFilterCondition>
-      contraindicationElementMatches(String pattern,
+      contraindicationsElementMatches(String pattern,
           {bool caseSensitive = true}) {
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(FilterCondition.matches(
-        property: r'contraindication',
+        property: r'contraindications',
         wildcard: pattern,
         caseSensitive: caseSensitive,
       ));
@@ -440,30 +456,30 @@ extension UserQueryFilter on QueryBuilder<User, User, QFilterCondition> {
   }
 
   QueryBuilder<User, User, QAfterFilterCondition>
-      contraindicationElementIsEmpty() {
+      contraindicationsElementIsEmpty() {
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(FilterCondition.equalTo(
-        property: r'contraindication',
+        property: r'contraindications',
         value: '',
       ));
     });
   }
 
   QueryBuilder<User, User, QAfterFilterCondition>
-      contraindicationElementIsNotEmpty() {
+      contraindicationsElementIsNotEmpty() {
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(FilterCondition.greaterThan(
-        property: r'contraindication',
+        property: r'contraindications',
         value: '',
       ));
     });
   }
 
-  QueryBuilder<User, User, QAfterFilterCondition> contraindicationLengthEqualTo(
-      int length) {
+  QueryBuilder<User, User, QAfterFilterCondition>
+      contraindicationsLengthEqualTo(int length) {
     return QueryBuilder.apply(this, (query) {
       return query.listLength(
-        r'contraindication',
+        r'contraindications',
         length,
         true,
         length,
@@ -472,10 +488,10 @@ extension UserQueryFilter on QueryBuilder<User, User, QFilterCondition> {
     });
   }
 
-  QueryBuilder<User, User, QAfterFilterCondition> contraindicationIsEmpty() {
+  QueryBuilder<User, User, QAfterFilterCondition> contraindicationsIsEmpty() {
     return QueryBuilder.apply(this, (query) {
       return query.listLength(
-        r'contraindication',
+        r'contraindications',
         0,
         true,
         0,
@@ -484,10 +500,11 @@ extension UserQueryFilter on QueryBuilder<User, User, QFilterCondition> {
     });
   }
 
-  QueryBuilder<User, User, QAfterFilterCondition> contraindicationIsNotEmpty() {
+  QueryBuilder<User, User, QAfterFilterCondition>
+      contraindicationsIsNotEmpty() {
     return QueryBuilder.apply(this, (query) {
       return query.listLength(
-        r'contraindication',
+        r'contraindications',
         0,
         false,
         999999,
@@ -497,13 +514,13 @@ extension UserQueryFilter on QueryBuilder<User, User, QFilterCondition> {
   }
 
   QueryBuilder<User, User, QAfterFilterCondition>
-      contraindicationLengthLessThan(
+      contraindicationsLengthLessThan(
     int length, {
     bool include = false,
   }) {
     return QueryBuilder.apply(this, (query) {
       return query.listLength(
-        r'contraindication',
+        r'contraindications',
         0,
         true,
         length,
@@ -513,13 +530,13 @@ extension UserQueryFilter on QueryBuilder<User, User, QFilterCondition> {
   }
 
   QueryBuilder<User, User, QAfterFilterCondition>
-      contraindicationLengthGreaterThan(
+      contraindicationsLengthGreaterThan(
     int length, {
     bool include = false,
   }) {
     return QueryBuilder.apply(this, (query) {
       return query.listLength(
-        r'contraindication',
+        r'contraindications',
         length,
         include,
         999999,
@@ -528,7 +545,8 @@ extension UserQueryFilter on QueryBuilder<User, User, QFilterCondition> {
     });
   }
 
-  QueryBuilder<User, User, QAfterFilterCondition> contraindicationLengthBetween(
+  QueryBuilder<User, User, QAfterFilterCondition>
+      contraindicationsLengthBetween(
     int lower,
     int upper, {
     bool includeLower = true,
@@ -536,7 +554,7 @@ extension UserQueryFilter on QueryBuilder<User, User, QFilterCondition> {
   }) {
     return QueryBuilder.apply(this, (query) {
       return query.listLength(
-        r'contraindication',
+        r'contraindications',
         lower,
         includeLower,
         upper,
@@ -827,6 +845,220 @@ extension UserQueryFilter on QueryBuilder<User, User, QFilterCondition> {
         property: r'initials',
         value: '',
       ));
+    });
+  }
+
+  QueryBuilder<User, User, QAfterFilterCondition> jointsElementEqualTo(
+    String value, {
+    bool caseSensitive = true,
+  }) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.equalTo(
+        property: r'joints',
+        value: value,
+        caseSensitive: caseSensitive,
+      ));
+    });
+  }
+
+  QueryBuilder<User, User, QAfterFilterCondition> jointsElementGreaterThan(
+    String value, {
+    bool include = false,
+    bool caseSensitive = true,
+  }) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.greaterThan(
+        include: include,
+        property: r'joints',
+        value: value,
+        caseSensitive: caseSensitive,
+      ));
+    });
+  }
+
+  QueryBuilder<User, User, QAfterFilterCondition> jointsElementLessThan(
+    String value, {
+    bool include = false,
+    bool caseSensitive = true,
+  }) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.lessThan(
+        include: include,
+        property: r'joints',
+        value: value,
+        caseSensitive: caseSensitive,
+      ));
+    });
+  }
+
+  QueryBuilder<User, User, QAfterFilterCondition> jointsElementBetween(
+    String lower,
+    String upper, {
+    bool includeLower = true,
+    bool includeUpper = true,
+    bool caseSensitive = true,
+  }) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.between(
+        property: r'joints',
+        lower: lower,
+        includeLower: includeLower,
+        upper: upper,
+        includeUpper: includeUpper,
+        caseSensitive: caseSensitive,
+      ));
+    });
+  }
+
+  QueryBuilder<User, User, QAfterFilterCondition> jointsElementStartsWith(
+    String value, {
+    bool caseSensitive = true,
+  }) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.startsWith(
+        property: r'joints',
+        value: value,
+        caseSensitive: caseSensitive,
+      ));
+    });
+  }
+
+  QueryBuilder<User, User, QAfterFilterCondition> jointsElementEndsWith(
+    String value, {
+    bool caseSensitive = true,
+  }) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.endsWith(
+        property: r'joints',
+        value: value,
+        caseSensitive: caseSensitive,
+      ));
+    });
+  }
+
+  QueryBuilder<User, User, QAfterFilterCondition> jointsElementContains(
+      String value,
+      {bool caseSensitive = true}) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.contains(
+        property: r'joints',
+        value: value,
+        caseSensitive: caseSensitive,
+      ));
+    });
+  }
+
+  QueryBuilder<User, User, QAfterFilterCondition> jointsElementMatches(
+      String pattern,
+      {bool caseSensitive = true}) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.matches(
+        property: r'joints',
+        wildcard: pattern,
+        caseSensitive: caseSensitive,
+      ));
+    });
+  }
+
+  QueryBuilder<User, User, QAfterFilterCondition> jointsElementIsEmpty() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.equalTo(
+        property: r'joints',
+        value: '',
+      ));
+    });
+  }
+
+  QueryBuilder<User, User, QAfterFilterCondition> jointsElementIsNotEmpty() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.greaterThan(
+        property: r'joints',
+        value: '',
+      ));
+    });
+  }
+
+  QueryBuilder<User, User, QAfterFilterCondition> jointsLengthEqualTo(
+      int length) {
+    return QueryBuilder.apply(this, (query) {
+      return query.listLength(
+        r'joints',
+        length,
+        true,
+        length,
+        true,
+      );
+    });
+  }
+
+  QueryBuilder<User, User, QAfterFilterCondition> jointsIsEmpty() {
+    return QueryBuilder.apply(this, (query) {
+      return query.listLength(
+        r'joints',
+        0,
+        true,
+        0,
+        true,
+      );
+    });
+  }
+
+  QueryBuilder<User, User, QAfterFilterCondition> jointsIsNotEmpty() {
+    return QueryBuilder.apply(this, (query) {
+      return query.listLength(
+        r'joints',
+        0,
+        false,
+        999999,
+        true,
+      );
+    });
+  }
+
+  QueryBuilder<User, User, QAfterFilterCondition> jointsLengthLessThan(
+    int length, {
+    bool include = false,
+  }) {
+    return QueryBuilder.apply(this, (query) {
+      return query.listLength(
+        r'joints',
+        0,
+        true,
+        length,
+        include,
+      );
+    });
+  }
+
+  QueryBuilder<User, User, QAfterFilterCondition> jointsLengthGreaterThan(
+    int length, {
+    bool include = false,
+  }) {
+    return QueryBuilder.apply(this, (query) {
+      return query.listLength(
+        r'joints',
+        length,
+        include,
+        999999,
+        true,
+      );
+    });
+  }
+
+  QueryBuilder<User, User, QAfterFilterCondition> jointsLengthBetween(
+    int lower,
+    int upper, {
+    bool includeLower = true,
+    bool includeUpper = true,
+  }) {
+    return QueryBuilder.apply(this, (query) {
+      return query.listLength(
+        r'joints',
+        lower,
+        includeLower,
+        upper,
+        includeUpper,
+      );
     });
   }
 
@@ -1259,9 +1491,9 @@ extension UserQueryWhereDistinct on QueryBuilder<User, User, QDistinct> {
     });
   }
 
-  QueryBuilder<User, User, QDistinct> distinctByContraindication() {
+  QueryBuilder<User, User, QDistinct> distinctByContraindications() {
     return QueryBuilder.apply(this, (query) {
-      return query.addDistinctBy(r'contraindication');
+      return query.addDistinctBy(r'contraindications');
     });
   }
 
@@ -1281,6 +1513,12 @@ extension UserQueryWhereDistinct on QueryBuilder<User, User, QDistinct> {
       {bool caseSensitive = true}) {
     return QueryBuilder.apply(this, (query) {
       return query.addDistinctBy(r'initials', caseSensitive: caseSensitive);
+    });
+  }
+
+  QueryBuilder<User, User, QDistinct> distinctByJoints() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addDistinctBy(r'joints');
     });
   }
 
@@ -1318,9 +1556,9 @@ extension UserQueryProperty on QueryBuilder<User, User, QQueryProperty> {
   }
 
   QueryBuilder<User, List<String>, QQueryOperations>
-      contraindicationProperty() {
+      contraindicationsProperty() {
     return QueryBuilder.apply(this, (query) {
-      return query.addPropertyName(r'contraindication');
+      return query.addPropertyName(r'contraindications');
     });
   }
 
@@ -1339,6 +1577,12 @@ extension UserQueryProperty on QueryBuilder<User, User, QQueryProperty> {
   QueryBuilder<User, String, QQueryOperations> initialsProperty() {
     return QueryBuilder.apply(this, (query) {
       return query.addPropertyName(r'initials');
+    });
+  }
+
+  QueryBuilder<User, List<String>, QQueryOperations> jointsProperty() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addPropertyName(r'joints');
     });
   }
 

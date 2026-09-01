@@ -34,12 +34,12 @@ class UserProvider extends ChangeNotifier {
   /// Liest jegliche Bezeichner (Deutsch/Englisch/IDs) aus Isar/Ontologie,
   /// gleicht sie mit dem BodyPart-Enum ab und liefert saubere UI-Beschriftungen.
   List<String> get injuryLabels {
-    if (_user == null || _user!.contraindication.isEmpty) return [];
+    if (_user == null || _user!.contraindications.isEmpty) return [];
 
     // Ein Set verhindert doppelte Anzeigen (z. B. wenn "Rumpf" und "Core" in der Liste stehen)
     final uniqueLabels = <String>{};
 
-    for (final rawInjury in _user!.contraindication) {
+    for (final rawInjury in _user!.contraindications) {
       final clean = rawInjury.trim().toLowerCase();
 
       // 1. Sonderfall für Gleichgewicht (kein direkter Muskel / BodyPart im klassischen Sinn)
@@ -174,7 +174,8 @@ class UserProvider extends ChangeNotifier {
     required int height,
     required int weight,
     required SkillLevel skillLevel,
-    required List<String> injuries,
+    required List<String> contraindications,
+    required List<String> joints,
   }) async {
     final newUser = User(
       name: name,
@@ -183,7 +184,8 @@ class UserProvider extends ChangeNotifier {
       height: height,
       weight: weight,
       skillLevel: skillLevel,
-      contraindication: injuries,
+      contraindications: contraindications,
+        joints: joints
     );
 
     await repo.saveUser(newUser);
