@@ -109,6 +109,14 @@ class _AppShellState extends State<AppShell> {
     _sub = SubView.addExercise;
   });
 
+  void _showNewPlanChoices() {
+    NewPlanChoiceSheet.show(
+      context,
+      onRecommend: () => setState(() => _sub = SubView.recommend),
+      onManual: () => setState(() => _sub = SubView.planCreate),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     final app = context.watch<UiState>();
@@ -241,6 +249,7 @@ class _AppShellState extends State<AppShell> {
           screen = PlansScreen(
             onOpenProfile: _openProfile,
             onOpenPlan: _openPlan,
+            onAddPlan: _showNewPlanChoices,
           );
           break;
         case AppTab.progress:
@@ -272,14 +281,7 @@ class _AppShellState extends State<AppShell> {
                     _tab = t;
                     _sub = SubView.none;
                   }),
-                  onAddPlan: () {
-                    NewPlanChoiceSheet.show(
-                      context,
-                      onRecommend: () =>
-                          setState(() => _sub = SubView.recommend),
-                      onManual: () => setState(() => _sub = SubView.planCreate),
-                    );
-                  },
+                  onAddPlan: _showNewPlanChoices,
                 ),
             ],
           ),
