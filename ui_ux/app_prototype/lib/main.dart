@@ -23,6 +23,7 @@ import 'package:app_prototype/data/repository/plan_log_exercise_repository.dart'
 import 'package:app_prototype/data/repository/plan_repository.dart';
 import 'package:app_prototype/data/repository/recipe_repository.dart';
 import 'package:app_prototype/data/repository/user_repository.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:fvp/fvp.dart' as fvp;
 import 'package:isar/isar.dart';
@@ -33,58 +34,89 @@ import 'data/models/api/pain_log_exercise.dart';
 import 'features/intro/intro_screen.dart';
 import 'navigation/app_shell.dart';
 import 'state/ui_state.dart';
+import 'dart:async';
 
-void main() async {
-  WidgetsFlutterBinding.ensureInitialized();
 
-  // Diese Zeile schaltet den Linux/Windows Support für den video_player frei
-  fvp.registerWith(options: {'platforms': ['windows', 'macos', 'linux']});
+// Globaler Notifier für die Inspector-URL (wird vom Footer konsumiert)
+final ValueNotifier<String?> isarInspectorUrlNotifier = ValueNotifier<String?>(null);
 
-  await NotificationService.instance.initialize();
+void main() {
+  // Die komplette Initialisierungs- und Startlogik der App
+  Future<void> runAppLogic() async {
+    WidgetsFlutterBinding.ensureInitialized();
 
-  final appDir = await getApplicationDocumentsDirectory();
-  final isar = await Isar.open(
-    [
-      AppStateSchema,
-      UserSchema,
-      PlanSchema,
-      PainLogSchema,
-      PainLogExerciseSchema,
-      PlanLogExerciseSchema,
-      RecipeSchema,
-    ],
-    directory: appDir.path
-  );
+    // Linux/Windows Support für den video_player freischalten
+    fvp.registerWith(options: {'platforms': ['windows', 'macos', 'linux']});
 
-  final appStateRepository = AppStateRepository(isar);
-  final userRepository = UserRepository(isar);
-  final exerciseRepository = ExerciseRepository(api: ExerciseApi(), userRepository: userRepository);
-  final planRepository = PlanRepository(isar);
-  final painLogRepository = PainLogRepository(isar);
-  final painLogExerciseRepository = PainLogExerciseRepository(isar);
-  final planLogExerciseRepository = PlanLogExerciseRepository(isar);
-  final recipeRepository = RecipeRepository(isar, api: RecipeApi());
+    await NotificationService.instance.initialize();
 
-  runApp(MultiProvider(
-      providers: [
-        ChangeNotifierProvider(create: (_) => UiState()),
-        ChangeNotifierProvider(create: (_) => UserProvider(userRepository)..init()),
-        ChangeNotifierProvider(create: (_) => ExerciseProvider(exerciseRepository)),
-        ChangeNotifierProvider(create: (_) => PlanProvider(planRepo: planRepository, appStateRepo: appStateRepository)),
-        ChangeNotifierProvider(create: (_) => PainLogProvider(painLogRepository)),
-        ChangeNotifierProvider(create: (_) => PainLogExerciseProvider(painLogExerciseRepository)),
-        ChangeNotifierProvider(create: (_) => PlanLogExerciseProvider(planLogExerciseRepository, planRepository)),
-        ChangeNotifierProvider(create: (_) => RecipeProvider(recipeRepository)),
-        ChangeNotifierProvider(create: (_) => CalendarProvider()),
+    final appDir = await getApplicationDocumentsDirectory();
+
+    final isar = await Isar.open(
+      [
+        AppStateSchema,
+        UserSchema,
+        PlanSchema,
+        PainLogSchema,
+        PainLogExerciseSchema,
+        PlanLogExerciseSchema,
+        RecipeSchema,
       ],
-      child: RehaApp()));
+      directory: appDir.path,
+      inspector: true,
+    );
+
+    final appStateRepository = AppStateRepository(isar);
+    final userRepository = UserRepository(isar);
+    final exerciseRepository = ExerciseRepository(api: ExerciseApi(), userRepository: userRepository);
+    final planRepository = PlanRepository(isar);
+    final painLogRepository = PainLogRepository(isar);
+    final painLogExerciseRepository = PainLogExerciseRepository(isar);
+    final planLogExerciseRepository = PlanLogExerciseRepository(isar);
+    final recipeRepository = RecipeRepository(isar, api: RecipeApi());
+
+    runApp(
+      MultiProvider(
+        providers: [
+          ChangeNotifierProvider(create: (_) => UiState()),
+          ChangeNotifierProvider(create: (_) => UserProvider(userRepository)..init()),
+          ChangeNotifierProvider(create: (_) => ExerciseProvider(exerciseRepository)),
+          ChangeNotifierProvider(create: (_) => PlanProvider(planRepo: planRepository, appStateRepo: appStateRepository)),
+          ChangeNotifierProvider(create: (_) => PainLogProvider(painLogRepository)),
+          ChangeNotifierProvider(create: (_) => PainLogExerciseProvider(painLogExerciseRepository)),
+          ChangeNotifierProvider(create: (_) => PlanLogExerciseProvider(planLogExerciseRepository, planRepository)),
+          ChangeNotifierProvider(create: (_) => RecipeProvider(recipeRepository)),
+          ChangeNotifierProvider(create: (_) => CalendarProvider()),
+        ],
+        child: const RehaApp(),
+      ),
+    );
+  }
+
+  // Debug-Modus: Fange Konsolen-Prints ab, um die Isar-URL zu filtern
+  if (kDebugMode) {
+    runZoned(
+      runAppLogic,
+      zoneSpecification: ZoneSpecification(
+        print: (self, parent, zone, line) {
+          if (line.contains('https://inspect.isar.dev/')) {
+            final regExp = RegExp(r'https://inspect\.isar\.dev/[^\s║]+');
+            final match = regExp.firstMatch(line);
+            if (match != null) {
+              isarInspectorUrlNotifier.value = match.group(0);
+            }
+          }
+          parent.print(zone, line);
+        },
+      ),
+    );
+  } else {
+    // Release-Modus: Direkt ausführen
+    runAppLogic();
+  }
 }
 
 /// Wurzel der Reha App (UI/UX-Projekt).
-///
-/// Stellt den [UiState] bereit (Provider) und das App-Theme. Es gibt bewusst
-/// keine Backend-/Lade-Logik: Die Demo-Daten liegen direkt im UiState, damit
-/// die Oberfläche sofort sichtbar und durchklickbar ist.
 class RehaApp extends StatelessWidget {
   const RehaApp({super.key});
 
@@ -117,9 +149,9 @@ class _RootGateState extends State<_RootGate> {
       child: _ready
           ? AppShell(key: const ValueKey('app'))
           : IntroScreen(
-              key: const ValueKey('intro'),
-              onDone: () => setState(() => _ready = true),
-            ),
+        key: const ValueKey('intro'),
+        onDone: () => setState(() => _ready = true),
+      ),
     );
   }
 }

@@ -1,5 +1,6 @@
 import 'package:app_prototype/data/provider/user_provider.dart';
 import 'package:app_prototype/features/profile/setup/profile_setup_screen.dart';
+import 'package:app_prototype/navigation/debug_inspector_footer.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../core/theme/app_theme.dart';
@@ -24,8 +25,9 @@ import '../features/profile/profile_screen.dart';
 import '../features/profile/profile_drawer.dart';
 import '../features/profile/profile_edit_sheet.dart';
 
-/// Unter-Ansichten, die über die Tabs hinausgehen (Detail-Screens).
-/// Person 4 erweitert dieses Routing, wenn neue Detail-Screens dazukommen.
+// GGF. PFAD ZU DEINER MAIN / DEM FOOTER-WIDGET ANPASSEN:
+import 'package:app_prototype/main.dart';
+
 enum SubView {
   none,
   userSetup,
@@ -42,12 +44,6 @@ enum SubView {
   calendarFull,
 }
 
-/// App-Shell — hält Tab- und Sub-View-Zustand, rendert den aktiven Screen,
-/// die Bottom-Nav und das Toast-Overlay.
-///
-/// Bewusst mit lokalem [StatefulWidget]-Routing gehalten (kein Router-Paket),
-/// damit der Aufbau dem JSX-Prototyp 1:1 entspricht und für ein Bachelor-
-/// Projekt leicht nachvollziehbar bleibt.
 class AppShell extends StatefulWidget {
   const AppShell({super.key});
 
@@ -59,16 +55,9 @@ class _AppShellState extends State<AppShell> {
   AppTab _tab = AppTab.home;
   SubView _sub = SubView.none;
 
-  /// Profil-Drawer (fährt von rechts ein) — Overlay über der gesamten Shell.
   bool _profileOpen = false;
-
-  /// "Profil bearbeiten" als In-Frame-Overlay (bleibt im Phone-Rahmen).
   bool _editOpen = false;
-
-  /// ID des aktuell geöffneten Elements (Übung oder Plan).
   String? _selectedId;
-
-  /// Initiales Datum beim Öffnen des Vollbild-Kalenders.
   DateTime? _calendarInitialDate;
 
   void _openProfile() => setState(() => _profileOpen = true);
@@ -85,15 +74,11 @@ class _AppShellState extends State<AppShell> {
     _selectedId = null;
   });
 
-  // Öffnet die Übungs-Detailansicht. Bereit für eine antippbare Übungsliste
-  // (Person 1) oder den Aufruf aus dem Plan-Detail (Person 2).
-  // ignore: unused_element
   void _openExercise(String id) => setState(() {
     _selectedId = id;
     _sub = SubView.exerciseDetail;
   });
 
-  //TODO[API]: Detailansicht anzeigen
   void _openPlan(String id) => setState(() {
     _selectedId = id;
     _sub = SubView.planDetail;
@@ -113,7 +98,6 @@ class _AppShellState extends State<AppShell> {
   Widget build(BuildContext context) {
     final app = context.watch<UiState>();
 
-    // Toast automatisch nach Ablauf der Standard-Dauer schließen.
     if (app.toast != null) {
       Future.delayed(AppMotion.toastDuration, () {
         if (mounted && app.toast != null) app.clearToast();
@@ -212,7 +196,6 @@ class _AppShellState extends State<AppShell> {
       screen = PlanDetailScreen(
         planId: _selectedId!,
         onBack: _closeSub,
-        //TODO[API]: Training starten
         onStartTraining: _startTraining,
         onAddExercise: _openAddExercise,
       );
@@ -221,7 +204,6 @@ class _AppShellState extends State<AppShell> {
       screen = PlanTrainingScreen(
         planId: _selectedId!,
         onExit: _closeSub,
-        //TODO[API]: Training starten
         onFinish: () {
           context.read<UiState>().finishTraining(_selectedId!);
           _closeSub();
@@ -233,8 +215,8 @@ class _AppShellState extends State<AppShell> {
       switch (_tab) {
         case AppTab.home:
           screen = HomeScreen(
-            onOpenProfile: _openProfile,
-            onStartTraining: (plan) => _startTraining(plan.id)
+              onOpenProfile: _openProfile,
+              onStartTraining: (plan) => _startTraining(plan.id)
           );
           break;
         case AppTab.plans:
@@ -281,18 +263,18 @@ class _AppShellState extends State<AppShell> {
                     );
                   },
                 ),
+
+              // Zeigt den Isar Inspector Link im Debug-Modus unten an
+              const DebugInspectorFooter(),
             ],
           ),
 
-          // Profil-Drawer als Overlay (fährt von rechts ein).
           if (_profileOpen)
             ProfileDrawer(
               onClose: () => setState(() => _profileOpen = false),
               onEditProfile: () => setState(() => _editOpen = true),
             ),
 
-          // "Profil bearbeiten" als In-Frame-Overlay — bleibt im Rahmen
-          // (statt showModalBottomSheet, das über den Rahmen hinausragte).
           if (_editOpen)
             Positioned.fill(
               child: LayoutBuilder(
@@ -306,7 +288,7 @@ class _AppShellState extends State<AppShell> {
                       alignment: Alignment.bottomCenter,
                       child: ConstrainedBox(
                         constraints:
-                            BoxConstraints(maxHeight: cons.maxHeight * 0.94),
+                        BoxConstraints(maxHeight: cons.maxHeight * 0.94),
                         child: ClipRRect(
                           borderRadius: const BorderRadius.vertical(
                               top: Radius.circular(28)),
@@ -329,9 +311,6 @@ class _AppShellState extends State<AppShell> {
   }
 }
 
-/// Phone-Frame wie im JSX-Prototyp (für Web/Desktop-Vorschau).
-/// Auf einem echten Gerät kann dieser Rahmen entfallen — dann direkt
-/// das [child] in ein Scaffold setzen.
 class _PhoneFrame extends StatelessWidget {
   final Widget child;
 
