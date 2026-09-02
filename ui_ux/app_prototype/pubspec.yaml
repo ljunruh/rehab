@@ -55,6 +55,8 @@ dependencies:
   # Lokale Benachrichtigungen für die Trainings-Erinnerung
   flutter_local_notifications: ^17.2.3
   timezone: ^0.9.4
+  # Zusätzliche Platforminfos z.B. ob Emulator oder echtes Gerät
+  device_info_plus: ^11.0.0
 
 dev_dependencies:
   flutter_test:
