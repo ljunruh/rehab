@@ -32,7 +32,6 @@ class AddExerciseScreen extends StatefulWidget {
 }
 
 class _AddExerciseScreenState extends State<AddExerciseScreen> {
-  String _filterRegion = 'Alle';
   final Set<String> _selected = {};
   List<Exercise> _library = [];
 
@@ -43,7 +42,17 @@ class _AddExerciseScreenState extends State<AddExerciseScreen> {
   }
 
   Future<void> _loadExercises() async {
-    final exercises = await context.read<ExerciseProvider>().repo.getAll();
+    final planProvider = context.read<PlanProvider>();
+    final plan = planProvider.plans.firstWhere(
+      (p) => p.id == widget.planId,
+      orElse: () => planProvider.plan!,
+    );
+
+    final exercises = await context
+        .read<ExerciseProvider>()
+        .repo
+        .getFilterdExcercises(plan.region, plan.goal);
+
     if (exercises != null && mounted) {
       setState(() {
         _library = exercises;
@@ -79,15 +88,6 @@ class _AddExerciseScreenState extends State<AddExerciseScreen> {
 
     final exerciseRepo = context.read<ExerciseProvider>().repo;
     var list = _library;
-    // lokale filterungsmethide wird aufgerufen
-    if (_filterRegion != 'Alle') {
-      final bodyPartEnum = _findBodyPart(_filterRegion);
-      list = exerciseRepo.filterExercises(
-        _library,
-        bodyPart: bodyPartEnum,
-        goal: Goal.none,
-      );
-    }
 
     return Column(
       children: [
@@ -107,26 +107,6 @@ class _AddExerciseScreenState extends State<AddExerciseScreen> {
               Text(
                 '${_selected.length} ausgewählt · Plan: ${plan.name}',
                 style: AppText.caption,
-              ),
-              const SizedBox(height: AppSpacing.base),
-
-              // Region-Filter
-              SizedBox(
-                height: 36,
-                child: ListView(
-                  scrollDirection: Axis.horizontal,
-                  children: [
-                    for (final r in PlanOptions.regionFilter)
-                      Padding(
-                        padding: const EdgeInsets.only(right: AppSpacing.sm),
-                        child: AppChip(
-                          label: r,
-                          active: _filterRegion == r,
-                          onTap: () => setState(() => _filterRegion = r),
-                        ),
-                      ),
-                  ],
-                ),
               ),
               const SizedBox(height: AppSpacing.base),
 
