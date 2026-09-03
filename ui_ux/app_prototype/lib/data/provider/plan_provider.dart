@@ -87,6 +87,12 @@ class PlanProvider extends ChangeNotifier with WidgetsBindingObserver {
     final updatedPlan = _selectedPlan!.copyWith(exercises: exercises);
     await planRepo.savePlan(updatedPlan);
     _selectedPlan = updatedPlan;
+
+    final index = _plans.indexWhere((p) => p.id == updatedPlan.id);
+    if (index != -1) {
+      _plans[index] = updatedPlan;
+    }
+
     notifyListeners();
   }
 
