@@ -92,17 +92,15 @@ class Exercise {
   static const String _localVideoDir = String.fromEnvironment('LOCAL_VIDEO_DIR');
 
   /// Leitet aus dem lokalen Namen der Exercise-IRI (z.B. ".../PhysicalTherapy#Plank")
-  /// die Video-URL auf dem Video-Server ab (Schema: lowercase-name + .mp4).
-  /// Fällt auf das Platzhalter-Video zurück, solange kein Video-Server-Wert bekannt ist.
+  /// die Video-URL für lokales Testen ab (Schema: lowercase-name + .mp4).
+  /// Ohne LOCAL_VIDEO_DIR oder ohne hasVideoUrl vom Server gibt es kein Video,
+  /// damit im Widget kein Fehler für Übungen ohne Video auftreten kann.
   static String _buildVideoUrl(String? exerciseIri) {
-    if (exerciseIri == null || !exerciseIri.contains('#')) {
-      return 'assets/demo_video/Bodyweight_Squat_placeholder.mp4';
+    if (_localVideoDir.isEmpty || exerciseIri == null || !exerciseIri.contains('#')) {
+      return '';
     }
     final slug = exerciseIri.split('#').last.toLowerCase();
-    if (_localVideoDir.isNotEmpty) {
-      return '$_localVideoDir/$slug.mp4';
-    }
-    return 'https://revia.mausnetz.com/video/$slug.mp4';
+    return '$_localVideoDir/$slug.mp4';
   }
 
   //TODO[API] Muss in ein CoreModel oder ModelService ausgelagert werden

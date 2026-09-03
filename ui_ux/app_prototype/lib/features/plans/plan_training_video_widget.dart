@@ -3,6 +3,10 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:video_player/video_player.dart';
 
+// Dateiendungen, die als Video interpretiert werden. Alles andere (aber nicht leer)
+// wird als Bild-URL behandelt.
+const List<String> _videoExtensions = ['.mp4'];
+
 class PlanTrainingVideoWidget extends StatefulWidget {
   final String videoSource;
 
@@ -18,10 +22,17 @@ class _PlanTrainingVideoWidgetState extends State<PlanTrainingVideoWidget> {
   Future<void>? _initializeVideoPlayerFuture;
   bool _failed = false;
 
+  bool get _isVideo {
+    final lower = widget.videoSource.toLowerCase();
+    return _videoExtensions.any((ext) => lower.endsWith(ext));
+  }
+
   @override
   void initState() {
     super.initState();
-    _initVideo();
+    if (widget.videoSource.isNotEmpty && _isVideo) {
+      _initVideo();
+    }
   }
 
   // Falls sich die Exercise auf derselben Seite ändert (z.B. Nächste Übung),
@@ -31,8 +42,14 @@ class _PlanTrainingVideoWidgetState extends State<PlanTrainingVideoWidget> {
     super.didUpdateWidget(oldWidget);
     if (oldWidget.videoSource != widget.videoSource) {
       _controller?.dispose();
+      _controller = null;
+      _initializeVideoPlayerFuture = null;
       _failed = false;
-      _initVideo();
+      if (widget.videoSource.isNotEmpty && _isVideo) {
+        _initVideo();
+      } else {
+        setState(() {});
+      }
     }
   }
 
@@ -62,8 +79,58 @@ class _PlanTrainingVideoWidgetState extends State<PlanTrainingVideoWidget> {
     super.dispose();
   }
 
+  Widget _buildPlaceholder() {
+    return Container(
+      height: 200,
+      alignment: Alignment.center,
+      decoration: BoxDecoration(
+        color: Colors.black12,
+        borderRadius: BorderRadius.circular(12),
+      ),
+      child: const Column(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          Icon(Icons.videocam_off_outlined, size: 32, color: Colors.black45),
+          SizedBox(height: 8),
+          Text('Kein Video verfügbar', style: TextStyle(color: Colors.black54)),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildImage() {
+    final source = widget.videoSource;
+    final isNetwork = source.startsWith('http://') || source.startsWith('https://');
+    return ClipRRect(
+      borderRadius: BorderRadius.circular(12),
+      child: isNetwork
+          ? Image.network(
+              source,
+              height: 200,
+              width: double.infinity,
+              fit: BoxFit.cover,
+              errorBuilder: (context, error, stackTrace) => _buildPlaceholder(),
+            )
+          : Image.asset(
+              source,
+              height: 200,
+              width: double.infinity,
+              fit: BoxFit.cover,
+              errorBuilder: (context, error, stackTrace) => _buildPlaceholder(),
+            ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
+    if (widget.videoSource.isEmpty) {
+      return _buildPlaceholder();
+    }
+
+    if (!_isVideo) {
+      return _buildImage();
+    }
+
     if (_controller == null || _initializeVideoPlayerFuture == null) {
       return const SizedBox(height: 200, child: Center(child: CircularProgressIndicator()));
     }
@@ -73,22 +140,7 @@ class _PlanTrainingVideoWidgetState extends State<PlanTrainingVideoWidget> {
       builder: (context, snapshot) {
         if (snapshot.connectionState == ConnectionState.done) {
           if (_failed) {
-            return Container(
-              height: 200,
-              alignment: Alignment.center,
-              decoration: BoxDecoration(
-                color: Colors.black12,
-                borderRadius: BorderRadius.circular(12),
-              ),
-              child: const Column(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  Icon(Icons.videocam_off_outlined, size: 32, color: Colors.black45),
-                  SizedBox(height: 8),
-                  Text('Kein Video verfügbar', style: TextStyle(color: Colors.black54)),
-                ],
-              ),
-            );
+            return _buildPlaceholder();
           }
           return GestureDetector(
             onTap: () {
