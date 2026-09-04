@@ -149,7 +149,7 @@ class _PlanTrainingScreenState extends State<PlanTrainingScreen> {
         const SizedBox(height: AppSpacing.lg),
 
         // Visual-Hero mit Play-Button und Dauer-Badge
-        PlanTrainingVideoWidget(assetPath: current.video, key: ValueKey(current.id)),
+        PlanTrainingVideoWidget(videoSource: current.video, key: ValueKey(current.id)),
         const SizedBox(height: AppSpacing.lg),
 
         // Titel + Info-Toggle

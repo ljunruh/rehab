@@ -3,16 +3,19 @@ import 'package:app_prototype/data/enum/goal.dart';
 import 'package:app_prototype/data/models/api/plan.dart';
 import 'package:app_prototype/data/provider/plan_provider.dart';
 import 'package:app_prototype/data/provider/user_provider.dart';
+import 'package:app_prototype/data/provider/daily_life_advice_provider.dart';
+import 'package:app_prototype/data/models/api/daily_life_advice.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:provider/provider.dart';
 import '../../core/theme/app_theme.dart';
 import '../../core/widgets/widgets.dart';
 import '../../state/ui_state.dart';
-import '../../data/models/models.dart';
-import '../../data/models/alltag_guide.dart';
-import '../../data/demo/alltag_data.dart';
+// Legacy: Statische Schonungs-Guides wurden durch Ontologie-Daten ersetzt.
+// import '../../data/models/alltag_guide.dart';
+// import '../../data/demo/alltag_data.dart';
 import '../../navigation/screen_header.dart';
+import '../../core/region_icons.dart';
 
 /// ┌──────────────────────────────────────────────────────────┐
 /// │  PERSON 2 — PLÄNE & TRAINING                              │
@@ -25,18 +28,18 @@ import '../../navigation/screen_header.dart';
 ///  - "Meine Pläne": aktive Pläne als wischbare Karten (Bearbeiten/
 ///    Archiv/Löschen), sortiert nach den 5 anatomischen Regionen
 ///    zuerst, dann Lifestyle-Pläne.
-///  - "Meine Schonung im Alltag": gespeicherte (gebookmarkte)
-///    Situationskarten, nur sichtbar wenn welche gespeichert sind.
-///  - "Schonung im Alltag" → "Beschwerdebezogen": ein rotierendes
-///    Fenster von 3 Situationskarten mit Reload-Button.
+///  - "Schonung im Alltag": bis zu vier zufällig ausgewählte Hinweise aus
+///    der Ontologie, gefiltert auf die aktiven Planregionen.
 class PlansScreen extends StatefulWidget {
   final VoidCallback onOpenProfile;
   final ValueChanged<String> onOpenPlan;
+  final VoidCallback onAddPlan;
 
   const PlansScreen({
     super.key,
     required this.onOpenProfile,
     required this.onOpenPlan,
+    required this.onAddPlan,
   });
 
   @override
@@ -44,19 +47,66 @@ class PlansScreen extends StatefulWidget {
 }
 
 class _PlansScreenState extends State<PlansScreen> {
-  static const int _situWindow = 3;
-  int _situStart = 0;
+  static const int _gridSize = 4; // 2x2 Grid
+  late List<DailyLifeAdviceCandidate> _visibleAdvice;
   bool _situSpin = false;
-  final Set<String> _savedGuideIds = {'sit-knie'};
+  String? _loadedAdviceRegions;
+  int _adviceRequestId = 0;
+  // Legacy: Lokale gespeicherte Schonungs-Guides sind nicht mehr Teil der UI.
+  // final Set<String> _savedGuideIds = {'sit-knie'};
   String? _confirmDeleteId;
 
   @override
   void initState() {
     super.initState();
+    _visibleAdvice = [];
+    context.read<PlanProvider>().addListener(_loadRandomAdvice);
 
     Future.microtask(() {
-      context.read<PlanProvider>();
+      _loadRandomAdvice();
     });
+  }
+
+  @override
+  void dispose() {
+    context.read<PlanProvider>().removeListener(_loadRandomAdvice);
+    super.dispose();
+  }
+
+  void _loadRandomAdvice() async {
+    try {
+      final plan = context.read<PlanProvider>();
+      final adviceProvider = context.read<DailyLifeAdviceProvider>();
+      
+      final activeRegions = plan.activePlans.map((p) => p.region).toSet();
+      final regionNames = activeRegions
+          .map((region) => region.labelEN)
+          .toList()
+        ..sort();
+      final regionKey = regionNames.join(',');
+
+      if (_loadedAdviceRegions == regionKey) return;
+      final requestId = ++_adviceRequestId;
+
+      // Die Ontologie verwendet englische IRI-Namen wie "Hip" und "Knees".
+      if (activeRegions.isNotEmpty) {
+        await adviceProvider.loadAdviceByBodyParts(regionNames);
+      } else {
+        await adviceProvider.loadAllAdvice();
+      }
+
+      if (!mounted || requestId != _adviceRequestId) return;
+      setState(() {
+        _loadedAdviceRegions = regionKey;
+        _visibleAdvice = adviceProvider.getRandomAdvice(_gridSize);
+      });
+    } catch (e) {
+      debugPrint('Fehler beim Laden von Schonungstipps: $e');
+      if (!mounted) return;
+      setState(() {
+        _visibleAdvice = [];
+      });
+    }
   }
 
   void _reloadSitu() {
@@ -64,13 +114,19 @@ class _PlansScreenState extends State<PlansScreen> {
     setState(() => _situSpin = true);
     Future.delayed(const Duration(milliseconds: 650), () {
       if (!mounted) return;
+      final adviceProvider = context.read<DailyLifeAdviceProvider>();
       setState(() {
-        _situStart += _situWindow;
+        _visibleAdvice = adviceProvider.getRandomAdvice(
+          _gridSize,
+          excludedIds: _visibleAdvice.map((advice) => advice.id).toSet(),
+        );
         _situSpin = false;
       });
     });
   }
 
+  /*
+  // Legacy: Die statische Schonungsansicht unterstützte lokale Bookmarks.
   void _toggleSavedGuide(String id) {
     setState(() {
       if (_savedGuideIds.contains(id)) {
@@ -80,6 +136,7 @@ class _PlansScreenState extends State<PlansScreen> {
       }
     });
   }
+  */
 
   /*
   int _planDuration(Plan plan, UiState app) {
@@ -96,6 +153,8 @@ class _PlansScreenState extends State<PlansScreen> {
   }
   */
 
+  /*
+  // Legacy: Detail-Sheet für statische Demo-Guides.
   void _openGuide(BuildContext context, AlltagGuide guide) {
     showModalBottomSheet(
       context: context,
@@ -115,6 +174,7 @@ class _PlansScreenState extends State<PlansScreen> {
       ),
     );
   }
+  */
 
   @override
   Widget build(BuildContext context) {
@@ -139,26 +199,12 @@ class _PlansScreenState extends State<PlansScreen> {
     final activePlans = [...anatomicalPlans, ...lifestylePlans];
     */
 
-    // Gespeicherte Schonungs-Situationskarten.
+    /*
+    // Legacy: Lokale, gespeicherte Demo-Guides.
     final savedGuides = AlltagData.schonung
         .where((g) => _savedGuideIds.contains(g.id))
         .toList();
-
-    // Rotierendes Fenster für "Beschwerdebezogen" (aktive Plan-Regionen
-    // zuerst, bereits gespeicherte ausgeblendet).
-    final activeRegions = activePlans.map((p) => p.region).toSet();
-    final situationCards = [
-      for (final g in AlltagData.schonung)
-        if (activeRegions.contains(g.region) && !_savedGuideIds.contains(g.id)) g,
-      for (final g in AlltagData.schonung)
-        if (!activeRegions.contains(g.region) && !_savedGuideIds.contains(g.id)) g,
-    ];
-    List<AlltagGuide> visibleSitu = [];
-    if (situationCards.isNotEmpty) {
-      final off = _situStart % situationCards.length;
-      final rotated = [...situationCards.skip(off), ...situationCards.take(off)];
-      visibleSitu = rotated.take(_situWindow).toList();
-    }
+    */
 
     final planToDelete = _confirmDeleteId == null
         ? null
@@ -200,49 +246,34 @@ class _PlansScreenState extends State<PlansScreen> {
                   ),
                   const SizedBox(height: 4),
 
-                  // "Plan hinzufügen" – rein dekorativ, wie im Prototyp
-                  // (Pläne werden über den "+"-Button in der Navigation
-                  // angelegt).
-                  CustomPaint(
-                    painter: _DashedBorderPainter(
-                      color: AppColors.mint,
-                      radius: 22,
-                      strokeWidth: 1.5,
-                    ),
-                    child: Container(
-                      width: double.infinity,
-                      padding: const EdgeInsets.symmetric(
-                          horizontal: 20, vertical: 16),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          const Icon(Icons.add,
-                              size: 15, color: AppColors.sageDeep),
-                          const SizedBox(width: AppSpacing.sm),
-                          Text('Plan hinzufügen',
-                              style: AppText.caption.copyWith(
-                                  color: AppColors.sageDeep,
-                                  fontWeight: FontWeight.w500)),
-                        ],
+                  GestureDetector(
+                    behavior: HitTestBehavior.opaque,
+                    onTap: widget.onAddPlan,
+                    child: CustomPaint(
+                      painter: _DashedBorderPainter(
+                        color: AppColors.mint,
+                        radius: 22,
+                        strokeWidth: 1.5,
                       ),
-                    ),
-                  ),
-
-                  if (savedGuides.isNotEmpty) ...[
-                    const SizedBox(height: AppSpacing.lg),
-                    Text('MEINE SCHONUNG IM ALLTAG', style: AppText.micro),
-                    const SizedBox(height: AppSpacing.sm),
-                    ...savedGuides.map(
-                      (g) => Padding(
-                        padding:
-                            const EdgeInsets.only(bottom: AppSpacing.sm),
-                        child: _SavedGuideRow(
-                          guide: g,
-                          onTap: () => _openGuide(context, g),
+                      child: Container(
+                        width: double.infinity,
+                        padding: const EdgeInsets.symmetric(
+                            horizontal: 20, vertical: 16),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            const Icon(Icons.add,
+                                size: 15, color: AppColors.sageDeep),
+                            const SizedBox(width: AppSpacing.sm),
+                            Text('Plan hinzufügen',
+                                style: AppText.caption.copyWith(
+                                    color: AppColors.sageDeep,
+                                    fontWeight: FontWeight.w500)),
+                          ],
                         ),
                       ),
                     ),
-                  ],
+                  ),
 
                   const SizedBox(height: AppSpacing.sectionGap),
                   Text('Schonung im Alltag',
@@ -254,22 +285,18 @@ class _PlansScreenState extends State<PlansScreen> {
                     style: AppText.caption.copyWith(height: 1.5),
                   ),
                   const SizedBox(height: AppSpacing.base),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Text('BESCHWERDEBEZOGEN',
-                          style: AppText.micro.copyWith(fontSize: 11)),
-                      GestureDetector(
-                        onTap: _reloadSitu,
-                        child: AnimatedRotation(
-                          turns: _situSpin ? 1 : 0,
-                          duration: const Duration(milliseconds: 650),
-                          child: SvgPicture.asset('assets/icons/other/reload.svg',
-                              width: 16, height: 16,
-                              colorFilter: const ColorFilter.mode(AppColors.sage, BlendMode.srcIn)),
-                        ),
+                  Align(
+                    alignment: Alignment.centerRight,
+                    child: GestureDetector(
+                      onTap: _reloadSitu,
+                      child: AnimatedRotation(
+                        turns: _situSpin ? 1 : 0,
+                        duration: const Duration(milliseconds: 650),
+                        child: SvgPicture.asset('assets/icons/other/reload.svg',
+                            width: 16, height: 16,
+                            colorFilter: const ColorFilter.mode(AppColors.sage, BlendMode.srcIn)),
                       ),
-                    ],
+                    ),
                   ),
                   const SizedBox(height: AppSpacing.sm),
                 ],
@@ -278,21 +305,19 @@ class _PlansScreenState extends State<PlansScreen> {
             AnimatedOpacity(
               opacity: _situSpin ? 0.35 : 1,
               duration: const Duration(milliseconds: 300),
-              child: SizedBox(
-                height: 168,
-                child: ListView(
-                  scrollDirection: Axis.horizontal,
-                  padding: const EdgeInsets.symmetric(
-                      horizontal: AppSpacing.screenH),
+              child: Padding(
+                padding: const EdgeInsets.symmetric(
+                    horizontal: AppSpacing.screenH),
+                child: GridView.count(
+                  crossAxisCount: 2,
+                  mainAxisSpacing: AppSpacing.md,
+                  crossAxisSpacing: AppSpacing.md,
+                  shrinkWrap: true,
+                  physics: const NeverScrollableScrollPhysics(),
                   children: [
-                    for (final g in visibleSitu)
-                      Padding(
-                        padding:
-                            const EdgeInsets.only(right: AppSpacing.md),
-                        child: _SituationSliderCard(
-                          guide: g,
-                          onTap: () => _openGuide(context, g),
-                        ),
+                    for (final advice in _visibleAdvice)
+                      _DailyLifeAdviceCard(
+                        advice: advice,
                       ),
                   ],
                 ),
@@ -512,10 +537,17 @@ class _SwipeablePlanCardState extends State<_SwipeablePlanCard> {
                   Container(
                     width: 46,
                     height: 46,
+                    alignment: Alignment.center,
                     decoration: const BoxDecoration(
                       color: AppColors.mint,
                       shape: BoxShape.circle,
                     ),
+                    child: () {
+                      final icon = RegionIcons.forBodyPart(widget.plan.region);
+                      return icon == null
+                          ? null
+                          : SvgPicture.asset(icon, width: 26, height: 26);
+                    }(),
                   ),
                   const SizedBox(width: AppSpacing.md),
                   Expanded(
@@ -594,7 +626,9 @@ class _ActionBtn extends StatelessWidget {
   }
 }
 
-/// Zeile für eine gespeicherte ("Meine Schonung im Alltag") Situationskarte.
+/*
+/// Legacy: Widgets fuer die entfernte statische Schonungsansicht.
+/// Die neue Ansicht verwendet _DailyLifeAdviceCard mit Ontologie-Daten.
 class _SavedGuideRow extends StatelessWidget {
   final AlltagGuide guide;
   final VoidCallback onTap;
@@ -657,7 +691,6 @@ class _SituationSliderCard extends StatelessWidget {
     return GestureDetector(
       onTap: onTap,
       child: Container(
-        width: 160,
         padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 18),
         decoration: BoxDecoration(
           color: guide.bg,
@@ -665,6 +698,7 @@ class _SituationSliderCard extends StatelessWidget {
         ),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisSize: MainAxisSize.min,
           children: [
             Container(
               width: 38,
@@ -690,6 +724,8 @@ class _SituationSliderCard extends StatelessWidget {
                     color: guide.fg, fontSize: 13, height: 1.25)),
             const SizedBox(height: 8),
             Text(guide.subtitle,
+                maxLines: 1,
+                overflow: TextOverflow.ellipsis,
                 style: AppText.micro.copyWith(
                     color: guide.fg.withOpacity(0.6),
                     fontSize: 10.5,
@@ -965,6 +1001,118 @@ class _AccordionItem extends StatelessWidget {
                 ],
               ),
             ),
+        ],
+      ),
+    );
+  }
+}
+*/
+
+/// Karte für einen Schonungstipp aus der Ontologie im 2x2 Grid
+class _DailyLifeAdviceCard extends StatelessWidget {
+  final DailyLifeAdviceCandidate advice;
+
+  const _DailyLifeAdviceCard({required this.advice});
+
+  static const _categoryLabels = {
+    'AmArbeitsplatz': 'Am Arbeitsplatz',
+    'AmBildschirm': 'Am Bildschirm',
+    'AufstehenundHinsetzen': 'Aufstehen und Hinsetzen',
+    'AutoFahren': 'Autofahren',
+    'GreifenundÜberkopf': 'Greifen und Überkopf',
+    'HandyundTablet': 'Handy und Tablet',
+    'HebenundBücken': 'Heben und Bücken',
+    'LaufenundGehen': 'Laufen und Gehen',
+    'Schlafen': 'Schlafen',
+    'Sitzen': 'Sitzen',
+    'TragenundHeben': 'Tragen und Heben',
+    'Treppensteigen': 'Treppensteigen',
+  };
+
+  String _displayCategory(String category) =>
+      _categoryLabels[category] ?? category;
+
+  Color _getColorForBodyPart(String bodyPart) {
+    final bodyPartLower = bodyPart.toLowerCase();
+    if (bodyPartLower.contains('knie') || bodyPartLower.contains('knee')) {
+      return AppColors.sage;
+    } else if (bodyPartLower.contains('schulter') || bodyPartLower.contains('shoulder')) {
+      return AppColors.sage;
+    } else if (bodyPartLower.contains('rücken') || bodyPartLower.contains('back')) {
+      return AppColors.sage;
+    } else if (bodyPartLower.contains('nacken') || bodyPartLower.contains('neck')) {
+      return AppColors.sage;
+    } else if (bodyPartLower.contains('hüfte') || bodyPartLower.contains('hip')) {
+      return AppColors.sage;
+    }
+    return AppColors.sage;
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final color = _getColorForBodyPart(advice.bodyPart);
+    final bodyPart = BodyPartExt.fromString(advice.bodyPart);
+    final iconPath = RegionIcons.forBodyPart(bodyPart);
+    
+    return Container(
+      padding: const EdgeInsets.all(14),
+      decoration: BoxDecoration(
+        color: color,
+        borderRadius: BorderRadius.circular(16),
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          Container(
+            width: 36,
+            height: 36,
+            alignment: Alignment.center,
+            decoration: const BoxDecoration(
+              color: AppColors.onDarkIconBg,
+              shape: BoxShape.circle,
+            ),
+            child: iconPath == null
+                ? SvgPicture.asset(
+                    'assets/icons/other/reticle.svg',
+                    width: 16,
+                    height: 16,
+                    colorFilter: const ColorFilter.mode(
+                      AppColors.white,
+                      BlendMode.srcIn,
+                    ),
+                  )
+                : SvgPicture.asset(
+                    iconPath,
+                    width: 28,
+                    height: 28,
+                  ),
+          ),
+          const SizedBox(height: AppSpacing.sm),
+          if (advice.category != null)
+            Text(
+              _displayCategory(advice.category!).toUpperCase(),
+              style: AppText.micro.copyWith(
+                color: AppColors.white,
+                fontSize: 8,
+                fontWeight: FontWeight.w700,
+              ),
+              maxLines: 1,
+              overflow: TextOverflow.ellipsis,
+            ),
+          const SizedBox(height: 3),
+          Expanded(
+            child: Text(
+              advice.advice,
+              style: AppText.body.copyWith(
+                color: AppColors.white,
+                fontSize: 12,
+                height: 1.4,
+              ),
+              maxLines: 4,
+              overflow: TextOverflow.ellipsis,
+            ),
+          ),
         ],
       ),
     );

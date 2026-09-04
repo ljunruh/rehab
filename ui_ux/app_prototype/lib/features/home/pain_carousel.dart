@@ -170,7 +170,7 @@ class _PainCarouselState extends State<PainCarousel> {
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
                               Text('0 · kein Schmerz', style: AppText.micro),
-                              Text('10 · stärkster', style: AppText.micro),
+                              Text('10 · starke Schmerzen', style: AppText.micro),
                             ],
                           ),
                           const SizedBox(height: AppSpacing.md),

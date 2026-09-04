@@ -1,5 +1,6 @@
 import 'package:app_prototype/data/enum/contraindication.dart';
 import 'package:app_prototype/data/enum/gender.dart';
+import 'package:app_prototype/data/enum/joint.dart';
 import 'package:app_prototype/data/enum/skill_level.dart';
 import 'package:app_prototype/data/provider/user_provider.dart';
 import 'package:flutter/material.dart';
@@ -8,6 +9,7 @@ import 'package:provider/provider.dart';
 import '../../../core/theme/app_theme.dart';
 import '../../../core/widgets/widgets.dart';
 import '../../../state/ui_state.dart';
+import '../body_map_selector.dart';
 import 'selectable_accordion.dart';
 
 class UserSetupScreen extends StatefulWidget {
@@ -40,6 +42,9 @@ class _UserSetupScreenState extends State<UserSetupScreen> {
   List<Contraindication> _allContraindications = [];
   List<Contraindication> _filteredContraindications = [];
   final List<Contraindication> _selectedContraindications= [];
+
+  // Gelenke / Beschwerdebereich über BodyMapSelector (deutsche Joint-Labels).
+  List<String> _selectedJoints = [];
 
   @override
   void initState() {
@@ -81,6 +86,11 @@ class _UserSetupScreenState extends State<UserSetupScreen> {
       _selectedContraindications
         ..clear()
         ..addAll(user.contraindications.map((contraindication) => ContraindicationExt.fromString(contraindication)));
+
+      // Gelenke vom User laden und in deutsche Labels für den BodyMapSelector mappen
+      _selectedJoints = List.from(user.joints)
+          .map((e) => JointExt.fromString(e).labelDE)
+          .toList();
     });
   }
 
@@ -111,7 +121,15 @@ class _UserSetupScreenState extends State<UserSetupScreen> {
       weight: weightVal,
       skillLevel: skillLevel,
       contraindications: _selectedContraindications.map((contraindication) => contraindication.labelEN).toList(),
-      joints: [] //TODO[API]: Anpassen wenn Joints Selection implementiert wurde
+      joints: _selectedJoints
+          .map((jDE) => Joint.values
+              .firstWhere(
+                (e) => e.labelDE == jDE,
+                orElse: () => Joint.none,
+              )
+              .labelEN)
+          .where((id) => id != "None")
+          .toList(),
     );
 
     widget.onFinished();
@@ -268,6 +286,29 @@ class _UserSetupScreenState extends State<UserSetupScreen> {
     );
   }
 
+  Widget _buildBodyMapSection() {
+    return Padding(
+      padding: const EdgeInsets.only(bottom: AppSpacing.lg),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text('Beschwerdebereich (Gelenke)', style: AppText.caption),
+          const SizedBox(height: AppSpacing.sm),
+          Center(
+            child: BodyMapSelector(
+              selected: _selectedJoints,
+              onChanged: (nextJoints) {
+                setState(() {
+                  _selectedJoints = nextJoints;
+                });
+              },
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
   Widget _buildInjurySummary() {
     if (_selectedContraindications.isEmpty) {
       return Text(
@@ -283,7 +324,7 @@ class _UserSetupScreenState extends State<UserSetupScreen> {
       spacing: AppSpacing.sm,
       runSpacing: AppSpacing.xs,
       children: _allContraindications
-          .where((i) => _selectedContraindications.contains(i.name))
+          .where((i) => _selectedContraindications.contains(i))
           .map(
             (i) => Chip(
               label: Text(
@@ -298,7 +339,7 @@ class _UserSetupScreenState extends State<UserSetupScreen> {
               deleteIconColor: AppColors.sageDeep,
               onDeleted: () {
                 setState(() {
-                  _selectedContraindications.remove(i.name);
+                  _selectedContraindications.remove(i);
                 });
               },
             ),
@@ -317,7 +358,7 @@ class _UserSetupScreenState extends State<UserSetupScreen> {
 
       getTitle: (injury) => injury.shortLabel,
       getSubtitle: (injury) => injury.description,
-      selectedItems: _selectedContraindications, // Erwartet jetzt das Set<Contraindication>
+      selectedItems: _selectedContraindications,
       onSelectionChanged: (injury, selected) {
         setState(() {
           if (selected) {
@@ -403,6 +444,7 @@ class _UserSetupScreenState extends State<UserSetupScreen> {
               ),
               _buildSkillLevelSelector(),
               const SizedBox(height: AppSpacing.sm),
+              _buildBodyMapSection(),
               _buildInjuriesSection(),
               const SizedBox(height: AppSpacing.xl),
               PrimaryButton(
