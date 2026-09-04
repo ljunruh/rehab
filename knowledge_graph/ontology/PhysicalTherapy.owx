@@ -519,9 +519,6 @@
         <NamedIndividual IRI="#AnkleIssue"/>
     </Declaration>
     <Declaration>
-        <NamedIndividual IRI="#AnkleJoint"/>
-    </Declaration>
-    <Declaration>
         <NamedIndividual IRI="#Ankles"/>
     </Declaration>
     <Declaration>
@@ -3383,10 +3380,6 @@
     <ClassAssertion>
         <Class IRI="#Contraindication"/>
         <NamedIndividual IRI="#AnkleIssue"/>
-    </ClassAssertion>
-    <ClassAssertion>
-        <Class IRI="#Joint"/>
-        <NamedIndividual IRI="#AnkleJoint"/>
     </ClassAssertion>
     <ClassAssertion>
         <Class IRI="#BodyPart"/>
@@ -6679,21 +6672,6 @@
         <NamedIndividual IRI="#GleichgewichtInstabil"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
-        <ObjectProperty IRI="#requiresImprovementOf"/>
-        <NamedIndividual IRI="#AnkleFracture"/>
-        <NamedIndividual IRI="#AnkleJoint"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="#requiresImprovementOf"/>
-        <NamedIndividual IRI="#AnkleIssue"/>
-        <NamedIndividual IRI="#AnkleJoint"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="#partOf"/>
-        <NamedIndividual IRI="#AnkleJoint"/>
-        <NamedIndividual IRI="#Arms"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
         <ObjectProperty IRI="#partOf"/>
         <NamedIndividual IRI="#Ankles"/>
         <NamedIndividual IRI="#Legs"/>
@@ -6884,6 +6862,71 @@
         <NamedIndividual IRI="#LowRisk"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasPart"/>
+        <NamedIndividual IRI="#Arms"/>
+        <NamedIndividual IRI="#Biceps"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasPart"/>
+        <NamedIndividual IRI="#Arms"/>
+        <NamedIndividual IRI="#Elbow"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasPart"/>
+        <NamedIndividual IRI="#Arms"/>
+        <NamedIndividual IRI="#Elbows"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasPart"/>
+        <NamedIndividual IRI="#Arms"/>
+        <NamedIndividual IRI="#ForearmFlexors"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasPart"/>
+        <NamedIndividual IRI="#Arms"/>
+        <NamedIndividual IRI="#FrontDeltoid"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasPart"/>
+        <NamedIndividual IRI="#Arms"/>
+        <NamedIndividual IRI="#LateralDeltoids"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasPart"/>
+        <NamedIndividual IRI="#Arms"/>
+        <NamedIndividual IRI="#RearDeltoids"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasPart"/>
+        <NamedIndividual IRI="#Arms"/>
+        <NamedIndividual IRI="#RotatorCuffs"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasPart"/>
+        <NamedIndividual IRI="#Arms"/>
+        <NamedIndividual IRI="#ShoulderJoint"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasPart"/>
+        <NamedIndividual IRI="#Arms"/>
+        <NamedIndividual IRI="#Shoulders"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasPart"/>
+        <NamedIndividual IRI="#Arms"/>
+        <NamedIndividual IRI="#Triceps"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasPart"/>
+        <NamedIndividual IRI="#Arms"/>
+        <NamedIndividual IRI="#WristJoint"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasPart"/>
+        <NamedIndividual IRI="#Arms"/>
+        <NamedIndividual IRI="#Wrists"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
         <ObjectProperty IRI="#engagedBodyPart"/>
         <NamedIndividual IRI="#AssistedShoulderRotation"/>
         <NamedIndividual IRI="#Arms"/>
@@ -6996,6 +7039,41 @@
         <ObjectProperty IRI="#requiresEquipment"/>
         <NamedIndividual IRI="#Atemuebung478"/>
         <NamedIndividual IRI="#None"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasPart"/>
+        <NamedIndividual IRI="#Back"/>
+        <NamedIndividual IRI="#LowerBack"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasPart"/>
+        <NamedIndividual IRI="#Back"/>
+        <NamedIndividual IRI="#Neck"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasPart"/>
+        <NamedIndividual IRI="#Back"/>
+        <NamedIndividual IRI="#NeckJoint"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasPart"/>
+        <NamedIndividual IRI="#Back"/>
+        <NamedIndividual IRI="#Spine"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasPart"/>
+        <NamedIndividual IRI="#Back"/>
+        <NamedIndividual IRI="#SpineJoint"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasPart"/>
+        <NamedIndividual IRI="#Back"/>
+        <NamedIndividual IRI="#Trapezius"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasPart"/>
+        <NamedIndividual IRI="#Back"/>
+        <NamedIndividual IRI="#UpperBack"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#isRehabilitatedBy"/>
@@ -7241,6 +7319,16 @@
         <ObjectProperty IRI="#requiresEquipment"/>
         <NamedIndividual IRI="#BallkreisenAnDerWand"/>
         <NamedIndividual IRI="#Erhöhung"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasPart"/>
+        <NamedIndividual IRI="#Bauch"/>
+        <NamedIndividual IRI="#Abs"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasPart"/>
+        <NamedIndividual IRI="#Bauch"/>
+        <NamedIndividual IRI="#Obliques"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#engagedBodyPart"/>
@@ -10384,11 +10472,6 @@
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#engagedBodyPart"/>
         <NamedIndividual IRI="#Dancer"/>
-        <NamedIndividual IRI="#AnkleJoint"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="#engagedBodyPart"/>
-        <NamedIndividual IRI="#Dancer"/>
         <NamedIndividual IRI="#Ankles"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
@@ -11532,11 +11615,6 @@
         <NamedIndividual IRI="#Theraband"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
-        <ObjectProperty IRI="#engagedBodyPart"/>
-        <NamedIndividual IRI="#Eagle"/>
-        <NamedIndividual IRI="#AnkleJoint"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
         <Annotation>
             <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
             <Literal>The ankles is actively involved during the execution of Eagle.</Literal>
@@ -12146,11 +12224,6 @@
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#engagedBodyPart"/>
         <NamedIndividual IRI="#Einbeinstand"/>
-        <NamedIndividual IRI="#AnkleJoint"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="#engagedBodyPart"/>
-        <NamedIndividual IRI="#Einbeinstand"/>
         <NamedIndividual IRI="#Ankles"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
@@ -12566,11 +12639,6 @@
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#engagedBodyPart"/>
         <NamedIndividual IRI="#FaszienrolleRueckenWade"/>
-        <NamedIndividual IRI="#AnkleJoint"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="#engagedBodyPart"/>
-        <NamedIndividual IRI="#FaszienrolleRueckenWade"/>
         <NamedIndividual IRI="#Ankles"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
@@ -12646,11 +12714,6 @@
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#engagedBodyPart"/>
         <NamedIndividual IRI="#FerseZehenGang"/>
-        <NamedIndividual IRI="#AnkleJoint"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="#engagedBodyPart"/>
-        <NamedIndividual IRI="#FerseZehenGang"/>
         <NamedIndividual IRI="#Ankles"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
@@ -12692,11 +12755,6 @@
         <ObjectProperty IRI="#improves"/>
         <NamedIndividual IRI="#FerseZehenGang"/>
         <NamedIndividual IRI="#Mobility"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="#rehabilitates"/>
-        <NamedIndividual IRI="#FerseZehenGang"/>
-        <NamedIndividual IRI="#AnkleJoint"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#requiresEquipment"/>
@@ -12805,11 +12863,6 @@
         <ObjectProperty IRI="#severity"/>
         <NamedIndividual IRI="#FigureFourStretch_KneeIssue"/>
         <NamedIndividual IRI="#MediumRisk"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="#engagedBodyPart"/>
-        <NamedIndividual IRI="#Flamingo"/>
-        <NamedIndividual IRI="#AnkleJoint"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#engagedBodyPart"/>
@@ -13792,11 +13845,6 @@
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#engagedBodyPart"/>
         <NamedIndividual IRI="#GewichtsverlagerungSeitlich"/>
-        <NamedIndividual IRI="#AnkleJoint"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="#engagedBodyPart"/>
-        <NamedIndividual IRI="#GewichtsverlagerungSeitlich"/>
         <NamedIndividual IRI="#Core"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
@@ -13858,11 +13906,6 @@
         <ObjectProperty IRI="#severity"/>
         <NamedIndividual IRI="#GewichtsverlagerungSeitlich_BalanceIssue"/>
         <NamedIndividual IRI="#LowRisk"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="#engagedBodyPart"/>
-        <NamedIndividual IRI="#GleichgewichtInstabil"/>
-        <NamedIndividual IRI="#AnkleJoint"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#engagedBodyPart"/>
@@ -14461,11 +14504,6 @@
         <ObjectProperty IRI="#requiresEquipment"/>
         <NamedIndividual IRI="#GymnastikballRollout"/>
         <NamedIndividual IRI="#Erhöhung"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="#engagedBodyPart"/>
-        <NamedIndividual IRI="#HalfMoon"/>
-        <NamedIndividual IRI="#AnkleJoint"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#engagedBodyPart"/>
@@ -15911,11 +15949,6 @@
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#engagedBodyPart"/>
         <NamedIndividual IRI="#JumpingJacks"/>
-        <NamedIndividual IRI="#AnkleJoint"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="#engagedBodyPart"/>
-        <NamedIndividual IRI="#JumpingJacks"/>
         <NamedIndividual IRI="#Ankles"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
@@ -16335,11 +16368,6 @@
         <ObjectProperty IRI="#severity"/>
         <NamedIndividual IRI="#Kindpose_KneeIssue"/>
         <NamedIndividual IRI="#LowRisk"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="#engagedBodyPart"/>
-        <NamedIndividual IRI="#KingDancer"/>
-        <NamedIndividual IRI="#AnkleJoint"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#engagedBodyPart"/>
@@ -17477,6 +17505,46 @@
         <ObjectProperty IRI="#severity"/>
         <NamedIndividual IRI="#LegRaise_LowerBackIssue"/>
         <NamedIndividual IRI="#MediumRisk"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasPart"/>
+        <NamedIndividual IRI="#Legs"/>
+        <NamedIndividual IRI="#Adductors"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasPart"/>
+        <NamedIndividual IRI="#Legs"/>
+        <NamedIndividual IRI="#Ankles"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasPart"/>
+        <NamedIndividual IRI="#Legs"/>
+        <NamedIndividual IRI="#Calves"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasPart"/>
+        <NamedIndividual IRI="#Legs"/>
+        <NamedIndividual IRI="#Hamstrings"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasPart"/>
+        <NamedIndividual IRI="#Legs"/>
+        <NamedIndividual IRI="#KneeJoint"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasPart"/>
+        <NamedIndividual IRI="#Legs"/>
+        <NamedIndividual IRI="#Knees"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasPart"/>
+        <NamedIndividual IRI="#Legs"/>
+        <NamedIndividual IRI="#Quadriceps"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasPart"/>
+        <NamedIndividual IRI="#Legs"/>
+        <NamedIndividual IRI="#Thighs"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#engagedBodyPart"/>
@@ -19576,11 +19644,6 @@
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#engagedBodyPart"/>
         <NamedIndividual IRI="#Pyramid"/>
-        <NamedIndividual IRI="#AnkleJoint"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="#engagedBodyPart"/>
-        <NamedIndividual IRI="#Pyramid"/>
         <NamedIndividual IRI="#Ankles"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
@@ -20508,11 +20571,6 @@
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#engagedBodyPart"/>
         <NamedIndividual IRI="#RopeSkippingFast"/>
-        <NamedIndividual IRI="#AnkleJoint"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="#engagedBodyPart"/>
-        <NamedIndividual IRI="#RopeSkippingFast"/>
         <NamedIndividual IRI="#Ankles"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
@@ -20534,11 +20592,6 @@
         <ObjectProperty IRI="#hasContraindication"/>
         <NamedIndividual IRI="#RopeSkippingFast"/>
         <NamedIndividual IRI="#KneeIssue"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="#engagedBodyPart"/>
-        <NamedIndividual IRI="#RopeSkippingSlow"/>
-        <NamedIndividual IRI="#AnkleJoint"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#engagedBodyPart"/>
@@ -23636,11 +23689,6 @@
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#engagedBodyPart"/>
         <NamedIndividual IRI="#SingleLegBridge"/>
-        <NamedIndividual IRI="#AnkleJoint"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="#engagedBodyPart"/>
-        <NamedIndividual IRI="#SingleLegBridge"/>
         <NamedIndividual IRI="#Ankles"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
@@ -23966,11 +24014,6 @@
         <ObjectProperty IRI="#excludesExercise"/>
         <NamedIndividual IRI="#SprainedAnkle"/>
         <NamedIndividual IRI="#Warrior2"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="#requiresImprovementOf"/>
-        <NamedIndividual IRI="#SprainedAnkle"/>
-        <NamedIndividual IRI="#AnkleJoint"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#requiresImprovementOf"/>
@@ -24542,11 +24585,6 @@
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#engagedBodyPart"/>
         <NamedIndividual IRI="#StandingCalfStretch"/>
-        <NamedIndividual IRI="#AnkleJoint"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="#engagedBodyPart"/>
-        <NamedIndividual IRI="#StandingCalfStretch"/>
         <NamedIndividual IRI="#Ankles"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
@@ -24602,11 +24640,6 @@
         <ObjectProperty IRI="#severity"/>
         <NamedIndividual IRI="#StandingCalfStretch_AnkleIssue"/>
         <NamedIndividual IRI="#MediumRisk"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="#engagedBodyPart"/>
-        <NamedIndividual IRI="#StandingCompass"/>
-        <NamedIndividual IRI="#AnkleJoint"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#engagedBodyPart"/>
@@ -25127,11 +25160,6 @@
         <ObjectProperty IRI="#limb"/>
         <NamedIndividual IRI="#StandingCompass_Torso"/>
         <NamedIndividual IRI="#Torso"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="#engagedBodyPart"/>
-        <NamedIndividual IRI="#StandingFirefly"/>
-        <NamedIndividual IRI="#AnkleJoint"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <Annotation>
@@ -26767,11 +26795,6 @@
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#engagedBodyPart"/>
         <NamedIndividual IRI="#StandingSplit"/>
-        <NamedIndividual IRI="#AnkleJoint"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="#engagedBodyPart"/>
-        <NamedIndividual IRI="#StandingSplit"/>
         <NamedIndividual IRI="#Ankles"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
@@ -27648,6 +27671,31 @@
         <NamedIndividual IRI="#None"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasPart"/>
+        <NamedIndividual IRI="#Torso"/>
+        <NamedIndividual IRI="#Chest"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasPart"/>
+        <NamedIndividual IRI="#Torso"/>
+        <NamedIndividual IRI="#Hip"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasPart"/>
+        <NamedIndividual IRI="#Torso"/>
+        <NamedIndividual IRI="#HipJoint"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasPart"/>
+        <NamedIndividual IRI="#Torso"/>
+        <NamedIndividual IRI="#Lats"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasPart"/>
+        <NamedIndividual IRI="#Torso"/>
+        <NamedIndividual IRI="#Pelvic"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
         <ObjectProperty IRI="#isEngagedBy"/>
         <NamedIndividual IRI="#Trapezius"/>
         <NamedIndividual IRI="#MountainClimber"/>
@@ -27660,17 +27708,7 @@
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#partOf"/>
         <NamedIndividual IRI="#Trapezius"/>
-        <NamedIndividual IRI="#Neck"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="#partOf"/>
-        <NamedIndividual IRI="#Trapezius"/>
-        <NamedIndividual IRI="#Shoulders"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="#partOf"/>
-        <NamedIndividual IRI="#Trapezius"/>
-        <NamedIndividual IRI="#UpperBack"/>
+        <NamedIndividual IRI="#Back"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#engagedBodyPart"/>
@@ -27721,11 +27759,6 @@
         <ObjectProperty IRI="#requiresEquipment"/>
         <NamedIndividual IRI="#TrapezmuskelDehnung"/>
         <NamedIndividual IRI="#None"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="#engagedBodyPart"/>
-        <NamedIndividual IRI="#Tree"/>
-        <NamedIndividual IRI="#AnkleJoint"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#engagedBodyPart"/>
@@ -27828,15 +27861,6 @@
         <ObjectProperty IRI="#hasContraindication"/>
         <NamedIndividual IRI="#Tree"/>
         <NamedIndividual IRI="#AnkleIssue"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <Annotation>
-            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-            <Literal>This Contraindication should be considered for practitioners of Tree to avoid strain or injury.</Literal>
-        </Annotation>
-        <ObjectProperty IRI="#hasContraindication"/>
-        <NamedIndividual IRI="#Tree"/>
-        <NamedIndividual IRI="#AnkleJoint"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#hasContraindication"/>
@@ -28980,11 +29004,6 @@
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#engagedBodyPart"/>
         <NamedIndividual IRI="#Wadendehnung"/>
-        <NamedIndividual IRI="#AnkleJoint"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="#engagedBodyPart"/>
-        <NamedIndividual IRI="#Wadendehnung"/>
         <NamedIndividual IRI="#Ankles"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
@@ -29016,11 +29035,6 @@
         <ObjectProperty IRI="#improves"/>
         <NamedIndividual IRI="#Wadendehnung"/>
         <NamedIndividual IRI="#Mobility"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="#rehabilitates"/>
-        <NamedIndividual IRI="#Wadendehnung"/>
-        <NamedIndividual IRI="#AnkleJoint"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#requiresEquipment"/>
@@ -38220,21 +38234,6 @@ Langsam zur Mitte zurückkehren.
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#AnkleIssue</IRI>
         <Literal xml:lang="de">Sprunggelenkprobleme</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-        <IRI>#AnkleJoint</IRI>
-        <Literal xml:lang="de">Sprunggelenk</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>#AnkleJoint</IRI>
-        <Literal xml:lang="en">AnkleJoint</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>#AnkleJoint</IRI>
-        <Literal xml:lang="de">Sprunggelenk</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
@@ -48135,11 +48134,6 @@ Langsam zur Mitte zurückkehren.
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#hasMETScore</IRI>
         <Literal xml:lang="en">hasMETScore</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>#hasPart</IRI>
-        <Literal xml:lang="de">Besteht aus</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
