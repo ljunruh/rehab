@@ -19509,6 +19509,11 @@
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#engagedBodyPart"/>
         <NamedIndividual IRI="#PushUps"/>
+        <NamedIndividual IRI="#Elbows"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#engagedBodyPart"/>
+        <NamedIndividual IRI="#PushUps"/>
         <NamedIndividual IRI="#ShoulderJoint"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
@@ -37521,6 +37526,10 @@ Langsam zur Mitte zurückkehren.
         <Class IRI="#Asana"/>
     </ObjectPropertyDomain>
     <ObjectPropertyDomain>
+        <ObjectProperty IRI="#hasPart"/>
+        <Class IRI="#BodyPart"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
         <ObjectProperty IRI="#hasTrainingEffect"/>
         <Class IRI="#Exercise"/>
     </ObjectPropertyDomain>
@@ -37649,6 +37658,10 @@ Langsam zur Mitte zurückkehren.
         <Class IRI="#LimbAlignment"/>
     </ObjectPropertyRange>
     <ObjectPropertyRange>
+        <ObjectProperty IRI="#hasPart"/>
+        <Class IRI="#BodyPart"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
         <ObjectProperty IRI="#hasTrainingEffect"/>
         <Class IRI="#TrainingsEffect"/>
     </ObjectPropertyRange>
@@ -37667,6 +37680,10 @@ Langsam zur Mitte zurückkehren.
     <ObjectPropertyRange>
         <ObjectProperty IRI="#isEngagedBy"/>
         <Class IRI="#Asana"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#isEngagedBy"/>
+        <Class IRI="#Exercise"/>
     </ObjectPropertyRange>
     <ObjectPropertyRange>
         <ObjectProperty IRI="#isFocusOf"/>
@@ -48134,6 +48151,11 @@ Langsam zur Mitte zurückkehren.
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#hasMETScore</IRI>
         <Literal xml:lang="en">hasMETScore</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#hasPart</IRI>
+        <Literal xml:lang="de">rdfs:comment &quot;Untergeordnetes Körperteil, dem dieses Körperteil angehört.&quot;@de</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
