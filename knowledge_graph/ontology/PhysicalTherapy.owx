@@ -36,6 +36,9 @@
         <Class IRI="#Asana"/>
     </Declaration>
     <Declaration>
+        <Class IRI="#AufstehenundHinsetzen"/>
+    </Declaration>
+    <Declaration>
         <Class IRI="#AutoFahren"/>
     </Declaration>
     <Declaration>
@@ -124,6 +127,9 @@
     </Declaration>
     <Declaration>
         <Class IRI="#KneeJointInjury"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#LaufenundGehen"/>
     </Declaration>
     <Declaration>
         <Class IRI="#Limb"/>
@@ -225,12 +231,6 @@
         <Class IRI="#Treppensteigen"/>
     </Declaration>
     <Declaration>
-    <Class IRI="#LaufenundGehen"/>
-</Declaration>
-<Declaration>
-    <Class IRI="#AufstehenundHinsetzen"/>
-</Declaration>
-    <Declaration>
         <Class IRI="#UpperBackPain"/>
     </Declaration>
     <Declaration>
@@ -280,6 +280,9 @@
     </Declaration>
     <Declaration>
         <ObjectProperty IRI="#hasLimbAlignment"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasPart"/>
     </Declaration>
     <Declaration>
         <ObjectProperty IRI="#hasTrainingEffect"/>
@@ -501,6 +504,12 @@
         <NamedIndividual IRI="#AlternateSittingAndStanding"/>
     </Declaration>
     <Declaration>
+        <NamedIndividual IRI="#AmArbeitsplatz"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#AmBildschirm"/>
+    </Declaration>
+    <Declaration>
         <NamedIndividual IRI="#Ananas-Ingwer-Regenerations-Smoothie"/>
     </Declaration>
     <Declaration>
@@ -535,6 +544,12 @@
     </Declaration>
     <Declaration>
         <NamedIndividual IRI="#Atemuebung478"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#AufstehenundHinsetzen"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#AutoFahren"/>
     </Declaration>
     <Declaration>
         <NamedIndividual IRI="#AvoidForwardHeadPosture"/>
@@ -984,276 +999,6 @@
         <NamedIndividual IRI="#ErgonomicSitting"/>
     </Declaration>
     <Declaration>
-        <NamedIndividual IRI="#AmArbeitsplatz"/>
-    </Declaration>
-    <Declaration>
-        <NamedIndividual IRI="#AmBildschirm"/>
-    </Declaration>
-    <Declaration>
-        <NamedIndividual IRI="#AufstehenundHinsetzen"/>
-    </Declaration>
-    <Declaration>
-        <NamedIndividual IRI="#AutoFahren"/>
-    </Declaration>
-    <Declaration>
-        <NamedIndividual IRI="#GreifenundÜberkopf"/>
-    </Declaration>
-    <Declaration>
-        <NamedIndividual IRI="#HandyundTablet"/>
-    </Declaration>
-    <Declaration>
-        <NamedIndividual IRI="#HebenundBücken"/>
-    </Declaration>
-    <Declaration>
-        <NamedIndividual IRI="#Schlafen"/>
-    </Declaration>
-    <Declaration>
-        <NamedIndividual IRI="#TragenundHeben"/>
-    </Declaration>
-    <Declaration>
-        <NamedIndividual IRI="#Treppensteigen"/>
-    </Declaration>
-    <Declaration>
-        <NamedIndividual IRI="#Schonung_Knees_Sitzen_01"/>
-    </Declaration>
-    <Declaration>
-        <NamedIndividual IRI="#Schonung_Knees_Sitzen_02"/>
-    </Declaration>
-    <Declaration>
-        <NamedIndividual IRI="#Schonung_Knees_Sitzen_03"/>
-    </Declaration>
-    <Declaration>
-        <NamedIndividual IRI="#Schonung_Knees_Sitzen_04"/>
-    </Declaration>
-    <Declaration>
-        <NamedIndividual IRI="#Schonung_Knees_Treppensteigen_01"/>
-    </Declaration>
-    <Declaration>
-        <NamedIndividual IRI="#Schonung_Knees_Treppensteigen_02"/>
-    </Declaration>
-    <Declaration>
-        <NamedIndividual IRI="#Schonung_Knees_Treppensteigen_03"/>
-    </Declaration>
-    <Declaration>
-        <NamedIndividual IRI="#Schonung_Knees_Treppensteigen_04"/>
-    </Declaration>
-    <Declaration>
-        <NamedIndividual IRI="#Schonung_Knees_LaufenundGehen_01"/>
-    </Declaration>
-    <Declaration>
-        <NamedIndividual IRI="#Schonung_Knees_LaufenundGehen_02"/>
-    </Declaration>
-    <Declaration>
-        <NamedIndividual IRI="#Schonung_Knees_LaufenundGehen_03"/>
-    </Declaration>
-    <Declaration>
-        <NamedIndividual IRI="#Schonung_Knees_LaufenundGehen_04"/>
-    </Declaration>
-    <Declaration>
-        <NamedIndividual IRI="#Schonung_Knees_Schlafen_01"/>
-    </Declaration>
-    <Declaration>
-        <NamedIndividual IRI="#Schonung_Knees_Schlafen_02"/>
-    </Declaration>
-    <Declaration>
-        <NamedIndividual IRI="#Schonung_Knees_Schlafen_03"/>
-    </Declaration>
-    <Declaration>
-        <NamedIndividual IRI="#Schonung_Knees_Schlafen_04"/>
-    </Declaration>
-    <Declaration>
-        <NamedIndividual IRI="#Schonung_Shoulder_TragenundHeben_01"/>
-    </Declaration>
-    <Declaration>
-        <NamedIndividual IRI="#Schonung_Shoulder_TragenundHeben_02"/>
-    </Declaration>
-    <Declaration>
-        <NamedIndividual IRI="#Schonung_Shoulder_TragenundHeben_03"/>
-    </Declaration>
-    <Declaration>
-        <NamedIndividual IRI="#Schonung_Shoulder_TragenundHeben_04"/>
-    </Declaration>
-    <Declaration>
-        <NamedIndividual IRI="#Schonung_Shoulder_AmArbeitsplatz_01"/>
-    </Declaration>
-    <Declaration>
-        <NamedIndividual IRI="#Schonung_Shoulder_AmArbeitsplatz_02"/>
-    </Declaration>
-    <Declaration>
-        <NamedIndividual IRI="#Schonung_Shoulder_AmArbeitsplatz_03"/>
-    </Declaration>
-    <Declaration>
-        <NamedIndividual IRI="#Schonung_Shoulder_AmArbeitsplatz_04"/>
-    </Declaration>
-    <Declaration>
-        <NamedIndividual IRI="#Schonung_Shoulder_GreifenundÜberkopf_01"/>
-    </Declaration>
-    <Declaration>
-        <NamedIndividual IRI="#Schonung_Shoulder_GreifenundÜberkopf_02"/>
-    </Declaration>
-    <Declaration>
-        <NamedIndividual IRI="#Schonung_Shoulder_GreifenundÜberkopf_03"/>
-    </Declaration>
-    <Declaration>
-        <NamedIndividual IRI="#Schonung_Shoulder_GreifenundÜberkopf_04"/>
-    </Declaration>
-    <Declaration>
-        <NamedIndividual IRI="#Schonung_Shoulder_Schlafen_01"/>
-    </Declaration>
-    <Declaration>
-        <NamedIndividual IRI="#Schonung_Shoulder_Schlafen_02"/>
-    </Declaration>
-    <Declaration>
-        <NamedIndividual IRI="#Schonung_Shoulder_Schlafen_03"/>
-    </Declaration>
-    <Declaration>
-        <NamedIndividual IRI="#Schonung_Shoulder_Schlafen_04"/>
-    </Declaration>
-    <Declaration>
-        <NamedIndividual IRI="#Schonung_Back_Sitzen_01"/>
-    </Declaration>
-    <Declaration>
-        <NamedIndividual IRI="#Schonung_Back_Sitzen_02"/>
-    </Declaration>
-    <Declaration>
-        <NamedIndividual IRI="#Schonung_Back_Sitzen_03"/>
-    </Declaration>
-    <Declaration>
-        <NamedIndividual IRI="#Schonung_Back_Sitzen_04"/>
-    </Declaration>
-    <Declaration>
-        <NamedIndividual IRI="#Schonung_Back_HebenundBücken_01"/>
-    </Declaration>
-    <Declaration>
-        <NamedIndividual IRI="#Schonung_Back_HebenundBücken_02"/>
-    </Declaration>
-    <Declaration>
-        <NamedIndividual IRI="#Schonung_Back_HebenundBücken_03"/>
-    </Declaration>
-    <Declaration>
-        <NamedIndividual IRI="#Schonung_Back_HebenundBücken_04"/>
-    </Declaration>
-    <Declaration>
-        <NamedIndividual IRI="#Schonung_Back_AutoFahren_01"/>
-    </Declaration>
-    <Declaration>
-        <NamedIndividual IRI="#Schonung_Back_AutoFahren_02"/>
-    </Declaration>
-    <Declaration>
-        <NamedIndividual IRI="#Schonung_Back_AutoFahren_03"/>
-    </Declaration>
-    <Declaration>
-        <NamedIndividual IRI="#Schonung_Back_AutoFahren_04"/>
-    </Declaration>
-    <Declaration>
-        <NamedIndividual IRI="#Schonung_Back_Schlafen_01"/>
-    </Declaration>
-    <Declaration>
-        <NamedIndividual IRI="#Schonung_Back_Schlafen_02"/>
-    </Declaration>
-    <Declaration>
-        <NamedIndividual IRI="#Schonung_Back_Schlafen_03"/>
-    </Declaration>
-    <Declaration>
-        <NamedIndividual IRI="#Schonung_Back_Schlafen_04"/>
-    </Declaration>
-    <Declaration>
-        <NamedIndividual IRI="#Schonung_Neck_AmBildschirm_01"/>
-    </Declaration>
-    <Declaration>
-        <NamedIndividual IRI="#Schonung_Neck_AmBildschirm_02"/>
-    </Declaration>
-    <Declaration>
-        <NamedIndividual IRI="#Schonung_Neck_AmBildschirm_03"/>
-    </Declaration>
-    <Declaration>
-        <NamedIndividual IRI="#Schonung_Neck_AmBildschirm_04"/>
-    </Declaration>
-    <Declaration>
-        <NamedIndividual IRI="#Schonung_Neck_HandyundTablet_01"/>
-    </Declaration>
-    <Declaration>
-        <NamedIndividual IRI="#Schonung_Neck_HandyundTablet_02"/>
-    </Declaration>
-    <Declaration>
-        <NamedIndividual IRI="#Schonung_Neck_HandyundTablet_03"/>
-    </Declaration>
-    <Declaration>
-        <NamedIndividual IRI="#Schonung_Neck_HandyundTablet_04"/>
-    </Declaration>
-    <Declaration>
-        <NamedIndividual IRI="#Schonung_Neck_AutoFahren_01"/>
-    </Declaration>
-    <Declaration>
-        <NamedIndividual IRI="#Schonung_Neck_AutoFahren_02"/>
-    </Declaration>
-    <Declaration>
-        <NamedIndividual IRI="#Schonung_Neck_AutoFahren_03"/>
-    </Declaration>
-    <Declaration>
-        <NamedIndividual IRI="#Schonung_Neck_AutoFahren_04"/>
-    </Declaration>
-    <Declaration>
-        <NamedIndividual IRI="#Schonung_Neck_Schlafen_01"/>
-    </Declaration>
-    <Declaration>
-        <NamedIndividual IRI="#Schonung_Neck_Schlafen_02"/>
-    </Declaration>
-    <Declaration>
-        <NamedIndividual IRI="#Schonung_Neck_Schlafen_03"/>
-    </Declaration>
-    <Declaration>
-        <NamedIndividual IRI="#Schonung_Neck_Schlafen_04"/>
-    </Declaration>
-    <Declaration>
-        <NamedIndividual IRI="#Schonung_Hip_Sitzen_01"/>
-    </Declaration>
-    <Declaration>
-        <NamedIndividual IRI="#Schonung_Hip_Sitzen_02"/>
-    </Declaration>
-    <Declaration>
-        <NamedIndividual IRI="#Schonung_Hip_Sitzen_03"/>
-    </Declaration>
-    <Declaration>
-        <NamedIndividual IRI="#Schonung_Hip_Sitzen_04"/>
-    </Declaration>
-    <Declaration>
-        <NamedIndividual IRI="#Schonung_Hip_AufstehenundHinsetzen_01"/>
-    </Declaration>
-    <Declaration>
-        <NamedIndividual IRI="#Schonung_Hip_AufstehenundHinsetzen_02"/>
-    </Declaration>
-    <Declaration>
-        <NamedIndividual IRI="#Schonung_Hip_AufstehenundHinsetzen_03"/>
-    </Declaration>
-    <Declaration>
-        <NamedIndividual IRI="#Schonung_Hip_AufstehenundHinsetzen_04"/>
-    </Declaration>
-    <Declaration>
-        <NamedIndividual IRI="#Schonung_Hip_LaufenundGehen_01"/>
-    </Declaration>
-    <Declaration>
-        <NamedIndividual IRI="#Schonung_Hip_LaufenundGehen_02"/>
-    </Declaration>
-    <Declaration>
-        <NamedIndividual IRI="#Schonung_Hip_LaufenundGehen_03"/>
-    </Declaration>
-    <Declaration>
-        <NamedIndividual IRI="#Schonung_Hip_LaufenundGehen_04"/>
-    </Declaration>
-    <Declaration>
-        <NamedIndividual IRI="#Schonung_Hip_Schlafen_01"/>
-    </Declaration>
-    <Declaration>
-        <NamedIndividual IRI="#Schonung_Hip_Schlafen_02"/>
-    </Declaration>
-    <Declaration>
-        <NamedIndividual IRI="#Schonung_Hip_Schlafen_03"/>
-    </Declaration>
-    <Declaration>
-        <NamedIndividual IRI="#Schonung_Hip_Schlafen_04"/>
-    </Declaration>
-    <Declaration>
         <NamedIndividual IRI="#Erhöhung"/>
     </Declaration>
     <Declaration>
@@ -1461,6 +1206,9 @@
         <NamedIndividual IRI="#Granatapfel-Kefir-Drink"/>
     </Declaration>
     <Declaration>
+        <NamedIndividual IRI="#GreifenundÜberkopf"/>
+    </Declaration>
+    <Declaration>
         <NamedIndividual IRI="#Gymnastics"/>
     </Declaration>
     <Declaration>
@@ -1513,6 +1261,12 @@
     </Declaration>
     <Declaration>
         <NamedIndividual IRI="#Hamstrings"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#HandyundTablet"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#HebenundBücken"/>
     </Declaration>
     <Declaration>
         <NamedIndividual IRI="#HighLunge"/>
@@ -1705,6 +1459,9 @@
     </Declaration>
     <Declaration>
         <NamedIndividual IRI="#Lats"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#LaufenundGehen"/>
     </Declaration>
     <Declaration>
         <NamedIndividual IRI="#Left"/>
@@ -1974,9 +1731,6 @@
         <NamedIndividual IRI="#QuadricepsStrain"/>
     </Declaration>
     <Declaration>
-        <NamedIndividual IRI="#Quads"/>
-    </Declaration>
-    <Declaration>
         <NamedIndividual IRI="#Quinoa-Gemüse-Bowl"/>
     </Declaration>
     <Declaration>
@@ -2121,6 +1875,249 @@
         <NamedIndividual IRI="#ScapulaRetraktion_ShoulderIssue"/>
     </Declaration>
     <Declaration>
+        <NamedIndividual IRI="#Schlafen"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Schonung_Back_AutoFahren_01"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Schonung_Back_AutoFahren_02"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Schonung_Back_AutoFahren_03"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Schonung_Back_AutoFahren_04"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Schonung_Back_HebenundBücken_01"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Schonung_Back_HebenundBücken_02"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Schonung_Back_HebenundBücken_03"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Schonung_Back_HebenundBücken_04"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Schonung_Back_Schlafen_01"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Schonung_Back_Schlafen_02"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Schonung_Back_Schlafen_03"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Schonung_Back_Schlafen_04"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Schonung_Back_Sitzen_01"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Schonung_Back_Sitzen_02"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Schonung_Back_Sitzen_03"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Schonung_Back_Sitzen_04"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Schonung_Hip_AufstehenundHinsetzen_01"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Schonung_Hip_AufstehenundHinsetzen_02"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Schonung_Hip_AufstehenundHinsetzen_03"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Schonung_Hip_AufstehenundHinsetzen_04"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Schonung_Hip_LaufenundGehen_01"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Schonung_Hip_LaufenundGehen_02"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Schonung_Hip_LaufenundGehen_03"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Schonung_Hip_LaufenundGehen_04"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Schonung_Hip_Schlafen_01"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Schonung_Hip_Schlafen_02"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Schonung_Hip_Schlafen_03"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Schonung_Hip_Schlafen_04"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Schonung_Hip_Sitzen_01"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Schonung_Hip_Sitzen_02"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Schonung_Hip_Sitzen_03"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Schonung_Hip_Sitzen_04"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Schonung_Knees_LaufenundGehen_01"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Schonung_Knees_LaufenundGehen_02"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Schonung_Knees_LaufenundGehen_03"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Schonung_Knees_LaufenundGehen_04"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Schonung_Knees_Schlafen_01"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Schonung_Knees_Schlafen_02"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Schonung_Knees_Schlafen_03"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Schonung_Knees_Schlafen_04"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Schonung_Knees_Sitzen_01"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Schonung_Knees_Sitzen_02"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Schonung_Knees_Sitzen_03"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Schonung_Knees_Sitzen_04"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Schonung_Knees_Treppensteigen_01"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Schonung_Knees_Treppensteigen_02"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Schonung_Knees_Treppensteigen_03"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Schonung_Knees_Treppensteigen_04"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Schonung_Neck_AmBildschirm_01"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Schonung_Neck_AmBildschirm_02"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Schonung_Neck_AmBildschirm_03"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Schonung_Neck_AmBildschirm_04"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Schonung_Neck_AutoFahren_01"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Schonung_Neck_AutoFahren_02"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Schonung_Neck_AutoFahren_03"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Schonung_Neck_AutoFahren_04"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Schonung_Neck_HandyundTablet_01"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Schonung_Neck_HandyundTablet_02"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Schonung_Neck_HandyundTablet_03"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Schonung_Neck_HandyundTablet_04"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Schonung_Neck_Schlafen_01"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Schonung_Neck_Schlafen_02"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Schonung_Neck_Schlafen_03"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Schonung_Neck_Schlafen_04"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Schonung_Shoulder_AmArbeitsplatz_01"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Schonung_Shoulder_AmArbeitsplatz_02"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Schonung_Shoulder_AmArbeitsplatz_03"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Schonung_Shoulder_AmArbeitsplatz_04"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Schonung_Shoulder_GreifenundÜberkopf_01"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Schonung_Shoulder_GreifenundÜberkopf_02"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Schonung_Shoulder_GreifenundÜberkopf_03"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Schonung_Shoulder_GreifenundÜberkopf_04"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Schonung_Shoulder_Schlafen_01"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Schonung_Shoulder_Schlafen_02"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Schonung_Shoulder_Schlafen_03"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Schonung_Shoulder_Schlafen_04"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Schonung_Shoulder_TragenundHeben_01"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Schonung_Shoulder_TragenundHeben_02"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Schonung_Shoulder_TragenundHeben_03"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Schonung_Shoulder_TragenundHeben_04"/>
+    </Declaration>
+    <Declaration>
         <NamedIndividual IRI="#SchulterAlphabet"/>
     </Declaration>
     <Declaration>
@@ -2202,9 +2199,6 @@
         <NamedIndividual IRI="#Severe"/>
     </Declaration>
     <Declaration>
-        <NamedIndividual IRI="#Shoulder"/>
-    </Declaration>
-    <Declaration>
         <NamedIndividual IRI="#ShoulderImpingement"/>
     </Declaration>
     <Declaration>
@@ -2262,11 +2256,8 @@
         <NamedIndividual IRI="#Sitting"/>
     </Declaration>
     <Declaration>
-    <NamedIndividual IRI="#Sitzen"/>
-</Declaration>
-<Declaration>
-    <NamedIndividual IRI="#LaufenundGehen"/>
-</Declaration>
+        <NamedIndividual IRI="#Sitzen"/>
+    </Declaration>
     <Declaration>
         <NamedIndividual IRI="#SitzenStehen"/>
     </Declaration>
@@ -2670,6 +2661,9 @@
         <NamedIndividual IRI="#Towel"/>
     </Declaration>
     <Declaration>
+        <NamedIndividual IRI="#TragenundHeben"/>
+    </Declaration>
+    <Declaration>
         <NamedIndividual IRI="#Trampoline"/>
     </Declaration>
     <Declaration>
@@ -2707,6 +2701,9 @@
     </Declaration>
     <Declaration>
         <NamedIndividual IRI="#Tree_Torso"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Treppensteigen"/>
     </Declaration>
     <Declaration>
         <NamedIndividual IRI="#Triangle"/>
@@ -3013,6 +3010,10 @@
         <Class IRI="#Yoga"/>
     </SubClassOf>
     <SubClassOf>
+        <Class IRI="#AufstehenundHinsetzen"/>
+        <Class IRI="#Schonungskategorie"/>
+    </SubClassOf>
+    <SubClassOf>
         <Class IRI="#AutoFahren"/>
         <Class IRI="#Schonungskategorie"/>
     </SubClassOf>
@@ -3119,6 +3120,10 @@
     <SubClassOf>
         <Class IRI="#KneeJointInjury"/>
         <Class IRI="#JointInjury"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#LaufenundGehen"/>
+        <Class IRI="#Schonungskategorie"/>
     </SubClassOf>
     <SubClassOf>
         <Class IRI="#Limb"/>
@@ -3241,14 +3246,6 @@
         <Class IRI="#Schonungskategorie"/>
     </SubClassOf>
     <SubClassOf>
-    <Class IRI="#LaufenundGehen"/>
-    <Class IRI="#Schonungskategorie"/>
-</SubClassOf>
-<SubClassOf>
-    <Class IRI="#AufstehenundHinsetzen"/>
-    <Class IRI="#Schonungskategorie"/>
-</SubClassOf>
-    <SubClassOf>
         <Class IRI="#UpperBackPain"/>
         <Class IRI="#BackPain"/>
     </SubClassOf>
@@ -3368,6 +3365,14 @@
         <NamedIndividual IRI="#AlternateSittingAndStanding"/>
     </ClassAssertion>
     <ClassAssertion>
+        <Class IRI="#Schonungskategorie"/>
+        <NamedIndividual IRI="#AmArbeitsplatz"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Schonungskategorie"/>
+        <NamedIndividual IRI="#AmBildschirm"/>
+    </ClassAssertion>
+    <ClassAssertion>
         <Class IRI="#RecipeOfTheWeek"/>
         <NamedIndividual IRI="#Ananas-Ingwer-Regenerations-Smoothie"/>
     </ClassAssertion>
@@ -3404,6 +3409,10 @@
         <NamedIndividual IRI="#Arms"/>
     </ClassAssertion>
     <ClassAssertion>
+        <Class IRI="#Limb"/>
+        <NamedIndividual IRI="#Arms"/>
+    </ClassAssertion>
+    <ClassAssertion>
         <Class IRI="#Coordination"/>
         <NamedIndividual IRI="#AssistedShoulderRotation"/>
     </ClassAssertion>
@@ -3416,6 +3425,14 @@
         <NamedIndividual IRI="#Atemuebung478"/>
     </ClassAssertion>
     <ClassAssertion>
+        <Class IRI="#Schonungskategorie"/>
+        <NamedIndividual IRI="#AufstehenundHinsetzen"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Schonungskategorie"/>
+        <NamedIndividual IRI="#AutoFahren"/>
+    </ClassAssertion>
+    <ClassAssertion>
         <Class IRI="#DailyRoutine"/>
         <NamedIndividual IRI="#AvoidForwardHeadPosture"/>
     </ClassAssertion>
@@ -3425,6 +3442,10 @@
     </ClassAssertion>
     <ClassAssertion>
         <Class IRI="#BodyPart"/>
+        <NamedIndividual IRI="#Back"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Limb"/>
         <NamedIndividual IRI="#Back"/>
     </ClassAssertion>
     <ClassAssertion>
@@ -3477,6 +3498,10 @@
     </ClassAssertion>
     <ClassAssertion>
         <Class IRI="#BodyPart"/>
+        <NamedIndividual IRI="#Bauch"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Limb"/>
         <NamedIndividual IRI="#Bauch"/>
     </ClassAssertion>
     <ClassAssertion>
@@ -3892,374 +3917,6 @@
         <NamedIndividual IRI="#ErgonomicSitting"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="#Schonungskategorie"/>
-        <NamedIndividual IRI="#AmArbeitsplatz"/>
-    </ClassAssertion>
-    <ClassAssertion>
-        <Class IRI="#Schonungskategorie"/>
-        <NamedIndividual IRI="#AmBildschirm"/>
-    </ClassAssertion>
-    <ClassAssertion>
-        <Class IRI="#Schonungskategorie"/>
-        <NamedIndividual IRI="#AufstehenundHinsetzen"/>
-    </ClassAssertion>
-    <ClassAssertion>
-        <Class IRI="#Schonungskategorie"/>
-        <NamedIndividual IRI="#AutoFahren"/>
-    </ClassAssertion>
-    <ClassAssertion>
-        <Class IRI="#Schonungskategorie"/>
-        <NamedIndividual IRI="#GreifenundÜberkopf"/>
-    </ClassAssertion>
-    <ClassAssertion>
-        <Class IRI="#Schonungskategorie"/>
-        <NamedIndividual IRI="#HandyundTablet"/>
-    </ClassAssertion>
-    <ClassAssertion>
-        <Class IRI="#Schonungskategorie"/>
-        <NamedIndividual IRI="#HebenundBücken"/>
-    </ClassAssertion>
-    <ClassAssertion>
-        <Class IRI="#Schonungskategorie"/>
-        <NamedIndividual IRI="#Schlafen"/>
-    </ClassAssertion>
-    <ClassAssertion>
-        <Class IRI="#Schonungskategorie"/>
-        <NamedIndividual IRI="#TragenundHeben"/>
-    </ClassAssertion>
-    <ClassAssertion>
-        <Class IRI="#Schonungskategorie"/>
-        <NamedIndividual IRI="#Treppensteigen"/>
-    </ClassAssertion>
-    <ClassAssertion>
-        <Class IRI="#Schonungshinweis"/>
-        <NamedIndividual IRI="#Schonung_Knees_Sitzen_01"/>
-    </ClassAssertion>
-    <ClassAssertion>
-        <Class IRI="#Schonungshinweis"/>
-        <NamedIndividual IRI="#Schonung_Knees_Sitzen_02"/>
-    </ClassAssertion>
-    <ClassAssertion>
-        <Class IRI="#Schonungshinweis"/>
-        <NamedIndividual IRI="#Schonung_Knees_Sitzen_03"/>
-    </ClassAssertion>
-    <ClassAssertion>
-        <Class IRI="#Schonungshinweis"/>
-        <NamedIndividual IRI="#Schonung_Knees_Sitzen_04"/>
-    </ClassAssertion>
-    <ClassAssertion>
-        <Class IRI="#Schonungshinweis"/>
-        <NamedIndividual IRI="#Schonung_Knees_Treppensteigen_01"/>
-    </ClassAssertion>
-    <ClassAssertion>
-        <Class IRI="#Schonungshinweis"/>
-        <NamedIndividual IRI="#Schonung_Knees_Treppensteigen_02"/>
-    </ClassAssertion>
-    <ClassAssertion>
-        <Class IRI="#Schonungshinweis"/>
-        <NamedIndividual IRI="#Schonung_Knees_Treppensteigen_03"/>
-    </ClassAssertion>
-    <ClassAssertion>
-        <Class IRI="#Schonungshinweis"/>
-        <NamedIndividual IRI="#Schonung_Knees_Treppensteigen_04"/>
-    </ClassAssertion>
-    <ClassAssertion>
-        <Class IRI="#Schonungshinweis"/>
-        <NamedIndividual IRI="#Schonung_Knees_LaufenundGehen_01"/>
-    </ClassAssertion>
-    <ClassAssertion>
-        <Class IRI="#Schonungshinweis"/>
-        <NamedIndividual IRI="#Schonung_Knees_LaufenundGehen_02"/>
-    </ClassAssertion>
-    <ClassAssertion>
-        <Class IRI="#Schonungshinweis"/>
-        <NamedIndividual IRI="#Schonung_Knees_LaufenundGehen_03"/>
-    </ClassAssertion>
-    <ClassAssertion>
-        <Class IRI="#Schonungshinweis"/>
-        <NamedIndividual IRI="#Schonung_Knees_LaufenundGehen_04"/>
-    </ClassAssertion>
-    <ClassAssertion>
-        <Class IRI="#Schonungshinweis"/>
-        <NamedIndividual IRI="#Schonung_Knees_Schlafen_01"/>
-    </ClassAssertion>
-    <ClassAssertion>
-        <Class IRI="#Schonungshinweis"/>
-        <NamedIndividual IRI="#Schonung_Knees_Schlafen_02"/>
-    </ClassAssertion>
-    <ClassAssertion>
-        <Class IRI="#Schonungshinweis"/>
-        <NamedIndividual IRI="#Schonung_Knees_Schlafen_03"/>
-    </ClassAssertion>
-    <ClassAssertion>
-        <Class IRI="#Schonungshinweis"/>
-        <NamedIndividual IRI="#Schonung_Knees_Schlafen_04"/>
-    </ClassAssertion>
-    <ClassAssertion>
-        <Class IRI="#Schonungshinweis"/>
-        <NamedIndividual IRI="#Schonung_Shoulder_TragenundHeben_01"/>
-    </ClassAssertion>
-    <ClassAssertion>
-        <Class IRI="#Schonungshinweis"/>
-        <NamedIndividual IRI="#Schonung_Shoulder_TragenundHeben_02"/>
-    </ClassAssertion>
-    <ClassAssertion>
-        <Class IRI="#Schonungshinweis"/>
-        <NamedIndividual IRI="#Schonung_Shoulder_TragenundHeben_03"/>
-    </ClassAssertion>
-    <ClassAssertion>
-        <Class IRI="#Schonungshinweis"/>
-        <NamedIndividual IRI="#Schonung_Shoulder_TragenundHeben_04"/>
-    </ClassAssertion>
-    <ClassAssertion>
-        <Class IRI="#Schonungshinweis"/>
-        <NamedIndividual IRI="#Schonung_Shoulder_AmArbeitsplatz_01"/>
-    </ClassAssertion>
-    <ClassAssertion>
-        <Class IRI="#Schonungshinweis"/>
-        <NamedIndividual IRI="#Schonung_Shoulder_AmArbeitsplatz_02"/>
-    </ClassAssertion>
-    <ClassAssertion>
-        <Class IRI="#Schonungshinweis"/>
-        <NamedIndividual IRI="#Schonung_Shoulder_AmArbeitsplatz_03"/>
-    </ClassAssertion>
-    <ClassAssertion>
-        <Class IRI="#Schonungshinweis"/>
-        <NamedIndividual IRI="#Schonung_Shoulder_AmArbeitsplatz_04"/>
-    </ClassAssertion>
-    <ClassAssertion>
-        <Class IRI="#Schonungshinweis"/>
-        <NamedIndividual IRI="#Schonung_Shoulder_GreifenundÜberkopf_01"/>
-    </ClassAssertion>
-    <ClassAssertion>
-        <Class IRI="#Schonungshinweis"/>
-        <NamedIndividual IRI="#Schonung_Shoulder_GreifenundÜberkopf_02"/>
-    </ClassAssertion>
-    <ClassAssertion>
-        <Class IRI="#Schonungshinweis"/>
-        <NamedIndividual IRI="#Schonung_Shoulder_GreifenundÜberkopf_03"/>
-    </ClassAssertion>
-    <ClassAssertion>
-        <Class IRI="#Schonungshinweis"/>
-        <NamedIndividual IRI="#Schonung_Shoulder_GreifenundÜberkopf_04"/>
-    </ClassAssertion>
-    <ClassAssertion>
-        <Class IRI="#Schonungshinweis"/>
-        <NamedIndividual IRI="#Schonung_Shoulder_Schlafen_01"/>
-    </ClassAssertion>
-    <ClassAssertion>
-        <Class IRI="#Schonungshinweis"/>
-        <NamedIndividual IRI="#Schonung_Shoulder_Schlafen_02"/>
-    </ClassAssertion>
-    <ClassAssertion>
-        <Class IRI="#Schonungshinweis"/>
-        <NamedIndividual IRI="#Schonung_Shoulder_Schlafen_03"/>
-    </ClassAssertion>
-    <ClassAssertion>
-        <Class IRI="#Schonungshinweis"/>
-        <NamedIndividual IRI="#Schonung_Shoulder_Schlafen_04"/>
-    </ClassAssertion>
-    <ClassAssertion>
-        <Class IRI="#Schonungshinweis"/>
-        <NamedIndividual IRI="#Schonung_Back_Sitzen_01"/>
-    </ClassAssertion>
-    <ClassAssertion>
-        <Class IRI="#Schonungshinweis"/>
-        <NamedIndividual IRI="#Schonung_Back_Sitzen_02"/>
-    </ClassAssertion>
-    <ClassAssertion>
-        <Class IRI="#Schonungshinweis"/>
-        <NamedIndividual IRI="#Schonung_Back_Sitzen_03"/>
-    </ClassAssertion>
-    <ClassAssertion>
-        <Class IRI="#Schonungshinweis"/>
-        <NamedIndividual IRI="#Schonung_Back_Sitzen_04"/>
-    </ClassAssertion>
-    <ClassAssertion>
-        <Class IRI="#Schonungshinweis"/>
-        <NamedIndividual IRI="#Schonung_Back_HebenundBücken_01"/>
-    </ClassAssertion>
-    <ClassAssertion>
-        <Class IRI="#Schonungshinweis"/>
-        <NamedIndividual IRI="#Schonung_Back_HebenundBücken_02"/>
-    </ClassAssertion>
-    <ClassAssertion>
-        <Class IRI="#Schonungshinweis"/>
-        <NamedIndividual IRI="#Schonung_Back_HebenundBücken_03"/>
-    </ClassAssertion>
-    <ClassAssertion>
-        <Class IRI="#Schonungshinweis"/>
-        <NamedIndividual IRI="#Schonung_Back_HebenundBücken_04"/>
-    </ClassAssertion>
-    <ClassAssertion>
-        <Class IRI="#Schonungshinweis"/>
-        <NamedIndividual IRI="#Schonung_Back_AutoFahren_01"/>
-    </ClassAssertion>
-    <ClassAssertion>
-        <Class IRI="#Schonungshinweis"/>
-        <NamedIndividual IRI="#Schonung_Back_AutoFahren_02"/>
-    </ClassAssertion>
-    <ClassAssertion>
-        <Class IRI="#Schonungshinweis"/>
-        <NamedIndividual IRI="#Schonung_Back_AutoFahren_03"/>
-    </ClassAssertion>
-    <ClassAssertion>
-        <Class IRI="#Schonungshinweis"/>
-        <NamedIndividual IRI="#Schonung_Back_AutoFahren_04"/>
-    </ClassAssertion>
-    <ClassAssertion>
-        <Class IRI="#Schonungshinweis"/>
-        <NamedIndividual IRI="#Schonung_Back_Schlafen_01"/>
-    </ClassAssertion>
-    <ClassAssertion>
-        <Class IRI="#Schonungshinweis"/>
-        <NamedIndividual IRI="#Schonung_Back_Schlafen_02"/>
-    </ClassAssertion>
-    <ClassAssertion>
-        <Class IRI="#Schonungshinweis"/>
-        <NamedIndividual IRI="#Schonung_Back_Schlafen_03"/>
-    </ClassAssertion>
-    <ClassAssertion>
-        <Class IRI="#Schonungshinweis"/>
-        <NamedIndividual IRI="#Schonung_Back_Schlafen_04"/>
-    </ClassAssertion>
-    <ClassAssertion>
-        <Class IRI="#Schonungshinweis"/>
-        <NamedIndividual IRI="#Schonung_Neck_AmBildschirm_01"/>
-    </ClassAssertion>
-    <ClassAssertion>
-        <Class IRI="#Schonungshinweis"/>
-        <NamedIndividual IRI="#Schonung_Neck_AmBildschirm_02"/>
-    </ClassAssertion>
-    <ClassAssertion>
-        <Class IRI="#Schonungshinweis"/>
-        <NamedIndividual IRI="#Schonung_Neck_AmBildschirm_03"/>
-    </ClassAssertion>
-    <ClassAssertion>
-        <Class IRI="#Schonungshinweis"/>
-        <NamedIndividual IRI="#Schonung_Neck_AmBildschirm_04"/>
-    </ClassAssertion>
-    <ClassAssertion>
-        <Class IRI="#Schonungshinweis"/>
-        <NamedIndividual IRI="#Schonung_Neck_HandyundTablet_01"/>
-    </ClassAssertion>
-    <ClassAssertion>
-        <Class IRI="#Schonungshinweis"/>
-        <NamedIndividual IRI="#Schonung_Neck_HandyundTablet_02"/>
-    </ClassAssertion>
-    <ClassAssertion>
-        <Class IRI="#Schonungshinweis"/>
-        <NamedIndividual IRI="#Schonung_Neck_HandyundTablet_03"/>
-    </ClassAssertion>
-    <ClassAssertion>
-        <Class IRI="#Schonungshinweis"/>
-        <NamedIndividual IRI="#Schonung_Neck_HandyundTablet_04"/>
-    </ClassAssertion>
-    <ClassAssertion>
-        <Class IRI="#Schonungshinweis"/>
-        <NamedIndividual IRI="#Schonung_Neck_AutoFahren_01"/>
-    </ClassAssertion>
-    <ClassAssertion>
-        <Class IRI="#Schonungshinweis"/>
-        <NamedIndividual IRI="#Schonung_Neck_AutoFahren_02"/>
-    </ClassAssertion>
-    <ClassAssertion>
-        <Class IRI="#Schonungshinweis"/>
-        <NamedIndividual IRI="#Schonung_Neck_AutoFahren_03"/>
-    </ClassAssertion>
-    <ClassAssertion>
-        <Class IRI="#Schonungshinweis"/>
-        <NamedIndividual IRI="#Schonung_Neck_AutoFahren_04"/>
-    </ClassAssertion>
-    <ClassAssertion>
-        <Class IRI="#Schonungshinweis"/>
-        <NamedIndividual IRI="#Schonung_Neck_Schlafen_01"/>
-    </ClassAssertion>
-    <ClassAssertion>
-        <Class IRI="#Schonungshinweis"/>
-        <NamedIndividual IRI="#Schonung_Neck_Schlafen_02"/>
-    </ClassAssertion>
-    <ClassAssertion>
-        <Class IRI="#Schonungshinweis"/>
-        <NamedIndividual IRI="#Schonung_Neck_Schlafen_03"/>
-    </ClassAssertion>
-    <ClassAssertion>
-        <Class IRI="#Schonungshinweis"/>
-        <NamedIndividual IRI="#Schonung_Neck_Schlafen_04"/>
-    </ClassAssertion>
-    <ClassAssertion>
-        <Class IRI="#Schonungshinweis"/>
-        <NamedIndividual IRI="#Schonung_Hip_Sitzen_01"/>
-    </ClassAssertion>
-    <ClassAssertion>
-        <Class IRI="#Schonungshinweis"/>
-        <NamedIndividual IRI="#Schonung_Hip_Sitzen_02"/>
-    </ClassAssertion>
-    <ClassAssertion>
-        <Class IRI="#Schonungshinweis"/>
-        <NamedIndividual IRI="#Schonung_Hip_Sitzen_03"/>
-    </ClassAssertion>
-    <ClassAssertion>
-        <Class IRI="#Schonungshinweis"/>
-        <NamedIndividual IRI="#Schonung_Hip_Sitzen_04"/>
-    </ClassAssertion>
-    <ClassAssertion>
-        <Class IRI="#Schonungshinweis"/>
-        <NamedIndividual IRI="#Schonung_Hip_AufstehenundHinsetzen_01"/>
-    </ClassAssertion>
-    <ClassAssertion>
-        <Class IRI="#Schonungshinweis"/>
-        <NamedIndividual IRI="#Schonung_Hip_AufstehenundHinsetzen_02"/>
-    </ClassAssertion>
-    <ClassAssertion>
-        <Class IRI="#Schonungshinweis"/>
-        <NamedIndividual IRI="#Schonung_Hip_AufstehenundHinsetzen_03"/>
-    </ClassAssertion>
-    <ClassAssertion>
-        <Class IRI="#Schonungshinweis"/>
-        <NamedIndividual IRI="#Schonung_Hip_AufstehenundHinsetzen_04"/>
-    </ClassAssertion>
-    <ClassAssertion>
-        <Class IRI="#Schonungshinweis"/>
-        <NamedIndividual IRI="#Schonung_Hip_LaufenundGehen_01"/>
-    </ClassAssertion>
-    <ClassAssertion>
-        <Class IRI="#Schonungshinweis"/>
-        <NamedIndividual IRI="#Schonung_Hip_LaufenundGehen_02"/>
-    </ClassAssertion>
-    <ClassAssertion>
-        <Class IRI="#Schonungshinweis"/>
-        <NamedIndividual IRI="#Schonung_Hip_LaufenundGehen_03"/>
-    </ClassAssertion>
-    <ClassAssertion>
-        <Class IRI="#Schonungshinweis"/>
-        <NamedIndividual IRI="#Schonung_Hip_LaufenundGehen_04"/>
-    </ClassAssertion>
-    <ClassAssertion>
-        <Class IRI="#Schonungshinweis"/>
-        <NamedIndividual IRI="#Schonung_Hip_Schlafen_01"/>
-    </ClassAssertion>
-    <ClassAssertion>
-        <Class IRI="#Schonungshinweis"/>
-        <NamedIndividual IRI="#Schonung_Hip_Schlafen_02"/>
-    </ClassAssertion>
-    <ClassAssertion>
-        <Class IRI="#Schonungshinweis"/>
-        <NamedIndividual IRI="#Schonung_Hip_Schlafen_03"/>
-    </ClassAssertion>
-    <ClassAssertion>
-        <Class IRI="#Schonungshinweis"/>
-        <NamedIndividual IRI="#Schonung_Hip_Schlafen_04"/>
-    </ClassAssertion>
-    <ClassAssertion>
-    <Class IRI="#Schonungskategorie"/>
-    <NamedIndividual IRI="#Sitzen"/>
-</ClassAssertion>
-<ClassAssertion>
-    <Class IRI="#Schonungskategorie"/>
-    <NamedIndividual IRI="#LaufenundGehen"/>
-</ClassAssertion>
-    <ClassAssertion>
         <Class IRI="#Equipment"/>
         <NamedIndividual IRI="#Erhöhung"/>
     </ClassAssertion>
@@ -4412,6 +4069,10 @@
         <NamedIndividual IRI="#Glutes"/>
     </ClassAssertion>
     <ClassAssertion>
+        <Class IRI="#Limb"/>
+        <NamedIndividual IRI="#Glutes"/>
+    </ClassAssertion>
+    <ClassAssertion>
         <Class IRI="#Muscle"/>
         <NamedIndividual IRI="#Glutes"/>
     </ClassAssertion>
@@ -4454,6 +4115,10 @@
     <ClassAssertion>
         <Class IRI="#RecipeOfTheWeek"/>
         <NamedIndividual IRI="#Granatapfel-Kefir-Drink"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Schonungskategorie"/>
+        <NamedIndividual IRI="#GreifenundÜberkopf"/>
     </ClassAssertion>
     <ClassAssertion>
         <Class IRI="#SportActivity"/>
@@ -4502,6 +4167,14 @@
     <ClassAssertion>
         <Class IRI="#Muscle"/>
         <NamedIndividual IRI="#Hamstrings"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Schonungskategorie"/>
+        <NamedIndividual IRI="#HandyundTablet"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Schonungskategorie"/>
+        <NamedIndividual IRI="#HebenundBücken"/>
     </ClassAssertion>
     <ClassAssertion>
         <Class IRI="#Asana"/>
@@ -4700,12 +4373,8 @@
         <NamedIndividual IRI="#Lats"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="#Limb"/>
-        <NamedIndividual IRI="#LeftArm"/>
-    </ClassAssertion>
-    <ClassAssertion>
-        <Class IRI="#Limb"/>
-        <NamedIndividual IRI="#LeftLeg"/>
+        <Class IRI="#Schonungskategorie"/>
+        <NamedIndividual IRI="#LaufenundGehen"/>
     </ClassAssertion>
     <ClassAssertion>
         <Class IRI="#Strength"/>
@@ -4713,6 +4382,10 @@
     </ClassAssertion>
     <ClassAssertion>
         <Class IRI="#BodyPart"/>
+        <NamedIndividual IRI="#Legs"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Limb"/>
         <NamedIndividual IRI="#Legs"/>
     </ClassAssertion>
     <ClassAssertion>
@@ -4968,10 +4641,6 @@
         <NamedIndividual IRI="#QuadricepsStrain"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="#Muscle"/>
-        <NamedIndividual IRI="#Quads"/>
-    </ClassAssertion>
-    <ClassAssertion>
         <Class IRI="#RecipeOfTheWeek"/>
         <NamedIndividual IRI="#Quinoa-Gemüse-Bowl"/>
     </ClassAssertion>
@@ -5080,14 +4749,6 @@
         <NamedIndividual IRI="#Rezept_WalnussBananenQuark"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="#Limb"/>
-        <NamedIndividual IRI="#RightArm"/>
-    </ClassAssertion>
-    <ClassAssertion>
-        <Class IRI="#Limb"/>
-        <NamedIndividual IRI="#RightLeg"/>
-    </ClassAssertion>
-    <ClassAssertion>
         <Class IRI="#SportActivity"/>
         <NamedIndividual IRI="#RollerSkating"/>
     </ClassAssertion>
@@ -5146,6 +4807,330 @@
     <ClassAssertion>
         <Class IRI="#Strength"/>
         <NamedIndividual IRI="#ScapulaRetraktion"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Schonungskategorie"/>
+        <NamedIndividual IRI="#Schlafen"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Schonungshinweis"/>
+        <NamedIndividual IRI="#Schonung_Back_AutoFahren_01"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Schonungshinweis"/>
+        <NamedIndividual IRI="#Schonung_Back_AutoFahren_02"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Schonungshinweis"/>
+        <NamedIndividual IRI="#Schonung_Back_AutoFahren_03"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Schonungshinweis"/>
+        <NamedIndividual IRI="#Schonung_Back_AutoFahren_04"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Schonungshinweis"/>
+        <NamedIndividual IRI="#Schonung_Back_HebenundBücken_01"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Schonungshinweis"/>
+        <NamedIndividual IRI="#Schonung_Back_HebenundBücken_02"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Schonungshinweis"/>
+        <NamedIndividual IRI="#Schonung_Back_HebenundBücken_03"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Schonungshinweis"/>
+        <NamedIndividual IRI="#Schonung_Back_HebenundBücken_04"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Schonungshinweis"/>
+        <NamedIndividual IRI="#Schonung_Back_Schlafen_01"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Schonungshinweis"/>
+        <NamedIndividual IRI="#Schonung_Back_Schlafen_02"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Schonungshinweis"/>
+        <NamedIndividual IRI="#Schonung_Back_Schlafen_03"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Schonungshinweis"/>
+        <NamedIndividual IRI="#Schonung_Back_Schlafen_04"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Schonungshinweis"/>
+        <NamedIndividual IRI="#Schonung_Back_Sitzen_01"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Schonungshinweis"/>
+        <NamedIndividual IRI="#Schonung_Back_Sitzen_02"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Schonungshinweis"/>
+        <NamedIndividual IRI="#Schonung_Back_Sitzen_03"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Schonungshinweis"/>
+        <NamedIndividual IRI="#Schonung_Back_Sitzen_04"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Schonungshinweis"/>
+        <NamedIndividual IRI="#Schonung_Hip_AufstehenundHinsetzen_01"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Schonungshinweis"/>
+        <NamedIndividual IRI="#Schonung_Hip_AufstehenundHinsetzen_02"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Schonungshinweis"/>
+        <NamedIndividual IRI="#Schonung_Hip_AufstehenundHinsetzen_03"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Schonungshinweis"/>
+        <NamedIndividual IRI="#Schonung_Hip_AufstehenundHinsetzen_04"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Schonungshinweis"/>
+        <NamedIndividual IRI="#Schonung_Hip_LaufenundGehen_01"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Schonungshinweis"/>
+        <NamedIndividual IRI="#Schonung_Hip_LaufenundGehen_02"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Schonungshinweis"/>
+        <NamedIndividual IRI="#Schonung_Hip_LaufenundGehen_03"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Schonungshinweis"/>
+        <NamedIndividual IRI="#Schonung_Hip_LaufenundGehen_04"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Schonungshinweis"/>
+        <NamedIndividual IRI="#Schonung_Hip_Schlafen_01"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Schonungshinweis"/>
+        <NamedIndividual IRI="#Schonung_Hip_Schlafen_02"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Schonungshinweis"/>
+        <NamedIndividual IRI="#Schonung_Hip_Schlafen_03"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Schonungshinweis"/>
+        <NamedIndividual IRI="#Schonung_Hip_Schlafen_04"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Schonungshinweis"/>
+        <NamedIndividual IRI="#Schonung_Hip_Sitzen_01"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Schonungshinweis"/>
+        <NamedIndividual IRI="#Schonung_Hip_Sitzen_02"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Schonungshinweis"/>
+        <NamedIndividual IRI="#Schonung_Hip_Sitzen_03"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Schonungshinweis"/>
+        <NamedIndividual IRI="#Schonung_Hip_Sitzen_04"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Schonungshinweis"/>
+        <NamedIndividual IRI="#Schonung_Knees_LaufenundGehen_01"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Schonungshinweis"/>
+        <NamedIndividual IRI="#Schonung_Knees_LaufenundGehen_02"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Schonungshinweis"/>
+        <NamedIndividual IRI="#Schonung_Knees_LaufenundGehen_03"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Schonungshinweis"/>
+        <NamedIndividual IRI="#Schonung_Knees_LaufenundGehen_04"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Schonungshinweis"/>
+        <NamedIndividual IRI="#Schonung_Knees_Schlafen_01"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Schonungshinweis"/>
+        <NamedIndividual IRI="#Schonung_Knees_Schlafen_02"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Schonungshinweis"/>
+        <NamedIndividual IRI="#Schonung_Knees_Schlafen_03"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Schonungshinweis"/>
+        <NamedIndividual IRI="#Schonung_Knees_Schlafen_04"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Schonungshinweis"/>
+        <NamedIndividual IRI="#Schonung_Knees_Sitzen_01"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Schonungshinweis"/>
+        <NamedIndividual IRI="#Schonung_Knees_Sitzen_02"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Schonungshinweis"/>
+        <NamedIndividual IRI="#Schonung_Knees_Sitzen_03"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Schonungshinweis"/>
+        <NamedIndividual IRI="#Schonung_Knees_Sitzen_04"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Schonungshinweis"/>
+        <NamedIndividual IRI="#Schonung_Knees_Treppensteigen_01"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Schonungshinweis"/>
+        <NamedIndividual IRI="#Schonung_Knees_Treppensteigen_02"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Schonungshinweis"/>
+        <NamedIndividual IRI="#Schonung_Knees_Treppensteigen_03"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Schonungshinweis"/>
+        <NamedIndividual IRI="#Schonung_Knees_Treppensteigen_04"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Schonungshinweis"/>
+        <NamedIndividual IRI="#Schonung_Neck_AmBildschirm_01"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Schonungshinweis"/>
+        <NamedIndividual IRI="#Schonung_Neck_AmBildschirm_02"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Schonungshinweis"/>
+        <NamedIndividual IRI="#Schonung_Neck_AmBildschirm_03"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Schonungshinweis"/>
+        <NamedIndividual IRI="#Schonung_Neck_AmBildschirm_04"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Schonungshinweis"/>
+        <NamedIndividual IRI="#Schonung_Neck_AutoFahren_01"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Schonungshinweis"/>
+        <NamedIndividual IRI="#Schonung_Neck_AutoFahren_02"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Schonungshinweis"/>
+        <NamedIndividual IRI="#Schonung_Neck_AutoFahren_03"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Schonungshinweis"/>
+        <NamedIndividual IRI="#Schonung_Neck_AutoFahren_04"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Schonungshinweis"/>
+        <NamedIndividual IRI="#Schonung_Neck_HandyundTablet_01"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Schonungshinweis"/>
+        <NamedIndividual IRI="#Schonung_Neck_HandyundTablet_02"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Schonungshinweis"/>
+        <NamedIndividual IRI="#Schonung_Neck_HandyundTablet_03"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Schonungshinweis"/>
+        <NamedIndividual IRI="#Schonung_Neck_HandyundTablet_04"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Schonungshinweis"/>
+        <NamedIndividual IRI="#Schonung_Neck_Schlafen_01"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Schonungshinweis"/>
+        <NamedIndividual IRI="#Schonung_Neck_Schlafen_02"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Schonungshinweis"/>
+        <NamedIndividual IRI="#Schonung_Neck_Schlafen_03"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Schonungshinweis"/>
+        <NamedIndividual IRI="#Schonung_Neck_Schlafen_04"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Schonungshinweis"/>
+        <NamedIndividual IRI="#Schonung_Shoulder_AmArbeitsplatz_01"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Schonungshinweis"/>
+        <NamedIndividual IRI="#Schonung_Shoulder_AmArbeitsplatz_02"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Schonungshinweis"/>
+        <NamedIndividual IRI="#Schonung_Shoulder_AmArbeitsplatz_03"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Schonungshinweis"/>
+        <NamedIndividual IRI="#Schonung_Shoulder_AmArbeitsplatz_04"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Schonungshinweis"/>
+        <NamedIndividual IRI="#Schonung_Shoulder_GreifenundÜberkopf_01"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Schonungshinweis"/>
+        <NamedIndividual IRI="#Schonung_Shoulder_GreifenundÜberkopf_02"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Schonungshinweis"/>
+        <NamedIndividual IRI="#Schonung_Shoulder_GreifenundÜberkopf_03"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Schonungshinweis"/>
+        <NamedIndividual IRI="#Schonung_Shoulder_GreifenundÜberkopf_04"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Schonungshinweis"/>
+        <NamedIndividual IRI="#Schonung_Shoulder_Schlafen_01"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Schonungshinweis"/>
+        <NamedIndividual IRI="#Schonung_Shoulder_Schlafen_02"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Schonungshinweis"/>
+        <NamedIndividual IRI="#Schonung_Shoulder_Schlafen_03"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Schonungshinweis"/>
+        <NamedIndividual IRI="#Schonung_Shoulder_Schlafen_04"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Schonungshinweis"/>
+        <NamedIndividual IRI="#Schonung_Shoulder_TragenundHeben_01"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Schonungshinweis"/>
+        <NamedIndividual IRI="#Schonung_Shoulder_TragenundHeben_02"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Schonungshinweis"/>
+        <NamedIndividual IRI="#Schonung_Shoulder_TragenundHeben_03"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Schonungshinweis"/>
+        <NamedIndividual IRI="#Schonung_Shoulder_TragenundHeben_04"/>
     </ClassAssertion>
     <ClassAssertion>
         <Class IRI="#Coordination"/>
@@ -5244,10 +5229,6 @@
         <NamedIndividual IRI="#Severe"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="#Muscle"/>
-        <NamedIndividual IRI="#Shoulder"/>
-    </ClassAssertion>
-    <ClassAssertion>
         <Class IRI="#TendonInjury"/>
         <NamedIndividual IRI="#ShoulderImpingement"/>
     </ClassAssertion>
@@ -5314,6 +5295,10 @@
     <ClassAssertion>
         <Class IRI="#SportActivity"/>
         <NamedIndividual IRI="#Sitting"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Schonungskategorie"/>
+        <NamedIndividual IRI="#Sitzen"/>
     </ClassAssertion>
     <ClassAssertion>
         <Class IRI="#Coordination"/>
@@ -5680,6 +5665,10 @@
         <NamedIndividual IRI="#Towel"/>
     </ClassAssertion>
     <ClassAssertion>
+        <Class IRI="#Schonungskategorie"/>
+        <NamedIndividual IRI="#TragenundHeben"/>
+    </ClassAssertion>
+    <ClassAssertion>
         <Class IRI="#SportActivity"/>
         <NamedIndividual IRI="#Trampoline"/>
     </ClassAssertion>
@@ -5714,6 +5703,10 @@
     <ClassAssertion>
         <Class IRI="#LimbAlignment"/>
         <NamedIndividual IRI="#Tree_Torso"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Schonungskategorie"/>
+        <NamedIndividual IRI="#Treppensteigen"/>
     </ClassAssertion>
     <ClassAssertion>
         <Class IRI="#Asana"/>
@@ -6071,7 +6064,7 @@
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#partOf"/>
         <NamedIndividual IRI="#Abs"/>
-        <NamedIndividual IRI="#Core"/>
+        <NamedIndividual IRI="#Bauch"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#excludesExercise"/>
@@ -6106,7 +6099,7 @@
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#partOf"/>
         <NamedIndividual IRI="#Adductors"/>
-        <NamedIndividual IRI="#Thighs"/>
+        <NamedIndividual IRI="#Legs"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#recommendsDifficultyLevel"/>
@@ -6698,7 +6691,12 @@
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#partOf"/>
         <NamedIndividual IRI="#AnkleJoint"/>
+        <NamedIndividual IRI="#Arms"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#partOf"/>
         <NamedIndividual IRI="#Ankles"/>
+        <NamedIndividual IRI="#Legs"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#engagedBodyPart"/>
@@ -7015,11 +7013,6 @@
         <NamedIndividual IRI="#MountainClimber"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
-        <ObjectProperty IRI="#partOf"/>
-        <NamedIndividual IRI="#Back"/>
-        <NamedIndividual IRI="#Torso"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
         <ObjectProperty IRI="#requiresImprovementOf"/>
         <NamedIndividual IRI="#BackIssue"/>
         <NamedIndividual IRI="#Back"/>
@@ -7248,11 +7241,6 @@
         <ObjectProperty IRI="#requiresEquipment"/>
         <NamedIndividual IRI="#BallkreisenAnDerWand"/>
         <NamedIndividual IRI="#Erhöhung"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="#partOf"/>
-        <NamedIndividual IRI="#Bauch"/>
-        <NamedIndividual IRI="#Core"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#engagedBodyPart"/>
@@ -12248,7 +12236,12 @@
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#partOf"/>
         <NamedIndividual IRI="#Elbow"/>
+        <NamedIndividual IRI="#Arms"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#partOf"/>
         <NamedIndividual IRI="#Elbows"/>
+        <NamedIndividual IRI="#Arms"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#requiresImprovementOf"/>
@@ -12359,806 +12352,6 @@
         <ObjectProperty IRI="#hasDailyLifeCategory"/>
         <NamedIndividual IRI="#ErgonomicSitting"/>
         <NamedIndividual IRI="#Sitzen"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="#belongsToBodyPart"/>
-        <NamedIndividual IRI="#Schonung_Knees_Sitzen_01"/>
-        <NamedIndividual IRI="#Knees"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="#hasDailyLifeCategory"/>
-        <NamedIndividual IRI="#Schonung_Knees_Sitzen_01"/>
-        <NamedIndividual IRI="#Sitzen"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="#belongsToBodyPart"/>
-        <NamedIndividual IRI="#Schonung_Knees_Sitzen_02"/>
-        <NamedIndividual IRI="#Knees"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="#hasDailyLifeCategory"/>
-        <NamedIndividual IRI="#Schonung_Knees_Sitzen_02"/>
-        <NamedIndividual IRI="#Sitzen"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="#belongsToBodyPart"/>
-        <NamedIndividual IRI="#Schonung_Knees_Sitzen_03"/>
-        <NamedIndividual IRI="#Knees"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="#hasDailyLifeCategory"/>
-        <NamedIndividual IRI="#Schonung_Knees_Sitzen_03"/>
-        <NamedIndividual IRI="#Sitzen"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="#belongsToBodyPart"/>
-        <NamedIndividual IRI="#Schonung_Knees_Sitzen_04"/>
-        <NamedIndividual IRI="#Knees"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="#hasDailyLifeCategory"/>
-        <NamedIndividual IRI="#Schonung_Knees_Sitzen_04"/>
-        <NamedIndividual IRI="#Sitzen"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="#belongsToBodyPart"/>
-        <NamedIndividual IRI="#Schonung_Knees_Treppensteigen_01"/>
-        <NamedIndividual IRI="#Knees"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="#hasDailyLifeCategory"/>
-        <NamedIndividual IRI="#Schonung_Knees_Treppensteigen_01"/>
-        <NamedIndividual IRI="#Treppensteigen"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="#belongsToBodyPart"/>
-        <NamedIndividual IRI="#Schonung_Knees_Treppensteigen_02"/>
-        <NamedIndividual IRI="#Knees"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="#hasDailyLifeCategory"/>
-        <NamedIndividual IRI="#Schonung_Knees_Treppensteigen_02"/>
-        <NamedIndividual IRI="#Treppensteigen"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="#belongsToBodyPart"/>
-        <NamedIndividual IRI="#Schonung_Knees_Treppensteigen_03"/>
-        <NamedIndividual IRI="#Knees"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="#hasDailyLifeCategory"/>
-        <NamedIndividual IRI="#Schonung_Knees_Treppensteigen_03"/>
-        <NamedIndividual IRI="#Treppensteigen"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="#belongsToBodyPart"/>
-        <NamedIndividual IRI="#Schonung_Knees_Treppensteigen_04"/>
-        <NamedIndividual IRI="#Knees"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="#hasDailyLifeCategory"/>
-        <NamedIndividual IRI="#Schonung_Knees_Treppensteigen_04"/>
-        <NamedIndividual IRI="#Treppensteigen"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="#belongsToBodyPart"/>
-        <NamedIndividual IRI="#Schonung_Knees_LaufenundGehen_01"/>
-        <NamedIndividual IRI="#Knees"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="#hasDailyLifeCategory"/>
-        <NamedIndividual IRI="#Schonung_Knees_LaufenundGehen_01"/>
-        <NamedIndividual IRI="#LaufenundGehen"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="#belongsToBodyPart"/>
-        <NamedIndividual IRI="#Schonung_Knees_LaufenundGehen_02"/>
-        <NamedIndividual IRI="#Knees"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="#hasDailyLifeCategory"/>
-        <NamedIndividual IRI="#Schonung_Knees_LaufenundGehen_02"/>
-        <NamedIndividual IRI="#LaufenundGehen"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="#belongsToBodyPart"/>
-        <NamedIndividual IRI="#Schonung_Knees_LaufenundGehen_03"/>
-        <NamedIndividual IRI="#Knees"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="#hasDailyLifeCategory"/>
-        <NamedIndividual IRI="#Schonung_Knees_LaufenundGehen_03"/>
-        <NamedIndividual IRI="#LaufenundGehen"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="#belongsToBodyPart"/>
-        <NamedIndividual IRI="#Schonung_Knees_LaufenundGehen_04"/>
-        <NamedIndividual IRI="#Knees"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="#hasDailyLifeCategory"/>
-        <NamedIndividual IRI="#Schonung_Knees_LaufenundGehen_04"/>
-        <NamedIndividual IRI="#LaufenundGehen"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="#belongsToBodyPart"/>
-        <NamedIndividual IRI="#Schonung_Knees_Schlafen_01"/>
-        <NamedIndividual IRI="#Knees"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="#hasDailyLifeCategory"/>
-        <NamedIndividual IRI="#Schonung_Knees_Schlafen_01"/>
-        <NamedIndividual IRI="#Schlafen"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="#belongsToBodyPart"/>
-        <NamedIndividual IRI="#Schonung_Knees_Schlafen_02"/>
-        <NamedIndividual IRI="#Knees"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="#hasDailyLifeCategory"/>
-        <NamedIndividual IRI="#Schonung_Knees_Schlafen_02"/>
-        <NamedIndividual IRI="#Schlafen"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="#belongsToBodyPart"/>
-        <NamedIndividual IRI="#Schonung_Knees_Schlafen_03"/>
-        <NamedIndividual IRI="#Knees"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="#hasDailyLifeCategory"/>
-        <NamedIndividual IRI="#Schonung_Knees_Schlafen_03"/>
-        <NamedIndividual IRI="#Schlafen"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="#belongsToBodyPart"/>
-        <NamedIndividual IRI="#Schonung_Knees_Schlafen_04"/>
-        <NamedIndividual IRI="#Knees"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="#hasDailyLifeCategory"/>
-        <NamedIndividual IRI="#Schonung_Knees_Schlafen_04"/>
-        <NamedIndividual IRI="#Schlafen"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="#belongsToBodyPart"/>
-        <NamedIndividual IRI="#Schonung_Shoulder_TragenundHeben_01"/>
-        <NamedIndividual IRI="#Shoulder"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="#hasDailyLifeCategory"/>
-        <NamedIndividual IRI="#Schonung_Shoulder_TragenundHeben_01"/>
-        <NamedIndividual IRI="#TragenundHeben"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="#belongsToBodyPart"/>
-        <NamedIndividual IRI="#Schonung_Shoulder_TragenundHeben_02"/>
-        <NamedIndividual IRI="#Shoulder"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="#hasDailyLifeCategory"/>
-        <NamedIndividual IRI="#Schonung_Shoulder_TragenundHeben_02"/>
-        <NamedIndividual IRI="#TragenundHeben"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="#belongsToBodyPart"/>
-        <NamedIndividual IRI="#Schonung_Shoulder_TragenundHeben_03"/>
-        <NamedIndividual IRI="#Shoulder"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="#hasDailyLifeCategory"/>
-        <NamedIndividual IRI="#Schonung_Shoulder_TragenundHeben_03"/>
-        <NamedIndividual IRI="#TragenundHeben"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="#belongsToBodyPart"/>
-        <NamedIndividual IRI="#Schonung_Shoulder_TragenundHeben_04"/>
-        <NamedIndividual IRI="#Shoulder"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="#hasDailyLifeCategory"/>
-        <NamedIndividual IRI="#Schonung_Shoulder_TragenundHeben_04"/>
-        <NamedIndividual IRI="#TragenundHeben"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="#belongsToBodyPart"/>
-        <NamedIndividual IRI="#Schonung_Shoulder_AmArbeitsplatz_01"/>
-        <NamedIndividual IRI="#Shoulder"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="#hasDailyLifeCategory"/>
-        <NamedIndividual IRI="#Schonung_Shoulder_AmArbeitsplatz_01"/>
-        <NamedIndividual IRI="#AmArbeitsplatz"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="#belongsToBodyPart"/>
-        <NamedIndividual IRI="#Schonung_Shoulder_AmArbeitsplatz_02"/>
-        <NamedIndividual IRI="#Shoulder"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="#hasDailyLifeCategory"/>
-        <NamedIndividual IRI="#Schonung_Shoulder_AmArbeitsplatz_02"/>
-        <NamedIndividual IRI="#AmArbeitsplatz"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="#belongsToBodyPart"/>
-        <NamedIndividual IRI="#Schonung_Shoulder_AmArbeitsplatz_03"/>
-        <NamedIndividual IRI="#Shoulder"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="#hasDailyLifeCategory"/>
-        <NamedIndividual IRI="#Schonung_Shoulder_AmArbeitsplatz_03"/>
-        <NamedIndividual IRI="#AmArbeitsplatz"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="#belongsToBodyPart"/>
-        <NamedIndividual IRI="#Schonung_Shoulder_AmArbeitsplatz_04"/>
-        <NamedIndividual IRI="#Shoulder"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="#hasDailyLifeCategory"/>
-        <NamedIndividual IRI="#Schonung_Shoulder_AmArbeitsplatz_04"/>
-        <NamedIndividual IRI="#AmArbeitsplatz"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="#belongsToBodyPart"/>
-        <NamedIndividual IRI="#Schonung_Shoulder_GreifenundÜberkopf_01"/>
-        <NamedIndividual IRI="#Shoulder"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="#hasDailyLifeCategory"/>
-        <NamedIndividual IRI="#Schonung_Shoulder_GreifenundÜberkopf_01"/>
-        <NamedIndividual IRI="#GreifenundÜberkopf"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="#belongsToBodyPart"/>
-        <NamedIndividual IRI="#Schonung_Shoulder_GreifenundÜberkopf_02"/>
-        <NamedIndividual IRI="#Shoulder"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="#hasDailyLifeCategory"/>
-        <NamedIndividual IRI="#Schonung_Shoulder_GreifenundÜberkopf_02"/>
-        <NamedIndividual IRI="#GreifenundÜberkopf"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="#belongsToBodyPart"/>
-        <NamedIndividual IRI="#Schonung_Shoulder_GreifenundÜberkopf_03"/>
-        <NamedIndividual IRI="#Shoulder"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="#hasDailyLifeCategory"/>
-        <NamedIndividual IRI="#Schonung_Shoulder_GreifenundÜberkopf_03"/>
-        <NamedIndividual IRI="#GreifenundÜberkopf"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="#belongsToBodyPart"/>
-        <NamedIndividual IRI="#Schonung_Shoulder_GreifenundÜberkopf_04"/>
-        <NamedIndividual IRI="#Shoulder"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="#hasDailyLifeCategory"/>
-        <NamedIndividual IRI="#Schonung_Shoulder_GreifenundÜberkopf_04"/>
-        <NamedIndividual IRI="#GreifenundÜberkopf"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="#belongsToBodyPart"/>
-        <NamedIndividual IRI="#Schonung_Shoulder_Schlafen_01"/>
-        <NamedIndividual IRI="#Shoulder"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="#hasDailyLifeCategory"/>
-        <NamedIndividual IRI="#Schonung_Shoulder_Schlafen_01"/>
-        <NamedIndividual IRI="#Schlafen"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="#belongsToBodyPart"/>
-        <NamedIndividual IRI="#Schonung_Shoulder_Schlafen_02"/>
-        <NamedIndividual IRI="#Shoulder"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="#hasDailyLifeCategory"/>
-        <NamedIndividual IRI="#Schonung_Shoulder_Schlafen_02"/>
-        <NamedIndividual IRI="#Schlafen"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="#belongsToBodyPart"/>
-        <NamedIndividual IRI="#Schonung_Shoulder_Schlafen_03"/>
-        <NamedIndividual IRI="#Shoulder"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="#hasDailyLifeCategory"/>
-        <NamedIndividual IRI="#Schonung_Shoulder_Schlafen_03"/>
-        <NamedIndividual IRI="#Schlafen"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="#belongsToBodyPart"/>
-        <NamedIndividual IRI="#Schonung_Shoulder_Schlafen_04"/>
-        <NamedIndividual IRI="#Shoulder"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="#hasDailyLifeCategory"/>
-        <NamedIndividual IRI="#Schonung_Shoulder_Schlafen_04"/>
-        <NamedIndividual IRI="#Schlafen"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="#belongsToBodyPart"/>
-        <NamedIndividual IRI="#Schonung_Back_Sitzen_01"/>
-        <NamedIndividual IRI="#Back"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="#hasDailyLifeCategory"/>
-        <NamedIndividual IRI="#Schonung_Back_Sitzen_01"/>
-        <NamedIndividual IRI="#Sitzen"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="#belongsToBodyPart"/>
-        <NamedIndividual IRI="#Schonung_Back_Sitzen_02"/>
-        <NamedIndividual IRI="#Back"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="#hasDailyLifeCategory"/>
-        <NamedIndividual IRI="#Schonung_Back_Sitzen_02"/>
-        <NamedIndividual IRI="#Sitzen"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="#belongsToBodyPart"/>
-        <NamedIndividual IRI="#Schonung_Back_Sitzen_03"/>
-        <NamedIndividual IRI="#Back"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="#hasDailyLifeCategory"/>
-        <NamedIndividual IRI="#Schonung_Back_Sitzen_03"/>
-        <NamedIndividual IRI="#Sitzen"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="#belongsToBodyPart"/>
-        <NamedIndividual IRI="#Schonung_Back_Sitzen_04"/>
-        <NamedIndividual IRI="#Back"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="#hasDailyLifeCategory"/>
-        <NamedIndividual IRI="#Schonung_Back_Sitzen_04"/>
-        <NamedIndividual IRI="#Sitzen"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="#belongsToBodyPart"/>
-        <NamedIndividual IRI="#Schonung_Back_HebenundBücken_01"/>
-        <NamedIndividual IRI="#Back"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="#hasDailyLifeCategory"/>
-        <NamedIndividual IRI="#Schonung_Back_HebenundBücken_01"/>
-        <NamedIndividual IRI="#HebenundBücken"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="#belongsToBodyPart"/>
-        <NamedIndividual IRI="#Schonung_Back_HebenundBücken_02"/>
-        <NamedIndividual IRI="#Back"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="#hasDailyLifeCategory"/>
-        <NamedIndividual IRI="#Schonung_Back_HebenundBücken_02"/>
-        <NamedIndividual IRI="#HebenundBücken"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="#belongsToBodyPart"/>
-        <NamedIndividual IRI="#Schonung_Back_HebenundBücken_03"/>
-        <NamedIndividual IRI="#Back"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="#hasDailyLifeCategory"/>
-        <NamedIndividual IRI="#Schonung_Back_HebenundBücken_03"/>
-        <NamedIndividual IRI="#HebenundBücken"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="#belongsToBodyPart"/>
-        <NamedIndividual IRI="#Schonung_Back_HebenundBücken_04"/>
-        <NamedIndividual IRI="#Back"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="#hasDailyLifeCategory"/>
-        <NamedIndividual IRI="#Schonung_Back_HebenundBücken_04"/>
-        <NamedIndividual IRI="#HebenundBücken"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="#belongsToBodyPart"/>
-        <NamedIndividual IRI="#Schonung_Back_AutoFahren_01"/>
-        <NamedIndividual IRI="#Back"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="#hasDailyLifeCategory"/>
-        <NamedIndividual IRI="#Schonung_Back_AutoFahren_01"/>
-        <NamedIndividual IRI="#AutoFahren"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="#belongsToBodyPart"/>
-        <NamedIndividual IRI="#Schonung_Back_AutoFahren_02"/>
-        <NamedIndividual IRI="#Back"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="#hasDailyLifeCategory"/>
-        <NamedIndividual IRI="#Schonung_Back_AutoFahren_02"/>
-        <NamedIndividual IRI="#AutoFahren"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="#belongsToBodyPart"/>
-        <NamedIndividual IRI="#Schonung_Back_AutoFahren_03"/>
-        <NamedIndividual IRI="#Back"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="#hasDailyLifeCategory"/>
-        <NamedIndividual IRI="#Schonung_Back_AutoFahren_03"/>
-        <NamedIndividual IRI="#AutoFahren"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="#belongsToBodyPart"/>
-        <NamedIndividual IRI="#Schonung_Back_AutoFahren_04"/>
-        <NamedIndividual IRI="#Back"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="#hasDailyLifeCategory"/>
-        <NamedIndividual IRI="#Schonung_Back_AutoFahren_04"/>
-        <NamedIndividual IRI="#AutoFahren"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="#belongsToBodyPart"/>
-        <NamedIndividual IRI="#Schonung_Back_Schlafen_01"/>
-        <NamedIndividual IRI="#Back"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="#hasDailyLifeCategory"/>
-        <NamedIndividual IRI="#Schonung_Back_Schlafen_01"/>
-        <NamedIndividual IRI="#Schlafen"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="#belongsToBodyPart"/>
-        <NamedIndividual IRI="#Schonung_Back_Schlafen_02"/>
-        <NamedIndividual IRI="#Back"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="#hasDailyLifeCategory"/>
-        <NamedIndividual IRI="#Schonung_Back_Schlafen_02"/>
-        <NamedIndividual IRI="#Schlafen"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="#belongsToBodyPart"/>
-        <NamedIndividual IRI="#Schonung_Back_Schlafen_03"/>
-        <NamedIndividual IRI="#Back"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="#hasDailyLifeCategory"/>
-        <NamedIndividual IRI="#Schonung_Back_Schlafen_03"/>
-        <NamedIndividual IRI="#Schlafen"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="#belongsToBodyPart"/>
-        <NamedIndividual IRI="#Schonung_Back_Schlafen_04"/>
-        <NamedIndividual IRI="#Back"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="#hasDailyLifeCategory"/>
-        <NamedIndividual IRI="#Schonung_Back_Schlafen_04"/>
-        <NamedIndividual IRI="#Schlafen"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="#belongsToBodyPart"/>
-        <NamedIndividual IRI="#Schonung_Neck_AmBildschirm_01"/>
-        <NamedIndividual IRI="#Neck"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="#hasDailyLifeCategory"/>
-        <NamedIndividual IRI="#Schonung_Neck_AmBildschirm_01"/>
-        <NamedIndividual IRI="#AmBildschirm"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="#belongsToBodyPart"/>
-        <NamedIndividual IRI="#Schonung_Neck_AmBildschirm_02"/>
-        <NamedIndividual IRI="#Neck"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="#hasDailyLifeCategory"/>
-        <NamedIndividual IRI="#Schonung_Neck_AmBildschirm_02"/>
-        <NamedIndividual IRI="#AmBildschirm"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="#belongsToBodyPart"/>
-        <NamedIndividual IRI="#Schonung_Neck_AmBildschirm_03"/>
-        <NamedIndividual IRI="#Neck"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="#hasDailyLifeCategory"/>
-        <NamedIndividual IRI="#Schonung_Neck_AmBildschirm_03"/>
-        <NamedIndividual IRI="#AmBildschirm"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="#belongsToBodyPart"/>
-        <NamedIndividual IRI="#Schonung_Neck_AmBildschirm_04"/>
-        <NamedIndividual IRI="#Neck"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="#hasDailyLifeCategory"/>
-        <NamedIndividual IRI="#Schonung_Neck_AmBildschirm_04"/>
-        <NamedIndividual IRI="#AmBildschirm"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="#belongsToBodyPart"/>
-        <NamedIndividual IRI="#Schonung_Neck_HandyundTablet_01"/>
-        <NamedIndividual IRI="#Neck"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="#hasDailyLifeCategory"/>
-        <NamedIndividual IRI="#Schonung_Neck_HandyundTablet_01"/>
-        <NamedIndividual IRI="#HandyundTablet"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="#belongsToBodyPart"/>
-        <NamedIndividual IRI="#Schonung_Neck_HandyundTablet_02"/>
-        <NamedIndividual IRI="#Neck"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="#hasDailyLifeCategory"/>
-        <NamedIndividual IRI="#Schonung_Neck_HandyundTablet_02"/>
-        <NamedIndividual IRI="#HandyundTablet"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="#belongsToBodyPart"/>
-        <NamedIndividual IRI="#Schonung_Neck_HandyundTablet_03"/>
-        <NamedIndividual IRI="#Neck"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="#hasDailyLifeCategory"/>
-        <NamedIndividual IRI="#Schonung_Neck_HandyundTablet_03"/>
-        <NamedIndividual IRI="#HandyundTablet"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="#belongsToBodyPart"/>
-        <NamedIndividual IRI="#Schonung_Neck_HandyundTablet_04"/>
-        <NamedIndividual IRI="#Neck"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="#hasDailyLifeCategory"/>
-        <NamedIndividual IRI="#Schonung_Neck_HandyundTablet_04"/>
-        <NamedIndividual IRI="#HandyundTablet"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="#belongsToBodyPart"/>
-        <NamedIndividual IRI="#Schonung_Neck_AutoFahren_01"/>
-        <NamedIndividual IRI="#Neck"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="#hasDailyLifeCategory"/>
-        <NamedIndividual IRI="#Schonung_Neck_AutoFahren_01"/>
-        <NamedIndividual IRI="#AutoFahren"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="#belongsToBodyPart"/>
-        <NamedIndividual IRI="#Schonung_Neck_AutoFahren_02"/>
-        <NamedIndividual IRI="#Neck"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="#hasDailyLifeCategory"/>
-        <NamedIndividual IRI="#Schonung_Neck_AutoFahren_02"/>
-        <NamedIndividual IRI="#AutoFahren"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="#belongsToBodyPart"/>
-        <NamedIndividual IRI="#Schonung_Neck_AutoFahren_03"/>
-        <NamedIndividual IRI="#Neck"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="#hasDailyLifeCategory"/>
-        <NamedIndividual IRI="#Schonung_Neck_AutoFahren_03"/>
-        <NamedIndividual IRI="#AutoFahren"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="#belongsToBodyPart"/>
-        <NamedIndividual IRI="#Schonung_Neck_AutoFahren_04"/>
-        <NamedIndividual IRI="#Neck"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="#hasDailyLifeCategory"/>
-        <NamedIndividual IRI="#Schonung_Neck_AutoFahren_04"/>
-        <NamedIndividual IRI="#AutoFahren"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="#belongsToBodyPart"/>
-        <NamedIndividual IRI="#Schonung_Neck_Schlafen_01"/>
-        <NamedIndividual IRI="#Neck"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="#hasDailyLifeCategory"/>
-        <NamedIndividual IRI="#Schonung_Neck_Schlafen_01"/>
-        <NamedIndividual IRI="#Schlafen"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="#belongsToBodyPart"/>
-        <NamedIndividual IRI="#Schonung_Neck_Schlafen_02"/>
-        <NamedIndividual IRI="#Neck"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="#hasDailyLifeCategory"/>
-        <NamedIndividual IRI="#Schonung_Neck_Schlafen_02"/>
-        <NamedIndividual IRI="#Schlafen"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="#belongsToBodyPart"/>
-        <NamedIndividual IRI="#Schonung_Neck_Schlafen_03"/>
-        <NamedIndividual IRI="#Neck"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="#hasDailyLifeCategory"/>
-        <NamedIndividual IRI="#Schonung_Neck_Schlafen_03"/>
-        <NamedIndividual IRI="#Schlafen"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="#belongsToBodyPart"/>
-        <NamedIndividual IRI="#Schonung_Neck_Schlafen_04"/>
-        <NamedIndividual IRI="#Neck"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="#hasDailyLifeCategory"/>
-        <NamedIndividual IRI="#Schonung_Neck_Schlafen_04"/>
-        <NamedIndividual IRI="#Schlafen"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="#belongsToBodyPart"/>
-        <NamedIndividual IRI="#Schonung_Hip_Sitzen_01"/>
-        <NamedIndividual IRI="#Hip"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="#hasDailyLifeCategory"/>
-        <NamedIndividual IRI="#Schonung_Hip_Sitzen_01"/>
-        <NamedIndividual IRI="#Sitzen"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="#belongsToBodyPart"/>
-        <NamedIndividual IRI="#Schonung_Hip_Sitzen_02"/>
-        <NamedIndividual IRI="#Hip"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="#hasDailyLifeCategory"/>
-        <NamedIndividual IRI="#Schonung_Hip_Sitzen_02"/>
-        <NamedIndividual IRI="#Sitzen"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="#belongsToBodyPart"/>
-        <NamedIndividual IRI="#Schonung_Hip_Sitzen_03"/>
-        <NamedIndividual IRI="#Hip"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="#hasDailyLifeCategory"/>
-        <NamedIndividual IRI="#Schonung_Hip_Sitzen_03"/>
-        <NamedIndividual IRI="#Sitzen"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="#belongsToBodyPart"/>
-        <NamedIndividual IRI="#Schonung_Hip_Sitzen_04"/>
-        <NamedIndividual IRI="#Hip"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="#hasDailyLifeCategory"/>
-        <NamedIndividual IRI="#Schonung_Hip_Sitzen_04"/>
-        <NamedIndividual IRI="#Sitzen"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="#belongsToBodyPart"/>
-        <NamedIndividual IRI="#Schonung_Hip_AufstehenundHinsetzen_01"/>
-        <NamedIndividual IRI="#Hip"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="#hasDailyLifeCategory"/>
-        <NamedIndividual IRI="#Schonung_Hip_AufstehenundHinsetzen_01"/>
-        <NamedIndividual IRI="#AufstehenundHinsetzen"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="#belongsToBodyPart"/>
-        <NamedIndividual IRI="#Schonung_Hip_AufstehenundHinsetzen_02"/>
-        <NamedIndividual IRI="#Hip"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="#hasDailyLifeCategory"/>
-        <NamedIndividual IRI="#Schonung_Hip_AufstehenundHinsetzen_02"/>
-        <NamedIndividual IRI="#AufstehenundHinsetzen"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="#belongsToBodyPart"/>
-        <NamedIndividual IRI="#Schonung_Hip_AufstehenundHinsetzen_03"/>
-        <NamedIndividual IRI="#Hip"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="#hasDailyLifeCategory"/>
-        <NamedIndividual IRI="#Schonung_Hip_AufstehenundHinsetzen_03"/>
-        <NamedIndividual IRI="#AufstehenundHinsetzen"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="#belongsToBodyPart"/>
-        <NamedIndividual IRI="#Schonung_Hip_AufstehenundHinsetzen_04"/>
-        <NamedIndividual IRI="#Hip"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="#hasDailyLifeCategory"/>
-        <NamedIndividual IRI="#Schonung_Hip_AufstehenundHinsetzen_04"/>
-        <NamedIndividual IRI="#AufstehenundHinsetzen"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="#belongsToBodyPart"/>
-        <NamedIndividual IRI="#Schonung_Hip_LaufenundGehen_01"/>
-        <NamedIndividual IRI="#Hip"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="#hasDailyLifeCategory"/>
-        <NamedIndividual IRI="#Schonung_Hip_LaufenundGehen_01"/>
-        <NamedIndividual IRI="#LaufenundGehen"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="#belongsToBodyPart"/>
-        <NamedIndividual IRI="#Schonung_Hip_LaufenundGehen_02"/>
-        <NamedIndividual IRI="#Hip"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="#hasDailyLifeCategory"/>
-        <NamedIndividual IRI="#Schonung_Hip_LaufenundGehen_02"/>
-        <NamedIndividual IRI="#LaufenundGehen"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="#belongsToBodyPart"/>
-        <NamedIndividual IRI="#Schonung_Hip_LaufenundGehen_03"/>
-        <NamedIndividual IRI="#Hip"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="#hasDailyLifeCategory"/>
-        <NamedIndividual IRI="#Schonung_Hip_LaufenundGehen_03"/>
-        <NamedIndividual IRI="#LaufenundGehen"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="#belongsToBodyPart"/>
-        <NamedIndividual IRI="#Schonung_Hip_LaufenundGehen_04"/>
-        <NamedIndividual IRI="#Hip"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="#hasDailyLifeCategory"/>
-        <NamedIndividual IRI="#Schonung_Hip_LaufenundGehen_04"/>
-        <NamedIndividual IRI="#LaufenundGehen"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="#belongsToBodyPart"/>
-        <NamedIndividual IRI="#Schonung_Hip_Schlafen_01"/>
-        <NamedIndividual IRI="#Hip"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="#hasDailyLifeCategory"/>
-        <NamedIndividual IRI="#Schonung_Hip_Schlafen_01"/>
-        <NamedIndividual IRI="#Schlafen"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="#belongsToBodyPart"/>
-        <NamedIndividual IRI="#Schonung_Hip_Schlafen_02"/>
-        <NamedIndividual IRI="#Hip"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="#hasDailyLifeCategory"/>
-        <NamedIndividual IRI="#Schonung_Hip_Schlafen_02"/>
-        <NamedIndividual IRI="#Schlafen"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="#belongsToBodyPart"/>
-        <NamedIndividual IRI="#Schonung_Hip_Schlafen_03"/>
-        <NamedIndividual IRI="#Hip"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="#hasDailyLifeCategory"/>
-        <NamedIndividual IRI="#Schonung_Hip_Schlafen_03"/>
-        <NamedIndividual IRI="#Schlafen"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="#belongsToBodyPart"/>
-        <NamedIndividual IRI="#Schonung_Hip_Schlafen_04"/>
-        <NamedIndividual IRI="#Hip"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="#hasDailyLifeCategory"/>
-        <NamedIndividual IRI="#Schonung_Hip_Schlafen_04"/>
-        <NamedIndividual IRI="#Schlafen"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#engagedBodyPart"/>
@@ -14069,7 +13262,7 @@
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#partOf"/>
         <NamedIndividual IRI="#FrontDeltoid"/>
-        <NamedIndividual IRI="#Shoulders"/>
+        <NamedIndividual IRI="#Arms"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#excludesExercise"/>
@@ -14740,11 +13933,6 @@
         <ObjectProperty IRI="#severity"/>
         <NamedIndividual IRI="#GleichgewichtInstabil_BalanceIssue"/>
         <NamedIndividual IRI="#HighRisk"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="#partOf"/>
-        <NamedIndividual IRI="#Glutes"/>
-        <NamedIndividual IRI="#Pelvic"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <Annotation>
@@ -15921,7 +15109,7 @@
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#partOf"/>
         <NamedIndividual IRI="#Hamstrings"/>
-        <NamedIndividual IRI="#Thighs"/>
+        <NamedIndividual IRI="#Legs"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <Annotation>
@@ -16349,6 +15537,11 @@
         <NamedIndividual IRI="#MediumRisk"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#partOf"/>
+        <NamedIndividual IRI="#Hip"/>
+        <NamedIndividual IRI="#Torso"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
         <ObjectProperty IRI="#excludesExercise"/>
         <NamedIndividual IRI="#HipFracture"/>
         <NamedIndividual IRI="#Bruecke"/>
@@ -16381,7 +15574,7 @@
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#partOf"/>
         <NamedIndividual IRI="#HipJoint"/>
-        <NamedIndividual IRI="#Hip"/>
+        <NamedIndividual IRI="#Torso"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#engagedBodyPart"/>
@@ -17728,7 +16921,7 @@
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#partOf"/>
         <NamedIndividual IRI="#KneeJoint"/>
-        <NamedIndividual IRI="#Knees"/>
+        <NamedIndividual IRI="#Legs"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#excludesExercise"/>
@@ -17764,6 +16957,11 @@
         <ObjectProperty IRI="#requiresImprovementOf"/>
         <NamedIndividual IRI="#KneeOsteoarthritis"/>
         <NamedIndividual IRI="#Quadriceps"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#partOf"/>
+        <NamedIndividual IRI="#Knees"/>
+        <NamedIndividual IRI="#Legs"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#engagedBodyPart"/>
@@ -18088,7 +17286,7 @@
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#partOf"/>
         <NamedIndividual IRI="#LateralDeltoids"/>
-        <NamedIndividual IRI="#Shoulders"/>
+        <NamedIndividual IRI="#Arms"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#engagedBodyPart"/>
@@ -18144,6 +17342,11 @@
         <ObjectProperty IRI="#isEngagedBy"/>
         <NamedIndividual IRI="#Lats"/>
         <NamedIndividual IRI="#ScapulaRetraktion"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#partOf"/>
+        <NamedIndividual IRI="#Lats"/>
+        <NamedIndividual IRI="#Torso"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#engagedBodyPart"/>
@@ -19216,6 +18419,11 @@
         <NamedIndividual IRI="#MediumRisk"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#partOf"/>
+        <NamedIndividual IRI="#Neck"/>
+        <NamedIndividual IRI="#Back"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
         <ObjectProperty IRI="#requiresImprovementOf"/>
         <NamedIndividual IRI="#NeckIssue"/>
         <NamedIndividual IRI="#Neck"/>
@@ -19223,7 +18431,7 @@
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#partOf"/>
         <NamedIndividual IRI="#NeckJoint"/>
-        <NamedIndividual IRI="#Neck"/>
+        <NamedIndividual IRI="#Back"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#partOf"/>
@@ -19318,7 +18526,7 @@
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#partOf"/>
         <NamedIndividual IRI="#Obliques"/>
-        <NamedIndividual IRI="#Core"/>
+        <NamedIndividual IRI="#Bauch"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#engagedBodyPart"/>
@@ -20843,9 +20051,24 @@
         <NamedIndividual IRI="#Torso"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#isEngagedBy"/>
+        <NamedIndividual IRI="#Quadriceps"/>
+        <NamedIndividual IRI="#SitzenStehen"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#isEngagedBy"/>
+        <NamedIndividual IRI="#Quadriceps"/>
+        <NamedIndividual IRI="#Squads"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#isEngagedBy"/>
+        <NamedIndividual IRI="#Quadriceps"/>
+        <NamedIndividual IRI="#Wandsitzen"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
         <ObjectProperty IRI="#partOf"/>
         <NamedIndividual IRI="#Quadriceps"/>
-        <NamedIndividual IRI="#Thighs"/>
+        <NamedIndividual IRI="#Legs"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#excludesExercise"/>
@@ -20861,36 +20084,11 @@
         <ObjectProperty IRI="#requiresImprovementOf"/>
         <NamedIndividual IRI="#QuadricepsStrain"/>
         <NamedIndividual IRI="#Quadriceps"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="#requiresImprovementOf"/>
-        <NamedIndividual IRI="#QuadricepsStrain"/>
-        <NamedIndividual IRI="#Quads"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#requiresImprovementOf"/>
         <NamedIndividual IRI="#QuadricepsStrain"/>
         <NamedIndividual IRI="#Strength"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="#isEngagedBy"/>
-        <NamedIndividual IRI="#Quads"/>
-        <NamedIndividual IRI="#SitzenStehen"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="#isEngagedBy"/>
-        <NamedIndividual IRI="#Quads"/>
-        <NamedIndividual IRI="#Squads"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="#isEngagedBy"/>
-        <NamedIndividual IRI="#Quads"/>
-        <NamedIndividual IRI="#Wandsitzen"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="#partOf"/>
-        <NamedIndividual IRI="#Quads"/>
-        <NamedIndividual IRI="#Thighs"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <Annotation>
@@ -21305,7 +20503,7 @@
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#partOf"/>
         <NamedIndividual IRI="#RearDeltoids"/>
-        <NamedIndividual IRI="#Shoulders"/>
+        <NamedIndividual IRI="#Arms"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#engagedBodyPart"/>
@@ -21480,7 +20678,7 @@
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#partOf"/>
         <NamedIndividual IRI="#RotatorCuffs"/>
-        <NamedIndividual IRI="#Shoulders"/>
+        <NamedIndividual IRI="#Arms"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#engagedBodyPart"/>
@@ -21766,6 +20964,806 @@
         <ObjectProperty IRI="#severity"/>
         <NamedIndividual IRI="#ScapulaRetraktion_ShoulderIssue"/>
         <NamedIndividual IRI="#MediumRisk"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#belongsToBodyPart"/>
+        <NamedIndividual IRI="#Schonung_Back_AutoFahren_01"/>
+        <NamedIndividual IRI="#Back"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasDailyLifeCategory"/>
+        <NamedIndividual IRI="#Schonung_Back_AutoFahren_01"/>
+        <NamedIndividual IRI="#AutoFahren"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#belongsToBodyPart"/>
+        <NamedIndividual IRI="#Schonung_Back_AutoFahren_02"/>
+        <NamedIndividual IRI="#Back"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasDailyLifeCategory"/>
+        <NamedIndividual IRI="#Schonung_Back_AutoFahren_02"/>
+        <NamedIndividual IRI="#AutoFahren"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#belongsToBodyPart"/>
+        <NamedIndividual IRI="#Schonung_Back_AutoFahren_03"/>
+        <NamedIndividual IRI="#Back"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasDailyLifeCategory"/>
+        <NamedIndividual IRI="#Schonung_Back_AutoFahren_03"/>
+        <NamedIndividual IRI="#AutoFahren"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#belongsToBodyPart"/>
+        <NamedIndividual IRI="#Schonung_Back_AutoFahren_04"/>
+        <NamedIndividual IRI="#Back"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasDailyLifeCategory"/>
+        <NamedIndividual IRI="#Schonung_Back_AutoFahren_04"/>
+        <NamedIndividual IRI="#AutoFahren"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#belongsToBodyPart"/>
+        <NamedIndividual IRI="#Schonung_Back_HebenundBücken_01"/>
+        <NamedIndividual IRI="#Back"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasDailyLifeCategory"/>
+        <NamedIndividual IRI="#Schonung_Back_HebenundBücken_01"/>
+        <NamedIndividual IRI="#HebenundBücken"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#belongsToBodyPart"/>
+        <NamedIndividual IRI="#Schonung_Back_HebenundBücken_02"/>
+        <NamedIndividual IRI="#Back"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasDailyLifeCategory"/>
+        <NamedIndividual IRI="#Schonung_Back_HebenundBücken_02"/>
+        <NamedIndividual IRI="#HebenundBücken"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#belongsToBodyPart"/>
+        <NamedIndividual IRI="#Schonung_Back_HebenundBücken_03"/>
+        <NamedIndividual IRI="#Back"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasDailyLifeCategory"/>
+        <NamedIndividual IRI="#Schonung_Back_HebenundBücken_03"/>
+        <NamedIndividual IRI="#HebenundBücken"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#belongsToBodyPart"/>
+        <NamedIndividual IRI="#Schonung_Back_HebenundBücken_04"/>
+        <NamedIndividual IRI="#Back"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasDailyLifeCategory"/>
+        <NamedIndividual IRI="#Schonung_Back_HebenundBücken_04"/>
+        <NamedIndividual IRI="#HebenundBücken"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#belongsToBodyPart"/>
+        <NamedIndividual IRI="#Schonung_Back_Schlafen_01"/>
+        <NamedIndividual IRI="#Back"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasDailyLifeCategory"/>
+        <NamedIndividual IRI="#Schonung_Back_Schlafen_01"/>
+        <NamedIndividual IRI="#Schlafen"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#belongsToBodyPart"/>
+        <NamedIndividual IRI="#Schonung_Back_Schlafen_02"/>
+        <NamedIndividual IRI="#Back"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasDailyLifeCategory"/>
+        <NamedIndividual IRI="#Schonung_Back_Schlafen_02"/>
+        <NamedIndividual IRI="#Schlafen"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#belongsToBodyPart"/>
+        <NamedIndividual IRI="#Schonung_Back_Schlafen_03"/>
+        <NamedIndividual IRI="#Back"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasDailyLifeCategory"/>
+        <NamedIndividual IRI="#Schonung_Back_Schlafen_03"/>
+        <NamedIndividual IRI="#Schlafen"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#belongsToBodyPart"/>
+        <NamedIndividual IRI="#Schonung_Back_Schlafen_04"/>
+        <NamedIndividual IRI="#Back"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasDailyLifeCategory"/>
+        <NamedIndividual IRI="#Schonung_Back_Schlafen_04"/>
+        <NamedIndividual IRI="#Schlafen"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#belongsToBodyPart"/>
+        <NamedIndividual IRI="#Schonung_Back_Sitzen_01"/>
+        <NamedIndividual IRI="#Back"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasDailyLifeCategory"/>
+        <NamedIndividual IRI="#Schonung_Back_Sitzen_01"/>
+        <NamedIndividual IRI="#Sitzen"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#belongsToBodyPart"/>
+        <NamedIndividual IRI="#Schonung_Back_Sitzen_02"/>
+        <NamedIndividual IRI="#Back"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasDailyLifeCategory"/>
+        <NamedIndividual IRI="#Schonung_Back_Sitzen_02"/>
+        <NamedIndividual IRI="#Sitzen"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#belongsToBodyPart"/>
+        <NamedIndividual IRI="#Schonung_Back_Sitzen_03"/>
+        <NamedIndividual IRI="#Back"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasDailyLifeCategory"/>
+        <NamedIndividual IRI="#Schonung_Back_Sitzen_03"/>
+        <NamedIndividual IRI="#Sitzen"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#belongsToBodyPart"/>
+        <NamedIndividual IRI="#Schonung_Back_Sitzen_04"/>
+        <NamedIndividual IRI="#Back"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasDailyLifeCategory"/>
+        <NamedIndividual IRI="#Schonung_Back_Sitzen_04"/>
+        <NamedIndividual IRI="#Sitzen"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#belongsToBodyPart"/>
+        <NamedIndividual IRI="#Schonung_Hip_AufstehenundHinsetzen_01"/>
+        <NamedIndividual IRI="#Hip"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasDailyLifeCategory"/>
+        <NamedIndividual IRI="#Schonung_Hip_AufstehenundHinsetzen_01"/>
+        <NamedIndividual IRI="#AufstehenundHinsetzen"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#belongsToBodyPart"/>
+        <NamedIndividual IRI="#Schonung_Hip_AufstehenundHinsetzen_02"/>
+        <NamedIndividual IRI="#Hip"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasDailyLifeCategory"/>
+        <NamedIndividual IRI="#Schonung_Hip_AufstehenundHinsetzen_02"/>
+        <NamedIndividual IRI="#AufstehenundHinsetzen"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#belongsToBodyPart"/>
+        <NamedIndividual IRI="#Schonung_Hip_AufstehenundHinsetzen_03"/>
+        <NamedIndividual IRI="#Hip"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasDailyLifeCategory"/>
+        <NamedIndividual IRI="#Schonung_Hip_AufstehenundHinsetzen_03"/>
+        <NamedIndividual IRI="#AufstehenundHinsetzen"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#belongsToBodyPart"/>
+        <NamedIndividual IRI="#Schonung_Hip_AufstehenundHinsetzen_04"/>
+        <NamedIndividual IRI="#Hip"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasDailyLifeCategory"/>
+        <NamedIndividual IRI="#Schonung_Hip_AufstehenundHinsetzen_04"/>
+        <NamedIndividual IRI="#AufstehenundHinsetzen"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#belongsToBodyPart"/>
+        <NamedIndividual IRI="#Schonung_Hip_LaufenundGehen_01"/>
+        <NamedIndividual IRI="#Hip"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasDailyLifeCategory"/>
+        <NamedIndividual IRI="#Schonung_Hip_LaufenundGehen_01"/>
+        <NamedIndividual IRI="#LaufenundGehen"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#belongsToBodyPart"/>
+        <NamedIndividual IRI="#Schonung_Hip_LaufenundGehen_02"/>
+        <NamedIndividual IRI="#Hip"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasDailyLifeCategory"/>
+        <NamedIndividual IRI="#Schonung_Hip_LaufenundGehen_02"/>
+        <NamedIndividual IRI="#LaufenundGehen"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#belongsToBodyPart"/>
+        <NamedIndividual IRI="#Schonung_Hip_LaufenundGehen_03"/>
+        <NamedIndividual IRI="#Hip"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasDailyLifeCategory"/>
+        <NamedIndividual IRI="#Schonung_Hip_LaufenundGehen_03"/>
+        <NamedIndividual IRI="#LaufenundGehen"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#belongsToBodyPart"/>
+        <NamedIndividual IRI="#Schonung_Hip_LaufenundGehen_04"/>
+        <NamedIndividual IRI="#Hip"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasDailyLifeCategory"/>
+        <NamedIndividual IRI="#Schonung_Hip_LaufenundGehen_04"/>
+        <NamedIndividual IRI="#LaufenundGehen"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#belongsToBodyPart"/>
+        <NamedIndividual IRI="#Schonung_Hip_Schlafen_01"/>
+        <NamedIndividual IRI="#Hip"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasDailyLifeCategory"/>
+        <NamedIndividual IRI="#Schonung_Hip_Schlafen_01"/>
+        <NamedIndividual IRI="#Schlafen"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#belongsToBodyPart"/>
+        <NamedIndividual IRI="#Schonung_Hip_Schlafen_02"/>
+        <NamedIndividual IRI="#Hip"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasDailyLifeCategory"/>
+        <NamedIndividual IRI="#Schonung_Hip_Schlafen_02"/>
+        <NamedIndividual IRI="#Schlafen"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#belongsToBodyPart"/>
+        <NamedIndividual IRI="#Schonung_Hip_Schlafen_03"/>
+        <NamedIndividual IRI="#Hip"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasDailyLifeCategory"/>
+        <NamedIndividual IRI="#Schonung_Hip_Schlafen_03"/>
+        <NamedIndividual IRI="#Schlafen"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#belongsToBodyPart"/>
+        <NamedIndividual IRI="#Schonung_Hip_Schlafen_04"/>
+        <NamedIndividual IRI="#Hip"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasDailyLifeCategory"/>
+        <NamedIndividual IRI="#Schonung_Hip_Schlafen_04"/>
+        <NamedIndividual IRI="#Schlafen"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#belongsToBodyPart"/>
+        <NamedIndividual IRI="#Schonung_Hip_Sitzen_01"/>
+        <NamedIndividual IRI="#Hip"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasDailyLifeCategory"/>
+        <NamedIndividual IRI="#Schonung_Hip_Sitzen_01"/>
+        <NamedIndividual IRI="#Sitzen"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#belongsToBodyPart"/>
+        <NamedIndividual IRI="#Schonung_Hip_Sitzen_02"/>
+        <NamedIndividual IRI="#Hip"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasDailyLifeCategory"/>
+        <NamedIndividual IRI="#Schonung_Hip_Sitzen_02"/>
+        <NamedIndividual IRI="#Sitzen"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#belongsToBodyPart"/>
+        <NamedIndividual IRI="#Schonung_Hip_Sitzen_03"/>
+        <NamedIndividual IRI="#Hip"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasDailyLifeCategory"/>
+        <NamedIndividual IRI="#Schonung_Hip_Sitzen_03"/>
+        <NamedIndividual IRI="#Sitzen"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#belongsToBodyPart"/>
+        <NamedIndividual IRI="#Schonung_Hip_Sitzen_04"/>
+        <NamedIndividual IRI="#Hip"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasDailyLifeCategory"/>
+        <NamedIndividual IRI="#Schonung_Hip_Sitzen_04"/>
+        <NamedIndividual IRI="#Sitzen"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#belongsToBodyPart"/>
+        <NamedIndividual IRI="#Schonung_Knees_LaufenundGehen_01"/>
+        <NamedIndividual IRI="#Knees"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasDailyLifeCategory"/>
+        <NamedIndividual IRI="#Schonung_Knees_LaufenundGehen_01"/>
+        <NamedIndividual IRI="#LaufenundGehen"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#belongsToBodyPart"/>
+        <NamedIndividual IRI="#Schonung_Knees_LaufenundGehen_02"/>
+        <NamedIndividual IRI="#Knees"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasDailyLifeCategory"/>
+        <NamedIndividual IRI="#Schonung_Knees_LaufenundGehen_02"/>
+        <NamedIndividual IRI="#LaufenundGehen"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#belongsToBodyPart"/>
+        <NamedIndividual IRI="#Schonung_Knees_LaufenundGehen_03"/>
+        <NamedIndividual IRI="#Knees"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasDailyLifeCategory"/>
+        <NamedIndividual IRI="#Schonung_Knees_LaufenundGehen_03"/>
+        <NamedIndividual IRI="#LaufenundGehen"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#belongsToBodyPart"/>
+        <NamedIndividual IRI="#Schonung_Knees_LaufenundGehen_04"/>
+        <NamedIndividual IRI="#Knees"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasDailyLifeCategory"/>
+        <NamedIndividual IRI="#Schonung_Knees_LaufenundGehen_04"/>
+        <NamedIndividual IRI="#LaufenundGehen"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#belongsToBodyPart"/>
+        <NamedIndividual IRI="#Schonung_Knees_Schlafen_01"/>
+        <NamedIndividual IRI="#Knees"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasDailyLifeCategory"/>
+        <NamedIndividual IRI="#Schonung_Knees_Schlafen_01"/>
+        <NamedIndividual IRI="#Schlafen"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#belongsToBodyPart"/>
+        <NamedIndividual IRI="#Schonung_Knees_Schlafen_02"/>
+        <NamedIndividual IRI="#Knees"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasDailyLifeCategory"/>
+        <NamedIndividual IRI="#Schonung_Knees_Schlafen_02"/>
+        <NamedIndividual IRI="#Schlafen"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#belongsToBodyPart"/>
+        <NamedIndividual IRI="#Schonung_Knees_Schlafen_03"/>
+        <NamedIndividual IRI="#Knees"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasDailyLifeCategory"/>
+        <NamedIndividual IRI="#Schonung_Knees_Schlafen_03"/>
+        <NamedIndividual IRI="#Schlafen"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#belongsToBodyPart"/>
+        <NamedIndividual IRI="#Schonung_Knees_Schlafen_04"/>
+        <NamedIndividual IRI="#Knees"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasDailyLifeCategory"/>
+        <NamedIndividual IRI="#Schonung_Knees_Schlafen_04"/>
+        <NamedIndividual IRI="#Schlafen"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#belongsToBodyPart"/>
+        <NamedIndividual IRI="#Schonung_Knees_Sitzen_01"/>
+        <NamedIndividual IRI="#Knees"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasDailyLifeCategory"/>
+        <NamedIndividual IRI="#Schonung_Knees_Sitzen_01"/>
+        <NamedIndividual IRI="#Sitzen"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#belongsToBodyPart"/>
+        <NamedIndividual IRI="#Schonung_Knees_Sitzen_02"/>
+        <NamedIndividual IRI="#Knees"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasDailyLifeCategory"/>
+        <NamedIndividual IRI="#Schonung_Knees_Sitzen_02"/>
+        <NamedIndividual IRI="#Sitzen"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#belongsToBodyPart"/>
+        <NamedIndividual IRI="#Schonung_Knees_Sitzen_03"/>
+        <NamedIndividual IRI="#Knees"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasDailyLifeCategory"/>
+        <NamedIndividual IRI="#Schonung_Knees_Sitzen_03"/>
+        <NamedIndividual IRI="#Sitzen"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#belongsToBodyPart"/>
+        <NamedIndividual IRI="#Schonung_Knees_Sitzen_04"/>
+        <NamedIndividual IRI="#Knees"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasDailyLifeCategory"/>
+        <NamedIndividual IRI="#Schonung_Knees_Sitzen_04"/>
+        <NamedIndividual IRI="#Sitzen"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#belongsToBodyPart"/>
+        <NamedIndividual IRI="#Schonung_Knees_Treppensteigen_01"/>
+        <NamedIndividual IRI="#Knees"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasDailyLifeCategory"/>
+        <NamedIndividual IRI="#Schonung_Knees_Treppensteigen_01"/>
+        <NamedIndividual IRI="#Treppensteigen"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#belongsToBodyPart"/>
+        <NamedIndividual IRI="#Schonung_Knees_Treppensteigen_02"/>
+        <NamedIndividual IRI="#Knees"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasDailyLifeCategory"/>
+        <NamedIndividual IRI="#Schonung_Knees_Treppensteigen_02"/>
+        <NamedIndividual IRI="#Treppensteigen"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#belongsToBodyPart"/>
+        <NamedIndividual IRI="#Schonung_Knees_Treppensteigen_03"/>
+        <NamedIndividual IRI="#Knees"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasDailyLifeCategory"/>
+        <NamedIndividual IRI="#Schonung_Knees_Treppensteigen_03"/>
+        <NamedIndividual IRI="#Treppensteigen"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#belongsToBodyPart"/>
+        <NamedIndividual IRI="#Schonung_Knees_Treppensteigen_04"/>
+        <NamedIndividual IRI="#Knees"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasDailyLifeCategory"/>
+        <NamedIndividual IRI="#Schonung_Knees_Treppensteigen_04"/>
+        <NamedIndividual IRI="#Treppensteigen"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#belongsToBodyPart"/>
+        <NamedIndividual IRI="#Schonung_Neck_AmBildschirm_01"/>
+        <NamedIndividual IRI="#Neck"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasDailyLifeCategory"/>
+        <NamedIndividual IRI="#Schonung_Neck_AmBildschirm_01"/>
+        <NamedIndividual IRI="#AmBildschirm"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#belongsToBodyPart"/>
+        <NamedIndividual IRI="#Schonung_Neck_AmBildschirm_02"/>
+        <NamedIndividual IRI="#Neck"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasDailyLifeCategory"/>
+        <NamedIndividual IRI="#Schonung_Neck_AmBildschirm_02"/>
+        <NamedIndividual IRI="#AmBildschirm"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#belongsToBodyPart"/>
+        <NamedIndividual IRI="#Schonung_Neck_AmBildschirm_03"/>
+        <NamedIndividual IRI="#Neck"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasDailyLifeCategory"/>
+        <NamedIndividual IRI="#Schonung_Neck_AmBildschirm_03"/>
+        <NamedIndividual IRI="#AmBildschirm"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#belongsToBodyPart"/>
+        <NamedIndividual IRI="#Schonung_Neck_AmBildschirm_04"/>
+        <NamedIndividual IRI="#Neck"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasDailyLifeCategory"/>
+        <NamedIndividual IRI="#Schonung_Neck_AmBildschirm_04"/>
+        <NamedIndividual IRI="#AmBildschirm"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#belongsToBodyPart"/>
+        <NamedIndividual IRI="#Schonung_Neck_AutoFahren_01"/>
+        <NamedIndividual IRI="#Neck"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasDailyLifeCategory"/>
+        <NamedIndividual IRI="#Schonung_Neck_AutoFahren_01"/>
+        <NamedIndividual IRI="#AutoFahren"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#belongsToBodyPart"/>
+        <NamedIndividual IRI="#Schonung_Neck_AutoFahren_02"/>
+        <NamedIndividual IRI="#Neck"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasDailyLifeCategory"/>
+        <NamedIndividual IRI="#Schonung_Neck_AutoFahren_02"/>
+        <NamedIndividual IRI="#AutoFahren"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#belongsToBodyPart"/>
+        <NamedIndividual IRI="#Schonung_Neck_AutoFahren_03"/>
+        <NamedIndividual IRI="#Neck"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasDailyLifeCategory"/>
+        <NamedIndividual IRI="#Schonung_Neck_AutoFahren_03"/>
+        <NamedIndividual IRI="#AutoFahren"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#belongsToBodyPart"/>
+        <NamedIndividual IRI="#Schonung_Neck_AutoFahren_04"/>
+        <NamedIndividual IRI="#Neck"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasDailyLifeCategory"/>
+        <NamedIndividual IRI="#Schonung_Neck_AutoFahren_04"/>
+        <NamedIndividual IRI="#AutoFahren"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#belongsToBodyPart"/>
+        <NamedIndividual IRI="#Schonung_Neck_HandyundTablet_01"/>
+        <NamedIndividual IRI="#Neck"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasDailyLifeCategory"/>
+        <NamedIndividual IRI="#Schonung_Neck_HandyundTablet_01"/>
+        <NamedIndividual IRI="#HandyundTablet"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#belongsToBodyPart"/>
+        <NamedIndividual IRI="#Schonung_Neck_HandyundTablet_02"/>
+        <NamedIndividual IRI="#Neck"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasDailyLifeCategory"/>
+        <NamedIndividual IRI="#Schonung_Neck_HandyundTablet_02"/>
+        <NamedIndividual IRI="#HandyundTablet"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#belongsToBodyPart"/>
+        <NamedIndividual IRI="#Schonung_Neck_HandyundTablet_03"/>
+        <NamedIndividual IRI="#Neck"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasDailyLifeCategory"/>
+        <NamedIndividual IRI="#Schonung_Neck_HandyundTablet_03"/>
+        <NamedIndividual IRI="#HandyundTablet"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#belongsToBodyPart"/>
+        <NamedIndividual IRI="#Schonung_Neck_HandyundTablet_04"/>
+        <NamedIndividual IRI="#Neck"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasDailyLifeCategory"/>
+        <NamedIndividual IRI="#Schonung_Neck_HandyundTablet_04"/>
+        <NamedIndividual IRI="#HandyundTablet"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#belongsToBodyPart"/>
+        <NamedIndividual IRI="#Schonung_Neck_Schlafen_01"/>
+        <NamedIndividual IRI="#Neck"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasDailyLifeCategory"/>
+        <NamedIndividual IRI="#Schonung_Neck_Schlafen_01"/>
+        <NamedIndividual IRI="#Schlafen"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#belongsToBodyPart"/>
+        <NamedIndividual IRI="#Schonung_Neck_Schlafen_02"/>
+        <NamedIndividual IRI="#Neck"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasDailyLifeCategory"/>
+        <NamedIndividual IRI="#Schonung_Neck_Schlafen_02"/>
+        <NamedIndividual IRI="#Schlafen"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#belongsToBodyPart"/>
+        <NamedIndividual IRI="#Schonung_Neck_Schlafen_03"/>
+        <NamedIndividual IRI="#Neck"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasDailyLifeCategory"/>
+        <NamedIndividual IRI="#Schonung_Neck_Schlafen_03"/>
+        <NamedIndividual IRI="#Schlafen"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#belongsToBodyPart"/>
+        <NamedIndividual IRI="#Schonung_Neck_Schlafen_04"/>
+        <NamedIndividual IRI="#Neck"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasDailyLifeCategory"/>
+        <NamedIndividual IRI="#Schonung_Neck_Schlafen_04"/>
+        <NamedIndividual IRI="#Schlafen"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#belongsToBodyPart"/>
+        <NamedIndividual IRI="#Schonung_Shoulder_AmArbeitsplatz_01"/>
+        <NamedIndividual IRI="#Shoulders"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasDailyLifeCategory"/>
+        <NamedIndividual IRI="#Schonung_Shoulder_AmArbeitsplatz_01"/>
+        <NamedIndividual IRI="#AmArbeitsplatz"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#belongsToBodyPart"/>
+        <NamedIndividual IRI="#Schonung_Shoulder_AmArbeitsplatz_02"/>
+        <NamedIndividual IRI="#Shoulders"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasDailyLifeCategory"/>
+        <NamedIndividual IRI="#Schonung_Shoulder_AmArbeitsplatz_02"/>
+        <NamedIndividual IRI="#AmArbeitsplatz"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#belongsToBodyPart"/>
+        <NamedIndividual IRI="#Schonung_Shoulder_AmArbeitsplatz_03"/>
+        <NamedIndividual IRI="#Shoulders"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasDailyLifeCategory"/>
+        <NamedIndividual IRI="#Schonung_Shoulder_AmArbeitsplatz_03"/>
+        <NamedIndividual IRI="#AmArbeitsplatz"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#belongsToBodyPart"/>
+        <NamedIndividual IRI="#Schonung_Shoulder_AmArbeitsplatz_04"/>
+        <NamedIndividual IRI="#Shoulders"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasDailyLifeCategory"/>
+        <NamedIndividual IRI="#Schonung_Shoulder_AmArbeitsplatz_04"/>
+        <NamedIndividual IRI="#AmArbeitsplatz"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#belongsToBodyPart"/>
+        <NamedIndividual IRI="#Schonung_Shoulder_GreifenundÜberkopf_01"/>
+        <NamedIndividual IRI="#Shoulders"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasDailyLifeCategory"/>
+        <NamedIndividual IRI="#Schonung_Shoulder_GreifenundÜberkopf_01"/>
+        <NamedIndividual IRI="#GreifenundÜberkopf"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#belongsToBodyPart"/>
+        <NamedIndividual IRI="#Schonung_Shoulder_GreifenundÜberkopf_02"/>
+        <NamedIndividual IRI="#Shoulders"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasDailyLifeCategory"/>
+        <NamedIndividual IRI="#Schonung_Shoulder_GreifenundÜberkopf_02"/>
+        <NamedIndividual IRI="#GreifenundÜberkopf"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#belongsToBodyPart"/>
+        <NamedIndividual IRI="#Schonung_Shoulder_GreifenundÜberkopf_03"/>
+        <NamedIndividual IRI="#Shoulders"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasDailyLifeCategory"/>
+        <NamedIndividual IRI="#Schonung_Shoulder_GreifenundÜberkopf_03"/>
+        <NamedIndividual IRI="#GreifenundÜberkopf"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#belongsToBodyPart"/>
+        <NamedIndividual IRI="#Schonung_Shoulder_GreifenundÜberkopf_04"/>
+        <NamedIndividual IRI="#Shoulders"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasDailyLifeCategory"/>
+        <NamedIndividual IRI="#Schonung_Shoulder_GreifenundÜberkopf_04"/>
+        <NamedIndividual IRI="#GreifenundÜberkopf"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#belongsToBodyPart"/>
+        <NamedIndividual IRI="#Schonung_Shoulder_Schlafen_01"/>
+        <NamedIndividual IRI="#Shoulders"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasDailyLifeCategory"/>
+        <NamedIndividual IRI="#Schonung_Shoulder_Schlafen_01"/>
+        <NamedIndividual IRI="#Schlafen"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#belongsToBodyPart"/>
+        <NamedIndividual IRI="#Schonung_Shoulder_Schlafen_02"/>
+        <NamedIndividual IRI="#Shoulders"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasDailyLifeCategory"/>
+        <NamedIndividual IRI="#Schonung_Shoulder_Schlafen_02"/>
+        <NamedIndividual IRI="#Schlafen"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#belongsToBodyPart"/>
+        <NamedIndividual IRI="#Schonung_Shoulder_Schlafen_03"/>
+        <NamedIndividual IRI="#Shoulders"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasDailyLifeCategory"/>
+        <NamedIndividual IRI="#Schonung_Shoulder_Schlafen_03"/>
+        <NamedIndividual IRI="#Schlafen"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#belongsToBodyPart"/>
+        <NamedIndividual IRI="#Schonung_Shoulder_Schlafen_04"/>
+        <NamedIndividual IRI="#Shoulders"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasDailyLifeCategory"/>
+        <NamedIndividual IRI="#Schonung_Shoulder_Schlafen_04"/>
+        <NamedIndividual IRI="#Schlafen"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#belongsToBodyPart"/>
+        <NamedIndividual IRI="#Schonung_Shoulder_TragenundHeben_01"/>
+        <NamedIndividual IRI="#Shoulders"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasDailyLifeCategory"/>
+        <NamedIndividual IRI="#Schonung_Shoulder_TragenundHeben_01"/>
+        <NamedIndividual IRI="#TragenundHeben"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#belongsToBodyPart"/>
+        <NamedIndividual IRI="#Schonung_Shoulder_TragenundHeben_02"/>
+        <NamedIndividual IRI="#Shoulders"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasDailyLifeCategory"/>
+        <NamedIndividual IRI="#Schonung_Shoulder_TragenundHeben_02"/>
+        <NamedIndividual IRI="#TragenundHeben"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#belongsToBodyPart"/>
+        <NamedIndividual IRI="#Schonung_Shoulder_TragenundHeben_03"/>
+        <NamedIndividual IRI="#Shoulders"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasDailyLifeCategory"/>
+        <NamedIndividual IRI="#Schonung_Shoulder_TragenundHeben_03"/>
+        <NamedIndividual IRI="#TragenundHeben"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#belongsToBodyPart"/>
+        <NamedIndividual IRI="#Schonung_Shoulder_TragenundHeben_04"/>
+        <NamedIndividual IRI="#Shoulders"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasDailyLifeCategory"/>
+        <NamedIndividual IRI="#Schonung_Shoulder_TragenundHeben_04"/>
+        <NamedIndividual IRI="#TragenundHeben"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#engagedBodyPart"/>
@@ -23112,7 +23110,7 @@
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#partOf"/>
         <NamedIndividual IRI="#ShoulderJoint"/>
-        <NamedIndividual IRI="#Shoulders"/>
+        <NamedIndividual IRI="#Arms"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#isRehabilitatedBy"/>
@@ -23163,6 +23161,11 @@
         <ObjectProperty IRI="#isRehabilitatedBy"/>
         <NamedIndividual IRI="#Shoulders"/>
         <NamedIndividual IRI="#TherabandAussenrotation"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#partOf"/>
+        <NamedIndividual IRI="#Shoulders"/>
+        <NamedIndividual IRI="#Arms"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <Annotation>
@@ -23797,7 +23800,7 @@
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#engagedBodyPart"/>
         <NamedIndividual IRI="#SitzenStehen"/>
-        <NamedIndividual IRI="#Quads"/>
+        <NamedIndividual IRI="#Quadriceps"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#engagedBodyPart"/>
@@ -23907,7 +23910,7 @@
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#partOf"/>
         <NamedIndividual IRI="#Spine"/>
-        <NamedIndividual IRI="#Torso"/>
+        <NamedIndividual IRI="#Back"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#requiresImprovementOf"/>
@@ -23917,7 +23920,7 @@
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#partOf"/>
         <NamedIndividual IRI="#SpineJoint"/>
-        <NamedIndividual IRI="#Spine"/>
+        <NamedIndividual IRI="#Back"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#excludesExercise"/>
@@ -27565,6 +27568,11 @@
         <NamedIndividual IRI="#MediumRisk"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#partOf"/>
+        <NamedIndividual IRI="#Thighs"/>
+        <NamedIndividual IRI="#Legs"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
         <ObjectProperty IRI="#excludesExercise"/>
         <NamedIndividual IRI="#ThoracicBackPain"/>
         <NamedIndividual IRI="#BrustwirbelsaeulenRotation"/>
@@ -30877,7 +30885,7 @@
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#partOf"/>
         <NamedIndividual IRI="#WristJoint"/>
-        <NamedIndividual IRI="#Wrists"/>
+        <NamedIndividual IRI="#Arms"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#excludesExercise"/>
@@ -30923,6 +30931,11 @@
         <ObjectProperty IRI="#requiresImprovementOf"/>
         <NamedIndividual IRI="#WristSprain"/>
         <NamedIndividual IRI="#WristJoint"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#partOf"/>
+        <NamedIndividual IRI="#Wrists"/>
+        <NamedIndividual IRI="#Arms"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#engagedBodyPart"/>
@@ -32740,406 +32753,6 @@
         <DataProperty IRI="#hasDailyLifeAdvice"/>
         <NamedIndividual IRI="#ErgonomicSitting"/>
         <Literal>Aufrechte, unterstützte Sitzhaltung mit angepasster Stuhl- und Tischhöhe zur Entlastung von Rücken.</Literal>
-    </DataPropertyAssertion>
-    <DataPropertyAssertion>
-        <DataProperty IRI="#hasDailyLifeAdvice"/>
-        <NamedIndividual IRI="#Schonung_Knees_Sitzen_01"/>
-        <Literal>Alle 30 Min. Bein kurz strecken und beugen</Literal>
-    </DataPropertyAssertion>
-    <DataPropertyAssertion>
-        <DataProperty IRI="#hasDailyLifeAdvice"/>
-        <NamedIndividual IRI="#Schonung_Knees_Sitzen_02"/>
-        <Literal>Knie nicht dauerhaft überkreuzen</Literal>
-    </DataPropertyAssertion>
-    <DataPropertyAssertion>
-        <DataProperty IRI="#hasDailyLifeAdvice"/>
-        <NamedIndividual IRI="#Schonung_Knees_Sitzen_03"/>
-        <Literal>Sitzhöhe wählen, dass Knie ca. 90° gebeugt sind</Literal>
-    </DataPropertyAssertion>
-    <DataPropertyAssertion>
-        <DataProperty IRI="#hasDailyLifeAdvice"/>
-        <NamedIndividual IRI="#Schonung_Knees_Sitzen_04"/>
-        <Literal>Bei Schwellungen Bein hochlagern</Literal>
-    </DataPropertyAssertion>
-    <DataPropertyAssertion>
-        <DataProperty IRI="#hasDailyLifeAdvice"/>
-        <NamedIndividual IRI="#Schonung_Knees_Treppensteigen_01"/>
-        <Literal>Hochgehen: stärkeres Bein zuerst</Literal>
-    </DataPropertyAssertion>
-    <DataPropertyAssertion>
-        <DataProperty IRI="#hasDailyLifeAdvice"/>
-        <NamedIndividual IRI="#Schonung_Knees_Treppensteigen_02"/>
-        <Literal>Runtergehen: schwächeres Bein zuerst</Literal>
-    </DataPropertyAssertion>
-    <DataPropertyAssertion>
-        <DataProperty IRI="#hasDailyLifeAdvice"/>
-        <NamedIndividual IRI="#Schonung_Knees_Treppensteigen_03"/>
-        <Literal>Geländer zur Entlastung nutzen</Literal>
-    </DataPropertyAssertion>
-    <DataPropertyAssertion>
-        <DataProperty IRI="#hasDailyLifeAdvice"/>
-        <NamedIndividual IRI="#Schonung_Knees_Treppensteigen_04"/>
-        <Literal>Bei Schmerz lieber den Aufzug nutzen</Literal>
-    </DataPropertyAssertion>
-    <DataPropertyAssertion>
-        <DataProperty IRI="#hasDailyLifeAdvice"/>
-        <NamedIndividual IRI="#Schonung_Knees_LaufenundGehen_01"/>
-        <Literal>Dämpfendes Schuhwerk tragen</Literal>
-    </DataPropertyAssertion>
-    <DataPropertyAssertion>
-        <DataProperty IRI="#hasDailyLifeAdvice"/>
-        <NamedIndividual IRI="#Schonung_Knees_LaufenundGehen_02"/>
-        <Literal>Kürzere, häufigere Schritte statt großer Schritte</Literal>
-    </DataPropertyAssertion>
-    <DataPropertyAssertion>
-        <DataProperty IRI="#hasDailyLifeAdvice"/>
-        <NamedIndividual IRI="#Schonung_Knees_LaufenundGehen_03"/>
-        <Literal>Bergab besonders langsam und kontrolliert</Literal>
-    </DataPropertyAssertion>
-    <DataPropertyAssertion>
-        <DataProperty IRI="#hasDailyLifeAdvice"/>
-        <NamedIndividual IRI="#Schonung_Knees_LaufenundGehen_04"/>
-        <Literal>Pausen einbauen, bevor Schmerz entsteht</Literal>
-    </DataPropertyAssertion>
-    <DataPropertyAssertion>
-        <DataProperty IRI="#hasDailyLifeAdvice"/>
-        <NamedIndividual IRI="#Schonung_Knees_Schlafen_01"/>
-        <Literal>Kleines Kissen unter die Kniekehle bei Rückenlage</Literal>
-    </DataPropertyAssertion>
-    <DataPropertyAssertion>
-        <DataProperty IRI="#hasDailyLifeAdvice"/>
-        <NamedIndividual IRI="#Schonung_Knees_Schlafen_02"/>
-        <Literal>Seitlage: Kissen zwischen die Knie legen</Literal>
-    </DataPropertyAssertion>
-    <DataPropertyAssertion>
-        <DataProperty IRI="#hasDailyLifeAdvice"/>
-        <NamedIndividual IRI="#Schonung_Knees_Schlafen_03"/>
-        <Literal>Bein leicht erhöht lagern bei Schwellung</Literal>
-    </DataPropertyAssertion>
-    <DataPropertyAssertion>
-        <DataProperty IRI="#hasDailyLifeAdvice"/>
-        <NamedIndividual IRI="#Schonung_Knees_Schlafen_04"/>
-        <Literal>Wärmflasche vor dem Schlafen entspannt die Muskulatur</Literal>
-    </DataPropertyAssertion>
-    <DataPropertyAssertion>
-        <DataProperty IRI="#hasDailyLifeAdvice"/>
-        <NamedIndividual IRI="#Schonung_Shoulder_TragenundHeben_01"/>
-        <Literal>Rucksack statt Umhängetasche bevorzugen</Literal>
-    </DataPropertyAssertion>
-    <DataPropertyAssertion>
-        <DataProperty IRI="#hasDailyLifeAdvice"/>
-        <NamedIndividual IRI="#Schonung_Shoulder_TragenundHeben_02"/>
-        <Literal>Last nah am Körper halten</Literal>
-    </DataPropertyAssertion>
-    <DataPropertyAssertion>
-        <DataProperty IRI="#hasDailyLifeAdvice"/>
-        <NamedIndividual IRI="#Schonung_Shoulder_TragenundHeben_03"/>
-        <Literal>Regelmäßig die Seite wechseln</Literal>
-    </DataPropertyAssertion>
-    <DataPropertyAssertion>
-        <DataProperty IRI="#hasDailyLifeAdvice"/>
-        <NamedIndividual IRI="#Schonung_Shoulder_TragenundHeben_04"/>
-        <Literal>Schweres nie mit ausgestrecktem Arm heben</Literal>
-    </DataPropertyAssertion>
-    <DataPropertyAssertion>
-        <DataProperty IRI="#hasDailyLifeAdvice"/>
-        <NamedIndividual IRI="#Schonung_Shoulder_AmArbeitsplatz_01"/>
-        <Literal>Ellenbogen etwa auf Tischhöhe</Literal>
-    </DataPropertyAssertion>
-    <DataPropertyAssertion>
-        <DataProperty IRI="#hasDailyLifeAdvice"/>
-        <NamedIndividual IRI="#Schonung_Shoulder_AmArbeitsplatz_02"/>
-        <Literal>Bildschirm auf Augenhöhe, nicht seitlich</Literal>
-    </DataPropertyAssertion>
-    <DataPropertyAssertion>
-        <DataProperty IRI="#hasDailyLifeAdvice"/>
-        <NamedIndividual IRI="#Schonung_Shoulder_AmArbeitsplatz_03"/>
-        <Literal>Schultern bewusst locker lassen, nicht hochziehen</Literal>
-    </DataPropertyAssertion>
-    <DataPropertyAssertion>
-        <DataProperty IRI="#hasDailyLifeAdvice"/>
-        <NamedIndividual IRI="#Schonung_Shoulder_AmArbeitsplatz_04"/>
-        <Literal>Alle 45 Min. kurz aufstehen und bewegen</Literal>
-    </DataPropertyAssertion>
-    <DataPropertyAssertion>
-        <DataProperty IRI="#hasDailyLifeAdvice"/>
-        <NamedIndividual IRI="#Schonung_Shoulder_GreifenundÜberkopf_01"/>
-        <Literal>Gegenstände nicht mit ausgestrecktem Arm greifen</Literal>
-    </DataPropertyAssertion>
-    <DataPropertyAssertion>
-        <DataProperty IRI="#hasDailyLifeAdvice"/>
-        <NamedIndividual IRI="#Schonung_Shoulder_GreifenundÜberkopf_02"/>
-        <Literal>Hohe Regale: Tritt benutzen statt Recken</Literal>
-    </DataPropertyAssertion>
-    <DataPropertyAssertion>
-        <DataProperty IRI="#hasDailyLifeAdvice"/>
-        <NamedIndividual IRI="#Schonung_Shoulder_GreifenundÜberkopf_03"/>
-        <Literal>Im schmerzfreien Bereich bleiben</Literal>
-    </DataPropertyAssertion>
-    <DataPropertyAssertion>
-        <DataProperty IRI="#hasDailyLifeAdvice"/>
-        <NamedIndividual IRI="#Schonung_Shoulder_GreifenundÜberkopf_04"/>
-        <Literal>Schwere Gegenstände nah am Körper führen</Literal>
-    </DataPropertyAssertion>
-    <DataPropertyAssertion>
-        <DataProperty IRI="#hasDailyLifeAdvice"/>
-        <NamedIndividual IRI="#Schonung_Shoulder_Schlafen_01"/>
-        <Literal>Rückenlage mit flachem Kissen ist am schonendsten</Literal>
-    </DataPropertyAssertion>
-    <DataPropertyAssertion>
-        <DataProperty IRI="#hasDailyLifeAdvice"/>
-        <NamedIndividual IRI="#Schonung_Shoulder_Schlafen_02"/>
-        <Literal>Seitenlage nur auf der gesunden Seite</Literal>
-    </DataPropertyAssertion>
-    <DataPropertyAssertion>
-        <DataProperty IRI="#hasDailyLifeAdvice"/>
-        <NamedIndividual IRI="#Schonung_Shoulder_Schlafen_03"/>
-        <Literal>Kleines Kissen zwischen Arm und Körper</Literal>
-    </DataPropertyAssertion>
-    <DataPropertyAssertion>
-        <DataProperty IRI="#hasDailyLifeAdvice"/>
-        <NamedIndividual IRI="#Schonung_Shoulder_Schlafen_04"/>
-        <Literal>Bauchlage meiden – verdreht die Schulter</Literal>
-    </DataPropertyAssertion>
-    <DataPropertyAssertion>
-        <DataProperty IRI="#hasDailyLifeAdvice"/>
-        <NamedIndividual IRI="#Schonung_Back_Sitzen_01"/>
-        <Literal>Becken aufrecht, Lendenstütze nutzen</Literal>
-    </DataPropertyAssertion>
-    <DataPropertyAssertion>
-        <DataProperty IRI="#hasDailyLifeAdvice"/>
-        <NamedIndividual IRI="#Schonung_Back_Sitzen_02"/>
-        <Literal>Füße flach am Boden, Knie ca. 90°</Literal>
-    </DataPropertyAssertion>
-    <DataPropertyAssertion>
-        <DataProperty IRI="#hasDailyLifeAdvice"/>
-        <NamedIndividual IRI="#Schonung_Back_Sitzen_03"/>
-        <Literal>Alle 45–60 Min. kurz aufstehen</Literal>
-    </DataPropertyAssertion>
-    <DataPropertyAssertion>
-        <DataProperty IRI="#hasDailyLifeAdvice"/>
-        <NamedIndividual IRI="#Schonung_Back_Sitzen_04"/>
-        <Literal>Höhenverstellbarer Schreibtisch wenn möglich</Literal>
-    </DataPropertyAssertion>
-    <DataPropertyAssertion>
-        <DataProperty IRI="#hasDailyLifeAdvice"/>
-        <NamedIndividual IRI="#Schonung_Back_HebenundBücken_01"/>
-        <Literal>In die Knie gehen, Rücken gerade halten</Literal>
-    </DataPropertyAssertion>
-    <DataPropertyAssertion>
-        <DataProperty IRI="#hasDailyLifeAdvice"/>
-        <NamedIndividual IRI="#Schonung_Back_HebenundBücken_02"/>
-        <Literal>Last nah am Körper führen</Literal>
-    </DataPropertyAssertion>
-    <DataPropertyAssertion>
-        <DataProperty IRI="#hasDailyLifeAdvice"/>
-        <NamedIndividual IRI="#Schonung_Back_HebenundBücken_03"/>
-        <Literal>Mit den Beinen hochdrücken, nicht mit dem Rücken</Literal>
-    </DataPropertyAssertion>
-    <DataPropertyAssertion>
-        <DataProperty IRI="#hasDailyLifeAdvice"/>
-        <NamedIndividual IRI="#Schonung_Back_HebenundBücken_04"/>
-        <Literal>Beim Tragen nicht seitlich verdrehen</Literal>
-    </DataPropertyAssertion>
-    <DataPropertyAssertion>
-        <DataProperty IRI="#hasDailyLifeAdvice"/>
-        <NamedIndividual IRI="#Schonung_Back_AutoFahren_01"/>
-        <Literal>Lehne leicht nach hinten geneigt (ca. 100–110°)</Literal>
-    </DataPropertyAssertion>
-    <DataPropertyAssertion>
-        <DataProperty IRI="#hasDailyLifeAdvice"/>
-        <NamedIndividual IRI="#Schonung_Back_AutoFahren_02"/>
-        <Literal>Lendenstütze aktivieren oder Kissen nutzen</Literal>
-    </DataPropertyAssertion>
-    <DataPropertyAssertion>
-        <DataProperty IRI="#hasDailyLifeAdvice"/>
-        <NamedIndividual IRI="#Schonung_Back_AutoFahren_03"/>
-        <Literal>Knie etwa auf Hüfthöhe</Literal>
-    </DataPropertyAssertion>
-    <DataPropertyAssertion>
-        <DataProperty IRI="#hasDailyLifeAdvice"/>
-        <NamedIndividual IRI="#Schonung_Back_AutoFahren_04"/>
-        <Literal>Alle 1–2 Stunden kurze Pause einlegen</Literal>
-    </DataPropertyAssertion>
-    <DataPropertyAssertion>
-        <DataProperty IRI="#hasDailyLifeAdvice"/>
-        <NamedIndividual IRI="#Schonung_Back_Schlafen_01"/>
-        <Literal>Seitenlage mit Kissen zwischen den Knien</Literal>
-    </DataPropertyAssertion>
-    <DataPropertyAssertion>
-        <DataProperty IRI="#hasDailyLifeAdvice"/>
-        <NamedIndividual IRI="#Schonung_Back_Schlafen_02"/>
-        <Literal>Rückenlage: kleines Kissen unter die Knie</Literal>
-    </DataPropertyAssertion>
-    <DataPropertyAssertion>
-        <DataProperty IRI="#hasDailyLifeAdvice"/>
-        <NamedIndividual IRI="#Schonung_Back_Schlafen_03"/>
-        <Literal>Bauchschläfer: Kissen unter den Bauch legen</Literal>
-    </DataPropertyAssertion>
-    <DataPropertyAssertion>
-        <DataProperty IRI="#hasDailyLifeAdvice"/>
-        <NamedIndividual IRI="#Schonung_Back_Schlafen_04"/>
-        <Literal>Matratze sollte Wirbelsäule stützen, nicht durchhängen</Literal>
-    </DataPropertyAssertion>
-    <DataPropertyAssertion>
-        <DataProperty IRI="#hasDailyLifeAdvice"/>
-        <NamedIndividual IRI="#Schonung_Neck_AmBildschirm_01"/>
-        <Literal>Obere Bildschirmkante auf Augenhöhe</Literal>
-    </DataPropertyAssertion>
-    <DataPropertyAssertion>
-        <DataProperty IRI="#hasDailyLifeAdvice"/>
-        <NamedIndividual IRI="#Schonung_Neck_AmBildschirm_02"/>
-        <Literal>Abstand ca. eine Armlänge</Literal>
-    </DataPropertyAssertion>
-    <DataPropertyAssertion>
-        <DataProperty IRI="#hasDailyLifeAdvice"/>
-        <NamedIndividual IRI="#Schonung_Neck_AmBildschirm_03"/>
-        <Literal>Bildschirm leicht nach hinten neigen</Literal>
-    </DataPropertyAssertion>
-    <DataPropertyAssertion>
-        <DataProperty IRI="#hasDailyLifeAdvice"/>
-        <NamedIndividual IRI="#Schonung_Neck_AmBildschirm_04"/>
-        <Literal>Alle 30 Min. in die Ferne schauen</Literal>
-    </DataPropertyAssertion>
-    <DataPropertyAssertion>
-        <DataProperty IRI="#hasDailyLifeAdvice"/>
-        <NamedIndividual IRI="#Schonung_Neck_HandyundTablet_01"/>
-        <Literal>Smartphone Richtung Augenhöhe heben</Literal>
-    </DataPropertyAssertion>
-    <DataPropertyAssertion>
-        <DataProperty IRI="#hasDailyLifeAdvice"/>
-        <NamedIndividual IRI="#Schonung_Neck_HandyundTablet_02"/>
-        <Literal>Kopf aufrecht halten, nicht nach vorne schieben</Literal>
-    </DataPropertyAssertion>
-    <DataPropertyAssertion>
-        <DataProperty IRI="#hasDailyLifeAdvice"/>
-        <NamedIndividual IRI="#Schonung_Neck_HandyundTablet_03"/>
-        <Literal>Längeres Tippen lieber mit Auflage</Literal>
-    </DataPropertyAssertion>
-    <DataPropertyAssertion>
-        <DataProperty IRI="#hasDailyLifeAdvice"/>
-        <NamedIndividual IRI="#Schonung_Neck_HandyundTablet_04"/>
-        <Literal>Zwischendurch Nacken sanft kreisen lassen</Literal>
-    </DataPropertyAssertion>
-    <DataPropertyAssertion>
-        <DataProperty IRI="#hasDailyLifeAdvice"/>
-        <NamedIndividual IRI="#Schonung_Neck_AutoFahren_01"/>
-        <Literal>Kopfstütze auf Hinterkopfhöhe einstellen</Literal>
-    </DataPropertyAssertion>
-    <DataPropertyAssertion>
-        <DataProperty IRI="#hasDailyLifeAdvice"/>
-        <NamedIndividual IRI="#Schonung_Neck_AutoFahren_02"/>
-        <Literal>Kein Abstand zwischen Kopf und Stütze</Literal>
-    </DataPropertyAssertion>
-    <DataPropertyAssertion>
-        <DataProperty IRI="#hasDailyLifeAdvice"/>
-        <NamedIndividual IRI="#Schonung_Neck_AutoFahren_03"/>
-        <Literal>Spiegel so einstellen, dass kein Verdrehen nötig ist</Literal>
-    </DataPropertyAssertion>
-    <DataPropertyAssertion>
-        <DataProperty IRI="#hasDailyLifeAdvice"/>
-        <NamedIndividual IRI="#Schonung_Neck_AutoFahren_04"/>
-        <Literal>Bei langer Fahrt: Nackenstütze nutzen</Literal>
-    </DataPropertyAssertion>
-    <DataPropertyAssertion>
-        <DataProperty IRI="#hasDailyLifeAdvice"/>
-        <NamedIndividual IRI="#Schonung_Neck_Schlafen_01"/>
-        <Literal>Kissen sollte Kopf und Hals stützen, nicht hochdrücken</Literal>
-    </DataPropertyAssertion>
-    <DataPropertyAssertion>
-        <DataProperty IRI="#hasDailyLifeAdvice"/>
-        <NamedIndividual IRI="#Schonung_Neck_Schlafen_02"/>
-        <Literal>Seitenlage: Kissen in Schulterbreite</Literal>
-    </DataPropertyAssertion>
-    <DataPropertyAssertion>
-        <DataProperty IRI="#hasDailyLifeAdvice"/>
-        <NamedIndividual IRI="#Schonung_Neck_Schlafen_03"/>
-        <Literal>Rückenlage: flaches, leicht konturiertes Kissen</Literal>
-    </DataPropertyAssertion>
-    <DataPropertyAssertion>
-        <DataProperty IRI="#hasDailyLifeAdvice"/>
-        <NamedIndividual IRI="#Schonung_Neck_Schlafen_04"/>
-        <Literal>Bauchlage meiden – verdreht den Nacken stark</Literal>
-    </DataPropertyAssertion>
-    <DataPropertyAssertion>
-        <DataProperty IRI="#hasDailyLifeAdvice"/>
-        <NamedIndividual IRI="#Schonung_Hip_Sitzen_01"/>
-        <Literal>Hüfte nicht unter 90° beugen beim Sitzen</Literal>
-    </DataPropertyAssertion>
-    <DataPropertyAssertion>
-        <DataProperty IRI="#hasDailyLifeAdvice"/>
-        <NamedIndividual IRI="#Schonung_Hip_Sitzen_02"/>
-        <Literal>Sitzkeil oder Kehlkissen kann helfen</Literal>
-    </DataPropertyAssertion>
-    <DataPropertyAssertion>
-        <DataProperty IRI="#hasDailyLifeAdvice"/>
-        <NamedIndividual IRI="#Schonung_Hip_Sitzen_03"/>
-        <Literal>Regelmäßig aufstehen und die Hüfte strecken</Literal>
-    </DataPropertyAssertion>
-    <DataPropertyAssertion>
-        <DataProperty IRI="#hasDailyLifeAdvice"/>
-        <NamedIndividual IRI="#Schonung_Hip_Sitzen_04"/>
-        <Literal>Überkreuzen der Beine vermeiden</Literal>
-    </DataPropertyAssertion>
-    <DataPropertyAssertion>
-        <DataProperty IRI="#hasDailyLifeAdvice"/>
-        <NamedIndividual IRI="#Schonung_Hip_AufstehenundHinsetzen_01"/>
-        <Literal>Hände auf den Oberschenkeln abstützen</Literal>
-    </DataPropertyAssertion>
-    <DataPropertyAssertion>
-        <DataProperty IRI="#hasDailyLifeAdvice"/>
-        <NamedIndividual IRI="#Schonung_Hip_AufstehenundHinsetzen_02"/>
-        <Literal>Körpergewicht gleichmäßig auf beide Beine verteilen</Literal>
-    </DataPropertyAssertion>
-    <DataPropertyAssertion>
-        <DataProperty IRI="#hasDailyLifeAdvice"/>
-        <NamedIndividual IRI="#Schonung_Hip_AufstehenundHinsetzen_03"/>
-        <Literal>Langsam und kontrolliert aufstehen</Literal>
-    </DataPropertyAssertion>
-    <DataPropertyAssertion>
-        <DataProperty IRI="#hasDailyLifeAdvice"/>
-        <NamedIndividual IRI="#Schonung_Hip_AufstehenundHinsetzen_04"/>
-        <Literal>Stuhlhöhe anpassen – nicht zu tief sitzen</Literal>
-    </DataPropertyAssertion>
-    <DataPropertyAssertion>
-        <DataProperty IRI="#hasDailyLifeAdvice"/>
-        <NamedIndividual IRI="#Schonung_Hip_LaufenundGehen_01"/>
-        <Literal>Dämpfendes Schuhwerk mit gutem Halt</Literal>
-    </DataPropertyAssertion>
-    <DataPropertyAssertion>
-        <DataProperty IRI="#hasDailyLifeAdvice"/>
-        <NamedIndividual IRI="#Schonung_Hip_LaufenundGehen_02"/>
-        <Literal>Aufrechte Haltung, Blick nach vorne</Literal>
-    </DataPropertyAssertion>
-    <DataPropertyAssertion>
-        <DataProperty IRI="#hasDailyLifeAdvice"/>
-        <NamedIndividual IRI="#Schonung_Hip_LaufenundGehen_03"/>
-        <Literal>Gleichmäßiges Tempo, keine abrupten Starts</Literal>
-    </DataPropertyAssertion>
-    <DataPropertyAssertion>
-        <DataProperty IRI="#hasDailyLifeAdvice"/>
-        <NamedIndividual IRI="#Schonung_Hip_LaufenundGehen_04"/>
-        <Literal>Bergab: kleinere Schritte, Körper leicht nach hinten</Literal>
-    </DataPropertyAssertion>
-    <DataPropertyAssertion>
-        <DataProperty IRI="#hasDailyLifeAdvice"/>
-        <NamedIndividual IRI="#Schonung_Hip_Schlafen_01"/>
-        <Literal>Seitenlage: Kissen zwischen die Knie legen</Literal>
-    </DataPropertyAssertion>
-    <DataPropertyAssertion>
-        <DataProperty IRI="#hasDailyLifeAdvice"/>
-        <NamedIndividual IRI="#Schonung_Hip_Schlafen_02"/>
-        <Literal>Rückenlage: Kissen unter die Knie</Literal>
-    </DataPropertyAssertion>
-    <DataPropertyAssertion>
-        <DataProperty IRI="#hasDailyLifeAdvice"/>
-        <NamedIndividual IRI="#Schonung_Hip_Schlafen_03"/>
-        <Literal>Auf der betroffenen Seite wenn möglich nicht liegen</Literal>
-    </DataPropertyAssertion>
-    <DataPropertyAssertion>
-        <DataProperty IRI="#hasDailyLifeAdvice"/>
-        <NamedIndividual IRI="#Schonung_Hip_Schlafen_04"/>
-        <Literal>Hüfte beim Aufwachen langsam mobilisieren</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="#hasCommonMistake"/>
@@ -35196,6 +34809,406 @@ Langsam zur Mitte zurückkehren.
 3. Schulterblätter kontrolliert zusammenziehen.
 4. Kurz halten.
 5. Langsam in die Ausgangsposition zurückkehren.&quot;</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasDailyLifeAdvice"/>
+        <NamedIndividual IRI="#Schonung_Back_AutoFahren_01"/>
+        <Literal>Lehne leicht nach hinten geneigt (ca. 100–110°)</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasDailyLifeAdvice"/>
+        <NamedIndividual IRI="#Schonung_Back_AutoFahren_02"/>
+        <Literal>Lendenstütze aktivieren oder Kissen nutzen</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasDailyLifeAdvice"/>
+        <NamedIndividual IRI="#Schonung_Back_AutoFahren_03"/>
+        <Literal>Knie etwa auf Hüfthöhe</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasDailyLifeAdvice"/>
+        <NamedIndividual IRI="#Schonung_Back_AutoFahren_04"/>
+        <Literal>Alle 1–2 Stunden kurze Pause einlegen</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasDailyLifeAdvice"/>
+        <NamedIndividual IRI="#Schonung_Back_HebenundBücken_01"/>
+        <Literal>In die Knie gehen, Rücken gerade halten</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasDailyLifeAdvice"/>
+        <NamedIndividual IRI="#Schonung_Back_HebenundBücken_02"/>
+        <Literal>Last nah am Körper führen</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasDailyLifeAdvice"/>
+        <NamedIndividual IRI="#Schonung_Back_HebenundBücken_03"/>
+        <Literal>Mit den Beinen hochdrücken, nicht mit dem Rücken</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasDailyLifeAdvice"/>
+        <NamedIndividual IRI="#Schonung_Back_HebenundBücken_04"/>
+        <Literal>Beim Tragen nicht seitlich verdrehen</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasDailyLifeAdvice"/>
+        <NamedIndividual IRI="#Schonung_Back_Schlafen_01"/>
+        <Literal>Seitenlage mit Kissen zwischen den Knien</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasDailyLifeAdvice"/>
+        <NamedIndividual IRI="#Schonung_Back_Schlafen_02"/>
+        <Literal>Rückenlage: kleines Kissen unter die Knie</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasDailyLifeAdvice"/>
+        <NamedIndividual IRI="#Schonung_Back_Schlafen_03"/>
+        <Literal>Bauchschläfer: Kissen unter den Bauch legen</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasDailyLifeAdvice"/>
+        <NamedIndividual IRI="#Schonung_Back_Schlafen_04"/>
+        <Literal>Matratze sollte Wirbelsäule stützen, nicht durchhängen</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasDailyLifeAdvice"/>
+        <NamedIndividual IRI="#Schonung_Back_Sitzen_01"/>
+        <Literal>Becken aufrecht, Lendenstütze nutzen</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasDailyLifeAdvice"/>
+        <NamedIndividual IRI="#Schonung_Back_Sitzen_02"/>
+        <Literal>Füße flach am Boden, Knie ca. 90°</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasDailyLifeAdvice"/>
+        <NamedIndividual IRI="#Schonung_Back_Sitzen_03"/>
+        <Literal>Alle 45–60 Min. kurz aufstehen</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasDailyLifeAdvice"/>
+        <NamedIndividual IRI="#Schonung_Back_Sitzen_04"/>
+        <Literal>Höhenverstellbarer Schreibtisch wenn möglich</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasDailyLifeAdvice"/>
+        <NamedIndividual IRI="#Schonung_Hip_AufstehenundHinsetzen_01"/>
+        <Literal>Hände auf den Oberschenkeln abstützen</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasDailyLifeAdvice"/>
+        <NamedIndividual IRI="#Schonung_Hip_AufstehenundHinsetzen_02"/>
+        <Literal>Körpergewicht gleichmäßig auf beide Beine verteilen</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasDailyLifeAdvice"/>
+        <NamedIndividual IRI="#Schonung_Hip_AufstehenundHinsetzen_03"/>
+        <Literal>Langsam und kontrolliert aufstehen</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasDailyLifeAdvice"/>
+        <NamedIndividual IRI="#Schonung_Hip_AufstehenundHinsetzen_04"/>
+        <Literal>Stuhlhöhe anpassen – nicht zu tief sitzen</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasDailyLifeAdvice"/>
+        <NamedIndividual IRI="#Schonung_Hip_LaufenundGehen_01"/>
+        <Literal>Dämpfendes Schuhwerk mit gutem Halt</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasDailyLifeAdvice"/>
+        <NamedIndividual IRI="#Schonung_Hip_LaufenundGehen_02"/>
+        <Literal>Aufrechte Haltung, Blick nach vorne</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasDailyLifeAdvice"/>
+        <NamedIndividual IRI="#Schonung_Hip_LaufenundGehen_03"/>
+        <Literal>Gleichmäßiges Tempo, keine abrupten Starts</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasDailyLifeAdvice"/>
+        <NamedIndividual IRI="#Schonung_Hip_LaufenundGehen_04"/>
+        <Literal>Bergab: kleinere Schritte, Körper leicht nach hinten</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasDailyLifeAdvice"/>
+        <NamedIndividual IRI="#Schonung_Hip_Schlafen_01"/>
+        <Literal>Seitenlage: Kissen zwischen die Knie legen</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasDailyLifeAdvice"/>
+        <NamedIndividual IRI="#Schonung_Hip_Schlafen_02"/>
+        <Literal>Rückenlage: Kissen unter die Knie</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasDailyLifeAdvice"/>
+        <NamedIndividual IRI="#Schonung_Hip_Schlafen_03"/>
+        <Literal>Auf der betroffenen Seite wenn möglich nicht liegen</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasDailyLifeAdvice"/>
+        <NamedIndividual IRI="#Schonung_Hip_Schlafen_04"/>
+        <Literal>Hüfte beim Aufwachen langsam mobilisieren</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasDailyLifeAdvice"/>
+        <NamedIndividual IRI="#Schonung_Hip_Sitzen_01"/>
+        <Literal>Hüfte nicht unter 90° beugen beim Sitzen</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasDailyLifeAdvice"/>
+        <NamedIndividual IRI="#Schonung_Hip_Sitzen_02"/>
+        <Literal>Sitzkeil oder Kehlkissen kann helfen</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasDailyLifeAdvice"/>
+        <NamedIndividual IRI="#Schonung_Hip_Sitzen_03"/>
+        <Literal>Regelmäßig aufstehen und die Hüfte strecken</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasDailyLifeAdvice"/>
+        <NamedIndividual IRI="#Schonung_Hip_Sitzen_04"/>
+        <Literal>Überkreuzen der Beine vermeiden</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasDailyLifeAdvice"/>
+        <NamedIndividual IRI="#Schonung_Knees_LaufenundGehen_01"/>
+        <Literal>Dämpfendes Schuhwerk tragen</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasDailyLifeAdvice"/>
+        <NamedIndividual IRI="#Schonung_Knees_LaufenundGehen_02"/>
+        <Literal>Kürzere, häufigere Schritte statt großer Schritte</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasDailyLifeAdvice"/>
+        <NamedIndividual IRI="#Schonung_Knees_LaufenundGehen_03"/>
+        <Literal>Bergab besonders langsam und kontrolliert</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasDailyLifeAdvice"/>
+        <NamedIndividual IRI="#Schonung_Knees_LaufenundGehen_04"/>
+        <Literal>Pausen einbauen, bevor Schmerz entsteht</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasDailyLifeAdvice"/>
+        <NamedIndividual IRI="#Schonung_Knees_Schlafen_01"/>
+        <Literal>Kleines Kissen unter die Kniekehle bei Rückenlage</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasDailyLifeAdvice"/>
+        <NamedIndividual IRI="#Schonung_Knees_Schlafen_02"/>
+        <Literal>Seitlage: Kissen zwischen die Knie legen</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasDailyLifeAdvice"/>
+        <NamedIndividual IRI="#Schonung_Knees_Schlafen_03"/>
+        <Literal>Bein leicht erhöht lagern bei Schwellung</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasDailyLifeAdvice"/>
+        <NamedIndividual IRI="#Schonung_Knees_Schlafen_04"/>
+        <Literal>Wärmflasche vor dem Schlafen entspannt die Muskulatur</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasDailyLifeAdvice"/>
+        <NamedIndividual IRI="#Schonung_Knees_Sitzen_01"/>
+        <Literal>Alle 30 Min. Bein kurz strecken und beugen</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasDailyLifeAdvice"/>
+        <NamedIndividual IRI="#Schonung_Knees_Sitzen_02"/>
+        <Literal>Knie nicht dauerhaft überkreuzen</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasDailyLifeAdvice"/>
+        <NamedIndividual IRI="#Schonung_Knees_Sitzen_03"/>
+        <Literal>Sitzhöhe wählen, dass Knie ca. 90° gebeugt sind</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasDailyLifeAdvice"/>
+        <NamedIndividual IRI="#Schonung_Knees_Sitzen_04"/>
+        <Literal>Bei Schwellungen Bein hochlagern</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasDailyLifeAdvice"/>
+        <NamedIndividual IRI="#Schonung_Knees_Treppensteigen_01"/>
+        <Literal>Hochgehen: stärkeres Bein zuerst</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasDailyLifeAdvice"/>
+        <NamedIndividual IRI="#Schonung_Knees_Treppensteigen_02"/>
+        <Literal>Runtergehen: schwächeres Bein zuerst</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasDailyLifeAdvice"/>
+        <NamedIndividual IRI="#Schonung_Knees_Treppensteigen_03"/>
+        <Literal>Geländer zur Entlastung nutzen</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasDailyLifeAdvice"/>
+        <NamedIndividual IRI="#Schonung_Knees_Treppensteigen_04"/>
+        <Literal>Bei Schmerz lieber den Aufzug nutzen</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasDailyLifeAdvice"/>
+        <NamedIndividual IRI="#Schonung_Neck_AmBildschirm_01"/>
+        <Literal>Obere Bildschirmkante auf Augenhöhe</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasDailyLifeAdvice"/>
+        <NamedIndividual IRI="#Schonung_Neck_AmBildschirm_02"/>
+        <Literal>Abstand ca. eine Armlänge</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasDailyLifeAdvice"/>
+        <NamedIndividual IRI="#Schonung_Neck_AmBildschirm_03"/>
+        <Literal>Bildschirm leicht nach hinten neigen</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasDailyLifeAdvice"/>
+        <NamedIndividual IRI="#Schonung_Neck_AmBildschirm_04"/>
+        <Literal>Alle 30 Min. in die Ferne schauen</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasDailyLifeAdvice"/>
+        <NamedIndividual IRI="#Schonung_Neck_AutoFahren_01"/>
+        <Literal>Kopfstütze auf Hinterkopfhöhe einstellen</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasDailyLifeAdvice"/>
+        <NamedIndividual IRI="#Schonung_Neck_AutoFahren_02"/>
+        <Literal>Kein Abstand zwischen Kopf und Stütze</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasDailyLifeAdvice"/>
+        <NamedIndividual IRI="#Schonung_Neck_AutoFahren_03"/>
+        <Literal>Spiegel so einstellen, dass kein Verdrehen nötig ist</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasDailyLifeAdvice"/>
+        <NamedIndividual IRI="#Schonung_Neck_AutoFahren_04"/>
+        <Literal>Bei langer Fahrt: Nackenstütze nutzen</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasDailyLifeAdvice"/>
+        <NamedIndividual IRI="#Schonung_Neck_HandyundTablet_01"/>
+        <Literal>Smartphone Richtung Augenhöhe heben</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasDailyLifeAdvice"/>
+        <NamedIndividual IRI="#Schonung_Neck_HandyundTablet_02"/>
+        <Literal>Kopf aufrecht halten, nicht nach vorne schieben</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasDailyLifeAdvice"/>
+        <NamedIndividual IRI="#Schonung_Neck_HandyundTablet_03"/>
+        <Literal>Längeres Tippen lieber mit Auflage</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasDailyLifeAdvice"/>
+        <NamedIndividual IRI="#Schonung_Neck_HandyundTablet_04"/>
+        <Literal>Zwischendurch Nacken sanft kreisen lassen</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasDailyLifeAdvice"/>
+        <NamedIndividual IRI="#Schonung_Neck_Schlafen_01"/>
+        <Literal>Kissen sollte Kopf und Hals stützen, nicht hochdrücken</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasDailyLifeAdvice"/>
+        <NamedIndividual IRI="#Schonung_Neck_Schlafen_02"/>
+        <Literal>Seitenlage: Kissen in Schulterbreite</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasDailyLifeAdvice"/>
+        <NamedIndividual IRI="#Schonung_Neck_Schlafen_03"/>
+        <Literal>Rückenlage: flaches, leicht konturiertes Kissen</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasDailyLifeAdvice"/>
+        <NamedIndividual IRI="#Schonung_Neck_Schlafen_04"/>
+        <Literal>Bauchlage meiden – verdreht den Nacken stark</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasDailyLifeAdvice"/>
+        <NamedIndividual IRI="#Schonung_Shoulder_AmArbeitsplatz_01"/>
+        <Literal>Ellenbogen etwa auf Tischhöhe</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasDailyLifeAdvice"/>
+        <NamedIndividual IRI="#Schonung_Shoulder_AmArbeitsplatz_02"/>
+        <Literal>Bildschirm auf Augenhöhe, nicht seitlich</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasDailyLifeAdvice"/>
+        <NamedIndividual IRI="#Schonung_Shoulder_AmArbeitsplatz_03"/>
+        <Literal>Schultern bewusst locker lassen, nicht hochziehen</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasDailyLifeAdvice"/>
+        <NamedIndividual IRI="#Schonung_Shoulder_AmArbeitsplatz_04"/>
+        <Literal>Alle 45 Min. kurz aufstehen und bewegen</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasDailyLifeAdvice"/>
+        <NamedIndividual IRI="#Schonung_Shoulder_GreifenundÜberkopf_01"/>
+        <Literal>Gegenstände nicht mit ausgestrecktem Arm greifen</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasDailyLifeAdvice"/>
+        <NamedIndividual IRI="#Schonung_Shoulder_GreifenundÜberkopf_02"/>
+        <Literal>Hohe Regale: Tritt benutzen statt Recken</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasDailyLifeAdvice"/>
+        <NamedIndividual IRI="#Schonung_Shoulder_GreifenundÜberkopf_03"/>
+        <Literal>Im schmerzfreien Bereich bleiben</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasDailyLifeAdvice"/>
+        <NamedIndividual IRI="#Schonung_Shoulder_GreifenundÜberkopf_04"/>
+        <Literal>Schwere Gegenstände nah am Körper führen</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasDailyLifeAdvice"/>
+        <NamedIndividual IRI="#Schonung_Shoulder_Schlafen_01"/>
+        <Literal>Rückenlage mit flachem Kissen ist am schonendsten</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasDailyLifeAdvice"/>
+        <NamedIndividual IRI="#Schonung_Shoulder_Schlafen_02"/>
+        <Literal>Seitenlage nur auf der gesunden Seite</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasDailyLifeAdvice"/>
+        <NamedIndividual IRI="#Schonung_Shoulder_Schlafen_03"/>
+        <Literal>Kleines Kissen zwischen Arm und Körper</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasDailyLifeAdvice"/>
+        <NamedIndividual IRI="#Schonung_Shoulder_Schlafen_04"/>
+        <Literal>Bauchlage meiden – verdreht die Schulter</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasDailyLifeAdvice"/>
+        <NamedIndividual IRI="#Schonung_Shoulder_TragenundHeben_01"/>
+        <Literal>Rucksack statt Umhängetasche bevorzugen</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasDailyLifeAdvice"/>
+        <NamedIndividual IRI="#Schonung_Shoulder_TragenundHeben_02"/>
+        <Literal>Last nah am Körper halten</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasDailyLifeAdvice"/>
+        <NamedIndividual IRI="#Schonung_Shoulder_TragenundHeben_03"/>
+        <Literal>Regelmäßig die Seite wechseln</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasDailyLifeAdvice"/>
+        <NamedIndividual IRI="#Schonung_Shoulder_TragenundHeben_04"/>
+        <Literal>Schweres nie mit ausgestrecktem Arm heben</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="#hasCommonMistake"/>
@@ -37417,6 +37430,10 @@ Langsam zur Mitte zurückkehren.
     <InverseObjectProperties>
         <ObjectProperty IRI="#hasInjury"/>
         <ObjectProperty IRI="#isInjuryOf"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="#hasPart"/>
+        <ObjectProperty IRI="#partOf"/>
     </InverseObjectProperties>
     <InverseObjectProperties>
         <ObjectProperty IRI="#improves"/>
@@ -43645,21 +43662,6 @@ Langsam zur Mitte zurückkehren.
         <Literal xml:lang="de">Quadrizepszerrung</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-        <IRI>#Quads</IRI>
-        <Literal xml:lang="de">Quadrizeps, die große Muskelgruppe an der Vorderseite des Oberschenkels.</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>#Quads</IRI>
-        <Literal xml:lang="de">Quadrizeps</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>#Quads</IRI>
-        <Literal xml:lang="en">Quads</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#Quinoa-Gemüse-Bowl</IRI>
         <Literal xml:lang="en">Quinoa Vegetable Bowl</Literal>
@@ -44593,21 +44595,6 @@ Langsam zur Mitte zurückkehren.
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#SeverityLevel</IRI>
         <Literal xml:lang="en">SeverityLevel</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-        <IRI>#Shoulder</IRI>
-        <Literal xml:lang="de">Schulterregion, die Schultergelenk und umliegende Muskulatur umfasst.</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>#Shoulder</IRI>
-        <Literal xml:lang="de">Schulter</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>#Shoulder</IRI>
-        <Literal xml:lang="en">Shoulder</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
@@ -48148,6 +48135,16 @@ Langsam zur Mitte zurückkehren.
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#hasMETScore</IRI>
         <Literal xml:lang="en">hasMETScore</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#hasPart</IRI>
+        <Literal xml:lang="de">Besteht aus</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#hasPart</IRI>
+        <Literal xml:lang="en">hasPart</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
