@@ -10,7 +10,7 @@
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    width="205"
    height="354"
-   viewBox="202 0 205 354.43411"
+   viewBox="0 0 205 354.43411"
    version="1.1"
    id="svg8"
    inkscape:version="1.0 (4035a4fb49, 2020-05-01)"
@@ -1877,7 +1877,7 @@
      id="layer2"
      inkscape:label="svg svaly"
      style="display:inline;opacity:1"
-     transform="translate(43.958234,276.63121)">
+     transform="translate(-168.541766,276.63121)">
     <g
        id="g4116">
       <path

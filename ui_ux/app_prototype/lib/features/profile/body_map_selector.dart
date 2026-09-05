@@ -66,25 +66,24 @@ class _Reg {
 // (siehe git-history body_map_selector.dart): Hüfte/Knie nur vorne,
 // Wirbelsäule/unterer Rücken nur hinten, Rest auf beiden Seiten sichtbar.
 const List<_Reg> _kFront = [
-  _Reg('Halswirbelsäule', [_Spot(101, 65, 7, 4)]),
-  _Reg('Schultergelenk', [_Spot(62, 102, 9, 7.5), _Spot(140, 102, 9, 7.5)]),
-  _Reg('Ellbogengelenk', [_Spot(48, 151, 6, 6), _Spot(154, 151, 6, 6)]),
-  _Reg('Obere rückengelenke', [_Spot(101, 117, 13, 7)]),
-  _Reg('Hüftgelenk', [_Spot(101, 189, 15, 7.5)]),
-  _Reg('Handgelenk', [_Spot(30, 206, 7, 7), _Spot(172, 206, 7, 7)]),
-  _Reg('Kniegelenk', [_Spot(86, 254, 6.5, 7), _Spot(117, 254, 6.5, 7)]),
-  _Reg('Sprunggelenk', [_Spot(88, 329, 5.5, 5.5), _Spot(116, 329, 5.5, 5.5)]),
+  _Reg('Halswirbelsäule', [_Spot(101, 68, 7, 5)]),
+  _Reg('Schultergelenk', [_Spot(68, 94, 11, 10), _Spot(135, 94, 11, 10)]),
+  _Reg('Ellbogengelenk', [_Spot(40, 143, 7, 8), _Spot(162, 143, 7, 8)]),
+  _Reg('Hüftgelenk', [_Spot(101, 160, 16, 9)]),
+  _Reg('Handgelenk', [_Spot(29, 188, 8, 8), _Spot(173, 188, 8, 8)]),
+  _Reg('Kniegelenk', [_Spot(86, 248, 8, 9), _Spot(117, 248, 8, 9)]),
+  _Reg('Sprunggelenk', [_Spot(88, 313, 6, 6), _Spot(116, 313, 6, 6)]),
 ];
 
 const List<_Reg> _kBack = [
-  _Reg('Halswirbelsäule', [_Spot(113, 60, 7, 4.5)]),
-  _Reg('Schultergelenk', [_Spot(68, 102, 9, 7.5), _Spot(152, 102, 9, 7.5)]),
-  _Reg('Ellbogengelenk', [_Spot(54, 151, 6, 6), _Spot(166, 151, 6, 6)]),
-  _Reg('Obere rückengelenke', [_Spot(113, 107, 13.5, 7)]),
-  _Reg('Wirbelsäulengelenke', [_Spot(113, 137, 12.5, 7)]),
-  _Reg('Untere Rückengelenke', [_Spot(113, 163, 13.5, 6.5)]),
-  _Reg('Handgelenk', [_Spot(54, 206, 7, 7), _Spot(166, 206, 7, 7)]),
-  _Reg('Sprunggelenk', [_Spot(98, 327, 5.5, 5.5), _Spot(128, 327, 5.5, 5.5)]),
+  _Reg('Halswirbelsäule', [_Spot(102.5, 60, 7, 4.5)]),
+  _Reg('Schultergelenk', [_Spot(61.5, 88, 9, 7.5), _Spot(141.5, 88, 9, 7.5)]),
+  _Reg('Ellbogengelenk', [_Spot(56.5, 138, 7, 8), _Spot(146.5, 138, 7, 8)]),
+  _Reg('Obere rückengelenke', [_Spot(102.5, 102, 13.5, 7)]),
+  _Reg('Wirbelsäulengelenke', [_Spot(102.5, 135, 12.5, 7)]),
+  _Reg('Untere Rückengelenke', [_Spot(102.5, 158, 13.5, 6.5)]),
+  _Reg('Handgelenk', [_Spot(33.5, 186, 8, 8), _Spot(169.5, 186, 8, 8)]),
+  _Reg('Sprunggelenk', [_Spot(91.5, 332, 5.5, 5.5), _Spot(113.5, 332, 5.5, 5.5)]),
 ];
 
 class _BodyMapSelectorState extends State<BodyMapSelector> {
