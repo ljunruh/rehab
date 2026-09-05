@@ -21,6 +21,17 @@ class ExerciseRepository {
     return api.fetchAllExercisesExcludeContraindications(user.contraindications, user.joints);
   }
 
+  /// Planerstellung ("Eigenen Plan erstellen"): nur nach Körperregion gefiltert,
+  /// kein Trainingsziel nötig.
+  Future<List<Exercise>?> getExercisesForPlanCreation(BodyPart bodyPart) async {
+    final user = await userRepository.getUser();
+    if (user == null) {
+      return api.fetchExercisesForPlanCreation(bodyPart, [], []);
+    }
+
+    return api.fetchExercisesForPlanCreation(bodyPart, user.contraindications, user.joints);
+  }
+
   Future<List<Exercise>?> getFilterdExcercises(BodyPart bodyPart, Goal goal) async {
     final user = await userRepository.getUser();
     if (user == null) {

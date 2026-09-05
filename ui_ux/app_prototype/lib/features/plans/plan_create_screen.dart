@@ -11,6 +11,55 @@ import '../../data/enum/goal.dart';
 import 'package:app_prototype/data/models/api/exercise.dart' as api;
 import '../profile/setup/selectable_accordion.dart';
 
+/// Gruppiert die 25 einzelnen Körperregionen zu 5 Oberkategorien, die
+/// gemeinsam alle Regionen abdecken (keine Region bleibt "heimatlos").
+///
+/// Der Gruppen-Chip selbst wählt [general] direkt aus (z. B. "Arme" bei
+/// Klick auf die Gruppe "Arme") UND klappt gleichzeitig die spezifischeren
+/// [specific]-Unterregionen auf (z. B. Schulter, Bizeps, ...). [general]
+/// erscheint dadurch bewusst NICHT nochmal in der aufgeklappten Liste —
+/// so gibt es keine Wiederholung/Mischmasch.
+class _BodyPartGroup {
+  final String label;
+  final BodyPart general;
+  final List<BodyPart> specific;
+  const _BodyPartGroup(this.label, this.general, this.specific);
+
+  List<BodyPart> get allMembers => [general, ...specific];
+}
+
+const List<_BodyPartGroup> _kBodyPartGroups = [
+  _BodyPartGroup('Arme', BodyPart.arms, [
+    BodyPart.shoulders,
+    BodyPart.biceps,
+    BodyPart.triceps,
+    BodyPart.elbows,
+    BodyPart.wrists,
+  ]),
+  _BodyPartGroup('Rücken', BodyPart.back, [
+    BodyPart.upperBack,
+    BodyPart.lowerBack,
+    BodyPart.spine,
+    BodyPart.neck,
+  ]),
+  _BodyPartGroup('Beine', BodyPart.legs, [
+    BodyPart.thighs,
+    BodyPart.quadriceps,
+    BodyPart.hamstrings,
+    BodyPart.calves,
+    BodyPart.knees,
+    BodyPart.ankles,
+  ]),
+  _BodyPartGroup('Bauch & Rumpf', BodyPart.core, [
+    BodyPart.obliques,
+  ]),
+  _BodyPartGroup('Hüfte & Becken', BodyPart.hip, [
+    BodyPart.pelvic,
+    BodyPart.glutes,
+    BodyPart.psoas,
+  ]),
+];
+
 /// PERSON 2 — Plan-Erstellung als 3-Schritt-Wizard.
 ///
 /// Schritt 1: Name, Region, Ziel.
@@ -49,6 +98,9 @@ class _PlanCreateScreenState extends State<PlanCreateScreen> {
   late Color _color; // Dynamische Initialisierung statt starrer Vorgabe
   int _sessionsPerWeek = 3;
 
+  /// Label der aktuell aufgeklappten Körperregion-Gruppe (null = keine offen).
+  String? _expandedGroupLabel;
+
   @override
   void initState() {
     super.initState();
@@ -60,6 +112,12 @@ class _PlanCreateScreenState extends State<PlanCreateScreen> {
         orElse: () => BodyPart.knees)
         : BodyPart.knees;
     _nameCtrl = TextEditingController(text: '${_region.label}-Plan');
+
+    // Falls die Startregion Teil einer Gruppe ist, diese direkt aufgeklappt zeigen.
+    final initialGroup = _kBodyPartGroups.where((g) => g.allMembers.contains(_region));
+    if (initialGroup.isNotEmpty) {
+      _expandedGroupLabel = initialGroup.first.label;
+    }
 
     // Farbe dynamisch basierend auf bereits vorhandenen Plänen wählen
     WidgetsBinding.instance.addPostFrameCallback((_) {
@@ -105,10 +163,7 @@ class _PlanCreateScreenState extends State<PlanCreateScreen> {
 
   void _next() {
     if (_step == 1) {
-      context.read<ExerciseProvider>().loadAll(
-        bodyPart: _region,
-        goal: _goal,
-      );
+      context.read<ExerciseProvider>().loadForPlanCreation(_region);
     }
     if (_step < 3) setState(() => _step++);
   }
@@ -214,14 +269,47 @@ class _PlanCreateScreenState extends State<PlanCreateScreen> {
           spacing: AppSpacing.sm,
           runSpacing: AppSpacing.sm,
           children: [
-            for (final r in BodyPart.values.where((e) => e != BodyPart.none))
+            for (final g in _kBodyPartGroups)
               AppChip(
-                label: r.label,
-                active: _region == r,
-                onTap: () => _onRegionChange(r),
+                label: g.label,
+                // Gruppe gilt als "aktiv", solange die gewählte Region einem ihrer Mitglieder entspricht.
+                active: g.allMembers.contains(_region),
+                onTap: () {
+                  final nextExpanded =
+                      _expandedGroupLabel == g.label ? null : g.label;
+                  setState(() {
+                    _expandedGroupLabel = nextExpanded;
+                    _region = g.general;
+                    if (_nameCtrl.text.endsWith('-Plan')) {
+                      _nameCtrl.text = '${g.general.label}-Plan';
+                    }
+                  });
+                },
               ),
           ],
         ),
+        if (_expandedGroupLabel != null) ...[
+          const SizedBox(height: AppSpacing.md),
+          // Trennt die Unterregionen optisch von den Hauptkategorien oben.
+          Divider(height: 1, thickness: 1, color: AppColors.beige),
+          const SizedBox(height: AppSpacing.sm),
+          Wrap(
+            spacing: AppSpacing.sm,
+            runSpacing: AppSpacing.sm,
+            children: [
+              // [general] steckt schon im Gruppen-Chip oben, taucht hier bewusst
+              // nicht nochmal auf.
+              for (final bp in _kBodyPartGroups
+                  .firstWhere((g) => g.label == _expandedGroupLabel)
+                  .specific)
+                AppChip(
+                  label: bp.label,
+                  active: _region == bp,
+                  onTap: () => _onRegionChange(bp),
+                ),
+            ],
+          ),
+        ],
         const SizedBox(height: AppSpacing.lg),
 
         Text('Ziel (optional)', style: AppText.caption),
@@ -389,10 +477,7 @@ class _PlanCreateScreenState extends State<PlanCreateScreen> {
         disabled: !_canStep1,
         onPressed: () async {
           final provider = context.read<ExerciseProvider>();
-          await provider.loadAll(
-            bodyPart: _region,
-            goal: _goal,
-          );
+          await provider.loadForPlanCreation(_region);
           setState(() {
             _filteredExercises = provider.exercises;
             _next();

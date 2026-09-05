@@ -16,4 +16,10 @@ class ExerciseProvider extends ChangeNotifier {
     _exercises = await repo.getFilterdExcercises(bodyPart, goal) ?? [];
     notifyListeners();
   }
+
+  /// Planerstellung ("Eigenen Plan erstellen"): nur nach Körperregion gefiltert.
+  Future<void> loadForPlanCreation(BodyPart bodyPart) async {
+    _exercises = await repo.getExercisesForPlanCreation(bodyPart) ?? [];
+    notifyListeners();
+  }
 }
