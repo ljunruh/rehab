@@ -126,9 +126,9 @@ class _PlanCreateScreenState extends State<PlanCreateScreen> {
       id: 'plan_${DateTime.now().microsecondsSinceEpoch}_${Random().nextInt(99999)}',
       name: _nameCtrl.text.trim(),
       region: _region,
-      // Plan.goal bleibt einwertig (Datenmodell der API-Gruppe unverändert):
-      // gespeichert wird das erste gewählte Ziel, ohne Auswahl `none`.
+      // `goal` bleibt für Altdaten/API-Modell erhalten, maßgeblich ist `goals`.
       goal: _goals.isEmpty ? Goal.none : _goals.first,
+      goals: _goals.toList(),
       exercises: _selectedExercises,
       sessionsPerWeek: _sessionsPerWeek,
       source: 'eigen',

@@ -41,13 +41,6 @@ class _PlanDetailScreenState extends State<PlanDetailScreen> {
   bool _editing = false;
   bool _colorInfoOpen = false;
 
-  static const _rubrikMap = [
-    ['Kraft', 'Kräftigung', 'Kraft'],
-    ['Mobil', 'Beweglich', 'Entlastung', 'Dehnung', 'Mobilisation'],
-    ['Koordination', 'Stabilität', 'Gleichgewicht', 'Haltung', 'Koordination'],
-    ['Entspannung', 'Ruhe', 'Entspannung'],
-  ];
-
   @override
   void initState() {
     super.initState();
@@ -59,14 +52,6 @@ class _PlanDetailScreenState extends State<PlanDetailScreen> {
         activePlans: planProvider.activePlans,
       );
     });
-  }
-
-  String _rubrikLabel(String goal) {
-    for (final entry in _rubrikMap) {
-      final keys = entry.sublist(0, entry.length - 1);
-      if (keys.any((k) => goal.contains(k))) return entry.last;
-    }
-    return 'Mobilisation';
   }
 
   Future<void> _confirmDelete(PlanProvider planProvider, Plan plan) async {
@@ -232,10 +217,8 @@ class _PlanDetailScreenState extends State<PlanDetailScreen> {
                     crossAxisAlignment: WrapCrossAlignment.center,
                     children: [
                       AppTag(plan.region.label, variant: TagVariant.region),
-                      AppTag(
-                        _rubrikLabel(plan.goal.label),
-                        variant: TagVariant.goal,
-                      ),
+                      for (final goal in plan.effectiveGoals)
+                        AppTag(goal.label, variant: TagVariant.goal),
                       Container(
                         padding: const EdgeInsets.symmetric(
                           horizontal: 12,

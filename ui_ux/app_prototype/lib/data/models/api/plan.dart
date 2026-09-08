@@ -20,6 +20,31 @@ class Plan {
 
   @enumerated
   final Goal goal;
+
+  @enumerated
+  final List<Goal> goals;
+
+  /// Ziele des Plans; fällt für Pläne aus der Zeit vor [goals] auf [goal] zurück.
+  @ignore
+  List<Goal> get allGoals {
+    final list = goals.where((g) => g != Goal.none).toList();
+    if (list.isNotEmpty) return list;
+    return goal == Goal.none ? const [] : [goal];
+  }
+
+  /// Ziele, die von den aktuell enthaltenen Übungen wirklich abgedeckt werden.
+  /// Ohne gewählte Ziele bleibt der Plan bewusst ohne Tags.
+  @ignore
+  List<Goal> get effectiveGoals {
+    if (allGoals.isEmpty) return const [];
+    final covered = exercises
+        .expand((e) => e.trainingsEffects.map(GoalExt.fromString))
+        .where((g) => g != Goal.none)
+        .toSet();
+    if (covered.isEmpty) return allGoals;
+    return allGoals.where(covered.contains).toList();
+  }
+
   final List<Exercise> exercises;
   final int sessionsPerWeek;
   final int completedSessions;
@@ -42,6 +67,7 @@ class Plan {
     required this.name,
     required this.region,
     required this.goal,
+    this.goals = const [],
     this.exercises = const [],
     this.sessionsPerWeek = 3,
     this.completedSessions = 0,
@@ -57,6 +83,7 @@ class Plan {
     String? name,
     BodyPart? region,
     Goal? goal,
+    List<Goal>? goals,
     List<Exercise>? exercises,
     int? sessionsPerWeek,
     int? completedSessions,
@@ -72,6 +99,7 @@ class Plan {
       name: name ?? this.name,
       region: region ?? this.region,
       goal: goal ?? this.goal,
+      goals: goals ?? this.goals,
       exercises: exercises ?? this.exercises,
       sessionsPerWeek: sessionsPerWeek ?? this.sessionsPerWeek,
       completedSessions: completedSessions ?? this.completedSessions,

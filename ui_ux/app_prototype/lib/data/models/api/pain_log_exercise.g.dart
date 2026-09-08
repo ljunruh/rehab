@@ -238,6 +238,7 @@ const _PainLogExerciseregionEnumValueMap = {
   'upperBack': 23,
   'wrists': 24,
   'none': 25,
+  'bauch': 26,
 };
 const _PainLogExerciseregionValueEnumMap = {
   0: BodyPart.ankles,
@@ -266,6 +267,7 @@ const _PainLogExerciseregionValueEnumMap = {
   23: BodyPart.upperBack,
   24: BodyPart.wrists,
   25: BodyPart.none,
+  26: BodyPart.bauch,
 };
 
 Id _painLogExerciseGetId(PainLogExercise object) {
