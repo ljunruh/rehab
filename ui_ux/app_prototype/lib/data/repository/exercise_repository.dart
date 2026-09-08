@@ -21,15 +21,23 @@ class ExerciseRepository {
     return api.fetchAllExercisesExcludeContraindications(user.contraindications, user.joints);
   }
 
-  Future<List<Exercise>?> getFilterdExcercises(BodyPart bodyPart, Goal goal) async {
+  /// Lädt Übungen für **eine** Körperregion und beliebig viele Trainingsziele.
+  ///
+  /// Die Region wird über [BodyRegions.expand] um ihre Unterregionen ergänzt,
+  /// damit z. B. „Arme" auch Übungen findet, die im Knowledge Graph nur mit
+  /// `Biceps`/`Triceps` getaggt sind. [goals] darf leer sein (= alle Ziele).
+  Future<List<Exercise>?> getFilterdExcercises(BodyPart bodyPart, List<Goal> goals) async {
+    final bodyParts = bodyPart == BodyPart.none
+        ? <BodyPart>[]
+        : BodyRegions.expand(bodyPart);
     final user = await userRepository.getUser();
     if (user == null) {
-      return api.fetchExercisesByParamsExcludeContraindications(bodyPart, goal, SkillLevel.intermediate, [], []);
+      return api.fetchExercisesByParamsExcludeContraindications(bodyParts, goals, SkillLevel.intermediate, [], []);
     }
 
     final result = api.fetchExercisesByParamsExcludeContraindications(
-      bodyPart,
-      goal,
+      bodyParts,
+      goals,
       user.skillLevel,
       user.contraindications,
       user.joints

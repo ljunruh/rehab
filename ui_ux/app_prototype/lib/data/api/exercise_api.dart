@@ -97,13 +97,8 @@ WHERE {
     ?exerciseLabel
     ?description
     ?difficultyLabel
-    ?contraindications
-    ?trainingsEffects
-    ?bodyParts
     ?duration
     ?instruction
-    ?corrections
-    ?mistakes
     ?video
     ''';
 
@@ -140,10 +135,33 @@ WHERE {
    * Planempfehlung -erstellung: Gib alle Exercises zurück die die Problemzonen (Beschwerden und Gelenke) nicht beeinflussen
    * gefilter über Körperregion, Traingsziel und Schwierigkeitslevel.
    */
-  Future<List<Exercise>> fetchExercisesByParamsExcludeContraindications(BodyPart bodyPart, Goal goal, SkillLevel skillLevel, List<String> contraindications, List<String> joints) async {
+  /// [bodyParts] enthält die gewählte Hauptregion **inkl. ihrer Unterregionen**
+  /// (siehe [BodyRegions.expand]) – sonst würde z. B. „Arme" die Übungen
+  /// verfehlen, die im Graphen nur mit `Biceps`/`Triceps` getaggt sind.
+  /// [goals] darf mehrere Trainingseffekte enthalten; ist die Liste leer,
+  /// wird nicht nach Ziel eingeschränkt (Ziel ist optional).
+  Future<List<Exercise>> fetchExercisesByParamsExcludeContraindications(List<BodyPart> bodyParts, List<Goal> goals, SkillLevel skillLevel, List<String> contraindications, List<String> joints) async {
     String difficulty = _getDifficulties(skillLevel);
-    String goals = "rehab:${goal.labelEN}"; //Kann später zu mehr Goals erweitert werden
-    String bodyParts = "rehab:${bodyPart.labelEN}"; //Kann später zu mehr BodyParts erweitert werden
+
+    // Leere/none-Werte herausfiltern, damit kein leeres VALUES { } entsteht
+    // (ein leeres VALUES würde die komplette Abfrage leer laufen lassen).
+    final goalIris = goals
+        .where((g) => g != Goal.none)
+        .map((g) => "rehab:${g.labelEN}")
+        .toSet()
+        .join(" ");
+    final bodyPartIris = bodyParts
+        .where((b) => b != BodyPart.none)
+        .map((b) => "rehab:${b.labelEN}")
+        .toSet()
+        .join(" ");
+
+    // Optionale Einschränkungen: nur setzen, wenn tatsächlich etwas gewählt ist.
+    final goalsValues =
+        goalIris.isEmpty ? "" : "VALUES ?trainingsEffect { $goalIris }";
+    final bodyPartsValues =
+        bodyPartIris.isEmpty ? "" : "VALUES ?bodyPart { $bodyPartIris }";
+
     String complaints = contraindications.map((e) => "rehab:$e").join(" ");
     String injuries = joints.map((e) => "rehab:$e").join(" ");
 
@@ -167,10 +185,10 @@ WHERE {
     # Filterparameter (werden zur Laufzeit übergeben)
     # Trainingslevel
     VALUES ?difficulty { $difficulty }
-    # Gewünschte Trainingseffekte
-    VALUES ?trainingsEffect { $goals }
-    # Gewünschte Körperbereiche
-    VALUES ?bodyPart { $bodyParts }
+    # Gewünschte Trainingseffekte (optional – leer = alle Ziele)
+    $goalsValues
+    # Gewünschte Körperbereiche (Hauptregion inkl. Unterregionen)
+    $bodyPartsValues
 
     # Übungen müssen alle benötigten Object Properties besitzen
     ?exercise a/rdfs:subClassOf* rehab:Exercise ;
@@ -234,13 +252,8 @@ WHERE {
     ?exerciseLabel
     ?description
     ?difficultyLabel
-    ?contraindications
-    ?trainingsEffects
-    ?bodyParts
     ?duration
     ?instruction
-    ?corrections
-    ?mistakes
     ?video
     ''';
 

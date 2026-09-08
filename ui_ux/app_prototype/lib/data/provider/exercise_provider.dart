@@ -12,8 +12,13 @@ class ExerciseProvider extends ChangeNotifier {
   List<Exercise> _exercises = [];
   List<Exercise> get exercises => _exercises;
 
-  Future<void> loadAll({BodyPart bodyPart = BodyPart.none, Goal goal = Goal.none}) async {
-    _exercises = await repo.getFilterdExcercises(bodyPart, goal) ?? [];
+  /// Lädt Übungen für eine Körperregion (inkl. Unterregionen) und optional
+  /// mehrere Trainingsziele. [goals] leer bzw. nicht gesetzt = alle Ziele.
+  Future<void> loadAll({
+    BodyPart bodyPart = BodyPart.none,
+    List<Goal> goals = const [],
+  }) async {
+    _exercises = await repo.getFilterdExcercises(bodyPart, goals) ?? [];
     notifyListeners();
   }
 }

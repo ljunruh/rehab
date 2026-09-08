@@ -94,7 +94,7 @@ class _RecommendationFlowState extends State<RecommendationFlow> {
                     if (_region != null && _goal != null) {
                       await exerciseProvider.loadAll(
                         bodyPart: _region!,
-                        goal: _goal!,
+                        goals: [_goal!],
                       );
                     }
 

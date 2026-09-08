@@ -12,6 +12,10 @@ import 'mobility_level_sheet.dart';
 import 'setup/selectable_accordion.dart';
 import 'body_map_selector.dart';
 import 'package:app_prototype/data/provider/user_provider.dart';
+import 'package:app_prototype/data/provider/plan_provider.dart';
+import 'package:app_prototype/data/provider/plan_log_exercise_provider.dart';
+import 'package:app_prototype/data/provider/pain_log_provider.dart';
+import 'package:app_prototype/data/provider/pain_log_exercise_provider.dart';
 
 /// PERSON 4 — Profil bearbeiten (Bottom-Sheet)
 class ProfileEditSheet extends StatefulWidget {
@@ -551,12 +555,30 @@ class _ProfileEditSheetState extends State<ProfileEditSheet> {
                         ),
                         TextButton(
                           onPressed: () async {
-                            await context.read<UserProvider>().deleteUser();
-                            if (context.mounted) {
-                              Navigator.of(
-                                ctx,
-                              ).pushNamedAndRemoveUntil('/', (route) => false);
-                            }
+                            // deleteUser() leert die komplette Isar-DB. Die
+                            // übrigen Provider halten ihre Daten aber im
+                            // Speicher – ohne Neuladen blieben Pläne, Logs und
+                            // Schmerz-Einträge nach dem Löschen sichtbar.
+                            final userProvider = context.read<UserProvider>();
+                            final planProvider = context.read<PlanProvider>();
+                            final planLogProvider =
+                                context.read<PlanLogExerciseProvider>();
+                            final painLogProvider =
+                                context.read<PainLogProvider>();
+                            final painLogExerciseProvider =
+                                context.read<PainLogExerciseProvider>();
+
+                            await userProvider.deleteUser();
+
+                            // Alle In-Memory-Stände aus der (nun leeren) DB neu
+                            // laden -> App startet sauber mit Profil-Setup.
+                            await planProvider.loadPlans();
+                            await planLogProvider.loadTodayLogs(
+                                activePlans: const []);
+                            await painLogProvider.loadLogs();
+                            await painLogExerciseProvider.loadLogs();
+
+                            if (ctx.mounted) Navigator.pop(ctx);
                           },
                           child: const Text(
                             'Löschen',

@@ -31,6 +31,10 @@ enum BodyPart {
   upperBack,
   wrists,
   none,
+  // ACHTUNG: `region` wird in Isar mit @enumerated (= ordinal/Index) gespeichert.
+  // Neue Werte deshalb IMMER hinten anhängen und die Reihenfolge oben niemals
+  // ändern – sonst zeigen bereits gespeicherte Pläne die falsche Körperregion.
+  bauch, // Ontologie: rehab:Bauch (BodyPart) – hat im UI bisher komplett gefehlt
 }
 
 extension BodyPartExt on BodyPart {
@@ -54,8 +58,9 @@ extension BodyPartExt on BodyPart {
         return "Ellbogen";
       case BodyPart.glutes:
         return "Gesäß";
+      // Label exakt wie in der Ontologie (rehab:Hamstrings, de) – vorher "Hamstrings"
       case BodyPart.hamstrings:
-        return "Hamstrings";
+        return "Oberschenkelrückseite";
       case BodyPart.hip:
         return "Hüfte";
       case BodyPart.knees:
@@ -66,12 +71,14 @@ extension BodyPartExt on BodyPart {
         return "Unterer Rücken";
       case BodyPart.neck:
         return "Nacken";
+      // Label exakt wie in der Ontologie (rehab:Obliques, de)
       case BodyPart.obliques:
-        return "Seitliche Bauchmuskulatur";
+        return "Schräge Bauchmuskeln";
       case BodyPart.pelvic:
         return "Becken";
+      // Label exakt wie in der Ontologie (rehab:Psoas, de) – vorher "Psoas"
       case BodyPart.psoas:
-        return "Psoas";
+        return "Hüftbeuger";
       case BodyPart.quadriceps:
         return "Quadrizeps";
       case BodyPart.shoulders:
@@ -86,6 +93,8 @@ extension BodyPartExt on BodyPart {
         return "Oberer Rücken";
       case BodyPart.wrists:
         return "Handgelenke";
+      case BodyPart.bauch:
+        return "Bauch";
       case BodyPart.none:
         return "Keine";
     }
@@ -143,6 +152,9 @@ extension BodyPartExt on BodyPart {
         return "UpperBack";
       case BodyPart.wrists:
         return "Wrists";
+      // Die Ontologie-IRI heißt tatsächlich "Bauch" (nicht "Belly"/"Abdomen")
+      case BodyPart.bauch:
+        return "Bauch";
       case BodyPart.none:
         return "None";
     }
@@ -200,6 +212,8 @@ extension BodyPartExt on BodyPart {
         return BodyPart.upperBack;
       case "Wrists":
         return BodyPart.wrists;
+      case "Bauch":
+        return BodyPart.bauch;
       default:
         return BodyPart.none;
     }
@@ -233,6 +247,7 @@ extension BodyPartExt on BodyPart {
       case BodyPart.triceps:
       case BodyPart.upperBack:
       case BodyPart.wrists:
+      case BodyPart.bauch:
         return "deinem";
 
       case BodyPart.none:
@@ -295,4 +310,78 @@ extension BodyPartExt on BodyPart {
         return Colors.transparent;
     }
   }
+}
+
+/// Kompakte Körperregionen-Struktur für die UI (Team-Protokoll).
+///
+/// Statt einer flachen Liste mit >20 gleichwertigen Einträgen zeigt die UI nur
+/// noch die [main]-Regionen; Detail-Bereiche liegen darunter und sind über
+/// [subParts] aufklappbar ([isExpandable]).
+///
+/// Die Zuordnung ist aus den `partOf`-Beziehungen der Ontologie abgeleitet
+/// (z. B. `Biceps partOf Arms`, `LowerBack partOf Back`, `Abs partOf Core`),
+/// ergänzt um anatomisch zugehörige Bereiche, damit **kein** Körperteil aus dem
+/// Knowledge Graph verloren geht.
+class BodyRegions {
+  /// Hauptregionen in der Reihenfolge des Protokolls.
+  static const List<BodyPart> main = [
+    BodyPart.arms,
+    BodyPart.legs,
+    BodyPart.back,
+    BodyPart.bauch,
+    BodyPart.glutes,
+    BodyPart.shoulders,
+  ];
+
+  /// Unterregionen je Hauptregion (leer = keine Aufklappung nötig).
+  static const Map<BodyPart, List<BodyPart>> subParts = {
+    BodyPart.arms: [
+      BodyPart.biceps,
+      BodyPart.triceps,
+      BodyPart.elbows,
+      BodyPart.wrists,
+    ],
+    BodyPart.legs: [
+      BodyPart.hip,
+      BodyPart.thighs,
+      BodyPart.quadriceps,
+      BodyPart.hamstrings,
+      BodyPart.knees,
+      BodyPart.calves,
+      BodyPart.ankles,
+      BodyPart.psoas,
+    ],
+    BodyPart.back: [
+      BodyPart.upperBack,
+      BodyPart.lowerBack,
+      BodyPart.spine,
+      BodyPart.neck,
+    ],
+    BodyPart.bauch: [
+      BodyPart.core,
+      BodyPart.obliques,
+    ],
+    BodyPart.glutes: [
+      BodyPart.pelvic,
+    ],
+    BodyPart.shoulders: [
+      BodyPart.chest,
+    ],
+  };
+
+  /// Laut Protokoll klappen nur diese Hauptregionen auf.
+  static const List<BodyPart> expandable = [
+    BodyPart.arms,
+    BodyPart.legs,
+    BodyPart.back,
+  ];
+
+  static bool isExpandable(BodyPart part) => expandable.contains(part);
+
+  /// Hauptregion + zugehörige Unterregionen – für die KG-Abfrage, damit z. B.
+  /// „Arme" auch Übungen findet, die nur mit `Biceps`/`Triceps` getaggt sind.
+  static List<BodyPart> expand(BodyPart part) => [
+        part,
+        ...(subParts[part] ?? const []),
+      ];
 }

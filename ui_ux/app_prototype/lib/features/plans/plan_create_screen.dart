@@ -42,7 +42,14 @@ class _PlanCreateScreenState extends State<PlanCreateScreen> {
 
   late final TextEditingController _nameCtrl;
   late BodyPart _region;
-  Goal _goal = Goal.mobility;
+
+  /// Trainingsziele – Mehrfachauswahl, optional (leer = alle Ziele).
+  /// Der Plan speichert weiterhin ein primäres Ziel (`Plan.goal`), damit das
+  /// Datenmodell der API-Gruppe unverändert bleibt.
+  final Set<Goal> _goals = {};
+
+  /// Aktuell aufgeklappte Hauptregion (Arme/Beine/Rücken), null = zu.
+  BodyPart? _openRegion;
   final List<api.Exercise> _selectedExercises = [];
   List<api.Exercise> _filteredExercises = [];
   String _exerciseSearchQuery = "";
@@ -107,7 +114,7 @@ class _PlanCreateScreenState extends State<PlanCreateScreen> {
     if (_step == 1) {
       context.read<ExerciseProvider>().loadAll(
         bodyPart: _region,
-        goal: _goal,
+        goals: _goals.toList(),
       );
     }
     if (_step < 3) setState(() => _step++);
@@ -119,7 +126,9 @@ class _PlanCreateScreenState extends State<PlanCreateScreen> {
       id: 'plan_${DateTime.now().microsecondsSinceEpoch}_${Random().nextInt(99999)}',
       name: _nameCtrl.text.trim(),
       region: _region,
-      goal: _goal,
+      // Plan.goal bleibt einwertig (Datenmodell der API-Gruppe unverändert):
+      // gespeichert wird das erste gewählte Ziel, ohne Auswahl `none`.
+      goal: _goals.isEmpty ? Goal.none : _goals.first,
       exercises: _selectedExercises,
       sessionsPerWeek: _sessionsPerWeek,
       source: 'eigen',
@@ -210,21 +219,12 @@ class _PlanCreateScreenState extends State<PlanCreateScreen> {
 
         Text('Körperregion', style: AppText.caption),
         const SizedBox(height: AppSpacing.sm),
-        Wrap(
-          spacing: AppSpacing.sm,
-          runSpacing: AppSpacing.sm,
-          children: [
-            for (final r in BodyPart.values.where((e) => e != BodyPart.none))
-              AppChip(
-                label: r.label,
-                active: _region == r,
-                onTap: () => _onRegionChange(r),
-              ),
-          ],
-        ),
+        // Kompakte Hauptregionen (Team-Protokoll); Arme/Beine/Rücken lassen
+        // sich für die Detail-Bereiche aufklappen.
+        for (final main in BodyRegions.main) _regionRow(main),
         const SizedBox(height: AppSpacing.lg),
 
-        Text('Ziel (optional)', style: AppText.caption),
+        Text('Ziele (optional, mehrere möglich)', style: AppText.caption),
         const SizedBox(height: AppSpacing.sm),
         Wrap(
           spacing: AppSpacing.sm,
@@ -233,11 +233,72 @@ class _PlanCreateScreenState extends State<PlanCreateScreen> {
             for (final g in Goal.values.where((e) => e != Goal.none))
               AppChip(
                 label: g.label,
-                active: _goal == g,
-                onTap: () => setState(() => _goal = g),
+                active: _goals.contains(g),
+                onTap: () => setState(() {
+                  // Mehrfachauswahl: an-/abwählen. Leer = alle Ziele.
+                  _goals.contains(g) ? _goals.remove(g) : _goals.add(g);
+                }),
               ),
           ],
         ),
+        if (_goals.isEmpty) ...[
+          const SizedBox(height: AppSpacing.sm),
+          Text(
+            'Kein Ziel gewählt – es werden Übungen zu allen Zielen angezeigt.',
+            style: AppText.caption.copyWith(color: AppColors.textMuted),
+          ),
+        ],
+      ],
+    );
+  }
+
+  /// Eine Hauptregion als Zeile: auswählbarer Chip + (optional) Aufklapp-Pfeil
+  /// mit den Unterregionen.
+  Widget _regionRow(BodyPart main) {
+    final expandable = BodyRegions.isExpandable(main);
+    final open = _openRegion == main;
+    final subs = BodyRegions.subParts[main] ?? const <BodyPart>[];
+
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Row(
+          children: [
+            AppChip(
+              label: main.label,
+              active: _region == main,
+              onTap: () => _onRegionChange(main),
+            ),
+            if (expandable)
+              IconButton(
+                visualDensity: VisualDensity.compact,
+                icon: Icon(
+                  open ? Icons.expand_less : Icons.expand_more,
+                  size: 20,
+                  color: AppColors.textMuted,
+                ),
+                tooltip: open ? 'Bereiche ausblenden' : 'Bereiche anzeigen',
+                onPressed: () =>
+                    setState(() => _openRegion = open ? null : main),
+              ),
+          ],
+        ),
+        if (expandable && open)
+          Padding(
+            padding: const EdgeInsets.only(left: 16, bottom: AppSpacing.sm),
+            child: Wrap(
+              spacing: AppSpacing.sm,
+              runSpacing: AppSpacing.sm,
+              children: [
+                for (final s in subs)
+                  AppChip(
+                    label: s.label,
+                    active: _region == s,
+                    onTap: () => _onRegionChange(s),
+                  ),
+              ],
+            ),
+          ),
       ],
     );
   }
@@ -370,7 +431,12 @@ class _PlanCreateScreenState extends State<PlanCreateScreen> {
                 ],
               ),
               const SizedBox(height: AppSpacing.sm),
-              Text('Ziel: ${_goal.label}', style: AppText.caption),
+              Text(
+                _goals.isEmpty
+                    ? 'Ziele: alle'
+                    : 'Ziele: ${_goals.map((g) => g.label).join(', ')}',
+                style: AppText.caption,
+              ),
               Text(
                   '${_selectedExercises.length} Übungen · $_sessionsPerWeek×/Woche',
                   style: AppText.caption),
@@ -391,7 +457,7 @@ class _PlanCreateScreenState extends State<PlanCreateScreen> {
           final provider = context.read<ExerciseProvider>();
           await provider.loadAll(
             bodyPart: _region,
-            goal: _goal,
+            goals: _goals.toList(),
           );
           setState(() {
             _filteredExercises = provider.exercises;
