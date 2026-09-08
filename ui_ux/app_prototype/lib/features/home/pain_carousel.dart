@@ -61,6 +61,10 @@ class _PainCarouselState extends State<PainCarousel> {
     final painLogProvider = context.watch<PainLogProvider>();
     final savedPainLogs = painLogProvider.todayPainLogs;
 
+    // Ohne aktive Regionen gäbe es sonst 340 px leeren Raum: die SizedBox
+    // bleibt stehen, während der PageView mangels Items nichts zeichnet.
+    if (regions.isEmpty) return const SizedBox.shrink();
+
     return Column(
       children: [
         SizedBox(

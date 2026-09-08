@@ -97,21 +97,28 @@ class HomeScreen extends StatelessWidget {
                       StarterCarousel(onStartTraining: onStartTraining),
                       const SizedBox(height: AppSpacing.sectionGap),
 
-                      // Schmerz-Karussell
-                      Padding(
-                        padding: const EdgeInsets.symmetric(
-                          horizontal: AppSpacing.screenH,
-                        ),
-                        child: SectionTitle(
-                          'Wie geht es dir heute?',
-                          style: AppText.screenTitle.copyWith(
-                            fontSize: 20,
-                            fontWeight: FontWeight.w500,
+                      // Schmerz-Karussell – nur zeigen, wenn es aktive Regionen
+                      // gibt. Sonst stünde die Überschrift über einem leeren
+                      // Bereich (das Karussell rendert dann nichts).
+                      if (context
+                          .watch<PlanProvider>()
+                          .activeRegions
+                          .isNotEmpty) ...[
+                        Padding(
+                          padding: const EdgeInsets.symmetric(
+                            horizontal: AppSpacing.screenH,
+                          ),
+                          child: SectionTitle(
+                            'Wie geht es dir heute?',
+                            style: AppText.screenTitle.copyWith(
+                              fontSize: 20,
+                              fontWeight: FontWeight.w500,
+                            ),
                           ),
                         ),
-                      ),
-                      const PainCarousel(),
-                      const SizedBox(height: AppSpacing.sectionGap),
+                        const PainCarousel(),
+                        const SizedBox(height: AppSpacing.sectionGap),
+                      ],
 
                       // Wochenziel-Streifen
                       Padding(

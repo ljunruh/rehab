@@ -150,9 +150,14 @@ class _RootGateState extends State<_RootGate> {
       duration: const Duration(milliseconds: 600),
       child: _ready
           ? AppShell(key: const ValueKey('app'))
-          : IntroScreen(
+      // Intro im selben Handy-Rahmen wie die App: sonst läuft es im Vollbild
+      // und Flutter zeichnet gelbe Debug-Unterstreichungen unter den Text
+      // (kein Material-Vorfahre, da IntroScreen nur eine DecoratedBox ist).
+          : PhoneFrame(
         key: const ValueKey('intro'),
-        onDone: () => setState(() => _ready = true),
+        child: IntroScreen(
+          onDone: () => setState(() => _ready = true),
+        ),
       ),
     );
   }

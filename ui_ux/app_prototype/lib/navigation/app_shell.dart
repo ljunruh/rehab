@@ -243,7 +243,7 @@ class _AppShellState extends State<AppShell> {
       }
     }
 
-    return _PhoneFrame(
+    return PhoneFrame(
       child: Stack(
         children: [
           Column(
@@ -313,10 +313,12 @@ class _AppShellState extends State<AppShell> {
   }
 }
 
-class _PhoneFrame extends StatelessWidget {
+/// Handy-Rahmen der Demo-Ansicht. Public, damit auch das Intro (vor dem
+/// AppShell) im selben Rahmen läuft und nicht im Vollbild erscheint.
+class PhoneFrame extends StatelessWidget {
   final Widget child;
 
-  const _PhoneFrame({required this.child});
+  const PhoneFrame({super.key, required this.child});
 
   @override
   Widget build(BuildContext context) {

@@ -83,6 +83,9 @@ const List<_Reg> _kBack = [
   _Reg('Wirbelsäulengelenke', [_Spot(102.5, 135, 12.5, 7)]),
   _Reg('Untere Rückengelenke', [_Spot(102.5, 158, 13.5, 6.5)]),
   _Reg('Handgelenk', [_Spot(33.5, 186, 8, 8), _Spot(169.5, 186, 8, 8)]),
+  // Kniegelenk ist auch von hinten (Kniekehle) auswählbar – war bisher nur
+  // auf der Vorderseite antippbar.
+  _Reg('Kniegelenk', [_Spot(88, 237, 8, 9), _Spot(117, 237, 8, 9)]),
   _Reg('Sprunggelenk', [_Spot(91.5, 332, 5.5, 5.5), _Spot(113.5, 332, 5.5, 5.5)]),
 ];
 
