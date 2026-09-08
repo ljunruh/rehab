@@ -102,6 +102,11 @@ class _StarterCarouselState extends State<StarterCarousel> {
                                 const SizedBox(height: 2),
                                 Text(
                                   plan.name.isNotEmpty ? plan.name : plan.region.label,
+                                  // Lange Plannamen (z. B. "Schultern-Plan(empfohlen)")
+                                  // brachen bisher um und sprengten die feste
+                                  // Kartenhöhe -> "BOTTOM OVERFLOWED BY 15 PIXELS".
+                                  maxLines: 1,
+                                  overflow: TextOverflow.ellipsis,
                                   style: AppText.cardTitle.copyWith(
                                       fontSize: 17,
                                       fontWeight: FontWeight.w700),
@@ -111,6 +116,8 @@ class _StarterCarouselState extends State<StarterCarousel> {
                                   total == 0
                                       ? 'Keine Übungen'
                                       : '$total ${total == 1 ? 'Übung' : 'Übungen'} · ca. $durationMinutes Min.',
+                                  maxLines: 1,
+                                  overflow: TextOverflow.ellipsis,
                                   style: AppText.caption,
                                 ),
                               ],
