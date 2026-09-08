@@ -51,7 +51,7 @@ class _AddExerciseScreenState extends State<AddExerciseScreen> {
     final exercises = await context
         .read<ExerciseProvider>()
         .repo
-        .getFilterdExcercises(plan.region, plan.goal);
+        .getFilterdExcercises(plan.region, [plan.goal]);
 
     if (exercises != null && mounted) {
       setState(() {
