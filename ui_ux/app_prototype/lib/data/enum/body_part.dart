@@ -8,6 +8,7 @@ enum BodyPart {
   ankles,
   arms,
   back,
+  bauch,
   biceps,
   calves,
   chest,
@@ -30,11 +31,7 @@ enum BodyPart {
   triceps,
   upperBack,
   wrists,
-  none,
-  // ACHTUNG: `region` wird in Isar mit @enumerated (= ordinal/Index) gespeichert.
-  // Neue Werte deshalb IMMER hinten anhängen und die Reihenfolge oben niemals
-  // ändern – sonst zeigen bereits gespeicherte Pläne die falsche Körperregion.
-  bauch, // Ontologie: rehab:Bauch (BodyPart) – hat im UI bisher komplett gefehlt
+  none
 }
 
 extension BodyPartExt on BodyPart {

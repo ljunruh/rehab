@@ -12,12 +12,14 @@ class ExerciseApi extends CoreApi {
 
   final String exceptionExerciseSubClasses = "rehab:Mobilisation rehab:Relaxation rehab:Stretching";
   //TODO[API]: Prüfen ob das noch gebraucht wird, da wir anscheinend immer bodypart, goal und skillLevel mit einbeziehen
-  Future<List<Exercise>> fetchAllExercisesExcludeContraindications(List<String> contraindications, List<String> joints) async {
+  Future<List<Exercise>> fetchAllExercisesExcludeContraindications(
+      List<String> contraindications,
+      List<String> joints,
+      ) async {
     String complaints = contraindications.map((e) => "rehab:$e").join(" ");
     String injuries = joints.map((e) => "rehab:$e").join(" ");
 
-    final query =
-    '''
+    final query = '''
 SELECT
     ?exercise
     ?exerciseLabel
@@ -34,6 +36,10 @@ SELECT
     (GROUP_CONCAT(DISTINCT ?mistake; separator=" | ") AS ?mistakes)
 WHERE {
 
+    # Exakte Typenprüfung: Direkte BodyPart- ODER Muscle-Instanzen zulassen
+    ?bodyPart a ?bodyPartType .
+    FILTER(?bodyPartType IN (rehab:BodyPart, rehab:Muscle))
+
     # Filter für alle Übungen, die diese Object Properties besitzen müssen.
     # Übungen ohne diese Properties führen in der App zu unvollständigen Daten.
     ?exercise a/rdfs:subClassOf* rehab:Exercise ;
@@ -43,16 +49,15 @@ WHERE {
               rehab:engagedBodyPart ?bodyPart .
     ?contraindication a rehab:Contraindication .
     ?trainingsEffect a rehab:TrainingsEffect .
-    ?bodyPart a rehab:BodyPart .
-    
+
     # 1. Entfernt Übungen, die mit betroffenen Gelenken (Joints) kollidieren
     FILTER NOT EXISTS {
         VALUES ?selectedJoints { $injuries }
-    	# Stellt sicher, dass das ausgewählte Element ein Joint ist (Subclass von BodyPart)
+        # Stellt sicher, dass das ausgewählte Element ein Joint ist (Subclass von BodyPart)
         ?selectedJoints a/rdfs:subClassOf* rehab:Joint .
         ?exercise rehab:engagedBodyPart ?selectedJoints .
     }
-  
+
     # 2. Entfernt Übungen mit angegebenen Contraindications,
     # AUSSER die Übung stammt von den Klassen Mobilisation, Relaxation oder Stretching ab.
     FILTER NOT EXISTS {
@@ -67,22 +72,32 @@ WHERE {
         }
     }
 
-    # Übungen müssen diese Labels besitzen
+    # Übungen müssen diese Labels und Eigenschaften besitzen
     ?contraindication rdfs:label ?contraindicationLabel .
     ?trainingsEffect rdfs:label ?trainingsEffectLabel .
     ?bodyPart rdfs:label ?bodyPartLabel .
     ?exercise rehab:hasInstruction ?instruction ;
               rehab:hasDuration ?duration ;
-              rdfs:label ?exerciseLabel ;
-              rdfs:comment ?description .
-  
+              rdfs:label ?exerciseLabel .
+
+    # Beschreibung ermitteln: hasDescription bevorzugen, rdfs:comment als Fallback
+    OPTIONAL { ?exercise rehab:hasDescription ?hasDesc }
+    OPTIONAL {
+        ?exercise rdfs:comment ?rdfsComment .
+        FILTER(LANG(?rdfsComment) = "" || LANGMATCHES(LANG(?rdfsComment), "de"))
+    }
+    BIND(COALESCE(?hasDesc, ?rdfsComment) AS ?description)
+
+    # Wenn weder hasDescription noch rdfs:comment existiert -> Übung ausschließen
+    FILTER(BOUND(?description))
+
     # Labels sind mehrsprachig und werden auf die notwendige Sprache für die Datenverarbeitung beschränkt
     FILTER(
         LANGMATCHES(LANG(?contraindicationLabel), "en") &&
         LANGMATCHES(LANG(?trainingsEffectLabel), "en") &&
         LANGMATCHES(LANG(?bodyPartLabel), "en") &&
         LANGMATCHES(LANG(?exerciseLabel), "de") &&
-        LANGMATCHES(LANG(?description), "de")
+        (LANG(?description) = "" || LANGMATCHES(LANG(?description), "de"))
     )
 
     # Optionale Zusatzinformationen
@@ -140,7 +155,13 @@ WHERE {
   /// verfehlen, die im Graphen nur mit `Biceps`/`Triceps` getaggt sind.
   /// [goals] darf mehrere Trainingseffekte enthalten; ist die Liste leer,
   /// wird nicht nach Ziel eingeschränkt (Ziel ist optional).
-  Future<List<Exercise>> fetchExercisesByParamsExcludeContraindications(List<BodyPart> bodyParts, List<Goal> goals, SkillLevel skillLevel, List<String> contraindications, List<String> joints) async {
+  Future<List<Exercise>> fetchExercisesByParamsExcludeContraindications(
+      List<BodyPart> bodyParts,
+      List<Goal> goals,
+      SkillLevel skillLevel,
+      List<String> contraindications,
+      List<String> joints,
+      ) async {
     String difficulty = _getDifficulties(skillLevel);
 
     // Leere/none-Werte herausfiltern, damit kein leeres VALUES { } entsteht
@@ -158,9 +179,9 @@ WHERE {
 
     // Optionale Einschränkungen: nur setzen, wenn tatsächlich etwas gewählt ist.
     final goalsValues =
-        goalIris.isEmpty ? "" : "VALUES ?trainingsEffect { $goalIris }";
+    goalIris.isEmpty ? "" : "VALUES ?trainingsEffect { $goalIris }";
     final bodyPartsValues =
-        bodyPartIris.isEmpty ? "" : "VALUES ?bodyPart { $bodyPartIris }";
+    bodyPartIris.isEmpty ? "" : "VALUES ?bodyPart { $bodyPartIris }";
 
     String complaints = contraindications.map((e) => "rehab:$e").join(" ");
     String injuries = joints.map((e) => "rehab:$e").join(" ");
@@ -190,24 +211,28 @@ WHERE {
     # Gewünschte Körperbereiche (Hauptregion inkl. Unterregionen)
     $bodyPartsValues
 
+    # Exakte Typenprüfung: Nur direkte BodyPart- ODER Muscle-Instanzen zulassen
+    ?bodyPart a ?bodyPartType .
+    FILTER(?bodyPartType IN (rehab:BodyPart, rehab:Muscle))
+
     # Übungen müssen alle benötigten Object Properties besitzen
     ?exercise a/rdfs:subClassOf* rehab:Exercise ;
               rehab:hasDifficultyLevel ?difficulty ;
               rehab:hasContraindication ?contraindication ;
               rehab:improves ?trainingsEffect ;
               rehab:engagedBodyPart ?bodyPart .
+
     ?contraindication a rehab:Contraindication .
     ?trainingsEffect a rehab:TrainingsEffect .
-    ?bodyPart a rehab:BodyPart .
 
     # 1. Entfernt Übungen, die mit betroffenen Gelenken (Joints) kollidieren
     FILTER NOT EXISTS {
         VALUES ?selectedJoints { $injuries }
-    	# Stellt sicher, dass das ausgewählte Element ein Joint ist (Subclass von BodyPart)
+        # Stellt sicher, dass das ausgewählte Element ein Joint ist (Subclass von BodyPart)
         ?selectedJoints a/rdfs:subClassOf* rehab:Joint .
         ?exercise rehab:engagedBodyPart ?selectedJoints .
     }
-  
+
     # 2. Entfernt Übungen mit angegebenen Contraindications,
     # AUSSER die Übung stammt von den Klassen Mobilisation, Relaxation oder Stretching ab.
     FILTER NOT EXISTS {
@@ -217,27 +242,41 @@ WHERE {
         # Ausnahmeregel: Wenn die Übung vom Typ (oder einer Subklasse von)
         # Mobilisation, Relaxation oder Stretching ist, greift der Ausschluss NICHT.
         FILTER NOT EXISTS {
-            VALUES ?exceptionClass { $exceptionExerciseSubClasses }
+            VALUES ?exceptionClass {
+                rehab:Mobilisation
+                rehab:Relaxation
+                rehab:Stretching
+            }
             ?exercise a/rdfs:subClassOf* ?exceptionClass .
         }
     }
 
-    # Übungen müssen diese Labels besitzen
+    # Übungen müssen diese Labels und Eigenschaften besitzen
     ?contraindication rdfs:label ?contraindicationLabel .
     ?trainingsEffect rdfs:label ?trainingsEffectLabel .
     ?bodyPart rdfs:label ?bodyPartLabel .
     ?exercise rehab:hasInstruction ?instruction ;
               rehab:hasDuration ?duration ;
-              rdfs:label ?exerciseLabel ;
-              rdfs:comment ?description .
-  
+              rdfs:label ?exerciseLabel .
+
+    # Beschreibung ermitteln: hasDescription bevorzugen, rdfs:comment als Fallback
+    OPTIONAL { ?exercise rehab:hasDescription ?hasDesc }
+    OPTIONAL {
+        ?exercise rdfs:comment ?rdfsComment .
+        FILTER(LANG(?rdfsComment) = "" || LANGMATCHES(LANG(?rdfsComment), "de"))
+    }
+    BIND(COALESCE(?hasDesc, ?rdfsComment) AS ?description)
+
+    # Wenn weder hasDescription noch rdfs:comment existiert -> Übung ausschließen
+    FILTER(BOUND(?description))
+
     # Labels sind mehrsprachig und werden auf die notwendige Sprache für die Datenverarbeitung beschränkt
     FILTER(
         LANGMATCHES(LANG(?contraindicationLabel), "en") &&
         LANGMATCHES(LANG(?trainingsEffectLabel), "en") &&
         LANGMATCHES(LANG(?bodyPartLabel), "en") &&
         LANGMATCHES(LANG(?exerciseLabel), "de") &&
-        LANGMATCHES(LANG(?description), "de")
+        (LANG(?description) = "" || LANGMATCHES(LANG(?description), "de"))
     )
 
     # Optionale Zusatzinformationen
