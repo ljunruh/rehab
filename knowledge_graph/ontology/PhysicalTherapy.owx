@@ -7054,6 +7054,11 @@
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#hasPart"/>
         <NamedIndividual IRI="#Back"/>
+        <NamedIndividual IRI="#Obererückengelenke"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasPart"/>
+        <NamedIndividual IRI="#Back"/>
         <NamedIndividual IRI="#Spine"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
@@ -7065,6 +7070,11 @@
         <ObjectProperty IRI="#hasPart"/>
         <NamedIndividual IRI="#Back"/>
         <NamedIndividual IRI="#Trapezius"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasPart"/>
+        <NamedIndividual IRI="#Back"/>
+        <NamedIndividual IRI="#Untererückengeleneke"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#hasPart"/>
@@ -15569,6 +15579,11 @@
         <ObjectProperty IRI="#severity"/>
         <NamedIndividual IRI="#HighLunge_LowerBackIssue"/>
         <NamedIndividual IRI="#MediumRisk"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasPart"/>
+        <NamedIndividual IRI="#Hip"/>
+        <NamedIndividual IRI="#Psoas"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#partOf"/>
@@ -27675,6 +27690,11 @@
         <ObjectProperty IRI="#hasPart"/>
         <NamedIndividual IRI="#Torso"/>
         <NamedIndividual IRI="#Chest"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasPart"/>
+        <NamedIndividual IRI="#Torso"/>
+        <NamedIndividual IRI="#Core"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#hasPart"/>
