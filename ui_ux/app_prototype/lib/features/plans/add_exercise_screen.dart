@@ -160,7 +160,7 @@ class _AddExerciseScreenState extends State<AddExerciseScreen> {
                               children: [
                                 Text(ex.label, style: AppText.cardTitle),
                                 Text(
-                                  '${ex.bodyParts.join(', ')} · ${ex.duration} Min${inPlan ? ' · bereits im Plan' : ''}',
+                                  '${ex.bodyParts.map((bodyPart) => BodyPartExt.fromString(bodyPart).label).join(', ')} · ${ex.duration} Min${inPlan ? ' · bereits im Plan' : ''}',
                                   style: AppText.caption,
                                 ),
                               ],

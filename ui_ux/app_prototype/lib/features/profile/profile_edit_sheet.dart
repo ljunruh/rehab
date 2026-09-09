@@ -578,7 +578,9 @@ class _ProfileEditSheetState extends State<ProfileEditSheet> {
                             await painLogProvider.loadLogs();
                             await painLogExerciseProvider.loadLogs();
 
-                            if (ctx.mounted) Navigator.pop(ctx);
+                            if (context.mounted) {
+                              Navigator.of(ctx).pushNamedAndRemoveUntil('/', (route) => false);
+                            }
                           },
                           child: const Text(
                             'Löschen',
