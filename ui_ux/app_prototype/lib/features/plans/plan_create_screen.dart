@@ -116,6 +116,7 @@ class _PlanCreateScreenState extends State<PlanCreateScreen> {
         bodyPart: _region,
         goals: _goals.toList(),
       );
+      _selectedExercises.clear();
     }
     if (_step < 3) setState(() => _step++);
   }
