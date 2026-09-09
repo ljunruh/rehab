@@ -4062,10 +4062,6 @@
         <NamedIndividual IRI="#Glutes"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="#Limb"/>
-        <NamedIndividual IRI="#Glutes"/>
-    </ClassAssertion>
-    <ClassAssertion>
         <Class IRI="#Muscle"/>
         <NamedIndividual IRI="#Glutes"/>
     </ClassAssertion>
