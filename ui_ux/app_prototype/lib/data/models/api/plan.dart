@@ -3,7 +3,6 @@ import 'package:app_prototype/data/enum/goal.dart';
 import 'package:app_prototype/data/models/api/exercise.dart';
 import 'package:flutter/material.dart';
 import 'package:isar/isar.dart';
-import 'package:app_prototype/core/theme/app_colors.dart';
 
 part 'plan.g.dart';
 
@@ -19,7 +18,27 @@ class Plan {
   final BodyPart region;
 
   @enumerated
-  final Goal goal;
+  final List<Goal> goals;
+
+  /// Ziele des Plans.
+  @ignore
+  List<Goal> get allGoals {
+    return goals.where((g) => g != Goal.none).toList();
+  }
+
+  /// Ziele, die von den aktuell enthaltenen Übungen wirklich abgedeckt werden.
+  /// Ohne gewählte Ziele bleibt der Plan bewusst ohne Tags.
+  @ignore
+  List<Goal> get effectiveGoals {
+    if (allGoals.isEmpty) return const [];
+    final covered = exercises
+        .expand((e) => e.trainingsEffects.map(GoalExt.fromString))
+        .where((g) => g != Goal.none)
+        .toSet();
+    if (covered.isEmpty) return allGoals;
+    return allGoals.where(covered.contains).toList();
+  }
+
   final List<Exercise> exercises;
   final int sessionsPerWeek;
   final int completedSessions;
@@ -41,7 +60,7 @@ class Plan {
     required this.id,
     required this.name,
     required this.region,
-    required this.goal,
+    this.goals = const [],
     this.exercises = const [],
     this.sessionsPerWeek = 3,
     this.completedSessions = 0,
@@ -56,7 +75,7 @@ class Plan {
     String? id,
     String? name,
     BodyPart? region,
-    Goal? goal,
+    List<Goal>? goals,
     List<Exercise>? exercises,
     int? sessionsPerWeek,
     int? completedSessions,
@@ -71,7 +90,7 @@ class Plan {
       id: id ?? this.id,
       name: name ?? this.name,
       region: region ?? this.region,
-      goal: goal ?? this.goal,
+      goals: goals ?? this.goals,
       exercises: exercises ?? this.exercises,
       sessionsPerWeek: sessionsPerWeek ?? this.sessionsPerWeek,
       completedSessions: completedSessions ?? this.completedSessions,

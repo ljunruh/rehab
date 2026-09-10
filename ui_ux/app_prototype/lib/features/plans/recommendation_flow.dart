@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../../core/theme/app_theme.dart';
 import '../../core/widgets/widgets.dart';
-import '../../data/models/api/api_models.dart';
 import '../../data/provider/exercise_provider.dart';
 import '../../data/provider/plan_provider.dart';
 import '../../data/enum/body_part.dart';
@@ -135,8 +134,7 @@ class _RecommendationFlowState extends State<RecommendationFlow> {
         Text('Dein empfohlener Plan', style: AppText.screenTitle),
         const SizedBox(height: AppSpacing.sm),
         Text(
-          // 1. Hier nutzen wir plan.region und plan.goal direkt
-          'Basierend auf ${plan.region.label} · ${plan.goal.label}',
+          'Basierend auf ${plan.region.label} · ${plan.allGoals.first.label}',
           style: AppText.caption,
         ),
         const SizedBox(height: AppSpacing.lg),

@@ -9,10 +9,9 @@ import 'package:provider/provider.dart';
 import '../../core/theme/app_theme.dart';
 import '../../core/widgets/widgets.dart';
 import '../../core/region_icons.dart';
-import '../../state/ui_state.dart';
 
 /// "Womit fängst du heute an?" — wischbares Karussell mit Trainings-Startern
-/// je Region. Jede Karte: Rubrik-Eyebrow, Region, Übungszahl/Minuten,
+/// je Region. Jede Karte: Ziel-Eyebrow, Region, Übungszahl/Minuten,
 /// Status-Fortschritt und ein "<Region>-Training starten"-Button.
 /// Entspricht dem Today-Regions-Slider im JSX-Prototyp.
 class StarterCarousel extends StatefulWidget {
@@ -54,7 +53,7 @@ class _StarterCarouselState extends State<StarterCarousel> {
             itemBuilder: (context, i) {
               final plan = plans[i];
               final isActive = i == _index;
-              final rubrik = plan.goal.rubrik;
+              final goals = plan.effectiveGoals;
 
               // -----------------------------------------------------------------
               // NEU: Präzise Fortschritts- & Statusberechnung
@@ -98,8 +97,11 @@ class _StarterCarouselState extends State<StarterCarousel> {
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                Text(rubrik.label, style: AppText.micro),
-                                const SizedBox(height: 2),
+                                if (goals.isNotEmpty) ...[
+                                  Text(goals.first.label.toUpperCase(),
+                                      style: AppText.micro),
+                                  const SizedBox(height: 2),
+                                ],
                                 Text(
                                   plan.name.isNotEmpty ? plan.name : plan.region.label,
                                   // Lange Plannamen (z. B. "Schultern-Plan(empfohlen)")

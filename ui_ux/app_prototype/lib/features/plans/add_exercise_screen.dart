@@ -48,10 +48,11 @@ class _AddExerciseScreenState extends State<AddExerciseScreen> {
       orElse: () => planProvider.plan!,
     );
 
+    // Leere Zielliste = keine Einschränkung, greift nur bei Plänen ohne Zielauswahl.
     final exercises = await context
         .read<ExerciseProvider>()
         .repo
-        .getFilterdExcercises(plan.region, [plan.goal]);
+        .getFilterdExcercises(plan.region, plan.allGoals);
 
     if (exercises != null && mounted) {
       setState(() {

@@ -43,11 +43,11 @@ const PlanSchema = CollectionSchema(
       type: IsarType.objectList,
       target: r'Exercise',
     ),
-    r'goal': PropertySchema(
+    r'goals': PropertySchema(
       id: 5,
-      name: r'goal',
-      type: IsarType.byte,
-      enumMap: _PlangoalEnumValueMap,
+      name: r'goals',
+      type: IsarType.byteList,
+      enumMap: _PlangoalsEnumValueMap,
     ),
     r'id': PropertySchema(
       id: 6,
@@ -118,6 +118,7 @@ int _planEstimateSize(
       bytesCount += ExerciseSchema.estimateSize(value, offsets, allOffsets);
     }
   }
+  bytesCount += 3 + object.goals.length;
   bytesCount += 3 + object.id.length * 3;
   bytesCount += 3 + object.name.length * 3;
   bytesCount += 3 + object.source.length * 3;
@@ -140,7 +141,7 @@ void _planSerialize(
     ExerciseSchema.serialize,
     object.exercises,
   );
-  writer.writeByte(offsets[5], object.goal.index);
+  writer.writeByteList(offsets[5], object.goals.map((e) => e.index).toList());
   writer.writeString(offsets[6], object.id);
   writer.writeString(offsets[7], object.name);
   writer.writeByte(offsets[8], object.region.index);
@@ -165,8 +166,11 @@ Plan _planDeserialize(
           Exercise(),
         ) ??
         const [],
-    goal: _PlangoalValueEnumMap[reader.readByteOrNull(offsets[5])] ??
-        Goal.balance,
+    goals: reader
+            .readByteList(offsets[5])
+            ?.map((e) => _PlangoalsValueEnumMap[e] ?? Goal.balance)
+            .toList() ??
+        const [],
     id: reader.readString(offsets[6]),
     isarId: id,
     name: reader.readString(offsets[7]),
@@ -202,8 +206,11 @@ P _planDeserializeProp<P>(
           ) ??
           const []) as P;
     case 5:
-      return (_PlangoalValueEnumMap[reader.readByteOrNull(offset)] ??
-          Goal.balance) as P;
+      return (reader
+              .readByteList(offset)
+              ?.map((e) => _PlangoalsValueEnumMap[e] ?? Goal.balance)
+              .toList() ??
+          const []) as P;
     case 6:
       return (reader.readString(offset)) as P;
     case 7:
@@ -220,7 +227,7 @@ P _planDeserializeProp<P>(
   }
 }
 
-const _PlangoalEnumValueMap = {
+const _PlangoalsEnumValueMap = {
   'balance': 0,
   'coordination': 1,
   'flexibility': 2,
@@ -232,7 +239,7 @@ const _PlangoalEnumValueMap = {
   'strength': 8,
   'none': 9,
 };
-const _PlangoalValueEnumMap = {
+const _PlangoalsValueEnumMap = {
   0: Goal.balance,
   1: Goal.coordination,
   2: Goal.flexibility,
@@ -271,6 +278,7 @@ const _PlanregionEnumValueMap = {
   'upperBack': 23,
   'wrists': 24,
   'none': 25,
+  'bauch': 26,
 };
 const _PlanregionValueEnumMap = {
   0: BodyPart.ankles,
@@ -299,6 +307,7 @@ const _PlanregionValueEnumMap = {
   23: BodyPart.upperBack,
   24: BodyPart.wrists,
   25: BodyPart.none,
+  26: BodyPart.bauch,
 };
 
 Id _planGetId(Plan object) {
@@ -736,42 +745,43 @@ extension PlanQueryFilter on QueryBuilder<Plan, Plan, QFilterCondition> {
     });
   }
 
-  QueryBuilder<Plan, Plan, QAfterFilterCondition> goalEqualTo(Goal value) {
+  QueryBuilder<Plan, Plan, QAfterFilterCondition> goalsElementEqualTo(
+      Goal value) {
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(FilterCondition.equalTo(
-        property: r'goal',
+        property: r'goals',
         value: value,
       ));
     });
   }
 
-  QueryBuilder<Plan, Plan, QAfterFilterCondition> goalGreaterThan(
+  QueryBuilder<Plan, Plan, QAfterFilterCondition> goalsElementGreaterThan(
     Goal value, {
     bool include = false,
   }) {
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(FilterCondition.greaterThan(
         include: include,
-        property: r'goal',
+        property: r'goals',
         value: value,
       ));
     });
   }
 
-  QueryBuilder<Plan, Plan, QAfterFilterCondition> goalLessThan(
+  QueryBuilder<Plan, Plan, QAfterFilterCondition> goalsElementLessThan(
     Goal value, {
     bool include = false,
   }) {
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(FilterCondition.lessThan(
         include: include,
-        property: r'goal',
+        property: r'goals',
         value: value,
       ));
     });
   }
 
-  QueryBuilder<Plan, Plan, QAfterFilterCondition> goalBetween(
+  QueryBuilder<Plan, Plan, QAfterFilterCondition> goalsElementBetween(
     Goal lower,
     Goal upper, {
     bool includeLower = true,
@@ -779,12 +789,96 @@ extension PlanQueryFilter on QueryBuilder<Plan, Plan, QFilterCondition> {
   }) {
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(FilterCondition.between(
-        property: r'goal',
+        property: r'goals',
         lower: lower,
         includeLower: includeLower,
         upper: upper,
         includeUpper: includeUpper,
       ));
+    });
+  }
+
+  QueryBuilder<Plan, Plan, QAfterFilterCondition> goalsLengthEqualTo(
+      int length) {
+    return QueryBuilder.apply(this, (query) {
+      return query.listLength(
+        r'goals',
+        length,
+        true,
+        length,
+        true,
+      );
+    });
+  }
+
+  QueryBuilder<Plan, Plan, QAfterFilterCondition> goalsIsEmpty() {
+    return QueryBuilder.apply(this, (query) {
+      return query.listLength(
+        r'goals',
+        0,
+        true,
+        0,
+        true,
+      );
+    });
+  }
+
+  QueryBuilder<Plan, Plan, QAfterFilterCondition> goalsIsNotEmpty() {
+    return QueryBuilder.apply(this, (query) {
+      return query.listLength(
+        r'goals',
+        0,
+        false,
+        999999,
+        true,
+      );
+    });
+  }
+
+  QueryBuilder<Plan, Plan, QAfterFilterCondition> goalsLengthLessThan(
+    int length, {
+    bool include = false,
+  }) {
+    return QueryBuilder.apply(this, (query) {
+      return query.listLength(
+        r'goals',
+        0,
+        true,
+        length,
+        include,
+      );
+    });
+  }
+
+  QueryBuilder<Plan, Plan, QAfterFilterCondition> goalsLengthGreaterThan(
+    int length, {
+    bool include = false,
+  }) {
+    return QueryBuilder.apply(this, (query) {
+      return query.listLength(
+        r'goals',
+        length,
+        include,
+        999999,
+        true,
+      );
+    });
+  }
+
+  QueryBuilder<Plan, Plan, QAfterFilterCondition> goalsLengthBetween(
+    int lower,
+    int upper, {
+    bool includeLower = true,
+    bool includeUpper = true,
+  }) {
+    return QueryBuilder.apply(this, (query) {
+      return query.listLength(
+        r'goals',
+        lower,
+        includeLower,
+        upper,
+        includeUpper,
+      );
     });
   }
 
@@ -1391,18 +1485,6 @@ extension PlanQuerySortBy on QueryBuilder<Plan, Plan, QSortBy> {
     });
   }
 
-  QueryBuilder<Plan, Plan, QAfterSortBy> sortByGoal() {
-    return QueryBuilder.apply(this, (query) {
-      return query.addSortBy(r'goal', Sort.asc);
-    });
-  }
-
-  QueryBuilder<Plan, Plan, QAfterSortBy> sortByGoalDesc() {
-    return QueryBuilder.apply(this, (query) {
-      return query.addSortBy(r'goal', Sort.desc);
-    });
-  }
-
   QueryBuilder<Plan, Plan, QAfterSortBy> sortById() {
     return QueryBuilder.apply(this, (query) {
       return query.addSortBy(r'id', Sort.asc);
@@ -1513,18 +1595,6 @@ extension PlanQuerySortThenBy on QueryBuilder<Plan, Plan, QSortThenBy> {
     });
   }
 
-  QueryBuilder<Plan, Plan, QAfterSortBy> thenByGoal() {
-    return QueryBuilder.apply(this, (query) {
-      return query.addSortBy(r'goal', Sort.asc);
-    });
-  }
-
-  QueryBuilder<Plan, Plan, QAfterSortBy> thenByGoalDesc() {
-    return QueryBuilder.apply(this, (query) {
-      return query.addSortBy(r'goal', Sort.desc);
-    });
-  }
-
   QueryBuilder<Plan, Plan, QAfterSortBy> thenById() {
     return QueryBuilder.apply(this, (query) {
       return query.addSortBy(r'id', Sort.asc);
@@ -1623,9 +1693,9 @@ extension PlanQueryWhereDistinct on QueryBuilder<Plan, Plan, QDistinct> {
     });
   }
 
-  QueryBuilder<Plan, Plan, QDistinct> distinctByGoal() {
+  QueryBuilder<Plan, Plan, QDistinct> distinctByGoals() {
     return QueryBuilder.apply(this, (query) {
-      return query.addDistinctBy(r'goal');
+      return query.addDistinctBy(r'goals');
     });
   }
 
@@ -1700,9 +1770,9 @@ extension PlanQueryProperty on QueryBuilder<Plan, Plan, QQueryProperty> {
     });
   }
 
-  QueryBuilder<Plan, Goal, QQueryOperations> goalProperty() {
+  QueryBuilder<Plan, List<Goal>, QQueryOperations> goalsProperty() {
     return QueryBuilder.apply(this, (query) {
-      return query.addPropertyName(r'goal');
+      return query.addPropertyName(r'goals');
     });
   }
 

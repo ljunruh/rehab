@@ -91,6 +91,9 @@ class _PlansScreenState extends State<PlansScreen> {
       // Die Ontologie verwendet englische IRI-Namen wie "Hip" und "Knees".
       if (activeRegions.isNotEmpty) {
         await adviceProvider.loadAdviceByBodyParts(regionNames);
+        if (adviceProvider.advice.isEmpty) {
+          await adviceProvider.loadAllAdvice();
+        }
       } else {
         await adviceProvider.loadAllAdvice();
       }
@@ -429,21 +432,6 @@ class _SwipeablePlanCardState extends State<_SwipeablePlanCard> {
 
   double _offset = 0;
 
-  static const _rubrikMap = [
-    ['Kraft', 'Kräftigung', 'Kraft'],
-    ['Mobil', 'Beweglich', 'Entlastung', 'Dehnung', 'Mobilisation'],
-    ['Koordination', 'Stabilität', 'Gleichgewicht', 'Haltung', 'Koordination'],
-    ['Entspannung', 'Ruhe', 'Entspannung'],
-  ];
-
-  String _rubrikLabel(String goal) {
-    for (final entry in _rubrikMap) {
-      final keys = entry.sublist(0, entry.length - 1);
-      if (keys.any((k) => goal.contains(k))) return entry.last;
-    }
-    return 'Mobilisation';
-  }
-
   void _snapTo(double value) => setState(() => _offset = value);
 
   @override
@@ -554,9 +542,15 @@ class _SwipeablePlanCardState extends State<_SwipeablePlanCard> {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text(_rubrikLabel(widget.plan.goal.label).toUpperCase(),
-                            style: AppText.micro),
-                        const SizedBox(height: 2),
+                        if (widget.plan.effectiveGoals.isNotEmpty) ...[
+                          Text(
+                            widget.plan.effectiveGoals
+                                .map((g) => g.label.toUpperCase())
+                                .join(' · '),
+                            style: AppText.micro,
+                          ),
+                          const SizedBox(height: 2),
+                        ],
                         Text(widget.plan.region.label,
                             style: AppText.cardTitle.copyWith(
                                 fontSize: 17, fontWeight: FontWeight.w700)),

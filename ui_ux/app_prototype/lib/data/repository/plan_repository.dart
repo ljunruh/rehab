@@ -68,7 +68,7 @@ class PlanRepository {
       id: 'Plan_recomended_${DateTime.now().millisecondsSinceEpoch}',
       name: '${region.label}-Plan(empfohlen)',
       region: region,
-      goal: goal,
+      goals: [goal],
       exercises: selection,
       sessionsPerWeek: 3,
       source: 'empfohlen',
