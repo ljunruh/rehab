@@ -91,6 +91,9 @@ class _PlansScreenState extends State<PlansScreen> {
       // Die Ontologie verwendet englische IRI-Namen wie "Hip" und "Knees".
       if (activeRegions.isNotEmpty) {
         await adviceProvider.loadAdviceByBodyParts(regionNames);
+        if (adviceProvider.advice.isEmpty) {
+          await adviceProvider.loadAllAdvice();
+        }
       } else {
         await adviceProvider.loadAllAdvice();
       }
