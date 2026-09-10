@@ -43,41 +43,35 @@ const PlanSchema = CollectionSchema(
       type: IsarType.objectList,
       target: r'Exercise',
     ),
-    r'goal': PropertySchema(
-      id: 5,
-      name: r'goal',
-      type: IsarType.byte,
-      enumMap: _PlangoalEnumValueMap,
-    ),
     r'goals': PropertySchema(
-      id: 6,
+      id: 5,
       name: r'goals',
       type: IsarType.byteList,
       enumMap: _PlangoalsEnumValueMap,
     ),
     r'id': PropertySchema(
-      id: 7,
+      id: 6,
       name: r'id',
       type: IsarType.string,
     ),
     r'name': PropertySchema(
-      id: 8,
+      id: 7,
       name: r'name',
       type: IsarType.string,
     ),
     r'region': PropertySchema(
-      id: 9,
+      id: 8,
       name: r'region',
       type: IsarType.byte,
       enumMap: _PlanregionEnumValueMap,
     ),
     r'sessionsPerWeek': PropertySchema(
-      id: 10,
+      id: 9,
       name: r'sessionsPerWeek',
       type: IsarType.long,
     ),
     r'source': PropertySchema(
-      id: 11,
+      id: 10,
       name: r'source',
       type: IsarType.string,
     )
@@ -147,13 +141,12 @@ void _planSerialize(
     ExerciseSchema.serialize,
     object.exercises,
   );
-  writer.writeByte(offsets[5], object.goal.index);
-  writer.writeByteList(offsets[6], object.goals.map((e) => e.index).toList());
-  writer.writeString(offsets[7], object.id);
-  writer.writeString(offsets[8], object.name);
-  writer.writeByte(offsets[9], object.region.index);
-  writer.writeLong(offsets[10], object.sessionsPerWeek);
-  writer.writeString(offsets[11], object.source);
+  writer.writeByteList(offsets[5], object.goals.map((e) => e.index).toList());
+  writer.writeString(offsets[6], object.id);
+  writer.writeString(offsets[7], object.name);
+  writer.writeByte(offsets[8], object.region.index);
+  writer.writeLong(offsets[9], object.sessionsPerWeek);
+  writer.writeString(offsets[10], object.source);
 }
 
 Plan _planDeserialize(
@@ -173,20 +166,18 @@ Plan _planDeserialize(
           Exercise(),
         ) ??
         const [],
-    goal: _PlangoalValueEnumMap[reader.readByteOrNull(offsets[5])] ??
-        Goal.balance,
     goals: reader
-            .readByteList(offsets[6])
+            .readByteList(offsets[5])
             ?.map((e) => _PlangoalsValueEnumMap[e] ?? Goal.balance)
             .toList() ??
         const [],
-    id: reader.readString(offsets[7]),
+    id: reader.readString(offsets[6]),
     isarId: id,
-    name: reader.readString(offsets[8]),
-    region: _PlanregionValueEnumMap[reader.readByteOrNull(offsets[9])] ??
+    name: reader.readString(offsets[7]),
+    region: _PlanregionValueEnumMap[reader.readByteOrNull(offsets[8])] ??
         BodyPart.ankles,
-    sessionsPerWeek: reader.readLongOrNull(offsets[10]) ?? 3,
-    source: reader.readStringOrNull(offsets[11]) ?? 'eigen',
+    sessionsPerWeek: reader.readLongOrNull(offsets[9]) ?? 3,
+    source: reader.readStringOrNull(offsets[10]) ?? 'eigen',
   );
   return object;
 }
@@ -215,54 +206,27 @@ P _planDeserializeProp<P>(
           ) ??
           const []) as P;
     case 5:
-      return (_PlangoalValueEnumMap[reader.readByteOrNull(offset)] ??
-          Goal.balance) as P;
-    case 6:
       return (reader
               .readByteList(offset)
               ?.map((e) => _PlangoalsValueEnumMap[e] ?? Goal.balance)
               .toList() ??
           const []) as P;
+    case 6:
+      return (reader.readString(offset)) as P;
     case 7:
       return (reader.readString(offset)) as P;
     case 8:
-      return (reader.readString(offset)) as P;
-    case 9:
       return (_PlanregionValueEnumMap[reader.readByteOrNull(offset)] ??
           BodyPart.ankles) as P;
-    case 10:
+    case 9:
       return (reader.readLongOrNull(offset) ?? 3) as P;
-    case 11:
+    case 10:
       return (reader.readStringOrNull(offset) ?? 'eigen') as P;
     default:
       throw IsarError('Unknown property with id $propertyId');
   }
 }
 
-const _PlangoalEnumValueMap = {
-  'balance': 0,
-  'coordination': 1,
-  'flexibility': 2,
-  'focus': 3,
-  'mobility': 4,
-  'posture': 5,
-  'relaxation': 6,
-  'stability': 7,
-  'strength': 8,
-  'none': 9,
-};
-const _PlangoalValueEnumMap = {
-  0: Goal.balance,
-  1: Goal.coordination,
-  2: Goal.flexibility,
-  3: Goal.focus,
-  4: Goal.mobility,
-  5: Goal.posture,
-  6: Goal.relaxation,
-  7: Goal.stability,
-  8: Goal.strength,
-  9: Goal.none,
-};
 const _PlangoalsEnumValueMap = {
   'balance': 0,
   'coordination': 1,
@@ -778,58 +742,6 @@ extension PlanQueryFilter on QueryBuilder<Plan, Plan, QFilterCondition> {
         upper,
         includeUpper,
       );
-    });
-  }
-
-  QueryBuilder<Plan, Plan, QAfterFilterCondition> goalEqualTo(Goal value) {
-    return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(FilterCondition.equalTo(
-        property: r'goal',
-        value: value,
-      ));
-    });
-  }
-
-  QueryBuilder<Plan, Plan, QAfterFilterCondition> goalGreaterThan(
-    Goal value, {
-    bool include = false,
-  }) {
-    return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(FilterCondition.greaterThan(
-        include: include,
-        property: r'goal',
-        value: value,
-      ));
-    });
-  }
-
-  QueryBuilder<Plan, Plan, QAfterFilterCondition> goalLessThan(
-    Goal value, {
-    bool include = false,
-  }) {
-    return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(FilterCondition.lessThan(
-        include: include,
-        property: r'goal',
-        value: value,
-      ));
-    });
-  }
-
-  QueryBuilder<Plan, Plan, QAfterFilterCondition> goalBetween(
-    Goal lower,
-    Goal upper, {
-    bool includeLower = true,
-    bool includeUpper = true,
-  }) {
-    return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(FilterCondition.between(
-        property: r'goal',
-        lower: lower,
-        includeLower: includeLower,
-        upper: upper,
-        includeUpper: includeUpper,
-      ));
     });
   }
 
@@ -1573,18 +1485,6 @@ extension PlanQuerySortBy on QueryBuilder<Plan, Plan, QSortBy> {
     });
   }
 
-  QueryBuilder<Plan, Plan, QAfterSortBy> sortByGoal() {
-    return QueryBuilder.apply(this, (query) {
-      return query.addSortBy(r'goal', Sort.asc);
-    });
-  }
-
-  QueryBuilder<Plan, Plan, QAfterSortBy> sortByGoalDesc() {
-    return QueryBuilder.apply(this, (query) {
-      return query.addSortBy(r'goal', Sort.desc);
-    });
-  }
-
   QueryBuilder<Plan, Plan, QAfterSortBy> sortById() {
     return QueryBuilder.apply(this, (query) {
       return query.addSortBy(r'id', Sort.asc);
@@ -1695,18 +1595,6 @@ extension PlanQuerySortThenBy on QueryBuilder<Plan, Plan, QSortThenBy> {
     });
   }
 
-  QueryBuilder<Plan, Plan, QAfterSortBy> thenByGoal() {
-    return QueryBuilder.apply(this, (query) {
-      return query.addSortBy(r'goal', Sort.asc);
-    });
-  }
-
-  QueryBuilder<Plan, Plan, QAfterSortBy> thenByGoalDesc() {
-    return QueryBuilder.apply(this, (query) {
-      return query.addSortBy(r'goal', Sort.desc);
-    });
-  }
-
   QueryBuilder<Plan, Plan, QAfterSortBy> thenById() {
     return QueryBuilder.apply(this, (query) {
       return query.addSortBy(r'id', Sort.asc);
@@ -1805,12 +1693,6 @@ extension PlanQueryWhereDistinct on QueryBuilder<Plan, Plan, QDistinct> {
     });
   }
 
-  QueryBuilder<Plan, Plan, QDistinct> distinctByGoal() {
-    return QueryBuilder.apply(this, (query) {
-      return query.addDistinctBy(r'goal');
-    });
-  }
-
   QueryBuilder<Plan, Plan, QDistinct> distinctByGoals() {
     return QueryBuilder.apply(this, (query) {
       return query.addDistinctBy(r'goals');
@@ -1885,12 +1767,6 @@ extension PlanQueryProperty on QueryBuilder<Plan, Plan, QQueryProperty> {
   QueryBuilder<Plan, List<Exercise>, QQueryOperations> exercisesProperty() {
     return QueryBuilder.apply(this, (query) {
       return query.addPropertyName(r'exercises');
-    });
-  }
-
-  QueryBuilder<Plan, Goal, QQueryOperations> goalProperty() {
-    return QueryBuilder.apply(this, (query) {
-      return query.addPropertyName(r'goal');
     });
   }
 

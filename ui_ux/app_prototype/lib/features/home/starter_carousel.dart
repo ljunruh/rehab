@@ -9,7 +9,6 @@ import 'package:provider/provider.dart';
 import '../../core/theme/app_theme.dart';
 import '../../core/widgets/widgets.dart';
 import '../../core/region_icons.dart';
-import '../../state/ui_state.dart';
 
 /// "Womit fängst du heute an?" — wischbares Karussell mit Trainings-Startern
 /// je Region. Jede Karte: Ziel-Eyebrow, Region, Übungszahl/Minuten,

@@ -43,9 +43,7 @@ class _PlanCreateScreenState extends State<PlanCreateScreen> {
   late final TextEditingController _nameCtrl;
   late BodyPart _region;
 
-  /// Trainingsziele – Mehrfachauswahl, optional (leer = alle Ziele).
-  /// Der Plan speichert weiterhin ein primäres Ziel (`Plan.goal`), damit das
-  /// Datenmodell der API-Gruppe unverändert bleibt.
+  /// Trainingsziele – Mehrfachauswahl, optional.
   final Set<Goal> _goals = {};
 
   /// Aktuell aufgeklappte Hauptregion (Arme/Beine/Rücken), null = zu.
@@ -126,8 +124,6 @@ class _PlanCreateScreenState extends State<PlanCreateScreen> {
       id: 'plan_${DateTime.now().microsecondsSinceEpoch}_${Random().nextInt(99999)}',
       name: _nameCtrl.text.trim(),
       region: _region,
-      // `goal` bleibt für Altdaten/API-Modell erhalten, maßgeblich ist `goals`.
-      goal: _goals.isEmpty ? Goal.none : _goals.first,
       goals: _goals.toList(),
       exercises: _selectedExercises,
       sessionsPerWeek: _sessionsPerWeek,

@@ -1,5 +1,4 @@
 import 'package:app_prototype/data/enum/body_part.dart';
-import 'package:app_prototype/data/enum/goal.dart';
 import 'package:app_prototype/data/models/api/api_models.dart';
 import 'package:app_prototype/data/models/api/plan_log_exercise.dart';
 import 'package:collection/collection.dart';
@@ -186,7 +185,7 @@ class PlanLogExerciseRepository {
       // Falls keine Pläne übergeben wurden, nutzen wir einen Fallback-Plan
       final targetPlans = activePlans.isNotEmpty
           ? activePlans
-          : [Plan(id: 'test_plan', name: 'test_name', region: BodyPart.ankles, goal: Goal.balance, sessionsPerWeek: 1, exercises: [])];
+          : [Plan(id: 'test_plan', name: 'test_name', region: BodyPart.ankles, goals: const [], sessionsPerWeek: 1, exercises: [])];
 
       for (int weekIndex = 0; weekIndex < weeksBack; weekIndex++) {
         for (final plan in targetPlans) {
