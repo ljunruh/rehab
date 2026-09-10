@@ -200,6 +200,7 @@ extension BodyPartExt on BodyPart {
         return BodyPart.psoas;
       case "Quadriceps":
         return BodyPart.quadriceps;
+      case "Shoulder":
       case "Shoulders":
         return BodyPart.shoulders;
       case "Spine":
