@@ -53909,6 +53909,427 @@ Langsam zur Mitte zurückkehren.
         <NamedIndividual IRI="#Wrists"/>
         <NamedIndividual IRI="#Wheel"/>
     </ObjectPropertyAssertion>
+
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Schonung_Back_AutoFahren_01</IRI>
+        <Literal xml:lang="de">Lehne leicht nach hinten geneigt (ca. 100–110°)</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Schonung_Back_AutoFahren_02</IRI>
+        <Literal xml:lang="de">Lendenstütze aktivieren oder Kissen nutzen</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Schonung_Back_AutoFahren_03</IRI>
+        <Literal xml:lang="de">Knie etwa auf Hüfthöhe</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Schonung_Back_AutoFahren_04</IRI>
+        <Literal xml:lang="de">Alle 1–2 Stunden kurze Pause einlegen</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Schonung_Back_HebenundBücken_01</IRI>
+        <Literal xml:lang="de">In die Knie gehen, Rücken gerade halten</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Schonung_Back_HebenundBücken_02</IRI>
+        <Literal xml:lang="de">Last nah am Körper führen</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Schonung_Back_HebenundBücken_03</IRI>
+        <Literal xml:lang="de">Mit den Beinen hochdrücken, nicht mit dem Rücken</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Schonung_Back_HebenundBücken_04</IRI>
+        <Literal xml:lang="de">Beim Tragen nicht seitlich verdrehen</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Schonung_Back_Schlafen_01</IRI>
+        <Literal xml:lang="de">Seitenlage mit Kissen zwischen den Knien</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Schonung_Back_Schlafen_02</IRI>
+        <Literal xml:lang="de">Rückenlage: kleines Kissen unter die Knie</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Schonung_Back_Schlafen_03</IRI>
+        <Literal xml:lang="de">Bauchschläfer: Kissen unter den Bauch legen</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Schonung_Back_Schlafen_04</IRI>
+        <Literal xml:lang="de">Matratze sollte Wirbelsäule stützen, nicht durchhängen</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Schonung_Back_Sitzen_01</IRI>
+        <Literal xml:lang="de">Becken aufrecht, Lendenstütze nutzen</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Schonung_Back_Sitzen_02</IRI>
+        <Literal xml:lang="de">Füße flach am Boden, Knie ca. 90°</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Schonung_Back_Sitzen_03</IRI>
+        <Literal xml:lang="de">Alle 45–60 Min. kurz aufstehen</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Schonung_Back_Sitzen_04</IRI>
+        <Literal xml:lang="de">Höhenverstellbarer Schreibtisch wenn möglich</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Schonung_Hip_AufstehenundHinsetzen_01</IRI>
+        <Literal xml:lang="de">Hände auf den Oberschenkeln abstützen</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Schonung_Hip_AufstehenundHinsetzen_02</IRI>
+        <Literal xml:lang="de">Körpergewicht gleichmäßig auf beide Beine verteilen</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Schonung_Hip_AufstehenundHinsetzen_03</IRI>
+        <Literal xml:lang="de">Langsam und kontrolliert aufstehen</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Schonung_Hip_AufstehenundHinsetzen_04</IRI>
+        <Literal xml:lang="de">Stuhlhöhe anpassen – nicht zu tief sitzen</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Schonung_Hip_LaufenundGehen_01</IRI>
+        <Literal xml:lang="de">Dämpfendes Schuhwerk mit gutem Halt</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Schonung_Hip_LaufenundGehen_02</IRI>
+        <Literal xml:lang="de">Aufrechte Haltung, Blick nach vorne</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Schonung_Hip_LaufenundGehen_03</IRI>
+        <Literal xml:lang="de">Gleichmäßiges Tempo, keine abrupten Starts</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Schonung_Hip_LaufenundGehen_04</IRI>
+        <Literal xml:lang="de">Bergab: kleinere Schritte, Körper leicht nach hinten</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Schonung_Hip_Schlafen_01</IRI>
+        <Literal xml:lang="de">Seitenlage: Kissen zwischen die Knie legen</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Schonung_Hip_Schlafen_02</IRI>
+        <Literal xml:lang="de">Rückenlage: Kissen unter die Knie</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Schonung_Hip_Schlafen_03</IRI>
+        <Literal xml:lang="de">Auf der betroffenen Seite wenn möglich nicht liegen</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Schonung_Hip_Schlafen_04</IRI>
+        <Literal xml:lang="de">Hüfte beim Aufwachen langsam mobilisieren</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Schonung_Hip_Sitzen_01</IRI>
+        <Literal xml:lang="de">Hüfte nicht unter 90° beugen beim Sitzen</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Schonung_Hip_Sitzen_02</IRI>
+        <Literal xml:lang="de">Sitzkeil oder Kehlkissen kann helfen</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Schonung_Hip_Sitzen_03</IRI>
+        <Literal xml:lang="de">Regelmäßig aufstehen und die Hüfte strecken</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Schonung_Hip_Sitzen_04</IRI>
+        <Literal xml:lang="de">Überkreuzen der Beine vermeiden</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Schonung_Knees_LaufenundGehen_01</IRI>
+        <Literal xml:lang="de">Dämpfendes Schuhwerk tragen</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Schonung_Knees_LaufenundGehen_02</IRI>
+        <Literal xml:lang="de">Kürzere, häufigere Schritte statt großer Schritte</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Schonung_Knees_LaufenundGehen_03</IRI>
+        <Literal xml:lang="de">Bergab besonders langsam und kontrolliert</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Schonung_Knees_LaufenundGehen_04</IRI>
+        <Literal xml:lang="de">Pausen einbauen, bevor Schmerz entsteht</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Schonung_Knees_Schlafen_01</IRI>
+        <Literal xml:lang="de">Kleines Kissen unter die Kniekehle bei Rückenlage</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Schonung_Knees_Schlafen_02</IRI>
+        <Literal xml:lang="de">Seitlage: Kissen zwischen die Knie legen</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Schonung_Knees_Schlafen_03</IRI>
+        <Literal xml:lang="de">Bein leicht erhöht lagern bei Schwellung</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Schonung_Knees_Schlafen_04</IRI>
+        <Literal xml:lang="de">Wärmflasche vor dem Schlafen entspannt die Muskulatur</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Schonung_Knees_Sitzen_01</IRI>
+        <Literal xml:lang="de">Alle 30 Min. Bein kurz strecken und beugen</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Schonung_Knees_Sitzen_02</IRI>
+        <Literal xml:lang="de">Knie nicht dauerhaft überkreuzen</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Schonung_Knees_Sitzen_03</IRI>
+        <Literal xml:lang="de">Sitzhöhe wählen, dass Knie ca. 90° gebeugt sind</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Schonung_Knees_Sitzen_04</IRI>
+        <Literal xml:lang="de">Bei Schwellungen Bein hochlagern</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Schonung_Knees_Treppensteigen_01</IRI>
+        <Literal xml:lang="de">Hochgehen: stärkeres Bein zuerst</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Schonung_Knees_Treppensteigen_02</IRI>
+        <Literal xml:lang="de">Runtergehen: schwächeres Bein zuerst</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Schonung_Knees_Treppensteigen_03</IRI>
+        <Literal xml:lang="de">Geländer zur Entlastung nutzen</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Schonung_Knees_Treppensteigen_04</IRI>
+        <Literal xml:lang="de">Bei Schmerz lieber den Aufzug nutzen</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Schonung_Neck_AmBildschirm_01</IRI>
+        <Literal xml:lang="de">Obere Bildschirmkante auf Augenhöhe</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Schonung_Neck_AmBildschirm_02</IRI>
+        <Literal xml:lang="de">Abstand ca. eine Armlänge</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Schonung_Neck_AmBildschirm_03</IRI>
+        <Literal xml:lang="de">Bildschirm leicht nach hinten neigen</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Schonung_Neck_AmBildschirm_04</IRI>
+        <Literal xml:lang="de">Alle 30 Min. in die Ferne schauen</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Schonung_Neck_AutoFahren_01</IRI>
+        <Literal xml:lang="de">Kopfstütze auf Hinterkopfhöhe einstellen</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Schonung_Neck_AutoFahren_02</IRI>
+        <Literal xml:lang="de">Kein Abstand zwischen Kopf und Stütze</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Schonung_Neck_AutoFahren_03</IRI>
+        <Literal xml:lang="de">Spiegel so einstellen, dass kein Verdrehen nötig ist</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Schonung_Neck_AutoFahren_04</IRI>
+        <Literal xml:lang="de">Bei langer Fahrt: Nackenstütze nutzen</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Schonung_Neck_HandyundTablet_01</IRI>
+        <Literal xml:lang="de">Smartphone Richtung Augenhöhe heben</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Schonung_Neck_HandyundTablet_02</IRI>
+        <Literal xml:lang="de">Kopf aufrecht halten, nicht nach vorne schieben</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Schonung_Neck_HandyundTablet_03</IRI>
+        <Literal xml:lang="de">Längeres Tippen lieber mit Auflage</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Schonung_Neck_HandyundTablet_04</IRI>
+        <Literal xml:lang="de">Zwischendurch Nacken sanft kreisen lassen</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Schonung_Neck_Schlafen_01</IRI>
+        <Literal xml:lang="de">Kissen sollte Kopf und Hals stützen, nicht hochdrücken</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Schonung_Neck_Schlafen_02</IRI>
+        <Literal xml:lang="de">Seitenlage: Kissen in Schulterbreite</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Schonung_Neck_Schlafen_03</IRI>
+        <Literal xml:lang="de">Rückenlage: flaches, leicht konturiertes Kissen</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Schonung_Neck_Schlafen_04</IRI>
+        <Literal xml:lang="de">Bauchlage meiden – verdreht den Nacken stark</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Schonung_Shoulder_AmArbeitsplatz_01</IRI>
+        <Literal xml:lang="de">Ellenbogen etwa auf Tischhöhe</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Schonung_Shoulder_AmArbeitsplatz_02</IRI>
+        <Literal xml:lang="de">Bildschirm auf Augenhöhe, nicht seitlich</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Schonung_Shoulder_AmArbeitsplatz_03</IRI>
+        <Literal xml:lang="de">Schultern bewusst locker lassen, nicht hochziehen</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Schonung_Shoulder_AmArbeitsplatz_04</IRI>
+        <Literal xml:lang="de">Alle 45 Min. kurz aufstehen und bewegen</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Schonung_Shoulder_GreifenundÜberkopf_01</IRI>
+        <Literal xml:lang="de">Gegenstände nicht mit ausgestrecktem Arm greifen</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Schonung_Shoulder_GreifenundÜberkopf_02</IRI>
+        <Literal xml:lang="de">Hohe Regale: Tritt benutzen statt Recken</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Schonung_Shoulder_GreifenundÜberkopf_03</IRI>
+        <Literal xml:lang="de">Im schmerzfreien Bereich bleiben</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Schonung_Shoulder_GreifenundÜberkopf_04</IRI>
+        <Literal xml:lang="de">Schwere Gegenstände nah am Körper führen</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Schonung_Shoulder_Schlafen_01</IRI>
+        <Literal xml:lang="de">Rückenlage mit flachem Kissen ist am schonendsten</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Schonung_Shoulder_Schlafen_02</IRI>
+        <Literal xml:lang="de">Seitenlage nur auf der gesunden Seite</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Schonung_Shoulder_Schlafen_03</IRI>
+        <Literal xml:lang="de">Kleines Kissen zwischen Arm und Körper</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Schonung_Shoulder_Schlafen_04</IRI>
+        <Literal xml:lang="de">Bauchlage meiden – verdreht die Schulter</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Schonung_Shoulder_TragenundHeben_01</IRI>
+        <Literal xml:lang="de">Rucksack statt Umhängetasche bevorzugen</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Schonung_Shoulder_TragenundHeben_02</IRI>
+        <Literal xml:lang="de">Last nah am Körper halten</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Schonung_Shoulder_TragenundHeben_03</IRI>
+        <Literal xml:lang="de">Regelmäßig die Seite wechseln</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Schonung_Shoulder_TragenundHeben_04</IRI>
+        <Literal xml:lang="de">Schweres nie mit ausgestrecktem Arm heben</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#LaufenundGehen</IRI>
+        <Literal xml:lang="de">Laufen und Gehen</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#LaufenundGehen</IRI>
+        <Literal xml:lang="en">Running and Walking</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#AufstehenundHinsetzen</IRI>
+        <Literal xml:lang="de">Aufstehen und Hinsetzen</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#AufstehenundHinsetzen</IRI>
+        <Literal xml:lang="en">Standing Up and Sitting Down</Literal>
+    </AnnotationAssertion>
 </Ontology>
 
 
