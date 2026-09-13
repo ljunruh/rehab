@@ -9,6 +9,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:provider/provider.dart';
 
 import '../../core/theme/app_theme.dart';
+import '../../core/region_icons.dart';
 import '../../core/widgets/widgets.dart';
 import '../../data/provider/plan_provider.dart';
 import '../../state/ui_state.dart';
@@ -198,7 +199,12 @@ class _PlanDetailScreenState extends State<PlanDetailScreen> {
         const SizedBox(height: AppSpacing.base),
 
         // Cover (zentriert)
-        Center(child: _PlanCover(region: plan.region.label)),
+        Center(
+          child: _PlanCover(
+            region: plan.region.label,
+            iconPath: RegionIcons.forBodyPart(plan.region),
+          ),
+        ),
         const SizedBox(height: AppSpacing.lg),
 
         // Titel + Bearbeiten-Toggle
@@ -719,7 +725,8 @@ class _PlanExerciseRow extends StatelessWidget {
 
 class _PlanCover extends StatelessWidget {
   final String region;
-  const _PlanCover({required this.region});
+  final String? iconPath;
+  const _PlanCover({required this.region, this.iconPath});
 
   static const _palettes = <String, ({Color bg, Color a, Color b})>{
     'Knie': (bg: Color(0xFFC8DDD2), a: Color(0xFF7A9B7E), b: Color(0xFF3F5E48)),
@@ -786,38 +793,18 @@ class _PlanCover extends StatelessWidget {
       height: dim,
       clipBehavior: Clip.antiAlias,
       decoration: BoxDecoration(
-        color: p.bg,
+        color: iconPath != null ? const Color(0xFFBCDFD7) : p.bg,
         borderRadius: BorderRadius.circular(22),
       ),
-      child: icon == null
+      child: icon == null && iconPath == null
           ? null
           : Stack(
               children: [
-                Positioned(
-                  top: -dim * 0.12,
-                  right: -dim * 0.12,
-                  child: Container(
-                    width: dim * 0.44,
-                    height: dim * 0.44,
-                    decoration: BoxDecoration(
-                      color: p.a.withOpacity(0.55),
-                      shape: BoxShape.circle,
-                    ),
-                  ),
+                Center(
+                  child: iconPath != null
+                      ? SvgPicture.asset(iconPath!, width: 58, height: 58)
+                      : Icon(icon, size: 52, color: p.b),
                 ),
-                Positioned(
-                  bottom: -dim * 0.18,
-                  left: -dim * 0.12,
-                  child: Container(
-                    width: dim * 0.56,
-                    height: dim * 0.56,
-                    decoration: BoxDecoration(
-                      color: p.b.withOpacity(0.32),
-                      shape: BoxShape.circle,
-                    ),
-                  ),
-                ),
-                Center(child: Icon(icon, size: 52, color: p.b)),
               ],
             ),
     );
