@@ -411,6 +411,9 @@
         <DataProperty IRI="#hasMETScore"/>
     </Declaration>
     <Declaration>
+        <DataProperty IRI="#hasPicUrl"/>
+    </Declaration>
+    <Declaration>
         <DataProperty IRI="#hasPreparationTime"/>
     </Declaration>
     <Declaration>
@@ -37447,6 +37450,436 @@ Langsam zur Mitte zurückkehren.
         <NamedIndividual IRI="#Bicycling20+Mph"/>
         <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#decimal">16.0</Literal>
     </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasPicUrl"/>
+        <NamedIndividual IRI="#AllFourswithLegExtension"/>
+        <Literal>https://revia.mausnetz.com/pic/Vierfu%CC%88%C3%9Flerstand%20mit%20Beinstreckung.png</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasPicUrl"/>
+        <NamedIndividual IRI="#DeadBug"/>
+        <Literal>https://revia.mausnetz.com/pic/Toter%20Ka%CC%88fer.png</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasPicUrl"/>
+        <NamedIndividual IRI="#DehnungDerHinterenOberschenkelmuskulatur"/>
+        <Literal>https://revia.mausnetz.com/pic/Dehnung%20der%20hinteren%20Oberschenkelmuskulatur.png</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasPicUrl"/>
+        <NamedIndividual IRI="#DehnungDerHinterenSchulterkapsel"/>
+        <Literal>https://revia.mausnetz.com/pic/Dehnung%20der%20hinteren%20Schulterkapsel.png</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasPicUrl"/>
+        <NamedIndividual IRI="#DehnungDerLendenwirbelsaeule"/>
+        <Literal>https://revia.mausnetz.com/pic/Dehnung%20der%20Lendenwirbelsa%CC%88ule.png</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasPicUrl"/>
+        <NamedIndividual IRI="#DehnungDesSchulterblatthebers"/>
+        <Literal>https://revia.mausnetz.com/pic/Dehnung%20des%20Schulterblatthebers.png</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasPicUrl"/>
+        <NamedIndividual IRI="#DiagonalesArmUndBeinhebenImVierfuesslerstand"/>
+        <Literal>https://revia.mausnetz.com/pic/Diagonales%20Arm-%20und%20Beinheben%20im%20Vierfu%CC%88%C3%9Flerstand.png</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasPicUrl"/>
+        <NamedIndividual IRI="#DynamischeUmarmung"/>
+        <Literal>https://revia.mausnetz.com/pic/Dynamische%20Umarmung.png</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasPicUrl"/>
+        <NamedIndividual IRI="#EinarmigerFarmerSWalk"/>
+        <Literal>https://revia.mausnetz.com/pic/Einarmiger%20Farmer%20Laufen.png</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasPicUrl"/>
+        <NamedIndividual IRI="#Einbeinstand"/>
+        <Literal>https://revia.mausnetz.com/pic/Einbeinstand.png</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasPicUrl"/>
+        <NamedIndividual IRI="#EntspannungslageInRueckenlage"/>
+        <Literal>https://revia.mausnetz.com/pic/Entspannungslage%20in%20Ru%CC%88ckenlage.png</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasPicUrl"/>
+        <NamedIndividual IRI="#FacePullMitTheraband"/>
+        <Literal>https://revia.mausnetz.com/pic/Face%20Pull%20mit%20Theraband.png</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasPicUrl"/>
+        <NamedIndividual IRI="#FarmerSWalk"/>
+        <Literal>https://revia.mausnetz.com/pic/Farmer%27s%20Walk.png</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasPicUrl"/>
+        <NamedIndividual IRI="#FaszienrolleRueckenWade"/>
+        <Literal>https://revia.mausnetz.com/pic/Faszienrolle%20fu%CC%88r%20Waden.png</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasPicUrl"/>
+        <NamedIndividual IRI="#FerseZehenGang"/>
+        <Literal>https://revia.mausnetz.com/pic/Ferse-Zehen-Gang.png</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasPicUrl"/>
+        <NamedIndividual IRI="#FigureFourStretch"/>
+        <Literal>https://revia.mausnetz.com/pic/Vierer-Dehnung%20%28sitzend%29.png</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasPicUrl"/>
+        <NamedIndividual IRI="#GewichtsverlagerungSeitlich"/>
+        <Literal>https://revia.mausnetz.com/pic/Seitliche%20Gewichtsverlagerung.png</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasPicUrl"/>
+        <NamedIndividual IRI="#LatStretch"/>
+        <Literal>https://revia.mausnetz.com/pic/Latissimus-Dehnung.png</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasPicUrl"/>
+        <NamedIndividual IRI="#LatissimusMassageMitDerFaszienrolle"/>
+        <Literal>https://revia.mausnetz.com/pic/Latissimus-Massage%20mit%20der%20Faszienrolle.png</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasPicUrl"/>
+        <NamedIndividual IRI="#LendenwirbelsaeulenRotation"/>
+        <Literal>https://revia.mausnetz.com/pic/Lendenwirbelsa%CC%88ulen-Rotation.png</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasPicUrl"/>
+        <NamedIndividual IRI="#Muschel"/>
+        <Literal>https://revia.mausnetz.com/pic/Muschel.png</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasPicUrl"/>
+        <NamedIndividual IRI="#Nackendehnungen"/>
+        <Literal>https://revia.mausnetz.com/pic/Nackendehnungen.png</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasPicUrl"/>
+        <NamedIndividual IRI="#PigeonPose"/>
+        <Literal>https://revia.mausnetz.com/pic/Taube.png</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasPicUrl"/>
+        <NamedIndividual IRI="#PiriformisStretch"/>
+        <Literal>https://revia.mausnetz.com/pic/Piriformis-Dehnung.png</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasPicUrl"/>
+        <NamedIndividual IRI="#Plank"/>
+        <Literal>https://revia.mausnetz.com/pic/Unterarmstu%CC%88tz.png</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasPicUrl"/>
+        <NamedIndividual IRI="#ProgressiveMuskelentspannung"/>
+        <Literal>https://revia.mausnetz.com/pic/Progressive%20Muskelentspannung.png</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasPicUrl"/>
+        <NamedIndividual IRI="#RopeSkippingFast"/>
+        <Literal>https://revia.mausnetz.com/pic/Seilspringen%20schnell%20und%20langsam.png</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasPicUrl"/>
+        <NamedIndividual IRI="#RopeSkippingSlow"/>
+        <Literal>https://revia.mausnetz.com/pic/Seilspringen%20schnell%20und%20langsam.png</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasPicUrl"/>
+        <NamedIndividual IRI="#RotatorenmanschettenMassageMitBall"/>
+        <Literal>https://revia.mausnetz.com/pic/Rotatorenmanschetten-Massage%20mit%20Ball.png</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasPicUrl"/>
+        <NamedIndividual IRI="#RudernMitTheraband"/>
+        <Literal>https://revia.mausnetz.com/pic/Rudern%20mit%20Theraband.png</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasPicUrl"/>
+        <NamedIndividual IRI="#ScapulaRetraktion"/>
+        <Literal>https://revia.mausnetz.com/pic/Skapula-Retraktion.png</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasPicUrl"/>
+        <NamedIndividual IRI="#SchulterAlphabet"/>
+        <Literal>https://revia.mausnetz.com/pic/Schulter-Alphabet.png</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasPicUrl"/>
+        <NamedIndividual IRI="#SchulterNackenEntspannung"/>
+        <Literal>https://revia.mausnetz.com/pic/Schulter-Nacken-Entspannung.png</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasPicUrl"/>
+        <NamedIndividual IRI="#SchulterabduktionMitStab"/>
+        <Literal>https://revia.mausnetz.com/pic/Schultermobilisation%20mit%20Stab.png</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasPicUrl"/>
+        <NamedIndividual IRI="#SchulterabduktionMitTheraband"/>
+        <Literal>https://revia.mausnetz.com/pic/Schulterabduktion%20mit%20Theraband.png</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasPicUrl"/>
+        <NamedIndividual IRI="#SchulterblattKontrolluebung"/>
+        <Literal>https://revia.mausnetz.com/pic/Schulterblatt-Kontrollu%CC%88bung.png</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasPicUrl"/>
+        <NamedIndividual IRI="#SchulterblattUhr_2"/>
+        <Literal>https://revia.mausnetz.com/pic/Schulterblatt-Uhr.png</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasPicUrl"/>
+        <NamedIndividual IRI="#SchulterdehnungUeberDenKoerper"/>
+        <Literal>https://revia.mausnetz.com/pic/Schulterdehnung%20u%CC%88ber%20den%20Ko%CC%88rper.png</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasPicUrl"/>
+        <NamedIndividual IRI="#SchulterflexionMitStab"/>
+        <Literal>https://revia.mausnetz.com/pic/Schulterflexion%20mit%20Stab.png</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasPicUrl"/>
+        <NamedIndividual IRI="#Schulterkreisen"/>
+        <Literal>https://revia.mausnetz.com/pic/Schulterkreisen.png</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasPicUrl"/>
+        <NamedIndividual IRI="#Schulterpendel"/>
+        <Literal>https://revia.mausnetz.com/pic/Schulterpendel.png</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasPicUrl"/>
+        <NamedIndividual IRI="#SchultervorhebenMitTheraband"/>
+        <Literal>https://revia.mausnetz.com/pic/Schultervorheben%20mit%20Theraband.png</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasPicUrl"/>
+        <NamedIndividual IRI="#SealStretch"/>
+        <Literal>https://revia.mausnetz.com/pic/Robben-Dehnung.png</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasPicUrl"/>
+        <NamedIndividual IRI="#SegmentaleWirbelsaeulenbeugung"/>
+        <Literal>https://revia.mausnetz.com/pic/Segmentale%20Wirbelsa%CC%88ulenbeugung.png</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasPicUrl"/>
+        <NamedIndividual IRI="#SeitlicheRumpfdehnung"/>
+        <Literal>https://revia.mausnetz.com/pic/Seitliche%20Rumpfdehnung.png</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasPicUrl"/>
+        <NamedIndividual IRI="#Seitstuetz"/>
+        <Literal>https://revia.mausnetz.com/pic/Seitstu%CC%88tz.png</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasPicUrl"/>
+        <NamedIndividual IRI="#SelbstmassageDerHinterenSchulter"/>
+        <Literal>https://revia.mausnetz.com/pic/Selbstmassage%20der%20hinteren%20Schulter.png</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasPicUrl"/>
+        <NamedIndividual IRI="#SelbstmassageDesMusculusQuadratusLumborum"/>
+        <Literal>https://revia.mausnetz.com/pic/Selbstmassage%20des%20Musculus%20Quadratus%20Lumborum.png</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasPicUrl"/>
+        <NamedIndividual IRI="#SelbstmassageDesOberenTrapezmuskels"/>
+        <Literal>https://revia.mausnetz.com/pic/Selbstmassage%20des%20oberen%20Trapezmuskels.png</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasPicUrl"/>
+        <NamedIndividual IRI="#SelbstmassageDesPiriformis"/>
+        <Literal>https://revia.mausnetz.com/pic/Selbstmassage%20des%20Piriformis.png</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasPicUrl"/>
+        <NamedIndividual IRI="#SelbstmassageDesSchulterblatthebersLevatorScapulae"/>
+        <Literal>https://revia.mausnetz.com/pic/Selbstmassage%20des%20Schulterblatthebers%20%28Levator%20Scapulae%29.png</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasPicUrl"/>
+        <NamedIndividual IRI="#SelbstmassageDesUnterenRueckens"/>
+        <Literal>https://revia.mausnetz.com/pic/Selbstmassage%20des%20unteren%20Ru%CC%88ckens.png</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasPicUrl"/>
+        <NamedIndividual IRI="#SerratusPunchSchulterblattProtraktion"/>
+        <Literal>https://revia.mausnetz.com/pic/Serratus%20Punch%20%28Schulterblatt-Protraktion%29.png</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasPicUrl"/>
+        <NamedIndividual IRI="#SingleLegBridge"/>
+        <Literal>https://revia.mausnetz.com/pic/Einbein-Bru%CC%88cke.png</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasPicUrl"/>
+        <NamedIndividual IRI="#SleeperMobilisation"/>
+        <Literal>https://revia.mausnetz.com/pic/Sleeper-Mobilisation.png</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasPicUrl"/>
+        <NamedIndividual IRI="#StandingBackbend"/>
+        <Literal>https://revia.mausnetz.com/pic/Ru%CC%88ckbeuge%20im%20Stehen.png</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasPicUrl"/>
+        <NamedIndividual IRI="#StandingCalfStretch"/>
+        <Literal>https://revia.mausnetz.com/pic/Wadendehnung%20im%20Stehen.png</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasPicUrl"/>
+        <NamedIndividual IRI="#Standing_sleeper_stretch"/>
+        <Literal>https://revia.mausnetz.com/pic/Sleeper-Stretch%20im%20Stehen.png</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasPicUrl"/>
+        <NamedIndividual IRI="#Stretching"/>
+        <Literal>https://revia.mausnetz.com/pic/Dehnen.png</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasPicUrl"/>
+        <NamedIndividual IRI="#Superman"/>
+        <Literal>https://revia.mausnetz.com/pic/Superman.png</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasPicUrl"/>
+        <NamedIndividual IRI="#THeben"/>
+        <Literal>https://revia.mausnetz.com/pic/T-Heben.png</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasPicUrl"/>
+        <NamedIndividual IRI="#TeilweisesTurkishGetUp"/>
+        <Literal>https://revia.mausnetz.com/pic/Teilweises%20Turkish%20Get-up.png</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasPicUrl"/>
+        <NamedIndividual IRI="#Tischgleiten"/>
+        <Literal>https://revia.mausnetz.com/pic/Tischgleiten.png</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasPicUrl"/>
+        <NamedIndividual IRI="#TrapezmuskelDehnung"/>
+        <Literal>https://revia.mausnetz.com/pic/Trapezmuskel-Dehnung.png</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasPicUrl"/>
+        <NamedIndividual IRI="#TriggerpunktmassageDerGesaessmuskulatur"/>
+        <Literal>https://revia.mausnetz.com/pic/Triggerpunktmassage%20der%20Gesa%CC%88%C3%9Fmuskulatur.png</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasPicUrl"/>
+        <NamedIndividual IRI="#TrizepsDehnung"/>
+        <Literal>https://revia.mausnetz.com/pic/Trizeps-Dehnung.png</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasPicUrl"/>
+        <NamedIndividual IRI="#TurkishGetUp"/>
+        <Literal>https://revia.mausnetz.com/pic/Turkish%20Get-up.png</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasPicUrl"/>
+        <NamedIndividual IRI="#UmgekehrterUnterarmstuetz"/>
+        <Literal>https://revia.mausnetz.com/pic/Umgekehrter%20Unterarmstu%CC%88tz.png</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasPicUrl"/>
+        <NamedIndividual IRI="#WHeben"/>
+        <Literal>https://revia.mausnetz.com/pic/W-Heben.png</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasPicUrl"/>
+        <NamedIndividual IRI="#Wadendehnung"/>
+        <Literal>https://revia.mausnetz.com/pic/wadendehnung.png</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasPicUrl"/>
+        <NamedIndividual IRI="#WallPushUps"/>
+        <Literal>https://revia.mausnetz.com/pic/Wandliegestu%CC%88tze.png</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasPicUrl"/>
+        <NamedIndividual IRI="#Wandengel"/>
+        <Literal>https://revia.mausnetz.com/pic/Wabdengel.png</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasPicUrl"/>
+        <NamedIndividual IRI="#WandgleitenMitArmabheben"/>
+        <Literal>https://revia.mausnetz.com/pic/Wandgleiten%20mit%20Armabheben.png</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasPicUrl"/>
+        <NamedIndividual IRI="#Wandschieben"/>
+        <Literal>https://revia.mausnetz.com/pic/Wandschieben.png</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasPicUrl"/>
+        <NamedIndividual IRI="#Wandsitzen"/>
+        <Literal>https://revia.mausnetz.com/pic/Wandsitzen.png</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasPicUrl"/>
+        <NamedIndividual IRI="#YHeben"/>
+        <Literal>https://revia.mausnetz.com/pic/Y-Heben.png</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasPicUrl"/>
+        <NamedIndividual IRI="#Z-Sits"/>
+        <Literal>https://revia.mausnetz.com/pic/Z-Sitz.png</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasPicUrl"/>
+        <NamedIndividual IRI="#Zwerchfellatmung"/>
+        <Literal>https://revia.mausnetz.com/pic/Zwerchfellatmung.png</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasPicUrl"/>
+        <NamedIndividual IRI="#CenterSplits"/>
+        <Literal>https://revia.mausnetz.com/pic/Mittelspaltung.png</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasPicUrl"/>
+        <NamedIndividual IRI="#Dancer"/>
+        <Literal>https://revia.mausnetz.com/pic/Ta%CC%88nzer.png</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasPicUrl"/>
+        <NamedIndividual IRI="#Flamingo"/>
+        <Literal>https://revia.mausnetz.com/pic/Flamingo.png</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasPicUrl"/>
+        <NamedIndividual IRI="#Gate"/>
+        <Literal>https://revia.mausnetz.com/pic/Tor.png</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasPicUrl"/>
+        <NamedIndividual IRI="#RaisedHands"/>
+        <Literal>https://revia.mausnetz.com/pic/Erhobene%20Ha%CC%88nde.png</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasPicUrl"/>
+        <NamedIndividual IRI="#StandingFirefly"/>
+        <Literal>https://revia.mausnetz.com/pic/Stehender%20Feurfalter.png</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasPicUrl"/>
+        <NamedIndividual IRI="#StandingForwardBend"/>
+        <Literal>https://revia.mausnetz.com/pic/Vorbeuge%20im%20Stehen.png</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasPicUrl"/>
+        <NamedIndividual IRI="#StandingSideBend"/>
+        <Literal>https://revia.mausnetz.com/pic/Seitbeuge%20im%20Stehen.png</Literal>
+    </DataPropertyAssertion>
     <SubObjectPropertyOf>
         <ObjectProperty IRI="#excludesExercise"/>
         <ObjectProperty abbreviatedIRI="owl:topObjectProperty"/>
@@ -37819,6 +38252,10 @@ Langsam zur Mitte zurückkehren.
         <Class IRI="#Patient"/>
     </DataPropertyDomain>
     <DataPropertyDomain>
+        <DataProperty IRI="#hasPicUrl"/>
+        <Class IRI="#Exercise"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
         <DataProperty IRI="#hasSeverityScore"/>
         <Class IRI="#Injury"/>
     </DataPropertyDomain>
@@ -37897,6 +38334,10 @@ Langsam zur Mitte zurückkehren.
     <DataPropertyRange>
         <DataProperty IRI="#hasMETScore"/>
         <Datatype abbreviatedIRI="xsd:decimal"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#hasPicUrl"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
     </DataPropertyRange>
     <DataPropertyRange>
         <DataProperty IRI="#hasPreparationTime"/>
@@ -48258,6 +48699,16 @@ Langsam zur Mitte zurückkehren.
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#hasVASvalue</IRI>
         <Literal xml:lang="en">hasVASvalue</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#hasPicUrl</IRI>
+        <Literal xml:lang="de">Beinhaltet URLs von Bildern.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#hasPicUrl</IRI>
+        <Literal xml:lang="en">hasPicUrl</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
