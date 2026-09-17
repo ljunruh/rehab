@@ -31185,6 +31185,226 @@
         <NamedIndividual IRI="#None"/>
     </ObjectPropertyAssertion>
     <DataPropertyAssertion>
+        <DataProperty IRI="#hasDescription"/>
+        <NamedIndividual IRI="#Airplane"/>
+        <Literal>A balancing pose that helps strengthen the legs and core while improving focus.</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasDescription"/>
+        <NamedIndividual IRI="#Cactus"/>
+        <Literal>Often used as a preparatory pose for deeper backbends.</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasDescription"/>
+        <NamedIndividual IRI="#CenterSplits"/>
+        <Literal>It requires flexibility and is ideal for advanced practitioners.</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasDescription"/>
+        <NamedIndividual IRI="#Chair"/>
+        <Literal>A balancing pose that requires tention and strength.</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasDescription"/>
+        <NamedIndividual IRI="#Crab"/>
+        <Literal>A intermediate backbend, improving shoulder mobility.</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasDescription"/>
+        <NamedIndividual IRI="#Dancer"/>
+        <Literal>A balancing pose with a more moderate backbend, suitable for building strength and flexibility.</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasDescription"/>
+        <NamedIndividual IRI="#Eagle"/>
+        <Literal>A twisting balance pose that improves concentration.</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasDescription"/>
+        <NamedIndividual IRI="#FerseZehenGang"/>
+        <Literal>Gangübung, bei der abwechselnd auf Fersen und Zehen gegangen wird, um Unterschenkel und Balance zu stärken.</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasDescription"/>
+        <NamedIndividual IRI="#FigureFourStretch"/>
+        <Literal>Dehnübung im Liegen, bei der ein Fuß über das gegenseitige Knie gelegt wird, um die Hüftaußenrotatoren zu dehnen.</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasDescription"/>
+        <NamedIndividual IRI="#Flamingo"/>
+        <Literal>A balancing backbend that requires concentration and strength.</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasDescription"/>
+        <NamedIndividual IRI="#Gate"/>
+        <Literal>A lateral stretch that improves flexibility in the torso.</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasDescription"/>
+        <NamedIndividual IRI="#GewichtsverlagerungSeitlich"/>
+        <Literal>Übung, bei der das Körpergewicht langsam von einem Bein auf das andere verlagert wird.</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasDescription"/>
+        <NamedIndividual IRI="#GleichgewichtInstabil"/>
+        <Literal>Übung auf instabilem Untergrund, die Gleichgewicht und tiefe Stabilisationsmuskulatur anspricht.</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasDescription"/>
+        <NamedIndividual IRI="#Goddess"/>
+        <Literal>A wide-legged squat position that improves leg strength and hip flexibility.</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasDescription"/>
+        <NamedIndividual IRI="#HalfMoon"/>
+        <Literal>A challenging pose that helps develop coordination.</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasDescription"/>
+        <NamedIndividual IRI="#HamstringStretch"/>
+        <Literal>Dehnübung für die rückseitige Oberschenkelmuskulatur.</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasDescription"/>
+        <NamedIndividual IRI="#HighLunge"/>
+        <Literal>A transitional standing pose that builds strength and stability.</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasDescription"/>
+        <NamedIndividual IRI="#JumpingJacks"/>
+        <Literal>Hampelmann, eine klassische Aufwärmübung, die den gesamten Kreislauf aktiviert.</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasDescription"/>
+        <NamedIndividual IRI="#KingDancer"/>
+        <Literal>A deep backbend and balancing pose that requires concentration.</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasDescription"/>
+        <NamedIndividual IRI="#MonsterWalk"/>
+        <Literal>Gangübung mit deutlich angehobenen Knien zur Kräftigung von Hüfte und Oberschenkeln.</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasDescription"/>
+        <NamedIndividual IRI="#Mountain"/>
+        <Literal>A foundational standing pose that encourages proper alignment in the body.</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasDescription"/>
+        <NamedIndividual IRI="#MountainClimber"/>
+        <Literal>Dynamische Übung im Liegestütz, bei der die Beine abwechselnd zur Brust gezogen werden.</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasDescription"/>
+        <NamedIndividual IRI="#Muschel"/>
+        <Literal>Übung in Seitenlage, bei der das obere Knie wie eine Muschel geöffnet wird, um die Hüftaußenrotatoren zu kräftigen.</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasDescription"/>
+        <NamedIndividual IRI="#ParadiseBird"/>
+        <Literal>A challenging balance pose that requires flexibility and strength.</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasDescription"/>
+        <NamedIndividual IRI="#Pyramid"/>
+        <Literal>A forward-bend that improves balance and flexibility.</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasDescription"/>
+        <NamedIndividual IRI="#RaisedHands"/>
+        <Literal>A simple standing pose often used in warm-up sequences.</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasDescription"/>
+        <NamedIndividual IRI="#SideAngle"/>
+        <Literal>A standing pose that improves flexibility and strength.</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasDescription"/>
+        <NamedIndividual IRI="#SingleLegBridge"/>
+        <Literal>Variante der Brücke, bei der ein Bein angehoben wird, um Gesäß und hintere Oberschenkel einseitig zu kräftigen.</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasDescription"/>
+        <NamedIndividual IRI="#SitzenStehen"/>
+        <Literal>Übung, bei der aus dem Sitzen ohne Hilfe der Hände aufgestanden wird, um Bein- und Rumpfkraft zu trainieren.</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasDescription"/>
+        <NamedIndividual IRI="#Squads"/>
+        <Literal>Kniebeuge, eine Grundübung zur Kräftigung von Oberschenkeln, Gesäß und Rumpf.</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasDescription"/>
+        <NamedIndividual IRI="#StandingCalfStretch"/>
+        <Literal>Dehnübung für die Wadenmuskulatur im Stehen.</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasDescription"/>
+        <NamedIndividual IRI="#StandingCompass"/>
+        <Literal>A complex standing pose that demands a high level of flexibility and focus.</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasDescription"/>
+        <NamedIndividual IRI="#StandingFirefly"/>
+        <Literal>A demanding balance pose that requires both flexibility and strength.</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasDescription"/>
+        <NamedIndividual IRI="#StandingForwardBend"/>
+        <Literal>A Transition pose that helps to lengthen the spine.</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasDescription"/>
+        <NamedIndividual IRI="#StandingLegRaise"/>
+        <Literal>A standing pose that requires stability and control as one leg is lifted high to front.</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasDescription"/>
+        <NamedIndividual IRI="#StandingSideBend"/>
+        <Literal>A gentle standing pose that helps lengthen and stretches the side body.</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasDescription"/>
+        <NamedIndividual IRI="#StandingSplit"/>
+        <Literal>A balance pose that enhances flexibility and control.</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasDescription"/>
+        <NamedIndividual IRI="#Tree"/>
+        <Literal>A classic balancing pose that helps build focus and stability.</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasDescription"/>
+        <NamedIndividual IRI="#Triangle"/>
+        <Literal>A classic pose that enhances balance and alignment.</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasDescription"/>
+        <NamedIndividual IRI="#Wandsitzen"/>
+        <Literal>Statische Halteübung an der Wand mit angewinkelten Beinen, die Oberschenkel kräftigt.</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasDescription"/>
+        <NamedIndividual IRI="#Warrior1"/>
+        <Literal>A strong stance that encourages stability and endurance.</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasDescription"/>
+        <NamedIndividual IRI="#Warrior2"/>
+        <Literal>A foundational pose that builds strength and focus.</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasDescription"/>
+        <NamedIndividual IRI="#Wheel"/>
+        <Literal>A deep backbend that increases flexibility and strength.</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasDescription"/>
+        <NamedIndividual IRI="#Z-Sits"/>
+        <Literal>Sitzposition mit zur Seite angewinkelten Beinen, die zur Mobilisation der Hüfte eingesetzt wird.</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
         <DataProperty IRI="#Calorie"/>
         <NamedIndividual IRI="#AerobicDance"/>
         <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#decimal">500.0</Literal>
