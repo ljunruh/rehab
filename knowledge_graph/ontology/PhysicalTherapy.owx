@@ -34289,6 +34289,146 @@ Langsam zur Mitte zurückkehren.
         <Literal>https://revia.mausnetz.com/video/plank.mp4</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
+        <DataProperty IRI="#hasVideoUrl"/>
+        <NamedIndividual IRI="#Eagle"/>
+        <Literal>https://revia.mausnetz.com/video/Adler.mp4</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasVideoUrl"/>
+        <NamedIndividual IRI="#Zwerchfellatmung"/>
+        <Literal>https://revia.mausnetz.com/video/Atemtechnik.mp4</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasVideoUrl"/>
+        <NamedIndividual IRI="#LatStretch"/>
+        <Literal>https://revia.mausnetz.com/video/Backstreching.mp4</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasVideoUrl"/>
+        <NamedIndividual IRI="#Tree"/>
+        <Literal>https://revia.mausnetz.com/video/Baum.mp4</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasVideoUrl"/>
+        <NamedIndividual IRI="#Beckenkippen"/>
+        <Literal>https://revia.mausnetz.com/video/Beckenkipper.mp4</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasVideoUrl"/>
+        <NamedIndividual IRI="#LegRaise"/>
+        <Literal>https://revia.mausnetz.com/video/Beinheber.mp4</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasVideoUrl"/>
+        <NamedIndividual IRI="#StandingLegRaise"/>
+        <Literal>https://revia.mausnetz.com/video/Beinheber_seitlich.mp4</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasVideoUrl"/>
+        <NamedIndividual IRI="#BeideKnieZurBrust"/>
+        <Literal>https://revia.mausnetz.com/video/Beintucker.mp4</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasVideoUrl"/>
+        <NamedIndividual IRI="#MountainClimber"/>
+        <Literal>https://revia.mausnetz.com/video/Bicycle.mp4</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasVideoUrl"/>
+        <NamedIndividual IRI="#BrustwirbelsaeulenRotation"/>
+        <Literal>https://revia.mausnetz.com/video/Bruecke.mp4</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasVideoUrl"/>
+        <NamedIndividual IRI="#BrustdehnungAnDerWand"/>
+        <Literal>https://revia.mausnetz.com/video/Bruststreching.mp4</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasVideoUrl"/>
+        <NamedIndividual IRI="#BrustdehnungAnDerWand"/>
+        <Literal>https://revia.mausnetz.com/video/Bruststreching_2.mp4</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasVideoUrl"/>
+        <NamedIndividual IRI="#SealStretch"/>
+        <Literal>https://revia.mausnetz.com/video/Kobra.mp4</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasVideoUrl"/>
+        <NamedIndividual IRI="#DiagonalesArmUndBeinhebenImVierfuesslerstand"/>
+        <Literal>https://revia.mausnetz.com/video/Vierfuessler.mp4</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasVideoUrl"/>
+        <NamedIndividual IRI="#ScapulaRetraktion"/>
+        <Literal>https://revia.mausnetz.com/video/back_externals.mp4</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasVideoUrl"/>
+        <NamedIndividual IRI="#SealStretch"/>
+        <Literal>https://revia.mausnetz.com/video/back_streches.mp4</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasVideoUrl"/>
+        <NamedIndividual IRI="#MonsterWalk"/>
+        <Literal>https://revia.mausnetz.com/video/banded_side_steps.mp4</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasVideoUrl"/>
+        <NamedIndividual IRI="#BrustwirbelsaeulenRotationImVierfuesslerstand"/>
+        <Literal>https://revia.mausnetz.com/video/butterfly.mp4</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasVideoUrl"/>
+        <NamedIndividual IRI="#Katze-Kuh-Übung"/>
+        <Literal>https://revia.mausnetz.com/video/cat_cow.mp4</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasVideoUrl"/>
+        <NamedIndividual IRI="#DeadBug"/>
+        <Literal>https://revia.mausnetz.com/video/deadbug.mp4</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasVideoUrl"/>
+        <NamedIndividual IRI="#TherabandAussenrotation"/>
+        <Literal>https://revia.mausnetz.com/video/externals.mp4</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasVideoUrl"/>
+        <NamedIndividual IRI="#Bruecke"/>
+        <Literal>https://revia.mausnetz.com/video/glute_bridge.mp4</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasVideoUrl"/>
+        <NamedIndividual IRI="#Z-Sits"/>
+        <Literal>https://revia.mausnetz.com/video/leg_streches.mp4</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasVideoUrl"/>
+        <NamedIndividual IRI="#FigureFourStretch"/>
+        <Literal>https://revia.mausnetz.com/video/leg_streches_2.mp4</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasVideoUrl"/>
+        <NamedIndividual IRI="#Plank"/>
+        <Literal>https://revia.mausnetz.com/video/plan_umgebung2.mp4</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasVideoUrl"/>
+        <NamedIndividual IRI="#PushUps"/>
+        <Literal>https://revia.mausnetz.com/video/pushups.mp4</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasVideoUrl"/>
+        <NamedIndividual IRI="#PushUps"/>
+        <Literal>https://revia.mausnetz.com/video/pushups_umgebung2.mp4</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasVideoUrl"/>
+        <NamedIndividual IRI="#WallPushUps"/>
+        <Literal>https://revia.mausnetz.com/video/wall_pushups.mp4</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
         <DataProperty IRI="#Calorie"/>
         <NamedIndividual IRI="#PlayingCatch"/>
         <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#decimal">178.0</Literal>
