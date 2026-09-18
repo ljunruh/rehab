@@ -28,6 +28,7 @@ SELECT
     ?duration
     ?instruction
     ?video
+    ?pic
     # Verpackt alle Values der Property in einem Value
     (GROUP_CONCAT(DISTINCT ?contraindicationLabel; separator=" | ") AS ?contraindications)
     (GROUP_CONCAT(DISTINCT ?trainingsEffectLabel; separator=" | ") AS ?trainingsEffects)
@@ -104,6 +105,7 @@ WHERE {
     OPTIONAL { ?exercise rehab:hasCorrectionGuidance ?correction }
     OPTIONAL { ?exercise rehab:hasCommonMistake ?mistake }
     OPTIONAL { ?exercise rehab:hasVideoUrl ?video }
+    OPTIONAL { ?exercise rehab:hasPicUrl ?pic }
 
     # Extrahiert den lokalen Namen der Difficulty-URI
     BIND(REPLACE(STR(?difficulty), "^.*[#/]", "") AS ?difficultyLabel)
@@ -115,6 +117,7 @@ WHERE {
     ?duration
     ?instruction
     ?video
+    ?pic
     ''';
 
     try {
@@ -195,6 +198,7 @@ SELECT
     ?duration
     ?instruction
     ?video
+    ?pic
     # Verpackt alle Values der Property in einem Value
     (GROUP_CONCAT(DISTINCT ?contraindicationLabel; separator=" | ") AS ?contraindications)
     (GROUP_CONCAT(DISTINCT ?trainingsEffectLabel; separator=" | ") AS ?trainingsEffects)
@@ -283,6 +287,7 @@ WHERE {
     OPTIONAL { ?exercise rehab:hasCorrectionGuidance ?correction }
     OPTIONAL { ?exercise rehab:hasCommonMistake ?mistake }
     OPTIONAL { ?exercise rehab:hasVideoUrl ?video }
+    OPTIONAL { ?exercise rehab:hasPicUrl ?pic }
 
     # Extrahiert den lokalen Namen der Difficulty-URI
     BIND(REPLACE(STR(?difficulty), "^.*[#/]", "") AS ?difficultyLabel)
@@ -294,6 +299,7 @@ WHERE {
     ?duration
     ?instruction
     ?video
+    ?pic
     ''';
 
     try {
