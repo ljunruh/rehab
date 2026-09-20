@@ -81,7 +81,8 @@ class Exercise {
       instructions: _splitTextByNumbers(json['instruction']?['value']),
       corrections: _toStringList(json['corrections']?['value']),
       mistakes: _toStringList(json['mistakes']?['value']),
-      video: json['video']?['value'] ?? _buildVideoUrl(json['exercise']?['value'])
+      video: _firstNonEmpty([json['video']?['value'], json['pic']?['value']]) ??
+          _buildVideoUrl(json['exercise']?['value'])
     );
     return exercise;
   }
@@ -101,6 +102,14 @@ class Exercise {
     }
     final slug = exerciseIri.split('#').last.toLowerCase();
     return '$_localVideoDir/$slug.mp4';
+  }
+
+  static String? _firstNonEmpty(List<dynamic> values) {
+    for (final value in values) {
+      final text = value?.toString().trim();
+      if (text != null && text.isNotEmpty) return text;
+    }
+    return null;
   }
 
   //TODO[API] Muss in ein CoreModel oder ModelService ausgelagert werden
