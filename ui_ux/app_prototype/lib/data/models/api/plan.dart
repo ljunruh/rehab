@@ -14,10 +14,14 @@ class Plan {
   final String id;
   final String name;
 
-  @enumerated
+  // Enums werden über ihren Namen gespeichert, nicht über den Index: So bleibt
+  // eine gespeicherte Region/ein Ziel auch dann korrekt, wenn die Reihenfolge
+  // im Enum später geändert wird (mit dem Standard `ordinal` würden sonst alle
+  // bereits gespeicherten Pläne auf falsche Werte zeigen).
+  @Enumerated(EnumType.name)
   final BodyPart region;
 
-  @enumerated
+  @Enumerated(EnumType.name)
   final List<Goal> goals;
 
   /// Ziele des Plans.

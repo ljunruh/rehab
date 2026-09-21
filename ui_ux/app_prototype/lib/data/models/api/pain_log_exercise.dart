@@ -7,7 +7,9 @@ part 'pain_log_exercise.g.dart';
 class PainLogExercise {
   Id id = Isar.autoIncrement;
 
-  @enumerated
+  // Nach Name gespeichert (nicht Index), damit eine Umsortierung des Enums
+  // keine gespeicherten Logs verfälscht – siehe Plan.region.
+  @Enumerated(EnumType.name)
   @Index()
   BodyPart region;
 

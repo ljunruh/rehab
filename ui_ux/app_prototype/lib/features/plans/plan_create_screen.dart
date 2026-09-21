@@ -23,15 +23,10 @@ class PlanCreateScreen extends StatefulWidget {
   /// Aufgerufen nach erfolgreichem Speichern (zurück zur Plan-Übersicht).
   final VoidCallback onSaved;
 
-  /// Optional vorausgewählte Region (z.B. aus einer Empfehlung).
-  // TODO: Rausnehmen. diese Property wird nirgend genutzt
-  final String? prefilledRegion;
-
   const PlanCreateScreen({
     super.key,
     required this.onBack,
     required this.onSaved,
-    this.prefilledRegion,
   });
 
   @override
@@ -58,14 +53,9 @@ class _PlanCreateScreenState extends State<PlanCreateScreen> {
   @override
   void initState() {
     super.initState();
-    // TODO: Kein Sinn. Endet immer im Else Block
-    _region = widget.prefilledRegion != null
-        ? BodyPart.values.firstWhere(
-            (e) =>
-        e.name == widget.prefilledRegion ||
-            e.label == widget.prefilledRegion,
-        orElse: () => BodyPart.arms)
-        : BodyPart.arms;
+    // Erste Hauptregion ist vorausgewählt; der Name folgt der Region und wird
+    // in `_onRegionChange` automatisch mitgezogen.
+    _region = BodyRegions.main.first;
     _nameCtrl = TextEditingController(text: '${_region.label}-Plan');
 
     // Farbe dynamisch basierend auf bereits vorhandenen Plänen wählen

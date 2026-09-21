@@ -551,12 +551,19 @@ class _SwipeablePlanCardState extends State<_SwipeablePlanCard> {
                           ),
                           const SizedBox(height: 2),
                         ],
-                        Text(widget.plan.region.label,
+                        // Titel ist der vom Nutzer vergebene Planname (wie auf
+                        // dem Home-Screen) – sonst hießen z. B. zwei Knie-Pläne
+                        // beide nur "Knie". Die Region steht in der Unterzeile.
+                        Text(widget.plan.name,
+                            maxLines: 1,
+                            overflow: TextOverflow.ellipsis,
                             style: AppText.cardTitle.copyWith(
                                 fontSize: 17, fontWeight: FontWeight.w700)),
                         const SizedBox(height: 2),
                         Text(
-                          '${widget.plan.exercises.length} Übungen · ca. ${widget.duration} Min',
+                          '${widget.plan.region.label} · ${widget.plan.exercises.length} Übungen · ca. ${widget.duration} Min',
+                          maxLines: 1,
+                          overflow: TextOverflow.ellipsis,
                           style: AppText.micro,
                         ),
                       ],
