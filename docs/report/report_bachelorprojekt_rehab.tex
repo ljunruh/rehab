@@ -6,10 +6,14 @@
 \usepackage[ngerman]{babel}
 \usepackage[utf8]{inputenc}
 \usepackage{csquotes}
+\usepackage{seqsplit}
+
+\emergencystretch=2em
 
 \usepackage[backend = biber, style=apa,]{biblatex}
 \addbibresource{./extra/literatur.bib}
-\setcounter{secnumdepth}{0} 
+\setcounter{secnumdepth}{3}
+\setcounter{tocdepth}{3}
 
 \begin{document}
 
@@ -22,6 +26,7 @@
 \pagenumbering{arabic}
 
 %Kapitel
+
 \include{kapitel/kapitel_1.tex}
 
 \include{kapitel/kapitel_2.tex}
@@ -34,3 +39,4 @@
 \printbibliography[heading=bibintoc]
 
 \end{document}
+
