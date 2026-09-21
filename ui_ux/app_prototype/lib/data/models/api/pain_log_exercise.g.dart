@@ -45,7 +45,7 @@ const PainLogExerciseSchema = CollectionSchema(
     r'region': PropertySchema(
       id: 5,
       name: r'region',
-      type: IsarType.byte,
+      type: IsarType.string,
       enumMap: _PainLogExerciseregionEnumValueMap,
     )
   },
@@ -63,8 +63,8 @@ const PainLogExerciseSchema = CollectionSchema(
       properties: [
         IndexPropertySchema(
           name: r'region',
-          type: IndexType.value,
-          caseSensitive: false,
+          type: IndexType.hash,
+          caseSensitive: true,
         )
       ],
     ),
@@ -148,6 +148,7 @@ int _painLogExerciseEstimateSize(
       bytesCount += 3 + value.length * 3;
     }
   }
+  bytesCount += 3 + object.region.name.length * 3;
   return bytesCount;
 }
 
@@ -162,7 +163,7 @@ void _painLogExerciseSerialize(
   writer.writeString(offsets[2], object.exerciseId);
   writer.writeLong(offsets[3], object.level);
   writer.writeString(offsets[4], object.planId);
-  writer.writeByte(offsets[5], object.region.index);
+  writer.writeString(offsets[5], object.region.name);
 }
 
 PainLogExercise _painLogExerciseDeserialize(
@@ -177,9 +178,9 @@ PainLogExercise _painLogExerciseDeserialize(
     exerciseId: reader.readStringOrNull(offsets[2]),
     level: reader.readLong(offsets[3]),
     planId: reader.readStringOrNull(offsets[4]),
-    region:
-        _PainLogExerciseregionValueEnumMap[reader.readByteOrNull(offsets[5])] ??
-            BodyPart.ankles,
+    region: _PainLogExerciseregionValueEnumMap[
+            reader.readStringOrNull(offsets[5])] ??
+        BodyPart.ankles,
   );
   object.id = id;
   return object;
@@ -204,7 +205,7 @@ P _painLogExerciseDeserializeProp<P>(
       return (reader.readStringOrNull(offset)) as P;
     case 5:
       return (_PainLogExerciseregionValueEnumMap[
-              reader.readByteOrNull(offset)] ??
+              reader.readStringOrNull(offset)] ??
           BodyPart.ankles) as P;
     default:
       throw IsarError('Unknown property with id $propertyId');
@@ -212,62 +213,62 @@ P _painLogExerciseDeserializeProp<P>(
 }
 
 const _PainLogExerciseregionEnumValueMap = {
-  'ankles': 0,
-  'arms': 1,
-  'back': 2,
-  'biceps': 3,
-  'calves': 4,
-  'chest': 5,
-  'core': 6,
-  'elbows': 7,
-  'glutes': 8,
-  'hamstrings': 9,
-  'hip': 10,
-  'knees': 11,
-  'legs': 12,
-  'lowerBack': 13,
-  'neck': 14,
-  'obliques': 15,
-  'pelvic': 16,
-  'psoas': 17,
-  'quadriceps': 18,
-  'shoulders': 19,
-  'spine': 20,
-  'thighs': 21,
-  'triceps': 22,
-  'upperBack': 23,
-  'wrists': 24,
-  'none': 25,
-  'bauch': 26,
+  r'ankles': r'ankles',
+  r'arms': r'arms',
+  r'back': r'back',
+  r'bauch': r'bauch',
+  r'biceps': r'biceps',
+  r'calves': r'calves',
+  r'chest': r'chest',
+  r'core': r'core',
+  r'elbows': r'elbows',
+  r'glutes': r'glutes',
+  r'hamstrings': r'hamstrings',
+  r'hip': r'hip',
+  r'knees': r'knees',
+  r'legs': r'legs',
+  r'lowerBack': r'lowerBack',
+  r'neck': r'neck',
+  r'obliques': r'obliques',
+  r'pelvic': r'pelvic',
+  r'psoas': r'psoas',
+  r'quadriceps': r'quadriceps',
+  r'shoulders': r'shoulders',
+  r'spine': r'spine',
+  r'thighs': r'thighs',
+  r'triceps': r'triceps',
+  r'upperBack': r'upperBack',
+  r'wrists': r'wrists',
+  r'none': r'none',
 };
 const _PainLogExerciseregionValueEnumMap = {
-  0: BodyPart.ankles,
-  1: BodyPart.arms,
-  2: BodyPart.back,
-  3: BodyPart.biceps,
-  4: BodyPart.calves,
-  5: BodyPart.chest,
-  6: BodyPart.core,
-  7: BodyPart.elbows,
-  8: BodyPart.glutes,
-  9: BodyPart.hamstrings,
-  10: BodyPart.hip,
-  11: BodyPart.knees,
-  12: BodyPart.legs,
-  13: BodyPart.lowerBack,
-  14: BodyPart.neck,
-  15: BodyPart.obliques,
-  16: BodyPart.pelvic,
-  17: BodyPart.psoas,
-  18: BodyPart.quadriceps,
-  19: BodyPart.shoulders,
-  20: BodyPart.spine,
-  21: BodyPart.thighs,
-  22: BodyPart.triceps,
-  23: BodyPart.upperBack,
-  24: BodyPart.wrists,
-  25: BodyPart.none,
-  26: BodyPart.bauch,
+  r'ankles': BodyPart.ankles,
+  r'arms': BodyPart.arms,
+  r'back': BodyPart.back,
+  r'bauch': BodyPart.bauch,
+  r'biceps': BodyPart.biceps,
+  r'calves': BodyPart.calves,
+  r'chest': BodyPart.chest,
+  r'core': BodyPart.core,
+  r'elbows': BodyPart.elbows,
+  r'glutes': BodyPart.glutes,
+  r'hamstrings': BodyPart.hamstrings,
+  r'hip': BodyPart.hip,
+  r'knees': BodyPart.knees,
+  r'legs': BodyPart.legs,
+  r'lowerBack': BodyPart.lowerBack,
+  r'neck': BodyPart.neck,
+  r'obliques': BodyPart.obliques,
+  r'pelvic': BodyPart.pelvic,
+  r'psoas': BodyPart.psoas,
+  r'quadriceps': BodyPart.quadriceps,
+  r'shoulders': BodyPart.shoulders,
+  r'spine': BodyPart.spine,
+  r'thighs': BodyPart.thighs,
+  r'triceps': BodyPart.triceps,
+  r'upperBack': BodyPart.upperBack,
+  r'wrists': BodyPart.wrists,
+  r'none': BodyPart.none,
 };
 
 Id _painLogExerciseGetId(PainLogExercise object) {
@@ -288,14 +289,6 @@ extension PainLogExerciseQueryWhereSort
   QueryBuilder<PainLogExercise, PainLogExercise, QAfterWhere> anyId() {
     return QueryBuilder.apply(this, (query) {
       return query.addWhereClause(const IdWhereClause.any());
-    });
-  }
-
-  QueryBuilder<PainLogExercise, PainLogExercise, QAfterWhere> anyRegion() {
-    return QueryBuilder.apply(this, (query) {
-      return query.addWhereClause(
-        const IndexWhereClause.any(indexName: r'region'),
-      );
     });
   }
 
@@ -420,54 +413,6 @@ extension PainLogExerciseQueryWhere
               includeUpper: false,
             ));
       }
-    });
-  }
-
-  QueryBuilder<PainLogExercise, PainLogExercise, QAfterWhereClause>
-      regionGreaterThan(
-    BodyPart region, {
-    bool include = false,
-  }) {
-    return QueryBuilder.apply(this, (query) {
-      return query.addWhereClause(IndexWhereClause.between(
-        indexName: r'region',
-        lower: [region],
-        includeLower: include,
-        upper: [],
-      ));
-    });
-  }
-
-  QueryBuilder<PainLogExercise, PainLogExercise, QAfterWhereClause>
-      regionLessThan(
-    BodyPart region, {
-    bool include = false,
-  }) {
-    return QueryBuilder.apply(this, (query) {
-      return query.addWhereClause(IndexWhereClause.between(
-        indexName: r'region',
-        lower: [],
-        upper: [region],
-        includeUpper: include,
-      ));
-    });
-  }
-
-  QueryBuilder<PainLogExercise, PainLogExercise, QAfterWhereClause>
-      regionBetween(
-    BodyPart lowerRegion,
-    BodyPart upperRegion, {
-    bool includeLower = true,
-    bool includeUpper = true,
-  }) {
-    return QueryBuilder.apply(this, (query) {
-      return query.addWhereClause(IndexWhereClause.between(
-        indexName: r'region',
-        lower: [lowerRegion],
-        includeLower: includeLower,
-        upper: [upperRegion],
-        includeUpper: includeUpper,
-      ));
     });
   }
 
@@ -1358,11 +1303,15 @@ extension PainLogExerciseQueryFilter
   }
 
   QueryBuilder<PainLogExercise, PainLogExercise, QAfterFilterCondition>
-      regionEqualTo(BodyPart value) {
+      regionEqualTo(
+    BodyPart value, {
+    bool caseSensitive = true,
+  }) {
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(FilterCondition.equalTo(
         property: r'region',
         value: value,
+        caseSensitive: caseSensitive,
       ));
     });
   }
@@ -1371,12 +1320,14 @@ extension PainLogExerciseQueryFilter
       regionGreaterThan(
     BodyPart value, {
     bool include = false,
+    bool caseSensitive = true,
   }) {
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(FilterCondition.greaterThan(
         include: include,
         property: r'region',
         value: value,
+        caseSensitive: caseSensitive,
       ));
     });
   }
@@ -1385,12 +1336,14 @@ extension PainLogExerciseQueryFilter
       regionLessThan(
     BodyPart value, {
     bool include = false,
+    bool caseSensitive = true,
   }) {
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(FilterCondition.lessThan(
         include: include,
         property: r'region',
         value: value,
+        caseSensitive: caseSensitive,
       ));
     });
   }
@@ -1401,6 +1354,7 @@ extension PainLogExerciseQueryFilter
     BodyPart upper, {
     bool includeLower = true,
     bool includeUpper = true,
+    bool caseSensitive = true,
   }) {
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(FilterCondition.between(
@@ -1409,6 +1363,77 @@ extension PainLogExerciseQueryFilter
         includeLower: includeLower,
         upper: upper,
         includeUpper: includeUpper,
+        caseSensitive: caseSensitive,
+      ));
+    });
+  }
+
+  QueryBuilder<PainLogExercise, PainLogExercise, QAfterFilterCondition>
+      regionStartsWith(
+    String value, {
+    bool caseSensitive = true,
+  }) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.startsWith(
+        property: r'region',
+        value: value,
+        caseSensitive: caseSensitive,
+      ));
+    });
+  }
+
+  QueryBuilder<PainLogExercise, PainLogExercise, QAfterFilterCondition>
+      regionEndsWith(
+    String value, {
+    bool caseSensitive = true,
+  }) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.endsWith(
+        property: r'region',
+        value: value,
+        caseSensitive: caseSensitive,
+      ));
+    });
+  }
+
+  QueryBuilder<PainLogExercise, PainLogExercise, QAfterFilterCondition>
+      regionContains(String value, {bool caseSensitive = true}) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.contains(
+        property: r'region',
+        value: value,
+        caseSensitive: caseSensitive,
+      ));
+    });
+  }
+
+  QueryBuilder<PainLogExercise, PainLogExercise, QAfterFilterCondition>
+      regionMatches(String pattern, {bool caseSensitive = true}) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.matches(
+        property: r'region',
+        wildcard: pattern,
+        caseSensitive: caseSensitive,
+      ));
+    });
+  }
+
+  QueryBuilder<PainLogExercise, PainLogExercise, QAfterFilterCondition>
+      regionIsEmpty() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.equalTo(
+        property: r'region',
+        value: '',
+      ));
+    });
+  }
+
+  QueryBuilder<PainLogExercise, PainLogExercise, QAfterFilterCondition>
+      regionIsNotEmpty() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.greaterThan(
+        property: r'region',
+        value: '',
       ));
     });
   }
@@ -1631,9 +1656,10 @@ extension PainLogExerciseQueryWhereDistinct
     });
   }
 
-  QueryBuilder<PainLogExercise, PainLogExercise, QDistinct> distinctByRegion() {
+  QueryBuilder<PainLogExercise, PainLogExercise, QDistinct> distinctByRegion(
+      {bool caseSensitive = true}) {
     return QueryBuilder.apply(this, (query) {
-      return query.addDistinctBy(r'region');
+      return query.addDistinctBy(r'region', caseSensitive: caseSensitive);
     });
   }
 }

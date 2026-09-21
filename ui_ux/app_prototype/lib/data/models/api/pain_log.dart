@@ -7,7 +7,9 @@ part 'pain_log.g.dart';
 class PainLog {
   Id id;
 
-  @enumerated
+  // Nach Name gespeichert (nicht Index), damit eine Umsortierung des Enums
+  // keine gespeicherten Logs verfälscht – siehe Plan.region.
+  @Enumerated(EnumType.name)
   @Index()
   BodyPart region;
   int level = 0;

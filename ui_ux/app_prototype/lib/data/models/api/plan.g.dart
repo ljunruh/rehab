@@ -46,7 +46,7 @@ const PlanSchema = CollectionSchema(
     r'goals': PropertySchema(
       id: 5,
       name: r'goals',
-      type: IsarType.byteList,
+      type: IsarType.stringList,
       enumMap: _PlangoalsEnumValueMap,
     ),
     r'id': PropertySchema(
@@ -62,7 +62,7 @@ const PlanSchema = CollectionSchema(
     r'region': PropertySchema(
       id: 8,
       name: r'region',
-      type: IsarType.byte,
+      type: IsarType.string,
       enumMap: _PlanregionEnumValueMap,
     ),
     r'sessionsPerWeek': PropertySchema(
@@ -118,9 +118,16 @@ int _planEstimateSize(
       bytesCount += ExerciseSchema.estimateSize(value, offsets, allOffsets);
     }
   }
-  bytesCount += 3 + object.goals.length;
+  bytesCount += 3 + object.goals.length * 3;
+  {
+    for (var i = 0; i < object.goals.length; i++) {
+      final value = object.goals[i];
+      bytesCount += value.name.length * 3;
+    }
+  }
   bytesCount += 3 + object.id.length * 3;
   bytesCount += 3 + object.name.length * 3;
+  bytesCount += 3 + object.region.name.length * 3;
   bytesCount += 3 + object.source.length * 3;
   return bytesCount;
 }
@@ -141,10 +148,10 @@ void _planSerialize(
     ExerciseSchema.serialize,
     object.exercises,
   );
-  writer.writeByteList(offsets[5], object.goals.map((e) => e.index).toList());
+  writer.writeStringList(offsets[5], object.goals.map((e) => e.name).toList());
   writer.writeString(offsets[6], object.id);
   writer.writeString(offsets[7], object.name);
-  writer.writeByte(offsets[8], object.region.index);
+  writer.writeString(offsets[8], object.region.name);
   writer.writeLong(offsets[9], object.sessionsPerWeek);
   writer.writeString(offsets[10], object.source);
 }
@@ -167,14 +174,14 @@ Plan _planDeserialize(
         ) ??
         const [],
     goals: reader
-            .readByteList(offsets[5])
+            .readStringList(offsets[5])
             ?.map((e) => _PlangoalsValueEnumMap[e] ?? Goal.balance)
             .toList() ??
         const [],
     id: reader.readString(offsets[6]),
     isarId: id,
     name: reader.readString(offsets[7]),
-    region: _PlanregionValueEnumMap[reader.readByteOrNull(offsets[8])] ??
+    region: _PlanregionValueEnumMap[reader.readStringOrNull(offsets[8])] ??
         BodyPart.ankles,
     sessionsPerWeek: reader.readLongOrNull(offsets[9]) ?? 3,
     source: reader.readStringOrNull(offsets[10]) ?? 'eigen',
@@ -207,7 +214,7 @@ P _planDeserializeProp<P>(
           const []) as P;
     case 5:
       return (reader
-              .readByteList(offset)
+              .readStringList(offset)
               ?.map((e) => _PlangoalsValueEnumMap[e] ?? Goal.balance)
               .toList() ??
           const []) as P;
@@ -216,7 +223,7 @@ P _planDeserializeProp<P>(
     case 7:
       return (reader.readString(offset)) as P;
     case 8:
-      return (_PlanregionValueEnumMap[reader.readByteOrNull(offset)] ??
+      return (_PlanregionValueEnumMap[reader.readStringOrNull(offset)] ??
           BodyPart.ankles) as P;
     case 9:
       return (reader.readLongOrNull(offset) ?? 3) as P;
@@ -228,86 +235,86 @@ P _planDeserializeProp<P>(
 }
 
 const _PlangoalsEnumValueMap = {
-  'balance': 0,
-  'coordination': 1,
-  'flexibility': 2,
-  'focus': 3,
-  'mobility': 4,
-  'posture': 5,
-  'relaxation': 6,
-  'stability': 7,
-  'strength': 8,
-  'none': 9,
+  r'balance': r'balance',
+  r'coordination': r'coordination',
+  r'flexibility': r'flexibility',
+  r'focus': r'focus',
+  r'mobility': r'mobility',
+  r'posture': r'posture',
+  r'relaxation': r'relaxation',
+  r'stability': r'stability',
+  r'strength': r'strength',
+  r'none': r'none',
 };
 const _PlangoalsValueEnumMap = {
-  0: Goal.balance,
-  1: Goal.coordination,
-  2: Goal.flexibility,
-  3: Goal.focus,
-  4: Goal.mobility,
-  5: Goal.posture,
-  6: Goal.relaxation,
-  7: Goal.stability,
-  8: Goal.strength,
-  9: Goal.none,
+  r'balance': Goal.balance,
+  r'coordination': Goal.coordination,
+  r'flexibility': Goal.flexibility,
+  r'focus': Goal.focus,
+  r'mobility': Goal.mobility,
+  r'posture': Goal.posture,
+  r'relaxation': Goal.relaxation,
+  r'stability': Goal.stability,
+  r'strength': Goal.strength,
+  r'none': Goal.none,
 };
 const _PlanregionEnumValueMap = {
-  'ankles': 0,
-  'arms': 1,
-  'back': 2,
-  'biceps': 3,
-  'calves': 4,
-  'chest': 5,
-  'core': 6,
-  'elbows': 7,
-  'glutes': 8,
-  'hamstrings': 9,
-  'hip': 10,
-  'knees': 11,
-  'legs': 12,
-  'lowerBack': 13,
-  'neck': 14,
-  'obliques': 15,
-  'pelvic': 16,
-  'psoas': 17,
-  'quadriceps': 18,
-  'shoulders': 19,
-  'spine': 20,
-  'thighs': 21,
-  'triceps': 22,
-  'upperBack': 23,
-  'wrists': 24,
-  'none': 25,
-  'bauch': 26,
+  r'ankles': r'ankles',
+  r'arms': r'arms',
+  r'back': r'back',
+  r'bauch': r'bauch',
+  r'biceps': r'biceps',
+  r'calves': r'calves',
+  r'chest': r'chest',
+  r'core': r'core',
+  r'elbows': r'elbows',
+  r'glutes': r'glutes',
+  r'hamstrings': r'hamstrings',
+  r'hip': r'hip',
+  r'knees': r'knees',
+  r'legs': r'legs',
+  r'lowerBack': r'lowerBack',
+  r'neck': r'neck',
+  r'obliques': r'obliques',
+  r'pelvic': r'pelvic',
+  r'psoas': r'psoas',
+  r'quadriceps': r'quadriceps',
+  r'shoulders': r'shoulders',
+  r'spine': r'spine',
+  r'thighs': r'thighs',
+  r'triceps': r'triceps',
+  r'upperBack': r'upperBack',
+  r'wrists': r'wrists',
+  r'none': r'none',
 };
 const _PlanregionValueEnumMap = {
-  0: BodyPart.ankles,
-  1: BodyPart.arms,
-  2: BodyPart.back,
-  3: BodyPart.biceps,
-  4: BodyPart.calves,
-  5: BodyPart.chest,
-  6: BodyPart.core,
-  7: BodyPart.elbows,
-  8: BodyPart.glutes,
-  9: BodyPart.hamstrings,
-  10: BodyPart.hip,
-  11: BodyPart.knees,
-  12: BodyPart.legs,
-  13: BodyPart.lowerBack,
-  14: BodyPart.neck,
-  15: BodyPart.obliques,
-  16: BodyPart.pelvic,
-  17: BodyPart.psoas,
-  18: BodyPart.quadriceps,
-  19: BodyPart.shoulders,
-  20: BodyPart.spine,
-  21: BodyPart.thighs,
-  22: BodyPart.triceps,
-  23: BodyPart.upperBack,
-  24: BodyPart.wrists,
-  25: BodyPart.none,
-  26: BodyPart.bauch,
+  r'ankles': BodyPart.ankles,
+  r'arms': BodyPart.arms,
+  r'back': BodyPart.back,
+  r'bauch': BodyPart.bauch,
+  r'biceps': BodyPart.biceps,
+  r'calves': BodyPart.calves,
+  r'chest': BodyPart.chest,
+  r'core': BodyPart.core,
+  r'elbows': BodyPart.elbows,
+  r'glutes': BodyPart.glutes,
+  r'hamstrings': BodyPart.hamstrings,
+  r'hip': BodyPart.hip,
+  r'knees': BodyPart.knees,
+  r'legs': BodyPart.legs,
+  r'lowerBack': BodyPart.lowerBack,
+  r'neck': BodyPart.neck,
+  r'obliques': BodyPart.obliques,
+  r'pelvic': BodyPart.pelvic,
+  r'psoas': BodyPart.psoas,
+  r'quadriceps': BodyPart.quadriceps,
+  r'shoulders': BodyPart.shoulders,
+  r'spine': BodyPart.spine,
+  r'thighs': BodyPart.thighs,
+  r'triceps': BodyPart.triceps,
+  r'upperBack': BodyPart.upperBack,
+  r'wrists': BodyPart.wrists,
+  r'none': BodyPart.none,
 };
 
 Id _planGetId(Plan object) {
@@ -746,11 +753,14 @@ extension PlanQueryFilter on QueryBuilder<Plan, Plan, QFilterCondition> {
   }
 
   QueryBuilder<Plan, Plan, QAfterFilterCondition> goalsElementEqualTo(
-      Goal value) {
+    Goal value, {
+    bool caseSensitive = true,
+  }) {
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(FilterCondition.equalTo(
         property: r'goals',
         value: value,
+        caseSensitive: caseSensitive,
       ));
     });
   }
@@ -758,12 +768,14 @@ extension PlanQueryFilter on QueryBuilder<Plan, Plan, QFilterCondition> {
   QueryBuilder<Plan, Plan, QAfterFilterCondition> goalsElementGreaterThan(
     Goal value, {
     bool include = false,
+    bool caseSensitive = true,
   }) {
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(FilterCondition.greaterThan(
         include: include,
         property: r'goals',
         value: value,
+        caseSensitive: caseSensitive,
       ));
     });
   }
@@ -771,12 +783,14 @@ extension PlanQueryFilter on QueryBuilder<Plan, Plan, QFilterCondition> {
   QueryBuilder<Plan, Plan, QAfterFilterCondition> goalsElementLessThan(
     Goal value, {
     bool include = false,
+    bool caseSensitive = true,
   }) {
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(FilterCondition.lessThan(
         include: include,
         property: r'goals',
         value: value,
+        caseSensitive: caseSensitive,
       ));
     });
   }
@@ -786,6 +800,7 @@ extension PlanQueryFilter on QueryBuilder<Plan, Plan, QFilterCondition> {
     Goal upper, {
     bool includeLower = true,
     bool includeUpper = true,
+    bool caseSensitive = true,
   }) {
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(FilterCondition.between(
@@ -794,6 +809,75 @@ extension PlanQueryFilter on QueryBuilder<Plan, Plan, QFilterCondition> {
         includeLower: includeLower,
         upper: upper,
         includeUpper: includeUpper,
+        caseSensitive: caseSensitive,
+      ));
+    });
+  }
+
+  QueryBuilder<Plan, Plan, QAfterFilterCondition> goalsElementStartsWith(
+    String value, {
+    bool caseSensitive = true,
+  }) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.startsWith(
+        property: r'goals',
+        value: value,
+        caseSensitive: caseSensitive,
+      ));
+    });
+  }
+
+  QueryBuilder<Plan, Plan, QAfterFilterCondition> goalsElementEndsWith(
+    String value, {
+    bool caseSensitive = true,
+  }) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.endsWith(
+        property: r'goals',
+        value: value,
+        caseSensitive: caseSensitive,
+      ));
+    });
+  }
+
+  QueryBuilder<Plan, Plan, QAfterFilterCondition> goalsElementContains(
+      String value,
+      {bool caseSensitive = true}) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.contains(
+        property: r'goals',
+        value: value,
+        caseSensitive: caseSensitive,
+      ));
+    });
+  }
+
+  QueryBuilder<Plan, Plan, QAfterFilterCondition> goalsElementMatches(
+      String pattern,
+      {bool caseSensitive = true}) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.matches(
+        property: r'goals',
+        wildcard: pattern,
+        caseSensitive: caseSensitive,
+      ));
+    });
+  }
+
+  QueryBuilder<Plan, Plan, QAfterFilterCondition> goalsElementIsEmpty() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.equalTo(
+        property: r'goals',
+        value: '',
+      ));
+    });
+  }
+
+  QueryBuilder<Plan, Plan, QAfterFilterCondition> goalsElementIsNotEmpty() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.greaterThan(
+        property: r'goals',
+        value: '',
       ));
     });
   }
@@ -1191,11 +1275,14 @@ extension PlanQueryFilter on QueryBuilder<Plan, Plan, QFilterCondition> {
   }
 
   QueryBuilder<Plan, Plan, QAfterFilterCondition> regionEqualTo(
-      BodyPart value) {
+    BodyPart value, {
+    bool caseSensitive = true,
+  }) {
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(FilterCondition.equalTo(
         property: r'region',
         value: value,
+        caseSensitive: caseSensitive,
       ));
     });
   }
@@ -1203,12 +1290,14 @@ extension PlanQueryFilter on QueryBuilder<Plan, Plan, QFilterCondition> {
   QueryBuilder<Plan, Plan, QAfterFilterCondition> regionGreaterThan(
     BodyPart value, {
     bool include = false,
+    bool caseSensitive = true,
   }) {
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(FilterCondition.greaterThan(
         include: include,
         property: r'region',
         value: value,
+        caseSensitive: caseSensitive,
       ));
     });
   }
@@ -1216,12 +1305,14 @@ extension PlanQueryFilter on QueryBuilder<Plan, Plan, QFilterCondition> {
   QueryBuilder<Plan, Plan, QAfterFilterCondition> regionLessThan(
     BodyPart value, {
     bool include = false,
+    bool caseSensitive = true,
   }) {
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(FilterCondition.lessThan(
         include: include,
         property: r'region',
         value: value,
+        caseSensitive: caseSensitive,
       ));
     });
   }
@@ -1231,6 +1322,7 @@ extension PlanQueryFilter on QueryBuilder<Plan, Plan, QFilterCondition> {
     BodyPart upper, {
     bool includeLower = true,
     bool includeUpper = true,
+    bool caseSensitive = true,
   }) {
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(FilterCondition.between(
@@ -1239,6 +1331,73 @@ extension PlanQueryFilter on QueryBuilder<Plan, Plan, QFilterCondition> {
         includeLower: includeLower,
         upper: upper,
         includeUpper: includeUpper,
+        caseSensitive: caseSensitive,
+      ));
+    });
+  }
+
+  QueryBuilder<Plan, Plan, QAfterFilterCondition> regionStartsWith(
+    String value, {
+    bool caseSensitive = true,
+  }) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.startsWith(
+        property: r'region',
+        value: value,
+        caseSensitive: caseSensitive,
+      ));
+    });
+  }
+
+  QueryBuilder<Plan, Plan, QAfterFilterCondition> regionEndsWith(
+    String value, {
+    bool caseSensitive = true,
+  }) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.endsWith(
+        property: r'region',
+        value: value,
+        caseSensitive: caseSensitive,
+      ));
+    });
+  }
+
+  QueryBuilder<Plan, Plan, QAfterFilterCondition> regionContains(String value,
+      {bool caseSensitive = true}) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.contains(
+        property: r'region',
+        value: value,
+        caseSensitive: caseSensitive,
+      ));
+    });
+  }
+
+  QueryBuilder<Plan, Plan, QAfterFilterCondition> regionMatches(String pattern,
+      {bool caseSensitive = true}) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.matches(
+        property: r'region',
+        wildcard: pattern,
+        caseSensitive: caseSensitive,
+      ));
+    });
+  }
+
+  QueryBuilder<Plan, Plan, QAfterFilterCondition> regionIsEmpty() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.equalTo(
+        property: r'region',
+        value: '',
+      ));
+    });
+  }
+
+  QueryBuilder<Plan, Plan, QAfterFilterCondition> regionIsNotEmpty() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.greaterThan(
+        property: r'region',
+        value: '',
       ));
     });
   }
@@ -1713,9 +1872,10 @@ extension PlanQueryWhereDistinct on QueryBuilder<Plan, Plan, QDistinct> {
     });
   }
 
-  QueryBuilder<Plan, Plan, QDistinct> distinctByRegion() {
+  QueryBuilder<Plan, Plan, QDistinct> distinctByRegion(
+      {bool caseSensitive = true}) {
     return QueryBuilder.apply(this, (query) {
-      return query.addDistinctBy(r'region');
+      return query.addDistinctBy(r'region', caseSensitive: caseSensitive);
     });
   }
 
