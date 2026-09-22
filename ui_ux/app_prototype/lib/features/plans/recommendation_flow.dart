@@ -32,6 +32,65 @@ class _RecommendationFlowState extends State<RecommendationFlow> {
   BodyPart? _region;
   Goal? _goal;
 
+  /// Aktuell aufgeklappte Hauptregion (Arme/Beine/Rücken), null = zu.
+  BodyPart? _openRegion;
+
+  void _chooseRegion(BodyPart r) => setState(() {
+    _region = r;
+    _step = 2;
+  });
+
+  /// Eine Hauptregion als Chip, bei aufklappbaren Regionen mit Pfeil und
+  /// darunter den Unterregionen.
+  Widget _regionRow(BodyPart main) {
+    final expandable = BodyRegions.isExpandable(main);
+    final open = _openRegion == main;
+    final subs = BodyRegions.subParts[main] ?? const <BodyPart>[];
+
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Row(
+          children: [
+            AppChip(
+              label: main.label,
+              active: _region == main,
+              onTap: () => _chooseRegion(main),
+            ),
+            if (expandable)
+              IconButton(
+                visualDensity: VisualDensity.compact,
+                icon: Icon(
+                  open ? Icons.expand_less : Icons.expand_more,
+                  size: 20,
+                  color: AppColors.textMuted,
+                ),
+                tooltip: open ? 'Bereiche ausblenden' : 'Bereiche anzeigen',
+                onPressed: () =>
+                    setState(() => _openRegion = open ? null : main),
+              ),
+          ],
+        ),
+        if (expandable && open)
+          Padding(
+            padding: const EdgeInsets.only(left: 16, bottom: AppSpacing.sm),
+            child: Wrap(
+              spacing: AppSpacing.sm,
+              runSpacing: AppSpacing.sm,
+              children: [
+                for (final s in subs)
+                  AppChip(
+                    label: s.label,
+                    active: _region == s,
+                    onTap: () => _chooseRegion(s),
+                  ),
+              ],
+            ),
+          ),
+      ],
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return ListView(
@@ -55,21 +114,10 @@ class _RecommendationFlowState extends State<RecommendationFlow> {
             style: AppText.screenTitle,
           ),
           const SizedBox(height: AppSpacing.lg),
-          Wrap(
-            spacing: AppSpacing.sm,
-            runSpacing: AppSpacing.sm,
-            children: [
-              for (final r in BodyPart.values.where((e) => e != BodyPart.none))
-                AppChip(
-                  label: r.label,
-                  active: _region == r,
-                  onTap: () => setState(() {
-                    _region = r;
-                    _step = 2;
-                  }),
-                ),
-            ],
-          ),
+          // Kompakte Hauptregionen wie bei der manuellen Plan-Erstellung:
+          // Arme/Beine/Rücken sind aufklappbar, damit man bei Bedarf gezielt
+          // eine Unterregion wählen kann.
+          for (final main in BodyRegions.main) _regionRow(main),
         ],
 
         if (_step == 2) ...[
