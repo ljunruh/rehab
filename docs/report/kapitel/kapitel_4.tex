@@ -197,13 +197,11 @@ den über \texttt{hasVideoUrl} verlinkten Übungsvideos. Für Übungen, für die
 
 \subsubsection{Übungseigenschaften}
 
-Unter den Übungseigenschaften sind
-die Trainingseffekte hinterlegt, also das, was eine Übung bewirkt:
-Beweglichkeit, Entspannung, Gleichgewicht, Konzentration, Koordination, Kraft,
-Körperhaltung, Mobilität und Stabilität. Jeder Übung ist mindestens einer
-dieser Effekte zugeordnet.
+Unter den Übungseigenschaften werden die Trainingseffekte abgebildet, die mit einer Übung erreicht werden sollen. Dazu gehören Beweglichkeit, Entspannung, Gleichgewicht, Konzentration, Koordination, Kraft, Körperhaltung, Mobilität und Stabilität.
 
+Die Zuordnung erfolgt über die Object Property \texttt{improves}. Dadurch kann eine Übung mit einem oder mehreren Trainingszielen verknüpft werden. Dies ermöglicht es der App, Übungen nicht nur anhand der betroffenen Körperregion, sondern auch nach dem gewünschten Trainingseffekt auszuwählen. So können beispielsweise gezielt Übungen zur Verbesserung der Mobilität, Stabilität oder des Gleichgewichts abgefragt werden.
 
+Die Übungseigenschaften bilden damit eine wichtige Grundlage für die personalisierte Planerstellung. Jede Übung ist mindestens einem dieser Effekte zugeordnet, sodass die Auswahl der Übungen mit den von den Nutzer:innen angegebenen Trainingszielen verbunden werden kann.
 \subsection{Mögliche Erweiterungen}
 
 Die größte Erweiterungsmöglichkeit
@@ -224,3 +222,8 @@ Erweiterungsmöglichkeiten.
 
 \subsection{Fazit}
 
+Im Rahmen des Projekts wurde die bestehende Wissensbasis um physiotherapeutisch relevante Inhalte erweitert und für die Nutzung in der ReVia-App strukturiert. Körperteile, Übungen, Übungseigenschaften, Kontraindikationen und Hinweise zur Schonung im Alltag können dadurch über definierte Properties miteinander verknüpft und gezielt abgefragt werden.
+
+Besonders wichtig für die Anwendung ist die Verbindung zwischen Nutzerangaben und den Eigenschaften der Übungen. Körperregion, Beschwerden, Trainingslevel und gewünschter Trainingseffekt können bei der Auswahl berücksichtigt werden. Die Ontologie bildet damit die Grundlage dafür, dass Trainingspläne nicht ausschließlich aus einer festen Übungsliste bestehen, sondern abhängig von den jeweiligen Anforderungen zusammengestellt werden können.
+
+Gleichzeitig bestehen noch Erweiterungsmöglichkeiten. Insbesondere die Modellierung von Patient:innen, Verletzungen und dem Rezept der Woche kann weiter ausgebaut und fachlich geprüft werden. Die vorhandene Struktur schafft jedoch eine Grundlage, auf der diese Bereiche in zukünftigen Iterationen ergänzt werden können.
