@@ -70,8 +70,8 @@ Muskelgruppen, auf die Übungen über \texttt{stretches} verweisen.
 \subsubsection{Patient}
 
 Diese Struktur ist als
-Ausganspunkt für eine vollständige Patientenmodellierung vorgesehen, ist aber noch
-nicht produktiv nutzbar. Sie besteht aktuell aus einer weiteren Unterklasse Trainingslevel, die den Fitnesszustand des Patienten modellieren sollte. Instanzen sind hierfür Anfänger, Fortgeschritten und Mittelstufe.
+Ausganspunkt für eine vollständige Patientenmodellierung vorgesehen, ist aber
+    nicht produktiv nutzbar, da Patientendaten, wie Schmerzlevel, Größe, oder Alter, nur lokal auf dem Gerät des Patienten gespeichert werden, um weiteren Datenschutzaspekten auszuweichen. Die Klasse Patient besteht aktuell aus einer weiteren Unterklasse Trainingslevel, die den Fitnesszustand des Patienten modellieren sollte. Instanzen sind hierfür Anfänger, Fortgeschritten und Mittelstufe.
 
 \subsubsection{Rezept der Woche}
 Die Funktion „Rezept der Woche“ innerhalb der Anwendung basiert wurde entwickelt, um Patient:innen regelmäßig und nachhaltig ein gesundes, Rezept im Wochenrhythmus zu bieten.
@@ -124,6 +124,10 @@ recherchiert, welche Verletzungen im physiotherapeutischen Kontext relevant
 sind. Das Ergebnis gliedert sich in fünf Gruppen: Rückenschmerzen,
 Knochenbrüche, Gelenkverletzungen, Muskelverletzungen und Sehnenverletzungen.
 
+Der ursprüngliche Plan war, dass man über angegebene Verletzungen über eine
+ ObjectProperty \texttt{rehabilitates} Übungen herausgefiltern kann und auch
+ bestimmte Übungen über \texttt{excludes}auf jeden Fall ausschließen kann.
+
 Bei den Rückenverletzungen war
 entscheidend, dass Wirbelsäulenschmerzen, Kreuzschmerzen und Schmerzen im
 oberen Rücken unterschiedlich behandelt werden müssen. Für die Wirbelsäule
@@ -145,7 +149,7 @@ wurden ebenfalls nach Körperregionen klassifiziert.
 Die detaillierte
 Verletzungsstruktur wird in der aktuellen Ontologie nicht verwendet. Die App
 bietet derzeit keine Möglichkeit, jede einzelne Erkrankung und Verletzung
-darzustellen, und der Pflegeaufwand wäre hoch. Der bereits angelegte Unterklasse
+darzustellen, und der Pflegeaufwand wäre sehr hoch. Die bereits angelegte Unterklasse
 bleibt aber als Grundlage für spätere Erweiterungen erhalten.
 
 
