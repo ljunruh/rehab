@@ -31620,11 +31620,6 @@
         <Literal>3 Min</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
-        <DataProperty IRI="#hasDuration"/>
-        <NamedIndividual IRI="#Atemuebung478"/>
-        <Literal>5 Min</Literal>
-    </DataPropertyAssertion>
-    <DataPropertyAssertion>
         <DataProperty IRI="#hasInstruction"/>
         <NamedIndividual IRI="#Atemuebung478"/>
         <Literal>1. Eine bequeme Sitz- oder Liegeposition einnehmen und die Schultern entspannen.
