@@ -70,11 +70,30 @@ Muskelgruppen, auf die Übungen über \texttt{stretches} verweisen.
 \subsubsection{Patient}
 
 Diese Struktur ist als
-Ausganspunkt für eine vollständige Patientenmodellierung vorgesehen, aber noch
-nicht produktiv nutzbar.
-
+Ausganspunkt für eine vollständige Patientenmodellierung vorgesehen, ist aber noch
+nicht produktiv nutzbar. Sie besteht aktuell aus einer weiteren Unterklasse Trainingslevel, die den Fitnesszustand des Patienten modellieren sollte. Instanzen sind hierfür Anfänger, Fortgeschritten und Mittelstufe.
 
 \subsubsection{Rezept der Woche}
+Die Funktion „Rezept der Woche“ innerhalb der Anwendung basiert wurde entwickelt, um Patient:innen regelmäßig und nachhaltig ein gesundes, Rezept im Wochenrhythmus zu bieten.
+Zentrale Daten-Eigenschaften der Ontologie sind \texttt{hasDescription}, \texttt{hasHealthBenefit} und \texttt{hasPreparationTime}. Diese Eigenschaften werden über die Label \textit{Rezept der Woche} der API-Gruppe abgerufen und ermöglichen eine präzise Darstellung und Verarbeitung der Rezeptinformationen.
+
+\begin{itemize}
+    \item \textbf{hasDescription}: Diese Eigenschaft beschreibt die Zubereitung des Rezepts in einer präzisen, leicht verständlichen Form. Sie umfasst die wichtigsten Schritte und Zutaten. Beispiel für das Rezept der Woche „Chia-Beeren-Pudding“:
+    \begin{quote}
+        \textit{3 EL Chiasamen mit 150 ml Mandelmilch verrühren und über Nacht im Kühlschrank quellen lassen. Vor dem Verzehr mit 50 g aufgetauten Tiefkühl-Beeren toppen.}
+    \end{quote}
+    
+    \item \textbf{hasHealthBenefit}: Diese Eigenschaft dokumentiert die gesundheitlichen Vorteile des Rezepts auf Basis der enthaltenen Zutaten. Sie dient der Aufklärung der Nutzer:innen über positive Effekte auf Ernährung und Wohlbefinden. Beispiel für den Chia-Beeren-Pudding:
+    \begin{quote}
+        \textit{Chiasamen sind hervorragende Lieferanten von Omega-3-Fettsäuren und Ballaststoffen. Die Antioxidantien der Beeren schützen die Zellen vor oxidativem Stress.}
+    \end{quote}
+    
+    \item \textbf{hasPreparationTime}: Diese Eigenschaft gibt die benötigte Zeit zur Zubereitung des Rezepts an, gemessen in Minuten. Sie hilft Nutzer:innen, ihre Zeitplanung zu optimieren. Beispiel: \textit{5 Minuten Vorbereitung}
+\end{itemize}
+
+Die konkreten Werte für die Daten-Eigenschaften werden wöchentlich von der API-Gruppe bereitgestellt und über das Label \textit{Rezept der Woche} abgerufen. Dadurch wird sichergestellt, dass das Rezept stets aktuell, vielfältig und auf die Bedürfnisse der Nutzer:innen abgestimmt ist.
+
+Die Struktur der Ontologie würde zudem eine einfache Erweiterung um weitere Eigenschaften wie \texttt{hasIngredients}, \texttt{hasCalories} oder \texttt{hasAllergens} ermöglichen, falls zukünftig erweiterte Filter- oder Personalisierungsfunktionen implementiert werden sollen.
 
 
 \subsubsection{Schonung im Alltag}
@@ -215,10 +234,8 @@ Die Klasse Patient ist bereits
 vorbereitet, aber noch nicht vollständig modelliert und sollte in einer
 nächsten Iteration ausgebauet werden.
 
-Jetzige Bestand für den Bereich Rezept
-der Woche reicht ungefähr für ein halbes Jahr, da liegt es auch
-Erweiterungsmöglichkeiten.
-
+Der jetzige Bestand für den Bereich Rezept
+der Woche reicht ungefähr für ein halbes Jahr. Wie bereits aufgeführt gibt es dort auch einfache Erweiterungsmöglichkeiten, wie \texttt{hasIngredients}, \texttt{hasCalories} oder \texttt{hasAllergens}.
 
 \subsection{Fazit}
 
