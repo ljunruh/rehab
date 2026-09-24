@@ -34947,7 +34947,7 @@ Langsam zur Mitte zurückkehren.
         <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#decimal">5</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
-        <DataProperty IRI="#hasHealthBenefit"/>
+        <DataProperty IRI="#hasInstruction"/>
         <NamedIndividual IRI="#Rezept_KurkumaLinsenSuppe"/>
         <Literal>100g rote Linsen mit 1 TL Kurkuma, 1 gehackten Möhre und 400ml Gemüsebrühe 15 Minuten köcheln lassen. Anschließend pürieren und mit Pfeffer abschmecken.</Literal>
     </DataPropertyAssertion>
