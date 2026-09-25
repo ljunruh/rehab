@@ -1,42 +1,70 @@
 \documentclass{article}
-\usepackage{graphicx} % Required for inserting images
-\usepackage{float}        
+
+\usepackage{graphicx}
+\usepackage{float}
 \usepackage{booktabs}
 \usepackage{microtype}
 \usepackage[ngerman]{babel}
 \usepackage[utf8]{inputenc}
 \usepackage{csquotes}
 \usepackage{seqsplit}
+\usepackage[hidelinks]{hyperref}
 
 \emergencystretch=2em
 
-\usepackage[backend = biber, style=apa,]{biblatex}
+\usepackage[
+    backend=biber,
+    style=apa
+]{biblatex}
+
 \addbibresource{./extra/literatur.bib}
+
 \setcounter{secnumdepth}{3}
 \setcounter{tocdepth}{3}
 
 \begin{document}
 
+% Titelseite
 \input{titlepage}
-\newpage
-\pagenumbering{Roman}
+\clearpage
+
+% Abstract
+\section*{Abstract}
+\addcontentsline{toc}{section}{Abstract}
+
+% Hier dein Abstract-Text
+
+\clearpage
+
+% Inhaltsverzeichnis
 \tableofcontents
-\newpage
+\clearpage
 
-\pagenumbering{arabic}
+% Abbildungsverzeichnis
+\phantomsection
+\addcontentsline{toc}{section}{Abbildungsverzeichnis}
+\listoffigures
+\clearpage
 
-%Kapitel
+% Tabellenverzeichnis
+\phantomsection
+\addcontentsline{toc}{section}{Tabellenverzeichnis}
+\listoftables
+\clearpage
 
-\include{kapitel/kapitel_1.tex}
 
-\include{kapitel/kapitel_2.tex}
+% Kapitel / Hauptteil
+\include{kapitel/kapitel_1}
+\include{kapitel/kapitel_2}
+\include{kapitel/kapitel_3}
+\include{kapitel/kapitel_4}
+\include{kapitel/kapitel_5}
+\include{kapitel/kapitel_6}
+\include{kapitel/kapitel_7}
 
-\include{kapitel/kapitel_3.tex}
 
-\include{kapitel/kapitel_4.tex}
-
-%Literaturverzeichnis
+% Literaturverzeichnis
+\clearpage
 \printbibliography[heading=bibintoc]
 
 \end{document}
-

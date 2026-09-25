@@ -1,0 +1,192 @@
+\section{Wissenbasis}
+\subsection{Ziel der Wissensmodellierung}
+
+Die in der Kapitel Nutzerstudie dargestelleten Ergebnisse der Patient:innen und
+Physiotherapeut:innen zeigen, dass die App die Trainingspläne empfehlen oder
+die Träinigspläne erstellen können, die zu ihren Beschwerden, Verletzungen und
+ihrem Trainingsstand passen. Dafür reicht eine feste Liste von Übungen nicht
+aus: Das System muss wissen, welche Körperregion eine Übung beansprucht, bei
+welchen Verletzungen, Diagnosen und Kontraindikationen sie ausgeschlossen
+werden muss und welchen Trainingseffekt sie hat. Diese Zusammenhänge werden in
+einer Ontologie abgebildet, die von der App über eine Schnittstelle abgefragt
+wird.
+
+Ziel der vorliegenden Arbeit war
+es, eine bestehende Ontologie um die physiotherapeutisch relevanten Teile zu
+erweitern und so zu strukturieren, dass Filterung und Planerstellung direkt aus
+der Wissensbasis heraus möglich sind.
+
+\subsection{Ausgangsbasis und eigene Erweiterungen}
+
+Aus der bestehenden Ontologie
+YogaKG wurde vor allem die Gliederung der Körperteile, die Übungskategorien Kardio und Yoga, ein Teil der Muskelgruppen aus der Asana-Beschreibung, die Klasse LimbAlignment mit rund 150 Individuen übernommen, die für einzelne Yoga-Asanas die korrekte Gliedmaßenausrichtung kodieren. Sie wird aktuell nicht für die App-Logik benötigt, bleibt aber als Grundlage für eine mögliche spätere Erweiterung erhalten.
+
+\subsection{Aufbau der Ontologie}
+
+Die Ontologie umfasst in der aktuellen Version 77 Klassen, 39 Objekt- und
+30 Daten-Properties sowie 846 benannte Individuen. Sie gliedert sich in die
+Hauptklassen Körperteil, Patient, Rezept der Woche, Schonung im Alltag,
+Sportaktivitäten, Verletzungen, Übungen und Übungseigenschaften. Die folgenden
+Abschnitte beschreiben die für die aktuelle App-Version relevanten Klassen im
+Detail.
+
+\subsubsection{Körperteil}
+
+Die Klasse Körperteil gliedert sich
+in die Unterklassen Gelenk, Glied und Muskel.
+
+Auf der Ebene der Glieder arbeitet
+die App mit den groben Regionen Arme, Beine, Rücken, Gesäß, Rumpf und Bauch. Diese
+lassen sich weiter unterteilen: die Arme in Schultern, Ellbogen und
+Handgelenke, die Beine in Knie, Oberschenkel, Waden und Sprunggelenke, der Rücken
+in oberen und unteren Rücken sowie der Rumpf in Brust und Hüfte.
+
+Die neun modellierten Gelenke
+dienen dazu, Verletzungen der Patient:innen zu erfassen. Über das Maskottchen
+in der Benutzeroberfläche lassen sich die betroffenen Gelenke auswählen: obere
+und untere Rückengelenke, Ellbogengelenk, Halswirbelsäule, Handgelenk,
+Hüftgelenk, Kniegelenk, Schultergelenk und Wirbelsäulengelenke. Ist ein Gelenk
+als verletzt markiert, schließt die Abfrage über die Object Property
+\texttt{engagedBodyPart} alle Übungen aus, die diese Region beanspruchen.
+
+Unterhalb des Maskottchens werden
+zusätzlich die Beschwerden erfasst, die in der Ontologie als zwölf
+Kontraindikationen hinterlegt sind: Probleme im oberen Rücken, Probleme im
+unteren Rücken, Atemwegsprobleme, Ellbogenprobleme, Handgelenkprobleme,
+Hüftprobleme, Knieschmerzen, Nackenprobleme, Rumpfmuskelschwäche,
+Schulterprobleme, Sprunggelenkprobleme und Wirbelsäulenprobleme. Liegt eine
+solche Beschwerde vor, entfallen die Kraft- und Koordinationsübungen über
+\texttt{hasContraindication}; empfohlen werden dann nur noch Entspannung-,
+Mobilisation- und Dehnungsübungen.
+
+Die Unterklasse Muskel enthält 19
+Muskelgruppen, auf die Übungen über \texttt{stretches} verweisen.
+
+\subsubsection{Patient}
+
+Diese Struktur ist als
+Ausganspunkt für eine vollständige Patientenmodellierung vorgesehen, aber noch
+nicht produktiv nutzbar.
+
+\subsubsection{Rezept der Woche}
+\subsubsection{Schonung im Alltag}
+
+Die Idee für diesen Bereich stammt
+aus den Experteninterviews und der Nutzerstudie. Die App gibt zusätzlich zum
+Trainingsplan Hinweise, wie die betroffene Körperregion im Alltag geschont
+werden kann. Wer beispielsweise einen Schulterplan erstellt oder empfohlen
+bekommt, erhält passende Tipps zur Schonung der Schulter.
+
+Die 84 hinterlegten Hinweise in der
+Unterklasse Schonungshinweise sind über die Unterklasse Schonungskategorie nach
+zwölf Alltagssituationen geordnet: am Arbeitsplatz, am Bildschirm, Aufstehen
+und Hinsetzen, Autofahren, Greifen und Überkopfarbeiten, Handy und Tablet,
+Laufen und Gehen, Schlafen, Sitzen, Tragen und Heben sowie Treppensteigen.
+
+Drei Properties sind für den Bereich zuständig. Über die Object Property \texttt{belongsToBodyPart} lässt sich die
+passende Körperregion abfragen, sodass die App gezielt die Hinweise zu dieser
+Region anzeigen kann. Die Object Property \texttt{hasDailyLifeCategory} ordnet
+jeden Hinweis einer Alltagskategorie zu. Die Data Property
+\texttt{hasDailyLifeAdvice} enthält den eigentlichen Hinweistext.
+
+\subsubsection{Verletzungen}
+
+Zu Beginn der Arbeit wurde
+recherchiert, welche Verletzungen im physiotherapeutischen Kontext relevant
+sind. Das Ergebnis gliedert sich in fünf Gruppen: Rückenschmerzen,
+Knochenbrüche, Gelenkverletzungen, Muskelverletzungen und Sehnenverletzungen.
+
+Bei den Rückenverletzungen war
+entscheidend, dass Wirbelsäulenschmerzen, Kreuzschmerzen und Schmerzen im
+oberen Rücken unterschiedlich behandelt werden müssen. Für die Wirbelsäule
+wurden deshalb drei Fälle unterschieden: Hals-, der Lenden- und der
+Brustwirbelsäulenschmerzen.
+
+Die Unterklasse Knochen umfasst
+auch Brüche. Diese wurden nach Körperregionen aufgenommen, einige typische
+Bruchfälle sind in der Ontologie hinterlegt. Die Gelenkverletzungen wurden
+entsprechend den Gelenkregionen sortiert.
+
+Muskel- und Sehnenverletzungen
+bilden die letzte Gruppen. Hier war die Unterscheidung wichtig, ob einzelne
+Übungen weiterhin ausgeführt werden dürfen oder vollständig entfallen müssen:
+Bei Muskelkater oder einer Zerrung sind Dehnübungen weiterhin möglich, bei
+einem Sehnenriss müssen sie streng ausgeschlossen werden. Die Muskelgruppen
+wurden ebenfalls nach Körperregionen klassifiziert.
+
+Die detaillierte
+Verletzungsstruktur wird in der aktuellen Ontologie nicht verwendet. Die App
+bietet derzeit keine Möglichkeit, jede einzelne Erkrankung und Verletzung
+darzustellen, und der Pflegeaufwand wäre hoch. Der bereits angelegte Unterklasse
+bleibt aber als Grundlage für spätere Erweiterungen erhalten.
+
+\subsubsection{Übungen}
+
+Aus der bestehenden Ontologie
+wurden die Kategorien Kardio und Yoga beibehalten. Auf Empfehlung von
+Physiotherapeut:innen kamen die Kategorien Dehnung,
+Entspannung, Koordination, Kraft und Mobilisation hinzu, die zusammen die
+gängigen Behandlungsansätze abdecken.
+
+Aktuell sind 160 Übungen
+hinterlegt, verteilt auf die Kategorien wie folgt: Kraft (35), Yoga/Asana (29),
+Koordination (28), Dehnung (25), Mobilisation (25), Entspannung (21) und
+Kardio (1). Eine Übung kann mehreren Kategorien angehören. Dies wird auch bei
+der Planerstellung genutzt. Enthält beispielweise ein Plan vier Übungen, von denen drei der
+Mobilisation zugeordnet sind, wird er als Schulter-Mobilisationsplan
+ausgewiesen.
+
+Die passenden Übungen wurden
+anschließend recherchiert, überwiegend auf den Webseiten physiotherapeutischer
+Praxen, um fachlich brauchbare Inhalte zu erhalten. Die sieben
+Übungen, die in der Umfrage von Physiotherapeut:innen genannt wurden, wurden ebenfalls
+aufgenommen.
+
+Dehnung, Entspannung und
+Mobilisation gelten als leichter als Kraft und Koordination und werden deshalb
+auch bei einer bestehenden Kontraindikation weiter empfohlen statt
+herausgefiltert.
+
+\subsubsection{Struktur einer Übung}
+
+Die Object Property \texttt{engagedBodyPart}
+verknüpft eine Übung mit den beanspruchten Körperteilen. Wichtig ist dabei die
+Zuordnung zu den Gelenken, da die App darüber abfragt, welche Übungen bei einer
+Gelenkverletzung entfallen. Übungen ohne Gelenkbezug werden nie ausgeschlossen.
+
+Die Object Property
+\texttt{hasContraindication} hält fest, bei welchen Beschwerden eine Übung nicht
+geeignet ist. Wählen Nutzer:innen eine solche Beschwerde aus,
+bleiben nur noch Dehnung, Entspannung und Mobilisation Übungen übrig.
+
+Über \texttt{hasDifficultyLevel} wird der
+Schwierigkeitsgrad abgebildet. Die App kennt die drei Trainingslevel Anfänger,
+Medium und Fortgeschritten, nach denen acuh die Übungen eingeteilt sind.
+Angezeigt werden Übungen bis zum Level der Nutzer:innen. Auf Anfängerniveau
+entfallen fortgeschrittene Übungen, auf fortgeschrittenem Niveau sind alle
+Übungen zulässig.
+
+Die Object Property
+\texttt{requiresEquipment} gibt an, welche Hilfsmittel eine Übung benötigt. Über
+\texttt{improves} wird auf die Übungszwecke verwiesen, die unter den
+Übungseigenschaften beschrieben sind. Damit lässt sich abfragen, wofür eine
+Übung nützlich ist, etwa zur Korrektur der Körperhaltung, zur Verbesserung der
+Mobilität oder zur Entwicklung des Gleichgewichts. Bei Dehnübungen kommt
+zusätzlich \texttt{stretches} zum Einsatz, um die Muskelgruppe anzugeben, die bei
+der Ausführung beansprucht wird.
+
+Ergänzt werden die Übungen durch
+mehrere Data Properties. \texttt{\seqsplit{hasCommonMistake}} benennt typische
+Ausführungsfehler, \texttt{hasCorrectionGuidance} gibt Hinweise zur richtigen
+Ausführung. Beide verfolgen das Ziel, die Übungen möglichst korrekt durchführen
+zu lassen. \texttt{hasDuration} gibt die ungefähre Dauer an.
+\texttt{hasInstruction} gibt Schritt-für-Schritt-Beschreibung als Ergänzung zu
+den über \texttt{hasVideoUrl} verlinkten Übungsvideos. Für Übungen, für die bislang keine geeigneten Videos zur Verfügung standen, wurden mithilfe von KI entsprechende Übungsbilder generiert. Diese Bilder wurden in der Ontologie über die Data Property \texttt{hasPicUrl} mit den jeweiligen Übungen verknüpft.
+
+\subsubsection{Übungseigenschaften}
+
+Unter den Übungseigenschaften sind
+die Trainingseffekte hinterlegt, also das, was eine Übung bewirkt:
+Beweglichkeit, Entspannung, Gleichgewicht, Konzentration, Koordination, Kraft,
+Körperhaltung, Mobilität und Stabilität. Jeder Übung ist mindestens einer
+dieser Effekte zugeordnet.
