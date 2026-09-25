@@ -1,34 +1,35 @@
-# Query für Fuseki Webanwendung
 PREFIX re: <http://www.w3.org/2000/10/swap/reason#>
 PREFIX owl: <http://www.w3.org/2002/07/owl#>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX rehab: <http://purl.org/PhysicalTherapy#>
 
-# Alle Daten die die App zur Weiterverarbeitung benötigt
-SELECT
-    ?exercise
-    ?exerciseLabel
-    ?description
-    ?difficultyLabel
-    ?duration
-    ?instruction
-    ?video
-    # Verpackt alle Values der Property in einem Value
+# 1. Selektiert gefilterte Übungen mit entsprechenden Eigenschaften für die Planerstellung und -empfehlung
+SELECT 
+    ?exercise 
+    ?exerciseLabel 
+    ?description 
+    ?difficultyLabel 
+    ?duration 
+    ?instruction 
+    ?video 
+    ?pic
+    # 1.1 Verpackt alle Values der Gruppe in einem Value String mit Trennzeichen
     (GROUP_CONCAT(DISTINCT ?contraindicationLabel; separator=" | ") AS ?contraindications)
     (GROUP_CONCAT(DISTINCT ?trainingsEffectLabel; separator=" | ") AS ?trainingsEffects)
     (GROUP_CONCAT(DISTINCT ?bodyPartLabel; separator=" | ") AS ?bodyParts)
     (GROUP_CONCAT(DISTINCT ?correction; separator=" | ") AS ?corrections)
     (GROUP_CONCAT(DISTINCT ?mistake; separator=" | ") AS ?mistakes)
-WHERE {
-    # Filterparameter (werden zur Laufzeit übergeben)
-    # Trainingslevel
+WHERE { 
+    # 2. Filterparameter (werden zur Laufzeit übergeben)
+    # 2.1 Trainingslevel
     VALUES ?difficulty {
         rehab:Beginner
         rehab:Intermediate
         rehab:Advanced
     }
-    # Gewünschte Trainingseffekte
+
+    # 2.2 Gewünschte Trainingseffekte
     VALUES ?trainingsEffect {
         rehab:Balance
         rehab:Coordination
@@ -40,36 +41,46 @@ WHERE {
         rehab:Stability
         rehab:Strength
     }
-    # Gewünschte Körperbereiche
+
+    # 2.3 Gewünschte Körperbereiche (Enthält nun BodyPart- UND Muscle-Instanzen)
     VALUES ?bodyPart {
-        rehab:Ankles rehab:Arms rehab:Back rehab:Biceps rehab:Calves rehab:Chest rehab:Core rehab:Elbows
-        rehab:Glutes rehab:Hamstrings rehab:Hip rehab:Knees rehab:Legs rehab:LowerBack rehab:Neck rehab:Obliques
-        rehab:Pelvic rehab:Psoas rehab:Quadriceps rehab:Shoulders rehab:Spine rehab:Thighs rehab:Triceps
-        rehab:UpperBack rehab:Wrists
+        # --- BodyPart Instanzen ---
+        rehab:Ankles rehab:Arms rehab:Back rehab:Bauch rehab:Calves rehab:Chest rehab:Core rehab:Elbows
+        rehab:Glutes rehab:Hip rehab:Knees rehab:Legs rehab:LowerBack rehab:Neck rehab:Pelvic
+        rehab:Shoulders rehab:Spine rehab:Thighs rehab:UpperBack rehab:Wrists
+        
+        # --- Muscle Instanzen ---
+        rehab:Abs rehab:Adductors rehab:Biceps rehab:ForearmFlexors rehab:FrontDeltoid
+        rehab:Hamstrings rehab:LateralDeltoids rehab:Lats rehab:Obliques rehab:Quadriceps
+        rehab:Quads rehab:RearDeltoids rehab:RotatorCuffs rehab:Shoulder rehab:Trapezius rehab:Triceps
     }
 
-    # Übungen müssen alle benötigten Object Properties besitzen
+    # 2.3.1 Exakte Typenprüfung: Nur direkte BodyPart- ODER Muscle-Instanzen zulassen
+    ?bodyPart a ?bodyPartType .
+    FILTER(?bodyPartType IN (rehab:BodyPart, rehab:Muscle))
+
+    # 3. Übungen müssen alle benötigten Object Properties besitzen
     ?exercise a/rdfs:subClassOf* rehab:Exercise ;
               rehab:hasDifficultyLevel ?difficulty ;
               rehab:hasContraindication ?contraindication ;
               rehab:improves ?trainingsEffect ;
               rehab:engagedBodyPart ?bodyPart .
+
     ?contraindication a rehab:Contraindication .
     ?trainingsEffect a rehab:TrainingsEffect .
-    ?bodyPart a rehab:BodyPart .
 
-    # 1. Entfernt Übungen, die mit betroffenen Gelenken (Joints) kollidieren
+    # 4. Entfernt Übungen, die mit betroffenen Gelenken (Joints) kollidieren
     FILTER NOT EXISTS {
         VALUES ?selectedJoints {
             # rehab:HipJoint
             # rehab:ShoulderJoint
         }
-    	# Stellt sicher, dass das ausgewählte Element ein Joint ist (Subclass von BodyPart)
+        # Stellt sicher, dass das ausgewählte Element ein Joint ist (Subclass von BodyPart)
         ?selectedJoints a/rdfs:subClassOf* rehab:Joint .
         ?exercise rehab:engagedBodyPart ?selectedJoints .
     }
-  
-    # 2. Entfernt Übungen mit angegebenen Contraindications,
+
+    # 5. Entfernt Übungen mit angegebenen Contraindications,
     # AUSSER die Übung stammt von den Klassen Mobilisation, Relaxation oder Stretching ab.
     FILTER NOT EXISTS {
         VALUES ?selectedContraindication {
@@ -90,41 +101,49 @@ WHERE {
         }
     }
 
-    # Übungen müssen diese Labels besitzen
+    # 6. Übungen müssen diese Labels und Eigenschaften besitzen
     ?contraindication rdfs:label ?contraindicationLabel .
     ?trainingsEffect rdfs:label ?trainingsEffectLabel .
     ?bodyPart rdfs:label ?bodyPartLabel .
     ?exercise rehab:hasInstruction ?instruction ;
               rehab:hasDuration ?duration ;
-              rdfs:label ?exerciseLabel ;
-              rdfs:comment ?description .
-  
-    # Labels sind mehrsprachig und werden auf die notwendige Sprache für die Datenverarbeitung beschränkt
+              rdfs:label ?exerciseLabel .
+
+    # 7. Beschreibung ermitteln: hasDescription bevorzugen, rdfs:comment als Fallback
+    OPTIONAL { ?exercise rehab:hasDescription ?hasDesc }
+    OPTIONAL {
+        ?exercise rdfs:comment ?rdfsComment .
+        FILTER(LANG(?rdfsComment) = "" || LANGMATCHES(LANG(?rdfsComment), "de"))
+    }
+    BIND(COALESCE(?hasDesc, ?rdfsComment) AS ?description)
+
+    # Wenn weder hasDescription noch rdfs:comment existiert -> Übung ausschließen
+    FILTER(BOUND(?description))
+
+    # 8. Labels sind mehrsprachig und werden auf die notwendige Sprache für die Datenverarbeitung beschränkt
     FILTER(
         LANGMATCHES(LANG(?contraindicationLabel), "en") &&
         LANGMATCHES(LANG(?trainingsEffectLabel), "en") &&
         LANGMATCHES(LANG(?bodyPartLabel), "en") &&
         LANGMATCHES(LANG(?exerciseLabel), "de") &&
-        LANGMATCHES(LANG(?description), "de")
+        (LANG(?description) = "" || LANGMATCHES(LANG(?description), "de"))
     )
 
-    # Optionale Zusatzinformationen
+    # 9. Optionale Zusatzinformationen
     OPTIONAL { ?exercise rehab:hasCorrectionGuidance ?correction }
     OPTIONAL { ?exercise rehab:hasCommonMistake ?mistake }
     OPTIONAL { ?exercise rehab:hasVideoUrl ?video }
+    OPTIONAL { ?exercise rehab:hasPicUrl ?pic }
 
-    # Extrahiert den lokalen Namen der Difficulty-URI
+    # 10. Extrahiert den lokalen Namen der Difficulty-URI
     BIND(REPLACE(STR(?difficulty), "^.*[#/]", "") AS ?difficultyLabel)
-} GROUP BY
-    ?exercise
-    ?exerciseLabel
-    ?description
-    ?difficultyLabel
-    ?contraindications
-    ?trainingsEffects
-    ?bodyParts
-    ?duration
-    ?instruction
-    ?corrections
-    ?mistakes
-    ?video
+} 
+GROUP BY 
+    ?exercise 
+    ?exerciseLabel 
+    ?description 
+    ?difficultyLabel 
+    ?duration 
+    ?instruction 
+    ?video 
+    ?pic

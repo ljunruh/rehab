@@ -75,12 +75,22 @@ Termux ist das zentrale Terminal auf dem Testgerät. Über Termux wird der Fusek
 
 ---
 
-## 3. PC App bauen und ausliefern (WIP)
+## 3. PC App bauen und ausliefern
 
 * **Voraussetzung:** USB-Kabelverbindung zum Testgerät steht.
-* **Ausliefern im Debug-Mode:**
+* **Ausliefern im Debug-Mode:** revia-debug
+  - App über PC-Verbindung debugbar
+  - Isar Inspector kann auf dem PC geöffnet werden und Daten zu manipulieren
+  - Isar Inspector URL wird in der App als footer in einem Widget angezeigt. URL ist kopierbar
   ```bash
   flutter run
+  ```
+
+* **Ausliefern im Prod-Mode:** revia
+  - Optimierte Performance und Sicherheit durch buildprozess der für Release-Versionen ausgerichtet ist
+  - Debuggen nicht möglich
+  ```bash
+  flutter run --release
   ```
 
 ## 4. Apache Fuseki Server
@@ -105,7 +115,7 @@ Server starten mit Kommando:
 ./fuseki-server --file=../ontologie/PhysicalTherapy.ttl /rehab
 ```
 
-Alternativ Bash-Skript nutzen unter dem home Verzeichnis ~ nutzen:
+<b>Alternativ</b> Bash-Skript unter dem home Verzeichnis ~ nutzen:
 ```bash
 ./host-revia-graph.sh
 ```
