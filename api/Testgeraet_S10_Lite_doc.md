@@ -85,6 +85,14 @@ Termux ist das zentrale Terminal auf dem Testgerät. Über Termux wird der Fusek
 
 ## 4. Apache Fuseki Server
 
+Kopieren des Knowledge-Graph auf das Testgerät:
+* **Voraussetzung:** USB-Kabelverbindung zum Testgerät steht und Terminalverbindung über SSH steht.
+* **Ausliefern des Knowledge-Graph:** Kommando muss auf dem PC ausgeführt werden.
+  ```bash
+  scp -P 8022 ./PhysicalTherapy.ttl u0_a245@localhost:~/ontologie/PhysicalTherapy.ttl
+  ```
+
+
 Starten mit Ontologie:
 
 In das Fuseki-Verzeichnis wechseln:
@@ -95,6 +103,11 @@ cd ~/fuseki
 Server starten mit Kommando:
 ```bash
 ./fuseki-server --file=../ontologie/PhysicalTherapy.ttl /rehab
+```
+
+Alternativ Bash-Skript nutzen unter dem home Verzeichnis ~ nutzen:
+```bash
+./host-revia-graph.sh
 ```
 
 Webanwendung aufrufen: Browser öffnen unter `http://localhost:3030`
