@@ -77,10 +77,24 @@ class _PainHistoryCarouselState extends State<PainHistoryCarousel> {
       );
     }
 
+    // Der Trend-Hinweis erscheint erst ab zwei Einträgen. Ohne ihn braucht die
+    // Karte spürbar weniger Platz – mit fester Höhe bliebe darunter eine große
+    // leere Fläche stehen. Alle Seiten des Karussells brauchen dieselbe Höhe,
+    // deshalb entscheidet hier, ob überhaupt eine Region einen Trend zeigt.
+    final zeigtTrend = regions.any((region) {
+      final info = _monthInfo(_monthOffsets[region] ?? 0);
+      final entries = painLogProvider.getLogsForRegionAndMonth(
+        region,
+        info.year,
+        info.month,
+      );
+      return painLogProvider.computeTrend(entries) != null;
+    });
+
     return Column(
       children: [
         SizedBox(
-          height: 388,
+          height: zeigtTrend ? 388 : 296,
           child: PageView.builder(
             controller: _controller,
             itemCount: regions.length,

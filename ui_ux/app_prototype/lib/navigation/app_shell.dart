@@ -339,7 +339,13 @@ class PhoneFrame extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     if (_isMobileDevice) {
-      return Scaffold(backgroundColor: AppColors.cream, body: child);
+      // SafeArea hält Statusleiste, Notch und Gestenleiste frei. Auf dem
+      // Desktop übernimmt das der Rahmen mit seinem Rand; ohne ihn lägen
+      // Zurück-Button und Bildschirmtitel sonst unter der Systemleiste.
+      return Scaffold(
+        backgroundColor: AppColors.cream,
+        body: SafeArea(child: child),
+      );
     }
 
     return Scaffold(
