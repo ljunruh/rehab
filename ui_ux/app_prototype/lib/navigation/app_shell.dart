@@ -1,6 +1,9 @@
+import 'dart:io' show Platform;
+
 import 'package:app_prototype/data/provider/user_provider.dart';
 import 'package:app_prototype/features/profile/setup/profile_setup_screen.dart';
 import 'package:app_prototype/navigation/debug_inspector_footer.dart';
+import 'package:flutter/foundation.dart' show kIsWeb;
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../core/theme/app_theme.dart';
@@ -223,8 +226,8 @@ class _AppShellState extends State<AppShell> {
       switch (_tab) {
         case AppTab.home:
           screen = HomeScreen(
-              onOpenProfile: _openProfile,
-              onStartTraining: (plan) => _startTraining(plan.id)
+            onOpenProfile: _openProfile,
+            onStartTraining: (plan) => _startTraining(plan.id),
           );
           break;
         case AppTab.plans:
@@ -289,11 +292,13 @@ class _AppShellState extends State<AppShell> {
                     Align(
                       alignment: Alignment.bottomCenter,
                       child: ConstrainedBox(
-                        constraints:
-                        BoxConstraints(maxHeight: cons.maxHeight * 0.94),
+                        constraints: BoxConstraints(
+                          maxHeight: cons.maxHeight * 0.94,
+                        ),
                         child: ClipRRect(
                           borderRadius: const BorderRadius.vertical(
-                              top: Radius.circular(28)),
+                            top: Radius.circular(28),
+                          ),
                           child: ColoredBox(
                             color: AppColors.cream,
                             child: ProfileEditSheet(
@@ -315,13 +320,28 @@ class _AppShellState extends State<AppShell> {
 
 /// Handy-Rahmen der Demo-Ansicht. Public, damit auch das Intro (vor dem
 /// AppShell) im selben Rahmen läuft und nicht im Vollbild erscheint.
+///
+/// Der Rahmen ist nur eine Hilfe für die Desktop- und Web-Vorschau: Dort wird
+/// die App in einem großen Fenster gezeigt und soll trotzdem wie auf einem
+/// Handy wirken. Auf einem echten Handy oder Tablet wäre er ein doppelter
+/// Rahmen im Display und wird deshalb weggelassen.
 class PhoneFrame extends StatelessWidget {
   final Widget child;
 
   const PhoneFrame({super.key, required this.child});
 
+  /// Echte Mobilgeräte: kein simulierter Rahmen.
+  static bool get _isMobileDevice {
+    if (kIsWeb) return false;
+    return Platform.isAndroid || Platform.isIOS;
+  }
+
   @override
   Widget build(BuildContext context) {
+    if (_isMobileDevice) {
+      return Scaffold(backgroundColor: AppColors.cream, body: child);
+    }
+
     return Scaffold(
       backgroundColor: AppColors.beige,
       body: Center(
