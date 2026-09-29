@@ -1,2 +1,127 @@
-\section{UI Design}
+\section{Verwandte Arbeiten und Nutzerstudie}
+\subsection{Verwandte Arbeiten - Fokus auf den Menschen}
+
+In den betrachteten Arbeiten wird deutlich, dass digitale Anwendungen primär als Ergänzung zur klassischen Physiotherapie eingesetzt werden können. Die Studien zeigen jedoch deutlich, dass persönliche Betreuung nicht vollständig durch eine App ersetzt werden kann.
+
+Keel et al. weisen etwa darauf hin, dass der Erfolg digitaler Anwendungen nicht allein von ihren technischen Funktionen abhängt, sondern vielmehr davon, wie gut sich diese in bestehende Arbeitsabläufe integrieren lassen und inwieweit sie von Patient:innen und Fachpersonal akzeptiert werden. Einige der betrachteten Studien zeigen zudem, dass vergleichbare oder bessere Ergebnisse bei telerehabilitativen Angeboten erzielt werden konnten als bei ausschließlich selbstständig durchgeführten Übungsprogrammen. Als hilfreich werden hier insbesondere strukturierte Programme, visuelle Übungsanleitungen und Feedbackmöglichkeiten genannt.
+
+Die Literatur zeigt gleichzeitig, dass eine rein app-basierte Betreuung nicht zwangsläufig zu einer besseren Therapietreue führt. Die persönliche Betreuung sollte deshalb weiterhin ein zentraler Bestandteil der Therapie darstellen. Im Kontext unseres Projektes lässt sich hieraus ableiten, dass die App nicht als Ersatz für die Therapie konzipiert werden sollte, sondern vielmehr als unterstützendes Angebot zwischen den einzelnen Behandlungsterminen.
+
+Ein weiterer vielfach genannter Aspekt, welcher im Rahmen der Literaturrecherche genannt wurde, war die Motivation der Nutzenden. Studien zu bereits vorhandenen Rehabilitations-Apps zeigen, dass interaktive Programme, visuelle Darstellungen, Gamification-Elemente und eine Anbindung an den Therapeuten dazu beitragen können, regelmäßige Übungsroutinen zu etablieren. Zudem zeigte sich, dass für die Nutzer:innen neben einer einfachen Bedienbarkeit insbesondere die Vertrauenswürdigkeit und Professionalität der App von zentraler Bedeutung sind.
+
+\subsection{Verwandte Arbeiten - Vergleich bestehender Reha-Apps}
+
+Im Rahmen der Analyse wurden vier bestehende Reha-Apps miteinander verglichen. Es wurden die Apps ``RehaGoal'', ``Kaia Health'', ``MyReha'' sowie ``PhysiApp'' ausgewählt, weil diese unterschiedliche Ansätze verfolgen.
+
+Bei dem Vergleich kristallisierten sich drei unterschiedliche Ansätze heraus. ``RehaGoal'' arbeitet mit schrittweise aufgebauten Abläufen, bei denen komplexere Aufgaben in einzelne Schritte aufgeteilt werden. Dadurch sind die Abläufe leicht nachvollziehbar, gleichzeitig ist die individuelle Anpassung jedoch nur eingeschränkt möglich.
+
+``Kaia Health'' und ``MyReha'' setzen stärker auf personalisierte, KI-gestützte Ansätze. Dabei werden Nutzungs-, Fortschritts- und Leistungsdaten verwendet, um Therapieinhalte individuell und fortlaufend an die Nutzenden anzupassen. Dies ermöglicht einen hohen Grad an Individualisierung. Dies ermöglicht zwar eine hohe Individualisierung, jedoch ist die zugrunde liegende Entscheidungslogik solcher daten- und KI-gestützten Systeme für Nutzende sowie für das Fachpersonal häufig nicht nachvollziehbar.
+
+``PhysiApp'' steht für extern gesteuerte Therapiesysteme, bei denen die Personalisierung nicht durch die App selbst, sondern durch die Therapeut:innen erfolgt. Diese erstellen individuelle Pläne. Der Vorteil liegt hier in der fachlichen Absicherung der Inhalte, da das Therapiesystem manuell von den Therapeut:innen personalisiert werden kann. Dies ist gleichzeitig eine Schwäche von ``PhysiApp'', weil letztlich eigenständige sowie dynamische Anpassung von Seite des Systems fehlen.
+
+Der Vergleich zeigte, dass viele bestehende Anwendungen im Reha-Bereich nach wie vor auf überwiegend statischen Inhalten basieren und nur begrenzte Anpassungsmöglichkeiten bieten. Aus dem Vergleich der fünf verschiedenen Reha-Apps ergeben sich fünf Anforderungen für die eigene App:
+
+\begin{itemize}
+    \item Übungen sollen nur vorgeschlagen werden, wenn sie zu den individuellen Einschränkungen der Person passen. So sollte einem Nutzer mit Knieproblemen und wenig Erfahrung keine stark belastenden Knieübungen vorgeschlagen werden. Für das eigene System ist daher der Einsatz von Nutzerprofilen in Verbindung mit einer Wissensmodellierung (Knowledge Graph) sinnvoll.
+
+    \item Übungen sollten nicht als knappe Anweisung, sondern als klar strukturierte Abfolge einzelner und verständlicher Teilschritte in einfacher Sprache vermittelt werden.
+
+    \item Für Übungen muss festgelegt sein, bei welchen Beschwerden oder Einschränkungen sie nicht empfohlen werden dürfen.
+
+    \item Die wichtigsten Funktionen sollen ohne lange Navigation erreichbar sein. Beim Öffnen der App sollten zentrale Informationen, etwa eine täglich wechselnde empfohlene Übung, die Dauer, der Schwierigkeitsgrad, etwaige Warnhinweise und ein Start-Button unmittelbar sichtbar sein. Hierbei sollte möglichst wenig Text und ein minimaler Interaktionsaufwand fokussiert werden.
+
+    \item Die App soll Empfehlungen nicht nur aus einer festen Übungsliste auswählen, sondern Informationen aus dem Knowledge Graphen berücksichtigen.
+\end{itemize}
+
+Damit ergänzt diese anwendungsbezogene Analyse die Literaturrecherche in dem Bereich ``Mensch'' um konkrete, aus bereits existierenden Apps abgeleitete Gestaltungsprinzipien, die unmittelbar in die eigene Konzeption eingeflossen sind.
+
+\subsection{Ziel und Methodik der Nutzerstudie}
+
+Auf Grundlage dieser Erkenntnisse wurde anschließend eine eigene Befragung erstellt. Mit der Befragung sollte überprüft werden, welche Funktionen für die geplante App tatsächlich benötigt werden, welche davon im Alltag realistisch umsetzbar sind und welche Schwierigkeiten sowohl aus Sicht der Patient:innen als auch aus Sicht der Physiotherapeut:innen bestehen.
+
+Die Befragung wurde in Zusammenarbeit mit der Praxis BG Ambulanz in Bremen durchgeführt. Insgesamt nahmen 40 Patient:innen sowie vier Physiotherapeut:innen schriftlich teil. Ergänzend wurde ein qualitatives Interview mit einer Physiotherapeutin durchgeführt, deren Ergebnisse in Kapitel 5 gesondert dargestellt werden.
+
+Der Patientenfragebogen befasste sich unter anderem mit dem Umgang mit Smartphone-Apps, der selbstständigen Durchführung von Übungen zu Hause, Erinnerungsfunktionen, Fortschrittsanzeigen, der Dokumentation von Schmerzen, Alltagstipps sowie personalisierten Übungsvorschlägen. Zusätzlich wurde erhoben, ob Bilder oder Videos zur Erklärung von Übungen bevorzugt werden.
+
+Der Fragebogen für die Physiotherapeut:innen fokussierte primär auf fachliche Themen. Diese sind beispielsweise die sichere Durchführung von Heimübungen, Kontraindikationen, der Umgang mit Schmerzen, die Steigerung der Trainingsintensität, die Komplexität von Übungen, Motivation, Fortschrittsdokumentation sowie Kommunikationsmöglichkeiten.
+
+\subsection{Experteninterview}
+
+Im Rahmen der User-Study wurde ein Interview mit der Physiotherapeutin Frau Etta-Verena Wolters durchgeführt. Durch die Kombination qualitativer und quantitativer Methoden, auch als Mixed-Methods-Ansatz bezeichnet, sollten die Ergebnisse der Fragebögen um praktische Erfahrungen aus dem Therapiealltag ergänzt und die Interpretation der erhobenen Daten unterstützt werden.
+
+Frau Wolters schilderte die Ausgangsproblematik vieler Patient:innen, dass häufig die konsistente Durchführung der Übungen zwischen zwei Terminen nicht gelingt. Häufig hätten Patient:innen bis zum Folgetermin vergessen, wie eine Übung korrekt auszuführen ist, und führten sie dadurch fehlerhaft aus.
+
+Aus ihrer Erfahrung liegt die eigentliche Herausforderung dabei weniger im fehlenden Wissen als in mangelnder Eigenverantwortung und Motivation der Patient:innen. Hier konnte geschlussfolgert werden, dass der Aspekt Motivation einen zentralen Punkt für weitere App-Entwicklung einnehmen musste.
+
+Zu Übungen und Hilfsmitteln empfiehlt Wolters ausdrücklich, auch Übungen mit zusätzlichen Hilfsmitteln in die App zu integrieren, da diese in der Praxis häufig verschrieben werden. Zur Einstufung der Komplexität einer Übung schlägt sie eine Unterscheidung zwischen aktiven Übungen und aktiven Übungen mit Widerstand beziehungsweise Zusatzgewicht vor, ergänzt um die jeweilige Ausgangsstellung (Rückenlage, Seitlage, Sitzen, Stand).
+
+Darüber hinaus sollte der Schwierigkeitsgrad der Übungen von leicht bis schwierig gestaffelt sein, wobei auch das Alter der Nutzenden bei der Einstufung berücksichtigt werden kann. Als hilfreiche Ergänzung nennt sie zudem die Möglichkeit, während eines Termins aufgenommene individuelle Übungsvideos in die App hochzuladen, damit Patient:innen bei der eigenständigen Durchführung darauf zurückgreifen können.
+
+In Bezug auf alltagsnahe Tipps verweist Frau Wolters auf den praktischen Nutzen personalisierter Empfehlungen zu Ergonomie und alltäglichen Bewegungsabläufen, etwa zum richtigen Sitzen am Arbeitsplatz, zum Heben und Tragen von Lasten im Alltag oder zu einer ergonomischen Sitzhaltung beim Autofahren.
+
+Eine eigenständige Steigerung der Übungsintensität hält sie dann für vertretbar, wenn Patient:innen merken, dass eine zu Beginn anspruchsvolle Übung deutlich leichter fällt. In diesem Fall könne etwa ein zusätzliches Gewicht eingesetzt werden.
+
+Im Kontext der Patientendaten benennt Frau Wolters mehrere Angaben, welche für die therapeutische Einschätzung relevant sind. Darunter fallen die Angaben zu Haupt- und Nebenbeschwerden, schmerzauslösenden Bewegungen, die Unterscheidung zwischen chronischen und akuten Beschwerden, Medikamenteneinnahme, Grunderkrankungen sowie frühere Operationen.
+
+Zwischen den Terminen könnten über die App ergänzend das subjektive Befinden, etwa zwei Tage nach einem Termin, sowie der Schmerzverlauf anhand einer Schmerzskala dokumentiert werden.
+
+Hinsichtlich automatischer Übungsempfehlungen verweist Wolters auf Limitationen. Eine Planerstellung ausschließlich unter Aufsicht einer Physiotherapeutin oder eines Physiotherapeuten hält sie bei frisch operierten Patient:innen für erforderlich.
+
+Hier sei zudem auch zwischen Voll- und Teilbelastung, frischen Verletzungen, bestimmten Erkrankungen wie etwa Osteoporose sowie generell dann, wenn eine Übung zu komplex ist, zu unterscheiden. Nach ihrer Einschätzung sollte eine solche Übung im Zweifel eher weggelassen werden, bevor sie falsch ausgeführt wird.
+
+Automatisiert vorschlagen lassen sich dagegen leicht durchführbare Standardübungen, bei denen aus ihrer Sicht kaum Ausführungsfehler zu erwarten sind. Für die Strukturierung der Übungspläne schlägt sie eine Einteilung in Rubriken wie Kraft, Entspannung, Mobilisation, Koordination beziehungsweise Beweglichkeit, Faszientraining und Dehnung vor.
+
+In Bezug auf die Schmerzerfassung und das Feedback empfiehlt Wolters eine tägliche Schmerzabfrage auf einer Skala von eins bis zehn direkt auf dem Startbildschirm, verbunden mit einer Erinnerungsfunktion sowie einer monatlichen grafischen Darstellung des Schmerzverlaufs, um Fortschritte zu visualisieren und zugleich die Nutzer:innen zu motivieren.
+
+Ergänzend hält sie ein optionales Anmerkungsfeld nach jedem Workout für sinnvoll, über das Patient:innen vermerken können, wenn eine bestimmte Übung besonders schwierig für sie gewesen ist oder Schmerzen verursacht hat. Bei stärkeren Schmerzen könnte die App empfehlen, die betreffende Übung zunächst auszulassen und beim nächsten Termin ärztlich beziehungsweise therapeutisch abklären zu lassen.
+
+Frau Wolters befürwortet hinsichtlich des Integrationsgrades der Therapeut:innen, den Trainingsplan gemeinsam mit den Patient:innen im Rahmen eines Termins direkt in der App zusammenzustellen. Einer direkten, fortlaufenden Einbindung der Fachperson zwischen den Terminen, beispielsweise über Chat oder Videocall, steht sie dagegen kritisch gegenüber, da Physiotherapeut:innen dafür in der Praxis die nötige Zeit fehlt und sich zudem Patient:innen dadurch beobachtet fühlen könnten.
+
+Selbstständiges sowie eigenverantwortliches Handeln der Patient:innen bleibe letztlich der entscheidende Schlüssel zum Erfolg.
+
+Motivation stellt ebenfalls einen wichtigen Aspekt für den Therapieerfolg dar. Frau Wolters nennt hierzu folgende Ideen: Streaks, Erinnerungen beziehungsweise Notifications, einen begleitenden Avatar nach dem Vorbild bekannter Lern-Apps sowie Belohnungen für hohe Streaks, etwa in Form von Sachpreisen, digitalen Auszeichnungen oder kleinen Gesundheitsimpulsen.
+
+Ergänzend nennt sie kurze, motivierend aufbereitete Informationshäppchen, etwa Hinweise auf die Erfolgswahrscheinlichkeit bei regelmäßigem Training. Alltagstipps zu Ergonomie, Stand und Sitzen sollten ihrer Ansicht nach nicht nur einzeln, sondern auch als eigener, kompakter Alltagsplan angeboten werden, etwa eine kurze aktive Pause im Büro oder ein entsprechender Übungsablauf für das Badezimmer, um die Übungen stärker im Alltag zu verankern.
+
+Ergänzend regt sie außerdem die Einführung eines täglich wechselnden ``Tipp des Tages'' auf dem Startbildschirm an, der sich mit den Informationshäppchen abwechselt und auch Ernährungs- sowie Selbstkontrolltipps umfassen könnte.
+
+Insgesamt wurde im Interview besonders deutlich, dass fehlendes Wissen und vergessene Ausführungsdetails zwar eine relevante Ursache für Schwierigkeiten zwischen den Terminen darstellen, die größere Herausforderung jedoch in der mangelnden Motivation und Eigenverantwortung der Patient:innen liegt. Die App sollte diesem Umstand durch einen klaren motivationalen Schwerpunkt Rechnung tragen.
+
+\subsection{Ergebnisse der Befragung}
+
+In den Antworten der Physiotherapeut:innen tauchten mehrere Themen wiederholt auf, von denen viele bereits im Experteninterview angesprochen wurden. Videoanleitungen wurden besonders häufig als sinnvoll genannt. Die Befragten hielten Videos für besonders geeignet, um Übungen verständlich darzustellen und Ausführungsfehler zu reduzieren. Übungsbeschreibungen sollten dabei einfach aufgebaut sein und möglichst auf komplizierte Fachbegriffe verzichten.
+
+Ein weiteres häufig genanntes Thema war der Umgang mit Schmerzen. Mehrere Befragte schlugen den Einsatz etablierter Schmerzskalen wie VAS oder NRS vor, mit denen Patient:innen ihre Beschwerden selbst dokumentieren und deren Verlauf nachvollziehen können.
+
+Gleichzeitig zeigten die Antworten, dass die App Schmerzen nicht selbst medizinisch beurteilen sollte. Entsprechende Angaben müssen von den Nutzenden selbst erfolgen, und bei stärkeren oder anhaltenden Beschwerden ist eine ärztliche oder therapeutische Einschätzung erforderlich.
+
+Auch die Auswahl der Übungen sollte nicht unabhängig vom individuellen Gesundheitszustand erfolgen. Als mögliche Ausschlusskriterien wurden unter anderem Prothesen, Herzinsuffizienz, Thrombosen sowie individuelle Vorgaben aus einem Reha-Plan genannt. Für die App bedeutet dies, Übungen mit Kontraindikationen und betroffenen Körperregionen zu verknüpfen.
+
+Auch bei der Einstufung der Übungen kristallisierten sich ähnliche Antworten heraus, wie Frau Wolters bereits im Interview gegeben hatte. Mehrere Therapeut:innen unterschieden zwischen Bewegungs-, Belastungs- und Trainingsstabilität beziehungsweise zwischen Übungen mit und ohne zusätzliche Belastung oder Hilfsmittel.
+
+Eine solche Struktur lässt sich künftig nutzen, um Übungen nach Schwierigkeitsgrad und Belastbarkeit zu filtern. Der Aspekt der Motivation wurde ebenfalls mehrfach thematisiert. Erinnerungsfunktionen wurden von den Therapeut:innen überwiegend als wichtig eingeschätzt. Zusätzlich wurden Gamification-Ansätze wie etwa Punkte, Level, Belohnungen oder andere visuelle Fortschrittsanzeigen vorgeschlagen.
+
+Auch Chat- und Videocall-Funktionen wurden mehrfach als sinnvolle Möglichkeiten für Feedback und Rückfragen genannt, wenngleich das Interview zeigt, dass eine dauerhafte Echtzeit-Einbindung der Fachperson in der Praxis nur begrenzt umsetzbar ist.
+
+Für die weitere Entwicklung wurden deshalb vor allem folgende Punkte übernommen: Videoanleitungen, Schmerz- und Fortschrittsdokumentation, unterschiedliche Übungsstufen und -kategorien, Kontraindikationen und Sicherheits-Constraints, Erinnerungsfunktionen, Motivation durch Gamification sowie die punktuelle Möglichkeit zur Kommunikation mit Physiotherapeut:innen.
+
+\subsection{Abgeleitete Anforderungen an die Reha-App}
+
+Die Ergebnisse aus Recherche, App-Vergleich, Befragung und Interview wurden anschließend bei der Umsetzung der App berücksichtigt. Übungen werden überwiegend als Videos dargestellt, da sich Bewegungsabläufe auf diese Weise deutlich verständlicher vermitteln lassen als über reine Text- oder Bildbeschreibungen.
+
+Zudem ist ergänzend vorgesehen, dass eigene, während eines Termins aufgenommene Übungsvideos in die App hochgeladen werden können. Nutzer:innen können Übungen außerdem gezielt nach Körperregionen sowie nach Rubriken wie Kraft, Entspannung, Mobilisation, Koordination, Faszientraining und Dehnung auswählen und eigene Übungspläne zusammenstellen.
+
+Ergänzend sind Filterfunktionen sowie personalisierte beziehungsweise zufällige Übungsvorschläge vorgesehen, wobei komplexere oder für bestimmte Krankheitsbilder riskante Übungen, etwa bei frischen Operationen, Verletzungen oder Osteoporose, bewusst nur über eine manuelle Planerstellung durch Physiotherapeut:innen zugänglich bleiben.
+
+Für die Motivation wurden Erinnerungen und eine Streak-Funktion vorgesehen. Erinnerungsfunktionen lassen sich durch die Nutzer:innen freiwillig aktivieren oder deaktivieren. Diese soll dabei unterstützen, regelmäßig zu trainieren und die bisherigen Aktivitäten sichtbar zu machen.
+
+Außerdem wird eine tägliche Schmerzabfrage auf einer Skala von eins bis zehn mit einer monatlichen grafischen Verlaufsdarstellung kombiniert. Ergänzt wird dies um ein optionales Anmerkungsfeld nach jedem Workout sowie um kurze, täglich wechselnde Informationshäppchen und Alltagstipps auf dem Startbildschirm.
+
+Gleichzeitig soll die App möglichst einfach bedienbar bleiben, damit sie auch von Personen mit wenig Erfahrung im Umgang mit Gesundheits- oder Fitness-Apps genutzt werden kann.
+
+Die Personalisierung erfolgt unter anderem über Körperregionen, Übungseigen\-schaften und Kontraindikationen. Übungen können nicht nur nach Körperregionen, sondern auch anhand ihrer Eigenschaften und möglicher Kontraindikationen ausgewählt werden.
+
+Die aus der Analyse verwandter Arbeiten gewonnenen Erkenntnisse fließen in die Struktur des Knowledge Graphen ein. Auf dieser Grundlage können Übungen ausgeschlossen werden, die nicht zum jeweiligen Nutzerprofil passen. Zudem lassen sich passende Alltagstipps und Übungsvorschläge gezielt auswählen.
+
+
 
