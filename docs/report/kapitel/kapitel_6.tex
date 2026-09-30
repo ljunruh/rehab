@@ -1,7 +1,7 @@
 \section{Wissenbasis}
 \subsection{Ziel der Wissensmodellierung}
 
-Die in der Kapitel Nutzerstudie dargestelleten Ergebnisse der Patient:innen und
+Die in der Kapitel Verwandte Arbeiten und Nutzerstudie dargestelleten Ergebnisse der Patient:innen und
 Physiotherapeut:innen zeigen, dass die App die Trainingspläne empfehlen oder
 die Träinigspläne erstellen können, die zu ihren Beschwerden, Verletzungen und
 ihrem Trainingsstand passen. Dafür reicht eine feste Liste von Übungen nicht
@@ -23,12 +23,15 @@ YogaKG wurde vor allem die Gliederung der Körperteile, die Übungskategorien Ka
 
 \subsection{Aufbau der Ontologie}
 
-Die Ontologie umfasst in der aktuellen Version 77 Klassen, 39 Objekt- und
-30 Daten-Properties sowie 846 benannte Individuen. Sie gliedert sich in die
-Hauptklassen Körperteil, Patient, Rezept der Woche, Schonung im Alltag,
-Sportaktivitäten, Verletzungen, Übungen und Übungseigenschaften. Die folgenden
-Abschnitte beschreiben die für die aktuelle App-Version relevanten Klassen im
-Detail.
+Die Ontologie umfasst in der aktuellen Version 77 Klassen, 39 Objekt- und 30 Daten-Properties sowie 846 benannte Individuen. Sie gliedert sich in die Hauptklassen Körperteil, Patient, Rezept der Woche, Schonung im Alltag, Sportaktivitäten, Verletzungen, Übungen und Übungseigenschaften. Die folgenden
+Abschnitte beschreiben die für die aktuelle App-Version relevanten Klassen im Detail.
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.8\textwidth]{bilder/ontologie_hauptklassen.png}
+    \caption{Überblick über die Klassen der Ontologie}
+    \label{fig:Überblick_ontologie}
+\end{figure}
 
 \subsubsection{Körperteil}
 
@@ -44,11 +47,14 @@ in oberen und unteren Rücken sowie der Rumpf in Brust und Hüfte.
 Die neun modellierten Gelenke
 dienen dazu, Verletzungen der Patient:innen zu erfassen. Über das Maskottchen
 in der Benutzeroberfläche lassen sich die betroffenen Gelenke auswählen: obere
-und untere Rückengelenke, Ellbogengelenk, Halswirbelsäule, Handgelenk,
-Hüftgelenk, Kniegelenk, Schultergelenk und Wirbelsäulengelenke. Ist ein Gelenk
-als verletzt markiert, schließt die Abfrage über die Object Property
+und untere Rückengelenke, Ellbogengelenk, Halswirbelsäule, Handgelenk, Hüftgelenk, Kniegelenk, Schultergelenk und Wirbelsäulengelenke. Ist ein Gelenk als verletzt markiert, schließt die Abfrage über die Object Property
 \texttt{engagedBodyPart} alle Übungen aus, die diese Region beanspruchen.
-
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.8\textwidth]{bilder/filterlogik_empfehlung.png}
+    \caption{Filterung sicherer Übungen anhand des Nutzerprofils}
+    \label{fig:filterung_des_uebungen}
+\end{figure}
 Unterhalb des Maskottchens werden
 zusätzlich die Beschwerden erfasst, die in der Ontologie als zwölf
 Kontraindikationen hinterlegt sind: Probleme im oberen Rücken, Probleme im
@@ -82,6 +88,12 @@ Unterklasse Schonungshinweise sind über die Unterklasse Schonungskategorie nach
 zwölf Alltagssituationen geordnet: am Arbeitsplatz, am Bildschirm, Aufstehen
 und Hinsetzen, Autofahren, Greifen und Überkopfarbeiten, Handy und Tablet,
 Laufen und Gehen, Schlafen, Sitzen, Tragen und Heben sowie Treppensteigen.
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.8\textwidth]{bilder/schonung_im_alltag.png}
+    \caption{Aufbau der Klasse Schonung im Alltag}
+    \label{fig:schonung_im_alltag}
+\end{figure}
 
 Drei Properties sind für den Bereich zuständig. Über die Object Property \texttt{belongsToBodyPart} lässt sich die
 passende Körperregion abfragen, sodass die App gezielt die Hinweise zu dieser
@@ -136,6 +148,13 @@ der Planerstellung genutzt. Enthält beispielweise ein Plan vier Übungen, von d
 Mobilisation zugeordnet sind, wird er als Schulter-Mobilisationsplan
 ausgewiesen.
 
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.8\textwidth]{bilder/uebungen_je_kategorie.png}
+    \caption{Verteilung der Übungen auf die Kategorien}
+    \label{fig:verteilung_der_uebungen}
+\end{figure}
+
 Die passenden Übungen wurden
 anschließend recherchiert, überwiegend auf den Webseiten physiotherapeutischer
 Praxen, um fachlich brauchbare Inhalte zu erhalten. Die sieben
@@ -174,6 +193,13 @@ Die Object Property
 Mobilität oder zur Entwicklung des Gleichgewichts. Bei Dehnübungen kommt
 zusätzlich \texttt{stretches} zum Einsatz, um die Muskelgruppe anzugeben, die bei
 der Ausführung beansprucht wird.
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.8\textwidth]{bilder/beziehungsnetz_uebung.png}
+    \caption{Struktur einer Übung in der Ontologie}
+    \label{fig:struktur_einber_uebung}
+\end{figure}
 
 Ergänzt werden die Übungen durch
 mehrere Data Properties. \texttt{\seqsplit{hasCommonMistake}} benennt typische
