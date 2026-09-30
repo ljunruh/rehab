@@ -65,10 +65,30 @@ Muskelgruppen, auf die Übungen über \texttt{stretches} verweisen.
 \subsubsection{Patient}
 
 Diese Struktur ist als
-Ausganspunkt für eine vollständige Patientenmodellierung vorgesehen, aber noch
-nicht produktiv nutzbar.
+Ausganspunkt für eine vollständige Patientenmodellierung vorgesehen, ist aber
+nicht produktiv nutzbar, da Patientendaten, wie Schmerzlevel, Größe, oder Alter, nur lokal auf dem Gerät des Patienten gespeichert werden, um weiteren Datenschutzaspekten auszuweichen. Die Klasse Patient besteht aktuell aus einer weiteren Unterklasse Trainingslevel, die den Fitnesszustand des Patienten modellieren sollte. Instanzen sind hierfür Anfänger, Fortgeschritten und Mittelstufe.
 
 \subsubsection{Rezept der Woche}
+Die Funktion „Rezept der Woche“ innerhalb der Anwendung basiert wurde entwickelt, um Patient:innen regelmäßig und nachhaltig ein gesundes, Rezept im Wochenrhythmus zu bieten.
+Zentrale Daten-Eigenschaften der Ontologie sind \texttt{hasDescription}, \texttt{hasHealthBenefit} und \texttt{hasPreparationTime}. Diese Eigenschaften werden über die Label \textit{Rezept der Woche} der API-Gruppe abgerufen und ermöglichen eine präzise Darstellung und Verarbeitung der Rezeptinformationen.
+\begin{itemize}
+    \item \textbf{hasDescription}: Diese Eigenschaft beschreibt die Zubereitung des Rezepts in einer präzisen, leicht verständlichen Form. Sie umfasst die wichtigsten Schritte und Zutaten. Beispiel für das Rezept der Woche „Chia-Beeren-Pudding“:
+    \begin{quote}
+        \textit{3 EL Chiasamen mit 150 ml Mandelmilch verrühren und über Nacht im Kühlschrank quellen lassen. Vor dem Verzehr mit 50 g aufgetauten Tiefkühl-Beeren toppen.}
+    \end{quote}
+    
+    \item \textbf{hasHealthBenefit}: Diese Eigenschaft dokumentiert die gesundheitlichen Vorteile des Rezepts auf Basis der enthaltenen Zutaten. Sie dient der Aufklärung der Nutzer:innen über positive Effekte auf Ernährung und Wohlbefinden. Beispiel für den Chia-Beeren-Pudding:
+    \begin{quote}
+        \textit{Chiasamen sind hervorragende Lieferanten von Omega-3-Fettsäuren und Ballaststoffen. Die Antioxidantien der Beeren schützen die Zellen vor oxidativem Stress.}
+    \end{quote}
+    
+    \item \textbf{hasPreparationTime}: Diese Eigenschaft gibt die benötigte Zeit zur Zubereitung des Rezepts an, gemessen in Minuten. Sie hilft Nutzer:innen, ihre Zeitplanung zu optimieren. Beispiel: \textit{5 Minuten Vorbereitung}
+\end{itemize}
+
+Die konkreten Werte für die Daten-Eigenschaften werden wöchentlich von der API-Gruppe bereitgestellt und über das Label \textit{Rezept der Woche} abgerufen. Dadurch wird sichergestellt, dass das Rezept stets aktuell, vielfältig und auf die Bedürfnisse der Nutzer:innen abgestimmt ist.
+
+Die Struktur der Ontologie würde zudem eine einfache Erweiterung um weitere Eigenschaften wie \texttt{hasIngredients}, \texttt{hasCalories} oder \texttt{hasAllergens} ermöglichen, falls zukünftig erweiterte Filter- oder Personalisierungsfunktionen implementiert werden sollen.
+
 \subsubsection{Schonung im Alltag}
 
 Die Idee für diesen Bereich stammt
@@ -96,6 +116,10 @@ recherchiert, welche Verletzungen im physiotherapeutischen Kontext relevant
 sind. Das Ergebnis gliedert sich in fünf Gruppen: Rückenschmerzen,
 Knochenbrüche, Gelenkverletzungen, Muskelverletzungen und Sehnenverletzungen.
 
+Der ursprüngliche Plan war, dass man über angegebene Verletzungen über eine
+ ObjectProperty \texttt{rehabilitates} Übungen herausgefiltern kann und auch
+ bestimmte Übungen über \texttt{excludes}auf jeden Fall ausschließen kann.
+
 Bei den Rückenverletzungen war
 entscheidend, dass Wirbelsäulenschmerzen, Kreuzschmerzen und Schmerzen im
 oberen Rücken unterschiedlich behandelt werden müssen. Für die Wirbelsäule
@@ -117,7 +141,7 @@ wurden ebenfalls nach Körperregionen klassifiziert.
 Die detaillierte
 Verletzungsstruktur wird in der aktuellen Ontologie nicht verwendet. Die App
 bietet derzeit keine Möglichkeit, jede einzelne Erkrankung und Verletzung
-darzustellen, und der Pflegeaufwand wäre hoch. Der bereits angelegte Unterklasse
+darzustellen, und der Pflegeaufwand wäre sehr hoch. Die bereits angelegte Unterklasse
 bleibt aber als Grundlage für spätere Erweiterungen erhalten.
 
 \subsubsection{Übungen}
@@ -185,8 +209,8 @@ den über \texttt{hasVideoUrl} verlinkten Übungsvideos. Für Übungen, für die
 
 \subsubsection{Übungseigenschaften}
 
-Unter den Übungseigenschaften sind
-die Trainingseffekte hinterlegt, also das, was eine Übung bewirkt:
-Beweglichkeit, Entspannung, Gleichgewicht, Konzentration, Koordination, Kraft,
-Körperhaltung, Mobilität und Stabilität. Jeder Übung ist mindestens einer
-dieser Effekte zugeordnet.
+Unter den Übungseigenschaften werden die Trainingseffekte abgebildet, die mit einer Übung erreicht werden sollen. Dazu gehören Beweglichkeit, Entspannung, Gleichgewicht, Konzentration, Koordination, Kraft, Körperhaltung, Mobilität und Stabilität.
+
+Die Zuordnung erfolgt über die Object Property \texttt{improves}. Dadurch kann eine Übung mit einem oder mehreren Trainingszielen verknüpft werden. Dies ermöglicht es der App, Übungen nicht nur anhand der betroffenen Körperregion, sondern auch nach dem gewünschten Trainingseffekt auszuwählen. So können beispielsweise gezielt Übungen zur Verbesserung der Mobilität, Stabilität oder des Gleichgewichts abgefragt werden.
+
+Die Übungseigenschaften bilden damit eine wichtige Grundlage für die personalisierte Planerstellung. Jede Übung ist mindestens einem dieser Effekte zugeordnet, sodass die Auswahl der Übungen mit den von den Nutzer:innen angegebenen Trainingszielen verbunden werden kann.
