@@ -2,7 +2,7 @@
 
 | Datei | Inhalt |
 |---|---|
-| `ReVia_Abschlusspraesentation.html` | Der Foliensatz (32 Folien). Eine einzige Datei, läuft offline im Browser. |
+| `ReVia_Abschlusspraesentation.html` | Der Foliensatz (31 Folien). Eine einzige Datei, läuft offline im Browser. |
 | `praesentation_server.py` | Kleiner lokaler Server, damit bearbeitete Sprechernotizen direkt in der HTML-Datei landen. |
 
 ## Präsentieren
