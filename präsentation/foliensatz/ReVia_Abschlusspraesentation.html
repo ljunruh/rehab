@@ -867,7 +867,7 @@ body.preview .stage{width:min(100vw, calc(100vh * 16 / 9));height:min(calc(100vw
 <li>Kernaussage: Nicht die einzelne Übung ist das Wertvolle, sondern das <b>Beziehungsnetz</b> - dadurch lässt sich semantisch filtern, was eine flache Datenbank nicht kann.</li>
 <li><b>hasContraindication:</b> Das Ausschlusswissen aus den Experteninterviews - schützt vor Überlastung oder Verletzung.</li>
 <li><b>Erweiterte Data Properties:</b> Neben Anleitungen und Fehlerhinweisen sind im September <b>hasPicUrl</b> (86x) und <b>hasVideoUrl</b> (29x) hinzugekommen.</li>
-<li><b>partOf-Hierarchie:</b> Verknüpft Gelenke und Muskeln mit übergeordneten Körperregionen (Brücke zum Lernbeispiel Folie 29).</li>
+<li><b>partOf-Hierarchie:</b> Verknüpft Gelenke und Muskeln mit übergeordneten Körperregionen.</li>
 </ul>">
  <div class="kicker"><span class="who kg">Knowledge Graph</span><span>Zentrales Beziehungsnetz</span></div>
  <div class="body top" style="gap:clamp(6px,1.2vh,16px)">
@@ -1129,12 +1129,14 @@ body.preview .stage{width:min(100vw, calc(100vh * 16 / 9));height:min(calc(100vw
 </section>
 
 <!-- 17 -->
-<section class="slide projection" data-title="API · Rolle" data-notes="
-<b>Folie der API-Gruppe.</b>
-<ul>
-<li>Selbstbild der Gruppe: „das Rückgrat“ - Schnittstelle zwischen Knowledge Graph und UI, und dadurch die Einzigen mit dem Gesamtüberblick.</li>
-<li>Deshalb auch die Gruppe, die Ende-zu-Ende getestet und Engpässe lokalisiert hat.</li>
-</ul>">
+<section class="slide projection" data-title="API · Rolle" data-notes="&lt;p&gt;&lt;b&gt;AUFGABE: Was macht die API-Gruppe?&lt;/b&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;b&gt;Fuseki / SPARQL-Server:&lt;/b&gt; HTTP-Abfragen an den Knowledge Graph ermöglichen und die Antworten für die App aufbereiten.&lt;/li&gt;
+&lt;li&gt;&lt;b&gt;Isar:&lt;/b&gt; Lokal laufende NoSQL-Datenbank für nutzerspezifische Daten, zum Beispiel Profil und Pläne.&lt;/li&gt;
+&lt;li&gt;&lt;b&gt;Datenbereitstellung:&lt;/b&gt; Daten für die Oberfläche bereitstellen und Änderungen an die UI weitergeben.&lt;/li&gt;
+&lt;li&gt;&lt;b&gt;Deployment und End-to-End-Testing:&lt;/b&gt; Das System auf dem Testgerät bereitstellen, den gesamten Ablauf prüfen und Engpässe lokalisieren.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;b&gt;Selbstbild der Gruppe: „das Rückgrat“&lt;/b&gt; - Schnittstelle zwischen Knowledge Graph und UI, und dadurch die Einzigen mit dem Gesamtüberblick.&lt;/p&gt;">
  <div class="kicker"><span class="who api">API</span><span>Aufgabe</span></div>
  <header class="slide-head"><h2>Das Rückgrat: vom Knowledge Graph bis zur Flutter-UI</h2></header>
  <div class="body">
@@ -1149,16 +1151,17 @@ body.preview .stage{width:min(100vw, calc(100vh * 16 / 9));height:min(calc(100vw
 
 
 <!-- NEU: Systemarchitektur -->
-<section class="slide bleed" data-title="API · Systemarchitektur" data-notes="
-<b>Die Landkarte des ganzen Systems - ca. 2 Min. Zeit lassen, das Bild ist dicht.</b>
-<ul>
-<li>Nicht jeden Kasten erklären. Drei Wege zeigen, mit dem Finger am Bild:</li>
-<li><b>Weg 1 (oben rechts):</b> Protégé → ROBOT konvertiert .owx nach .ttl → der Graph landet auf dem Testgerät. So kommt Wissen ins System.</li>
-<li><b>Weg 2 (Mitte):</b> User Action → Provider → Repository → Http Client → SPARQL an Fuseki → JSON zurück → Re-Render. So entsteht eine Empfehlung.</li>
-<li><b>Weg 3 (unten):</b> Repository → Isar Adapter → lokale Datenbank. So bleibt alles Persönliche offline auf dem Gerät.</li>
-<li>Der gestrichelte Kasten oben links ist wichtig für die Projektgeschichte: Die UI wurde zuerst in einem <i>eigenen</i> Flutter-Projekt als Mockup gebaut und später eingebunden. Genau daraus entstand später die Zwei-Versionen-Problematik.</li>
-<li>Neu gezeichnet aus dem API-Poster (Abschnitt 3).</li>
-</ul>">
+<section class="slide bleed" data-title="API · Systemarchitektur" data-notes="&lt;p&gt;&lt;b&gt;SYSTEMARCHITEKTUR: Wer übernimmt welche Aufgabe?&lt;/b&gt;&lt;/p&gt;
+&lt;p&gt;Etwa 2 Minuten. Nicht jeden Kasten vorlesen, sondern die Zusammenhänge zeigen.&lt;/p&gt;
+&lt;p&gt;&lt;b&gt;Wissensbasis:&lt;/b&gt; In Protégé wird der Graph modelliert. ROBOT konvertiert die .owx-Datei nach .ttl. Fuseki stellt den Graphen für SPARQL-Abfragen aus der App bereit.&lt;/p&gt;
+&lt;p&gt;&lt;b&gt;Lokale Daten:&lt;/b&gt; Die App greift über die Repository-Schicht auf Isar zu. Der &lt;b&gt;Isar Inspector&lt;/b&gt; ermöglicht die Einsicht in die gespeicherten Daten. Er ist ein Inspektionswerkzeug, kein Zwischenschritt zwischen Isar und App.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;b&gt;Features:&lt;/b&gt; Das, was der Nutzer sieht und bedient, zum Beispiel Home, Pläne und Fortschritt.&lt;/li&gt;
+&lt;li&gt;&lt;b&gt;Provider:&lt;/b&gt; Hält den aktuellen Zustand für die Oberfläche vor und sagt der UI, was sich geändert hat, zum Beispiel beim Fortschritt.&lt;/li&gt;
+&lt;li&gt;&lt;b&gt;Repository:&lt;/b&gt; Kapselt die Datenzugriffe und „versteckt“ die Datenquellen hinter einfachen Methoden, zum Beispiel &lt;code&gt;getExersises&lt;/code&gt;. Es entscheidet, woher die Daten kommen.&lt;/li&gt;
+&lt;li&gt;&lt;b&gt;API:&lt;/b&gt; Baut die Abfragen an Fuseki und verarbeitet die Antworten.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;b&gt;Paralleles Flutter-Projekt:&lt;/b&gt; Die UI entstand zunächst als Mockup in einem eigenen Flutter-Projekt. Anschließend wurden die Oberfläche und die Datenanbindung im gemeinsamen Projekt zusammengeführt.&lt;/p&gt;">
  <div class="kicker" style="margin-bottom:8px"><span class="who api">API</span><span>Systemarchitektur &amp; Entwicklungsworkflow</span></div>
  <div class="body" style="gap:0">
  <svg viewBox="0 0 1810 1000" class="archsvg" role="img" aria-label="Systemarchitektur der ReVia-App, gegen den Quellcode geprüft">
@@ -1170,13 +1173,18 @@ body.preview .stage{width:min(100vw, calc(100vh * 16 / 9));height:min(calc(100vw
 </section>
 
 <!-- 18 -->
-<section class="slide" data-title="API · Datenfluss" data-notes="
-<b>Die wichtigste API-Folie - sechs Schritte, ruhig durchgehen.</b>
-<ul>
-<li>Gut geeignet, um den Bogen zur Demo zu schlagen: Genau dieser Ablauf läuft gleich live.</li>
-<li>Kernsatz der Gruppe: lokale Daten (Profil, Pläne) und dynamische Graph-Abfragen (Übungen) werden kombiniert.</li>
-<li><b>Das sagst du:</b> Der Ablauf kombiniert bewusst beides - lokale Datenhaltung für Profil und Pläne, dynamische SPARQL-Abfragen für die Übungen.</li>
-</ul>">
+<section class="slide" data-title="API · Datenfluss" data-notes="&lt;p&gt;&lt;b&gt;DATENFLUSS: Was passiert bei einer Planempfehlung?&lt;/b&gt;&lt;/p&gt;
+&lt;p&gt;Die sechs Schritte am Schaubild durchgehen:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;b&gt;Nutzeraktion:&lt;/b&gt; Körperregion und Trainingsziel auswählen. Die weiteren Angaben stehen bereits im Profil.&lt;/li&gt;
+&lt;li&gt;&lt;b&gt;Provider:&lt;/b&gt; Nimmt die Eingaben entgegen und leitet die Anfrage an das Repository weiter.&lt;/li&gt;
+&lt;li&gt;&lt;b&gt;Repository und Isar:&lt;/b&gt; Liest das lokal gespeicherte Profil und stellt die Angaben für die Filterung bereit.&lt;/li&gt;
+&lt;li&gt;&lt;b&gt;API / HTTP-Client:&lt;/b&gt; Baut die SPARQL-Abfrage mit den Profil- und Zielparametern und sendet sie an Fuseki.&lt;/li&gt;
+&lt;li&gt;&lt;b&gt;Mapping:&lt;/b&gt; Überführt die JSON-Antwort in Übungsmodelle. Eine Auswahl wird zu einem Plan gebündelt.&lt;/li&gt;
+&lt;li&gt;&lt;b&gt;Anzeige und Speichern:&lt;/b&gt; Die UI zeigt den Plan an. Beim Speichern wird er in Isar abgelegt.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;b&gt;Kernsatz:&lt;/b&gt; Der Ablauf kombiniert unsere &lt;b&gt;lokale Datenhaltung für Profil und Pläne&lt;/b&gt; mit &lt;b&gt;dynamischen SPARQL-Abfragen für die Übungen&lt;/b&gt;. Er zeigt damit, wie beides zusammenspielt.&lt;/p&gt;
+&lt;p&gt;&lt;b&gt;Bezug zur Demo:&lt;/b&gt; Genau diesen Ablauf zeigen wir später am Beispiel einer Planempfehlung.&lt;/p&gt;">
  <div class="kicker"><span class="who api">API</span><span>Datenfluss · Planempfehlung</span></div>
  <div class="body">
  <h2>Von der Eingabe zum gespeicherten Plan</h2>
@@ -1357,20 +1365,7 @@ body.preview .stage{width:min(100vw, calc(100vh * 16 / 9));height:min(calc(100vw
  </div>
 </section>
 
-<!-- 25 · gemeinsames Lernbeispiel -->
-<section class="slide" data-title="Lernbeispiel Körperregionen" data-notes="<font color=&quot;#ffffff&quot;><b>Ihr habt jetzt die drei Schichten gesehen und es klang als hätte alles reibungslos geklappt.&amp;nbsp;</b></font><ul>
-</ul><div><font color=&quot;#ffffff&quot;><b>Hat es nicht immer. Hier einkurzes Beispiel, das alle drei Gruppen gleichzeitig getroffen hat.</b></font></div><div><font color=&quot;#ffffff&quot;><b><br></b></font></div><div><font color=&quot;#ffffff&quot;><b>Die Knowledge Gruppe hatte die Körperregionen sauberer gegliedert. Danach war in der App die Region &quot;Bauch&quot; verschwunden und damit rund 50 Übungen.&amp;nbsp;</b></font></div><div><font color=&quot;#ffffff&quot;><b>Kaputt war nichts, aber die App hatte handgeschriebene Regionen und das musste angepasst werden.</b></font></div><div><font color=&quot;#ffffff&quot;><b>Heute fragt die App den Graphen welche Unterregionen zu Beine oder Arme gehören, statt es selbst zu behaupten.</b></font></div><div><font color=&quot;#ffffff&quot;><b>Jede Änderung am Graphen testen wir vorher gegen einen lokalen Server mit echten Daten.</b></font></div><div><font color=&quot;#ffffff&quot;><b><br></b></font></div><div><font color=&quot;#ffffff&quot;><b>Lehre: Jede kleine Änderung an der Wissenbasis muss mit allen abgesprochen und kommuniziert werden. Das hat uns noch einmal gezeigt wie wichtig regelmäßige Kommunikation in so einem Projekt mit vielen Menschen ist.</b></font></div>">
- <div class="kicker"><span class="who">Louis</span><span class="who kg">KG</span><span class="who api">API</span><span class="who ui">UI</span><span>Gemeinsames Lernbeispiel</span></div>
- <div class="body">
- <h2>Als sich die Körperregionen änderten</h2>
- <div class="grid g3">
- <div class="card"><div class="cn">SYMPTOM</div><div class="ct">50 Übungen unerreichbar</div><div class="cb">Nach dem Umbau der Körperregionen im Graphen fehlte in der App die Region „Bauch“. Suchen nach „Arme“ fanden nichts, weil Übungen im Graphen nur mit „Bizeps“ verschlagwortet waren.</div></div>
- <div class="card"><div class="cn">URSACHE</div><div class="ct">Zwei Wahrheiten</div><div class="cb">Die Oberfläche pflegte ihre Regionsliste von Hand - nach Vermutung darüber, wie der Graph gegliedert ist. Solange beide übereinstimmten, fiel das nicht auf.</div></div>
- <div class="card solid"><div class="cn">LÖSUNG</div><div class="ct">Aus der Ontologie ableiten</div><div class="cb">Die Unterregionen werden jetzt aus den <i>partOf</i>-Beziehungen abgeleitet statt von Hand gepflegt. Ein lokaler Fuseki-Server erlaubt, jede Änderung gegen echte Daten zu prüfen.</div></div>
- </div>
- <div class="card accent"><div class="cn">WAS OFFEN BLEIBT</div><div class="cb">Die Zuordnung der sechs Hauptregionen liegt weiterhin in der App. <b>Schultern unter „Arme“ oder eigene Hauptregion? Das ist noch nicht entschieden.</b></div></div>
- </div>
-</section>
+
 
 <!-- 26 -->
 <section class="slide projection evolution" data-title="Meilenstein → heute" data-notes="<font color=&quot;#ffffff&quot;><b>Vergleich mit der Zwischenpräsentation im Juli.&amp;nbsp;</b></font><ul>
