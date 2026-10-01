@@ -737,7 +737,6 @@ body.preview .stage{width:min(100vw, calc(100vh * 16 / 9));height:min(calc(100vw
  <div class="body">
  <h2>Knowledge Graph</h2>
  <div class="q">„Was muss unsere App über Übungen wissen, um sicher empfehlen zu können?“</div>
- <div class="spk">Louis · Mika · Elif</div>
  </div>
 </section>
 
@@ -872,7 +871,7 @@ body.preview .stage{width:min(100vw, calc(100vh * 16 / 9));height:min(calc(100vw
 </ul>">
  <div class="kicker"><span class="who kg">Knowledge Graph</span><span>Zentrales Beziehungsnetz</span></div>
  <div class="body top" style="gap:clamp(6px,1.2vh,16px)">
- <h2 style="margin-bottom:0">Übung als Knoten, nicht als Datensatz</h2>
+ <h2 style="margin-bottom:0">Übung als Knoten</h2>
  <svg viewBox="0 0 1600 790" class="kgsvg" role="img"><style>.nt{font:650 26px Inter,sans-serif}.pk{font:600 20px Inter,sans-serif;fill:#2F7E72}.pv{font:400 20px Inter,sans-serif;fill:#28382F}.pbadge{font:600 15px Inter,sans-serif;fill:#1F4E47}</style>
  <path d="M 620 430 L 380 470" stroke="#4E8877" stroke-width="3" fill="none"/>
  <path d="M 730 430 L 520 660" stroke="#4E8877" stroke-width="3" fill="none"/>
@@ -1126,7 +1125,6 @@ body.preview .stage{width:min(100vw, calc(100vh * 16 / 9));height:min(calc(100vw
  <div class="body">
  <h2>API</h2>
  <div class="q">„Wie wird aus dem Wissen eine Auswahl, die zum Nutzerprofil passt?“</div>
- <div class="spk">Aufgabe · wichtigste Entscheidung · konkretes Ergebnis · verbleibende Grenze <span> - ca. 4 - 5 Minuten</span></div>
  </div>
 </section>
 
@@ -1186,7 +1184,7 @@ body.preview .stage{width:min(100vw, calc(100vh * 16 / 9));height:min(calc(100vw
  <div class="card"><div class="cn">01</div><div class="ct" style="font-size:clamp(12px,1.05vw,17px)">Nutzeraktion</div><div class="cb" style="font-size:clamp(10.5px,.9vw,14px)">Im Profil stehen Beschwerden, Gelenkprobleme und Trainingslevel. Für die Empfehlung werden Körperregion und Ziel gewählt.</div></div>
  <div class="card"><div class="cn">02</div><div class="ct" style="font-size:clamp(12px,1.05vw,17px)">Provider</div><div class="cb" style="font-size:clamp(10.5px,.9vw,14px)">Empfängt die Eingaben und leitet die Anfrage an das Repository weiter.</div></div>
  <div class="card"><div class="cn">03</div><div class="ct" style="font-size:clamp(12px,1.05vw,17px)">Repository &amp; Isar</div><div class="cb" style="font-size:clamp(10.5px,.9vw,14px)">Liest das Nutzerprofil aus Isar und filtert nach Beschwerden, Gelenkproblemen und Trainingslevel.</div></div>
- <div class="card"><div class="cn">04</div><div class="ct" style="font-size:clamp(12px,1.05vw,17px)">Http Client</div><div class="cb" style="font-size:clamp(10.5px,.9vw,14px)">Baut die SPARQL-Query mit allen Profil- und Zielparametern und sendet sie an Fuseki.</div></div>
+ <div class="card"><div class="cn">04</div><div class="ct" style="font-size:clamp(12px,1.05vw,17px)">HTTP Client</div><div class="cb" style="font-size:clamp(10.5px,.9vw,14px)">Baut die SPARQL-Query mit allen Profil- und Zielparametern und sendet sie an Fuseki.</div></div>
  <div class="card"><div class="cn">05</div><div class="ct" style="font-size:clamp(12px,1.05vw,17px)">Mapping</div><div class="cb" style="font-size:clamp(10.5px,.9vw,14px)">Die JSON-Response wird auf Übungs-Models gemappt; eine Auswahl wird zum Plan gebündelt.</div></div>
  <div class="card solid"><div class="cn">06</div><div class="ct" style="font-size:clamp(12px,1.05vw,17px)">Anzeige &amp; Speichern</div><div class="cb" style="font-size:clamp(10.5px,.9vw,14px)">Re-Rendering wird ausgelöst, der Plan erscheint. Beim Speichern wird er in Isar persistiert.</div></div>
  </div>
@@ -1221,7 +1219,6 @@ body.preview .stage{width:min(100vw, calc(100vh * 16 / 9));height:min(calc(100vw
  <div class="body">
  <h2>UI / UX</h2>
  <div class="q">„Wie machen wir diesen Ablauf verständlich bedienbar?“</div>
- <div class="spk">Vortrag: Amjad Faham · Team: Ahmad Zahra, Khaled Almasri, Mohamad Kalaf <span> - ca. 5 Minuten</span></div>
  </div>
 </section>
 
@@ -1380,7 +1377,7 @@ body.preview .stage{width:min(100vw, calc(100vh * 16 / 9));height:min(calc(100vw
 </ul><div><font color=&quot;#ffffff&quot;><b>Hätten wir euch im Juli das zeigen können was ihr gleich seht? Nein.</b></font></div><div><br></div><div>Damals gab es Lücken im Katalog und wir hatten noch keine Videos.&amp;nbsp;</div><div>Der Server lief nur auf einem Laptop und gespeichert wurde auch nichts.</div><div>Die Oberfläche war eine Mockup-App mit nur test daten</div><div><br></div><div>Der 4. Punkt ist auch noch wichtig. Bewusste Projektgrenzen.</div><div>Datenschutz, Lizenzen und eine klinische Zulassung waren im Juli offen, und sie sind es heute noch. Das haben wir nicht vergessen, das liegt außerhalb dessen, was ein Studienprojekt leisten kann.</div>">
  <div class="kicker"><span class="who">Louis</span><span>Meilenstein → heute</span></div>
  <header class="slide-head">
- <h2>Was beim Meilenstein offen war - und was heute läuft</h2>
+ <h2>Was beim Meilenstein offen war</h2>
  <p class="slide-meta">MVP (Juli) im direkten Vergleich zum Release-Stand</p>
  </header>
  <div class="body">
@@ -1490,7 +1487,6 @@ body.preview .stage{width:min(100vw, calc(100vh * 16 / 9));height:min(calc(100vw
  <div class="body">
  <h2 style="max-width:56%">Die Antwort auf die Eingangsfrage</h2>
  <div class="q" style="max-width:20ch">Kein Rundgang durch alle Menüs - ein zusammenhängender Ablauf.</div>
- <div class="spk">Auf dem Testgerät, mit laufendem Fuseki-Server <span> - ca. 3 - 4 Minuten</span></div>
  </div>
 </section>
 
