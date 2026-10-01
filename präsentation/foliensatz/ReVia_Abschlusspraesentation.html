@@ -322,6 +322,18 @@ body.presenter .help,body.presenter .notes,body.presenter .ov{display:none!impor
 .pv-notes{flex:1;min-height:0;overflow:auto;font-size:16px;line-height:1.55;color:#DDE6E3}
 .pv-notes b{color:#fff}
 .pv-notes ul{margin:8px 0 0 18px;display:flex;flex-direction:column;gap:6px}
+.pv-notes[contenteditable]{cursor:text;padding:6px 8px;margin:-6px -8px;border-radius:8px;outline:none}
+.pv-notes[contenteditable]:hover{background:#1A2B25}
+.pv-notes[contenteditable]:focus{background:#1C2E27;box-shadow:inset 0 0 0 2px #7FB3A3}
+.pv-notes:empty:before{content:'Keine Notiz hinterlegt. Klicken zum Schreiben.';color:#6F8780;font-style:italic}
+.pv-nts-head{display:flex;align-items:baseline;gap:12px;margin-bottom:9px}
+.pv-nts-head h4{margin-bottom:0}
+.pv-nts-head .pv-nst{flex:1;font-size:12px;color:#8FA9A0}
+.pv-nts-head .pv-nst.dirty{color:#F2C59C}
+.pv-nts-head button{background:#1E3129;color:#E6EFEB;border:1px solid #2F473D;border-radius:8px;
+ padding:5px 10px;font:inherit;font-size:12.5px;cursor:pointer}
+.pv-nts-head button:hover{background:#2A4238}
+.pv-nts-head button[hidden]{display:none}
 .pv-nexttitle{margin-top:9px;font-size:14px;color:#9FC6B9;line-height:1.35}
 .pv-warn{padding:8px 20px;background:#5A3A22;color:#FFE6D2;font-size:13px;display:none}
 .pv-warn.on{display:block}
@@ -1707,6 +1719,30 @@ body.preview .stage{width:min(100vw, calc(100vh * 16 / 9));height:min(calc(100vw
  }
  function paintSlides(){slides.forEach(function(s,k){s.classList.toggle('active',k===i);});}
 
+ /* Bearbeitete Sprechernotizen: im Präsentator-Fenster editierbar, im Browser gesichert.
+ Ein Eintrag gilt nur, solange die Notiz in der Datei noch dem Stand beim Bearbeiten entspricht. */
+ var NKEY='revia-notes-edits', nRaw=null;
+ var origNotes=slides.map(function(s){return s.dataset.notes||'';});
+ function noteKey(k){return (k+1)+'|'+(slides[k].dataset.title||'');}
+ function readEdits(){try{return JSON.parse(localStorage.getItem(NKEY)||'{}')||{};}catch(e){return {};}}
+ function writeEdits(o){
+ try{var r=JSON.stringify(o);localStorage.setItem(NKEY,r);nRaw=r;return true;}catch(e){return false;}
+ }
+ function editCount(){var ed=readEdits(),c=0;for(var k in ed)c++;return c;}
+ function applyEdits(){
+ var r=null; try{r=localStorage.getItem(NKEY);}catch(e){}
+ if(r===nRaw)return false; nRaw=r;
+ var ed=readEdits(), stale=false;
+ slides.forEach(function(s,k){
+ var e=ed[noteKey(k)];
+ if(e&&e.orig===origNotes[k]){s.dataset.notes=e.html;}
+ else{if(e){delete ed[noteKey(k)];stale=true;} s.dataset.notes=origNotes[k];}
+ });
+ if(stale)writeEdits(ed);
+ return true;
+ }
+ applyEdits();
+
  /* ================= Vorschau (Miniatur im Präsentator-Fenster) ================= */
  if(VIEW==='preview'){
  document.body.classList.add('preview');
@@ -1726,7 +1762,7 @@ body.preview .stage{width:min(100vw, calc(100vh * 16 / 9));height:min(calc(100vw
  if(VIEW==='presenter'){
  document.body.classList.add('presenter');
  var base=location.pathname;
- var pv=document.createElement('div'); pv.className='pv';
+ var pv=document.createElement('div'); pv.className='pv'; pv.id='pvRoot';
  pv.innerHTML=
  '<div><div class="pv-bar">'+
  '<span class="num" id="pvNum"></span>'+
@@ -1744,19 +1780,127 @@ body.preview .stage{width:min(100vw, calc(100vh * 16 / 9));height:min(calc(100vw
  '<div class="pv-card pv-nxt"><h4>Nächste Folie</h4>'+
  '<div class="pv-frame"><iframe id="pvNext" src="'+base+'?view=preview&role=next"></iframe></div>'+
  '<div class="pv-nexttitle" id="pvNextTtl"></div></div>'+
- '<div class="pv-card pv-nts"><h4>Sprechernotiz</h4>'+
- '<div class="pv-notes" id="pvNotes"></div></div>'+
+ '<div class="pv-card pv-nts"><div class="pv-nts-head"><h4>Sprechernotiz</h4>'+
+ '<span class="pv-nst" id="pvNtsSt"></span>'+
+ '<button data-a="revert" id="pvRevert" hidden title="Diese Notiz auf den Stand beim Öffnen zurücksetzen">Original</button>'+
+ '<button data-a="export" title="Alle Notizen in die HTML-Datei schreiben (Strg/Cmd + S)">In Datei speichern</button></div>'+
+ '<div class="pv-notes" id="pvNotes" contenteditable="true" spellcheck="true"></div></div>'+
  '</div>';
  document.body.appendChild(pv);
+ var nEl=document.getElementById('pvNotes'), nPend=null, nIdx=0;
+ var NAME=decodeURIComponent(location.pathname.split('/').pop()||'')||'ReVia_Abschlusspraesentation.html';
+ /* Dateimodus: Über praesentation_server.py geöffnet, schreibt jede Änderung direkt in die HTML-Datei.
+ Per file:// darf der Browser die eigene Datei nicht schreiben; dann bleibt es beim Browser-Speicher. */
+ var FILE=false, fState='', fMsg='', fPend=null;
+
+ function paintNoteState(){
+ var c=editCount(), st=document.getElementById('pvNtsSt'), t, warn;
+ if(FILE){
+ t=fState==='saving'?'Speichert …':fState==='err'?('Nicht in die Datei geschrieben ('+fMsg+'). Änderungen sind im Browser gesichert.')
+ :'Klicken zum Bearbeiten · Änderungen landen direkt in '+NAME;
+ warn=fState==='err';
+ st.title='';
+ }else{
+ t=c?('Klicken zum Bearbeiten · '+c+(c===1?' geänderte Notiz':' geänderte Notizen')+
+ ' im Browser gesichert, noch nicht in der Datei'):'Klicken zum Bearbeiten';
+ warn=c>0;
+ st.title='Direkt in die Datei speichern: Präsentation über praesentation_server.py öffnen';
+ }
+ st.textContent=t; st.classList.toggle('dirty',warn);
+ document.getElementById('pvRevert').hidden=(slides[i].dataset.notes||'')===origNotes[i];
+ }
+ function notesPayload(){
+ return JSON.stringify({file:NAME,
+ titles:slides.map(function(s){return s.dataset.title||'';}),
+ notes:slides.map(function(s){return s.dataset.notes||'';})});
+ }
+ function pushFile(){
+ if(fPend){clearTimeout(fPend);fPend=null;}
+ fState='saving'; paintNoteState();
+ fetch('/__notes__',{method:'POST',headers:{'Content-Type':'application/json'},body:notesPayload()})
+ .then(function(r){return r.json().then(function(j){if(!r.ok||!j.ok)throw new Error(j.error||('HTTP '+r.status));});})
+ .then(function(){fState='ok';paintNoteState();},
+ function(e){fState='err';fMsg=e.message||'Server nicht erreichbar';paintNoteState();});
+ }
+ function schedulePush(){
+ if(!FILE)return;
+ if(fPend)clearTimeout(fPend);
+ fState='saving'; paintNoteState();
+ fPend=setTimeout(pushFile,500);
+ }
+ function saveNote(k){
+ var html=nEl.innerHTML, bare=html.trim(); if(bare===''||bare==='<br>')html='';
+ var ed=readEdits();
+ if(html===origNotes[k])delete ed[noteKey(k)]; else ed[noteKey(k)]={orig:origNotes[k],html:html};
+ slides[k].dataset.notes=html;
+ writeEdits(ed); paintNoteState(); schedulePush();
+ }
+ function flushNote(){if(nPend){clearTimeout(nPend);nPend=null;saveNote(nIdx);}}
+ nEl.addEventListener('input',function(){
+ nIdx=i; if(nPend)clearTimeout(nPend);
+ nPend=setTimeout(function(){nPend=null;saveNote(nIdx);},350);
+ });
+ nEl.addEventListener('blur',flushNote);
+ addEventListener('pagehide',function(){
+ flushNote();
+ if(fPend){clearTimeout(fPend);fPend=null;
+ try{navigator.sendBeacon('/__notes__',new Blob([notesPayload()],{type:'application/json'}));}catch(e){}}
+ });
+
+ function revertNote(){
+ nPend&&clearTimeout(nPend); nPend=null;
+ var ed=readEdits(); delete ed[noteKey(i)]; writeEdits(ed);
+ slides[i].dataset.notes=origNotes[i]; paint(); schedulePush();
+ }
+ /* Ohne Server: Foliensatz samt Notizen als HTML ausgeben. Mit Dateidialog (Chrome/Edge)
+ lässt sich die Originaldatei überschreiben, sonst landet sie im Download-Ordner. */
+ function exportHtml(){
+ flushNote();
+ if(FILE){pushFile();return;}
+ var root=document.documentElement.cloneNode(true);
+ var p=root.querySelector('#pvRoot'); if(p)p.parentNode.removeChild(p);
+ var b=root.querySelector('body'); b.classList.remove('presenter'); if(!b.className)b.removeAttribute('class');
+ var cs=root.querySelectorAll('.slide');
+ slides.forEach(function(s,k){if(cs[k])cs[k].setAttribute('data-notes',s.dataset.notes||'');});
+ var html='<!doctype html>\n'+root.outerHTML+'\n';
+ function done(){
+ /* Browser-Einträge bleiben bis zum nächsten Laden erhalten und werden dann als übernommen erkannt. */
+ var st=document.getElementById('pvNtsSt'); st.textContent='Gespeichert als '+NAME+'. Datei neu laden, um den Stand zu prüfen.';
+ st.classList.remove('dirty');
+ }
+ function download(){
+ var a=document.createElement('a');
+ a.href=URL.createObjectURL(new Blob([html],{type:'text/html'}));
+ a.download=NAME; document.body.appendChild(a); a.click(); a.parentNode.removeChild(a);
+ setTimeout(function(){URL.revokeObjectURL(a.href);},3000); done();
+ }
+ if(window.showSaveFilePicker){
+ window.showSaveFilePicker({suggestedName:NAME,types:[{description:'HTML',accept:{'text/html':['.html']}}]})
+ .then(function(h){return h.createWritable().then(function(w){return w.write(html).then(function(){return w.close();});});})
+ .then(done,function(e){if(!e||e.name!=='AbortError')download();});
+ }else download();
+ }
+ if(/^https?:$/.test(location.protocol)){
+ fetch('/__notes__',{cache:'no-store'}).then(function(r){return r.ok?r.json():null;}).then(function(j){
+ if(!j||!j.ok)return;
+ FILE=true;
+ var btn=pv.querySelector('button[data-a="export"]');
+ btn.textContent='Jetzt speichern'; btn.title='Alle Notizen sofort in die Datei schreiben (Strg/Cmd + S)';
+ paintNoteState();
+ if(editCount())pushFile();
+ },function(){});
+ }
 
  function paint(){
  document.getElementById('pvNum').textContent=String(i+1).padStart(2,'0')+' / '+N;
  document.getElementById('pvTtl').textContent=slides[i].dataset.title||'';
- document.getElementById('pvNotes').innerHTML=slides[i].dataset.notes||'<i>Keine Notiz hinterlegt.</i>';
+ if(document.activeElement===nEl)nEl.blur();
+ nEl.innerHTML=slides[i].dataset.notes||'';
  document.getElementById('pvNextTtl').textContent=(i+1<N)?('→ '+(slides[i+1].dataset.title||'')):' - letzte Folie - ';
- document.getElementById('pvNotes').scrollTop=0;
+ nEl.scrollTop=0;
+ paintNoteState();
  }
- function go(n,silent){var c=clamp(n); if(c===i&&silent)return; i=c; paint(); if(!silent)publish(i);}
+ function go(n,silent){var c=clamp(n); if(c===i&&silent)return; flushNote(); i=c; paint(); if(!silent)publish(i);}
 
  function fit(){
  [].forEach.call(document.querySelectorAll('.pv-frame'),function(f){
@@ -1776,6 +1920,8 @@ body.preview .stage{width:min(100vw, calc(100vh * 16 / 9));height:min(calc(100vw
  var a=b.dataset.a;
  if(a==='next')go(i+1); else if(a==='prev')go(i-1);
  else if(a==='reset'){acc=0;t0=Date.now();}
+ else if(a==='revert'){revertNote();}
+ else if(a==='export'){exportHtml();}
  else if(a==='pause'){
  if(paused){t0=Date.now();paused=false;b.textContent='Pause';}
  else{acc+=Date.now()-t0;paused=true;b.textContent='Weiter';}
@@ -1783,6 +1929,8 @@ body.preview .stage{width:min(100vw, calc(100vh * 16 / 9));height:min(calc(100vw
  });
  document.addEventListener('keydown',function(e){
  var k=e.key;
+ if((e.metaKey||e.ctrlKey)&&(k==='s'||k==='S')){e.preventDefault();exportHtml();return;}
+ if(e.target===nEl){if(k==='Escape')nEl.blur();return;}
  if(k==='ArrowRight'||k==='PageDown'||k===' '||k==='Enter'){e.preventDefault();go(i+1);}
  else if(k==='ArrowLeft'||k==='PageUp'||k==='Backspace'){e.preventDefault();go(i-1);}
  else if(k==='Home'){go(0);} else if(k==='End'){go(N-1);}
@@ -1908,6 +2056,7 @@ body.preview .stage{width:min(100vw, calc(100vh * 16 / 9));height:min(calc(100vw
  setInterval(function(){
  var st=readShared();
  if(st&&st.w!==WID&&st.i!==i)go(st.i,true);
+ if(applyEdits())nb.innerHTML=slides[i].dataset.notes||'<i>Keine Notiz.</i>';
  },200);
  if(BC)BC.onmessage=function(m){if(m.data&&m.data.w!==WID&&m.data.i!==i)go(m.data.i,true);};
 
