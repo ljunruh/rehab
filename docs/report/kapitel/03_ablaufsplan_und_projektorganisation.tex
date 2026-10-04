@@ -1,12 +1,99 @@
-\section{Ablaufsplan und Projektorganisition}
+\section{Ablaufsplan und Projektorganisation}
 \subsection{Vorgehen}
+
+% Notizen. Quellen: Protokolle in docs/protokolle, internes Discord-Archiv, Workflow-Leitfaden im Repo.
+% Literatur nur fuer methodische Konzepte; Projektdaten bleiben ohne Beleg.
+
+\begin{itemize}
+    \item Vorgehensmodell: iterativ-inkrementell in vier Phasen (Verstehen, Fundament, MVP, Integration) statt Wasserfall \autocite{larman2003iterative,sommerville2016software}
+    \item Anforderungen empirisch erheben statt annehmen: Patientenbefragung, Therapeutenbefragung, Experteninterview, Literatur- und App-Vergleich \autocite{pohl2010requirements}
+    \item Triangulationsregel: eine Anforderung gilt erst als gesichert, wenn mindestens zwei der Quellen sie stützen \autocite{flick2011triangulation}
+    \item Priorisierung der Anforderungen in MUSS, KANN und OPTIONAL; alle sechs MUSS-Anforderungen sind umgesetzt
+    \item frühe Prototypen als Diskussionsgrundlage: Wireframes in Figma, JSX-Prototyp, Netlify-Vorschau
+    \item drei Teilgruppen entlang der Architektur: Knowledge Graph, API und UI/UX; ab 11.06. auch als Discord-Rollen sichtbar
+    \item Entwicklungsprozess nach eigenem Workflow-Leitfaden im Repository:
+    \begin{itemize}
+        \item kein direkter Push auf den main-Branch, main bleibt immer lauffähig
+        \item ein Branch pro Issue, Zusammenführung über Pull Requests \autocite{chacon2014progit}
+        \item Review durch mindestens eine zweite Person vor dem Merge
+        \item Labels für Gruppen (Graph, UI, API, Alle) und Typen (Feature, Bug, Design, Docs)
+        \item Kanban-Board mit den Spalten Todo, In Progress, Review und Closed \autocite{anderson2010kanban}
+    \end{itemize}
+    \item Kommunikation: wöchentliches Freitagstreffen, ab Juni hybrid (Präsenz plus Discord); Protokolle im Repository; zusätzliche Gruppentreffen; Entscheidungen per Umfrage und Abstimmung
+    \item Werkzeuge: GitHub, Discord, Nextcloud, Figma (Wireframes, Logo), Flutter/Dart, Isar, Protégé, Fuseki/SPARQL, Netlify (Vorschau), Canva
+    \item Qualitätssicherung und gelernte Lektionen:
+    \begin{itemize}
+        \item Related Works am 22.05. beanstandet (Quellen nicht auffindbar), danach manuelle Überarbeitung
+        \item Git-Integration Ende Juni bis Anfang Juli: UI entwickelte auf eigenem Stand, Merge-Konflikte, danach Einigung auf main als gemeinsame Basis
+        \item Isar läuft nicht im Web, deshalb getrenntes Netlify-Vorschauprojekt
+        \item ab 07.09. tägliche Kurzupdates der UI-Gruppe und wöchentliche Statusabfragen
+    \end{itemize}
+\end{itemize}
+
 \subsection{Arbeitspakete}
+
+\begin{itemize}
+    \item AP1 Projektmanagement und Infrastruktur: Repository (GitLab ab 08.05., Umzug zu GitHub am 18./19.05.), Workflow-Leitfaden, Issues und Board, Protokolle (Sophia), Discord-Rollen (Hiep), Repo-Administration (Louis)
+    \item AP2 Related Work und Anforderungen: Arbeitsgruppen A (Fragebogen), B (Fokus Mensch), C (Fokus Anwendung); Ergebnis: Anforderungskatalog mit MUSS, KANN und OPTIONAL
+    \item AP3 Nutzerstudie: Fragebogenentwurf und Überarbeitung, Befragung in der BG Ambulanz (11.05. bis 29.05.), Fragebögen für vier Therapeut:innen, Experteninterview mit Etta Wolters (21.05.), Auswertung (Elif, Ilker)
+    \item AP4 UI/UX-Design: Wireframes in Figma (Sophia, Nadine), Logo (Nadine), Design-System, Körperdiagramm
+    \item AP5 MVP-Feature-Konzept: Ableitung aus Interviews, Fragebögen und Related Work, vorgestellt am 22.05. (Ilker)
+    \item AP6 Wissensbasis: Ontologie in Protégé auf Basis von YogaKG und PhysicalTherapy.owx, Übungskatalog, SPARQL-Endpunkt (Knowledge-Gruppe)
+    \item AP7 App und API: Flutter-Projekt ab 05.06., Nutzerdaten und Persistenz mit Isar, SPARQL-Anbindung, Planerstellung und Planempfehlung (API- und UI-Gruppe)
+    \item AP8 Integration und Test: erster E2E-Durchstich am 22.06., Merge-Fixes im Juli, Betrieb auf dem Testgerät Galaxy S10 Lite ab 04.09., Medienanbindung im September
+    \item AP9 Bericht und Präsentation: Gliederung nach Vorschlag der Betreuerin (02.07.), Beiträge pro Seite in der Fußzeile, Zwischenpräsentation am 26.06., MVP-Meilenstein am 17.07., Abschlusspräsentation am 02.10.
+\end{itemize}
+
 \subsection{Zeitlicher Ablauf}
+
+% Soll: Projektplan vom 25.04. (docs/protokolle/REHAB-Uebersicht-Sophia.pdf).
+% Planungsdokumente der Betreuerin (24./25.04.) sind im Discord-Archiv abgelaufen.
+
+\textbf{Soll (Projektplan vom 25.04.):}
+\begin{itemize}
+    \item 17.04. Kick-off und Gruppeneinteilung, ab 24.04. Planung der Nutzerstudie
+    \item 30.04. Fragebogen und Related Work, 08.05. Präsentation der Gruppenergebnisse
+    \item 11.05. bis 22.05. Durchführung der Nutzerstudie in den Praxen
+    \item Juni und Juli: MVP bauen (App-Gerüst, Backend-API, erste Queries, Demo mit kleinem Übungsset)
+    \item August und September: Ausbau und Bewertung (Wissensbasis, Fortschritt, UI/UX, Erinnerungen)
+    \item Abschluss: Bericht, Präsentationen, lauffähige Demo und Demo-Video
+\end{itemize}
+
+\textbf{Ist (vier Phasen):}
+\begin{itemize}
+    \item Phase 1 Verstehen (17.04. bis 26.05.): Kick-off, Gruppen, Related Work; Fragebögen raus am 11.05., Verlängerung der Befragung um eine Woche (18.05.); Interview am 21.05.; MVP-Feature-Ableitung am 22.05.; Meilenstein: Anforderungen belegt
+    \item Phase 2 Fundament (04.06. bis 26.06.): Flutter-Start, Ontologie in Protégé, erste Queries, E2E-Test am 22.06.; Meilenstein: Zwischenpräsentation am 26.06.
+    \item Phase 3 MVP (Ende Juni bis 19.07.): Git-Merge-Krise (30.06. bis 10.07.), Isar-Persistenz, MVP-Meilensteinpräsentation am 17.07., Feedback am 19.07.
+    \item Phase 4 Integration (31.07. bis 02.10.): Planung der letzten Schritte am 31.07., Medien bis 15.09., Testgerät ab 04.09., Bericht bis 30.09., Abschlusspräsentation am 02.10.
+\end{itemize}
+
+\textbf{Abweichungen vom Plan:}
+\begin{itemize}
+    \item Nutzerstudie verlängert (Krankheit in der Praxis, größere Stichprobe)
+    \item Related Works nach der Kritik am 22.05. manuell neu erarbeitet
+    \item Git-Integration erst Ende Juni/Anfang Juli, UI entwickelte zeitweise auf eigenem Stand
+    \item MVP-Meilenstein am 17.07. statt Ende Juli; Screen-Recordings statt Live-Demo, da Sophia und Nadine fehlten
+    \item August ohne eigenen Meilenstein, Fokus auf Medien, Testgerät und Bericht
+    \item Web-Build der App durch Isar eingeschränkt, separates Netlify-Vorschauprojekt
+\end{itemize}
+
+% Diagramm: Zeitstrahl als Abbildung, laut Vorgabe der Betreuerin vom 02.07. mit Zuordnung der Personen zu den Arbeitspaketen.
+
 \subsection{Aufgabenverteilung}
 
 Tabelle~\ref{tab:aufgabenverteilung} gibt einen Überblick darüber, welche
 Aufgaben die einzelnen Gruppenmitglieder im Projekt übernommen und welche
 Abschnitte des Berichts sie verfasst haben.
+
+% Zuordnung aus Protokollen, Discord-Archiv und Commit-Daten.
+% Spalte "Abschnitte im Bericht" wird beim Schreiben der Kapitel gefuellt,
+% Quelle ist die Fu\ss zeile in report_bachelorprojekt_rehab.tex.
+
+\begin{itemize}
+    \item Rollen verschoben sich im Projektverlauf: Ilker wechselte zur Knowledge-Gruppe, Khaled, Ahmad und Nadine kamen zur UI-Gruppe
+    \item Zwischenpräsentation und Endphase: Präsentation und Poster wurden auf die Gruppen aufgeteilt (04.09.)
+    \item offene Punkte: Zuordnung für Parizoda Alimukhamedova und Tenzin Methok Taschi im Team klären
+\end{itemize}
 
 \renewcommand{\arraystretch}{1.3}
 \begin{xltabular}{\textwidth}{@{} >{\raggedright\arraybackslash}p{4.4cm} >{\raggedright\arraybackslash}X >{\raggedright\arraybackslash}p{2.6cm} @{}}
@@ -25,22 +112,21 @@ Abschnitte des Berichts sie verfasst haben.
     \endfoot
     \bottomrule
     \endlastfoot
-    Nadine Albers            & & \\
-    Mika Schneider           & & \\
-    Louis Unruh              & & \\
-    Parizoda Alimukhamedova  & & \\
-    Khaled Almasri           & & \\
-    Amjad Faham              & & \\
-    Daniel Fetzer            & & \\
-    Bjarne Kahrs             & & \\
-    Mohamad Kalaf            & & \\
-    Ilker Yasin Koc          & & \\
-    Hoang Hiep Nguyen        & & \\
-    Elif Özcelik             & & \\
-    Sophia Pichler           & & \\
-    Rabih Takouzli           & & \\
-    Tenzin Methok Taschi     & & \\
-    Ahmad Zahra              & & \\
+    Nadine Albers            & Logo und Wireframes (Figma), Übungsvideos, Mitarbeit am Bericht & \\
+    Mika Schneider           & Related Work (Fokus Mensch), Ontologie und Übungsliste, Kapitel 8 & \\
+    Louis Unruh              & Repository und Workflow, Knowledge Graph, Abschlusspräsentation & \\
+    Parizoda Alimukhamedova  & \textit{im Team klären} & \\
+    Khaled Almasri           & UI-Implementierung, App-Dokumentation & \\
+    Amjad Faham              & UI-Implementierung, Netlify-Vorschau, Merge-Fix, UI-Vortrag & \\
+    Daniel Fetzer            & API, Flutter- und Git-Setup, Plan- und Schmerz-Logik, Testgerät & \\
+    Bjarne Kahrs             & API, Fragebogen, Reviews und Merge-Konflikte & \\
+    Mohamad Kalaf            & Fragebogen-Team (30.04.), UI & \\
+    Ilker Yasin Koc          & Digitalisierung und Auswertung der Befragung, MVP-Features, ab August Wissensbasis & \\
+    Hoang Hiep Nguyen        & API, Discord-Organisation, Fragebogen, Profil- und Körper-Anbindung & \\
+    Elif Özcelik             & Praxiskontakte, Therapeutenfragebogen, Auswertung, Wissensbasis, Kapitel 8 & \\
+    Sophia Pichler           & Protokolle, Wireframes und Design, Interview, Praxiskontakte, MVP-Präsentation & \\
+    Rabih Takouzli           & Related Work (Fokus Anwendung), UI, Bericht & \\
+    Tenzin Methok Taschi     & \textit{im Team klären} & \\
+    Ahmad Zahra              & UI-Implementierung (Körper, Videos), Sitzungsprotokoll am 04.09. & \\
     
 \end{xltabular}
-
