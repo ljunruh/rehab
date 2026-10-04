@@ -27,6 +27,7 @@
 \renewcommand{\floatpagefraction}{0.75}
 
 \usepackage{seqsplit}
+\usepackage{pdfpages}
 
 % --- Fußzeile ---
 \usepackage{fancyhdr}
@@ -51,18 +52,17 @@
 \fusszeile{8}{Elif Özcelik}
 \fusszeile{9}{Elif Özcelik}
 \fusszeile{10}{Elif Özçelik}
-\fusszeile{11}{Elif Özçelik, Mika Schneider: 8.3.2}
-\fusszeile{12}{Elif Özçelik: 8.3.5, 8.3.6}
-\fusszeile{13}{Elif Özçelik: 8.3.7}
-\fusszeile{14}{Elif Özçelik: 8.3.7, Mika Schneider 8.3.8}
+\fusszeile{11}{Elif Özçelik, Mika Schneider}
+\fusszeile{12}{Elif Özçelik}
+\fusszeile{13}{Elif Özçelik}
+\fusszeile{14}{Elif Özçelik, Mika Schneider}
 \fusszeile{15}{Elif Özçelik}
 \fusszeile{16}{Elif Özçelik}
-\fusszeile{17}{Elif Özcelik}
 \emergencystretch=2em
 
 % --- Literatur ---
 \usepackage[backend=biber, style=apa]{biblatex}
-\addbibresource{./extra/literatur.bib}
+\addbibresource{extra/literatur.bib}
 
 \setcounter{secnumdepth}{3}
 \setcounter{tocdepth}{2}          % nur bis 8.3 im Inhaltsverzeichnis
@@ -105,9 +105,15 @@
 \input{kapitel/kapitel_5}
 \input{kapitel/kapitel_6}
 \input{kapitel/kapitel_7}
+\input{hilfsmittel}
 
+\newpage
 % --- Literatur ---
-\clearpage
+\nocite{*}
 \printbibliography[heading=bibintoc]
+
+% --- Anhang ---
+\clearpage
+\input{kapitel/anhang}
 
 \end{document}
