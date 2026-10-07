@@ -1,1 +1,54 @@
 \section{UI Implementierung}
+
+\subsection{Technischer Aufbau}
+
+Die Benutzeroberfläche wurde mit Flutter umgesetzt. Im finalen Stand umfasst die Anwendung 104 Quelldateien mit rund 20.600 Zeilen sowie sechzehn Bildschirme und Abläufe. Die Implementierung lässt sich in vier Ebenen gliedern: sichtbare Screens, wiederverwendbare UI-Komponenten, Zustandsverwaltung über Provider und die Datenquellen Isar beziehungsweise Knowledge Graph.
+
+Wiederkehrende Komponenten wie Karten, Buttons, Auswahlchips, Meldungen, Typografie und Abstände wurden zentral definiert. Dadurch konnten die Gestaltungsentscheidungen aus dem Figma-Prototyp konsistent auf die einzelnen Ansichten übertragen werden. Für den Anwendungszustand werden neun Provider eingesetzt, die unter anderem Trainingspläne, Übungen, Profilinformationen sowie Schmerz- und Trainingsverläufe verwalten und Änderungen an die Oberfläche weitergeben.
+
+\subsection{Datenhaltung und Integration}
+
+Nutzerspezifische Daten werden lokal mit Isar gespeichert. Dazu gehören insbesondere Profilangaben, angelegte Pläne sowie Trainings- und Schmerzverläufe. Die eigentlichen Übungsinformationen werden dagegen über SPARQL aus dem Knowledge Graph abgefragt. Damit bleiben persönliche und verlaufsbezogene Daten auch lokal verfügbar, während die strukturierten Reha-Inhalte unabhängig davon in der Wissensbasis gepflegt werden können.
+
+Für die Oberfläche bedeutet diese Trennung, dass Provider und Repository-Schicht zwischen Interaktion und Datenquellen vermitteln. Profilangaben werden aus der lokalen Datenbank gelesen und bei Bedarf als Parameter für die Übungsabfragen verwendet. Die Ergebnisse der Abfragen werden anschließend in die für die Oberfläche benötigten Modelle überführt und dort dargestellt.
+
+\subsection{Planerstellung und Trainingsablauf}
+
+Die technische Umsetzung bildet zwei zentrale Wege zur Planerstellung ab. Bei der geführten Empfehlung wählen Nutzer:innen eine Körperregion und eines oder mehrere Trainingsziele. Profilangaben wie Mobilitätslevel, betroffene Gelenke und Kontraindikationen fließen anschließend in die Abfrage ein. Aus den zurückgegebenen Übungen wird ein Trainingsplan erzeugt, der gespeichert und später erneut bearbeitet werden kann.
+
+Alternativ können Übungen manuell zu einem Plan zusammengestellt werden. Suche und Filterung unterstützen dabei die Auswahl. Pläne lassen sich speichern, archivieren, wiederherstellen, umsortieren und um weitere Übungen ergänzen. Änderungen werden nicht nur in Isar persistiert, sondern auch im lokalen Anwendungszustand aktualisiert, damit sie unmittelbar in der Oberfläche sichtbar werden.
+
+Während des Trainings zeigt die Anwendung Anleitung, Bild oder Video sowie vorhandene Korrektur- und Sicherheitshinweise an. Nach Abschluss können Schmerz- und Trainingsdaten gespeichert und anschließend im Verlauf angezeigt werden.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.42\textwidth]{bilder/ui_home_final.png}
+    \caption{Umgesetzter Home-Screen der ReVia-Anwendung}
+    \label{fig:ui_home_final}
+\end{figure}
+
+\subsection{Profil und Körper-Diagramm}
+
+Das Profil bündelt die für die Personalisierung benötigten Angaben. Ein zentrales Element ist das interaktive Körper-Diagramm für Vorder- und Rückseite. In der Implementierung sind 26 Trefferzonen hinterlegt, über die betroffene Gelenkbereiche direkt ausgewählt werden können. Weitere Einschränkungen und das Mobilitätslevel werden ergänzend über entsprechende Auswahlfelder erfasst.
+
+Die ausgewählten Angaben begleiten anschließend die Erstellung und Filterung von Trainingsplänen. Dadurch wird die im Design vorgesehene visuelle Eingabe unmittelbar mit der technischen Abfragelogik verbunden.
+
+\subsection{Abgleich mit der Ontologie}
+
+Eine der größten Herausforderungen war die laufende Abstimmung mit der sich weiterentwickelnden Ontologie. Änderungen an Körperregionen oder Bezeichnungen konnten dazu führen, dass Übungen zwar im Knowledge Graph vorhanden waren, von der Oberfläche aber nicht mehr erreicht wurden.
+
+Ein konkretes Beispiel war die Region ``Bauch''. Nach einer Änderung der Körperregionen fehlte sie zeitweise in der Anwendung, wodurch 50 Übungen nicht erreichbar waren. Außerdem wurden bei einer Suche nach ``Arme'' zunächst keine Übungen gefunden, die in der Ontologie nur Unterregionen wie ``Bizeps'' zugeordnet waren. Daraufhin wurde die Abfragelogik so angepasst, dass Unterregionen über die vorhandenen \texttt{partOf}-Beziehungen berücksichtigt werden. Für ``Arme'' erhöhte sich die Trefferzahl dadurch von 36 auf 39 Übungen, während die zuvor nicht erreichbaren Bauchübungen wieder verfügbar wurden.
+
+Zur Überprüfung wurde zusätzlich eine lokale Fuseki-Instanz verwendet. Damit konnten Änderungen direkt gegen die tatsächlichen Daten getestet werden. Bei diesem Abgleich fiel auch ein Fehler in einer SPARQL-Abfrage auf, durch den der Server keine Ergebnisse zurücklieferte. Nach der Korrektur konnte die Planerstellung wieder mit realen Graph-Daten durchgeführt werden.
+
+\subsection{Tests auf dem Zielgerät}
+
+Neben Tests auf dem Entwicklungsrechner wurde die Anwendung auf einem realen Android-Gerät geprüft. Dabei traten mehrere Darstellungs- und Zustandsprobleme auf, die in der Desktop-Vorschau nicht sichtbar waren. Dazu gehörten unter anderem ein zusätzlicher Rahmen aus der Desktop-Darstellung, fehlender Abstand zur Statusleiste, Layoutprobleme bei wenig Inhalt oder langen Plannamen sowie ein State-Problem nach dem Löschen des Profils.
+
+Diese Tests führten zu mehreren Anpassungen an Layout und Zustandsverwaltung. Sie zeigten zugleich, dass die Funktionsfähigkeit der Oberfläche nicht ausschließlich anhand der Entwicklungsumgebung beurteilt werden kann, sondern auch auf dem vorgesehenen Zielgerät überprüft werden muss.
+
+\subsection{Erreichter Stand und verbleibende Grenzen}
+
+Im finalen Stand ist ein durchgängiger Ablauf mit realen Daten möglich: Profilangaben erfassen, einen Plan empfehlen lassen oder manuell erstellen, Übungen aus dem Knowledge Graph laden, trainieren sowie Schmerz- und Fortschrittsdaten lokal speichern. Damit wurde der ursprünglich als klickbarer Design-Prototyp entwickelte Ablauf in eine funktionale Flutter-Anwendung übertragen.
+
+Verbleibende Grenzen bestehen insbesondere an den Schnittstellen zur Wissensbasis. Die Zuordnung der sechs Hauptregionen ist weiterhin teilweise in der Anwendung festgelegt und muss bei strukturellen Änderungen der Ontologie abgestimmt werden. Auch die bereits im Wissensbasis-Kapitel beschriebenen Benennungsinkonsistenzen einzelner Gelenke zeigen, dass gemeinsame Begriffe zwischen UI, API und Knowledge Graph weiterhin verbindlich gepflegt werden müssen.

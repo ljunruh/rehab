@@ -1,1 +1,35 @@
 \section{UI Design}
+
+\subsection{Rückgriff auf die Nutzerstudie}
+
+Die Gestaltung von ReVia wurde aus den Ergebnissen der Nutzerstudie abgeleitet. Für das UI/UX-Design waren insbesondere eine einfache und verständliche Bedienung, sichtbarer Fortschritt, personalisierte Inhalte, verständliche Übungsdarstellungen sowie ein zurückhaltender Umgang mit Erinnerungen relevant. Übungsvideos sollten gegenüber reinen Textanleitungen eine zentrale Rolle spielen, während Schmerzen möglichst niedrigschwellig erfasst und im Verlauf sichtbar gemacht werden sollten.
+
+Aus diesen Anforderungen wurden mehrere Gestaltungsleitlinien abgeleitet. Die Oberfläche sollte wenige Entscheidungen gleichzeitig verlangen, wichtige Funktionen schnell erreichbar machen und medizinische beziehungsweise technische Fachbegriffe soweit möglich in verständliche Interaktionen übersetzen. Gleichzeitig musste das Design die spätere Anbindung an Knowledge Graph und API berücksichtigen, da Angaben wie Körperregion, Trainingsziel oder Mobilitätslevel nicht nur visuell dargestellt, sondern auch als strukturierte Daten weiterverarbeitet werden.
+
+\subsection{Designsprache und Markenidentität}
+
+Für die visuelle Gestaltung wurde eine Petrol-/Sage-Farbwelt mit hellen Cream-Flächen gewählt. Dunklere Grüntöne werden vor allem für zentrale Aktionen und aktive Zustände verwendet, während helle Flächen den Großteil der Inhalte tragen. Ein wärmerer Akzentton wird gezielt für Schmerz- und Warninformationen eingesetzt. Die Oberfläche verwendet durchgehend abgerundete Karten, Schaltflächen und Auswahlflächen, wodurch ein einheitliches Erscheinungsbild entsteht.
+
+Parallel dazu wurden der Name und das Erscheinungsbild von ReVia entwickelt. Der Name verbindet den Gedanken der Rehabilitation mit dem Begriff eines Weges beziehungsweise Verlaufs. Das Logo greift diesen Gedanken über kreisförmige Elemente auf, die zugleich in den Fortschrittsanzeigen der Anwendung wiederkehren. Gestaltung, Komponenten und ein eigenes Icon-Set wurden in Figma erstellt. Neben allgemeinen Funktionssymbolen wurden Körperregion-Icons entworfen, über die Trainingspläne visuell schneller zugeordnet werden können.
+
+\subsection{Informationsarchitektur und Navigation}
+
+Die Anwendung wurde in wenige zentrale Bereiche gegliedert. Der Home-Bereich dient als täglicher Einstieg und bündelt aktuelle Trainingspläne, Fortschritt und kurze motivierende Elemente. Der Bereich Pläne dient zur Verwaltung und Erstellung der Trainingspläne, während der Verlauf Trainingsaktivität und Schmerzangaben über Kalender- und Diagrammansichten sichtbar macht. Persönliche Angaben werden über das Profil beziehungsweise den Avatar erreicht.
+
+Ein wichtiges Gestaltungsziel war die Trennung unterschiedlicher Nutzungssituationen. Das eigentliche Training wird über die Tageskarten auf der Startseite begonnen, während die Planansicht hauptsächlich der Verwaltung dient. Hinweise zur Schonung im Alltag werden zusätzlich von den eigentlichen Trainingsplänen getrennt dargestellt. Dadurch bleiben Training, Organisation und ergänzende Alltagshinweise als unterschiedliche Aufgaben erkennbar.
+
+Die Navigation wurde bewusst kompakt gehalten. Wiederkehrende Aktionen verwenden einheitliche Symbole und Komponenten, und zusätzliche Erklärungen werden über Info-Elemente nur bei Bedarf eingeblendet. Dadurch sollten auch Nutzer:innen mit wenig Erfahrung mit Gesundheits-Apps die wichtigsten Funktionen ohne lange Einarbeitung erreichen können.
+
+\subsection{Zentrale Interaktionskonzepte}
+
+Der Home-Screen wurde als zentraler Einstieg in den täglichen Rehabilitationsablauf konzipiert. Neben einer persönlichen Begrüßung stehen dort die aktuell anstehenden Pläne im Vordergrund. Ein direkter Start soll den Weg von der Absicht bis zur ersten Übung möglichst kurz halten. Fortschrittsringe und eine Wochenserie machen die regelmäßige Durchführung sichtbar, während der Schmerzverlauf eine getrennte Dokumentation des subjektiven Befindens ermöglicht.
+
+Für neue Trainingspläne wurden zwei Wege vorgesehen: eine geführte Empfehlung und eine manuelle Erstellung. Beide Abläufe wurden als mehrstufige Prozesse gestaltet, damit nicht zu viele Entscheidungen gleichzeitig getroffen werden müssen. Bei der Empfehlung werden zunächst Körperregion und Trainingsziel gewählt, bevor ein Vorschlag aus den verfügbaren Übungen entsteht. Bei der manuellen Erstellung können Übungen gezielt gesucht und zusammengestellt werden.
+
+Eine weitere zentrale Designentscheidung war die interaktive Körperkarte im Profil. Statt betroffene Bereiche ausschließlich über Listen auszuwählen, können Nutzer:innen die entsprechende Stelle direkt an einer anatomischen Darstellung markieren. Vorder- und Rückseite lassen sich umschalten. Damit wird eine visuelle Eingabe mit den strukturierten Körperregionen verbunden, die später von der Anwendung und der Wissensbasis verarbeitet werden.
+
+\subsection{Iterativer Designprozess und Übergabe}
+
+Der Design-Prototyp entstand iterativ in Figma. Frühere Varianten unterschieden sich unter anderem bei Farbgebung, Navigation, Fortschrittsdarstellung und der Erfassung betroffener Körperbereiche. Im Verlauf wurden diese Elemente schrittweise vereinheitlicht und an die Ergebnisse der Nutzerstudie sowie an die Anforderungen der technischen Umsetzung angepasst.
+
+Zum Abschluss lag ein funktionaler, klickbarer Prototyp mit den zentralen Abläufen für Home, Pläne, Verlauf, Motivation und Profil vor. Dieser Prototyp diente anschließend als abgestimmte Vorlage für die UI-Implementierungsgruppe. Dadurch konnten Interaktionsabläufe und visuelle Entscheidungen vor der technischen Umsetzung gemeinsam geprüft und anschließend in Flutter übertragen werden.
