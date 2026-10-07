@@ -1,17 +1,82 @@
 \section{Einleitung}
+
+Ein wichtiger Teil der physiotherapeutischen Rehabilitation findet zwischen den eigentlichen Behandlungsterminen statt. In dieser Zeit müssen Patient:innen Übungen selbstständig durchführen und die Hinweise aus der Therapie im Alltag umsetzen. Dabei können fehlende Motivation, Unsicherheit bei der Übungsausführung oder fehlende individuell passende Informationen die regelmäßige Durchführung erschweren. Die im Projekt durchgeführte User Study zeigte, dass für eine unterstützende Reha-Anwendung insbesondere verständliche Übungsanleitungen, Personalisierung, Sicherheit und die Darstellung des eigenen Fortschritts relevant sind.
+
+An diesem Punkt setzt das Bachelorprojekt \textbf{ReVia} an. Ziel des Projekts war die Entwicklung eines Prototyps für eine Anwendung, die Patient:innen bei der selbstständigen Rehabilitation zu Hause unterstützt. Mithilfe einer strukturierten Wissensbasis sollen passende Übungen und weitere Informationen bereitgestellt und über eine verständliche Benutzeroberfläche zugänglich gemacht werden. Die Anwendung soll dabei keine medizinischen Entscheidungen treffen und die persönliche Betreuung durch Fachpersonal nicht ersetzen, sondern diese sinnvoll ergänzen.
+
+Zu Beginn des Projekts wurden zunächst die Anforderungen der späteren Nutzer:innen untersucht. Hierfür wurden bestehende wissenschaftliche Arbeiten und Anwendungen aus dem Bereich der digitalen Rehabilitation betrachtet und anschließend eine eigene User Study durchgeführt. Die daraus gewonnenen Erkenntnisse dienten als Grundlage für die weitere Entwicklung. Für ein erstes MVP wurden daraus unter anderem verständliche Übungsdarstellungen, Erinnerungen, eine Schmerzskala, Fortschrittsanzeigen, lokale Nutzerdaten und grundlegende Personalisierung als mögliche Kernfunktionen festgehalten.
+
+Für die Umsetzung wurde das Projekt anschließend in drei eng miteinander verbundene Bereiche aufgeteilt. Die \textbf{Knowledge-Graph-Gruppe} beschäftigte sich mit der Strukturierung und Modellierung des für die Rehabilitation relevanten Wissens. Das \textbf{UI/UX-Design-Team} überführte die Nutzeranforderungen in konkrete Interaktions- und Gestaltungskonzepte, während die \textbf{UI-Implementierungsgruppe} diese Konzepte technisch umsetzte. Die \textbf{API-Gruppe} stellte die technische Verbindung zwischen Wissensbasis und Anwendung her und übernahm unter anderem Datenabfragen, die Verarbeitung der Ergebnisse sowie die lokale Speicherung nutzerspezifischer Informationen.
+
+Aus dem Zusammenspiel dieser Bereiche entstand schrittweise der ReVia-Prototyp. Dieser umfasst unter anderem Trainingspläne und Übungsansichten, Funktionen zur Darstellung von Fortschritt und Schmerzverlauf sowie ein Profil mit interaktiver Körperkarte. Die Benutzeroberfläche macht dabei die strukturierten Informationen des Knowledge Graphs für die Nutzer:innen zugänglich und verbindet sie mit den in der Anwendung erfassten Angaben.
+
+Der vorliegende Abschlussbericht dokumentiert den Weg von der Ermittlung der Nutzeranforderungen über die Modellierung der Wissensbasis und die Gestaltung der Benutzeroberfläche bis hin zur technischen Integration der einzelnen Komponenten. Neben den Ergebnissen der Teilgruppen werden auch deren Zusammenspiel, wichtige Entscheidungen während der Entwicklung, aufgetretene Herausforderungen, der Projektverlauf sowie der erreichte Stand von ReVia betrachtet.
+
 \section{Motivation und Zielsetzung}
+
 \subsection{Projektidee}
+
+Die Projektidee von ReVia besteht darin, rehabilitationsbezogenes Wissen so zu strukturieren, dass es von einer Anwendung gezielt abgefragt und für unterschiedliche Nutzer:innen aufbereitet werden kann. Anstelle einer festen Sammlung von Übungen soll die Anwendung Angaben wie Körperregion, Beschwerden, Trainingslevel und Trainingsziel berücksichtigen und auf dieser Grundlage passende Inhalte bereitstellen.
+
+Als technische Grundlage dient ein Knowledge Graph, in dem unter anderem Übungen, Körperregionen, Kontraindikationen und Trainingseffekte miteinander verknüpft werden. Die API bildet die Schnittstelle zwischen dieser Wissensbasis und der Anwendung, während die Benutzeroberfläche die abgefragten Informationen für die Nutzer:innen verständlich zugänglich macht. Dadurch verbindet ReVia Wissensmodellierung, Datenabfrage und nutzerzentrierte Gestaltung in einem gemeinsamen Prototyp.
+
 \subsection{Motivation}
+
+Eine reine Bereitstellung von Übungsinformationen reicht für die Unterstützung während einer Rehabilitation nur eingeschränkt aus. Nutzer:innen unterscheiden sich hinsichtlich ihrer Beschwerden, betroffenen Körperregionen, Trainingsstände und Ziele. Gleichzeitig müssen Übungen verständlich dargestellt und die regelmäßige Durchführung im Alltag unterstützt werden.
+
+Die Ergebnisse der im Projekt durchgeführten Nutzerstudie zeigten insbesondere den Bedarf an verständlichen Übungsanleitungen, Personalisierung und sichtbarem Fortschritt. Auch Motivation und Eigenverantwortung erwiesen sich als wichtige Aspekte. Diese Erkenntnisse wurden bei der weiteren Konzeption berücksichtigt und führten zu einem Schwerpunkt auf einer übersichtlichen Anwendung mit grundlegender Personalisierung und Funktionen zur Begleitung des Rehabilitationsverlaufs.
+
+Die strukturierte Modellierung des Wissens bietet dabei den Vorteil, dass Zusammenhänge zwischen Übungen, Körperregionen, Einschränkungen und Trainingszielen nicht ausschließlich fest in der Benutzeroberfläche hinterlegt werden müssen. Sie können unabhängig davon in der Wissensbasis gepflegt und über entsprechende Abfragen genutzt werden.
+
 \subsection{Ziele und Herausforderungen}
-\section{Ablaufsplan und Projektorganisition}
+
+Ziel des Projekts war die Entwicklung eines funktionsfähigen Prototyps, der drei zentrale Bestandteile miteinander verbindet: eine strukturierte Wissensbasis, eine verständliche Benutzeroberfläche und eine technische Schnittstelle zur Abfrage und Verarbeitung der Daten. Auf Grundlage von Nutzerangaben sollten passende Inhalte aus dem Knowledge Graph ausgewählt und innerhalb der Anwendung dargestellt werden können.
+
+Für den Prototyp wurden außerdem Funktionen wie verständliche Übungsansichten, grundlegende personalisierte Empfehlungen, die Erfassung von Schmerzen und Fortschritt sowie Erinnerungs- und Motivationselemente vorgesehen. Die Bedienung sollte dabei möglichst übersichtlich bleiben und unnötige technische oder medizinische Fachsprache vermeiden.
+
+Eine zentrale Herausforderung bestand darin, die drei Entwicklungsbereiche so aufeinander abzustimmen, dass Datenmodell, Abfragen und Benutzeroberfläche miteinander kompatibel sind. Änderungen an einer Komponente konnten deshalb Anpassungen in anderen Bereichen erforderlich machen.
+
+Gleichzeitig wurde der Funktionsumfang bewusst begrenzt. ReVia soll keine medizinischen Diagnosen stellen und keine eigenständigen medizinischen Entscheidungen treffen. Der Prototyp ist als unterstützende Anwendung gedacht, die Informationen strukturiert bereitstellt und Nutzer:innen bei der selbstständigen Rehabilitation zwischen Behandlungsterminen begleitet. Die fachliche Beurteilung und persönliche Betreuung durch medizinisches oder physiotherapeutisches Fachpersonal wird dadurch nicht ersetzt.
+
+\section{Ablaufplan und Projektorganisation}
+
 \subsection{Vorgehen}
+
+Zu Beginn des Projekts stand die Ermittlung der Nutzeranforderungen im Mittelpunkt. Die Vorbereitung der User Study wurde dafür auf mehrere Arbeitsbereiche verteilt. Eine Teilgruppe beschäftigte sich mit der Entwicklung eines Fragebogens, während weitere Gruppen verwandte wissenschaftliche Arbeiten aus Nutzer- beziehungsweise Anwendungsperspektive untersuchten. Die Ergebnisse wurden anschließend gemeinsam vorgestellt und diskutiert und dienten als Grundlage für die weitere Durchführung der Nutzerstudie.
+
+Auf Grundlage der bis Ende Mai gesammelten Interviews, Fragebögen und Related Works wurden anschließend erste Anforderungen an den Prototyp und mögliche Funktionen für ein MVP festgelegt. Im Mittelpunkt standen dabei insbesondere einfache Bedienung, verständliche Übungsdarstellungen, Motivation und grundlegende Personalisierung.
+
+Für die anschließende Entwicklungsphase wurde das Projekt in die Bereiche Knowledge Graph, UI/UX und API aufgeteilt. Die weitere Arbeit verlief jedoch nicht streng nacheinander. Die Bereiche waren technisch eng miteinander verbunden und mussten regelmäßig aufeinander abgestimmt werden. Änderungen an der Wissensbasis beeinflussten beispielsweise die möglichen Abfragen und damit die Darstellung in der Benutzeroberfläche. Umgekehrt entstanden aus den UI-Konzepten neue Anforderungen an die Datenstruktur und die technische Integration.
+
+Die Entwicklung erfolgte deshalb iterativ. Datenmodell, Abfragen und Benutzeroberfläche wurden mehrfach angepasst und gemeinsam getestet. Für die laufende Kommunikation wurde insbesondere Discord genutzt, während Git und GitHub die gemeinsame Arbeit an Quellcode, Ontologie und Dokumentation unterstützten.
+
 \subsection{Arbeitspakete}
+
+Nach Abschluss der ersten Phase wurden die Aufgaben auf mehrere eng miteinander verbundene Arbeitsbereiche verteilt.
+
+Die Knowledge-Graph-Gruppe war für die Strukturierung und Erweiterung der Wissensbasis zuständig. Dazu gehörten unter anderem die Modellierung von Übungen, Körperregionen, Beschwerden, Trainingseffekten und weiteren für die Rehabilitation relevanten Zusammenhängen. Die Ontologie musste so aufgebaut werden, dass die benötigten Informationen später gezielt über SPARQL-Abfragen abgerufen werden konnten.
+
+Der UI-Bereich umfasste sowohl die konzeptionelle Gestaltung als auch die spätere technische Umsetzung. Das UI/UX-Design-Team überführte die Erkenntnisse aus der Nutzerstudie in konkrete Gestaltungs- und Interaktionskonzepte und entwickelte einen klickbaren Figma-Prototyp. Dieser diente anschließend als Vorlage für die UI-Implementierungsgruppe, die die Benutzeroberfläche und die zugehörigen Abläufe in Flutter technisch realisierte.
+
+Die API-Gruppe übernahm die technische Verbindung zwischen Anwendung und Wissensbasis. Zu ihren Aufgaben gehörten die Kommunikation mit dem Fuseki-Server, die Erstellung und Ausführung von SPARQL-Abfragen, die Verarbeitung der zurückgegebenen Daten sowie die lokale Speicherung nutzerspezifischer Informationen. Außerdem wurden die verschiedenen Komponenten in der Anwendung zusammengeführt und mit realen Daten getestet.
+
+Obwohl die Aufgaben organisatorisch aufgeteilt waren, konnten die Bereiche nicht vollständig unabhängig voneinander bearbeitet werden. Insbesondere an den Schnittstellen zwischen Ontologie, API und Benutzeroberfläche waren regelmäßige Abstimmungen notwendig. Dadurch entstanden neben den einzelnen Arbeitspaketen auch gemeinsame Aufgaben wie Integration, Fehlerbehebung und Tests.
+
 \subsection{Zeitlicher Ablauf}
+
+Der ursprüngliche Projektplan sah vor, die User Study bis Ende Mai abzuschließen. Bereits während der Vorbereitung wurden die Aufgaben in die Bereiche Fragebogen, verwandte Arbeiten mit Fokus auf die Nutzer:innen und verwandte Arbeiten mit Fokus auf bestehende Anwendungen aufgeteilt. Die daraus gewonnenen Ergebnisse bildeten die Grundlage für die anschließende Entwicklungsphase.
+
+Für die Arbeit in den Entwicklungsbereichen war zunächst vorgesehen, bis etwa Mitte Juli einen ersten Prototyp zu entwickeln. Anschließend sollte bis Mitte August eine Phase zur Erweiterung der Funktionalität und zur Fehlerbehebung folgen. Der Abschlussbericht sollte nach der ursprünglichen Planung bis Mitte September fertiggestellt werden. Für unerwartete Probleme waren zusätzlich zwei Wochen Puffer bis Ende September vorgesehen.
+
+Im tatsächlichen Projektverlauf gingen die einzelnen Phasen stärker ineinander über als ursprünglich geplant. Auch nach dem ersten Prototyp wurden die Wissensbasis, die Benutzeroberfläche und die technische Integration weiterentwickelt. Änderungen an Datenstrukturen oder Abfragen machten teilweise weitere Anpassungen in anderen Komponenten notwendig.
+
+Ein konkretes Beispiel war die Zuordnung von Körperregionen. Nach einer Änderung der Ontologie war die Region ``Bauch'' in der Anwendung zeitweise nicht mehr erreichbar, wodurch 50 Übungen nicht angezeigt werden konnten. Außerdem wurden bei einer Suche nach ``Arme'' Übungen nicht gefunden, wenn sie im Knowledge Graph nur einer Unterregion wie ``Bizeps'' zugeordnet waren. Um diese Abhängigkeit robuster abzubilden, wurden Unterregionen über die vorhandenen \texttt{partOf}-Beziehungen berücksichtigt. Ein lokal betriebener Fuseki-Server ermöglichte es anschließend, Änderungen direkt mit den tatsächlichen Daten zu überprüfen.
+
+Die Arbeiten an Integration, Fehlerbehebung und Dokumentation reichten schließlich bis in die ursprünglich vorgesehene Pufferphase hinein. In der letzten Projektphase wurden unter anderem Daten ergänzt und kontrolliert, Medien eingebunden, einzelne Komponenten aufeinander abgestimmt und die Ergebnisse der Teilgruppen für den gemeinsamen Abschlussbericht und die Abschlusspräsentation zusammengeführt.
+
 \subsection{Aufgabenverteilung}
 
-Tabelle~\ref{tab:aufgabenverteilung} gibt einen Überblick darüber, welche
-Aufgaben die einzelnen Gruppenmitglieder im Projekt übernommen und welche
-Abschnitte des Berichts sie verfasst haben.
+Tabelle~\ref{tab:aufgabenverteilung} gibt einen Überblick darüber, welche Aufgaben die einzelnen Gruppenmitglieder im Projekt übernommen und welche Abschnitte des Berichts sie verfasst haben. Die Einträge werden von den jeweiligen Projektmitgliedern entsprechend ihrer tatsächlichen Beiträge ergänzt.
 
 \renewcommand{\arraystretch}{1.3}
 \begin{xltabular}{\textwidth}{@{} >{\raggedright\arraybackslash}p{4.4cm} >{\raggedright\arraybackslash}X >{\raggedright\arraybackslash}p{2.6cm} @{}}
@@ -31,7 +96,7 @@ Abschnitte des Berichts sie verfasst haben.
     \bottomrule
     \endlastfoot
     Nadine Albers            & & \\
-    Mika Schneider           &Übungen, Rezept der Woche, Schonung im Alltag, Labeländerungen, Injuries, Einpflegen picURL, partOf und hasPart, Equipment, dynamische Entwicklung der Object- und Dataproperties, sowie Individuals der genannten Klassen, Related Work Fokus Mensch&4.1, 8.3.1, 8.3.3-8.3.7\\
+    Mika Schneider           & Übungen, Rezept der Woche, Schonung im Alltag, Labeländerungen, Injuries, Einpflegen von \texttt{picURL}, \texttt{partOf} und \texttt{hasPart}, Equipment, dynamische Entwicklung der Object- und Data-Properties sowie Individuals der genannten Klassen, Related Work mit Fokus auf den Menschen. & 4.1, 8.3.1, 8.3.3--8.3.7 \\
     Louis Unruh              & & \\
     Parizoda Alimukhamedova  & & \\
     Khaled Almasri           & & \\
@@ -39,13 +104,11 @@ Abschnitte des Berichts sie verfasst haben.
     Daniel Fetzer            & & \\
     Bjarne Kahrs             & & \\
     Mohamad Kalaf            & & \\
-    Ilker Yasin Koc          & & \\
+    Ilker Yasin Koc          & Mitarbeit in der Knowledge-Graph-Gruppe; Erweiterung und Überarbeitung der Ontologie, insbesondere im Bereich Schonung im Alltag; Modellierungs-, Konsistenz- und Medienprüfungen; Mitarbeit an der Knowledge-Graph-Dokumentation; Strukturierung und Zusammenführung des Abschlussberichts sowie Verfassen der übergreifenden Kapitel. & 1--3, Mitarbeit an 8, 9 \\
     Hoang Hiep Nguyen        & & \\
-    Elif Özcelik             &Übungen für die Ontologie heraussuchen, Unterklasse Verletzung, Einpflegen der Übungen nach der Gelenkänderung, Auswertung der Nutzerstudie, Praxissuche, Anpassung der Klasse Körperteil, Template Schonung im Alltag, Erstellen und Hinzufügen der Data Properties, Erstellen der Object Properties, Related Work mit Fokus auf den Menschen. & Kapitel 4, 8.1-8.3, 8.3.1, 8.3.4-8.5.7\\
+    Elif Özcelik             & Übungen für die Ontologie heraussuchen, Unterklasse Verletzung, Einpflegen der Übungen nach der Gelenkänderung, Auswertung der Nutzerstudie, Praxissuche, Anpassung der Klasse Körperteil, Template Schonung im Alltag, Erstellen und Hinzufügen der Data Properties, Erstellen der Object Properties, Related Work mit Fokus auf den Menschen. & Kapitel 4, 8.1--8.3, 8.3.1, 8.3.4--8.5.7 \\
     Sophia Pichler           & & \\
-    Rabih Takouzli           & & \\
+    Rabih Takouzli           & Mitarbeit in der API-Gruppe; Erweiterung und Anpassung von SPARQL-Abfragen und Abgleich von Flutter-Enums mit der Ontologie; Anbindung von Nutzerprofil, Kontraindikationen und Skill-Level; Filter- und Planempfehlungslogik; Erweiterungen an Provider und Isar-Persistenz; Integration realer Daten in UI-Flows; Behebung von State-, Merge- und Integrationsproblemen; Code Reviews; zusätzlich Erstellung KI-generierter Übungsbilder für fehlendes Bildmaterial. & \\
     Tenzin Methok Taschi     & & \\
     Ahmad Zahra              & & \\
-    
 \end{xltabular}
-

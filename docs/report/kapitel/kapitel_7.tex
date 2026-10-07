@@ -1,44 +1,61 @@
 \section{Bewertung und Schluss}
+
 \subsection{Erreichte Ziele}
+
+Im Projekt wurde ein funktionsfähiger ReVia-Prototyp entwickelt, der die Ergebnisse der Nutzerstudie mit einer strukturierten Wissensbasis und einer mobilen Benutzeroberfläche verbindet. Zentrale Anforderungen wie verständliche Übungsdarstellungen, grundlegende Personalisierung, Fortschritts- und Schmerzverläufe sowie eine einfache Bedienung wurden in der Anwendung aufgegriffen.
+
+Die Wissensbasis stellt dafür strukturierte Informationen zu Übungen, Körperregionen, Kontraindikationen, Trainingseffekten und weiteren rehabilitationsbezogenen Inhalten bereit. Über SPARQL-Abfragen und einen Fuseki-Server können diese Informationen von der Anwendung abgefragt werden. Nutzerspezifische Angaben und Verlaufsdaten werden lokal in einer Isar-Datenbank gespeichert und bei der Erstellung beziehungsweise Filterung von Trainingsplänen berücksichtigt.
+
+Auch die technische Integration der Komponenten konnte umgesetzt und mit realen Daten getestet werden. Der entstandene Prototyp umfasst unter anderem ein Profil mit interaktiver Körperkarte, die Erstellung und Empfehlung von Trainingsplänen, Übungsansichten mit Anleitungen und ergänzenden Medien sowie Funktionen zur Dokumentation von Training, Schmerzen und Fortschritt. Damit wurde das zentrale Projektziel erreicht, Wissensmodellierung, technische Datenabfrage und nutzerzentrierte Gestaltung in einem gemeinsamen Prototyp zusammenzuführen.
+
 \subsection{Herausforderungen und technische Entscheidungen}
+
+Eine zentrale Herausforderung des Projekts war die enge Abhängigkeit zwischen Knowledge Graph, API und Benutzeroberfläche. Änderungen an der Ontologie konnten direkte Auswirkungen auf die Abfragen und damit auf die in der Anwendung verfügbaren Inhalte haben. Gleichzeitig entstanden aus der Gestaltung und Implementierung der Benutzeroberfläche neue Anforderungen an die Struktur der Wissensbasis.
+
+Besonders deutlich wurden diese Abhängigkeiten bei Änderungen an der Modellierung der Körperregionen. Dabei zeigte sich, dass bereits kleinere Änderungen an gemeinsam verwendeten Begriffen oder Beziehungen dazu führen konnten, dass Inhalte in der Anwendung nicht mehr korrekt gefunden wurden. Die stärkere Nutzung der vorhandenen \texttt{partOf}-Beziehungen sowie Tests gegen einen lokal betriebenen Fuseki-Server machten die Integration robuster.
+
+Eine weitere technische Entscheidung war die Trennung zwischen inhaltlichen Daten und nutzerspezifischen Daten. Rehabilitationsbezogene Inhalte wie Übungen und ihre Beziehungen werden im Knowledge Graph verwaltet, während persönliche Angaben, Trainingspläne und Verlaufsdaten lokal in Isar gespeichert werden. Dadurch konnte die Wissensbasis unabhängig von den individuellen Nutzerdaten gepflegt werden.
+
+Der Projektverlauf zeigte insgesamt, dass für ein System mit mehreren eng verbundenen Komponenten klare Schnittstellen und regelmäßige gruppenübergreifende Tests notwendig sind. Die Qualität der Anwendung hängt nicht nur von der Implementierung einzelner Komponenten ab, sondern auch davon, dass Datenmodell, Abfragen und Benutzeroberfläche dieselben Strukturen und Begriffe verwenden.
+
 \subsection{Limitationen}
 
-Einige Wünsche aus Befragung und Interview konnten im verfügbaren Projektzeitraum nicht umgesetzt werden. Besonders wurden technisch aufwendige Funktionen wie eine automatische Bewegungserkennung, eine zuverlässige Bewertung der Übungsausführung oder eine direkte medizinische Beurteilung von Schmerzen und Verletzungen nicht umgesetzt.
+Der aktuelle Stand von ReVia ist als Prototyp zu verstehen und besitzt mehrere fachliche und technische Grenzen. Nicht umgesetzt wurden insbesondere eine automatische Bewegungserkennung, eine zuverlässige Bewertung der Übungsausführung sowie eine medizinische Beurteilung von Schmerzen, Verletzungen oder Diagnosen. Solche Funktionen würden zusätzliche technische Verfahren und eine fachliche beziehungsweise medizinische Validierung erfordern.
 
-Für eine zuverlässige Umsetzung wären beispielsweise zusätzliche Sensoren, Kameraauswertung und eine medizinische Validierung notwendig. Eine mögliche spätere Erweiterung wäre eine Chat- oder Videocall-Funktion zwischen Patient:innen und Therapeut:innen.
+Auch die Personalisierung ist im aktuellen Stand begrenzt. Die Auswahl von Übungen berücksichtigt bereits verschiedene Nutzerangaben und Eigenschaften aus der Wissensbasis, bildet jedoch keinen vollständigen individuellen Rehabilitationsverlauf ab. Heilungsphasen, Belastbarkeit oder Veränderungen des Zustands über längere Zeit werden noch nicht systematisch für die Freigabe oder Anpassung von Übungen verwendet.
 
-Auch die Fortschrittsdokumentation könnte später erweitert werden, beispielsweise um differenziertere Schmerzskalen, Wiederholungszahlen, Trainingsintensität oder grafische Verlaufsdarstellungen.
+Eine weitere Grenze liegt in der Vollständigkeit und Qualität der Wissensbasis. Nicht alle modellierten Inhalte verfügen bereits über sämtliche Angaben, die von den aktuellen API-Abfragen vorausgesetzt werden. Dadurch können einzelne Übungen, Alltagshinweise oder Rezepte trotz vorhandener Modellierung noch nicht vollständig von der Anwendung verarbeitet werden. Die Qualität personalisierter Empfehlungen hängt daher wesentlich von konsistenten, vollständigen und fachlich geprüften Daten ab.
 
-Außerdem könnte der individuelle Reha-Plan stärker mit den Übungen zwischen dem individuellen Reha-Plan und den angebotenen Übungen sowie einem Ausbau des Knowledge Graphen um zusätzliche Motivationselemente wie einen begleitenden Avatar verknüpft werden. Damit könnten Empfehlungen zusätzlich nach Diagnose, Belastbarkeit und aktuellem Rehabilitationsstand gefiltert werden.
+ReVia ist zudem nicht als medizinisches Diagnose- oder Entscheidungssystem ausgelegt. Die Anwendung kann Fachpersonal nicht ersetzen und soll ausschließlich als unterstützendes Werkzeug für die selbstständige Rehabilitation zwischen Behandlungsterminen dienen.
 
 \subsection{Erweiterungsmöglichkeiten}
 
-Die größte Erweiterungsmöglichkeit
-liegt bei den Verletzungen. Medizinisch geprüfte Informationen zu Krankheiten
-und Verletzungen könnten in die Ontologie übernommen und in der App abgefragt
-werden, um Empfehlungen deutlich genauer auf das einzelne Krankheitsbild
-zuzuschneiden. Voraussetzung dafür ist ein entsprechender Pflegeaufwand und
-eine fachliche Prüfung der Inhalte.
+Für eine Weiterentwicklung bietet insbesondere die Wissensbasis mehrere Ansatzpunkte. Medizinisch geprüfte Informationen zu Verletzungen und Krankheitsbildern könnten ergänzt und stärker mit Übungen, Kontraindikationen und Rehabilitationsphasen verknüpft werden. Auch die bereits vorbereitete Patient-Klasse könnte weiter ausgebaut werden, um zusätzliche Informationen strukturiert abzubilden.
 
-Die Klasse Patient ist bereits
-vorbereitet, aber noch nicht vollständig modelliert und sollte in einer
-nächsten Iteration ausgebauet werden.
+Darüber hinaus könnte der individuelle Rehabilitationsverlauf stärker berücksichtigt werden. Übungen könnten beispielsweise abhängig von Heilungsphase, Trainingsstand und dokumentiertem Schmerzverlauf schrittweise freigegeben oder angepasst werden. Voraussetzung dafür wäre eine entsprechende Erweiterung der Wissensbasis und eine stärkere Verknüpfung dieser Informationen mit den lokal gespeicherten Nutzerdaten.
 
-Der jetzige Bestand für den Bereich Rezept
-der Woche reicht ungefähr für ein halbes Jahr. Wie bereits aufgeführt gibt es dort auch einfache Erweiterungsmöglichkeiten, wie \texttt{hasIngredients}, \texttt{hasCalories} oder \texttt{hasAllergens}.
+Auch bestehende Inhaltsbereiche können vervollständigt und erweitert werden. Beim Bereich ``Rezept der Woche'' fehlen bei einem Teil der bereits modellierten Einträge noch Angaben, die von der aktuellen API-Abfrage benötigt werden. Zusätzlich könnten Eigenschaften wie Zutaten, Kalorien oder Allergene ergänzt werden.
 
-\subsection{Diskussion/ Reflexion}
+Weitere mögliche Erweiterungen sind differenziertere Fortschrittsdarstellungen, zusätzliche beziehungsweise eigene Übungsvideos sowie Kommunikations- und Zugriffsoptionen für Physiotherapeut:innen. Solche Funktionen müssten jedoch insbesondere im Hinblick auf Datenschutz, fachliche Verantwortung und den vorgesehenen Einsatzbereich der Anwendung genauer konzipiert werden.
 
-In intensiven Gesprächen nach unserer Abschlusspräsentation ist klar geworden, dass man teilweise bestimmte Data properties auch als Individual hätte darstellen können, um aus einem statischen String eine dynamische, wiederverwendbare Einheit zu machen. 
+\subsection{Diskussion / Reflexion}
+
+Das Projekt zeigt, dass sich Nutzeranforderungen, semantische Wissensmodellierung und mobile Anwendungsentwicklung sinnvoll miteinander verbinden lassen. Die Nutzerstudie lieferte dabei eine wichtige Grundlage für die Auswahl und Gestaltung der Funktionen, während der Knowledge Graph die technischen Voraussetzungen für strukturierte und anpassbare Inhalte bereitstellte.
+
+Gleichzeitig wurde deutlich, dass die organisatorische Aufteilung in einzelne Arbeitsbereiche nicht bedeutet, dass diese technisch unabhängig voneinander entwickelt werden können. Insbesondere zwischen Ontologie, API und Benutzeroberfläche entstanden wiederholt Abhängigkeiten. Änderungen an gemeinsam genutzten Begriffen oder Beziehungen mussten deshalb nicht nur innerhalb einer Gruppe, sondern im Gesamtsystem getestet werden. Der ursprünglich eher phasenweise geplante Ablauf entwickelte sich dadurch zu einem iterativen Prozess mit wiederholten Anpassungen.
+
+Die Verwendung eines Knowledge Graphs ermöglichte es im Projekt, Beziehungen zwischen Übungen, Körperregionen, Einschränkungen und Trainingseffekten explizit abzubilden und über Abfragen nutzbar zu machen. Gleichzeitig macht dieser Ansatz die Datenqualität zu einem zentralen Bestandteil der Systemqualität. Fehlende oder inkonsistente Beziehungen wirken sich unmittelbar auf die Ergebnisse der Anwendung aus.
+
+Im Austausch nach der Abschlusspräsentation wurde zudem deutlich, dass einzelne als Data Properties modellierte Inhalte alternativ als Individuals hätten abgebildet werden können. Dadurch wären bestimmte Informationen weniger statisch und teilweise besser wiederverwendbar gewesen. Diese Rückmeldung zeigt, dass auch die Wahl der Modellierungsform einen direkten Einfluss auf Erweiterbarkeit und Wiederverwendung innerhalb der Wissensbasis hat.
+
+Der ReVia-Prototyp zeigt, wie sich der gewählte technische und konzeptionelle Ansatz innerhalb des Projektrahmens umsetzen lässt, stellt jedoch noch kein medizinisch validiertes Produkt dar. Für eine Weiterentwicklung wären neben technischer Verbesserung insbesondere eine systematische fachliche Prüfung der Inhalte, eine Bereinigung der verbleibenden Dateninkonsistenzen und eine weitergehende Evaluation mit Nutzer:innen und Fachpersonal erforderlich.
 
 \subsection{Fazit}
 
-Für die Entwicklung der App wurden vier Informationsquellen miteinander kombiniert: Literatur, bestehende Reha-Apps, die eigene Befragung sowie das Experteninterview. Dadurch konnten theoretische Anforderungen mit den Erfahrungen von Patient:innen und Physiotherapeut:innen verglichen werden.
+Mit ReVia wurde im Rahmen des Bachelorprojekts ein Prototyp entwickelt, der Nutzeranforderungen, eine strukturierte Wissensbasis und die technische Umsetzung einer Reha-Anwendung miteinander verbindet. Ausgangspunkt war das Ziel, Patient:innen zwischen physiotherapeutischen Behandlungsterminen zu unterstützen, ohne medizinische Entscheidungen durch die Anwendung zu ersetzen.
 
-Aus den Ergebnissen wurde deutlich, dass die App vor allem die Zeit zwischen den Physiotherapieterminen unterstützen sollte. Verständliche Videoanleitungen, personalisierte Übungen auf Basis einer dynamischen Wissensbasis, klare Sicherheits-Constraints, Erinnerungen, Fortschrittsanzeigen und eine einfache Bedienung können Patient:innen dabei helfen, ihre Übungen regelmäßiger und selbstständiger durchzuführen.
+Die Ergebnisse der Nutzerstudie wurden schrittweise in konkrete gestalterische und technische Lösungen überführt. Der Knowledge Graph stellt dafür strukturiertes Wissen bereit, die API übernimmt die Abfrage und Verarbeitung der Daten und die Benutzeroberfläche macht die daraus gewonnenen Informationen für die Nutzer:innen zugänglich. Der entstandene Prototyp deckt damit mehrere zentrale Nutzungsszenarien ab und zeigt, wie die Projektbereiche in einem gemeinsamen System zusammenwirken können.
 
-Das Interview zeigte zusätzlich, dass automatische Empfehlungen klare Grenzen benötigen und Kontraindikationen sowie ein klar definierter Rahmen für die manuelle Planerstellung stets mitgedacht werden müssen.
+Gleichzeitig bestehen klare Grenzen hinsichtlich Datenvollständigkeit, medizinischer Validierung und weitergehender Personalisierung. Gerade diese Punkte bieten jedoch konkrete Ansatzmöglichkeiten für eine zukünftige Weiterentwicklung.
 
-Deutlich wurde aber auch, dass letztlich selbstständiges und eigenverantwortliches Handeln über den tatsächlichen Erfolg der App, aber auch den Behandlungserfolg entscheidet.
-
-Die zentralen Funktionen der App wurden damit direkt aus den Ergebnissen der Recherche, Befragung und des Interviews abgeleitet. Offen bleiben vor allem die Punkte hinsichtlich der Erweiterungen bei Personalisierung, Fortschrittsauswertung und Kommunikation mit den Physiotherapeut:innen.
+Insgesamt bildet ReVia einen technischen und konzeptionellen Ausgangspunkt, auf dessen Grundlage sowohl die Integration der einzelnen Komponenten als auch die fachliche Qualität und Vollständigkeit der Wissensbasis in zukünftigen Entwicklungsphasen weiter verbessert werden können.

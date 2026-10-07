@@ -1,239 +1,106 @@
-\section{Wissenbasis}
+\section{Wissensbasis}
+
 \subsection{Ziel der Wissensmodellierung}
 
-Die in der Kapitel Verwandte Arbeiten und Nutzerstudie dargestelleten Ergebnisse der Patient:innen und
-Physiotherapeut:innen zeigen, dass die App die Trainingspläne empfehlen oder
-die Träinigspläne erstellen können, die zu ihren Beschwerden, Verletzungen und
-ihrem Trainingsstand passen. Dafür reicht eine feste Liste von Übungen nicht
-aus: Das System muss wissen, welche Körperregion eine Übung beansprucht, bei
-welchen Verletzungen, Diagnosen und Kontraindikationen sie ausgeschlossen
-werden muss und welchen Trainingseffekt sie hat. Diese Zusammenhänge werden in
-einer Ontologie abgebildet, die von der App über eine Schnittstelle abgefragt
-wird.
+Die im Kapitel zu den verwandten Arbeiten und der Nutzerstudie dargestellten Ergebnisse zeigen, dass ReVia Übungen und Trainingspläne nicht lediglich als feste Liste bereitstellen soll. Stattdessen sollen Angaben der Nutzer:innen und Eigenschaften der Übungen genutzt werden, um passende Inhalte auszuwählen. Dafür muss das System unter anderem abbilden, welche Körperregionen eine Übung beansprucht, welche Beschwerden oder Kontraindikationen berücksichtigt werden müssen, welchem Trainingslevel eine Übung zugeordnet ist und welche Trainingseffekte sie unterstützt.
 
-Ziel der vorliegenden Arbeit war
-es, eine bestehende Ontologie um die physiotherapeutisch relevanten Teile zu
-erweitern und so zu strukturieren, dass Filterung und Planerstellung direkt aus
-der Wissensbasis heraus möglich sind.
+Diese Zusammenhänge werden in einer Ontologie modelliert, die von der Anwendung über SPARQL-Abfragen genutzt werden kann. Ziel der Wissensmodellierung war es daher, eine bestehende Ontologie um die für ReVia relevanten physiotherapeutischen Inhalte zu erweitern und so zu strukturieren, dass die Informationen von der API gezielt abgefragt und für die Planerstellung verwendet werden können.
 
 \subsection{Ausgangsbasis und eigene Erweiterungen}
 
-Aus der bestehenden Ontologie
-YogaKG wurde vor allem die Gliederung der Körperteile, die Übungskategorien Kardio und Yoga, ein Teil der Muskelgruppen aus der Asana-Beschreibung, die Klasse LimbAlignment mit rund 150 Individuen übernommen, die für einzelne Yoga-Asanas die korrekte Gliedmaßenausrichtung kodieren. Sie wird aktuell nicht für die App-Logik benötigt, bleibt aber als Grundlage für eine mögliche spätere Erweiterung erhalten.
+Als Ausgangspunkt wurde die bestehende Ontologie YogaKG verwendet. Übernommen wurden insbesondere Teile der Körperstruktur, die Übungskategorien Kardio und Yoga sowie ein Teil der in den Asana-Beschreibungen enthaltenen Muskelgruppen. Darüber hinaus enthält die Ontologie die Klasse \texttt{LimbAlignment} mit rund 150 Individuen, über die für einzelne Yoga-Asanas Gliedmaßenausrichtungen beschrieben werden. Diese Informationen werden von der aktuellen App-Logik nicht benötigt, bleiben jedoch als Grundlage für mögliche spätere Erweiterungen erhalten.
+
+Im Projekt wurde diese Ausgangsbasis insbesondere um Reha-Übungen, Übungseigenschaften, Beschwerden und Kontraindikationen, Gelenke, Verletzungsstrukturen, Alltagshinweise sowie den Bereich ``Rezept der Woche'' erweitert. Zusätzlich wurden Beziehungen und Datenfelder ergänzt, die für die technische Integration mit der Anwendung benötigt werden.
 
 \subsection{Aufbau der Ontologie}
 
-Die Ontologie umfasst in der aktuellen Version 77 Klassen, 39 Objekt- und 30 Daten-Properties sowie 846 benannte Individuen. Sie gliedert sich in die Hauptklassen Körperteil, Patient, Rezept der Woche, Schonung im Alltag, Sportaktivitäten, Verletzungen, Übungen und Übungseigenschaften. Die folgenden
-Abschnitte beschreiben die für die aktuelle App-Version relevanten Klassen im Detail.
+In der finalen OWL/XML-Datei sind 76 Klassen, 36 Object Properties, 30 Data Properties und 846 Named Individuals explizit deklariert. Zu den für ReVia besonders relevanten Bereichen gehören Körperteile, Patient:innen, Rezepte der Woche, Schonung im Alltag, Sportaktivitäten, Verletzungen, Übungen und Übungseigenschaften.
 
-\begin{figure}[htbp]
-    \centering
-    \includegraphics[width=0.8\textwidth]{bilder/ontologie_hauptklassen.png}
-    \caption{Überblick über die Klassen der Ontologie}
-    \label{fig:Überblick_ontologie}
-\end{figure}
 
 \subsubsection{Körperteil}
 
-Die Klasse Körperteil gliedert sich
-in die Unterklassen Gelenk, Glied und Muskel.
+Der Bereich Körperteil ist unter anderem in Gelenke, Glieder und Muskeln gegliedert. Für die Planerstellung arbeitet die Anwendung mit sechs Hauptregionen: Arme, Beine, Rücken, Bauch, Gesäß und Schultern. Für die Abfrage des Knowledge Graphs werden diese Regionen bei Bedarf um zugehörige Unterregionen ergänzt. Bei den Armen gehören dazu beispielsweise Bizeps, Trizeps, Ellbogen und Handgelenke. Die Beine werden unter anderem um Hüfte, Oberschenkel, Knie, Waden und Sprunggelenke ergänzt. Beim Rücken werden oberer und unterer Rücken, Wirbelsäule und Nacken berücksichtigt.
 
-Auf der Ebene der Glieder arbeitet
-die App mit den groben Regionen Arme, Beine, Rücken, Gesäß, Rumpf und Bauch. Diese
-lassen sich weiter unterteilen: die Arme in Schultern, Ellbogen und
-Handgelenke, die Beine in Knie, Oberschenkel, Waden und Sprunggelenke, der Rücken
-in oberen und unteren Rücken sowie der Rumpf in Brust und Hüfte.
+Die Ontologie enthält neun als \texttt{Joint} modellierte Individuen. Die aktuelle Filterlogik kann ausgewählte Gelenke über \texttt{engagedBodyPart} berücksichtigen und Übungen ausschließen, die eine als betroffen markierte Gelenkregion beanspruchen. Voraussetzung dafür ist, dass die in der Anwendung verwendeten Gelenkbezeichnungen mit den entsprechenden Individuen der Ontologie übereinstimmen. Im finalen Stand bestehen hier noch einzelne Benennungsinkonsistenzen zwischen Benutzeroberfläche und Ontologie.
 
-Die neun modellierten Gelenke
-dienen dazu, Verletzungen der Patient:innen zu erfassen. Über das Maskottchen
-in der Benutzeroberfläche lassen sich die betroffenen Gelenke auswählen: obere
-und untere Rückengelenke, Ellbogengelenk, Halswirbelsäule, Handgelenk, Hüftgelenk, Kniegelenk, Schultergelenk und Wirbelsäulengelenke. Ist ein Gelenk als verletzt markiert, schließt die Abfrage über die Object Property
-\texttt{engagedBodyPart} alle Übungen aus, die diese Region beanspruchen.
-\begin{figure}[htbp]
-    \centering
-    \includegraphics[width=0.8\textwidth]{bilder/filterlogik_empfehlung.png}
-    \caption{Filterung sicherer Übungen anhand des Nutzerprofils}
-    \label{fig:filterung_des_uebungen}
-\end{figure}
-Unterhalb des Maskottchens werden
-zusätzlich die Beschwerden erfasst, die in der Ontologie als zwölf
-Kontraindikationen hinterlegt sind: Probleme im oberen Rücken, Probleme im
-unteren Rücken, Atemwegsprobleme, Ellbogenprobleme, Handgelenkprobleme,
-Hüftprobleme, Knieschmerzen, Nackenprobleme, Rumpfmuskelschwäche,
-Schulterprobleme, Sprunggelenkprobleme und Wirbelsäulenprobleme. Liegt eine
-solche Beschwerde vor, entfallen die Kraft- und Koordinationsübungen über
-\texttt{hasContraindication}; empfohlen werden dann nur noch Entspannung-,
-Mobilisation- und Dehnungsübungen.
 
-Die Unterklasse Muskel enthält 19
-Muskelgruppen, auf die Übungen über \texttt{stretches} verweisen.
+Zusätzlich enthält die Ontologie zwölf als \texttt{Contraindication} modellierte Beschwerden. Übungen können über \texttt{hasContraindication} mit diesen Beschwerden verknüpft werden.
+
+Die aktuelle API verwendet hierfür eine vereinfachte Filterlogik. Eine Übung, die mit einer ausgewählten Kontraindikation verknüpft ist, wird grundsätzlich ausgeschlossen. Für Übungen der Klassen \texttt{Mobilisation}, \texttt{Relaxation} und \texttt{Stretching} ist in der aktuellen Abfrage eine Ausnahmeregel implementiert. Diese Regel beschreibt die technische Logik des Prototyps und ist nicht als medizinische Einzelfallentscheidung zu verstehen.
+
+Die Ontologie enthält außerdem 19 Muskelgruppen. Über die Object Property \texttt{stretches} können Übungen mit Muskelgruppen verknüpft werden, die bei einer Dehnung angesprochen werden.
 
 \subsubsection{Patient}
 
-Diese Struktur ist als
-Ausganspunkt für eine vollständige Patientenmodellierung vorgesehen, ist aber
-nicht produktiv nutzbar, da Patientendaten, wie Schmerzlevel, Größe, oder Alter, nur lokal auf dem Gerät des Patienten gespeichert werden, um weiteren Datenschutzaspekten auszuweichen. Die Klasse Patient besteht aktuell aus einer weiteren Unterklasse Trainingslevel, die den Fitnesszustand des Patienten modellieren sollte. Instanzen sind hierfür Anfänger, Fortgeschritten und Mittelstufe.
+Die Klasse \texttt{Patient} ist als Grundlage für eine weitergehende Patient:innenmodellierung vorbereitet. Unter anderem existiert die Unterklasse \texttt{TrainingsLevel} mit den drei Ausprägungen \texttt{Beginner}, \texttt{Intermediate} und \texttt{Advanced}.
+
+Im aktuellen Prototyp werden konkrete Nutzerdaten jedoch nicht als Patient:innen-Individuen im Knowledge Graph gespeichert. Angaben wie Alter, Größe, Gewicht, ausgewählte Beschwerden, betroffene Gelenke und Trainingslevel werden lokal in der Isar-Datenbank auf dem Gerät gespeichert. Für die Planempfehlung werden die benötigten Angaben aus diesem lokalen Profil ausgelesen und anschließend als Parameter an die SPARQL-Abfrage übergeben. Die Patient-Klasse der Ontologie wird von der aktuellen App-Logik daher noch nicht direkt verwendet.
 
 \subsubsection{Rezept der Woche}
-Die Funktion „Rezept der Woche“ innerhalb der Anwendung basiert wurde entwickelt, um Patient:innen regelmäßig und nachhaltig ein gesundes, Rezept im Wochenrhythmus zu bieten.
-Zentrale Daten-Eigenschaften der Ontologie sind \texttt{hasDescription}, \texttt{hasHealthBenefit} und \texttt{hasPreparationTime}. 
-\begin{itemize}
-    \item \textbf{hasDescription}: Diese Eigenschaft beschreibt die Zubereitung des Rezepts in einer präzisen, leicht verständlichen Form. Sie umfasst die wichtigsten Schritte und Zutaten. Beispiel für das Rezept der Woche „Chia-Beeren-Pudding“:
-    \begin{quote}
-        \textit{3 EL Chiasamen mit 150 ml Mandelmilch verrühren und über Nacht im Kühlschrank quellen lassen. Vor dem Verzehr mit 50 g aufgetauten Tiefkühl-Beeren toppen.}
-    \end{quote}
-    
-    \item \textbf{hasHealthBenefit}: Diese Eigenschaft dokumentiert die gesundheitlichen Vorteile des Rezepts auf Basis der enthaltenen Zutaten. Sie dient der Aufklärung der Nutzer:innen über positive Effekte auf Ernährung und Wohlbefinden. Beispiel für den Chia-Beeren-Pudding:
-    \begin{quote}
-        \textit{Chiasamen sind hervorragende Lieferanten von Omega-3-Fettsäuren und Ballaststoffen. Die Antioxidantien der Beeren schützen die Zellen vor oxidativem Stress.}
-    \end{quote}
-    
-    \item \textbf{hasPreparationTime}: Diese Eigenschaft gibt die benötigte Zeit zur Zubereitung des Rezepts an, gemessen in Minuten. Sie hilft Nutzer:innen, ihre Zeitplanung zu optimieren. Beispiel: \textit{5 Minuten Vorbereitung}
-\end{itemize}
 
+Der Bereich ``Rezept der Woche'' wurde als zusätzliche Motivations- und Informationsfunktion in die Wissensbasis aufgenommen. In der finalen Ontologie sind 21 Individuen der Klasse \texttt{RecipeOfTheWeek} hinterlegt.
+
+Für die aktuelle Anwendung sind insbesondere drei Data Properties relevant: \texttt{hasDescription}, \texttt{hasHealthBenefit} und \texttt{hasPreparationTime}. \texttt{hasDescription} enthält die Beschreibung beziehungsweise Zubereitung des Rezepts, \texttt{hasHealthBenefit} einen kurzen gesundheitsbezogenen Informationstext und \texttt{hasPreparationTime} die hinterlegte Zubereitungszeit.
+
+Die API fragt Rezepte direkt über ihre Zugehörigkeit zur Klasse \texttt{RecipeOfTheWeek} und diese drei Properties ab. Im aktuellen Datenbestand besitzen zehn der 21 modellierten Rezepte alle drei von der Abfrage vorausgesetzten Felder und können dadurch vollständig verarbeitet werden. Bei den übrigen Rezepten fehlt insbesondere noch eine \texttt{hasDescription}-Angabe.
+
+Die Freischaltung eines Rezepts ist mit dem Wochenfortschritt der Nutzer:innen verbunden. Steigt der Weekly Streak, fragt die Anwendung die noch nicht freigeschalteten Rezepte über die API ab. Aus diesen wird zufällig ein Rezept ausgewählt und anschließend zusammen mit seinem Freischaltzeitpunkt lokal in der Isar-Datenbank gespeichert.
+
+Die bestehende Modellierung könnte später beispielsweise um Zutaten, Kalorienangaben oder Allergene erweitert werden. Solche Eigenschaften sind im aktuellen Datenmodell jedoch noch nicht umgesetzt.
 
 \subsubsection{Schonung im Alltag}
 
-Die Idee für diesen Bereich stammt
-aus den Experteninterviews und der Nutzerstudie. Die App gibt zusätzlich zum
-Trainingsplan Hinweise, wie die betroffene Körperregion im Alltag geschont
-werden kann. Wer beispielsweise einen Schulterplan erstellt oder empfohlen
-bekommt, erhält passende Tipps zur Schonung der Schulter.
+Der Bereich ``Schonung im Alltag'' ergänzt die Trainingspläne um Hinweise für alltägliche Situationen. Nutzer:innen sollen dadurch zusätzlich zu den Übungen Informationen erhalten, die sich auf die jeweils ausgewählte Körperregion beziehen.
 
-Die 84 hinterlegten Hinweise in der
-Unterklasse Schonungshinweise sind über die Unterklasse Schonungskategorie nach
-zwölf Alltagssituationen geordnet: am Arbeitsplatz, am Bildschirm, Aufstehen
-und Hinsetzen, Autofahren, Greifen und Überkopfarbeiten, Handy und Tablet,
-Laufen und Gehen, Schlafen, Sitzen, Tragen und Heben sowie Treppensteigen.
-\begin{figure}[htbp]
-    \centering
-    \includegraphics[width=0.8\textwidth]{bilder/schonung_im_alltag.png}
-    \caption{Aufbau der Klasse Schonung im Alltag}
-    \label{fig:schonung_im_alltag}
-\end{figure}
+In der finalen Ontologie sind 84 Individuen der Klasse \texttt{Schonungshinweis} enthalten. Die Hinweise sind zwölf Alltagskategorien zugeordnet: Am Arbeitsplatz, Am Bildschirm, Aufstehen und Hinsetzen, Autofahren, Greifen und Überkopf, Handy und Tablet, Heben und Bücken, Laufen und Gehen, Schlafen, Sitzen, Tragen und Heben sowie Treppensteigen.
 
-Drei Properties sind für den Bereich zuständig. Über die Object Property \texttt{belongsToBodyPart} lässt sich die
-passende Körperregion abfragen, sodass die App gezielt die Hinweise zu dieser
-Region anzeigen kann. Die Object Property \texttt{hasDailyLifeCategory} ordnet
-jeden Hinweis einer Alltagskategorie zu. Die Data Property
-\texttt{hasDailyLifeAdvice} enthält den eigentlichen Hinweistext.
+
+Für die Abfrage werden drei Properties verwendet. \texttt{belongsToBodyPart} verbindet einen Hinweis mit einer Körperregion, \texttt{hasDailyLifeCategory} ordnet ihn einer Alltagssituation zu und \texttt{hasDailyLifeAdvice} enthält den eigentlichen Hinweistext.
+
+Die aktuelle API setzt alle drei Angaben voraus. Von den 84 modellierten Hinweisen sind 81 vollständig mit Körperregion, Kategorie und Hinweistext verknüpft und können dadurch von der bestehenden Abfrage vollständig ausgelesen werden. Bei drei älteren Einträgen fehlen noch die für die Abfrage benötigten Relationen zu Körperregion und Alltagskategorie.
 
 \subsubsection{Verletzungen}
 
-Zu Beginn der Arbeit wurde
-recherchiert, welche Verletzungen im physiotherapeutischen Kontext relevant
-sind. Das Ergebnis gliedert sich in fünf Gruppen: Rückenschmerzen,
-Knochenbrüche, Gelenkverletzungen, Muskelverletzungen und Sehnenverletzungen.
+Zusätzlich zu den in der aktuellen App verwendeten Kontraindikationen wurde eine detailliertere Verletzungsstruktur modelliert. Sie umfasst insbesondere Rückenbeschwerden, Knochenbrüche, Gelenkverletzungen, Muskelverletzungen und Sehnenverletzungen.
 
-Der ursprüngliche Plan war, dass man über angegebene Verletzungen über eine
- ObjectProperty \texttt{rehabilitates} Übungen herausgefiltern kann und auch
- bestimmte Übungen über \texttt{excludes} ausschließen kann.
+Für eine spätere differenziertere Empfehlungslogik enthält die Ontologie bereits zusätzliche Relationen wie \texttt{excludesExercise}, \texttt{requiresImprovementOf}, \texttt{isRehabilitatedBy} und \texttt{rehabilitates}. Damit lassen sich weitergehende Beziehungen zwischen Verletzungen, Körperbereichen und Übungen modellieren.
 
-Bei den Rückenverletzungen war
-entscheidend, dass Wirbelsäulenschmerzen, Kreuzschmerzen und Schmerzen im
-oberen Rücken unterschiedlich behandelt werden müssen. Für die Wirbelsäule
-wurden deshalb drei Fälle unterschieden: Hals-, der Lenden- und der
-Brustwirbelsäulenschmerzen.
-
-Die Unterklasse Knochen umfasst
-auch Brüche. Diese wurden nach Körperregionen aufgenommen, einige typische
-Bruchfälle sind in der Ontologie hinterlegt. Die Gelenkverletzungen wurden
-entsprechend den Gelenkregionen sortiert.
-
-Muskel- und Sehnenverletzungen
-bilden die letzte Gruppen. Hier war die Unterscheidung wichtig, ob einzelne
-Übungen weiterhin ausgeführt werden dürfen oder vollständig entfallen müssen:
-Bei Muskelkater oder einer Zerrung sind Dehnübungen weiterhin möglich, bei
-einem Sehnenriss müssen sie streng ausgeschlossen werden. Die Muskelgruppen
-wurden ebenfalls nach Körperregionen klassifiziert.
-
-Die detaillierte
-Verletzungsstruktur wird in der aktuellen Ontologie nicht verwendet. Die App
-bietet derzeit keine Möglichkeit, jede einzelne Erkrankung und Verletzung
-darzustellen. Wir haben uns dahingehend entschieden, da der Pflegeaufwand sehr hoch wäre und offensichtliche Wissenslücken im Bereich Medizin und Phyiotherapie uns zusätzlich vot Probleme gestellt hat. Die bereits angelegte Unterklasse
-bleibt aber als Grundlage für spätere Erweiterungen erhalten.
+Diese detaillierte Verletzungsstruktur wird von der aktuellen Empfehlungslogik der Anwendung jedoch noch nicht direkt verwendet. Die implementierte Filterung arbeitet derzeit hauptsächlich mit den im Profil ausgewählten Gelenken über \texttt{engagedBodyPart} sowie mit den Kontraindikationen über \texttt{hasContraindication}. Die Verletzungsmodellierung stellt damit vor allem eine Grundlage für spätere Erweiterungen dar.
 
 \subsubsection{Übungen}
 
-Aus der bestehenden Ontologie
-wurden die Kategorien Kardio und Yoga beibehalten. Auf Empfehlung von
-Physiotherapeut:innen kamen die Kategorien Dehnung,
-Entspannung, Koordination, Kraft und Mobilisation hinzu, die zusammen die
-gängigen Behandlungsansätze abdecken.
+Aus der ursprünglichen Ontologie wurden die Kategorien Kardio und Yoga beibehalten. Ergänzt wurden die für das Projekt benötigten Kategorien Dehnung, Entspannung, Koordination, Kraft und Mobilisation.
 
-Aktuell sind 160 Übungen
-hinterlegt, verteilt auf die Kategorien wie folgt: Kraft (35), Yoga/Asana (29),
-Koordination (28), Dehnung (25), Mobilisation (25), Entspannung (21) und
-Kardio (1). Eine Übung kann mehreren Kategorien angehören. Dies wird auch bei
-der Planerstellung genutzt. Enthält beispielweise ein Plan vier Übungen, von denen drei der
-Mobilisation zugeordnet sind, wird er als Schulter-Mobilisationsplan
-ausgewiesen.
+In der finalen Ontologie sind 160 unterschiedliche Übungen modelliert. Sie sind den Kategorien Kraft (35), Yoga/Asana (29), Koordination (28), Dehnung (25), Mobilisation (25), Entspannung (21) und Kardio (1) zugeordnet. Da eine Übung mehreren Kategorien angehören kann, ist die Summe der Kategoriezuordnungen größer als die Zahl der unterschiedlichen Übungen.
 
-\begin{figure}[htbp]
-    \centering
-    \includegraphics[width=0.8\textwidth]{bilder/uebungen_je_kategorie.png}
-    \caption{Verteilung der Übungen auf die Kategorien}
-    \label{fig:verteilung_der_uebungen}
-\end{figure}
 
-Die passenden Übungen wurden
-anschließend recherchiert, überwiegend auf den Webseiten physiotherapeutischer
-Praxen, um fachlich brauchbare Inhalte zu erhalten. Die sieben
-Übungen, die in der Umfrage von Physiotherapeut:innen genannt wurden, wurden ebenfalls
-aufgenommen.
+Für die Befüllung der Ontologie wurden im Projekt recherchierte Übungsquellen sowie die in der Nutzerstudie genannten Übungen verwendet und an die benötigte Datenstruktur angepasst.
 
-Dehnung, Entspannung und
-Mobilisation gelten als leichter als Kraft und Koordination und werden deshalb
-auch bei einer bestehenden Kontraindikation weiter empfohlen statt
-herausgefiltert.
+Nicht jede der 160 modellierten Übungen besitzt bereits sämtliche Felder und Verknüpfungen, die von der aktuellen Empfehlungsabfrage vorausgesetzt werden. Die API verlangt unter anderem ein Trainingslevel, mindestens eine Kontraindikation, einen Trainingseffekt und einen Körperbereich sowie Angaben über \texttt{hasInstruction} und \texttt{hasDuration}. Zusätzlich müssen die für die Verarbeitung verwendeten Labels und eine Beschreibung vorhanden sein. Unter Berücksichtigung dieser Voraussetzungen erfüllen derzeit 119 der 160 Übungen die grundlegenden Bedingungen der aktuellen Empfehlungssuche. Die übrigen Übungen bleiben Bestandteil der Wissensbasis, benötigen jedoch noch einzelne Ergänzungen, bevor sie von dieser Abfrage vollständig verarbeitet werden können.
 
 \subsubsection{Struktur einer Übung}
 
-Die Object Property \texttt{engagedBodyPart}
-verknüpft eine Übung mit den beanspruchten Körperteilen. Wichtig ist dabei die
-Zuordnung zu den Gelenken, da die App darüber abfragt, welche Übungen bei einer
-Gelenkverletzung entfallen. Übungen ohne Gelenkbezug werden nie ausgeschlossen.
+Die Object Property \texttt{engagedBodyPart} verknüpft eine Übung mit den Körperbereichen, die bei ihrer Ausführung beansprucht werden. Diese Property ist für alle 160 modellierten Übungen vorhanden und bildet eine zentrale Grundlage für die körperregionsbezogene Filterung.
 
-Die Object Property
-\texttt{hasContraindication} hält fest, bei welchen Beschwerden eine Übung nicht
-geeignet ist. Wählen Nutzer:innen eine solche Beschwerde aus,
-bleiben nur noch Dehnung, Entspannung und Mobilisation Übungen übrig.
+Mit \texttt{hasContraindication} können Beschwerden hinterlegt werden, bei denen eine Übung durch die aktuelle Filterlogik ausgeschlossen werden soll. Über \texttt{hasDifficultyLevel} wird der Schwierigkeitsgrad modelliert. Die Anwendung arbeitet mit den drei in der Ontologie modellierten Leveln \texttt{Beginner}, \texttt{Intermediate} und \texttt{Advanced} und übergibt die jeweils zulässigen Level an die SPARQL-Abfrage.
 
-Über \texttt{hasDifficultyLevel} wird der
-Schwierigkeitsgrad abgebildet. Die App kennt die drei Trainingslevel Anfänger,
-Medium und Fortgeschritten, nach denen acuh die Übungen eingeteilt sind.
-Angezeigt werden Übungen bis zum Level der Nutzer:innen. Auf Anfängerniveau
-entfallen fortgeschrittene Übungen, auf fortgeschrittenem Niveau sind alle
-Übungen zulässig.
+Die Object Property \texttt{requiresEquipment} beschreibt gegebenenfalls benötigte Hilfsmittel. Über \texttt{improves} wird eine Übung mit einem oder mehreren Trainingseffekten verbunden. Bei einem Teil der Übungen wird zusätzlich \texttt{stretches} verwendet, um angesprochene Muskelgruppen zu modellieren.
 
-Die Object Property
-\texttt{requiresEquipment} gibt an, welche Hilfsmittel eine Übung benötigt. Über
-\texttt{improves} wird auf die Übungszwecke verwiesen, die unter den
-Übungseigenschaften beschrieben sind. Damit lässt sich abfragen, wofür eine
-Übung nützlich ist, etwa zur Korrektur der Körperhaltung, zur Verbesserung der
-Mobilität oder zur Entwicklung des Gleichgewichts. Bei Dehnübungen kommt
-zusätzlich \texttt{stretches} zum Einsatz, um die Muskelgruppe anzugeben, die bei
-der Ausführung beansprucht wird.
 
-\begin{figure}[htbp]
-    \centering
-    \includegraphics[width=0.8\textwidth]{bilder/beziehungsnetz_uebung.png}
-    \caption{Struktur einer Übung in der Ontologie}
-    \label{fig:struktur_einber_uebung}
-\end{figure}
+Ergänzt werden die Übungen durch verschiedene Data Properties. \texttt{hasInstruction} enthält eine Schritt-für-Schritt-Beschreibung, \texttt{hasDuration} eine ungefähre Dauer, \texttt{hasCommonMistake} typische Ausführungsfehler und \texttt{hasCorrectionGuidance} entsprechende Korrekturhinweise.
 
-Ergänzt werden die Übungen durch
-mehrere Data Properties. \texttt{\seqsplit{hasCommonMistake}} benennt typische
-Ausführungsfehler, \texttt{hasCorrectionGuidance} gibt Hinweise zur richtigen
-Ausführung. Beide verfolgen das Ziel, die Übungen möglichst korrekt durchführen
-zu lassen. \texttt{hasDuration} gibt die ungefähre Dauer an.
-\texttt{hasInstruction} gibt Schritt-für-Schritt-Beschreibung als Ergänzung zu
-den über \texttt{hasVideoUrl} verlinkten Übungsvideos. Für Übungen, für die bislang keine geeigneten Videos zur Verfügung standen, wurden mithilfe von KI entsprechende Übungsbilder generiert. Diese Bilder wurden in der Ontologie über die Data Property \texttt{hasPicUrl} mit den jeweiligen Übungen verknüpft.
+Für die mediale Darstellung können außerdem \texttt{hasVideoUrl} und \texttt{hasPicUrl} verwendet werden. Diese Zusatzinformationen sind nicht bei allen Übungen vorhanden. In der aktuellen API werden Korrekturhinweise, typische Fehler sowie Video- und Bildverknüpfungen deshalb optional abgefragt. Für Übungen ohne geeignete Videos wurden im Projekt teilweise zusätzliche Übungsbilder hinterlegt, darunter auch mithilfe von KI erzeugte Darstellungen.
 
 \subsubsection{Übungseigenschaften}
 
-Unter den Übungseigenschaften werden die Trainingseffekte abgebildet, die mit einer Übung erreicht werden sollen. Dazu gehören Beweglichkeit, Entspannung, Gleichgewicht, Konzentration, Koordination, Kraft, Körperhaltung, Mobilität und Stabilität.
+Die Klasse \texttt{TrainingsEffect} enthält neun im Projekt verwendete Trainingseffekte: Beweglichkeit, Entspannung, Gleichgewicht, Konzentration, Koordination, Kraft, Körperhaltung, Mobilität und Stabilität.
 
-Die Zuordnung erfolgt über die Object Property \texttt{improves}. Dadurch kann eine Übung mit einem oder mehreren Trainingszielen verknüpft werden. Dies ermöglicht es der App, Übungen nicht nur anhand der betroffenen Körperregion, sondern auch nach dem gewünschten Trainingseffekt auszuwählen. So können beispielsweise gezielt Übungen zur Verbesserung der Mobilität, Stabilität oder des Gleichgewichts abgefragt werden.
+Übungen werden über die Object Property \texttt{improves} mit diesen Trainingseffekten verknüpft. Dadurch kann die Planempfehlung zusätzlich zur Körperregion und zum Trainingslevel nach einem gewünschten Trainingsziel filtern.
 
-Die Übungseigenschaften bilden damit eine wichtige Grundlage für die personalisierte Planerstellung. Jede Übung ist mindestens einem dieser Effekte zugeordnet, sodass die Auswahl der Übungen mit den von den Nutzer:innen angegebenen Trainingszielen verbunden werden kann.
+Im finalen Datenbestand besitzen 129 der 160 modellierten Übungen mindestens eine \texttt{improves}-Verknüpfung. Da diese Property von der aktuellen Empfehlungsabfrage als Pflichtfeld verwendet wird, müssen die noch fehlenden Zuordnungen ergänzt werden, bevor auch diese Übungen vollständig in die personalisierte Planerstellung einbezogen werden können.
+
+\subsection{Fazit der Wissensmodellierung}
+
+Die Ontologie bildet die semantische Grundlage für die personalisierten Inhalte von ReVia. Durch die Modellierung von Übungen, Körperregionen, Kontraindikationen, Trainingseffekten und ergänzenden Inhaltsbereichen können Informationen strukturiert abgefragt und mit den Angaben aus dem lokalen Nutzerprofil verbunden werden.
+
+Gleichzeitig zeigte die Integration, dass die Qualität der Anwendung unmittelbar von der Konsistenz und Vollständigkeit der Wissensbasis abhängt. Fehlende Properties, Labels oder Beziehungen können dazu führen, dass bereits modellierte Inhalte von den aktuellen Abfragen nicht verarbeitet werden. Für eine Weiterentwicklung sind daher sowohl eine fachliche Pflege der Inhalte als auch eine fortlaufende technische Konsistenzprüfung zwischen Ontologie, API und Benutzeroberfläche erforderlich.
