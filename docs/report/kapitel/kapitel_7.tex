@@ -8,13 +8,73 @@ Die Wissensbasis stellt dafür strukturierte Informationen zu Übungen, Körperr
 
 Auch die technische Integration der Komponenten konnte umgesetzt und mit realen Daten getestet werden. Der entstandene Prototyp umfasst unter anderem ein Profil mit interaktiver Körperkarte, die Erstellung und Empfehlung von Trainingsplänen, Übungsansichten mit Anleitungen und ergänzenden Medien sowie Funktionen zur Dokumentation von Training, Schmerzen und Fortschritt. Damit wurde das zentrale Projektziel erreicht, Wissensmodellierung, technische Datenabfrage und nutzerzentrierte Gestaltung in einem gemeinsamen Prototyp zusammenzuführen.
 
+Abbildung~\ref{fig:priorisierung_anforderungen} zeigt die in Abschnitt~\ref{sec:anforderungen} priorisierten Anforderungen, Tabelle~\ref{tab:soll_ist} stellt ihnen den Umsetzungsstand im finalen Prototyp gegenüber. Die MUSS-Anforderungen sind danach umgesetzt. Bei den KANN-Anforderungen bestehen Lücken, vor allem beim Medienmaterial: Videos liegen nur für 25 der 160 Übungen vor, sodass die Videoanleitungen nur teilweise umgesetzt sind.
+
+{\renewcommand{\arraystretch}{1.3}
+\begin{xltabular}{\textwidth}{@{} >{\raggedright\arraybackslash}p{3.1cm} >{\raggedright\arraybackslash}p{2.2cm} >{\raggedright\arraybackslash}X >{\raggedright\arraybackslash}p{2.1cm} @{}}
+    \caption{Anforderungen und Umsetzungsstand im finalen Prototyp}
+    \label{tab:soll_ist} \\
+    \toprule
+    \textbf{Anforderung} & \textbf{Gruppe} & \textbf{Umsetzung im finalen Prototyp} & \textbf{Abschnitt} \\
+    \midrule
+    \endfirsthead
+    \toprule
+    \textbf{Anforderung} & \textbf{Gruppe} & \textbf{Umsetzung im finalen Prototyp} & \textbf{Abschnitt} \\
+    \midrule
+    \endhead
+    \midrule
+    \multicolumn{4}{r}{\small Fortsetzung auf der nächsten Seite} \\
+    \endfoot
+    \bottomrule
+    \endlastfoot
+    Schmerztracking & MUSS & Schmerzangabe pro Übung und Schmerzabfrage pro Körperregion; Verlauf mit monatlicher Auswertung und Trendhinweis ab drei Einträgen & \ref{sec:api-repos} \\
+    Fortschritts-Protokoll & MUSS & Trainingslogs je Plan und Übung, Tagesfortschritt, Wochenringe, Weekly Streak und Kalender & \ref{sec:api-repos}, \ref{sec:api-isar-umsetzung} \\
+    Alternativübungen & MUSS & Bei gewählten Kontraindikationen bleiben Mobilisation, Dehnung und Entspannung verfügbar (Ausnahmeregel); Pläne lassen sich um weitere Übungen ergänzen & \ref{sec:api-sparql}, \ref{sec:ui-planerstellung} \\
+    Alltagstipps & MUSS & Hinweise zur Schonung im Alltag je Körperregion (84 Hinweise in 12 Alltagskategorien, davon 81 abrufbar) & \ref{sec:ontologie-schonung} \\
+    Personalisierung & MUSS & Profil mit Gelenken, Kontraindikationen und Level; Filterung und Empfehlung nach Körperregion, Trainingsziel und Level & \ref{sec:ui-planerstellung}, \ref{sec:api-sparql} \\
+    Videoanleitungen & KANN & Teilweise: Die Einbindung über \texttt{hasVideoUrl} ist umgesetzt, Videos liegen aber nur für 25 der 160 Übungen vor; 107 Übungen besitzen ein Bild & \ref{sec:ontologie-struktur} \\
+    Push-Erinnerungen & KANN & Teilweise: eine tägliche Erinnerung zu wählbarer Uhrzeit, die sich ein- und ausschalten lässt & \ref{sec:anforderungen} \\
+    Fragebögen & KANN & Teilweise: Erfassung von Profil und Level beim ersten Start (Selbsteinschätzung), weitere Fragebögen sind nicht umgesetzt & \ref{sec:ui-profil} \\
+    Gamification & KANN & Teilweise: Weekly Streak, Fortschrittsringe und über den Streak freischaltbare Rezepte der Woche & \ref{sec:api-repos} \\
+    Bewegungsanalyse, ROM-Messung, Quiz-Funktion, Nutzungsanalyse, Kontakt zur Praxis & OPTIONAL & Nicht umgesetzt, als Ausblick vorgesehen & \ref{sec:erweiterungen} \\
+\end{xltabular}
+}
+
 \subsection{Herausforderungen und technische Entscheidungen}
 
 Eine zentrale Herausforderung des Projekts war die enge Abhängigkeit zwischen Knowledge Graph, API und Benutzeroberfläche. Änderungen an der Ontologie konnten direkte Auswirkungen auf die Abfragen und damit auf die in der Anwendung verfügbaren Inhalte haben. Gleichzeitig entstanden aus der Gestaltung und Implementierung der Benutzeroberfläche neue Anforderungen an die Struktur der Wissensbasis.
 
-Besonders deutlich wurden diese Abhängigkeiten bei Änderungen an der Modellierung der Körperregionen. Dabei zeigte sich, dass bereits kleinere Änderungen an gemeinsam verwendeten Begriffen oder Beziehungen dazu führen konnten, dass Inhalte in der Anwendung nicht mehr korrekt gefunden wurden. Die stärkere Nutzung der vorhandenen \texttt{partOf}-Beziehungen sowie Tests gegen einen lokal betriebenen Fuseki-Server machten die Integration robuster.
+Besonders deutlich wurden diese Abhängigkeiten bei Änderungen an der Modellierung der Körperregionen. Dabei zeigte sich, dass bereits kleinere Änderungen an gemeinsam verwendeten Begriffen oder Beziehungen dazu führen konnten, dass Inhalte in der Anwendung nicht mehr korrekt gefunden wurden. Die stärkere Nutzung der vorhandenen \texttt{partOf}-Beziehungen sowie Tests gegen einen lokal betriebenen Fuseki-Server machten die Integration robuster (Abschnitt~\ref{sec:abgleich-ontologie}).
 
 Eine weitere technische Entscheidung war die Trennung zwischen inhaltlichen Daten und nutzerspezifischen Daten. Rehabilitationsbezogene Inhalte wie Übungen und ihre Beziehungen werden im Knowledge Graph verwaltet, während persönliche Angaben, Trainingspläne und Verlaufsdaten lokal in Isar gespeichert werden. Dadurch konnte die Wissensbasis unabhängig von den individuellen Nutzerdaten gepflegt werden.
+
+Weitere Entscheidungen, die den Funktionsumfang und die Architektur geprägt haben, fasst Tabelle~\ref{tab:entscheidungen} zusammen.
+
+{\renewcommand{\arraystretch}{1.3}
+\begin{xltabular}{\textwidth}{@{} >{\raggedright\arraybackslash}p{5.2cm} >{\raggedright\arraybackslash}p{3.3cm} >{\raggedright\arraybackslash}X @{}}
+    \caption{Zentrale Entscheidungen im Projektverlauf}
+    \label{tab:entscheidungen} \\
+    \toprule
+    \textbf{Entscheidung} & \textbf{Alternative} & \textbf{Begründung} \\
+    \midrule
+    \endfirsthead
+    \toprule
+    \textbf{Entscheidung} & \textbf{Alternative} & \textbf{Begründung} \\
+    \midrule
+    \endhead
+    \midrule
+    \multicolumn{3}{r}{\small Fortsetzung auf der nächsten Seite} \\
+    \endfoot
+    \bottomrule
+    \endlastfoot
+    Kein eigenes Backend: Die App fragt den Fuseki-Server direkt und nur lesend ab, persönliche Daten bleiben lokal in Isar. Es gibt kein Benutzerkonto und keinen Login. & Backend (z.\,B. Node.js oder Python) mit Nutzerkonto und serverseitiger Speicherung & Deutlich geringerer Aufwand und passend zum MVP-Gedanken (Entscheidung Ende Mai); zusätzlich entfallen Einwilligungsmanagement und Hosting (Abschnitt~\ref{sec:api-isar-motivation}). \\
+    Beschwerden werden als Kontraindikationen modelliert und in der App als feste Auswahlliste geführt, nicht per Abfrage am Graphen. & Dynamische Abfrage der Beschwerden per SPARQL, getrennte Verletzungsklasse & Die Werte sind statische Daten (Rückmeldung der Betreuerin); die Ausschlusslogik der Übungen bleibt über \texttt{hasContraindication} im Graphen. \\
+    Das Level wird durch Selbsteinschätzung anhand von Beispielaussagen bestimmt. & Mobilitätsquiz mit einem im Graphen berechneten MET- oder Schmerzscore & In Protégé lässt sich keine Berechnung hinterlegen, und die App sollte nur Daten konsumieren (Besprechung vom 25./26.06.); die Beispiele der Betreuerin lassen sich intuitiv zuordnen. \\
+    Medien liegen auf einem eigenen Webserver und werden als URL referenziert (\texttt{hasVideoUrl}, \texttt{hasPicUrl}). & Ablage der Medien direkt im Graphen & Die Ontologie würde dadurch zu groß und langsam (Absprache vom 16.07.). \\
+    Erkrankungen und Diagnosen werden nicht erfasst. Nutzer:innen wählen betroffene Gelenke und Beschwerden aus, die sich im Profil jederzeit ändern lassen. Die App richtet sich an die längerfristige Begleitung, nicht an frische Verletzungen oder Operationen. & Abfrage von Krankheiten im Profil und Abbildung in der Ontologie & ReVia soll keine medizinischen Entscheidungen treffen; frisch operierte Patient:innen sollten laut Experteninterview nur unter Aufsicht der Physiotherapie trainieren (Abschnitt~\ref{sec:experteninterview}). \\
+    Keine Anbindung an Physiotherapeut:innen (kein Chat, kein Zugriff auf Pläne). & Chat oder Videocall mit der Praxis, Therapeutenzugang & Eine dauerhafte Einbindung ist laut Interview zeitlich kaum leistbar und kann dazu führen, dass sich Patient:innen beobachtet fühlen, obwohl drei von vier befragten Physiotherapeut:innen Chat oder Videocall nannten; als Erweiterung vorgesehen (Abschnitt~\ref{sec:erweiterungen}). \\
+\end{xltabular}
+}
 
 Der Projektverlauf zeigte insgesamt, dass für ein System mit mehreren eng verbundenen Komponenten klare Schnittstellen und regelmäßige gruppenübergreifende Tests notwendig sind. Die Qualität der Anwendung hängt nicht nur von der Implementierung einzelner Komponenten ab, sondern auch davon, dass Datenmodell, Abfragen und Benutzeroberfläche dieselben Strukturen und Begriffe verwenden.
 
@@ -24,11 +84,12 @@ Der aktuelle Stand von ReVia ist als Prototyp zu verstehen und besitzt mehrere f
 
 Auch die Personalisierung ist im aktuellen Stand begrenzt. Die Auswahl von Übungen berücksichtigt bereits verschiedene Nutzerangaben und Eigenschaften aus der Wissensbasis, bildet jedoch keinen vollständigen individuellen Rehabilitationsverlauf ab. Heilungsphasen, Belastbarkeit oder Veränderungen des Zustands über längere Zeit werden noch nicht systematisch für die Freigabe oder Anpassung von Übungen verwendet.
 
-Eine weitere Grenze liegt in der Vollständigkeit und Qualität der Wissensbasis. Nicht alle modellierten Inhalte verfügen bereits über sämtliche Angaben, die von den aktuellen API-Abfragen vorausgesetzt werden. Dadurch können einzelne Übungen, Alltagshinweise oder Rezepte trotz vorhandener Modellierung noch nicht vollständig von der Anwendung verarbeitet werden. Die Qualität personalisierter Empfehlungen hängt daher wesentlich von konsistenten, vollständigen und fachlich geprüften Daten ab.
+Eine weitere Grenze liegt in der Vollständigkeit und Qualität der Wissensbasis. Nicht alle modellierten Inhalte verfügen bereits über sämtliche Angaben, die von den aktuellen API-Abfragen vorausgesetzt werden. Dadurch können einzelne Übungen, Alltagshinweise oder Rezepte trotz vorhandener Modellierung noch nicht vollständig von der Anwendung verarbeitet werden. So liefert die Abfrage derzeit 129 der 160 Übungen, und Videos liegen nur für 25 Übungen vor. Die Qualität personalisierter Empfehlungen hängt daher wesentlich von konsistenten, vollständigen und fachlich geprüften Daten ab.
 
 ReVia ist zudem nicht als medizinisches Diagnose- oder Entscheidungssystem ausgelegt. Die Anwendung kann Fachpersonal nicht ersetzen und soll ausschließlich als unterstützendes Werkzeug für die selbstständige Rehabilitation zwischen Behandlungsterminen dienen.
 
 \subsection{Erweiterungsmöglichkeiten}
+\label{sec:erweiterungen}
 
 Für eine Weiterentwicklung bietet insbesondere die Wissensbasis mehrere Ansatzpunkte. Medizinisch geprüfte Informationen zu Verletzungen und Krankheitsbildern könnten ergänzt und stärker mit Übungen, Kontraindikationen und Rehabilitationsphasen verknüpft werden. Auch die bereits vorbereitete Patient-Klasse könnte weiter ausgebaut werden, um zusätzliche Informationen strukturiert abzubilden.
 

@@ -1,5 +1,6 @@
 \section{Verwandte Arbeiten und Nutzerstudie}
 \subsection{Verwandte Arbeiten - Fokus auf den Menschen}
+\label{sec:related-work}
 
 In den betrachteten Arbeiten zeigt sich ein differenziertes Bild digitaler Rehabilitation. \textcite{seron2021} berichten in ihrer Übersicht über systematische Reviews, dass Telerehabilitation bei bestimmten Erkrankungen vergleichbare Ergebnisse wie eine Rehabilitation vor Ort oder bessere Ergebnisse als keine Rehabilitation erreichen kann. Die Ergebnisse unterscheiden sich jedoch zwischen den untersuchten Erkrankungen, Interventionen und Vergleichsgruppen.
 
@@ -31,7 +32,7 @@ Bei dem Vergleich kristallisierten sich drei unterschiedliche Ansätze heraus. `
 Für die Gestaltung von ReVia wurden aus dem Vergleich der vier betrachteten Reha-Apps fünf Anforderungen abgeleitet:
 
 \begin{itemize}
-    \item Übungen sollen nur vorgeschlagen werden, wenn sie zu den individuellen Einschränkungen der Person passen. So sollte einem Nutzer mit Knieproblemen und wenig Erfahrung keine stark belastenden Knieübungen vorgeschlagen werden. Für das eigene System ist daher der Einsatz von Nutzerprofilen in Verbindung mit einer Wissensmodellierung (Knowledge Graph) sinnvoll.
+    \item Übungen sollen nur vorgeschlagen werden, wenn sie zu den individuellen Einschränkungen der Person passen. So sollten Nutzer:innen mit Knieproblemen und wenig Erfahrung keine stark belastenden Knieübungen vorgeschlagen werden. Für das eigene System ist daher der Einsatz von Nutzerprofilen in Verbindung mit einer Wissensmodellierung (Knowledge Graph) sinnvoll.
 
     \item Übungen sollten nicht als knappe Anweisung, sondern als klar strukturierte Abfolge einzelner und verständlicher Teilschritte in einfacher Sprache vermittelt werden.
 
@@ -48,13 +49,14 @@ Damit ergänzt diese anwendungsbezogene Analyse die Literaturrecherche in dem Be
 
 Auf Grundlage dieser Erkenntnisse wurde anschließend eine eigene Befragung erstellt. Mit der Befragung sollte überprüft werden, welche Funktionen für die geplante App tatsächlich benötigt werden, welche davon im Alltag realistisch umsetzbar sind und welche Schwierigkeiten sowohl aus Sicht der Patient:innen als auch aus Sicht der Physiotherapeut:innen bestehen.
 
-Die Befragung wurde in Zusammenarbeit mit der Praxis BG Ambulanz in Bremen durchgeführt. Insgesamt nahmen 31 Patient:innen sowie vier Physiotherapeut:innen schriftlich teil. Ergänzend wurde ein qualitatives Interview mit einer Physiotherapeutin durchgeführt, deren Ergebnisse in Kapitel 4.4 gesondert dargestellt werden.
+Die Befragung wurde in Zusammenarbeit mit der Praxis BG Ambulanz in Bremen durchgeführt. Insgesamt nahmen 31 Patient:innen sowie vier Physiotherapeut:innen schriftlich teil. Ergänzend wurde ein qualitatives Interview mit einer Physiotherapeutin durchgeführt, deren Ergebnisse in Abschnitt~\ref{sec:experteninterview} gesondert dargestellt werden.
 
 Der Patientenfragebogen befasste sich unter anderem mit dem Umgang mit Smartphone-Apps, der selbstständigen Durchführung von Übungen zu Hause, Erinnerungsfunktionen, Fortschrittsanzeigen, der Dokumentation von Schmerzen, Alltagstipps sowie personalisierten Übungsvorschlägen. Zusätzlich wurde erhoben, ob Bilder oder Videos zur Erklärung von Übungen bevorzugt werden.
 
 Der Fragebogen für die Physiotherapeut:innen fokussierte primär auf fachliche Themen. Diese sind beispielsweise die sichere Durchführung von Heimübungen, Kontraindikationen, der Umgang mit Schmerzen, die Steigerung der Trainingsintensität, die Komplexität von Übungen, Motivation, Fortschrittsdokumentation sowie Kommunikationsmöglichkeiten. Die Kombination der beiden Perspektiven ermöglichte es, sowohl nutzerbezogene als auch fachliche Anforderungen zu erfassen, die die Grundlage für die weitere Konzeption und Umsetzung der ReVia bildeten.
 
 \subsection{Experteninterview}
+\label{sec:experteninterview}
 
 Im Rahmen der Nutzerstudie wurde ein Interview mit der Physiotherapeutin Frau Etta-Verena Wolters durchgeführt. Durch die Kombination qualitativer und quantitativer Methoden, auch als Mixed-Methods-Ansatz bezeichnet, sollten die Ergebnisse der Fragebögen um praktische Erfahrungen aus dem Therapiealltag ergänzt und die Interpretation der erhobenen Daten unterstützt werden.
 
@@ -133,7 +135,7 @@ offenen Frage nennen. Vier Personen nutzten diese Möglichkeit. Mögliche Gründ
     mehr für weitere Übungen haben.
     \item dass sie langen Anfahrtsweg zur
     Reha brauchen.
-    \item dass kein passendes Eqiupment zuhause vorhanden ist.
+    \item dass kein passendes Equipment zuhause vorhanden ist.
     \item dass sie eigene Training im Fitnessstudio treiben.
 \end{itemize}
 Daraus lässt sich ableiten, dass die App während einer intensiven Reha-Phase weniger
@@ -208,8 +210,9 @@ Als Kanal für Rückfragen wurden Chat- und Videocall-Funktionen von drei der vi
 Für die weitere Entwicklung wurden deshalb vor allem folgende Punkte übernommen: Videoanleitungen, Schmerz- und Fortschrittsdokumentation, unterschiedliche Übungsstufen und -kategorien, personalisierte Übungen, Kontraindikationen und Sicherheits-Constraints, Erinnerungsfunktionen, Motivation durch Gamification sowie Alltagstipps.
 
 \subsection{Abgeleitete Anforderungen an die Reha-App}
+\label{sec:anforderungen}
 
-Die Ergebnisse aus Recherche, App-Vergleich, Befragung und Interview wurden anschließend bei der Umsetzung der App berücksichtigt. Übungen werden überwiegend als Videos dargestellt, da sich Bewegungsabläufe auf diese Weise deutlich verständlicher vermitteln lassen als über reine Text- oder Bildbeschreibungen. Nutzer:innen können Übungen außerdem gezielt nach Körperregionen sowie nach Rubriken wie Kraft, Entspannung, Mobilisation, Koordination und Dehnung auswählen und eigene Übungspläne zusammenstellen.
+Die Ergebnisse aus Recherche, App-Vergleich, Befragung und Interview wurden anschließend bei der Umsetzung der App berücksichtigt. Jede Übung wird mit einer Schritt-für-Schritt-Anleitung dargestellt und, soweit vorhanden, durch ein Bild oder ein Video ergänzt. In der Patient:innenbefragung erhielt die Aussage zu Videoanleitungen die höchste Zustimmung; Bewegungsabläufe lassen sich damit deutlich verständlicher vermitteln als über reine Text- oder Bildbeschreibungen. Die Anwendung kann Videos über die Property \texttt{hasVideoUrl} einbinden. Im finalen Stand liegt allerdings nur für 25 der 160 Übungen ein Video vor, während 107 Übungen ein Bild besitzen (Abschnitt~\ref{sec:ontologie-struktur}). Die Videoanleitungen sind daher nur teilweise umgesetzt (Abbildung~\ref{fig:priorisierung_anforderungen}). Nutzer:innen können Übungen außerdem gezielt nach Körperregionen sowie nach Rubriken wie Kraft, Entspannung, Mobilisation, Koordination und Dehnung auswählen und eigene Übungspläne zusammenstellen.
 
 
 \begin{figure}[htbp]
@@ -229,7 +232,7 @@ Ergänzend sind Filterfunktionen sowie personalisierte beziehungsweise zufällig
     \label{fig:umsetzung_der_erkenntnisse}
 \end{figure}
 
-Für die Motivation wurden Erinnerungen und eine Streak-Funktion vorgesehen. Erinnerungsfunktionen lassen sich durch die Nutzer:innen freiwillig aktivieren oder deaktivieren. Diese soll dabei unterstützen, regelmäßig zu trainieren und die bisherigen Aktivitäten sichtbar zu machen.
+Für die Motivation wurden Erinnerungen und eine Streak-Funktion vorgesehen. Die Erinnerungen lassen sich von den Nutzer:innen freiwillig aktivieren oder deaktivieren. Die Streak-Funktion soll dabei unterstützen, regelmäßig zu trainieren, und macht die bisherigen Aktivitäten sichtbar.
 
 Außerdem wird eine tägliche Schmerzabfrage auf einer Skala von eins bis zehn mit einer monatlichen grafischen Verlaufsdarstellung kombiniert. Ergänzt wird dies um ein optionales Anmerkungsfeld nach jedem Workout sowie um kurze, täglich wechselnde Informationshäppchen und Alltagstipps auf dem Startbildschirm.
 

@@ -7,17 +7,17 @@ Die API-Gruppe ist ein zentrales Bindeglied für die verschiedenen Datenquellen 
 
 \subsubsection{Aufgaben der API-Gruppe}
 
-Die Aufgaben umfassten dabei drei Hauptbereiche. Zum einen mussten die Daten aus dem Knowledge Graph über SPARQL abgefragt und für die App aufbereitet werden. Zum anderen mussten die Nutzerdaten lokal gespeichert und an die Benutzeroberfläche weitergegeben werden. Als letzte Hauptaufgabe galt es, die Daten aus verschiedenen Quellen zu vereinheitlichen und somit die Features bestmöglich auf den Nutzer zu personalisieren.
+Die Aufgaben umfassten dabei drei Hauptbereiche. Zum einen mussten die Daten aus dem Knowledge Graph über SPARQL abgefragt und für die App aufbereitet werden. Zum anderen mussten die Nutzerdaten lokal gespeichert und an die Benutzeroberfläche weitergegeben werden. Als letzte Hauptaufgabe galt es, die Daten aus verschiedenen Quellen zu vereinheitlichen und somit die Features bestmöglich auf die Nutzer:innen zu personalisieren.
 
 \subsubsection{Zusammenarbeit und Workflow}
 
-Für die Entwicklung wurde mit Git und Discord gearbeitet. Änderungen wurden innerhalb der Gruppe abgestimmt und vor der Zusammenführung überprüft. Über eine eigene Discord-Gruppe fand eine regelmäßige Kommunikation statt. Somit konnten Issues auf Git schnell gemeinsam erstellt werden. Dies führte zu einer guten Übersicht der To-do's und einem reibungslosen Workflow der API-Gruppe.
+Für die Entwicklung wurde mit Git und Discord gearbeitet. Änderungen wurden innerhalb der Gruppe abgestimmt und vor der Zusammenführung überprüft. Über eine eigene Discord-Gruppe fand eine regelmäßige Kommunikation statt. Somit konnten Issues auf Git schnell gemeinsam erstellt werden. Dies führte zu einer guten Übersicht der To-dos und einem reibungslosen Workflow der API-Gruppe.
 
 
 \subsection{Architektur und System-Setup}
 \subsubsection{Architekturkonzept und Schichtenmodell}
 
-Zu Beginn des Projekts wurde die grundlegende Architektur der Anwendung festgelegt. Ziel war es, die einzelnen Bereiche der App klar voneinander zu trennen und festzulegen, wie Daten zwischen Benutzeroberfläche, lokaler Speicherung und dem Knowledge-Graphen ausgetauscht werden. Die Benutzeroberfläche wurde mit Flutter entwickelt und ist für die Darstellung der Inhalte sowie die Interaktion mit dem Nutzer zuständig. Die UI greift dabei nicht direkt auf die Datenquellen zu, sondern nutzt das State Management und die Repository-Schicht, um die Datenverarbeitung von der Darstellung zu trennen.
+Zu Beginn des Projekts wurde die grundlegende Architektur der Anwendung festgelegt. Ziel war es, die einzelnen Bereiche der App klar voneinander zu trennen und festzulegen, wie Daten zwischen Benutzeroberfläche, lokaler Speicherung und dem Knowledge-Graphen ausgetauscht werden. Die Benutzeroberfläche wurde mit Flutter entwickelt und ist für die Darstellung der Inhalte sowie die Interaktion mit den Nutzer:innen zuständig. Die UI greift dabei nicht direkt auf die Datenquellen zu, sondern nutzt das State Management und die Repository-Schicht, um die Datenverarbeitung von der Darstellung zu trennen.
 
 Für Daten, die lokal auf dem Gerät gespeichert werden sollen -- wie Nutzerprofile, Trainingspläne und Trainingsdaten --, wird die Isar-Datenbank verwendet. Die Übungsdaten stammen dagegen aus dem Knowledge-Graphen. Dafür kommuniziert die App über eine API-Schicht mit dem Apache Jena Fuseki Server. Die API-Schicht erstellt SPARQL-Abfragen und sendet diese über HTTP an Fuseki. Der Server führt die Abfragen auf dem Knowledge Graph aus, der auf einer in Protégé gepflegten OWL-Ontologie basiert, und gibt die Ergebnisse als JSON zurück. Durch diese Aufteilung sind Benutzeroberfläche, Datenverarbeitung, lokale Speicherung und Wissensbasis voneinander getrennt, während die einzelnen Bereiche über klar definierte Schnittstellen miteinander kommunizieren.
 
@@ -43,6 +43,7 @@ Während der Entwicklung konnte die App sowohl auf einem mobilen Emulator als au
 
 \subsection{Entwicklung}
 \subsubsection{Architektur und Implementierung der SPARQL-API}
+\label{sec:api-sparql}
 \paragraph{Konzeptioneller Aufbau der API-Architektur}
 
 Bereits in der Designphase -- im Anschluss an die Auswertung der User-Study -- zeichnete sich ab, dass der Knowledge Graph Daten für mehrere Anwendungsfunktionen (Features) über unterschiedliche SPARQL-Abfragen bereitstellen muss. Dies hatte konzeptionelle Auswirkungen auf die Gestaltung der API-Architektur im Flutter-Projekt.
@@ -285,10 +286,10 @@ GROUP BY
 \end{lstlisting}
 
 \subparagraph{\texttt{RecipeAPI} (\textit{Rezept der Woche})}
-Beim Start einer neuen Trainingswoche kann der Nutzer -- abhängig vom Erreichen eines Wochen-Streaks -- ein neues Rezept freischalten. Die Klasse \texttt{RecipeAPI} fragt alle Rezepte aus dem Knowledge Graph ab, die vom Nutzer noch nicht freigeschaltet wurden. Die ID-Liste der bereits freigeschalteten Rezepte wird dabei als Filterparameter im SPARQL-Query übergeben.
+Beim Start einer neuen Trainingswoche können Nutzer:innen -- abhängig vom Erreichen eines Wochen-Streaks -- ein neues Rezept freischalten. Die Klasse \texttt{RecipeAPI} fragt alle Rezepte aus dem Knowledge Graph ab, die von den Nutzer:innen noch nicht freigeschaltet wurden. Die ID-Liste der bereits freigeschalteten Rezepte wird dabei als Filterparameter im SPARQL-Query übergeben.
 
 \subparagraph{\texttt{DailyLifeAdviceAPI} (\textit{Tagestipps})}
-Diese Klasse ruft passend zu den aktuell vom Nutzer trainierten Körperregionen Kontext-Tipps für den Alltag ab. Die SPARQL-Abfrage filtert die Tipps basierend auf den primär adressierten Muskelgruppen bzw. Körperbereichen.
+Diese Klasse ruft passend zu den aktuell von den Nutzer:innen trainierten Körperregionen Kontext-Tipps für den Alltag ab. Die SPARQL-Abfrage filtert die Tipps basierend auf den primär adressierten Muskelgruppen bzw. Körperbereichen.
 
 \medskip
 \noindent\textbf{Dokumentationshinweis:} Alle in der Produktionsumgebung eingesetzten SPARQL-Queries wurden in einem separaten Markdown-Dokument fortlaufend strukturiert, kommentiert und versioniert.
@@ -307,6 +308,7 @@ Nicht alle geladenen API-Daten werden gleich behandelt. Die Übungsdaten werden 
 Bei den Schonungstipps für den Alltag verhält es sich hingegen anders: Diese Daten werden vom Knowledge Graph abgerufen und direkt an die UI weitergeleitet. Für sie besteht keine Notwendigkeit einer lokalen Speicherung, da die Ergebnismenge lediglich vom Filter für die aktiv trainierten Körperbereiche abhängt.
 
 \subsubsection{Repositories und Provider}
+\label{sec:api-repos}
 
 Für den Zugriff auf die Daten werden Repositories und Provider verwendet. Die Repositories kümmern sich darum, woher die Daten kommen und wo sie gespeichert werden. Das kann die lokale Isar-Datenbank sein oder die API zum Knowledge Graph. Die Provider verwenden diese Repositories und halten die Daten, die gerade in der App benötigt werden, im Arbeitsspeicher. Wenn sich dort etwas ändert, wird die UI darüber informiert und kann sich entsprechend aktualisieren.
 
@@ -320,9 +322,9 @@ Ein weiterer Bereich ist die Auswertung der Trainingszustände während des Work
 
 \subsubsection{Datenfluss bis zur UI}
 
-Zur Veranschaulichung des gesamten Datenflusses bietet es sich an, das Laden der Übungen für die Planerstellung genauer zu betrachten. Der Nutzer wählt in der Oberfläche eine Körperregion und ein Trainingsziel aus. Diese Auswahl wird über den Provider an das Repository weitergegeben. Dort werden die Daten betroffene Gelenke, Kontraindikationen und Trainingslevel aus dem Nutzerprofil berücksichtigt.
+Zur Veranschaulichung des gesamten Datenflusses bietet es sich an, das Laden der Übungen für die Planerstellung genauer zu betrachten. Nutzer:innen wählen in der Oberfläche eine Körperregion und ein Trainingsziel aus. Diese Auswahl wird über den Provider an das Repository weitergegeben. Dort werden die im Nutzerprofil hinterlegten Angaben zu betroffenen Gelenken, Kontraindikationen und Trainingslevel berücksichtigt.
 
-Diesen Angaben sind die Vorlage für den Aufbau der Parameter für die SPARQL-Abfrage. Die Anfrage wird über die API an den Fuseki-Server geschickt, und der Knowledge Graph liefert die passenden Übungsdaten zurück. Danach wird die JSON-Antwort verarbeitet und in Dart-Objekte umgewandelt. Erst diese fertigen Objekte gehen wieder zurück an den Provider.
+Diese Angaben sind die Vorlage für den Aufbau der Parameter für die SPARQL-Abfrage. Die Anfrage wird über die API an den Fuseki-Server geschickt, und der Knowledge Graph liefert die passenden Übungsdaten zurück. Danach wird die JSON-Antwort verarbeitet und in Dart-Objekte umgewandelt. Erst diese fertigen Objekte gehen wieder zurück an den Provider.
 
 Der Provider übernimmt die neue Übungsliste in seinen aktuellen Zustand und informiert die Benutzeroberfläche über die Änderung. Die UI muss dabei nicht wissen, wie die SPARQL-Abfrage aufgebaut ist oder wie die Serverantwort verarbeitet wurde. Sie erhält am Ende nur die bereits aufbereiteten Übungen.
 
@@ -335,6 +337,7 @@ Auf diese Weise arbeitet die Benutzeroberfläche nicht direkt mit Isar oder Fuse
 
 \subsection{Lokale Datenspeicherung}
 \subsubsection{Motivation und Entwurfsentscheidungen}
+\label{sec:api-isar-motivation}
 
 Die App begleitet Nutzer:innen über mehrere Wochen durch ein Trainingsprogramm, und dabei entstehen zwei Arten von Daten. Die erste sind Inhalte wie Übungen, Alltagstipps und Rezepte. Sie liegen im Knowledge-Graph und werden über die API geladen, wobei die Übungsauswahl anhand von Kontraindikationen, betroffenen Gelenken, Körperregionen und Trainingszielen gefiltert wird. Die zweite sind persönliche Daten: das Profil mit Alter, Gewicht, Körpergröße, Kontraindikationen, betroffenen Gelenken und Fitnesslevel, außerdem die zusammengestellten Trainingspläne, Schmerzprotokolle, Trainingslogs, der Wochenstatus und die freigeschalteten Rezepte. Diese zweite Gruppe muss dauerhaft auf dem Gerät gespeichert werden. Sie ist stark strukturiert und muss nach Datum, Körperregion und Status gefiltert werden können.
 
@@ -342,11 +345,12 @@ Es wurde sich bewusst gegen eine Cloud-Lösung mit Benutzerkonto entschieden. Ei
 
 Für eine Cloud-Variante wäre zusätzliche Infrastruktur notwendig gewesen. Zunächst müsste eine Möglichkeit geschaffen werden, Nutzerkonten zu verwalten und die persönlichen Daten eindeutig den jeweiligen Nutzern zuzuordnen. Zusätzlich müssten die persönlichen Daten auf einem Server gespeichert und über eine entsprechende Schnittstelle von der App abgerufen und verändert werden können. Wenn die App weiterhin offline funktionieren soll, wäre außerdem eine lokale Zwischenspeicherung sowie eine Synchronisation zwischen Gerät und Server notwendig. Dabei müsste auch berücksichtigt werden, wie mit Änderungen umgegangen wird, die während einer Offline-Nutzung entstehen.
 
-Zusätzlich wären bei der Speicherung von persönlichen und gesundheitsbezogenen Daten weitere datenschutzrechtliche Anforderungen zu berücksichtigen. Dazu gehören unter anderem die sichere Speicherung und Übertragung der Daten sowie Möglichkeiten für die Nutzer, ihre Daten einzusehen und löschen zu lassen. Auch für den laufenden Betrieb wären zusätzliche Aufgaben wie Hosting, Backups und Wartung notwendig. Eine lokale Datenbank wäre dabei auch in einer Cloud-Variante weiterhin sinnvoll, um die Daten offline verfügbar zu machen. Die jetzige Lösung bildet daher eine mögliche Grundlage für eine spätere Erweiterung um eine Synchronisation mit einem Server.
+Zusätzlich wären bei der Speicherung von persönlichen und gesundheitsbezogenen Daten weitere datenschutzrechtliche Anforderungen zu berücksichtigen. Dazu gehören unter anderem die sichere Speicherung und Übertragung der Daten sowie Möglichkeiten für die Nutzer:innen, ihre Daten einzusehen und löschen zu lassen. Auch für den laufenden Betrieb wären zusätzliche Aufgaben wie Hosting, Backups und Wartung notwendig. Eine lokale Datenbank wäre dabei auch in einer Cloud-Variante weiterhin sinnvoll, um die Daten offline verfügbar zu machen. Die jetzige Lösung bildet daher eine mögliche Grundlage für eine spätere Erweiterung um eine Synchronisation mit einem Server.
 
 Für die lokale Speicherung kamen neben Isar auch einfachere Lösungen wie SharedPreferences oder Hive infrage, sowie relationale Datenbanken wie SQLite. SharedPreferences ist ein simpler Speicher für kleine Einstellungen, wie ihn praktisch jede App nutzt, etwa für den Dark Mode oder die Sprache, eignet sich aber nicht für strukturierte Listen mit Datumsabfragen und Filtern, da weder Abfragen noch Indizes zur Verfügung stehen. Hive ist ähnlich einfach gehalten und bietet als reiner Key-Value-Speicher ebenfalls keine echten Abfragen, sodass Filter nach Datum oder Körperregion manuell im Arbeitsspeicher umgesetzt werden müssten. Eine relationale Datenbank wie SQLite wäre technisch möglich gewesen, hätte aber deutlich mehr Aufwand bedeutet: Das Datenmodell enthält verschachtelte Objekte, etwa Trainingspläne mit einer variablen Anzahl an Übungen, die in einer relationalen Struktur über zusätzliche Tabellen und Verknüpfungen abgebildet werden müssten, statt einfach als Ganzes gespeichert zu werden. Isar erlaubt es dagegen, die Dart-Objekte direkt in dieser verschachtelten Form zu speichern und trotzdem effizient nach Datum, Region oder Status zu filtern. Für das Datenmodell aus Plänen mit eingebetteten Übungen und zeitbasierten Logs passte Isar daher mit dem geringsten Aufwand am besten.
 
 \subsubsection{Umsetzung}
+\label{sec:api-isar-umsetzung}
 
 Die Datenhaltung ist in drei Ebenen aufgeteilt. Modelle definieren, welche Daten gespeichert werden, Repositories kapseln die Isar-Abfragen und Schreibvorgänge, die in Transaktionen mit \texttt{isar.writeTxn()} ausgeführt werden, und Provider laden die Daten aus den Repositories, halten sie im Arbeitsspeicher und informieren die Oberfläche über Änderungen. Widgets greifen dadurch normalerweise nicht direkt auf Isar zu, und Datenbanklogik bleibt von der Darstellung getrennt. Die Datenbank wird beim Start in \texttt{main.dart} im Dokumentenverzeichnis der App geöffnet, dessen Pfad über \texttt{path\_provider} ermittelt wird, und registriert dabei sieben Collections. Die zugehörigen \texttt{.g.dart}-Dateien werden aus den Isar-Annotationen mit \texttt{build\_runner} erzeugt. Tabelle~\ref{tab:isar_collections} gibt einen Überblick über die Collections.
 
