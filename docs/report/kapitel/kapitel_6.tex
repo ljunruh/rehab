@@ -49,6 +49,7 @@ Die Freischaltung eines Rezepts ist mit dem Wochenfortschritt der Nutzer:innen v
 Die bestehende Modellierung könnte später beispielsweise um Zutaten, Kalorienangaben oder Allergene erweitert werden. Solche Eigenschaften sind im aktuellen Datenmodell jedoch noch nicht umgesetzt.
 
 \subsubsection{Schonung im Alltag}
+\label{sec:ontologie-schonung}
 
 Der Bereich ``Schonung im Alltag'' ergänzt die Trainingspläne um Hinweise für alltägliche Situationen. Nutzer:innen sollen dadurch zusätzlich zu den Übungen Informationen erhalten, die sich auf die jeweils ausgewählte Körperregion beziehen.
 
@@ -68,6 +69,7 @@ Für eine spätere differenziertere Empfehlungslogik enthält die Ontologie bere
 Diese detaillierte Verletzungsstruktur wird von der aktuellen Empfehlungslogik der Anwendung jedoch noch nicht direkt verwendet. Die implementierte Filterung arbeitet derzeit hauptsächlich mit den im Profil ausgewählten Gelenken über \texttt{engagedBodyPart} sowie mit den Kontraindikationen über \texttt{hasContraindication}. Die Verletzungsmodellierung stellt damit vor allem eine Grundlage für spätere Erweiterungen dar.
 
 \subsubsection{Übungen}
+\label{sec:ontologie-uebungen}
 
 Aus der ursprünglichen Ontologie wurden die Kategorien Kardio und Yoga beibehalten. Ergänzt wurden die für das Projekt benötigten Kategorien Dehnung, Entspannung, Koordination, Kraft und Mobilisation.
 
@@ -76,9 +78,10 @@ In der finalen Ontologie sind 160 unterschiedliche Übungen modelliert. Sie sind
 
 Für die Befüllung der Ontologie wurden im Projekt recherchierte Übungsquellen sowie die in der Nutzerstudie genannten Übungen verwendet und an die benötigte Datenstruktur angepasst.
 
-Nicht jede der 160 modellierten Übungen besitzt bereits sämtliche Felder und Verknüpfungen, die von der aktuellen Empfehlungsabfrage vorausgesetzt werden. Die API verlangt unter anderem ein Trainingslevel, mindestens eine Kontraindikation, einen Trainingseffekt und einen Körperbereich sowie Angaben über \texttt{hasInstruction} und \texttt{hasDuration}. Zusätzlich müssen die für die Verarbeitung verwendeten Labels und eine Beschreibung vorhanden sein. Unter Berücksichtigung dieser Voraussetzungen erfüllen derzeit 119 der 160 Übungen die grundlegenden Bedingungen der aktuellen Empfehlungssuche. Die übrigen Übungen bleiben Bestandteil der Wissensbasis, benötigen jedoch noch einzelne Ergänzungen, bevor sie von dieser Abfrage vollständig verarbeitet werden können.
+Nicht jede der 160 modellierten Übungen besitzt bereits sämtliche Felder und Verknüpfungen, die von der aktuellen Empfehlungsabfrage vorausgesetzt werden. Die API verlangt unter anderem ein Trainingslevel, mindestens eine Kontraindikation, einen Trainingseffekt und einen Körperbereich sowie Angaben über \texttt{hasInstruction} und \texttt{hasDuration}. Zusätzlich müssen die für die Verarbeitung verwendeten Labels und eine Beschreibung vorhanden sein. Unter Berücksichtigung dieser Voraussetzungen erfüllen im Stand der Ontologie vom 1.\,Oktober 2026 129 der 160 Übungen die grundlegenden Bedingungen der aktuellen Empfehlungssuche. Dieser Wert wurde durch Ausführen der Abfrage auf dem aus der Ontologie erzeugten Graphen überprüft. Die übrigen 31 Übungen bleiben Bestandteil der Wissensbasis, werden von dieser Abfrage jedoch nicht geliefert. Bei 29 von ihnen handelt es sich um die aus der Ausgangsontologie übernommenen Yoga-Asanas, für die weder \texttt{hasInstruction} noch \texttt{hasDuration} hinterlegt ist. Bei den beiden übrigen Übungen fehlt in einem Fall die Dauer, im anderen Fall verweist \texttt{hasContraindication} auf ein Individuum, das nicht als \texttt{Contraindication} modelliert ist.
 
 \subsubsection{Struktur einer Übung}
+\label{sec:ontologie-struktur}
 
 Die Object Property \texttt{engagedBodyPart} verknüpft eine Übung mit den Körperbereichen, die bei ihrer Ausführung beansprucht werden. Diese Property ist für alle 160 modellierten Übungen vorhanden und bildet eine zentrale Grundlage für die körperregionsbezogene Filterung.
 
@@ -89,7 +92,7 @@ Die Object Property \texttt{requiresEquipment} beschreibt gegebenenfalls benöti
 
 Ergänzt werden die Übungen durch verschiedene Data Properties. \texttt{hasInstruction} enthält eine Schritt-für-Schritt-Beschreibung, \texttt{hasDuration} eine ungefähre Dauer, \texttt{hasCommonMistake} typische Ausführungsfehler und \texttt{hasCorrectionGuidance} entsprechende Korrekturhinweise.
 
-Für die mediale Darstellung können außerdem \texttt{hasVideoUrl} und \texttt{hasPicUrl} verwendet werden. Diese Zusatzinformationen sind nicht bei allen Übungen vorhanden. In der aktuellen API werden Korrekturhinweise, typische Fehler sowie Video- und Bildverknüpfungen deshalb optional abgefragt. Für Übungen ohne geeignete Videos wurden im Projekt teilweise zusätzliche Übungsbilder hinterlegt, darunter auch mithilfe von KI erzeugte Darstellungen.
+Für die mediale Darstellung können außerdem \texttt{hasVideoUrl} und \texttt{hasPicUrl} verwendet werden. Die Medien liegen nicht im Graphen selbst, sondern auf einem vom Projektteam betriebenen Webserver; der Graph verweist über URLs auf sie, damit die Ontologie klein und schnell bleibt, und die App lädt die Medien zur Laufzeit von diesem Server. Diese Zusatzinformationen sind nicht bei allen Übungen vorhanden: Im finalen Datenbestand besitzen nur 25 der 160 Übungen ein Video und 107 Übungen ein Bild, 43 Übungen haben weder Video noch Bild. In der aktuellen API werden Korrekturhinweise, typische Fehler sowie Video- und Bildverknüpfungen deshalb optional abgefragt. Für Übungen ohne geeignete Videos wurden im Projekt zusätzliche Übungsbilder hinterlegt, darunter auch mithilfe von KI erzeugte Darstellungen.
 
 \subsubsection{Übungseigenschaften}
 
@@ -97,7 +100,7 @@ Die Klasse \texttt{TrainingsEffect} enthält neun im Projekt verwendete Training
 
 Übungen werden über die Object Property \texttt{improves} mit diesen Trainingseffekten verknüpft. Dadurch kann die Planempfehlung zusätzlich zur Körperregion und zum Trainingslevel nach einem gewünschten Trainingsziel filtern.
 
-Im finalen Datenbestand besitzen 129 der 160 modellierten Übungen mindestens eine \texttt{improves}-Verknüpfung. Da diese Property von der aktuellen Empfehlungsabfrage als Pflichtfeld verwendet wird, müssen die noch fehlenden Zuordnungen ergänzt werden, bevor auch diese Übungen vollständig in die personalisierte Planerstellung einbezogen werden können.
+Im finalen Datenbestand besitzen alle 160 modellierten Übungen mindestens eine \texttt{improves}-Verknüpfung. Diese von der Empfehlungsabfrage als Pflichtfeld verwendete Property ist damit für sämtliche Übungen erfüllt. Die Übungen, die von der Abfrage nicht geliefert werden, scheitern an anderen Voraussetzungen (siehe Abschnitt~\ref{sec:ontologie-uebungen}).
 
 \subsection{Fazit der Wissensmodellierung}
 

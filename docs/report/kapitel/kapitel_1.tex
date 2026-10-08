@@ -38,21 +38,84 @@ Eine zentrale Herausforderung bestand darin, die drei Entwicklungsbereiche so au
 
 Gleichzeitig wurde der Funktionsumfang bewusst begrenzt. ReVia soll keine medizinischen Diagnosen stellen und keine eigenständigen medizinischen Entscheidungen treffen. Der Prototyp ist als unterstützende Anwendung gedacht, die Informationen strukturiert bereitstellt und Nutzer:innen bei der selbstständigen Rehabilitation zwischen Behandlungsterminen begleitet. Die fachliche Beurteilung und persönliche Betreuung durch medizinisches oder physiotherapeutisches Fachpersonal wird dadurch nicht ersetzt.
 
+\subsection{Begriffe}
+
+Im Bericht werden Begriffe aus der Ontologie, dem Programmcode und der Benutzeroberfläche verwendet, die sich teilweise überschneiden. Tabelle~\ref{tab:begriffe} legt fest, wie sie im Folgenden gebraucht werden.
+
+{\renewcommand{\arraystretch}{1.3}
+\begin{xltabular}{\textwidth}{@{} >{\raggedright\arraybackslash}p{3.0cm} >{\raggedright\arraybackslash}X >{\raggedright\arraybackslash}p{5.3cm} @{}}
+    \caption{Begriffe und ihre Verwendung im Bericht}
+    \label{tab:begriffe} \\
+    \toprule
+    \textbf{Begriff} & \textbf{Bedeutung im Bericht} & \textbf{Ontologie und App} \\
+    \midrule
+    \endfirsthead
+    \toprule
+    \textbf{Begriff} & \textbf{Bedeutung im Bericht} & \textbf{Ontologie und App} \\
+    \midrule
+    \endhead
+    \midrule
+    \multicolumn{3}{r}{\small Fortsetzung auf der nächsten Seite} \\
+    \endfoot
+    \bottomrule
+    \endlastfoot
+    Ontologie, Knowledge Graph, Wissensbasis & Die \emph{Ontologie} ist das in Protégé gepflegte Modell aus Klassen, Properties und Individuen. Der \emph{Knowledge Graph} ist dasselbe Wissen als RDF-Graph, den der Fuseki-Server bereitstellt. \emph{Wissensbasis} bezeichnet beides gemeinsam. & Datei \texttt{PhysicalTherapy.owx}; der Graph entsteht durch Konvertierung der Ontologie. \\
+    Kontraindikation, Beschwerde & Eine Beschwerde, bei der bestimmte Übungen nicht vorgeschlagen werden. \emph{Verletzung} (Injury) bezeichnet dagegen die detaillierte Verletzungsstruktur der Ontologie, die die App nicht verwendet. & Klasse \texttt{Contraindication} (12 Individuen, z.\,B. \texttt{KneeIssue}); in der App unter ``Bestehende Beschwerden''. Die frühere Bezeichnung Injury wurde in der App durch Contraindication ersetzt. \\
+    Gelenk & Ein Gelenk, das auf dem Körperdiagramm als Beschwerdebereich markiert wird. Übungen, die es beanspruchen, werden nicht vorgeschlagen. & Klasse \texttt{Joint} (9 Individuen, Unterklasse von \texttt{BodyPart}); in der App ``Beschwerdebereich (Gelenke)''. \\
+    Körperregion & Eine der sechs Hauptregionen Arme, Beine, Rücken, Bauch, Gesäß und Schultern, für die Pläne erstellt werden, einschließlich ihrer Unterregionen (z.\,B. Bizeps bei den Armen). & Individuen der Klasse \texttt{BodyPart} (Körperteil); Unterregionen über \texttt{partOf} und \texttt{hasPart}. \\
+    Level & Das Level der Nutzer:innen und der Schwierigkeitsgrad einer Übung verwenden dieselben drei Stufen Beginner, Intermediate und Advanced. Nutzer:innen schätzen ihr Level selbst ein. & Klassen \texttt{TrainingsLevel} (Nutzer:innen) und \texttt{DifficultyLevel} (Übung, \texttt{hasDifficultyLevel}); in der App ``Mobilitätslevel'' (im Code \texttt{SkillLevel}). \\
+    Trainingsziel, Übungsklasse & Das \emph{Trainingsziel} ist der gewünschte Effekt einer Übung (z.\,B. Kraft oder Entspannung). Die \emph{Übungsklasse} beschreibt die Art der Übung. Die in den Abschnitten~\ref{sec:experteninterview} und~\ref{sec:anforderungen} genannten Rubriken entsprechen im Wesentlichen den Übungsklassen. & Trainingsziel: Klasse \texttt{TrainingsEffect} (9 Individuen), Property \texttt{improves}. Übungsklassen: Unterklassen von \texttt{Exercise}, nämlich Strength (Kraft), Mobilisation, Stretching (Dehnung), Relaxation (Entspannung), Coordination (Koordination), Cardio (Kardio) und Asana (Yoga). \\
+\end{xltabular}
+}
+
 \section{Ablaufplan und Projektorganisation}
 
 \subsection{Vorgehen}
 
 Zu Beginn des Projekts stand die Ermittlung der Nutzeranforderungen im Mittelpunkt. Die Vorbereitung der User Study wurde dafür auf mehrere Arbeitsbereiche verteilt. Eine Teilgruppe beschäftigte sich mit der Entwicklung eines Fragebogens, während weitere Gruppen verwandte wissenschaftliche Arbeiten aus Nutzer- beziehungsweise Anwendungsperspektive untersuchten. Die Ergebnisse wurden anschließend gemeinsam vorgestellt und diskutiert und dienten als Grundlage für die weitere Durchführung der Nutzerstudie.
 
-Auf Grundlage der bis Ende Mai gesammelten Interviews, Fragebögen und Related Works wurden anschließend erste Anforderungen an den Prototyp und mögliche Funktionen für ein MVP festgelegt. Im Mittelpunkt standen dabei insbesondere einfache Bedienung, verständliche Übungsdarstellungen, Motivation und grundlegende Personalisierung.
+Auf Grundlage der bis Ende Mai gesammelten Interviews, Fragebögen und Related Works wurden anschließend erste Anforderungen an den Prototyp und mögliche Funktionen für ein MVP festgelegt. Die Anforderungen wurden dabei empirisch erhoben und nicht angenommen: Patient:innenbefragung, Therapeut:innenbefragung, Experteninterview sowie der Vergleich von Literatur und bestehenden Apps ergänzten sich im Sinne einer Triangulation \autocite{flick2011triangulation,pohl2010requirements}, sodass eine Anforderung nach Möglichkeit von mehreren Quellen gestützt wurde. Anschließend wurden die Anforderungen in die Stufen MUSS, KANN und OPTIONAL eingeteilt (Abbildung~\ref{fig:priorisierung_anforderungen}). Im Mittelpunkt standen dabei insbesondere einfache Bedienung, verständliche Übungsdarstellungen, Motivation und grundlegende Personalisierung.
 
-Für die anschließende Entwicklungsphase wurde das Projekt in die Bereiche Knowledge Graph, UI/UX und API aufgeteilt. Die weitere Arbeit verlief jedoch nicht streng nacheinander. Die Bereiche waren technisch eng miteinander verbunden und mussten regelmäßig aufeinander abgestimmt werden. Änderungen an der Wissensbasis beeinflussten beispielsweise die möglichen Abfragen und damit die Darstellung in der Benutzeroberfläche. Umgekehrt entstanden aus den UI-Konzepten neue Anforderungen an die Datenstruktur und die technische Integration.
+Für die anschließende Entwicklungsphase wurde das Projekt in die Bereiche Knowledge Graph, UI/UX und API aufgeteilt; ab dem 11.06. waren die drei Gruppen auch als Rollen auf Discord abgebildet. Die weitere Arbeit verlief jedoch nicht streng nacheinander. Die Bereiche waren technisch eng miteinander verbunden und mussten regelmäßig aufeinander abgestimmt werden. Änderungen an der Wissensbasis beeinflussten beispielsweise die möglichen Abfragen und damit die Darstellung in der Benutzeroberfläche. Umgekehrt entstanden aus den UI-Konzepten neue Anforderungen an die Datenstruktur und die technische Integration. Als Diskussionsgrundlage zwischen den Gruppen dienten früh entstandene Prototypen: Wireframes und ein klickbarer Prototyp in Figma, ein JSX-Prototyp sowie eine Netlify-Vorschau, die den Stand der Oberfläche ohne lokale Installation zeigte.
 
-Die Entwicklung erfolgte deshalb iterativ. Datenmodell, Abfragen und Benutzeroberfläche wurden mehrfach angepasst und gemeinsam getestet. Für die laufende Kommunikation wurde insbesondere Discord genutzt, während Git und GitHub die gemeinsame Arbeit an Quellcode, Ontologie und Dokumentation unterstützten.
+Geplant war ein phasenweiser Ablauf aus Nutzerstudie, MVP und Ausbau. Tatsächlich entwickelte sich daraus ein iterativ-inkrementelles Vorgehen \autocite{larman2003iterative,sommerville2016software}: Datenmodell, Abfragen und Benutzeroberfläche wurden mehrfach angepasst und gemeinsam getestet, und der Verlauf lässt sich rückblickend in vier Phasen gliedern (Abschnitt~\ref{sec:zeitablauf}).
+
+Für die Zusammenarbeit am Repository galt ein im Projekt verfasster Workflow-Leitfaden (\texttt{docs/workflow.md}). Danach sollte nicht direkt auf den \texttt{main}-Branch gepusht werden, damit dieser stets die lauffähige Version des Projekts abbildet. Jede Aufgabe sollte als Issue angelegt, in einem eigenen Branch bearbeitet und über einen Pull Request zusammengeführt werden, den eine zweite Person prüft \autocite{chacon2014progit}. Die Issues tragen Labels für die Arbeitsgruppe (Graph, UI, API, Alle) und die Art der Aufgabe (Feature, Bug, Design, Docs) und wurden auf einem Kanban-Board mit den Spalten Todo, In Progress, Review und Closed verfolgt \autocite{anderson2010kanban}.
+
+Die laufende Abstimmung erfolgte über Discord und ein wöchentliches Treffen am Freitag, das ab Ende Juni hybrid (vor Ort und per Discord) stattfand. Zu den Treffen wurden Protokolle angefertigt, die zum Teil im Repository (\texttt{docs/protokolle}) liegen. Entscheidungen, etwa zur Gruppeneinteilung, zum Namen oder zum Logo, wurden häufig per Umfrage getroffen. Eingesetzt wurden GitHub (zunächst das GitLab der Universität, Umzug am 19.05.), Discord, Nextcloud, Figma, Canva, Flutter und Dart, Isar, Protégé, Apache Jena Fuseki, Netlify und ein eigener Webserver für die Übungsbilder und -videos.
 
 \subsection{Arbeitspakete}
 
-Nach Abschluss der ersten Phase wurden die Aufgaben auf mehrere eng miteinander verbundene Arbeitsbereiche verteilt.
+Tabelle~\ref{tab:arbeitspakete} gibt einen Überblick über die neun Arbeitspakete (AP) und die jeweils Beteiligten. Die drei Entwicklungsbereiche werden im Anschluss näher beschrieben.
+
+{\renewcommand{\arraystretch}{1.3}
+\begin{xltabular}{\textwidth}{@{} >{\raggedright\arraybackslash}p{3.4cm} >{\raggedright\arraybackslash}X >{\raggedright\arraybackslash}p{3.9cm} @{}}
+    \caption{Arbeitspakete im Projektverlauf}
+    \label{tab:arbeitspakete} \\
+    \toprule
+    \textbf{Arbeitspaket} & \textbf{Inhalt und Ergebnis} & \textbf{Beteiligte} \\
+    \midrule
+    \endfirsthead
+    \toprule
+    \textbf{Arbeitspaket} & \textbf{Inhalt und Ergebnis} & \textbf{Beteiligte} \\
+    \midrule
+    \endhead
+    \midrule
+    \multicolumn{3}{r}{\small Fortsetzung auf der nächsten Seite} \\
+    \endfoot
+    \bottomrule
+    \endlastfoot
+    \textbf{AP1} Projektmanagement und Infrastruktur & Repository (GitLab der Universität ab 08.05., GitHub ab 19.05.), Workflow-Leitfaden, Issues und Kanban-Board, Sitzungsprotokolle, Discord-Struktur und Rollen, Server für Übungsbilder und -videos & Louis (Erstellung und Verwaltung des Repositories, Workflow, Medienserver), Sophia (Protokolle, zeitweise Mika und Ahmad), Hiep (Discord-Rollen) \\
+    \textbf{AP2} Related Work und Anforderungen & Arbeitsgruppen A (Fragebogen), B (Related Work, Fokus Mensch) und C (Related Work, Fokus Anwendung); Ergebnis ist der Anforderungskatalog mit MUSS, KANN und OPTIONAL (Abschnitt~\ref{sec:anforderungen}) & alle Teilnehmenden in den Gruppen A bis C \\
+    \textbf{AP3} Nutzerstudie & Fragebogenentwurf und Überarbeitung, Befragung in der BG Ambulanz Bremen (Mai), Fragebögen für vier Physiotherapeut:innen, Experteninterview (21.05.), Digitalisierung und Auswertung & Elif und Ilker (Praxiskontakt, Auswertung), Sophia (Interview), Bjarne, Daniel und Hiep (Fragebogenentwurf) \\
+    \textbf{AP4} UI/UX-Design & Wireframes und klickbarer Prototyp in Figma, JSX-Prototyp, Design-System und Icon-Set, Informationsarchitektur, Logo und Name ReVia & Sophia, Nadine \\
+    \textbf{AP5} MVP-Feature-Konzept & Ableitung möglicher MVP-Funktionen und erster UI-Ideen aus Interviews, Fragebögen und Related Work (Stand 22.05.) & Ilker \\
+    \textbf{AP6} Wissensbasis & Ontologie in Protégé auf Basis der bereitgestellten Basisontologie (\texttt{PhysicalTherapy.owx}, YogaKG), Übungskatalog, Schonung im Alltag, Rezept der Woche, Bereitstellung über Fuseki & Knowledge-Gruppe (Louis, Mika, Elif, Ilker) \\
+    \textbf{AP7} App und API & Flutter-Projekt (ab 05.06.), SPARQL-Anbindung, Planerstellung und -empfehlung, lokale Speicherung mit Isar, Profil, Schmerz- und Trainingsverlauf sowie die Benutzeroberfläche & API-Gruppe (Daniel, Bjarne, Hiep, Rabih) und UI-Implementierung (Amjad, Khaled, Ahmad, Mohamad) \\
+    \textbf{AP8} Integration und Test & erster gemeinsam lauffähiger Stand mit Fuseki (22.06.), Zusammenführung von UI- und API-Stand (Anfang Juli), Betrieb auf dem Galaxy S10 Lite (ab Anfang September), Anbindung von Bildern und Videos (September) & alle Gruppen, Testgerät: Daniel \\
+    \textbf{AP9} Bericht und Präsentationen & Gliederung nach dem Vorschlag der Betreuerin (02.07.), Beiträge pro Seite in der Fußzeile, MVP-Meilensteinpräsentation (17.07.), Abschlusspräsentation und Poster (02.10.) & Ilker (Koordination des Berichts), Louis (Berichtsvorlage, MVP-Meilenstein- und Abschlusspräsentation), alle Gruppen \\
+\end{xltabular}
+}
 
 Die Knowledge-Graph-Gruppe war für die Strukturierung und Erweiterung der Wissensbasis zuständig. Dazu gehörten unter anderem die Modellierung von Übungen, Körperregionen, Beschwerden, Trainingseffekten und weiteren für die Rehabilitation relevanten Zusammenhängen. Die Ontologie musste so aufgebaut werden, dass die benötigten Informationen später gezielt über SPARQL-Abfragen abgerufen werden konnten.
 
@@ -63,22 +126,60 @@ Die API-Gruppe übernahm die technische Verbindung zwischen Anwendung und Wissen
 Obwohl die Aufgaben organisatorisch aufgeteilt waren, konnten die Bereiche nicht vollständig unabhängig voneinander bearbeitet werden. Insbesondere an den Schnittstellen zwischen Ontologie, API und Benutzeroberfläche waren regelmäßige Abstimmungen notwendig. Dadurch entstanden neben den einzelnen Arbeitspaketen auch gemeinsame Aufgaben wie Integration, Fehlerbehebung und Tests.
 
 \subsection{Zeitlicher Ablauf}
+\label{sec:zeitablauf}
 
-Der ursprüngliche Projektplan sah vor, die User Study bis Ende Mai abzuschließen. Bereits während der Vorbereitung wurden die Aufgaben in die Bereiche Fragebogen, verwandte Arbeiten mit Fokus auf die Nutzer:innen und verwandte Arbeiten mit Fokus auf bestehende Anwendungen aufgeteilt. Die daraus gewonnenen Ergebnisse bildeten die Grundlage für die anschließende Entwicklungsphase.
+Der ursprüngliche Projektplan (Stand 25.04.) sah vor, die User Study bis Ende Mai abzuschließen: Nach dem Kick-off am 17.04. und der Planung der Nutzerstudie sollten die Gruppenergebnisse am 08.05. vorgestellt und die Studie vom 11.05. bis 22.05. in den Praxen durchgeführt werden. Bereits während der Vorbereitung wurden die Aufgaben in die Bereiche Fragebogen, verwandte Arbeiten mit Fokus auf die Nutzer:innen und verwandte Arbeiten mit Fokus auf bestehende Anwendungen aufgeteilt. Die daraus gewonnenen Ergebnisse bildeten die Grundlage für die anschließende Entwicklungsphase.
 
-Für die Arbeit in den Entwicklungsbereichen war zunächst vorgesehen, bis etwa Mitte Juli einen ersten Prototyp zu entwickeln. Anschließend sollte bis Mitte August eine Phase zur Erweiterung der Funktionalität und zur Fehlerbehebung folgen. Der Abschlussbericht sollte nach der ursprünglichen Planung bis Mitte September fertiggestellt werden. Für unerwartete Probleme waren zusätzlich zwei Wochen Puffer bis Ende September vorgesehen.
+Für die Arbeit in den Entwicklungsbereichen war zunächst vorgesehen, im Juni und Juli einen MVP aufzubauen (App-Gerüst und Backend-API, erste Abfragen und eine Demo mit einem kleinen Übungsset) und bis etwa Mitte Juli einen ersten Prototyp zu entwickeln. Anschließend sollte bis Mitte August eine Phase zur Erweiterung der Funktionalität und zur Fehlerbehebung folgen, in der unter anderem die Wissensbasis, der Fortschritt, die Benutzeroberfläche und Erinnerungen ausgebaut werden sollten. Der Abschlussbericht sollte nach der ursprünglichen Planung bis Mitte September fertiggestellt werden. Für unerwartete Probleme waren zusätzlich zwei Wochen Puffer bis Ende September vorgesehen.
 
-Im tatsächlichen Projektverlauf gingen die einzelnen Phasen stärker ineinander über als ursprünglich geplant. Auch nach dem ersten Prototyp wurden die Wissensbasis, die Benutzeroberfläche und die technische Integration weiterentwickelt. Änderungen an Datenstrukturen oder Abfragen machten teilweise weitere Anpassungen in anderen Komponenten notwendig.
+Im tatsächlichen Projektverlauf gingen die einzelnen Phasen stärker ineinander über als ursprünglich geplant. Auch nach dem ersten Prototyp wurden die Wissensbasis, die Benutzeroberfläche und die technische Integration weiterentwickelt. Änderungen an Datenstrukturen oder Abfragen machten teilweise weitere Anpassungen in anderen Komponenten notwendig. Tabelle~\ref{tab:phasen} fasst den Verlauf in vier Phasen zusammen.
 
-Ein konkretes Beispiel war die Zuordnung von Körperregionen. Nach einer Änderung der Ontologie war die Region ``Bauch'' in der Anwendung zeitweise nicht mehr erreichbar, wodurch 50 Übungen nicht angezeigt werden konnten. Außerdem wurden bei einer Suche nach ``Arme'' Übungen nicht gefunden, wenn sie im Knowledge Graph nur einer Unterregion wie ``Bizeps'' zugeordnet waren. Um diese Abhängigkeit robuster abzubilden, wurden Unterregionen über die vorhandenen \texttt{partOf}-Beziehungen berücksichtigt. Ein lokal betriebener Fuseki-Server ermöglichte es anschließend, Änderungen direkt mit den tatsächlichen Daten zu überprüfen.
+{\renewcommand{\arraystretch}{1.3}
+\begin{xltabular}{\textwidth}{@{} >{\raggedright\arraybackslash}p{2.2cm} >{\raggedright\arraybackslash}p{2.3cm} >{\raggedright\arraybackslash}X >{\raggedright\arraybackslash}p{3.5cm} @{}}
+    \caption{Tatsächlicher Projektverlauf in vier Phasen}
+    \label{tab:phasen} \\
+    \toprule
+    \textbf{Phase} & \textbf{Zeitraum} & \textbf{Inhalt} & \textbf{Meilenstein} \\
+    \midrule
+    \endfirsthead
+    \toprule
+    \textbf{Phase} & \textbf{Zeitraum} & \textbf{Inhalt} & \textbf{Meilenstein} \\
+    \midrule
+    \endhead
+    \midrule
+    \multicolumn{4}{r}{\small Fortsetzung auf der nächsten Seite} \\
+    \endfoot
+    \bottomrule
+    \endlastfoot
+    \textbf{1} Verstehen & 17.04. bis Ende Mai & Kick-off (17.04.), Gruppeneinteilung und Arbeitsgruppen A bis C (bis 30.04.); Fragebögen fertiggestellt (10.05.), in der Praxis erst am 18.05. ausgelegt und die Erhebung um eine Woche verlängert; Experteninterview (21.05.); Beanstandung der Related Works und Neuerarbeitung (22.05.); Ableitung der MVP-Features (22.05.) & Anforderungen aus mehreren Quellen belegt (Abschnitt~\ref{sec:anforderungen}) \\
+    \textbf{2} Fundament & Juni & Umbau der Basisontologie in Protégé; Flutter-Projekt (05.06.); Wireframes und JSX-Prototyp (10.06.); Discord-Rollen (11.06.); erste SPARQL-Abfragen & erster gemeinsam lauffähiger Stand mit Fuseki (22.06.); Abstimmung zu Ontologie und Abfragen (26.06.) \\
+    \textbf{3} MVP & Ende Juni bis 19.07. & Profil, Planerstellung und Planempfehlung in der App; lokale Speicherung mit Isar; Ontologie mit Labels, Kontraindikationen und bereits rund 160 Übungen (Mitte Juli); Zusammenführung von UI- und API-Stand mit Merge-Konflikten bis 09.07. & Präsentation des MVP (17.07.), Rückmeldungen (19.07.) \\
+    \textbf{4} Integration & 31.07. bis 02.10. & Planung der letzten Schritte (31.07.); Überarbeitung von Körperregionen und Kontraindikationen in der Ontologie, Schonung im Alltag und Rezept der Woche; neue Plan-Abläufe und Körperdiagramm in der App; Testgerät (ab Anfang September); Bilder und Videos (17. bis 30.09.); Bericht & Abschluss\-präsentation mit Postern (02.10.) \\
+\end{xltabular}
+}
+
+Gegenüber dem Plan gab es mehrere Abweichungen:
+\begin{itemize}
+    \item Die Nutzerstudie wurde verlängert: Wegen einer Erkrankung in der Praxis wurden die Fragebögen erst am 18.05. ausgelegt, der Erhebungszeitraum wurde um eine Woche verlängert, und die Ergebnisse lagen am 29.05. vor.
+    \item Die zunächst erarbeiteten Related Works wurden am 22.05. beanstandet, weil einzelne Quellen nicht auffindbar waren. Sie wurden anschließend mit nachprüfbaren Quellen neu erarbeitet (Abschnitt~\ref{sec:related-work}).
+    \item Die Git-Integration erfolgte erst Anfang Juli. Die Oberfläche war zuvor auf einem eigenen Stand entwickelt worden, beim Zusammenführen kam es zu Merge-Konflikten, die bis zum 09.07. gelöst wurden, und \texttt{main} wurde als gemeinsame Basis vereinbart.
+    \item Isar läuft nicht im Web-Browser. Für die Netlify-Vorschau entstand deshalb ein getrenntes Projekt mit Demo-Daten.
+    \item Die MVP-Meilensteinpräsentation am 17.07. wurde mit Bildschirmaufnahmen und Screenshots statt mit einer Live-Demo gehalten, um unerwünschtes Verhalten des MVP während der Präsentation zu vermeiden. Die Rückmeldungen vom 19.07. flossen in die Planung der Endphase am 31.07. ein.
+    \item In der Endphase gaben die Gruppen ab dem 07.09. täglich kurze Updates zu Stand, Tests und geplanten Merges.
+\end{itemize}
+
+Wie eng die Bereiche gekoppelt waren, zeigte sich an der Zuordnung von Körperregionen: Nach einer Änderung der Ontologie war die Region ``Bauch'' in der Anwendung zeitweise nicht mehr erreichbar, und bei einer Suche nach ``Arme'' fehlten Übungen, die nur einer Unterregion zugeordnet waren (Abschnitt~\ref{sec:abgleich-ontologie}).
 
 Die Arbeiten an Integration, Fehlerbehebung und Dokumentation reichten schließlich bis in die ursprünglich vorgesehene Pufferphase hinein. In der letzten Projektphase wurden unter anderem Daten ergänzt und kontrolliert, Medien eingebunden, einzelne Komponenten aufeinander abgestimmt und die Ergebnisse der Teilgruppen für den gemeinsamen Abschlussbericht und die Abschlusspräsentation zusammengeführt.
 
 \subsection{Aufgabenverteilung}
 
-Tabelle~\ref{tab:aufgabenverteilung} gibt einen Überblick darüber, welche Aufgaben die einzelnen Gruppenmitglieder im Projekt übernommen und welche Abschnitte des Berichts sie verfasst haben. Die Einträge werden von den jeweiligen Projektmitgliedern entsprechend ihrer tatsächlichen Beiträge ergänzt.
+Tabelle~\ref{tab:aufgabenverteilung} gibt einen Überblick darüber, welche Aufgaben die einzelnen Gruppenmitglieder im Projekt übernommen und welche Abschnitte des Berichts sie verfasst haben. Zusätzlich nennt die Fußzeile jeder Seite die Personen, die die dort stehenden Abschnitte verfasst haben.
+
+Die Rollen verschoben sich im Projektverlauf: Gegenüber der ersten Gruppeneinteilung (Projektplan vom 25.04.) wechselten Ilker von der UI- zur Knowledge-Gruppe und Rabih von der UI- zur API-Gruppe, während Khaled und Ahmad die UI-Implementierung verstärkten. Für die Abschlusspräsentation am 02.10. wurden Präsentation und Poster auf die Gruppen aufgeteilt (Absprache vom 04.09.): Louis erstellte die Präsentation, und jede der drei Gruppen gestaltete ein Poster.
 
 \renewcommand{\arraystretch}{1.3}
+{\small\renewcommand{\arraystretch}{1.2}
 \begin{xltabular}{\textwidth}{@{} >{\raggedright\arraybackslash}p{4.4cm} >{\raggedright\arraybackslash}X >{\raggedright\arraybackslash}p{2.6cm} @{}}
     \caption{Aufgabenverteilung}
     \label{tab:aufgabenverteilung} \\
@@ -97,8 +198,7 @@ Tabelle~\ref{tab:aufgabenverteilung} gibt einen Überblick darüber, welche Aufg
     \endlastfoot
       Nadine Albers            & Frühere Logo- und Namensentwürfe; Aufnahme der Übungsvideos; gemeinsames UI/UX-Design der Screens, Farbpalette, Icon-Set und Informationsarchitektur; Entwicklung erster JSX-Prototypen; Verfassen des UI-Design-Berichtskapitels. & 5 \\
     Mika Schneider           & Übungen, Rezept der Woche, Schonung im Alltag, Labeländerungen, Injuries, Einpflegen von \texttt{picURL}, \texttt{partOf} und \texttt{hasPart}, Equipment, dynamische Entwicklung der Object- und Data-Properties sowie Individuals der genannten Klassen, Related Work mit Fokus auf den Menschen & 4.1, 8.3.1, 8.3.3--8.3.7 \\
-    Louis Unruh              & Erstellung und Vorstellung der Abschlusspräsentation, Einpflegen von Übungen, Injuries, Körperteil, Übungseigenschaften und die dazugehörigen Object- und Data-Properties und Individuals, Related Work mit Fokus auf den Menschen & 4.1, 8.3.1, 8.3.5--8.3.8 \\
-    Parizoda Alimukhamedova  & & \\
+    Louis Unruh              & Erstellung und Verwaltung des Git-Repositories (zunächst GitLab, ab 19.05. GitHub) mit Workflow-Leitfaden, Issues und Kanban-Board; Erstellung der Berichtsvorlage; Betrieb des Servers für die Übungsbilder und -videos; Mitarbeit an der MVP-Meilensteinpräsentation (Nutzerstudie); Erstellung und Vorstellung der Abschlusspräsentation; Einpflegen von Übungen, Injuries, Körperteil, Übungseigenschaften und die dazugehörigen Object- und Data-Properties und Individuals; Related Work mit Fokus auf den Menschen & 3 (Mitarbeit), 4.1, 8.3.1, 8.3.5--8.3.8 \\
       Khaled Almasri           & Architektur und Implementierung der Flutter-Oberfläche gemeinsam mit Amjad; Qualitätssicherung und Verifikation mit realen Graph- und Isar-Daten; Analyse und Korrektur von Integrationsfehlern; Mitarbeit am Abschlussbericht. & Mitarbeit an 6 \\
       Amjad Faham              & Architektur und Implementierung der Flutter-Oberfläche; Anbindung an Wissensbasis und Datenmodell, SPARQL-Filterlogik und Isar-Persistenz; lokale Graph-Testumgebung; Qualitätssicherung und Verifikation; Mitarbeit am Abschlussbericht. & Mitarbeit an 6 \\
     Daniel Fetzer            & Mitarbeit in der API-Gruppe; Aufsetzen des Flutter-Projekts sowie Erstellung der zugehörigen Dokumentation; Entwicklung und Anpassung von SPARQL-Abfragen für die Planerstellung und -empfehlung; Planung und Erstellung von Schemata; HTTP-Anbindung an den Fuseki-Server; Implementierung von Nutzerprofil-UI und API; Umsetzung des SelectionAccordions zur Übungsauswahl; Datenverarbeitung und -integration für Home-, Pläne- und Verlauf-Screen; Auslieferung des Testgeräts und Dokumentation; manuelles App-Testing sowie Task-Management via Issues; Code Reviews; Mitarbeit bei der Erstellung des Fragebogens für die Nutzerstudie. & 7.3.1 - 7.3.3 und 7.5; Mitarbeit, Korrekturlesen und Bearbeiten sämtlicher API Kapitel \\
@@ -106,9 +206,9 @@ Tabelle~\ref{tab:aufgabenverteilung} gibt einen Überblick darüber, welche Aufg
       Mohamad Kalaf            & Mitarbeit in der UI-Gruppe; Architektur und Implementierung der Flutter-Oberfläche. Mitarbeit an Symbolen und visueller Gestaltung; Aufbereitung von Rückmeldungen und Projektdokumentation innerhalb der UI-Implementierungsgruppe. Vorstellung des UI-Teils bei der Zwischen- und Abschlusspräsentation. Mitarbeit am Fragebogen für die Nutzerstudie. Mitarbeit am Abschlussbericht. & 6\\
       Ilker Yasin Koc          & Related Work zu digitalen Reha- und Physiotherapie-Anwendungen; Aufbereitung und Auswertung der Physiotherapeutenbefragung; Erstellung von Competency Questions und einer Gap Analysis für den Knowledge Graph; Mitarbeit in der Knowledge-Graph-Gruppe mit Schwerpunkt auf ``Schonung im Alltag'' sowie Ontologie-, Konsistenz- und Medienprüfungen; Koordination und Zusammenführung des gemeinsamen Abschlussberichts. & 1--3, 9, 4.2, 4.6 und 8.3.4 \\
     Hoang Hiep Nguyen        & aufgaben projekt: Mitarbeit in der API-Gruppe; Mithilfe von SPARQL-Abfragen; Bugfixes durch das Projekt hindurch; API Anbindung Profil erstellen; API Anbindung Profil bearbeiten; Regelmäßige Tests der App nach jedem Merge; Mithilfe Pläne erstellen; Mithilfe Pläne empfehlen; Mithilfe Alltagstipps; Erstellung und Ausbesserung von fehlenden UI-Elementen; Code reviews; Mitarbeit Fragebogen Nutzerstudie  & Mitarbeit 1-3; Mitarbeit und Bearbeitung 7.1, 7.2; Korrekturlesen und Bearbeiten aller API Abschnitte \\
-    Elif Özcelik             & Übungen für die Ontologie heraussuchen, Unterklasse Verletzung, Einpflegen der Übungen nach der Gelenkänderung, Auswertung der Nutzerstudie, Praxissuche, Anpassung der Klasse Körperteil, Template Schonung im Alltag, Erstellen und Hinzufügen der Data Properties, Erstellen der Object Properties, Related Work mit Fokus auf den Menschen. & 4, 8.1--8.3, 8.3.1, 8.3.4--8.5.7 \\
+    Elif Özcelik             & Übungen für die Ontologie heraussuchen, Unterklasse Verletzung, Einpflegen der Übungen nach der Gelenkänderung, Auswertung der Nutzerstudie, Praxissuche, Anpassung der Klasse Körperteil, Template Schonung im Alltag, Erstellen und Hinzufügen der Data Properties, Erstellen der Object Properties, Related Work mit Fokus auf den Menschen. & 4, 8.1--8.3, 8.3.1, 8.3.4--8.3.7 \\
       Sophia Pichler           & Persönliches Interview mit der Physiotherapeutin Verena Wolters und Auswertung; finales Logo, Maskottchen und Name ReVia; gemeinsames UI/UX-Design der Screens, Farbpalette, Icon-Set und Informationsarchitektur; Entwicklung erster JSX-Prototypen; Lektorat des UI-Design-Berichtskapitels. & Mitarbeit an 4; Lektorat 5 \\
       Rabih Takouzli           & Related Work im Rahmen der User Study mit Fokus auf bestehende Anwendungen; Mitarbeit in der API-Gruppe; Erweiterung und Anpassung von SPARQL-Abfragen und Abgleich von Flutter-Enums mit der Ontologie; Anbindung von Nutzerprofil, Kontraindikationen und Skill-Level; Filter- und Planempfehlungslogik; Erweiterungen an Provider und Isar-Persistenz; Integration realer Daten in UI-Flows; Behebung von State-, Merge- und Integrationsproblemen; Code Reviews; zusätzlich Erstellung KI-generierter Übungsbilder für fehlendes Bildmaterial. & Mitarbeit an 7.1; Erstellung von 7.2 sowie 7.3.2, 7.3.3 und 7.3.4\\
-    Tenzin Methok Taschi     & & \\
       Ahmad Zahra              & Anatomische Muskelfigur als Körperauswahl einschließlich Kalibrierung der Trefferzonen; Körperregion-Symbole; Einbindung der Übungsvideos. & 6 \\
 \end{xltabular}
+}

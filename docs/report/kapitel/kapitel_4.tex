@@ -2,9 +2,9 @@
 
 \subsection{Technischer Aufbau}
 
-Die Benutzeroberfläche wurde mit Flutter umgesetzt. Im finalen Stand umfasst die Anwendung 104 Quelldateien mit rund 20.600 Zeilen sowie sechzehn Bildschirme und Abläufe. Die Implementierung lässt sich in vier Ebenen gliedern: sichtbare Screens, wiederverwendbare UI-Komponenten, Zustandsverwaltung über Provider und die Datenquellen Isar beziehungsweise Knowledge Graph.
+Die Benutzeroberfläche wurde mit Flutter umgesetzt. Im finalen Stand umfasst die Anwendung 104 Quelldateien (ohne generierten Code) mit rund 20.600 Zeilen sowie fünfzehn Bildschirme und den mehrstufigen Empfehlungsablauf. Die Implementierung lässt sich in vier Ebenen gliedern: sichtbare Screens, wiederverwendbare UI-Komponenten, Zustandsverwaltung über Provider und die Datenquellen Isar beziehungsweise Knowledge Graph.
 
-Wiederkehrende Komponenten wie Karten, Buttons, Auswahlchips, Meldungen, Typografie und Abstände wurden zentral definiert. Dadurch konnten die Gestaltungsentscheidungen aus dem Figma-Prototyp konsistent auf die einzelnen Ansichten übertragen werden. Für den Anwendungszustand werden neun Provider eingesetzt, die unter anderem Trainingspläne, Übungen, Profilinformationen sowie Schmerz- und Trainingsverläufe verwalten und Änderungen an die Oberfläche weitergeben.
+Wiederkehrende Komponenten wie Karten, Buttons, Auswahlchips, Meldungen, Typografie und Abstände wurden zentral definiert. Dadurch konnten die Gestaltungsentscheidungen aus dem Figma-Prototyp konsistent auf die einzelnen Ansichten übertragen werden. Für den Anwendungszustand werden neun Provider eingesetzt, die unter anderem Trainingspläne, Übungen, Profilinformationen sowie Schmerz- und Trainingsverläufe verwalten und Änderungen an die Oberfläche weitergeben. Hinzu kommt ein zentraler UI-Zustand (\texttt{UiState}) für Navigation, Hinweismeldungen und Oberflächenaktionen.
 
 \subsection{Datenhaltung und Integration}
 
@@ -13,6 +13,7 @@ Nutzerspezifische Daten werden lokal mit Isar gespeichert. Dazu gehören insbeso
 Für die Oberfläche bedeutet diese Trennung, dass Provider und Repository-Schicht zwischen Interaktion und Datenquellen vermitteln. Profilangaben werden aus der lokalen Datenbank gelesen und bei Bedarf als Parameter für die Übungsabfragen verwendet. Die Ergebnisse der Abfragen werden anschließend in die für die Oberfläche benötigten Modelle überführt und dort dargestellt.
 
 \subsection{Planerstellung und Trainingsablauf}
+\label{sec:ui-planerstellung}
 
 Die technische Umsetzung bildet zwei zentrale Wege zur Planerstellung ab. Bei der geführten Empfehlung wählen Nutzer:innen eine Körperregion und eines oder mehrere Trainingsziele. Profilangaben wie Mobilitätslevel, betroffene Gelenke und Kontraindikationen fließen anschließend in die Abfrage ein. Aus den zurückgegebenen Übungen wird ein Trainingsplan erzeugt, der gespeichert und später erneut bearbeitet werden kann.
 
@@ -28,12 +29,14 @@ Während des Trainings zeigt die Anwendung Anleitung, Bild oder Video sowie vorh
 \end{figure}
 
 \subsection{Profil und Körper-Diagramm}
+\label{sec:ui-profil}
 
 Das Profil bündelt die für die Personalisierung benötigten Angaben. Ein zentrales Element ist das interaktive Körper-Diagramm für Vorder- und Rückseite. In der Implementierung sind 26 Trefferzonen hinterlegt, über die betroffene Gelenkbereiche direkt ausgewählt werden können. Weitere Einschränkungen und das Mobilitätslevel werden ergänzend über entsprechende Auswahlfelder erfasst.
 
 Die ausgewählten Angaben begleiten anschließend die Erstellung und Filterung von Trainingsplänen. Dadurch wird die im Design vorgesehene visuelle Eingabe unmittelbar mit der technischen Abfragelogik verbunden.
 
 \subsection{Abgleich mit der Ontologie}
+\label{sec:abgleich-ontologie}
 
 Eine der größten Herausforderungen war die laufende Abstimmung mit der sich weiterentwickelnden Ontologie. Änderungen an Körperregionen oder Bezeichnungen konnten dazu führen, dass Übungen zwar im Knowledge Graph vorhanden waren, von der Oberfläche aber nicht mehr erreicht wurden.
 
