@@ -60,7 +60,7 @@
 % Befehl, um Namen für eine Seite festzulegen
 \newcommand{\fusszeile}[2]{\expandafter\def\csname fusszeile-#1\endcsname{#2}}
 
-\fancyfoot[L]{\small\ifcsname fusszeile-\thepage\endcsname\expandafter\ifx\csname fusszeile-\thepage\endcsname\empty\else Inhaltliche Beiträge: \csname fusszeile-\thepage\endcsname\fi\fi}
+\fancyfoot[L]{\parbox[t]{\dimexpr\textwidth-1cm\relax}{\raggedright\small\ifcsname fusszeile-\thepage\endcsname\expandafter\ifx\csname fusszeile-\thepage\endcsname\empty\else Inhaltliche Beiträge: \csname fusszeile-\thepage\endcsname\fi\fi}}
 \fancyfoot[R]{\thepage}
 
 % ===== Hier für jede Seite die Namen eintragen =====
